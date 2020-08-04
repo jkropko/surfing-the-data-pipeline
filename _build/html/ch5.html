@@ -1,0 +1,2385 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>5. Web Scraping Using BeautifulSoup &#8212; Surfing the Data Pipeline with Python</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/mystnb.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="6. Creating and Connecting to Databases" href="ch6.html" />
+    <link rel="prev" title="4. Acquiring Data from APIs" href="ch4.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/surf.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Surfing the Data Pipeline with Python</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Surfing the Data Pipeline with Python
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch1.html">
+   1. Getting Yourself Unstuck
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch2.html">
+   2. Loading Data from Electronic Data Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch3.html">
+   3. Loading, Converting, and Writing JSON Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch4.html">
+   4. Acquiring Data from APIs
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   5. Web Scraping Using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     BeautifulSoup
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch6.html">
+   6. Creating and Connecting to Databases
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch7.html">
+   7. Database Queries
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch8.html">
+   8. Data Wrangling with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch9.html">
+   9. Reshaping and Merging Data and Working with Strings, Dates, and Times
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch10.html">
+   10. Exploratory Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch11.html">
+   11. Static Data Visualizations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch12.html">
+   12. Interactive Data Visualizations and Dashboards
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/ch5.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction-is-web-scraping-legal">
+   5.1. Introduction: Is Web Scraping Legal?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-websites-prevent-you-from-scraping">
+   5.2. How Websites Prevent You From Scraping
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-requests-with-a-user-agent-header">
+   5.3. Using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     requests
+    </span>
+   </code>
+   with a User Agent Header
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-beautifulsoup-example-wnrn-charlottesville-s-legendary-radio-station">
+   5.4. Using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     BeautifulSoup()
+    </span>
+   </code>
+   (Example: WNRN, Charlottesville’s Legendary Radio Station)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#downloading-and-understanding-raw-html">
+     5.4.1. Downloading and Understanding Raw HTML
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parsing-raw-html-using-beautifulsoup">
+     5.4.2. Parsing Raw HTML Using
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       BeautifulSoup()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#searching-for-html-tags-and-extracting-data">
+     5.4.3. Searching for HTML Tags and Extracting Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#constructing-a-data-frame-from-html-data">
+     5.4.4. Constructing a Data Frame from HTML Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#building-a-spider">
+   5.5. Building a Spider
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="web-scraping-using-beautifulsoup">
+<h1><a class="toc-backref" href="#id1"><span class="section-number">5. </span>Web Scraping Using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code></a><a class="headerlink" href="#web-scraping-using-beautifulsoup" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#web-scraping-using-beautifulsoup" id="id1">Web Scraping Using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code></a></p>
+<ul>
+<li><p><a class="reference internal" href="#introduction-is-web-scraping-legal" id="id2">Introduction: Is Web Scraping Legal?</a></p></li>
+<li><p><a class="reference internal" href="#how-websites-prevent-you-from-scraping" id="id3">How Websites Prevent You From Scraping</a></p></li>
+<li><p><a class="reference internal" href="#using-requests-with-a-user-agent-header" id="id4">Using <code class="docutils literal notranslate"><span class="pre">requests</span></code> with a User Agent Header</a></p></li>
+<li><p><a class="reference internal" href="#using-beautifulsoup-example-wnrn-charlottesville-s-legendary-radio-station" id="id5">Using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup()</span></code> (Example: WNRN, Charlottesville’s Legendary Radio Station)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#downloading-and-understanding-raw-html" id="id6">Downloading and Understanding Raw HTML</a></p></li>
+<li><p><a class="reference internal" href="#parsing-raw-html-using-beautifulsoup" id="id7">Parsing Raw HTML Using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#searching-for-html-tags-and-extracting-data" id="id8">Searching for HTML Tags and Extracting Data</a></p></li>
+<li><p><a class="reference internal" href="#constructing-a-data-frame-from-html-data" id="id9">Constructing a Data Frame from HTML Data</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#building-a-spider" id="id10">Building a Spider</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="introduction-is-web-scraping-legal">
+<h2><a class="toc-backref" href="#id2"><span class="section-number">5.1. </span>Introduction: Is Web Scraping Legal?</a><a class="headerlink" href="#introduction-is-web-scraping-legal" title="Permalink to this headline">¶</a></h2>
+<p>Web scraping is the practice of downloading the raw HTML code that generates a website, and instead of parsing the code to display it like we do with a web browser whenever we navigate to a page, we dig through the code for data.</p>
+<p>There are <strong>significant legal and ethical questions</strong> regarding web scraping. Right now, there is a court case - <a class="reference external" href="https://en.wikipedia.org/wiki/HiQ_Labs_v._LinkedIn">HiQ Labs vs. LinkedIn</a> - that will establish whether and under what conditions web scraping is legal.</p>
+<img src="https://crowdjustice.imgix.net/pictures/courtroom5-gray_uI7BCRV.png?auto=enhance%2Cformat&crop=faces&fit=crop&q=80&w=1200" width="600" height="600">
+<p>HiQ is a company that scraps data from individuals’ LinkedIn profiles to compile data to use to build models that predict whether employees will leave their positions for new jobs. They use the insights from these models to consult with businesses to reduce employee turnover. In 2017 LinkedIn issued a Cease and Desist order to HiQ and took steps to prevent anyone including HiQ from deploying scrapers on profiles. Because HiQ’s business model is entirely dependent on collecting data from LinkedIn profiles, this action by LinkedIn would have caused HiQ to go out of business. Instead, HiQ filed a lawsuit against LinkedIn in federal court. HiQ argued that user profiles contain data that are owned by the LinkedIn users themselves who intend to make that information public using the LinkedIn platform – and so, because the data owners are sharing their own data, HiQ should be able to access that data. LinkedIn argued that the HiQ’s scraping of user data amounts to theft, is a violation of the <a class="reference external" href="https://en.wikipedia.org/wiki/Computer_Fraud_and_Abuse_Act">Consumer Fraud and Abuse Act</a>, and violates LinkedIn users’ privacy.</p>
+<p>In 2017 a federal district court issued an injunction that prevented LinkedIn from blocking HiQ’s scraping scripts. The case was appealed to the Circuit Court, where <a class="reference external" href="https://www.reuters.com/article/us-microsoft-linkedin-profiles/microsofts-linkedin-loses-appeal-over-access-to-user-profiles-idUSKCN1VU21W">this injuction was upheld in 2019</a>. In March 2020 LinkedIn filed for the case to be appealed to the U.S. Supreme Court. It is likely that this case will be decided at the highest level in the United States sometime in the next year. What the Supreme Court decides will have <a class="reference external" href="https://www.natlawreview.com/print/article/linkedin-files-petition-to-supreme-court-hiq-web-scraping-case">massive ramifications</a> on the use of web scraping, data science, and on the tech industry at large. It will establish whether web scraping is legal, legal with restrictions, or illegal, and it will have implications for data ownership and the extent to which large tech companies control and own the data that exist on their platforms.</p>
+<p>If this debate is interesting to you, here’s a longer, philosophically-oriented article about the virtues of web scraping for academic research: https://research.gold.ac.uk/6768/1/Marres_Weltrevede_Scraping_the_Social_draft.pdf</p>
+<p>Even if scraping is legal, it might not be ethical. Scraping calls a server that is not designed for the transference of data the way an API is. As such, many repeated calls (from bots) to a website for the purpose of scraping data might overwhelm the server, keeping the website’s owners from being able to achieve their purpose for having the website. This <a class="reference external" href="https://towardsdatascience.com/ethics-in-web-scraping-b96b18136f01">article by James Densmore</a> outlines some ethical considerations for scrapers and for website owners, and lays out the following code of conduct:</p>
+<p>“I, the web scraper will live by the following principles:</p>
+<ul class="simple">
+<li><p>If you have a public API that provides the data I’m looking for, I’ll use it and avoid scraping all together.</p></li>
+<li><p>I will always provide a User Agent string that makes my intentions clear and provides a way for you to contact me with questions or concerns.</p></li>
+<li><p>I will request data at a reasonable rate. I will strive to never be confused for a DDoS attack.</p></li>
+<li><p>I will only save the data I absolutely need from your page. If all I need it OpenGraph meta-data, that’s all I’ll keep.</p></li>
+<li><p>I will respect any content I do keep. I’ll never pass it off as my own.</p></li>
+<li><p>I will look for ways to return value to you. Maybe I can drive some (real) traffic to your site or credit you in an article or post.</p></li>
+<li><p>I will respond in a timely fashion to your outreach and work with you towards a resolution.</p></li>
+<li><p>I will scrape for the purpose of creating new value from the data, not to duplicate it.</p></li>
+</ul>
+<p>… . I, the site owner will live by the following principles:</p>
+<ul class="simple">
+<li><p>I will allow ethical scrapers to access my site as long as they are not a burden on my site’s performance.</p></li>
+<li><p>I will respect transparent User Agent strings rather than blocking them and encouraging use of scrapers masked as human visitors.</p></li>
+<li><p>I will reach out to the owner of the scraper (thanks to their ethical User Agent string) before blocking permanently. A temporary block is acceptable in the case of site performance or ethical concerns.</p></li>
+<li><p>I understand that scrapers are a reality of the open web.</p></li>
+<li><p>I will consider public APIs to provide data as an alternative to scrapers.”</p></li>
+</ul>
+<p>In general, while scraping appears to exist in a legal and ethical grey area, there is a lot of litigation and many arguments that suggest that once information is posted publically on a website, that there is no longer an expectation of privacy, and the data is open for anyone to use. But be careful when you use web scraping! If there IS an expectation of privacy, such as for any website with a password or other restrictions on access, then the legality and ethics of web scraping are much more dubious. If an API is available, it’s available for a reason, and it’s the correct ethical decision to use the API instead of scraping. Use care and judgment.</p>
+</div>
+<div class="section" id="how-websites-prevent-you-from-scraping">
+<h2><a class="toc-backref" href="#id3"><span class="section-number">5.2. </span>How Websites Prevent You From Scraping</a><a class="headerlink" href="#how-websites-prevent-you-from-scraping" title="Permalink to this headline">¶</a></h2>
+<p>This discussion follows the excellent overview by a Stack Overflow and GitHub contributor with the username JonasCz (I wish I knew this user’s real name!) on <a class="reference external" href="https://github.com/JonasCz/How-To-Prevent-Scraping/blob/master/README.md">how to prevent web scraping</a>.</p>
+<p>To understand the restrictions and challenges you will encounter when scraping data, put yourself in the position of a website’s owner:</p>
+<p>If you own and maintain a website, there are many reasons why you might want to prevent web scraping bots from accessing the data on your website. Maybe the bots will overload the traffic to your site and make it impossible for your website to work as you intend. You might be running a business through this website and sharing the data in mass transfers would undercut your business. For whatever reason, you are now faced with a challenge: how to you prevent automated scraping of the data on your webpage while still allowing individual customers to view your website?</p>
+<p>Web scraping will require issuing HTTP requests to a particular web address with a tool like <code class="docutils literal notranslate"><span class="pre">requests</span></code>, sometimes many times in a short period. Every HTTP request is logged by the server that receives the request, and these logs contain the IP address of the entity making the request. If too many requests are made by the same IP address, the server can block that IP address. The coding logic to automatically identify and block overactive IP addresses is simple, so many websites include these security measures. Some blocks are temporary, placing a rate limit on these requests to slow down the scrapers, and some blocks reroute scrapers through a CAPTCHA (which stands for “Completely Automated Test to Tell Computers and Humans Apart”) to prevent robots like a scraper from accessing the website. JonasCz recommends that these security measures look at other factors as well: the speed of actions on the website, the amount of data requested, and other factors that can identify a user when the IP address is masked.</p>
+<p>Stronger gates, such as making users register for a username and password with email confirmation to use your website, are effective against scraping bots. But they also turn away individuals who wouldn’t want to jump through those hoops. Saving all text as images on your server will prevent bots from accessing the text very easily, but it makes the website harder to use and violates regulations that protect people with disabilities.</p>
+<p>Instead, JonasCz recommends building your website in a way that never reveals the entirety of the data you own, and never reveals the private API endpoints you use to display the data. Also, web scrapers are fragile: they are built to pull data from the specific HTML structure of a particular website. Changing the HTML code frequently or using different versions of the code based on geographic location will break the scrapers that are built for that code. JonasCz also suggests adding “honeypot” links to the HTML code that will not be displayed to legitimate users but will be followed by scrapers that recursively follow links, and taking action against the agents that follow these links: block their IP addresses, require a CAPTCHA, or deliver fake data.</p>
+<p>One important piece of information in a request is the user agent header (which we discuss in more detail <a class="reference external" href="#useragent">below</a>). JonasCz recommends looking at this information and blocking requests when the user agent is blank or matches information from agents that have previously been identified as malicious bots.</p>
+<p>Understanding the steps you would take to protect your data from bots if you owned a website, you should have greater insight into why a web scraping endeavor may fail. Your web scraper might not be malicious, but might still violate the rules that the website owner setup to guard against bots. These rules are usually listed explicitly in a file on the server, usually called <code class="docutils literal notranslate"><span class="pre">robots.txt</span></code>. Some tips for reading and understanding a <code class="docutils literal notranslate"><span class="pre">robots.txt</span></code> file are here: https://www.promptcloud.com/blog/how-to-read-and-respect-robots-file/</p>
+<p>For example, in this document we will be scraping data on the playlist of a radio station from https://spinitron.com/. This website has a <code class="docutils literal notranslate"><span class="pre">robots.txt</span></code> file here: https://spinitron.com/robots.txt, which reads:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">User</span><span class="o">-</span><span class="n">agent</span><span class="p">:</span> <span class="o">*</span>
+<span class="n">Crawl</span><span class="o">-</span><span class="n">delay</span><span class="p">:</span> <span class="mi">10</span>
+<span class="n">Request</span><span class="o">-</span><span class="n">rate</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="mi">10</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">User-agent:</span> <span class="pre">*</span></code> line tells us that the next two lines apply to all user agent strings. <code class="docutils literal notranslate"><span class="pre">Crawl-delay:</span> <span class="pre">10</span></code> places a limit on the frequency with which our scraper can make a request from this website. In this case, individual requests must be made 10 second apart. <code class="docutils literal notranslate"><span class="pre">Request-rate:</span> <span class="pre">1/10</span></code> tells us that our scraper is only allowed to access one page every 10 seconds, and that we are not allowed to make requests from more than one page at the same time.</p>
+</div>
+<div class="section" id="using-requests-with-a-user-agent-header">
+<h2><a class="toc-backref" href="#id4"><span class="section-number">5.3. </span>Using <code class="docutils literal notranslate"><span class="pre">requests</span></code> with a User Agent Header</a><a class="headerlink" href="#using-requests-with-a-user-agent-header" title="Permalink to this headline">¶</a></h2>
+<p>As the articles by James Densmore and JonasCz described, requests are much more likely to get blocked by websites if the request does not specify a header that contains a user agent. An HTTP header is a parameter that gets sent along with the HTTP request that contains metadata about the request. A user agent header contains contact and identification information about the person making the request. If there is any issue with your web scraper, you want to give the website owner a chance to contact you directly about that problem. If you do not feel comfortable being contacted by the website’s owner, you should reconsider whether you should be scraping that website.</p>
+<p>Fortunately, it is straightforward to include headers in a GET request using <code class="docutils literal notranslate"><span class="pre">requests</span></code>: just use the <code class="docutils literal notranslate"><span class="pre">headers</span></code> argument. First, we import the relevant libraries:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In module 4 we issued GET requests from the Wikipedia API as an example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://en.wikipedia.org/w/api.php&quot;</span><span class="p">)</span>
+<span class="n">r</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;Response [200]&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>To add a user agent string, I use the following code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;user-agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Kropko class example (jkropko@virginia.edu)&#39;</span><span class="p">}</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://en.wikipedia.org/w/api.php&quot;</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
+<span class="n">r</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;Response [200]&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>What information needs to go into a user agent header? Different resources have different information about that. According to <a class="reference external" href="https://docs.developer.amazonservices.com/en_US/dev_guide/DG_UserAgentHeader.html">Amazon Web Services</a>, a user agent should identify your application, its version number, and programming language. So a user agent should look like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;user-agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Kropko class example version 1.0 (jkropko@virginia.edu) (Language=Python 3.8.2; Platform=Mac OSX 10.15.5)&#39;</span><span class="p">}</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://en.wikipedia.org/w/api.php&quot;</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
+<span class="n">r</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;Response [200]&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Including a user agent is not hard, and it goes a long way towards alleviating the anxieties that website owners have about dealing with your web scraping code. It is a good practice to cultivate into a habit.</p>
+</div>
+<div class="section" id="using-beautifulsoup-example-wnrn-charlottesville-s-legendary-radio-station">
+<h2><a class="toc-backref" href="#id5"><span class="section-number">5.4. </span>Using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup()</span></code> (Example: WNRN, Charlottesville’s Legendary Radio Station)</a><a class="headerlink" href="#using-beautifulsoup-example-wnrn-charlottesville-s-legendary-radio-station" title="Permalink to this headline">¶</a></h2>
+<p>WNRN is a legendary radio station, and it’s based right here in Charlottesville at 91.9 FM (and streaming online at www.wnrn.org). It’s commercial-free, with only a few interruptions for local nonprofits to tell you about cool things happening in town. They play a mix of new and classic alternative rock and R&amp;B. They emphasize music for bands coming to play at local venues. And they play the Grateful Dead on Saturday mornings. You should be listening to WNRN!</p>
+<center><img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0e/WNRN-FM_2014.PNG/200px-WNRN-FM_2014.PNG" width="300" height="300" class="center"></img></center>
+<p>The playlist of the songs that WNRN has played in the last few hours is here: https://spinitron.com/WNRN/. I want to scrape the data off this website. I also want to scrape the data off of the additional playlists that this website links to, to collect as much data as possible. Our goal in this example is to create a dataframe of each song WNRN has played, the artist, the album, and the time each song was played.</p>
+<p>The process involves four steps:</p>
+<ol class="simple">
+<li><p>Download the raw text of the HTML code for the website we want to scrape using the <code class="docutils literal notranslate"><span class="pre">requests</span></code> library.</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">BeautifulSoup()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">bs4</span></code> library to parse the raw text so that Python can understand, search through, and operate on the HTML tags from string.</p></li>
+<li><p>Use methods associated with <code class="docutils literal notranslate"><span class="pre">BeautifulSoup()</span></code> to extract the data we need from the HTML code.</p></li>
+<li><p>Place the data into a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> data frame.</p></li>
+</ol>
+<div class="section" id="downloading-and-understanding-raw-html">
+<h3><a class="toc-backref" href="#id6"><span class="section-number">5.4.1. </span>Downloading and Understanding Raw HTML</a><a class="headerlink" href="#downloading-and-understanding-raw-html" title="Permalink to this headline">¶</a></h3>
+<p>For this example, I first download the HTML that exists on https://spinitron.com/WNRN using the <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code> function. To be ethical and to help this website’s owners know that I am not a malicious actor, I also specify a user agent string.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://spinitron.com/WNRN&quot;</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;user-agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Kropko class example (jkropko@virginia.edu)&#39;</span><span class="p">}</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">r</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;Response [200]&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The raw HTML code contains a series of text fragments that look like this,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">tag</span> <span class="n">attribute</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="o">&gt;</span> <span class="n">Navigable</span> <span class="n">string</span> <span class="o">&lt;/</span><span class="n">tag</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">tag</span></code>, <code class="docutils literal notranslate"><span class="pre">attribute</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;value&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">Navigable</span> <span class="pre">string</span></code> are replaced by specific parameters and data that control the content and presentation of the webpage that gets displayed in a web browser. For example, here are the first 1000 characters of the raw text from WNRN’s playlist:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1000</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>
+&lt;!doctype html&gt;&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1,maximum-scale=1&quot;&gt;
+    &lt;title&gt;WNRN – Independent Music Radio&lt;/title&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;A member supported Independent Music Radio Station serving Central Virginia and the Shenandoah Valley&quot;&gt;
+
+    &lt;link rel=&quot;apple-touch-icon&quot; href=&quot;apple-touch-icon.png&quot;&gt;
+                &lt;meta name=&quot;csrf-param&quot; content=&quot;_csrf&quot;&gt;
+&lt;meta name=&quot;csrf-token&quot; content=&quot;eknKXZWaf5ijsgMC6RcIBJvG4AopJglRV70RDIDSapARPocr4uMT9_vKbGaZXFpSzoiBY3ZnMGYghSZi04UowA==&quot;&gt;
+
+    &lt;meta property=&quot;og:url&quot; content=&quot;/WNRN/&quot;&gt;
+&lt;meta property=&quot;og:title&quot; content=&quot;WNRN – Independent Music Radio&quot;&gt;
+&lt;meta property=&quot;og:description&quot; content=&quot;A member supported Independent Music Radio Station serving Central Virginia and the Shenandoah Valley&quot;&gt;
+&lt;meta property=&quot;og:image&quot; content=&quot;https://spinitron.com/images/Station/13/1326-img_logo.2
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Tags</strong> specify how the data contained within the page are organized and how the visual elements on this page should look. Tags are designated by opening and closing angle braces, &lt; and &gt;. In the HTML code displayed above, there are tags named</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;html&gt;</span></code>, which tells browsers that the following code is written in HTML,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;meta&gt;</span></code>, which defines metadata in the document that help govern how the output shold be displayed in the browser,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;title&gt;</span></code>, which sets the title of the document, and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;link&gt;</span></code>, which pulls data or images from external resources for later use.</p></li>
+</ul>
+<p>To see what other HTML tags do, look at the list on https://www.w3schools.com/TAGs/.</p>
+<p>In some cases the tag operates on the text that immediately follows, and a closing tag <code class="docutils literal notranslate"><span class="pre">&lt;/tag&gt;</span></code> frames the text that gets operated on by the tag. The text in between the opening and closing tag is called the <strong>navigable string</strong>. For example, the tag <code class="docutils literal notranslate"><span class="pre">&lt;title&gt;WNRN</span> <span class="pre">–</span> <span class="pre">Independent</span> <span class="pre">Music</span> <span class="pre">Radio&lt;/title&gt;</span></code> specifies that “WNRN – Independent Music Radio”, and only this string, is the title.</p>
+<p>Some tags have <strong>attributes</strong>, which are arguments listed inside an opening tag to modify the behavior of that tag or to attach relevant data to the tag. The first <code class="docutils literal notranslate"><span class="pre">&lt;html&gt;</span></code> tag listed above contains an attribute <code class="docutils literal notranslate"><span class="pre">lang</span></code> with a value <code class="docutils literal notranslate"><span class="pre">&quot;en&quot;</span></code> that specifies that this document contains HTML code in English.</p>
+</div>
+<div class="section" id="parsing-raw-html-using-beautifulsoup">
+<h3><a class="toc-backref" href="#id7"><span class="section-number">5.4.2. </span>Parsing Raw HTML Using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup()</span></code></a><a class="headerlink" href="#parsing-raw-html-using-beautifulsoup" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code> function only downloads the raw text of the HTML code, but it does not yet understand the logic and organization of the HTML code. Getting Python to register text as a particular coding standard is called <strong>parsing</strong> the code. We’ve parsed code into Python before with JSON data. We used <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code> to download the JSON formatted data, but we needed <code class="docutils literal notranslate"><span class="pre">json.loads()</span></code> to parse the data in order to be able to navigate the branches of the JSON tree.</p>
+<p>There are two widely used Python libraries for parsing HTML data: <code class="docutils literal notranslate"><span class="pre">bs4</span></code> which contains the <code class="docutils literal notranslate"><span class="pre">BeautifulSoup()</span></code> function, and <code class="docutils literal notranslate"><span class="pre">selenium</span></code>. <code class="docutils literal notranslate"><span class="pre">BeautifulSoup()</span></code> works with raw text, but cannot access websites themselves (we use <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code> for that). In order to access the data on a website, the data needs to be visible in the raw HTML that <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code> returns. If there are measures taken by a website to hide that data, possibly by calling server-side Javascript to populate data fields, or by saving data as image files, then we won’t be able to access the data with an HTML parser. <code class="docutils literal notranslate"><span class="pre">selenium</span></code> has more features to extract more complicated data and circumvent anti-scraping measures, such as taking a screenshot of the webpage in a browser and using optical character recognition (OCR) to pull data directly from the image. However, <code class="docutils literal notranslate"><span class="pre">selenium</span></code> requires each request to be loaded in a web browser, so it can be quite a bit slower than <code class="docutils literal notranslate"><span class="pre">BeautifulSoup()</span></code>. If you are interested in learning how to use <code class="docutils literal notranslate"><span class="pre">selenium</span></code>, see this guide: https://selenium-python.readthedocs.io/. Here we will be using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup()</span></code>.</p>
+<p>First I import the <code class="docutils literal notranslate"><span class="pre">BeautifulSoup()</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="k">import</span> <span class="n">BeautifulSoup</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To use it, we pass the <code class="docutils literal notranslate"><span class="pre">.text</span></code> attribute of the <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code> output from https://spinitron.com/WNRN to <code class="docutils literal notranslate"><span class="pre">BeautifulSoup()</span></code> (which I saved as <code class="docutils literal notranslate"><span class="pre">r.text</span></code> above). This function can parse either HTML or XML code, so the second argument should specify HTML:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wnrn</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="stderr docutils container">
+<pre class="stderr literal-block">/opt/anaconda3/lib/python3.7/site-packages/bs4/__init__.py:181: UserWarning: No parser was explicitly specified, so I'm using the best available HTML parser for this system (&quot;lxml&quot;). This usually isn't a problem, but if you run this code on another system, or in a different virtual environment, it may use a different parser and behave differently.
+
+The code that caused this warning is on line 193 of the file /opt/anaconda3/lib/python3.7/runpy.py. To get rid of this warning, change code that looks like this:
+
+ BeautifulSoup(YOUR_MARKUP})
+
+to this:
+
+ BeautifulSoup(YOUR_MARKUP, &quot;lxml&quot;)
+
+  markup_type=markup_type))
+</pre>
+</div>
+</div>
+</div>
+<p>Now that the https://spinitron.com/WNRN source code is registered as HTML code in Python, we can begin executing commands to navigate the organizational structure of the code and extract data.</p>
+</div>
+<div class="section" id="searching-for-html-tags-and-extracting-data">
+<h3><a class="toc-backref" href="#id8"><span class="section-number">5.4.3. </span>Searching for HTML Tags and Extracting Data</a><a class="headerlink" href="#searching-for-html-tags-and-extracting-data" title="Permalink to this headline">¶</a></h3>
+<p>While HTML is a coding language, it does not force coders to follow very strict templates. There’s a lot of flexibility and creativity possible for HTML programmers, and as such, there is no one universal method for extracting data from HTML. The best approach is to open a browser window, navigate to the webpage you want to scrape, and “view page source”. (Different web browsers have different ways to do that. On Mozilla Firefox, right click somewhere on the page other than an active link, and “view page source” should be an option.) The source will display the raw HTML code that generates the page. You will need to search through this code to find examples of the data points you intend to collect, possibly using control+F to search for specific values. Once you find the data you need, make note of the tags that surround the data and use the tools we will describe next to extract the data.</p>
+<p>The parsable HTML <code class="docutils literal notranslate"><span class="pre">BeautifulSoup()</span></code> output, <code class="docutils literal notranslate"><span class="pre">wnrn</span></code>, has important methods and attributes that we will use to extract the data we want. First, we can use the name of a tag as an attribute to extract the first occurrence of that tag. Here we extract the first <code class="docutils literal notranslate"><span class="pre">&lt;meta&gt;</span></code> tag:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">metatag</span> <span class="o">=</span> <span class="n">wnrn</span><span class="o">.</span><span class="n">meta</span>
+<span class="n">metatag</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;meta charset=&quot;utf-8&quot;/&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>This tag stores its attributes as a list, so we can extract the value of an attribute by calling the name of that attribute as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">metatag</span><span class="p">[</span><span class="s1">&#39;charset&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;utf-8&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>If a tag has a navigable string, we can extract that with the <code class="docutils literal notranslate"><span class="pre">.string</span></code> attribute of a particular tag. For example, to extract the title, we start with the <code class="docutils literal notranslate"><span class="pre">&lt;title&gt;</span></code> tag:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titletag</span> <span class="o">=</span> <span class="n">wnrn</span><span class="o">.</span><span class="n">title</span>
+<span class="n">titletag</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;title&gt;WNRN – Independent Music Radio&lt;/title&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then we extract the title as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titletag</span><span class="o">.</span><span class="n">string</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;WNRN – Independent Music Radio&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Our goal in this example is to extract the artist, song, album, and time played for every song played on WNRN. I look in the raw HTML source code for the first instance of an artist. These data are contained in the <code class="docutils literal notranslate"><span class="pre">&lt;span&gt;</span></code> tags:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spantag</span> <span class="o">=</span> <span class="n">wnrn</span><span class="o">.</span><span class="n">span</span>
+<span class="n">spantag</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;span class=&quot;artist&quot;&gt;Greyhounds&lt;/span&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Calling one tag is not especially useful, because we generally want to extract all of the relevant data on a page. For that, we can use the <code class="docutils literal notranslate"><span class="pre">.find_next()</span></code> and <code class="docutils literal notranslate"><span class="pre">.find_all()</span></code> methods, both of which are very literal. The next <code class="docutils literal notranslate"><span class="pre">&lt;span&gt;</span></code> tag in the HTML code contains the song associated with the artist:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spantag</span><span class="o">.</span><span class="n">find_next</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;span class=&quot;song&quot;&gt;Tune In&lt;/span&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>And the next occurrence of <code class="docutils literal notranslate"><span class="pre">&lt;span&gt;</span></code> contains the album name (under <code class="docutils literal notranslate"><span class="pre">&quot;release&quot;</span></code>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spantag</span><span class="o">.</span><span class="n">find_next</span><span class="p">()</span><span class="o">.</span><span class="n">find_next</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;div class=&quot;info&quot;&gt;&lt;span class=&quot;release&quot;&gt;Primates&lt;/span&gt;&lt;/div&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>To find all occurrences of the <code class="docutils literal notranslate"><span class="pre">&lt;span&gt;</span></code> tag, organized in a list, use <code class="docutils literal notranslate"><span class="pre">.find_all()</span></code> and provide the tag as the argument:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spanlist</span> <span class="o">=</span> <span class="n">wnrn</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">)</span>
+<span class="n">spanlist</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;span class=&quot;artist&quot;&gt;Greyhounds&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Tune In&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Primates&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Soccer Mommy&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Circle the Drain&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Color Theory&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Head &amp;amp; the Heart&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Sounds Like Hallelujah&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;The Head &amp;amp; the Heart&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Stray Fossa&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;For What Was&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Margo Price&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Letting Me Down&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;That&#39;s How Rumors Get Started&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Sturgill Simpson&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Turtles All the Way Down&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Metamodern Sounds In Country Music&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Southern Culture on the Skids&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Camel Walk&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Dirt Track Date&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Jason Mraz&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;I&#39;m Yours&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;We Sing. We Dance. We Steal Things.&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;This Is the Kit&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;This Is What You Did&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Off Off On&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Sarah Jarosz&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Johnny&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;World on the Ground&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Jack Johnson&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Flake&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Brushfire Fairytales&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Devon Gilfillian&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;The Good Life&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Black Hole Rainbow&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Kings of Leon&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;The Bucket&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Aha Shake Heartbreak&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Dan Croll&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;So Dark&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Grand Plan&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Leif Vollebekk f/ Angie McMahon&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Apalachee Plain&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;New Ways&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Greg Laswell&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Comes and Goes (In Waves)&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;I Was Going To Be An Astronaut&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;S.G. Goodman&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Old Time Feeling&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Old Time Feeling&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Eilen Jewell&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Green River&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Creedence Clearwater Revival&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Green River&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Woodstock - Back to the Garden&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Rayland Baxter&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Casanova&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Wide Awake&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Grace Potter &amp;amp; the Nocturnals&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Tiny Light&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Grace Potter &amp;amp; The Nocturnals&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Ramones&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Teenage Lobotomy&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Rocket To Russia&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;David Wax Museum&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;The Persimmon Tree&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Carpenter Bird 10th Anniversary&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Katie Pruitt&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Expectations&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Expectations&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Curtis Harding&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;On and On&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Face Your Fear&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;City and Colour&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Fragile Bird&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Little Hell&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Chuck Prophet&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Best Shirt On&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;The Land That Time Forgot&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Lyle Lovett&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;You Can&#39;t Resist It&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Live in Texas&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Lake Street Dive&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Call Off Your Dogs&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Side Pony&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Old 97&#39;s&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Turn Off the TV&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Twelfth&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;EOB&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Shangri-La&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Earth&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Suzanne Vega and DNA&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Tom&#39;s Diner&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Retrospective&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Real Estate&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;The Main Thing&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;The Main Thing&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Rolling Stones&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Living in a Ghost Town&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Mark Knopfler&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;What It Is&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Sailing to Philadelphia&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Milky Chance&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Stolen Dance&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Sadnecessary&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Squeeze&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Black Coffee in Bed&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Sweets from a Stranger&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Sylvan Esso&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Ferris Wheel&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Free Love&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Lianne La Havas&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Can&#39;t Fight&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Lianne La Havas&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Talking Heads&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Take Me to the River&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;More Songs About Buildings and Foo&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Givers&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Up Up Up&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;In Light&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Vetiver&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Swaying&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Up On High&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Dave Matthews Band&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Ants Marching&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Under the Table &amp;amp; Dreaming&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Strong Water&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;If I Was&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Bearfoot&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Nathaniel Rateliff&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Time Stands&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;And It&#39;s Still Alright&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Sea Wolf&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Forever Nevermore&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Through a Dark Wood&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Citizen Cope&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Brother Lee&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Every Waking Moment&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Early James&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Blue Pill Blues&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Singing For My Supper&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Best Coast&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;The Only Place&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;The Only Place&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Haim&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;The Wire&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Days Are Gone&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Maceo Parker&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Cross the Track&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Soul Food: Cooking with Maceo&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Nick Lowe&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Lay It On Me Baby&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Lay It on Me&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Amos Lee&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Windows Are Rolled Down&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Mission Bell&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Legendary Shack Shakers&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;CB Song&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Cockadoodle Don&#39;t&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Sonny Landreth&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Blacktop Run&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Blacktop Run&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Fleet Foxes&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Lorelai&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Helplessness Blues&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Bright Eyes&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Mariana Trench&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Down in the Weeds Where the World Once Was&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Blondie&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;The Tide is High&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Autoamerican&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Jayhawks&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;This Forgotten Town&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;XOXO&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Rufus Wainwright&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Damsel in Distress&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Unfollow the Rules&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Decemberists&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Rise To Me&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;The King Is Dead&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Bonny Light Horseman&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Deep in Love&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Bonny Light Horseman&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Local Natives&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;When am I Gonna Lose You&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Violet Street&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Bonnie Raitt w/ John Prine&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Angel from Montgomery&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Road Tested&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;John Craigie&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Don&#39;t Ask&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Asterisk the Universe&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Echo &amp;amp; the Bunnymen&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;The Killing Moon&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Ocean Rain&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Pretenders&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Didn&#39;t Want to Be This Lonely&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Hate for Sale&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Caroline Rose&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Feel the Way I Want&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Superstar&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Revivalists&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Oh No&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Take Good Care&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Dinner Party&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Freeze Tag&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Dinner Party&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Courtney Marie Andrews&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;It Must Be Someone Else&#39;s Fault&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Old Flowers&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Oasis&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Wonderwall&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;(What&#39;s the Story) Morning Glory?&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Brent Cobb&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Ain&#39;t a Road Too Long&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Providence Canyon&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Avett Brothers&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;February Seven&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;The Carpenter&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Toad The Wet Sprocket&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;All I Want&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Fear&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Leisure&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Slipping Away&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Side A&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Ray LaMontagne&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;For the Summer&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;God Willin&#39; &amp;amp; the Creek Don&#39;t Rise&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Margo Price&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Letting Me Down&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;That&#39;s How Rumors Get Started&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;James Vincent McMorrow&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Headlights&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Loudon Wainwright III&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Daughter&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Strange Weirdos&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Seth Walker&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;All I Need to Know&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Are You Open?&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Crooked Still&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Did You Sleep Well?&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Still Crooked&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Neil Young&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Try&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Homegrown&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Ian Noe&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Irene (Ravin&#39; Bomb)&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Between the Country&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Corey Harris&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Santoro&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Down Home Sophisticate&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Danny Barnes&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Juke&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Man on Fire&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;My Morning Jacket&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Feel You&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;The Waterfall II&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Son Volt&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Windfall&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Trace&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Patty Larkin&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Dave&#39;s Holiday&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Tango&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Wilco&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Everyone Hides&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Ode to Joy&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Joy Williams&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Front Porch&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Front Porch&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Charley Crockett&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Welcome to Hard Times&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Welcome to Hard Times&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Marc Cohn&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Listening to Levon&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Join The Parade&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Doug Seegers&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Angie&#39;s Song&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Going down to the River&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Khruangbin&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Time ( You and I)&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Mordechai&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Kevin Gordon&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;All in the Mystery&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Long Time Gone&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Waxahatchee&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Can&#39;t Do Much&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Saint Cloud&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Sondre Lerche&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;I Can&#39;t See Myself Without You&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Patience&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Jackson Browne&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;These Days&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;For Everyman&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Special Consensus&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Lakeshore Drive&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Chicago Barn Dance&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Jack Klatt&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Ramblin Kind&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;It Ain&#39;t the Same&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Patty Griffin&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Rain&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;1000 Kisses&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Sinead Lohan&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Whatever It Takes&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;No Mermaid&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Band of Horses&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Laredo&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Infinite Arms&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Byrds&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Mr. Tambourine Man&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Mr. Tambourine Man&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Civil Wars&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Barton Hollow&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Barton Hollow&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Kathleen Edwards&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Options Open&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Total Freedom&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Leftover Salmon&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;River&#39;s Rising&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Euphoria&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Bruce Springsteen&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Devils &amp;amp; Dust&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Devils &amp;amp; Dust&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;John Moreland&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;East October&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;LP5&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Susan Tedeschi&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;True&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Back To The River&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Dawes&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Who Do You Think You&#39;re Talking To?&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Good Luck with Whatever&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Rumer&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Deep Summer in the Deep South&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Nashville Tears&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Infamous Stringdusters&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Road To Boulder&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Road To Boulder Ep&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Samantha Crain&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Pastime&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;A Small Death&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;L.A. Dies&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Feels Really Small&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Drifting Still&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Sam Outlaw&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Trouble&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Tenderheart&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Iron &amp;amp; Wine&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Last of Your Rock ‘n Roll Heroes&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Weed Garden&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Los Lobos&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Dream in Blue&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Kiko&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Illiterate Light&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Sometimes Love Takes so Long&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Illiterate Light&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Bruce Cockburn&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Wondering Where the Lions Are&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Dancing In The Dragon&#39;s Jaw&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Beabadoobee&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Care&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Fake It Flowers&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Kenny Robey&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;History Lesson&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;History Lesson&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Michael Kiwanuka&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Tell Me a Tale&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Home Again&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Molly Tuttle&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Messed with My Mind&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;When You&#39;re Ready&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Wood Brothers&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Luckiest Man&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Ways Not To Lose&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Ray Wylie Hubbard&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Bad Trick&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Co-Starring&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Lone Bellow&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Good Times&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Half Moon Light&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Van Morrison&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Crazy Love&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Moondance&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Casey Van Beek &amp;amp; the Tulsa Groove&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Thinking About You&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Heaven Forever&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Bob Dylan&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;False Prophet&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Rough &amp;amp; Rowdy Ways&lt;/span&gt;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that the HTML source code distinguishes between the three types of datapoint with different <code class="docutils literal notranslate"><span class="pre">class</span></code> values. To limit this list to just the artists, we can specify the <code class="docutils literal notranslate"><span class="pre">&quot;artist&quot;</span></code> class as a second argument of <code class="docutils literal notranslate"><span class="pre">.find_all()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">artistlist</span> <span class="o">=</span> <span class="n">wnrn</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="s2">&quot;artist&quot;</span><span class="p">)</span>
+<span class="n">artistlist</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;span class=&quot;artist&quot;&gt;Greyhounds&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Soccer Mommy&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Head &amp;amp; the Heart&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Stray Fossa&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Margo Price&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Sturgill Simpson&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Southern Culture on the Skids&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Jason Mraz&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;This Is the Kit&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Sarah Jarosz&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Jack Johnson&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Devon Gilfillian&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Kings of Leon&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Dan Croll&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Leif Vollebekk f/ Angie McMahon&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Greg Laswell&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;S.G. Goodman&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Eilen Jewell&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Creedence Clearwater Revival&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Rayland Baxter&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Grace Potter &amp;amp; the Nocturnals&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Ramones&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;David Wax Museum&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Katie Pruitt&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Curtis Harding&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;City and Colour&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Chuck Prophet&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Lyle Lovett&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Lake Street Dive&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Old 97&#39;s&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;EOB&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Suzanne Vega and DNA&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Real Estate&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Rolling Stones&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Mark Knopfler&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Milky Chance&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Squeeze&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Sylvan Esso&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Lianne La Havas&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Talking Heads&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Givers&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Vetiver&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Dave Matthews Band&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Strong Water&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Nathaniel Rateliff&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Sea Wolf&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Citizen Cope&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Early James&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Best Coast&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Haim&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Maceo Parker&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Nick Lowe&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Amos Lee&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Legendary Shack Shakers&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Sonny Landreth&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Fleet Foxes&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Bright Eyes&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Blondie&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Jayhawks&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Rufus Wainwright&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Decemberists&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Bonny Light Horseman&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Local Natives&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Bonnie Raitt w/ John Prine&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;John Craigie&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Echo &amp;amp; the Bunnymen&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Pretenders&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Caroline Rose&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Revivalists&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Dinner Party&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Courtney Marie Andrews&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Oasis&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Brent Cobb&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Avett Brothers&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Toad The Wet Sprocket&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Leisure&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Ray LaMontagne&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Margo Price&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;James Vincent McMorrow&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Loudon Wainwright III&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Seth Walker&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Crooked Still&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Neil Young&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Ian Noe&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Corey Harris&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Danny Barnes&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;My Morning Jacket&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Son Volt&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Patty Larkin&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Wilco&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Joy Williams&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Charley Crockett&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Marc Cohn&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Doug Seegers&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Khruangbin&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Kevin Gordon&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Waxahatchee&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Sondre Lerche&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Jackson Browne&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Special Consensus&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Jack Klatt&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Patty Griffin&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Sinead Lohan&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Band of Horses&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Byrds&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Civil Wars&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Kathleen Edwards&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Leftover Salmon&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Bruce Springsteen&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;John Moreland&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Susan Tedeschi&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Dawes&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Rumer&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Infamous Stringdusters&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Samantha Crain&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;L.A. Dies&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Sam Outlaw&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Iron &amp;amp; Wine&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Los Lobos&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Illiterate Light&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Bruce Cockburn&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Beabadoobee&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Kenny Robey&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Michael Kiwanuka&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Molly Tuttle&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Wood Brothers&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Ray Wylie Hubbard&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Lone Bellow&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Van Morrison&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Casey Van Beek &amp;amp; the Tulsa Groove&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Bob Dylan&lt;/span&gt;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Likewise we can create lists of the songs:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">songlist</span> <span class="o">=</span> <span class="n">wnrn</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="s2">&quot;song&quot;</span><span class="p">)</span>
+<span class="n">songlist</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;span class=&quot;song&quot;&gt;Tune In&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Circle the Drain&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Sounds Like Hallelujah&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;For What Was&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Letting Me Down&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Turtles All the Way Down&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Camel Walk&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;I&#39;m Yours&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;This Is What You Did&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Johnny&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Flake&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;The Good Life&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;The Bucket&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;So Dark&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Apalachee Plain&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Comes and Goes (In Waves)&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Old Time Feeling&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Green River&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Green River&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Casanova&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Tiny Light&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Teenage Lobotomy&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;The Persimmon Tree&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Expectations&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;On and On&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Fragile Bird&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Best Shirt On&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;You Can&#39;t Resist It&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Call Off Your Dogs&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Turn Off the TV&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Shangri-La&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Tom&#39;s Diner&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;The Main Thing&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Living in a Ghost Town&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;What It Is&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Stolen Dance&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Black Coffee in Bed&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Ferris Wheel&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Can&#39;t Fight&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Take Me to the River&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Up Up Up&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Swaying&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Ants Marching&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;If I Was&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Time Stands&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Forever Nevermore&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Brother Lee&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Blue Pill Blues&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;The Only Place&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;The Wire&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Cross the Track&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Lay It On Me Baby&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Windows Are Rolled Down&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;CB Song&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Blacktop Run&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Lorelai&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Mariana Trench&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;The Tide is High&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;This Forgotten Town&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Damsel in Distress&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Rise To Me&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Deep in Love&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;When am I Gonna Lose You&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Angel from Montgomery&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Don&#39;t Ask&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;The Killing Moon&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Didn&#39;t Want to Be This Lonely&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Feel the Way I Want&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Oh No&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Freeze Tag&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;It Must Be Someone Else&#39;s Fault&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Wonderwall&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Ain&#39;t a Road Too Long&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;February Seven&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;All I Want&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Slipping Away&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;For the Summer&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Letting Me Down&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Headlights&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Daughter&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;All I Need to Know&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Did You Sleep Well?&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Try&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Irene (Ravin&#39; Bomb)&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Santoro&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Juke&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Feel You&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Windfall&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Dave&#39;s Holiday&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Everyone Hides&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Front Porch&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Welcome to Hard Times&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Listening to Levon&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Angie&#39;s Song&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Time ( You and I)&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;All in the Mystery&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Can&#39;t Do Much&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;I Can&#39;t See Myself Without You&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;These Days&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Lakeshore Drive&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Ramblin Kind&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Rain&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Whatever It Takes&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Laredo&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Mr. Tambourine Man&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Barton Hollow&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Options Open&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;River&#39;s Rising&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Devils &amp;amp; Dust&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;East October&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;True&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Who Do You Think You&#39;re Talking To?&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Deep Summer in the Deep South&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Road To Boulder&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Pastime&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Feels Really Small&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Trouble&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Last of Your Rock ‘n Roll Heroes&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Dream in Blue&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Sometimes Love Takes so Long&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Wondering Where the Lions Are&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Care&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;History Lesson&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Tell Me a Tale&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Messed with My Mind&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Luckiest Man&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Bad Trick&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Good Times&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Crazy Love&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Thinking About You&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;False Prophet&lt;/span&gt;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>And a list for the albums:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">albumlist</span> <span class="o">=</span> <span class="n">wnrn</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="s2">&quot;release&quot;</span><span class="p">)</span>
+<span class="n">albumlist</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;span class=&quot;release&quot;&gt;Primates&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Color Theory&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;The Head &amp;amp; the Heart&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;That&#39;s How Rumors Get Started&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Metamodern Sounds In Country Music&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Dirt Track Date&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;We Sing. We Dance. We Steal Things.&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Off Off On&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;World on the Ground&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Brushfire Fairytales&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Black Hole Rainbow&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Aha Shake Heartbreak&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Grand Plan&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;New Ways&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;I Was Going To Be An Astronaut&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Old Time Feeling&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Woodstock - Back to the Garden&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Wide Awake&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Grace Potter &amp;amp; The Nocturnals&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Rocket To Russia&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Carpenter Bird 10th Anniversary&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Expectations&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Face Your Fear&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Little Hell&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;The Land That Time Forgot&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Live in Texas&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Side Pony&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Twelfth&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Earth&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Retrospective&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;The Main Thing&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Sailing to Philadelphia&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Sadnecessary&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Sweets from a Stranger&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Free Love&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Lianne La Havas&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;More Songs About Buildings and Foo&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;In Light&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Up On High&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Under the Table &amp;amp; Dreaming&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Bearfoot&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;And It&#39;s Still Alright&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Through a Dark Wood&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Every Waking Moment&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Singing For My Supper&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;The Only Place&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Days Are Gone&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Soul Food: Cooking with Maceo&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Lay It on Me&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Mission Bell&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Cockadoodle Don&#39;t&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Blacktop Run&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Helplessness Blues&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Down in the Weeds Where the World Once Was&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Autoamerican&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;XOXO&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Unfollow the Rules&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;The King Is Dead&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Bonny Light Horseman&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Violet Street&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Road Tested&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Asterisk the Universe&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Ocean Rain&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Hate for Sale&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Superstar&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Take Good Care&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Dinner Party&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Old Flowers&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;(What&#39;s the Story) Morning Glory?&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Providence Canyon&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;The Carpenter&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Fear&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Side A&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;God Willin&#39; &amp;amp; the Creek Don&#39;t Rise&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;That&#39;s How Rumors Get Started&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Strange Weirdos&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Are You Open?&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Still Crooked&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Homegrown&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Between the Country&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Down Home Sophisticate&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Man on Fire&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;The Waterfall II&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Trace&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Tango&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Ode to Joy&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Front Porch&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Welcome to Hard Times&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Join The Parade&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Going down to the River&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Mordechai&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Long Time Gone&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Saint Cloud&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Patience&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;For Everyman&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Chicago Barn Dance&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;It Ain&#39;t the Same&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;1000 Kisses&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;No Mermaid&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Infinite Arms&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Mr. Tambourine Man&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Barton Hollow&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Total Freedom&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Euphoria&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Devils &amp;amp; Dust&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;LP5&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Back To The River&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Good Luck with Whatever&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Nashville Tears&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Road To Boulder Ep&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;A Small Death&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Drifting Still&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Tenderheart&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Weed Garden&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Kiko&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Illiterate Light&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Dancing In The Dragon&#39;s Jaw&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Fake It Flowers&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;History Lesson&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Home Again&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;When You&#39;re Ready&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Ways Not To Lose&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Co-Starring&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Half Moon Light&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Moondance&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Heaven Forever&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Rough &amp;amp; Rowdy Ways&lt;/span&gt;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, we want to also extract the times each song was played. I look at the HTML code and find an example of the play time. These times are stored in the <code class="docutils literal notranslate"><span class="pre">&lt;td&gt;</span></code> tag with <code class="docutils literal notranslate"><span class="pre">class=&quot;spin-time&quot;</span></code>. I create a list of these times:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">timelist</span> <span class="o">=</span> <span class="n">wnrn</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;td&quot;</span><span class="p">,</span> <span class="s2">&quot;spin-time&quot;</span><span class="p">)</span>
+<span class="n">timelist</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234754676&quot;&gt;3:22 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234754184&quot;&gt;3:16 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234753938&quot;&gt;3:13 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234753623&quot;&gt;3:09 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234753125&quot;&gt;3:04 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234752915&quot;&gt;3:01 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234752465&quot;&gt;2:58 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234752096&quot;&gt;2:54 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234751838&quot;&gt;2:52 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234751346&quot;&gt;2:46 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234750401&quot;&gt;2:37 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234749837&quot;&gt;2:31 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234749534&quot;&gt;2:27 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234749306&quot;&gt;2:24 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234748937&quot;&gt;2:19 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234748616&quot;&gt;2:15 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234748250&quot;&gt;2:11 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234747197&quot;&gt;2:07 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234746780&quot;&gt;2:02 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234746300&quot;&gt;1:58 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234745952&quot;&gt;1:53 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234745796&quot;&gt;1:51 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234745613&quot;&gt;1:49 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234745190&quot;&gt;1:44 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234744926&quot;&gt;1:40 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234744632&quot;&gt;1:36 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234744107&quot;&gt;1:31 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234743729&quot;&gt;1:28 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234743420&quot;&gt;1:24 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234743180&quot;&gt;1:21 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234742784&quot;&gt;1:16 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234742454&quot;&gt;1:12 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234742262&quot;&gt;1:10 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234741668&quot;&gt;1:05 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234741386&quot;&gt;1:01 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234740975&quot;&gt;12:57 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234740474&quot;&gt;12:51 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234740249&quot;&gt;12:48 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234739817&quot;&gt;12:44 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234739436&quot;&gt;12:38 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234739145&quot;&gt;12:35 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234738710&quot;&gt;12:30 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234738221&quot;&gt;12:25 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234737939&quot;&gt;12:22 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234737666&quot;&gt;12:18 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234737249&quot;&gt;12:13 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234736874&quot;&gt;12:09 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234736283&quot;&gt;12:02 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234736046&quot;&gt;11:59 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234735653&quot;&gt;11:55 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234735266&quot;&gt;11:50 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234734888&quot;&gt;11:45 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234734591&quot;&gt;11:41 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234734375&quot;&gt;11:38 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234733895&quot;&gt;11:33 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234733535&quot;&gt;11:28 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234733223&quot;&gt;11:25 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234732380&quot;&gt;11:14 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234732113&quot;&gt;11:11 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234731552&quot;&gt;11:05 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234731066&quot;&gt;11:00 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234729863&quot;&gt;10:45 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234729587&quot;&gt;10:41 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234729275&quot;&gt;10:37 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234728810&quot;&gt;10:32 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234728354&quot;&gt;10:26 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234728138&quot;&gt;10:23 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234727727&quot;&gt;10:17 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234727475&quot;&gt;10:14 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234727244&quot;&gt;10:11 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234726902&quot;&gt;10:07 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234726551&quot;&gt;10:02 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234726200&quot;&gt;9:59 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234725834&quot;&gt;9:54 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234725606&quot;&gt;9:51 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234725315&quot;&gt;9:47 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234724862&quot;&gt;9:42 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234724610&quot;&gt;9:39 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234724364&quot;&gt;9:35 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234724106&quot;&gt;9:32 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234723662&quot;&gt;9:26 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234723275&quot;&gt;9:22 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234723065&quot;&gt;9:19 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234722594&quot;&gt;9:14 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234722387&quot;&gt;9:11 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234722150&quot;&gt;9:08 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234721685&quot;&gt;9:02 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234721337&quot;&gt;8:59 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234721124&quot;&gt;8:56 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234720890&quot;&gt;8:53 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234720605&quot;&gt;8:50 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234720203&quot;&gt;8:44 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234719852&quot;&gt;8:40 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234719609&quot;&gt;8:36 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234719207&quot;&gt;8:31 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234718715&quot;&gt;8:25 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234718352&quot;&gt;8:22 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234717980&quot;&gt;8:17 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234717668&quot;&gt;8:12 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234717437&quot;&gt;8:09 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234717131&quot;&gt;8:04 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234716846&quot;&gt;8:00 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234716453&quot;&gt;7:56 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234716228&quot;&gt;7:53 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234716060&quot;&gt;7:51 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234715817&quot;&gt;7:48 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234715394&quot;&gt;7:42 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234715106&quot;&gt;7:38 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234714728&quot;&gt;7:33 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234714011&quot;&gt;7:27 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234713780&quot;&gt;7:24 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234713513&quot;&gt;7:21 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234713054&quot;&gt;7:15 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234712766&quot;&gt;7:11 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234712523&quot;&gt;7:08 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234712088&quot;&gt;7:02 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234711860&quot;&gt;7:00 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234711515&quot;&gt;6:56 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234711275&quot;&gt;6:53 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234711014&quot;&gt;6:49 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234710570&quot;&gt;6:44 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234710198&quot;&gt;6:41 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234709970&quot;&gt;6:37 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234709700&quot;&gt;6:34 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234709328&quot;&gt;6:29 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234709025&quot;&gt;6:25 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234708704&quot;&gt;6:21 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234708326&quot;&gt;6:16 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234708107&quot;&gt;6:13 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234707915&quot;&gt;6:11 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/11377835/WNRN?sp=234707342&quot;&gt;6:03 AM&lt;/a&gt;&lt;/td&gt;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sometimes the information we need exists in a particular tag, but only when a specific attribute is present. For example, in the WNRN playlist HTML there are many <code class="docutils literal notranslate"><span class="pre">&lt;a&gt;</span></code> tags, but only some of those tags include a <code class="docutils literal notranslate"><span class="pre">title</span></code> attribute. To extract all of the <code class="docutils literal notranslate"><span class="pre">&lt;a&gt;</span></code> tags with a <code class="docutils literal notranslate"><span class="pre">title</span></code> attribute, specify <code class="docutils literal notranslate"><span class="pre">title=True</span></code> in the call to <code class="docutils literal notranslate"><span class="pre">.find_all()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">atags_title</span> <span class="o">=</span> <span class="n">wnrn</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">atags_title</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span> <span class="c1"># just show the first 6 elements</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;a class=&quot;buy-link&quot; data-vendor=&quot;apple&quot; href=&quot;#&quot; target=&quot;_blank&quot; title=&#39;View &quot;Greyhounds - Tune In&quot; on Apple&#39;&gt;&lt;div alt=&#39;View &quot;Greyhounds - Tune In&quot; on Apple&#39; class=&quot;buy-icon buy-icon-apple&quot;&gt;&lt;/div&gt;&lt;/a&gt;, &lt;a class=&quot;buy-link&quot; data-vendor=&quot;amazon&quot; href=&quot;#&quot; target=&quot;_blank&quot; title=&#39;View &quot;Greyhounds - Tune In&quot; on Amazon&#39;&gt;&lt;div alt=&#39;View &quot;Greyhounds - Tune In&quot; on Amazon&#39; class=&quot;buy-icon buy-icon-amazon&quot;&gt;&lt;/div&gt;&lt;/a&gt;, &lt;a class=&quot;buy-link&quot; data-vendor=&quot;spotify&quot; href=&quot;#&quot; target=&quot;_blank&quot; title=&#39;View &quot;Greyhounds - Tune In&quot; on Spotify&#39;&gt;&lt;div alt=&#39;View &quot;Greyhounds - Tune In&quot; on Spotify&#39; class=&quot;buy-icon buy-icon-spotify&quot;&gt;&lt;/div&gt;&lt;/a&gt;, &lt;a class=&quot;buy-link&quot; data-vendor=&quot;apple&quot; href=&quot;#&quot; target=&quot;_blank&quot; title=&#39;View &quot;Soccer Mommy - Circle the Drain&quot; on Apple&#39;&gt;&lt;div alt=&#39;View &quot;Soccer Mommy - Circle the Drain&quot; on Apple&#39; class=&quot;buy-icon buy-icon-apple&quot;&gt;&lt;/div&gt;&lt;/a&gt;, &lt;a class=&quot;buy-link&quot; data-vendor=&quot;amazon&quot; href=&quot;#&quot; target=&quot;_blank&quot; title=&#39;View &quot;Soccer Mommy - Circle the Drain&quot; on Amazon&#39;&gt;&lt;div alt=&#39;View &quot;Soccer Mommy - Circle the Drain&quot; on Amazon&#39; class=&quot;buy-icon buy-icon-amazon&quot;&gt;&lt;/div&gt;&lt;/a&gt;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="constructing-a-data-frame-from-html-data">
+<h3><a class="toc-backref" href="#id9"><span class="section-number">5.4.4. </span>Constructing a Data Frame from HTML Data</a><a class="headerlink" href="#constructing-a-data-frame-from-html-data" title="Permalink to this headline">¶</a></h3>
+<p>Next we need to place these data into a clean data frame. For that, we will need to keep the valid data while dropping the HTML tags. We stored the tags with the artists, songs, albums, and times in separate lists. Every name is stored as a navigable string in the HTML tags, so to extract these names we need to loop across the elements of the list. The simplest loop for this task is called a <strong>list comprehension</strong>, which has the following syntax:</p>
+<p><em>newlist</em> <code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">[</span></code> <em>expression</em> <code class="docutils literal notranslate"><span class="pre">for</span></code> <em>item</em> <code class="docutils literal notranslate"><span class="pre">in</span></code> <em>oldlist</em> <code class="docutils literal notranslate"><span class="pre">if</span></code> <em>condition</em> <code class="docutils literal notranslate"><span class="pre">]</span></code></p>
+<p>In this syntax, we are creating a new list by iteratively performing operations on the elements of an existing list (<em>oldlist</em>). <em>item</em> is a token that we will use to represent one item of the existing list. <em>expression</em> is the same Python code we would use on a single element of the existing list, except we replace the name of the element with the token defined with <em>item</em>. Finally <em>condition</em> is an optional part of this code which sets a filter by which only certain elements of the old list are transformed and placed into the new list (there’s an example of conditioning in a comprehension loop in the section on <a class="reference external" href="#spider">spiders</a>).</p>
+<p>For example, to extract the navigable string from every element of <code class="docutils literal notranslate"><span class="pre">artistlist</span></code>, we can set <em>item</em> to <code class="docutils literal notranslate"><span class="pre">a</span></code>, <em>expression</em> to <code class="docutils literal notranslate"><span class="pre">a.string</span></code>, and <em>list</em> to <code class="docutils literal notranslate"><span class="pre">artistlist</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">artists</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">string</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">artistlist</span><span class="p">]</span>
+<span class="n">artists</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;Greyhounds&#39;,
+ &#39;Soccer Mommy&#39;,
+ &#39;The Head &amp; the Heart&#39;,
+ &#39;Stray Fossa&#39;,
+ &#39;Margo Price&#39;,
+ &#39;Sturgill Simpson&#39;,
+ &#39;Southern Culture on the Skids&#39;,
+ &#39;Jason Mraz&#39;,
+ &#39;This Is the Kit&#39;,
+ &#39;Sarah Jarosz&#39;,
+ &#39;Jack Johnson&#39;,
+ &#39;Devon Gilfillian&#39;,
+ &#39;Kings of Leon&#39;,
+ &#39;Dan Croll&#39;,
+ &#39;Leif Vollebekk f/ Angie McMahon&#39;,
+ &#39;Greg Laswell&#39;,
+ &#39;S.G. Goodman&#39;,
+ &#39;Eilen Jewell&#39;,
+ &#39;Creedence Clearwater Revival&#39;,
+ &#39;Rayland Baxter&#39;,
+ &#39;Grace Potter &amp; the Nocturnals&#39;,
+ &#39;The Ramones&#39;,
+ &#39;David Wax Museum&#39;,
+ &#39;Katie Pruitt&#39;,
+ &#39;Curtis Harding&#39;,
+ &#39;City and Colour&#39;,
+ &#39;Chuck Prophet&#39;,
+ &#39;Lyle Lovett&#39;,
+ &#39;Lake Street Dive&#39;,
+ &quot;Old 97&#39;s&quot;,
+ &#39;EOB&#39;,
+ &#39;Suzanne Vega and DNA&#39;,
+ &#39;Real Estate&#39;,
+ &#39;The Rolling Stones&#39;,
+ &#39;Mark Knopfler&#39;,
+ &#39;Milky Chance&#39;,
+ &#39;Squeeze&#39;,
+ &#39;Sylvan Esso&#39;,
+ &#39;Lianne La Havas&#39;,
+ &#39;Talking Heads&#39;,
+ &#39;Givers&#39;,
+ &#39;Vetiver&#39;,
+ &#39;Dave Matthews Band&#39;,
+ &#39;Strong Water&#39;,
+ &#39;Nathaniel Rateliff&#39;,
+ &#39;Sea Wolf&#39;,
+ &#39;Citizen Cope&#39;,
+ &#39;Early James&#39;,
+ &#39;Best Coast&#39;,
+ &#39;Haim&#39;,
+ &#39;Maceo Parker&#39;,
+ &#39;Nick Lowe&#39;,
+ &#39;Amos Lee&#39;,
+ &#39;The Legendary Shack Shakers&#39;,
+ &#39;Sonny Landreth&#39;,
+ &#39;Fleet Foxes&#39;,
+ &#39;Bright Eyes&#39;,
+ &#39;Blondie&#39;,
+ &#39;The Jayhawks&#39;,
+ &#39;Rufus Wainwright&#39;,
+ &#39;The Decemberists&#39;,
+ &#39;Bonny Light Horseman&#39;,
+ &#39;Local Natives&#39;,
+ &#39;Bonnie Raitt w/ John Prine&#39;,
+ &#39;John Craigie&#39;,
+ &#39;Echo &amp; the Bunnymen&#39;,
+ &#39;The Pretenders&#39;,
+ &#39;Caroline Rose&#39;,
+ &#39;The Revivalists&#39;,
+ &#39;Dinner Party&#39;,
+ &#39;Courtney Marie Andrews&#39;,
+ &#39;Oasis&#39;,
+ &#39;Brent Cobb&#39;,
+ &#39;The Avett Brothers&#39;,
+ &#39;Toad The Wet Sprocket&#39;,
+ &#39;Leisure&#39;,
+ &#39;Ray LaMontagne&#39;,
+ &#39;Margo Price&#39;,
+ &#39;James Vincent McMorrow&#39;,
+ &#39;Loudon Wainwright III&#39;,
+ &#39;Seth Walker&#39;,
+ &#39;Crooked Still&#39;,
+ &#39;Neil Young&#39;,
+ &#39;Ian Noe&#39;,
+ &#39;Corey Harris&#39;,
+ &#39;Danny Barnes&#39;,
+ &#39;My Morning Jacket&#39;,
+ &#39;Son Volt&#39;,
+ &#39;Patty Larkin&#39;,
+ &#39;Wilco&#39;,
+ &#39;Joy Williams&#39;,
+ &#39;Charley Crockett&#39;,
+ &#39;Marc Cohn&#39;,
+ &#39;Doug Seegers&#39;,
+ &#39;Khruangbin&#39;,
+ &#39;Kevin Gordon&#39;,
+ &#39;Waxahatchee&#39;,
+ &#39;Sondre Lerche&#39;,
+ &#39;Jackson Browne&#39;,
+ &#39;Special Consensus&#39;,
+ &#39;Jack Klatt&#39;,
+ &#39;Patty Griffin&#39;,
+ &#39;Sinead Lohan&#39;,
+ &#39;Band of Horses&#39;,
+ &#39;The Byrds&#39;,
+ &#39;The Civil Wars&#39;,
+ &#39;Kathleen Edwards&#39;,
+ &#39;Leftover Salmon&#39;,
+ &#39;Bruce Springsteen&#39;,
+ &#39;John Moreland&#39;,
+ &#39;Susan Tedeschi&#39;,
+ &#39;Dawes&#39;,
+ &#39;Rumer&#39;,
+ &#39;The Infamous Stringdusters&#39;,
+ &#39;Samantha Crain&#39;,
+ &#39;L.A. Dies&#39;,
+ &#39;Sam Outlaw&#39;,
+ &#39;Iron &amp; Wine&#39;,
+ &#39;Los Lobos&#39;,
+ &#39;Illiterate Light&#39;,
+ &#39;Bruce Cockburn&#39;,
+ &#39;Beabadoobee&#39;,
+ &#39;Kenny Robey&#39;,
+ &#39;Michael Kiwanuka&#39;,
+ &#39;Molly Tuttle&#39;,
+ &#39;The Wood Brothers&#39;,
+ &#39;Ray Wylie Hubbard&#39;,
+ &#39;The Lone Bellow&#39;,
+ &#39;Van Morrison&#39;,
+ &#39;Casey Van Beek &amp; the Tulsa Groove&#39;,
+ &#39;Bob Dylan&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Likewise, we extract the navigable strings for the songs, albums, and times:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">songs</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">string</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">songlist</span><span class="p">]</span>
+<span class="n">albums</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">string</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">albumlist</span><span class="p">]</span>
+<span class="n">times</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">string</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">timelist</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, to construct a clean data frame, we create a dictionary that combines these lists and passes this dictionary to the <code class="docutils literal notranslate"><span class="pre">pd.DataFrame()</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mydict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;time&#39;</span><span class="p">:</span><span class="n">times</span><span class="p">,</span>
+          <span class="s1">&#39;artist&#39;</span><span class="p">:</span><span class="n">artists</span><span class="p">,</span>
+         <span class="s1">&#39;song&#39;</span><span class="p">:</span><span class="n">songs</span><span class="p">,</span>
+         <span class="s1">&#39;album&#39;</span><span class="p">:</span><span class="n">albums</span><span class="p">}</span>
+<span class="n">wnrn_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">mydict</span><span class="p">)</span>
+<span class="n">wnrn_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time</th>
+      <th>artist</th>
+      <th>song</th>
+      <th>album</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3:22 PM</td>
+      <td>Greyhounds</td>
+      <td>Tune In</td>
+      <td>Primates</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3:16 PM</td>
+      <td>Soccer Mommy</td>
+      <td>Circle the Drain</td>
+      <td>Color Theory</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3:13 PM</td>
+      <td>The Head &amp; the Heart</td>
+      <td>Sounds Like Hallelujah</td>
+      <td>The Head &amp; the Heart</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3:09 PM</td>
+      <td>Stray Fossa</td>
+      <td>For What Was</td>
+      <td>(Single)</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3:04 PM</td>
+      <td>Margo Price</td>
+      <td>Letting Me Down</td>
+      <td>That's How Rumors Get Started</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>126</th>
+      <td>6:21 AM</td>
+      <td>Ray Wylie Hubbard</td>
+      <td>Bad Trick</td>
+      <td>Co-Starring</td>
+    </tr>
+    <tr>
+      <th>127</th>
+      <td>6:16 AM</td>
+      <td>The Lone Bellow</td>
+      <td>Good Times</td>
+      <td>Half Moon Light</td>
+    </tr>
+    <tr>
+      <th>128</th>
+      <td>6:13 AM</td>
+      <td>Van Morrison</td>
+      <td>Crazy Love</td>
+      <td>Moondance</td>
+    </tr>
+    <tr>
+      <th>129</th>
+      <td>6:11 AM</td>
+      <td>Casey Van Beek &amp; the Tulsa Groove</td>
+      <td>Thinking About You</td>
+      <td>Heaven Forever</td>
+    </tr>
+    <tr>
+      <th>130</th>
+      <td>6:03 AM</td>
+      <td>Bob Dylan</td>
+      <td>False Prophet</td>
+      <td>Rough &amp; Rowdy Ways</td>
+    </tr>
+  </tbody>
+</table>
+<p>131 rows × 4 columns</p>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="building-a-spider">
+<h2><a class="toc-backref" href="#id10"><span class="section-number">5.5. </span>Building a Spider</a><a class="headerlink" href="#building-a-spider" title="Permalink to this headline">¶</a></h2>
+<p>At the bottom of the WNRN playlist on https://spinitron.com/WNRN/ there are links to older song playlists. Let’s extend our example by building a <strong>spider</strong> to capture the data that exists on these links as well. A spider is a web scraper that follows links on a page automatically and scrapes from those links as well.</p>
+<p>I look at the page source for these links, and find that they are contained in a <code class="docutils literal notranslate"><span class="pre">&lt;div</span> <span class="pre">class=&quot;recent-playlists&quot;&gt;</span></code> tag. I start by finding this tag. As there’s only one occurrence, I can use <code class="docutils literal notranslate"><span class="pre">.find()</span></code> instead of <code class="docutils literal notranslate"><span class="pre">.find_all()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">recent</span> <span class="o">=</span> <span class="n">wnrn</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="s2">&quot;recent-playlists&quot;</span><span class="p">)</span>
+<span class="n">recent</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;div class=&quot;recent-playlists&quot;&gt;
+&lt;h4&gt;Recent&lt;/h4&gt;
+&lt;div class=&quot;grid-view&quot; id=&quot;w2&quot;&gt;
+&lt;table class=&quot;table table-bordered table-narrow&quot;&gt;&lt;tbody&gt;
+&lt;tr data-key=&quot;0&quot;&gt;&lt;td class=&quot;show-time&quot;&gt;5:00 AM&lt;/td&gt;&lt;td&gt;&lt;strong&gt;&lt;a href=&quot;/WNRN/pl/11377481/WNRN-8-4-20-5-00-AM&quot;&gt;WNRN 8/4/20, 5:00 AM&lt;/a&gt;&lt;/strong&gt; with &lt;a href=&quot;/WNRN/dj/104061/WNRN&quot;&gt;WNRN&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr data-key=&quot;1&quot;&gt;&lt;td class=&quot;show-time&quot;&gt;4:00 AM&lt;/td&gt;&lt;td&gt;&lt;strong&gt;&lt;a href=&quot;/WNRN/pl/11377367/WNRN-8-4-20-4-02-AM&quot;&gt;WNRN 8/4/20, 4:02 AM&lt;/a&gt;&lt;/strong&gt; with &lt;a href=&quot;/WNRN/dj/104061/WNRN&quot;&gt;WNRN&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr data-key=&quot;2&quot;&gt;&lt;td class=&quot;show-time&quot;&gt;3:00 AM&lt;/td&gt;&lt;td&gt;&lt;strong&gt;&lt;a href=&quot;/WNRN/pl/11377196/WNRN-8-4-20-3-03-AM&quot;&gt;WNRN 8/4/20, 3:03 AM&lt;/a&gt;&lt;/strong&gt; with &lt;a href=&quot;/WNRN/dj/104061/WNRN&quot;&gt;WNRN&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr data-key=&quot;3&quot;&gt;&lt;td class=&quot;show-time&quot;&gt;12:00 AM&lt;/td&gt;&lt;td&gt;&lt;strong&gt;&lt;a href=&quot;/WNRN/pl/11376494/WNRN&quot;&gt;WNRN&lt;/a&gt;&lt;/strong&gt; (Music) with &lt;a href=&quot;/WNRN/dj/104073/WNRN&quot;&gt;WNRN&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr data-key=&quot;4&quot;&gt;&lt;td class=&quot;show-time&quot;&gt;8:00 PM&lt;/td&gt;&lt;td&gt;&lt;strong&gt;&lt;a href=&quot;/WNRN/pl/11375321/WNRN&quot;&gt;WNRN&lt;/a&gt;&lt;/strong&gt; (Music)&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;&lt;/div&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that all of the addresses we need are contained in <code class="docutils literal notranslate"><span class="pre">&lt;a&gt;</span></code> tags. We can extract these <code class="docutils literal notranslate"><span class="pre">&lt;a&gt;</span></code> tags with <code class="docutils literal notranslate"><span class="pre">.find_all()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">recent_atags</span> <span class="o">=</span> <span class="n">recent</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+<span class="n">recent_atags</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;a href=&quot;/WNRN/pl/11377481/WNRN-8-4-20-5-00-AM&quot;&gt;WNRN 8/4/20, 5:00 AM&lt;/a&gt;,
+ &lt;a href=&quot;/WNRN/dj/104061/WNRN&quot;&gt;WNRN&lt;/a&gt;,
+ &lt;a href=&quot;/WNRN/pl/11377367/WNRN-8-4-20-4-02-AM&quot;&gt;WNRN 8/4/20, 4:02 AM&lt;/a&gt;,
+ &lt;a href=&quot;/WNRN/dj/104061/WNRN&quot;&gt;WNRN&lt;/a&gt;,
+ &lt;a href=&quot;/WNRN/pl/11377196/WNRN-8-4-20-3-03-AM&quot;&gt;WNRN 8/4/20, 3:03 AM&lt;/a&gt;,
+ &lt;a href=&quot;/WNRN/dj/104061/WNRN&quot;&gt;WNRN&lt;/a&gt;,
+ &lt;a href=&quot;/WNRN/pl/11376494/WNRN&quot;&gt;WNRN&lt;/a&gt;,
+ &lt;a href=&quot;/WNRN/dj/104073/WNRN&quot;&gt;WNRN&lt;/a&gt;,
+ &lt;a href=&quot;/WNRN/pl/11375321/WNRN&quot;&gt;WNRN&lt;/a&gt;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The resulting list contains the web endpoints we need, and also some web endpoints we don’t need: we want the URLs that contain the string <code class="docutils literal notranslate"><span class="pre">/pl/</span></code> as these are playlists, and we want to exclude the URLs that contain the string <code class="docutils literal notranslate"><span class="pre">/dj/</span></code> as these pages refer to a particular DJ. We need a comprehension loop that loops across these elements, extracts the <code class="docutils literal notranslate"><span class="pre">href</span></code> attribute of the entries that include <code class="docutils literal notranslate"><span class="pre">/pl/</span></code>, and ignore the entries that include <code class="docutils literal notranslate"><span class="pre">/dj/</span></code>. We again use this syntax:</p>
+<p><em>newlist</em> <code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">[</span></code> <em>expression</em> <code class="docutils literal notranslate"><span class="pre">for</span></code> <em>item</em> <code class="docutils literal notranslate"><span class="pre">in</span></code> <em>oldlist</em> <code class="docutils literal notranslate"><span class="pre">if</span></code> <em>condition</em> <code class="docutils literal notranslate"><span class="pre">]</span></code></p>
+<p>In this case:</p>
+<ul class="simple">
+<li><p><em>newlist</em> is a list containing the URLs we want to direct our spider to. I call it <code class="docutils literal notranslate"><span class="pre">urls</span></code>.</p></li>
+<li><p><em>item</em> is one element of <code class="docutils literal notranslate"><span class="pre">recent_atags</span></code>, which I will call <code class="docutils literal notranslate"><span class="pre">pl</span></code>.</p></li>
+<li><p><em>expression</em> is code that extracts the web address from the <code class="docutils literal notranslate"><span class="pre">href</span></code> attribute of the <code class="docutils literal notranslate"><span class="pre">&lt;a&gt;</span></code> tag, so here the code would be <code class="docutils literal notranslate"><span class="pre">pl['href']</span></code>.</p></li>
+<li><p>Finally, <em>condition</em> is a logical statement that should be <code class="docutils literal notranslate"><span class="pre">True</span></code> if the web address contains <code class="docutils literal notranslate"><span class="pre">/pl/</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> if the web address contains <code class="docutils literal notranslate"><span class="pre">/dj/</span></code>. Here, the conditional statement should be <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">&quot;/pl/&quot;</span> <span class="pre">in</span> <span class="pre">pl['href']</span></code>. This code will look for the string <code class="docutils literal notranslate"><span class="pre">&quot;/pl/&quot;</span></code> inside the string called by <code class="docutils literal notranslate"><span class="pre">pl['href']</span></code> and return <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> depending on whether this string is found.</p></li>
+</ul>
+<p>Putting all this syntax together gives us our list of playlist URLs:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wnrn_url</span> <span class="o">=</span> <span class="p">[</span><span class="n">pl</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">pl</span> <span class="ow">in</span> <span class="n">recent_atags</span> <span class="k">if</span> <span class="s2">&quot;/pl/&quot;</span> <span class="ow">in</span> <span class="n">pl</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]]</span>
+<span class="n">wnrn_url</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;/WNRN/pl/11377481/WNRN-8-4-20-5-00-AM&#39;,
+ &#39;/WNRN/pl/11377367/WNRN-8-4-20-4-02-AM&#39;,
+ &#39;/WNRN/pl/11377196/WNRN-8-4-20-3-03-AM&#39;,
+ &#39;/WNRN/pl/11376494/WNRN&#39;,
+ &#39;/WNRN/pl/11375321/WNRN&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>First, we need to collect all of the code we created above to extract the artist, song, album, and play times from the HTML code. We define a function that does all of this work. We specify one argument for this function, the URL, so that all the function needs is the URL and it can output a clean dataframe. I name the function <code class="docutils literal notranslate"><span class="pre">wnrn_spider()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">wnrn_spider</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Perform web scraping for any WNRN playlist given the available link&quot;&quot;&quot;</span>
+    
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;user-agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Kropko class example (jkropko@virginia.edu)&#39;</span><span class="p">}</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+    <span class="n">wnrn</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html&#39;</span><span class="p">)</span>
+    
+    <span class="n">artistlist</span> <span class="o">=</span> <span class="n">wnrn</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="s2">&quot;artist&quot;</span><span class="p">)</span>
+    <span class="n">songlist</span> <span class="o">=</span> <span class="n">wnrn</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="s2">&quot;song&quot;</span><span class="p">)</span>
+    <span class="n">albumlist</span> <span class="o">=</span> <span class="n">wnrn</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="s2">&quot;release&quot;</span><span class="p">)</span>
+    <span class="n">timelist</span> <span class="o">=</span> <span class="n">wnrn</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;td&quot;</span><span class="p">,</span> <span class="s2">&quot;spin-time&quot;</span><span class="p">)</span>
+    
+    <span class="n">artists</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">string</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">artistlist</span><span class="p">]</span>
+    <span class="n">songs</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">string</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">songlist</span><span class="p">]</span>
+    <span class="n">albums</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">string</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">albumlist</span><span class="p">]</span>
+    <span class="n">times</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">string</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">timelist</span><span class="p">]</span>
+    
+    <span class="n">mydict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;time&#39;</span><span class="p">:</span><span class="n">times</span><span class="p">,</span> <span class="s1">&#39;artist&#39;</span><span class="p">:</span><span class="n">artists</span><span class="p">,</span> <span class="s1">&#39;song&#39;</span><span class="p">:</span><span class="n">songs</span><span class="p">,</span> <span class="s1">&#39;album&#39;</span><span class="p">:</span><span class="n">albums</span><span class="p">}</span>
+    <span class="n">wnrn_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">mydict</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">wnrn_df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can pass any of the URLs we collected to our function and get the other playlists. We will have to add the domain “https://spinitron.com” to the beginning of each of the URLs we collected:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wnrn2</span> <span class="o">=</span> <span class="n">wnrn_spider</span><span class="p">(</span><span class="s1">&#39;https://spinitron.com/&#39;</span> <span class="o">+</span> <span class="n">wnrn_url</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">wnrn2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="stderr docutils container">
+<pre class="stderr literal-block">/opt/anaconda3/lib/python3.7/site-packages/bs4/__init__.py:181: UserWarning: No parser was explicitly specified, so I'm using the best available HTML parser for this system (&quot;lxml&quot;). This usually isn't a problem, but if you run this code on another system, or in a different virtual environment, it may use a different parser and behave differently.
+
+The code that caused this warning is on line 193 of the file /opt/anaconda3/lib/python3.7/runpy.py. To get rid of this warning, change code that looks like this:
+
+ BeautifulSoup(YOUR_MARKUP})
+
+to this:
+
+ BeautifulSoup(YOUR_MARKUP, &quot;lxml&quot;)
+
+  markup_type=markup_type))
+</pre>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time</th>
+      <th>artist</th>
+      <th>song</th>
+      <th>album</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5:00 AM</td>
+      <td>Robert Plant</td>
+      <td>Bones of Saints</td>
+      <td>Carry Fire</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5:03 AM</td>
+      <td>Caroline Spence</td>
+      <td>Who's Gonna Make My Mistakes</td>
+      <td>Mint Condition</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5:05 AM</td>
+      <td>Bon Iver</td>
+      <td>Holocene</td>
+      <td>Bon Iver</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5:10 AM</td>
+      <td>Band of Heathens</td>
+      <td>Maple Tears</td>
+      <td>Band Of Heathens</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5:14 AM</td>
+      <td>Robert Cray</td>
+      <td>Hot</td>
+      <td>That's What I Heard</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>5:18 AM</td>
+      <td>Washed Out</td>
+      <td>Too Late</td>
+      <td>Purple Noon</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>5:22 AM</td>
+      <td>Gregory Alan Isakov</td>
+      <td>Dark, Dark, Dark</td>
+      <td>Evening Machines</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>5:25 AM</td>
+      <td>Gordon Lightfoot</td>
+      <td>Sundown</td>
+      <td>Gord's Gold</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>5:29 AM</td>
+      <td>Jenny Lewis</td>
+      <td>Just One of the Guys</td>
+      <td>The Voyager</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>5:36 AM</td>
+      <td>Webb Wilder</td>
+      <td>Buried Our Love</td>
+      <td>High Without Love</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>5:42 AM</td>
+      <td>Brian Fallon</td>
+      <td>Lonely for You Only</td>
+      <td>Local Honey</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>5:45 AM</td>
+      <td>Edward Sharpe &amp; the Magnetic Zeros</td>
+      <td>Home</td>
+      <td>Up From Below</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>5:50 AM</td>
+      <td>Mt. Joy</td>
+      <td>Rearrange Us</td>
+      <td>Rearrange Us</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>5:53 AM</td>
+      <td>Teddy Thompson</td>
+      <td>Heartbreaker Please</td>
+      <td>Heartbreaker Please</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>5:56 AM</td>
+      <td>Vagabon</td>
+      <td>Water Me Down</td>
+      <td>Vagabon</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Our goal here is to loop across all the URLs we collected, extract the data in a clean data frame, and append these data frames together to construct a longer playlist. To do that, we will use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, which has the following syntax:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">:</span>
+    <span class="n">expressions</span>
+</pre></div>
+</div>
+<p>This syntax is similar to the syntax we used to build a comprehension loop. <code class="docutils literal notranslate"><span class="pre">list</span></code> is an existing list, and <code class="docutils literal notranslate"><span class="pre">index</span></code> stands in for one element of this list. For each element of the list, we execute the code contained in <code class="docutils literal notranslate"><span class="pre">expressions</span></code>, which can use the <code class="docutils literal notranslate"><span class="pre">index</span></code>.</p>
+<p>For our spider, we will use the following steps:</p>
+<ol class="simple">
+<li><p>We take the data we already scraped from https://spinitron.com/WNRN (saved as <code class="docutils literal notranslate"><span class="pre">wnrn_df</span></code>) and clone it as a new variable named <code class="docutils literal notranslate"><span class="pre">wnrn_total_playlist</span></code>. It is important that we make a copy, and that we do not overwrite <code class="docutils literal notranslate"><span class="pre">wnrn_df</span></code>. We will be repeatedly saving over <code class="docutils literal notranslate"><span class="pre">wnrn_total_playlist</span></code> within the loop, and if we do not overwrite <code class="docutils literal notranslate"><span class="pre">wnrn_df</span></code>, it gives us a stable data frame to return to as a starting point if we need to rerun this loop.</p></li>
+<li><p>We use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to loop across all the web addresses inside <code class="docutils literal notranslate"><span class="pre">wnrn_url</span></code>.</p></li>
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, we use the <code class="docutils literal notranslate"><span class="pre">wnrn_spider()</span></code> function to extract the playlist data from each of the URLs inside <code class="docutils literal notranslate"><span class="pre">wnrn_url</span></code>.</p></li>
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, we use the <code class="docutils literal notranslate"><span class="pre">.append()</span></code> method to attach the new data to the bottom of the existing data, matching corresponding columns.</p></li>
+</ol>
+<p>The code is as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wnrn_total_playlist</span> <span class="o">=</span> <span class="n">wnrn_df</span> 
+<span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">wnrn_url</span><span class="p">:</span>
+    <span class="n">moredata</span> <span class="o">=</span> <span class="n">wnrn_spider</span><span class="p">(</span><span class="s1">&#39;https://spinitron.com/&#39;</span> <span class="o">+</span> <span class="n">w</span><span class="p">)</span> 
+    <span class="n">wnrn_total_playlist</span> <span class="o">=</span> <span class="n">wnrn_total_playlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">moredata</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="stderr docutils container">
+<pre class="stderr literal-block">/opt/anaconda3/lib/python3.7/site-packages/bs4/__init__.py:181: UserWarning: No parser was explicitly specified, so I'm using the best available HTML parser for this system (&quot;lxml&quot;). This usually isn't a problem, but if you run this code on another system, or in a different virtual environment, it may use a different parser and behave differently.
+
+The code that caused this warning is on line 193 of the file /opt/anaconda3/lib/python3.7/runpy.py. To get rid of this warning, change code that looks like this:
+
+ BeautifulSoup(YOUR_MARKUP})
+
+to this:
+
+ BeautifulSoup(YOUR_MARKUP, &quot;lxml&quot;)
+
+  markup_type=markup_type))
+</pre>
+</div>
+</div>
+</div>
+<p>We now have a data frame that combines all of the playlists on https://spinitron.com/WNRN and on the playlists linked to under “Recent”:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wnrn_total_playlist</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time</th>
+      <th>artist</th>
+      <th>song</th>
+      <th>album</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3:22 PM</td>
+      <td>Greyhounds</td>
+      <td>Tune In</td>
+      <td>Primates</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3:16 PM</td>
+      <td>Soccer Mommy</td>
+      <td>Circle the Drain</td>
+      <td>Color Theory</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3:13 PM</td>
+      <td>The Head &amp; the Heart</td>
+      <td>Sounds Like Hallelujah</td>
+      <td>The Head &amp; the Heart</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3:09 PM</td>
+      <td>Stray Fossa</td>
+      <td>For What Was</td>
+      <td>(Single)</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3:04 PM</td>
+      <td>Margo Price</td>
+      <td>Letting Me Down</td>
+      <td>That's How Rumors Get Started</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>11:43 PM</td>
+      <td>Haim</td>
+      <td>The Steps</td>
+      <td>Women in Music Pt. III</td>
+    </tr>
+    <tr>
+      <th>54</th>
+      <td>11:48 PM</td>
+      <td>Sondre Lerche</td>
+      <td>I Can't See Myself Without You</td>
+      <td>Patience</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>11:51 PM</td>
+      <td>David Gray</td>
+      <td>Babylon</td>
+      <td>White Ladder</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>11:55 PM</td>
+      <td>Best Coast</td>
+      <td>For the First Time</td>
+      <td>Always Tomorrow</td>
+    </tr>
+    <tr>
+      <th>57</th>
+      <td>11:58 PM</td>
+      <td>San Fermin</td>
+      <td>Emily</td>
+      <td>Jackrabbit</td>
+    </tr>
+  </tbody>
+</table>
+<p>282 rows × 4 columns</p>
+</div></div></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="ch4.html" title="previous page"><span class="section-number">4. </span>Acquiring Data from APIs</a>
+    <a class='right-next' id="next-link" href="ch6.html" title="next page"><span class="section-number">6. </span>Creating and Connecting to Databases</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jonathan Kropko (jkropko@virginia.edu)<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="_static/js/index.js"></script>
+    
+  </body>
+</html>

@@ -1,0 +1,8 @@
+# Book settings
+title: Surfing the Data Pipeline with Python
+author: Jonathan Kropko (jkropko@virginia.edu)
+logo: surf.jpg
+
+latex:
+  latex_documents:
+    targetname: book.tex

@@ -1,0 +1,3108 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>3. Loading, Converting, and Writing JSON Files &#8212; Surfing the Data Pipeline with Python</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/mystnb.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4. Acquiring Data from APIs" href="ch4.html" />
+    <link rel="prev" title="2. Loading Data from Electronic Data Files" href="ch2.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/surf.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Surfing the Data Pipeline with Python</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Surfing the Data Pipeline with Python
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch1.html">
+   1. Getting Yourself Unstuck
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch2.html">
+   2. Loading Data from Electronic Data Files
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   3. Loading, Converting, and Writing JSON Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch4.html">
+   4. Acquiring Data from APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch5.html">
+   5. Web Scraping Using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     BeautifulSoup
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch6.html">
+   6. Creating and Connecting to Databases
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch7.html">
+   7. Database Queries
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch8.html">
+   8. Data Wrangling with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch9.html">
+   9. Reshaping and Merging Data and Working with Strings, Dates, and Times
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch10.html">
+   10. Exploratory Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch11.html">
+   11. Static Data Visualizations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch12.html">
+   12. Interactive Data Visualizations and Dashboards
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/ch3.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction-douglas-crockford-s-json-saga">
+   3.1. Introduction: Douglas Crockford’s JSON Saga
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-structure-of-a-json-file">
+   3.2. The Structure of a JSON File
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lists-sets-and-dictionaries">
+     3.2.1. Lists, Sets, and Dictionaries
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nested-structures">
+     3.2.2. Nested Structures
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metadata">
+     3.2.3. Metadata
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#missing-values-and-different-data-types">
+     3.2.4. Missing Values and Different Data Types
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-and-reading-json-data-in-python">
+   3.3. Loading and Reading JSON Data in Python
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-the-requests-get-json-loads-and-json-dumps-functions">
+     3.3.1. Using the
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       requests.get()
+      </span>
+     </code>
+     ,
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       json.loads()
+      </span>
+     </code>
+     and
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       json.dumps()
+      </span>
+     </code>
+     Functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#searching-along-the-json-index-path">
+     3.3.2. Searching Along the JSON Index Path
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#looping-across-records-to-extract-datapoints">
+     3.3.3. Looping Across Records to Extract Datapoints
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-pd-read-json-and-pd-json-normalize-to-store-json-data-in-a-data-frame">
+   3.4. Using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pd.read_json()
+    </span>
+   </code>
+   and
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pd.json_normalize()
+    </span>
+   </code>
+   to Store JSON Data in a Data Frame
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#situation-1-no-nesting-no-metadata">
+     3.4.1. Situation 1: No nesting, no metadata
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#situation-2-nesting-but-no-metadata">
+     3.4.2. Situation 2: Nesting, but no metadata
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#situation-3-metadata">
+     3.4.3. Situation 3: Metadata
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#saving-json-files-and-converting-data-frames-to-json">
+   3.5. Saving JSON Files and Converting Data Frames to JSON
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#saving-existing-json-files-to-disk">
+     3.5.1. Saving Existing JSON Files to Disk
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#converting-tabular-dataframes-to-json">
+     3.5.2. Converting Tabular DataFrames to JSON
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="loading-converting-and-writing-json-files">
+<h1><a class="toc-backref" href="#id1"><span class="section-number">3. </span>Loading, Converting, and Writing JSON Files</a><a class="headerlink" href="#loading-converting-and-writing-json-files" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#loading-converting-and-writing-json-files" id="id1">Loading, Converting, and Writing JSON Files</a></p>
+<ul>
+<li><p><a class="reference internal" href="#introduction-douglas-crockford-s-json-saga" id="id2">Introduction: Douglas Crockford’s JSON Saga</a></p></li>
+<li><p><a class="reference internal" href="#the-structure-of-a-json-file" id="id3">The Structure of a JSON File</a></p>
+<ul>
+<li><p><a class="reference internal" href="#lists-sets-and-dictionaries" id="id4">Lists, Sets, and Dictionaries</a></p></li>
+<li><p><a class="reference internal" href="#nested-structures" id="id5">Nested Structures</a></p></li>
+<li><p><a class="reference internal" href="#metadata" id="id6">Metadata</a></p></li>
+<li><p><a class="reference internal" href="#missing-values-and-different-data-types" id="id7">Missing Values and Different Data Types</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#loading-and-reading-json-data-in-python" id="id8">Loading and Reading JSON Data in Python</a></p>
+<ul>
+<li><p><a class="reference internal" href="#using-the-requests-get-json-loads-and-json-dumps-functions" id="id9">Using the <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code>, <code class="docutils literal notranslate"><span class="pre">json.loads()</span></code> and <code class="docutils literal notranslate"><span class="pre">json.dumps()</span></code> Functions</a></p></li>
+<li><p><a class="reference internal" href="#searching-along-the-json-index-path" id="id10">Searching Along the JSON Index Path</a></p></li>
+<li><p><a class="reference internal" href="#looping-across-records-to-extract-datapoints" id="id11">Looping Across Records to Extract Datapoints</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#using-pd-read-json-and-pd-json-normalize-to-store-json-data-in-a-data-frame" id="id12">Using <code class="docutils literal notranslate"><span class="pre">pd.read_json()</span></code> and <code class="docutils literal notranslate"><span class="pre">pd.json_normalize()</span></code> to Store JSON Data in a Data Frame</a></p>
+<ul>
+<li><p><a class="reference internal" href="#situation-1-no-nesting-no-metadata" id="id13">Situation 1: No nesting, no metadata</a></p></li>
+<li><p><a class="reference internal" href="#situation-2-nesting-but-no-metadata" id="id14">Situation 2: Nesting, but no metadata</a></p></li>
+<li><p><a class="reference internal" href="#situation-3-metadata" id="id15">Situation 3: Metadata</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#saving-json-files-and-converting-data-frames-to-json" id="id16">Saving JSON Files and Converting Data Frames to JSON</a></p>
+<ul>
+<li><p><a class="reference internal" href="#saving-existing-json-files-to-disk" id="id17">Saving Existing JSON Files to Disk</a></p></li>
+<li><p><a class="reference internal" href="#converting-tabular-dataframes-to-json" id="id18">Converting Tabular DataFrames to JSON</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="introduction-douglas-crockford-s-json-saga">
+<h2><a class="toc-backref" href="#id2"><span class="section-number">3.1. </span>Introduction: Douglas Crockford’s JSON Saga</a><a class="headerlink" href="#introduction-douglas-crockford-s-json-saga" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.json.org/json-en.html">JSON</a> stands for <strong>JavaScript Object Notation</strong>, and it is one of the most frequently used data formats for transferring data over the Internet. If you will be using a web-based data transfer system, such as an API (more on that in the next module), you will be dealing with data in JSON format.</p>
+<p>The JSON data format is attributed to Douglas Crockford, a Javascript architect at Yahoo!, although in his words: “I discovered JSON. I do not claim to have invented JSON, because it already existed in nature. What I did was I found it, I named it, I described how it was useful.” Here’s an excellent talk by Douglas Crockford in which he describes the origin of JSON and the early struggles to create a universal and lightweight language for data transference. The talk is about 50 minutes long, but it is worth watching if you have the time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">IFrame</span>
+<span class="n">IFrame</span><span class="p">(</span><span class="n">src</span><span class="o">=</span><span class="s2">&quot;https://www.youtube.com/embed/-C-JoyNuQJs&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s2">&quot;560&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s2">&quot;315&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/-C-JoyNuQJs"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>For what it’s worth, Douglas Crockford calls the language “Jay-Sin”, like the first name, and not “Jay-Sawn”. Although he says “I strictly don’t care” about however people choose to pronounce JSON.</p>
+<p>Crockford and his collaborators developed JSON in 2001 with the objective of creating a language to store, display, and transfer in a way that works on every browser. In other words, the whole point of JSON is to be <strong>universal</strong>, so that the data are readable no matter the browser or environment. JSON is also designed to be as <strong>lightweight</strong> as possible: that is, JSON code is as compact as possible. JSON sacrificies features that expand the functionality of the language, such as comments, processing instructions, or attributes, in order to use the minimal amount of code. The lightweight construction of JSON makes <a class="reference external" href="https://stackoverflow.com/questions/12346349/why-is-json-more-lightweight-than-xml">JSON code much faster than alternative data interchange languages like XML</a>. It also helps achieve the goal of universality: a lightweight language works within existing infrastructures with no additional software or extraneous code because every programming language understands data in some form, and a minimalist data structure works with every language’s idea of what data should be. In Crockford’s words:</p>
+<blockquote>
+<div><p>One of the key design goals behind JSON was minimalism. My idea was that the less we have to agree on in order to inter-operate, the more likely we’re going to be able to inter-operate well. If the interfaces are really simple, we can easily connect, and if the interfaces are really complicated, the likelihood that something’s going to go wrong goes way, way up. So I endeavored to make JSON as simple as possible.</p>
+</div></blockquote>
+<p>Before we get to examples of using JSONs in Python, load the following libraries:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">tracebacklimit</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># turn off the long tracebacks on error messages</span>
+<span class="c1">#sys.tracebacklimit = None # use to turn tracebacks back on if needed</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="the-structure-of-a-json-file">
+<h2><a class="toc-backref" href="#id3"><span class="section-number">3.2. </span>The Structure of a JSON File</a><a class="headerlink" href="#the-structure-of-a-json-file" title="Permalink to this headline">¶</a></h2>
+<p>The biggest difference between JSON (and other data interchange formats like XML, PHP, and YAML) and CSV is that JSON accomodates <strong>tree-based</strong> data structures, whereas CSV only handles <strong>tabular</strong> data. Many real-world applications require a tree-based structure for data. For example, here are the first two records from fake data from a business’s customer records:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">users</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://jsonplaceholder.typicode.com/users&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">users</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1110</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[
+  {
+    &quot;id&quot;: 1,
+    &quot;name&quot;: &quot;Leanne Graham&quot;,
+    &quot;username&quot;: &quot;Bret&quot;,
+    &quot;email&quot;: &quot;Sincere@april.biz&quot;,
+    &quot;address&quot;: {
+      &quot;street&quot;: &quot;Kulas Light&quot;,
+      &quot;suite&quot;: &quot;Apt. 556&quot;,
+      &quot;city&quot;: &quot;Gwenborough&quot;,
+      &quot;zipcode&quot;: &quot;92998-3874&quot;,
+      &quot;geo&quot;: {
+        &quot;lat&quot;: &quot;-37.3159&quot;,
+        &quot;lng&quot;: &quot;81.1496&quot;
+      }
+    },
+    &quot;phone&quot;: &quot;1-770-736-8031 x56442&quot;,
+    &quot;website&quot;: &quot;hildegard.org&quot;,
+    &quot;company&quot;: {
+      &quot;name&quot;: &quot;Romaguera-Crona&quot;,
+      &quot;catchPhrase&quot;: &quot;Multi-layered client-server neural-net&quot;,
+      &quot;bs&quot;: &quot;harness real-time e-markets&quot;
+    }
+  },
+  {
+    &quot;id&quot;: 2,
+    &quot;name&quot;: &quot;Ervin Howell&quot;,
+    &quot;username&quot;: &quot;Antonette&quot;,
+    &quot;email&quot;: &quot;Shanna@melissa.tv&quot;,
+    &quot;address&quot;: {
+      &quot;street&quot;: &quot;Victor Plains&quot;,
+      &quot;suite&quot;: &quot;Suite 879&quot;,
+      &quot;city&quot;: &quot;Wisokyburgh&quot;,
+      &quot;zipcode&quot;: &quot;90566-7771&quot;,
+      &quot;geo&quot;: {
+        &quot;lat&quot;: &quot;-43.9509&quot;,
+        &quot;lng&quot;: &quot;-34.4618&quot;
+      }
+    },
+    &quot;phone&quot;: &quot;010-692-6593 x09125&quot;,
+    &quot;website&quot;: &quot;anastasia.net&quot;,
+    &quot;company&quot;: {
+      &quot;name&quot;: &quot;Deckow-Crist&quot;,
+      &quot;catchPhrase&quot;: &quot;Proactive didactic contingency&quot;,
+      &quot;bs&quot;: &quot;synergize scalable supply-chains&quot;
+    }
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are several elements of the JSON format that we need to discuss.</p>
+<div class="section" id="lists-sets-and-dictionaries">
+<h3><a class="toc-backref" href="#id4"><span class="section-number">3.2.1. </span>Lists, Sets, and Dictionaries</a><a class="headerlink" href="#lists-sets-and-dictionaries" title="Permalink to this headline">¶</a></h3>
+<p>First, notice the opening square brace <code class="docutils literal notranslate"><span class="pre">[</span></code>. This character tells Python to read all the following records as elements of a <strong>list</strong>. In a Python list, the order of the elements matters and elements can be repeated, but are not given names. The first element is denoted with index 0, the second element is denoted with index 1, and so on. For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="o">-</span><span class="mi">9</span><span class="p">]</span>
+<span class="n">my_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<p>Within the JSON syntax, each individual element of the list is a <strong>set</strong>, denoted by curly braces <code class="docutils literal notranslate"><span class="pre">{</span></code> and <code class="docutils literal notranslate"><span class="pre">}</span></code>. A Python set differs from a Python list in that the order of the elements does not matter (it sorts the elements automatically), it doesn’t allow repetition, and it allows the elements to be named. For example, in the following code, notice how the repeated 5s are removed and how the elements are sorted from smallest to largest:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_set</span> <span class="o">=</span> <span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="o">-</span><span class="mi">9</span><span class="p">}</span>
+<span class="n">my_set</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>{-9, 5, 8}
+</pre></div>
+</div>
+</div>
+</div>
+<p>It’s only possible to use call individual elements of a set if those elements are given distinct names:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_set</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;larry&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;curly&#39;</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;moe&#39;</span><span class="p">:</span><span class="o">-</span><span class="mi">9</span><span class="p">}</span>
+<span class="n">my_set</span><span class="p">[</span><span class="s1">&#39;larry&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<p>In Python, sets in which elements of a set have names are called <strong>dictionaries</strong>. The names are called <strong>keys</strong>, and the elements themselves are called <strong>values</strong>. So in this case, an element of the dictionary has a key of “larry” and a value of 5. Like sets, dictionaries enforce no repetition, but they apply this restriction to the keys only: multiple keys can have the same value, but every value must have a distinct key. In this example, I define the key “larry” twice, and only the last “larry” entered into the dictionary definition is saved:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_set</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;larry&#39;</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span> <span class="s1">&#39;larry&#39;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;curly&#39;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;moe&#39;</span><span class="p">:</span><span class="o">-</span><span class="mi">9</span><span class="p">}</span>
+<span class="n">my_set</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;larry&#39;: 10, &#39;curly&#39;: 10, &#39;moe&#39;: -9}
+</pre></div>
+</div>
+</div>
+</div>
+<p>That means that JSON notation is the same as a <strong>list in which each element is a dictionary</strong> in Python. Every dictionary represents one record in the data, and when we convert the data to a tabular dataframe, each record will occupy one row in the data.</p>
+</div>
+<div class="section" id="nested-structures">
+<h3><a class="toc-backref" href="#id5"><span class="section-number">3.2.2. </span>Nested Structures</a><a class="headerlink" href="#nested-structures" title="Permalink to this headline">¶</a></h3>
+<p>JSON can store data structures that are awkward or impossible for CSV. We can convert JSON formats to tabular formats to store the data in a data frame, but in doing so, we lose information about which features are nested within other fields.</p>
+<p>Let’s return to the example of the customer records stored in JSON format.  In these data, some features are themselves dictionaries that contain additional features, resulting in a nested and tree-like shape to the data. The first record looks like:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">users</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">560</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[
+  {
+    &quot;id&quot;: 1,
+    &quot;name&quot;: &quot;Leanne Graham&quot;,
+    &quot;username&quot;: &quot;Bret&quot;,
+    &quot;email&quot;: &quot;Sincere@april.biz&quot;,
+    &quot;address&quot;: {
+      &quot;street&quot;: &quot;Kulas Light&quot;,
+      &quot;suite&quot;: &quot;Apt. 556&quot;,
+      &quot;city&quot;: &quot;Gwenborough&quot;,
+      &quot;zipcode&quot;: &quot;92998-3874&quot;,
+      &quot;geo&quot;: {
+        &quot;lat&quot;: &quot;-37.3159&quot;,
+        &quot;lng&quot;: &quot;81.1496&quot;
+      }
+    },
+    &quot;phone&quot;: &quot;1-770-736-8031 x56442&quot;,
+    &quot;website&quot;: &quot;hildegard.org&quot;,
+    &quot;company&quot;: {
+      &quot;name&quot;: &quot;Romaguera-Crona&quot;,
+      &quot;catchPhrase&quot;: &quot;Multi-layered client-server neural-net&quot;,
+      &quot;bs&quot;: &quot;harness real-time e-markets&quot;
+    }
+  },
+ 
+</pre></div>
+</div>
+</div>
+</div>
+<p>For this customer, we have the ID number, name, username, and email address. So far we can easily place these values in the same row of a table to store the same information. But the next key, <code class="docutils literal notranslate"><span class="pre">address</span></code>, is set equal to a dictionary, as indicated by the additional set of curly braces. Within the address field, we have data on the customer’s street, suite, city, and ZIP code. We also have a field, <code class="docutils literal notranslate"><span class="pre">geo</span></code>, equal to yet another dictionary that contains the latitude and longitude coordinates of the address. The structure then returns to the first level of nesting, providing the phone number and website, before introducing another branch for company with three sub-fields: name, catch phrase, and business slogan. In all, the structure of this JSON data is best described with the following tree:</p>
+<img src="https://github.com/jkropko/DS-6001/raw/master/localimages/jsontree.png" width=400><p>This tree can only be placed into a table, as we must do to work with a data frame, if we lose the information about nesting and instead treat the 15 distinct features as 15 columns in the data frame.</p>
+</div>
+<div class="section" id="metadata">
+<h3><a class="toc-backref" href="#id6"><span class="section-number">3.2.3. </span>Metadata</a><a class="headerlink" href="#metadata" title="Permalink to this headline">¶</a></h3>
+<p>In addition to nesting, JSON is an ideal format for placing metadata in the same file as the main data. Metadata is “<a class="reference external" href="https://en.wikipedia.org/wiki/Metadata">data that provides information about other data</a>”. Metadata might describe the date the data were last accessed, provide the stable URL for accessing the data, might credit authorship or describe copyright, and so on, prior to displaying information about each of the records in the data. In general, JSON formats with metadata can look like this:</p>
+<img src="https://github.com/jkropko/DS-6001/raw/master/localimages/metadata.png" width=300>
+<p>In order to convert JSON data with a metadata format to a tabular data frame, you will have to specify the name of the branch that contains the records. As with nested structures, this procedure involves losing information. In this case, we will lose the metadata.</p>
+</div>
+<div class="section" id="missing-values-and-different-data-types">
+<h3><a class="toc-backref" href="#id7"><span class="section-number">3.2.4. </span>Missing Values and Different Data Types</a><a class="headerlink" href="#missing-values-and-different-data-types" title="Permalink to this headline">¶</a></h3>
+<p>After unpacking the nested structure of a JSON data file and removing metadata, there can be differences from record to record in the information stored in the file. It’s possible that some records do not have data on the same set of features that other records do. Even if the same feature is present across records, it is possible that its value has one data type in some records and another data type in other records.</p>
+<p>For example, consider public opinion data in which records are individuals answering questions on a survey and the features include an individual ID number, the individual’s rating of the Republican Candidate, the individual’s rating of the Democratic candidate, and the individual’s birthyear and gender. One possible way a few records can look like in JSON format (and then converted to a data frame) is:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">case1</span> <span class="o">=</span> <span class="s1">&#39;{&quot;caseid&quot;:1.0,&quot;ftrep&quot;:&quot;Awful&quot;,&quot;ftdem&quot;:&quot;Pretty good&quot;,&quot;birthyr&quot;:1960}&#39;</span>
+<span class="n">case2</span> <span class="o">=</span> <span class="s1">&#39;{&quot;caseid&quot;:2.0,&quot;ftrep&quot;:28.0,&quot;ftdem&quot;:52.0,&quot;birthyr&quot;:1987,&quot;gender&quot;:2}&#39;</span>
+<span class="n">case3</span> <span class="o">=</span> <span class="s1">&#39;{&quot;caseid&quot;:3.0,&quot;ftrep&quot;:100.0,&quot;ftdem&quot;:1.0,&quot;gender&quot;:1}&#39;</span>
+<span class="n">case_json</span> <span class="o">=</span> <span class="s1">&#39;[&#39;</span> <span class="o">+</span> <span class="n">case1</span> <span class="o">+</span> <span class="s1">&#39;,</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">case2</span> <span class="o">+</span> <span class="s1">&#39;,</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">case3</span> <span class="o">+</span> <span class="s1">&#39;]&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">case_json</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[{&quot;caseid&quot;:1.0,&quot;ftrep&quot;:&quot;Awful&quot;,&quot;ftdem&quot;:&quot;Pretty good&quot;,&quot;birthyr&quot;:1960},
+{&quot;caseid&quot;:2.0,&quot;ftrep&quot;:28.0,&quot;ftdem&quot;:52.0,&quot;birthyr&quot;:1987,&quot;gender&quot;:2},
+{&quot;caseid&quot;:3.0,&quot;ftrep&quot;:100.0,&quot;ftdem&quot;:1.0,&quot;gender&quot;:1}]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">case_json</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>caseid</th>
+      <th>ftrep</th>
+      <th>ftdem</th>
+      <th>birthyr</th>
+      <th>gender</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Awful</td>
+      <td>Pretty good</td>
+      <td>1960.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>28</td>
+      <td>52</td>
+      <td>1987.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>100</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Take a moment to look at the raw JSON formatted data. There are some differences between the three cases. The first case did not record the individual’s gender and the third case did not record the individual’s birthyear. Note that in the JSON format, these features are simply absent: we do not need to explicitly code these values as missing. When we convert the data to tabular format, the cells for the missing features are filled with <code class="docutils literal notranslate"><span class="pre">NaN</span></code> missing values automatically.</p>
+<p>Additionally, the first case records the feeling thermometer scores for the Republican and Democrat with strings: this person feels “Awful” towards the Republican and “Pretty good” towards the Democrat. For the second and third cases these ratings are coded numerically. The JSON format naturally allows the same feature to be populated by data of a different type across records. Tabular data, however, has stricter requirements for data uniformity within a column: specifically all of the data must have the same type in a column. The data frame handles that by coding all of these values with the ambiguous <code class="docutils literal notranslate"><span class="pre">object</span></code> type:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">case_json</span><span class="p">)</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>caseid       int64
+ftrep       object
+ftdem       object
+birthyr    float64
+gender     float64
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>In short, while it is straightforward to convert JSON data to tabular format, we can potentially lose a great deal of information in this conversion: nesting, metadata, and varying data type. In addition, tabular data inefficiently require that cells for missing values be filled with a symbol to denote missingness, to preserve the rectangular shape of the data frame.</p>
+</div>
+</div>
+<div class="section" id="loading-and-reading-json-data-in-python">
+<h2><a class="toc-backref" href="#id8"><span class="section-number">3.3. </span>Loading and Reading JSON Data in Python</a><a class="headerlink" href="#loading-and-reading-json-data-in-python" title="Permalink to this headline">¶</a></h2>
+<p>JSON, like CSV and ASCII, is a <strong>text-based</strong> system for data storage. When first loading JSON data into Python, the data will be read as a giant block of text. First we need to get Python to understand that the text is actually organized JSON data using the <code class="docutils literal notranslate"><span class="pre">json</span></code> library. Once we can work with the data as JSON, we can search through the JSON data’s index path to extract particular datapoints. We can even construct loops to pull out lists of values from across the records.</p>
+<div class="section" id="using-the-requests-get-json-loads-and-json-dumps-functions">
+<h3><a class="toc-backref" href="#id9"><span class="section-number">3.3.1. </span>Using the <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code>, <code class="docutils literal notranslate"><span class="pre">json.loads()</span></code> and <code class="docutils literal notranslate"><span class="pre">json.dumps()</span></code> Functions</a><a class="headerlink" href="#using-the-requests-get-json-loads-and-json-dumps-functions" title="Permalink to this headline">¶</a></h3>
+<p>There is an important function from the <code class="docutils literal notranslate"><span class="pre">requests</span></code> library and two important functions in the <code class="docutils literal notranslate"><span class="pre">json</span></code> library for us to know when working with JSON data:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">requests.get()</span></code> downloads data from a URL and stores it in Python’s memory as a giant block of text. It also can include additional parameters to send to the website to provide information on credentials or on specifying the subset of data to collect.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">json.loads()</span></code> converts text into an object that Python recognizes as JSON-formatted data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">json.dumps()</span></code> converts JSON data into a block of text.</p></li>
+</ul>
+<p>Consider again the JSON data on fake consumer records. The data are stored on a website called <a class="reference external" href="https://jsonplaceholder.typicode.com/">JSON Placeholder</a>, which has several excellent example JSON datasets and has resources for guiding people who are writing their own APIs. The customer data exists here: https://jsonplaceholder.typicode.com/users. Take a moment and click on this link to see how the data appear in your web browser.</p>
+<p>To download the data, use <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">users</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://jsonplaceholder.typicode.com/users&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To access the text of this download, use the <code class="docutils literal notranslate"><span class="pre">.text</span></code> attribute. If I want to display only the first record, I have to specify the first and last character numbers of this record, which turns out to be (after a lot of guess-and-checking) the first 560 characters:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">users</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">560</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[
+  {
+    &quot;id&quot;: 1,
+    &quot;name&quot;: &quot;Leanne Graham&quot;,
+    &quot;username&quot;: &quot;Bret&quot;,
+    &quot;email&quot;: &quot;Sincere@april.biz&quot;,
+    &quot;address&quot;: {
+      &quot;street&quot;: &quot;Kulas Light&quot;,
+      &quot;suite&quot;: &quot;Apt. 556&quot;,
+      &quot;city&quot;: &quot;Gwenborough&quot;,
+      &quot;zipcode&quot;: &quot;92998-3874&quot;,
+      &quot;geo&quot;: {
+        &quot;lat&quot;: &quot;-37.3159&quot;,
+        &quot;lng&quot;: &quot;81.1496&quot;
+      }
+    },
+    &quot;phone&quot;: &quot;1-770-736-8031 x56442&quot;,
+    &quot;website&quot;: &quot;hildegard.org&quot;,
+    &quot;company&quot;: {
+      &quot;name&quot;: &quot;Romaguera-Crona&quot;,
+      &quot;catchPhrase&quot;: &quot;Multi-layered client-server neural-net&quot;,
+      &quot;bs&quot;: &quot;harness real-time e-markets&quot;
+    }
+  },
+ 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Presently, although the text above looks like it is formatted like a JSON file, Python only understands it as text (with type <code class="docutils literal notranslate"><span class="pre">str</span></code>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">users</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>str
+</pre></div>
+</div>
+</div>
+</div>
+<p>To get Python to read this text as JSON data, make sure the <code class="docutils literal notranslate"><span class="pre">json</span></code> library is imported (which we did at the top of this notebook), and use the <code class="docutils literal notranslate"><span class="pre">json.loads()</span></code> function. Now, to display the first record, I only have to pass the index 0, representing the first item in a list:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">users_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">users</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="n">users_json</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;id&#39;: 1,
+ &#39;name&#39;: &#39;Leanne Graham&#39;,
+ &#39;username&#39;: &#39;Bret&#39;,
+ &#39;email&#39;: &#39;Sincere@april.biz&#39;,
+ &#39;address&#39;: {&#39;street&#39;: &#39;Kulas Light&#39;,
+  &#39;suite&#39;: &#39;Apt. 556&#39;,
+  &#39;city&#39;: &#39;Gwenborough&#39;,
+  &#39;zipcode&#39;: &#39;92998-3874&#39;,
+  &#39;geo&#39;: {&#39;lat&#39;: &#39;-37.3159&#39;, &#39;lng&#39;: &#39;81.1496&#39;}},
+ &#39;phone&#39;: &#39;1-770-736-8031 x56442&#39;,
+ &#39;website&#39;: &#39;hildegard.org&#39;,
+ &#39;company&#39;: {&#39;name&#39;: &#39;Romaguera-Crona&#39;,
+  &#39;catchPhrase&#39;: &#39;Multi-layered client-server neural-net&#39;,
+  &#39;bs&#39;: &#39;harness real-time e-markets&#39;}}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Instead of text, Python now recognizes <code class="docutils literal notranslate"><span class="pre">users_json</span></code> as a list:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">users_json</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>list
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="searching-along-the-json-index-path">
+<h3><a class="toc-backref" href="#id10"><span class="section-number">3.3.2. </span>Searching Along the JSON Index Path</a><a class="headerlink" href="#searching-along-the-json-index-path" title="Permalink to this headline">¶</a></h3>
+<p>After using <code class="docutils literal notranslate"><span class="pre">json.loads()</span></code>, Python understands the JSON data to be a list-of-lists. We can now use indices to extract particular datapoints. The records are numbers, starting with 0, and keys within particular records can be called by name.</p>
+<p>For example, to extract the email address of the fifth customer (element 4), in the data, I type:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">users_json</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="s1">&#39;email&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;Lucio_Hettinger@annie.ca&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we call fields that contain several nested features, Python returns a dictionary:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">users_json</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;address&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;street&#39;: &#39;Kulas Light&#39;,
+ &#39;suite&#39;: &#39;Apt. 556&#39;,
+ &#39;city&#39;: &#39;Gwenborough&#39;,
+ &#39;zipcode&#39;: &#39;92998-3874&#39;,
+ &#39;geo&#39;: {&#39;lat&#39;: &#39;-37.3159&#39;, &#39;lng&#39;: &#39;81.1496&#39;}}
+</pre></div>
+</div>
+</div>
+</div>
+<p>To extract elements that are several levels of nesting down the JSON tree, specify the keys in order that lead to the desired element. For example, to extract the latitudinal coordinate, we navigate to the <code class="docutils literal notranslate"><span class="pre">address</span></code>, <code class="docutils literal notranslate"><span class="pre">geo</span></code>, and <code class="docutils literal notranslate"><span class="pre">lat</span></code> keys:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">users_json</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;address&#39;</span><span class="p">][</span><span class="s1">&#39;geo&#39;</span><span class="p">][</span><span class="s1">&#39;lat&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;-37.3159&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, it may be necessary at times to covert the JSON back to text, maybe to assist in transfering the data to another platform (although I recommend using the <code class="docutils literal notranslate"><span class="pre">.to_json()</span></code> method, discussed below, for this purpose). To convert JSON back to text, use the <code class="docutils literal notranslate"><span class="pre">json.dumps()</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">users_text</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">users_json</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">users_text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>str
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="looping-across-records-to-extract-datapoints">
+<h3><a class="toc-backref" href="#id11"><span class="section-number">3.3.3. </span>Looping Across Records to Extract Datapoints</a><a class="headerlink" href="#looping-across-records-to-extract-datapoints" title="Permalink to this headline">¶</a></h3>
+<p>While JSON is a well-organized and flexible data format that preserves a lot of the meaningful context of the data, most analytical tools and statistical models can only operate on tabular data. So a major challenge with JSON data is converting the data to a tabular format to be saved in a data frame. One method is to construct a loop across records to extract desired elements.</p>
+<p>Before we discuss this method, I do not recommend using this approach in general. Loops are usually slow, and it is much faster to perform these kinds of operations by <strong>vectorizing</strong> code. <a class="reference external" href="https://stackoverflow.com/questions/1422149/what-is-vectorization#1422181">Vectorizing</a> refers to the ability of a programming language to operate on an entire vector of data and work on several elements simultaneously, rather than on each element one at a time. Vectorization is the specialty of the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> library, and most functions in <code class="docutils literal notranslate"><span class="pre">pandas</span></code> are vectorized as well. I suggest using <code class="docutils literal notranslate"><span class="pre">pd.read_json()</span></code> and <code class="docutils literal notranslate"><span class="pre">pd.json_normalize()</span></code> to convert JSON data to a data frame as they will be several orders of magnitude faster for converting the entire JSON to a data frame. Looping make sense only when we need to extract a small number of features from JSON data with a large feature set, because with the loop we directly call the features we want and we can avoid having to work with features we don’t need.</p>
+<p>To start the loop, choose an index to represent one record. To display all of the email addresses, type:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">users_json</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="s1">&#39;email&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Sincere@april.biz
+Shanna@melissa.tv
+Nathan@yesenia.net
+Julianne.OConner@kory.org
+Lucio_Hettinger@annie.ca
+Karley_Dach@jasper.info
+Telly.Hoeger@billy.biz
+Sherwood@rosamond.me
+Chaim_McDermott@dana.io
+Rey.Padberg@karina.biz
+</pre></div>
+</div>
+</div>
+</div>
+<p>Alternatively, to place all of the email addresses in a list, you can loop inside of a list like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">emails</span> <span class="o">=</span> <span class="p">[</span><span class="n">u</span><span class="p">[</span><span class="s1">&#39;email&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">users_json</span><span class="p">]</span>
+<span class="n">emails</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;Sincere@april.biz&#39;,
+ &#39;Shanna@melissa.tv&#39;,
+ &#39;Nathan@yesenia.net&#39;,
+ &#39;Julianne.OConner@kory.org&#39;,
+ &#39;Lucio_Hettinger@annie.ca&#39;,
+ &#39;Karley_Dach@jasper.info&#39;,
+ &#39;Telly.Hoeger@billy.biz&#39;,
+ &#39;Sherwood@rosamond.me&#39;,
+ &#39;Chaim_McDermott@dana.io&#39;,
+ &#39;Rey.Padberg@karina.biz&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The trick is extracting the data and saving it in a data frame at the same time. We can do this by using the <code class="docutils literal notranslate"><span class="pre">pd.DataFrame()</span></code> function, and using list loops inside this function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">users_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">u</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="n">u</span><span class="p">[</span><span class="s1">&#39;email&#39;</span><span class="p">],</span> <span class="n">u</span><span class="p">[</span><span class="s1">&#39;company&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]]</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">users_json</span>
+<span class="p">)</span>
+<span class="n">users_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;company_name&#39;</span><span class="p">]</span>
+<span class="n">users_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>email</th>
+      <th>company_name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Leanne Graham</td>
+      <td>Sincere@april.biz</td>
+      <td>Romaguera-Crona</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Ervin Howell</td>
+      <td>Shanna@melissa.tv</td>
+      <td>Deckow-Crist</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Clementine Bauch</td>
+      <td>Nathan@yesenia.net</td>
+      <td>Romaguera-Jacobson</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Patricia Lebsack</td>
+      <td>Julianne.OConner@kory.org</td>
+      <td>Robel-Corkery</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Chelsey Dietrich</td>
+      <td>Lucio_Hettinger@annie.ca</td>
+      <td>Keebler LLC</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Mrs. Dennis Schulist</td>
+      <td>Karley_Dach@jasper.info</td>
+      <td>Considine-Lockman</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Kurtis Weissnat</td>
+      <td>Telly.Hoeger@billy.biz</td>
+      <td>Johns Group</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Nicholas Runolfsdottir V</td>
+      <td>Sherwood@rosamond.me</td>
+      <td>Abernathy Group</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Glenna Reichert</td>
+      <td>Chaim_McDermott@dana.io</td>
+      <td>Yost and Sons</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Clementina DuBuque</td>
+      <td>Rey.Padberg@karina.biz</td>
+      <td>Hoeger LLC</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Please, note, there are many many ways to construct a loop to extract JSON elements into a dataframe. If you look on Stack Overflow, for example, you will see many different approaches, and it can be confusing. Find an approach that you understand and feel comfortable using, and go with that. There’s not much difference between one loop and the next, as the real improvement comes from vectorization.</p>
+</div>
+</div>
+<div class="section" id="using-pd-read-json-and-pd-json-normalize-to-store-json-data-in-a-data-frame">
+<h2><a class="toc-backref" href="#id12"><span class="section-number">3.4. </span>Using <code class="docutils literal notranslate"><span class="pre">pd.read_json()</span></code> and <code class="docutils literal notranslate"><span class="pre">pd.json_normalize()</span></code> to Store JSON Data in a Data Frame</a><a class="headerlink" href="#using-pd-read-json-and-pd-json-normalize-to-store-json-data-in-a-data-frame" title="Permalink to this headline">¶</a></h2>
+<p>If there aren’t too many features in the data, or if you want to keep all of the features in the data anyway, then the fastest and best way to convert JSON data to a tabular data frame depends on <strong>whether or not the JSON data has metadata or a nested structure</strong>.</p>
+<div class="section" id="situation-1-no-nesting-no-metadata">
+<h3><a class="toc-backref" href="#id13"><span class="section-number">3.4.1. </span>Situation 1: No nesting, no metadata</a><a class="headerlink" href="#situation-1-no-nesting-no-metadata" title="Permalink to this headline">¶</a></h3>
+<p>If the JSON has no nesting - that is, if every key is associated with a single datapoint, and no key is associated with a dictionary that contains additional features - and also does not include metadata, then use the following steps:</p>
+<ol class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code> to download the raw JSON data (unless you have another way of acquiring the raw data)</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">pd.read_json()</span></code> on the <code class="docutils literal notranslate"><span class="pre">.text</span></code> attribute of the output of <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code></p></li>
+</ol>
+<p>The result will be a dataframe in which the columns have the same names as the keys in the JSON file. For example, JSON Placeholder has an example JSON dataset that contains <a class="reference external" href="https://jsonplaceholder.typicode.com/posts">random Latin posts to a blog</a>. This JSON contains no metadata and no nesting. The best way to acquire this dataset and convert it to a dataframe is as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">posts</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://jsonplaceholder.typicode.com/posts&quot;</span><span class="p">)</span>
+<span class="n">posts_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">posts</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="n">posts_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>id</th>
+      <th>title</th>
+      <th>body</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>sunt aut facere repellat provident occaecati e...</td>
+      <td>quia et suscipit\nsuscipit recusandae consequu...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>2</td>
+      <td>qui est esse</td>
+      <td>est rerum tempore vitae\nsequi sint nihil repr...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>3</td>
+      <td>ea molestias quasi exercitationem repellat qui...</td>
+      <td>et iusto sed quo iure\nvoluptatem occaecati om...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>4</td>
+      <td>eum et est occaecati</td>
+      <td>ullam et saepe reiciendis voluptatem adipisci\...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>5</td>
+      <td>nesciunt quas odio</td>
+      <td>repudiandae veniam quaerat sunt sed\nalias aut...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>10</td>
+      <td>96</td>
+      <td>quaerat velit veniam amet cupiditate aut numqu...</td>
+      <td>in non odio excepturi sint eum\nlabore volupta...</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>10</td>
+      <td>97</td>
+      <td>quas fugiat ut perspiciatis vero provident</td>
+      <td>eum non blanditiis soluta porro quibusdam volu...</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>10</td>
+      <td>98</td>
+      <td>laboriosam dolor voluptates</td>
+      <td>doloremque ex facilis sit sint culpa\nsoluta a...</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>10</td>
+      <td>99</td>
+      <td>temporibus sit alias delectus eligendi possimu...</td>
+      <td>quo deleniti praesentium dicta non quod\naut e...</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>10</td>
+      <td>100</td>
+      <td>at nam consequatur ea labore ea harum</td>
+      <td>cupiditate quo est a modi nesciunt soluta\nips...</td>
+    </tr>
+  </tbody>
+</table>
+<p>100 rows × 4 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="situation-2-nesting-but-no-metadata">
+<h3><a class="toc-backref" href="#id14"><span class="section-number">3.4.2. </span>Situation 2: Nesting, but no metadata</a><a class="headerlink" href="#situation-2-nesting-but-no-metadata" title="Permalink to this headline">¶</a></h3>
+<p>If the JSON file contains nesting, but no metadata, then the best strategy is to</p>
+<ol class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code> to download the raw JSON data (unless you have another way of acquiring the raw data)</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">json.loads()</span></code> on the <code class="docutils literal notranslate"><span class="pre">.text</span></code> attribute of the output from step 1 to register the data as a list in Python</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">pd.json_normalize()</span></code> function on the list that is the output of step 2</p></li>
+</ol>
+<p>The <code class="docutils literal notranslate"><span class="pre">pd.json_normalize()</span></code> function stores every feature in the data in a separate column, no matter how many levels of nesting it must parse to find the feature.</p>
+<p>Every column has the same name as the key from which it drew the feature. For features that are nested within other features, <code class="docutils literal notranslate"><span class="pre">pd.json_normalize()</span></code> uses every key on the path to the datapoint to construct the column name, separated by periods. For example, the <code class="docutils literal notranslate"><span class="pre">users</span></code> data that we worked with above contains up to three levels of nesting. So the <code class="docutils literal notranslate"><span class="pre">lat</span></code> data is stored in a column named <code class="docutils literal notranslate"><span class="pre">address.geo.lat</span></code>, since we had to navigate to “address”, then “geo”, then “lat” in the JSON to find these data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">users</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://jsonplaceholder.typicode.com/users&quot;</span><span class="p">)</span>
+<span class="n">users_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">users</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="n">users_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">json_normalize</span><span class="p">(</span><span class="n">users_json</span><span class="p">)</span>
+<span class="n">users_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>name</th>
+      <th>username</th>
+      <th>email</th>
+      <th>phone</th>
+      <th>website</th>
+      <th>address.street</th>
+      <th>address.suite</th>
+      <th>address.city</th>
+      <th>address.zipcode</th>
+      <th>address.geo.lat</th>
+      <th>address.geo.lng</th>
+      <th>company.name</th>
+      <th>company.catchPhrase</th>
+      <th>company.bs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Leanne Graham</td>
+      <td>Bret</td>
+      <td>Sincere@april.biz</td>
+      <td>1-770-736-8031 x56442</td>
+      <td>hildegard.org</td>
+      <td>Kulas Light</td>
+      <td>Apt. 556</td>
+      <td>Gwenborough</td>
+      <td>92998-3874</td>
+      <td>-37.3159</td>
+      <td>81.1496</td>
+      <td>Romaguera-Crona</td>
+      <td>Multi-layered client-server neural-net</td>
+      <td>harness real-time e-markets</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Ervin Howell</td>
+      <td>Antonette</td>
+      <td>Shanna@melissa.tv</td>
+      <td>010-692-6593 x09125</td>
+      <td>anastasia.net</td>
+      <td>Victor Plains</td>
+      <td>Suite 879</td>
+      <td>Wisokyburgh</td>
+      <td>90566-7771</td>
+      <td>-43.9509</td>
+      <td>-34.4618</td>
+      <td>Deckow-Crist</td>
+      <td>Proactive didactic contingency</td>
+      <td>synergize scalable supply-chains</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Clementine Bauch</td>
+      <td>Samantha</td>
+      <td>Nathan@yesenia.net</td>
+      <td>1-463-123-4447</td>
+      <td>ramiro.info</td>
+      <td>Douglas Extension</td>
+      <td>Suite 847</td>
+      <td>McKenziehaven</td>
+      <td>59590-4157</td>
+      <td>-68.6102</td>
+      <td>-47.0653</td>
+      <td>Romaguera-Jacobson</td>
+      <td>Face to face bifurcated interface</td>
+      <td>e-enable strategic applications</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Patricia Lebsack</td>
+      <td>Karianne</td>
+      <td>Julianne.OConner@kory.org</td>
+      <td>493-170-9623 x156</td>
+      <td>kale.biz</td>
+      <td>Hoeger Mall</td>
+      <td>Apt. 692</td>
+      <td>South Elvis</td>
+      <td>53919-4257</td>
+      <td>29.4572</td>
+      <td>-164.2990</td>
+      <td>Robel-Corkery</td>
+      <td>Multi-tiered zero tolerance productivity</td>
+      <td>transition cutting-edge web services</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Chelsey Dietrich</td>
+      <td>Kamren</td>
+      <td>Lucio_Hettinger@annie.ca</td>
+      <td>(254)954-1289</td>
+      <td>demarco.info</td>
+      <td>Skiles Walks</td>
+      <td>Suite 351</td>
+      <td>Roscoeview</td>
+      <td>33263</td>
+      <td>-31.8129</td>
+      <td>62.5342</td>
+      <td>Keebler LLC</td>
+      <td>User-centric fault-tolerant solution</td>
+      <td>revolutionize end-to-end systems</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>Mrs. Dennis Schulist</td>
+      <td>Leopoldo_Corkery</td>
+      <td>Karley_Dach@jasper.info</td>
+      <td>1-477-935-8478 x6430</td>
+      <td>ola.org</td>
+      <td>Norberto Crossing</td>
+      <td>Apt. 950</td>
+      <td>South Christy</td>
+      <td>23505-1337</td>
+      <td>-71.4197</td>
+      <td>71.7478</td>
+      <td>Considine-Lockman</td>
+      <td>Synchronised bottom-line interface</td>
+      <td>e-enable innovative applications</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>Kurtis Weissnat</td>
+      <td>Elwyn.Skiles</td>
+      <td>Telly.Hoeger@billy.biz</td>
+      <td>210.067.6132</td>
+      <td>elvis.io</td>
+      <td>Rex Trail</td>
+      <td>Suite 280</td>
+      <td>Howemouth</td>
+      <td>58804-1099</td>
+      <td>24.8918</td>
+      <td>21.8984</td>
+      <td>Johns Group</td>
+      <td>Configurable multimedia task-force</td>
+      <td>generate enterprise e-tailers</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>Nicholas Runolfsdottir V</td>
+      <td>Maxime_Nienow</td>
+      <td>Sherwood@rosamond.me</td>
+      <td>586.493.6943 x140</td>
+      <td>jacynthe.com</td>
+      <td>Ellsworth Summit</td>
+      <td>Suite 729</td>
+      <td>Aliyaview</td>
+      <td>45169</td>
+      <td>-14.3990</td>
+      <td>-120.7677</td>
+      <td>Abernathy Group</td>
+      <td>Implemented secondary concept</td>
+      <td>e-enable extensible e-tailers</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>Glenna Reichert</td>
+      <td>Delphine</td>
+      <td>Chaim_McDermott@dana.io</td>
+      <td>(775)976-6794 x41206</td>
+      <td>conrad.com</td>
+      <td>Dayna Park</td>
+      <td>Suite 449</td>
+      <td>Bartholomebury</td>
+      <td>76495-3109</td>
+      <td>24.6463</td>
+      <td>-168.8889</td>
+      <td>Yost and Sons</td>
+      <td>Switchable contextually-based project</td>
+      <td>aggregate real-time technologies</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>Clementina DuBuque</td>
+      <td>Moriah.Stanton</td>
+      <td>Rey.Padberg@karina.biz</td>
+      <td>024-648-3804</td>
+      <td>ambrose.net</td>
+      <td>Kattie Turnpike</td>
+      <td>Suite 198</td>
+      <td>Lebsackbury</td>
+      <td>31428-2261</td>
+      <td>-38.2386</td>
+      <td>57.2232</td>
+      <td>Hoeger LLC</td>
+      <td>Centralized empowering task-force</td>
+      <td>target end-to-end models</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="situation-3-metadata">
+<h3><a class="toc-backref" href="#id15"><span class="section-number">3.4.3. </span>Situation 3: Metadata</a><a class="headerlink" href="#situation-3-metadata" title="Permalink to this headline">¶</a></h3>
+<p>Finally, if the JSON file contains metadata (regardless of whether or not the records contain nested data), follow these steps:</p>
+<ol class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code> to download the raw JSON data (unless you have another way of acquiring the raw data)</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">json.loads()</span></code> on the <code class="docutils literal notranslate"><span class="pre">.text</span></code> attribute of the output from step 1 to register the data as a list in Python</p></li>
+<li><p>Look at the data using a web-browser, or using the text that appears when the JSON object is called in Python, to decide on the path that is necessary to find the records</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">pd.json_normalize()</span></code> function on the list that is the output of step 2. But within this function, use the <code class="docutils literal notranslate"><span class="pre">record_path</span></code> parameter and set it equal to a list with the keys, in order, that lead to the record</p></li>
+<li><p>Optionally, use the <code class="docutils literal notranslate"><span class="pre">meta</span></code> and <code class="docutils literal notranslate"><span class="pre">meta_prefix</span></code> parameters in <code class="docutils literal notranslate"><span class="pre">pd.json_normalize()</span></code> to store the metadata in the dataframe</p></li>
+</ol>
+<p>For example, we can access a JSON file for the top 25 top posts at the moment on <a class="reference external" href="https://www.reddit.com/r/popular/">Reddit’s r/popular page</a> here: http://www.reddit.com/r/popular/top.json. If our goal is to construct a data frame with 25 rows, one for each post, we must find the path that leads to these data. Looking at the web-browser, the top-level has two keys: “kind” and “data”. “kind” is simply metadata telling us that this file contains listings, and the data live in “data”. Within this branch, there are four more metadata branches, “modhash”, “dist”, “before”, and “after”, and the data we need exist within “children”. So the path we need is <code class="docutils literal notranslate"><span class="pre">[&quot;data&quot;,</span> <span class="pre">&quot;children&quot;]</span></code>. The code to construct the data frame we need is:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.reddit.com/r/popular/top.json&quot;</span>
+<span class="n">reddit</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;User-agent&#39;</span><span class="p">:</span> <span class="s1">&#39;DS6001&#39;</span><span class="p">})</span>
+<span class="n">reddit_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">reddit</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="n">reddit_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">json_normalize</span><span class="p">(</span><span class="n">reddit_json</span><span class="p">,</span> <span class="n">record_path</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="s2">&quot;children&quot;</span><span class="p">])</span>
+<span class="n">reddit_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>kind</th>
+      <th>data.approved_at_utc</th>
+      <th>data.subreddit</th>
+      <th>data.selftext</th>
+      <th>data.author_fullname</th>
+      <th>data.saved</th>
+      <th>data.mod_reason_title</th>
+      <th>data.gilded</th>
+      <th>data.clicked</th>
+      <th>data.title</th>
+      <th>...</th>
+      <th>data.media.oembed.width</th>
+      <th>data.media.oembed.html</th>
+      <th>data.media.oembed.thumbnail_width</th>
+      <th>data.media.oembed.version</th>
+      <th>data.media.oembed.provider_name</th>
+      <th>data.media.oembed.thumbnail_url</th>
+      <th>data.media.oembed.type</th>
+      <th>data.media.oembed.thumbnail_height</th>
+      <th>data.media.type</th>
+      <th>data.link_flair_template_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>funny</td>
+      <td></td>
+      <td>t2_613el</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>I’m convinced to learn fencing</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>memes</td>
+      <td></td>
+      <td>t2_mhexexn</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>Can we please just let this meme die already?</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>wholesomememes</td>
+      <td></td>
+      <td>t2_2o24p4aq</td>
+      <td>False</td>
+      <td>None</td>
+      <td>2</td>
+      <td>False</td>
+      <td>My wife does this all the time</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>interestingasfuck</td>
+      <td></td>
+      <td>t2_1y38h8jw</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>This caterpillar creates a little hut to hide ...</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>memes</td>
+      <td></td>
+      <td>t2_3kycbuap</td>
+      <td>False</td>
+      <td>None</td>
+      <td>1</td>
+      <td>False</td>
+      <td>bamboozling since ‘03</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>pics</td>
+      <td></td>
+      <td>t2_z5d0o</td>
+      <td>False</td>
+      <td>None</td>
+      <td>1</td>
+      <td>False</td>
+      <td>My grandma ringing the bell after officially w...</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>pics</td>
+      <td></td>
+      <td>t2_6lws10a7</td>
+      <td>False</td>
+      <td>None</td>
+      <td>1</td>
+      <td>False</td>
+      <td>First day of school in a Georgia town. One of ...</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>dankmemes</td>
+      <td></td>
+      <td>t2_32urzxzj</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>200 IQ Subreddit</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>MadeMeSmile</td>
+      <td></td>
+      <td>t2_16im8c</td>
+      <td>False</td>
+      <td>None</td>
+      <td>2</td>
+      <td>False</td>
+      <td>After years of trying woman finally lands her ...</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>WhitePeopleTwitter</td>
+      <td></td>
+      <td>t2_73a82</td>
+      <td>False</td>
+      <td>None</td>
+      <td>1</td>
+      <td>False</td>
+      <td>Only took one Zoom meeting to plan!</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>WatchPeopleDieInside</td>
+      <td></td>
+      <td>t2_3nt2t6a8</td>
+      <td>False</td>
+      <td>None</td>
+      <td>4</td>
+      <td>False</td>
+      <td>Poor Jonathan</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>gaming</td>
+      <td></td>
+      <td>t2_kvju8vq</td>
+      <td>False</td>
+      <td>None</td>
+      <td>8</td>
+      <td>False</td>
+      <td>My Mercy from Overwatch Cosplay wings are done...</td>
+      <td>...</td>
+      <td>600.0</td>
+      <td>&amp;lt;iframe class="embedly-embed" src="https://...</td>
+      <td>250.0</td>
+      <td>1.0</td>
+      <td>Gfycat</td>
+      <td>https://thumbs.gfycat.com/JubilantGreedyAlaska...</td>
+      <td>video</td>
+      <td>312.0</td>
+      <td>gfycat.com</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>nextfuckinglevel</td>
+      <td></td>
+      <td>t2_5nxh34ir</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>Waves touching clouds</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>AskReddit</td>
+      <td></td>
+      <td>t2_witbs</td>
+      <td>False</td>
+      <td>None</td>
+      <td>10</td>
+      <td>False</td>
+      <td>If you voted for Donald Trump in 2016 but won'...</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>AskReddit</td>
+      <td></td>
+      <td>t2_nk5kz</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>How would you feel if the U.S. government made...</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>mildlyinteresting</td>
+      <td></td>
+      <td>t2_irucc</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>My dads apartment came with a baby pink stove</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>PublicFreakout</td>
+      <td></td>
+      <td>t2_54hh94oq</td>
+      <td>False</td>
+      <td>None</td>
+      <td>1</td>
+      <td>False</td>
+      <td>"What's your name sir? My name's Deez ... "</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>f81da3c0-4b09-11e4-831b-12313d147ade</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>BetterEveryLoop</td>
+      <td></td>
+      <td>t2_1s7rpcf6</td>
+      <td>False</td>
+      <td>None</td>
+      <td>3</td>
+      <td>False</td>
+      <td>That after-lick look though</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>politics</td>
+      <td></td>
+      <td>t2_j6ia7</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>Poll: 82 percent of voters support a national ...</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>PublicFreakout</td>
+      <td></td>
+      <td>t2_11ctdi</td>
+      <td>False</td>
+      <td>None</td>
+      <td>1</td>
+      <td>False</td>
+      <td>Black mother and four children werehandcuffed ...</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>MadeMeSmile</td>
+      <td></td>
+      <td>t2_l86ds1p</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>A friend of mine sent this to me, I am sorry i...</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>insanepeoplefacebook</td>
+      <td></td>
+      <td>t2_2pi3lr9s</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>For Real ?!</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>WatchPeopleDieInside</td>
+      <td></td>
+      <td>t2_dkoy9</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>Hey man, your helmet.</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>Wellthatsucks</td>
+      <td></td>
+      <td>t2_9c7e6zk</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>I drew this map for my now ex boyfriend who lo...</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>dankmemes</td>
+      <td></td>
+      <td>t2_3clo8my4</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>plz forgive me..</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>30f179ce-b5de-11e6-872d-0e00dc2f4472</td>
+    </tr>
+  </tbody>
+</table>
+<p>25 rows × 174 columns</p>
+</div></div></div>
+</div>
+<p>Please note: we added <code class="docutils literal notranslate"><span class="pre">headers</span> <span class="pre">=</span> <span class="pre">{'User-agent':</span> <span class="pre">'DS6001'}</span></code> to the <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code> function. When we use <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code>, we are accessing an API: a web-based interface for transferring data, usually in the form of JSON files. We will cover APIs in the next module. Most APIs, including Reddit’s, include some security to keep any one user from overusing the API and causing it to crash. For Reddit, we only need to provide a unique “<a class="reference external" href="https://www.reddit.com/r/redditdev/comments/3qbll8/429_too_many_requests/">User-agent</a>”, which is an ID that Reddit uses to keep track of how much we are using the API. If two people use the same User-agent, both uses are counted against the same limit, so it’s better to choose a User-agent that has a unique name. If this block of code results in an error for you (so that <code class="docutils literal notranslate"><span class="pre">reddit.text</span></code> displays as <code class="docutils literal notranslate"><span class="pre">'{&quot;message&quot;:</span> <span class="pre">&quot;Too</span> <span class="pre">Many</span> <span class="pre">Requests&quot;,</span> <span class="pre">&quot;error&quot;:</span> <span class="pre">429}'</span></code>), then change <code class="docutils literal notranslate"><span class="pre">DS6001</span></code> to something else, and it should work.</p>
+<p>To save the metadata in the data frame, use the <code class="docutils literal notranslate"><span class="pre">meta</span></code> parameter, set equal to a list of paths for each metadata feature you wish to store in the dataframe. In this case, to save the “kind” feature and the “after” feature within the “data” branch, I type <code class="docutils literal notranslate"><span class="pre">meta</span> <span class="pre">=</span> <span class="pre">['kind',</span> <span class="pre">['data',</span> <span class="pre">'after']]</span></code>. Finally, because there is already a <code class="docutils literal notranslate"><span class="pre">kind</span></code> feature stored within the records, I must distinguish the metadata feature with a prefix. I use <code class="docutils literal notranslate"><span class="pre">meta_prefix='meta'</span></code> to place “meta” prior to the column names of the metadata.</p>
+<p>Because metadata exist outside of the records, they will be constant across the rows in the dataframe. Here’s the code to convert the Reddit data to a data frame while storing the metadata. Take a look at the resulting dataframe and scroll all the way to the right to see the two metadata columns:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.reddit.com/r/popular/top.json&quot;</span>
+<span class="n">reddit</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;User-agent&#39;</span><span class="p">:</span> <span class="s1">&#39;DS6001&#39;</span><span class="p">})</span>
+<span class="n">reddit_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">reddit</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="n">reddit_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">json_normalize</span><span class="p">(</span><span class="n">reddit_json</span><span class="p">,</span> 
+                              <span class="n">record_path</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="s2">&quot;children&quot;</span><span class="p">],</span> 
+                              <span class="n">meta</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;kind&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;after&#39;</span><span class="p">]],</span> 
+                              <span class="n">meta_prefix</span> <span class="o">=</span> <span class="s2">&quot;meta&quot;</span><span class="p">)</span>
+<span class="n">reddit_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>kind</th>
+      <th>data.approved_at_utc</th>
+      <th>data.subreddit</th>
+      <th>data.selftext</th>
+      <th>data.author_fullname</th>
+      <th>data.saved</th>
+      <th>data.mod_reason_title</th>
+      <th>data.gilded</th>
+      <th>data.clicked</th>
+      <th>data.title</th>
+      <th>...</th>
+      <th>data.media.oembed.thumbnail_width</th>
+      <th>data.media.oembed.version</th>
+      <th>data.media.oembed.provider_name</th>
+      <th>data.media.oembed.thumbnail_url</th>
+      <th>data.media.oembed.type</th>
+      <th>data.media.oembed.thumbnail_height</th>
+      <th>data.media.type</th>
+      <th>data.link_flair_template_id</th>
+      <th>metakind</th>
+      <th>metadata.after</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>funny</td>
+      <td></td>
+      <td>t2_613el</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>I’m convinced to learn fencing</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Listing</td>
+      <td>t3_i38key</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>memes</td>
+      <td></td>
+      <td>t2_mhexexn</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>Can we please just let this meme die already?</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Listing</td>
+      <td>t3_i38key</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>wholesomememes</td>
+      <td></td>
+      <td>t2_2o24p4aq</td>
+      <td>False</td>
+      <td>None</td>
+      <td>2</td>
+      <td>False</td>
+      <td>My wife does this all the time</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Listing</td>
+      <td>t3_i38key</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>interestingasfuck</td>
+      <td></td>
+      <td>t2_1y38h8jw</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>This caterpillar creates a little hut to hide ...</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Listing</td>
+      <td>t3_i38key</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>memes</td>
+      <td></td>
+      <td>t2_3kycbuap</td>
+      <td>False</td>
+      <td>None</td>
+      <td>1</td>
+      <td>False</td>
+      <td>bamboozling since ‘03</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Listing</td>
+      <td>t3_i38key</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>pics</td>
+      <td></td>
+      <td>t2_z5d0o</td>
+      <td>False</td>
+      <td>None</td>
+      <td>1</td>
+      <td>False</td>
+      <td>My grandma ringing the bell after officially w...</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Listing</td>
+      <td>t3_i38key</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>pics</td>
+      <td></td>
+      <td>t2_6lws10a7</td>
+      <td>False</td>
+      <td>None</td>
+      <td>1</td>
+      <td>False</td>
+      <td>First day of school in a Georgia town. One of ...</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Listing</td>
+      <td>t3_i38key</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>dankmemes</td>
+      <td></td>
+      <td>t2_32urzxzj</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>200 IQ Subreddit</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Listing</td>
+      <td>t3_i38key</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>MadeMeSmile</td>
+      <td></td>
+      <td>t2_16im8c</td>
+      <td>False</td>
+      <td>None</td>
+      <td>2</td>
+      <td>False</td>
+      <td>After years of trying woman finally lands her ...</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Listing</td>
+      <td>t3_i38key</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>WhitePeopleTwitter</td>
+      <td></td>
+      <td>t2_73a82</td>
+      <td>False</td>
+      <td>None</td>
+      <td>1</td>
+      <td>False</td>
+      <td>Only took one Zoom meeting to plan!</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Listing</td>
+      <td>t3_i38key</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>WatchPeopleDieInside</td>
+      <td></td>
+      <td>t2_3nt2t6a8</td>
+      <td>False</td>
+      <td>None</td>
+      <td>4</td>
+      <td>False</td>
+      <td>Poor Jonathan</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Listing</td>
+      <td>t3_i38key</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>gaming</td>
+      <td></td>
+      <td>t2_kvju8vq</td>
+      <td>False</td>
+      <td>None</td>
+      <td>8</td>
+      <td>False</td>
+      <td>My Mercy from Overwatch Cosplay wings are done...</td>
+      <td>...</td>
+      <td>250.0</td>
+      <td>1.0</td>
+      <td>Gfycat</td>
+      <td>https://thumbs.gfycat.com/JubilantGreedyAlaska...</td>
+      <td>video</td>
+      <td>312.0</td>
+      <td>gfycat.com</td>
+      <td>NaN</td>
+      <td>Listing</td>
+      <td>t3_i38key</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>nextfuckinglevel</td>
+      <td></td>
+      <td>t2_5nxh34ir</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>Waves touching clouds</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Listing</td>
+      <td>t3_i38key</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>AskReddit</td>
+      <td></td>
+      <td>t2_witbs</td>
+      <td>False</td>
+      <td>None</td>
+      <td>10</td>
+      <td>False</td>
+      <td>If you voted for Donald Trump in 2016 but won'...</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Listing</td>
+      <td>t3_i38key</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>AskReddit</td>
+      <td></td>
+      <td>t2_nk5kz</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>How would you feel if the U.S. government made...</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Listing</td>
+      <td>t3_i38key</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>mildlyinteresting</td>
+      <td></td>
+      <td>t2_irucc</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>My dads apartment came with a baby pink stove</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Listing</td>
+      <td>t3_i38key</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>PublicFreakout</td>
+      <td></td>
+      <td>t2_54hh94oq</td>
+      <td>False</td>
+      <td>None</td>
+      <td>1</td>
+      <td>False</td>
+      <td>"What's your name sir? My name's Deez ... "</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>f81da3c0-4b09-11e4-831b-12313d147ade</td>
+      <td>Listing</td>
+      <td>t3_i38key</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>BetterEveryLoop</td>
+      <td></td>
+      <td>t2_1s7rpcf6</td>
+      <td>False</td>
+      <td>None</td>
+      <td>3</td>
+      <td>False</td>
+      <td>That after-lick look though</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Listing</td>
+      <td>t3_i38key</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>politics</td>
+      <td></td>
+      <td>t2_j6ia7</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>Poll: 82 percent of voters support a national ...</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Listing</td>
+      <td>t3_i38key</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>PublicFreakout</td>
+      <td></td>
+      <td>t2_11ctdi</td>
+      <td>False</td>
+      <td>None</td>
+      <td>1</td>
+      <td>False</td>
+      <td>Black mother and four children werehandcuffed ...</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Listing</td>
+      <td>t3_i38key</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>MadeMeSmile</td>
+      <td></td>
+      <td>t2_l86ds1p</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>A friend of mine sent this to me, I am sorry i...</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Listing</td>
+      <td>t3_i38key</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>insanepeoplefacebook</td>
+      <td></td>
+      <td>t2_2pi3lr9s</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>For Real ?!</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Listing</td>
+      <td>t3_i38key</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>WatchPeopleDieInside</td>
+      <td></td>
+      <td>t2_dkoy9</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>Hey man, your helmet.</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Listing</td>
+      <td>t3_i38key</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>Wellthatsucks</td>
+      <td></td>
+      <td>t2_9c7e6zk</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>I drew this map for my now ex boyfriend who lo...</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Listing</td>
+      <td>t3_i38key</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>dankmemes</td>
+      <td></td>
+      <td>t2_3clo8my4</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>plz forgive me..</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>30f179ce-b5de-11e6-872d-0e00dc2f4472</td>
+      <td>Listing</td>
+      <td>t3_i38key</td>
+    </tr>
+  </tbody>
+</table>
+<p>25 rows × 173 columns</p>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="saving-json-files-and-converting-data-frames-to-json">
+<h2><a class="toc-backref" href="#id16"><span class="section-number">3.5. </span>Saving JSON Files and Converting Data Frames to JSON</a><a class="headerlink" href="#saving-json-files-and-converting-data-frames-to-json" title="Permalink to this headline">¶</a></h2>
+<p>It is possible to save a JSON file to your local disk space, or to convert a dataframe to JSON and, if you want to, save that JSON to disk.</p>
+<div class="section" id="saving-existing-json-files-to-disk">
+<h3><a class="toc-backref" href="#id17"><span class="section-number">3.5.1. </span>Saving Existing JSON Files to Disk</a><a class="headerlink" href="#saving-existing-json-files-to-disk" title="Permalink to this headline">¶</a></h3>
+<p>Once we’ve used the <code class="docutils literal notranslate"><span class="pre">json.loads()</span></code> function to register data as JSON in Python, we can save that JSON to our local disk space by using <code class="docutils literal notranslate"><span class="pre">open()</span></code> to create a new file, and <code class="docutils literal notranslate"><span class="pre">json.dump()</span></code> (note: not <code class="docutils literal notranslate"><span class="pre">json.dumps()</span></code>) to save the JSON to that file.</p>
+<p>For example, we registered the customer data as JSON in Python with the following code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">users</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://jsonplaceholder.typicode.com/users&quot;</span><span class="p">)</span>
+<span class="n">users_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">users</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To save this JSON file to my harddrive, I first use <code class="docutils literal notranslate"><span class="pre">os.chdir()</span></code> to set the working directory to the folder where I want to save my JSON file. (I omit that code here because it won’t work on other people’s computers.) Then I type:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;users.json&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
+     <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">users_json</span><span class="p">,</span> <span class="n">outfile</span><span class="p">,</span> <span class="n">sort_keys</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">indent</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+               <span class="n">ensure_ascii</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It is also possible to use a file extension such as <code class="docutils literal notranslate"><span class="pre">.txt</span></code> instead of <code class="docutils literal notranslate"><span class="pre">.json</span></code> to save the JSON formatted data in a plain text file.</p>
+</div>
+<div class="section" id="converting-tabular-dataframes-to-json">
+<h3><a class="toc-backref" href="#id18"><span class="section-number">3.5.2. </span>Converting Tabular DataFrames to JSON</a><a class="headerlink" href="#converting-tabular-dataframes-to-json" title="Permalink to this headline">¶</a></h3>
+<p>Any dataframe can be turned into a JSON file by applying the <code class="docutils literal notranslate"><span class="pre">.to_json()</span></code> method to the dataframe that is saved in Python’s memory. The trick is specifying a good organization for this file. Recall that JSON structures are much more flexible than dataframes. It is not possible to go from a dataframe to a nested, complicated JSON structure because the information about nesting simply does not exist for dataframes. That said, there are several choices for organizing the data:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">orient=&quot;records&quot;</span></code> works with JSON files organized as a list-of-sets, where each set is an entire record (or a row in flat data):</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">users_df</span> <span class="o">=</span> <span class="n">users_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">,]</span> <span class="c1"># just keeping the first 3 records, for display purposes</span>
+<span class="n">new_json</span> <span class="o">=</span> <span class="n">users_df</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s2">&quot;records&quot;</span><span class="p">)</span>
+<span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">new_json</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;id&#39;: 1,
+ &#39;name&#39;: &#39;Leanne Graham&#39;,
+ &#39;username&#39;: &#39;Bret&#39;,
+ &#39;email&#39;: &#39;Sincere@april.biz&#39;,
+ &#39;phone&#39;: &#39;1-770-736-8031 x56442&#39;,
+ &#39;website&#39;: &#39;hildegard.org&#39;,
+ &#39;address.street&#39;: &#39;Kulas Light&#39;,
+ &#39;address.suite&#39;: &#39;Apt. 556&#39;,
+ &#39;address.city&#39;: &#39;Gwenborough&#39;,
+ &#39;address.zipcode&#39;: &#39;92998-3874&#39;,
+ &#39;address.geo.lat&#39;: &#39;-37.3159&#39;,
+ &#39;address.geo.lng&#39;: &#39;81.1496&#39;,
+ &#39;company.name&#39;: &#39;Romaguera-Crona&#39;,
+ &#39;company.catchPhrase&#39;: &#39;Multi-layered client-server neural-net&#39;,
+ &#39;company.bs&#39;: &#39;harness real-time e-markets&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">orient=&quot;columns&quot;</span></code> works with JSON files organized as a list-of-dictionaries, where each dictionary is an entire column (the names are the row-names in the tabular data)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">new_json</span> <span class="o">=</span> <span class="n">users_df</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s2">&quot;columns&quot;</span><span class="p">)</span>
+<span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">new_json</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;id&#39;: {&#39;0&#39;: 1, &#39;1&#39;: 2, &#39;2&#39;: 3},
+ &#39;name&#39;: {&#39;0&#39;: &#39;Leanne Graham&#39;, &#39;1&#39;: &#39;Ervin Howell&#39;, &#39;2&#39;: &#39;Clementine Bauch&#39;},
+ &#39;username&#39;: {&#39;0&#39;: &#39;Bret&#39;, &#39;1&#39;: &#39;Antonette&#39;, &#39;2&#39;: &#39;Samantha&#39;},
+ &#39;email&#39;: {&#39;0&#39;: &#39;Sincere@april.biz&#39;,
+  &#39;1&#39;: &#39;Shanna@melissa.tv&#39;,
+  &#39;2&#39;: &#39;Nathan@yesenia.net&#39;},
+ &#39;phone&#39;: {&#39;0&#39;: &#39;1-770-736-8031 x56442&#39;,
+  &#39;1&#39;: &#39;010-692-6593 x09125&#39;,
+  &#39;2&#39;: &#39;1-463-123-4447&#39;},
+ &#39;website&#39;: {&#39;0&#39;: &#39;hildegard.org&#39;, &#39;1&#39;: &#39;anastasia.net&#39;, &#39;2&#39;: &#39;ramiro.info&#39;},
+ &#39;address.street&#39;: {&#39;0&#39;: &#39;Kulas Light&#39;,
+  &#39;1&#39;: &#39;Victor Plains&#39;,
+  &#39;2&#39;: &#39;Douglas Extension&#39;},
+ &#39;address.suite&#39;: {&#39;0&#39;: &#39;Apt. 556&#39;, &#39;1&#39;: &#39;Suite 879&#39;, &#39;2&#39;: &#39;Suite 847&#39;},
+ &#39;address.city&#39;: {&#39;0&#39;: &#39;Gwenborough&#39;,
+  &#39;1&#39;: &#39;Wisokyburgh&#39;,
+  &#39;2&#39;: &#39;McKenziehaven&#39;},
+ &#39;address.zipcode&#39;: {&#39;0&#39;: &#39;92998-3874&#39;, &#39;1&#39;: &#39;90566-7771&#39;, &#39;2&#39;: &#39;59590-4157&#39;},
+ &#39;address.geo.lat&#39;: {&#39;0&#39;: &#39;-37.3159&#39;, &#39;1&#39;: &#39;-43.9509&#39;, &#39;2&#39;: &#39;-68.6102&#39;},
+ &#39;address.geo.lng&#39;: {&#39;0&#39;: &#39;81.1496&#39;, &#39;1&#39;: &#39;-34.4618&#39;, &#39;2&#39;: &#39;-47.0653&#39;},
+ &#39;company.name&#39;: {&#39;0&#39;: &#39;Romaguera-Crona&#39;,
+  &#39;1&#39;: &#39;Deckow-Crist&#39;,
+  &#39;2&#39;: &#39;Romaguera-Jacobson&#39;},
+ &#39;company.catchPhrase&#39;: {&#39;0&#39;: &#39;Multi-layered client-server neural-net&#39;,
+  &#39;1&#39;: &#39;Proactive didactic contingency&#39;,
+  &#39;2&#39;: &#39;Face to face bifurcated interface&#39;},
+ &#39;company.bs&#39;: {&#39;0&#39;: &#39;harness real-time e-markets&#39;,
+  &#39;1&#39;: &#39;synergize scalable supply-chains&#39;,
+  &#39;2&#39;: &#39;e-enable strategic applications&#39;}}
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">orient=&quot;split&quot;</span></code> works with JSON files organized as dictionary with three lists: <code class="docutils literal notranslate"><span class="pre">columns</span></code> lists the column names, <code class="docutils literal notranslate"><span class="pre">index</span></code> lists the row names, and <code class="docutils literal notranslate"><span class="pre">data</span></code> is a list-of-lists of data points, one list for each row.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">new_json</span> <span class="o">=</span> <span class="n">users_df</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s2">&quot;split&quot;</span><span class="p">)</span>
+<span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">new_json</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;columns&#39;: [&#39;id&#39;,
+  &#39;name&#39;,
+  &#39;username&#39;,
+  &#39;email&#39;,
+  &#39;phone&#39;,
+  &#39;website&#39;,
+  &#39;address.street&#39;,
+  &#39;address.suite&#39;,
+  &#39;address.city&#39;,
+  &#39;address.zipcode&#39;,
+  &#39;address.geo.lat&#39;,
+  &#39;address.geo.lng&#39;,
+  &#39;company.name&#39;,
+  &#39;company.catchPhrase&#39;,
+  &#39;company.bs&#39;],
+ &#39;index&#39;: [0, 1, 2],
+ &#39;data&#39;: [[1,
+   &#39;Leanne Graham&#39;,
+   &#39;Bret&#39;,
+   &#39;Sincere@april.biz&#39;,
+   &#39;1-770-736-8031 x56442&#39;,
+   &#39;hildegard.org&#39;,
+   &#39;Kulas Light&#39;,
+   &#39;Apt. 556&#39;,
+   &#39;Gwenborough&#39;,
+   &#39;92998-3874&#39;,
+   &#39;-37.3159&#39;,
+   &#39;81.1496&#39;,
+   &#39;Romaguera-Crona&#39;,
+   &#39;Multi-layered client-server neural-net&#39;,
+   &#39;harness real-time e-markets&#39;],
+  [2,
+   &#39;Ervin Howell&#39;,
+   &#39;Antonette&#39;,
+   &#39;Shanna@melissa.tv&#39;,
+   &#39;010-692-6593 x09125&#39;,
+   &#39;anastasia.net&#39;,
+   &#39;Victor Plains&#39;,
+   &#39;Suite 879&#39;,
+   &#39;Wisokyburgh&#39;,
+   &#39;90566-7771&#39;,
+   &#39;-43.9509&#39;,
+   &#39;-34.4618&#39;,
+   &#39;Deckow-Crist&#39;,
+   &#39;Proactive didactic contingency&#39;,
+   &#39;synergize scalable supply-chains&#39;],
+  [3,
+   &#39;Clementine Bauch&#39;,
+   &#39;Samantha&#39;,
+   &#39;Nathan@yesenia.net&#39;,
+   &#39;1-463-123-4447&#39;,
+   &#39;ramiro.info&#39;,
+   &#39;Douglas Extension&#39;,
+   &#39;Suite 847&#39;,
+   &#39;McKenziehaven&#39;,
+   &#39;59590-4157&#39;,
+   &#39;-68.6102&#39;,
+   &#39;-47.0653&#39;,
+   &#39;Romaguera-Jacobson&#39;,
+   &#39;Face to face bifurcated interface&#39;,
+   &#39;e-enable strategic applications&#39;]]}
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">orient=&quot;index&quot;</span></code> is like <code class="docutils literal notranslate"><span class="pre">orient=&quot;records&quot;</span></code> but includes the name of each row in the data:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">new_json</span> <span class="o">=</span> <span class="n">users_df</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">)</span>
+<span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">new_json</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;0&#39;: {&#39;id&#39;: 1,
+  &#39;name&#39;: &#39;Leanne Graham&#39;,
+  &#39;username&#39;: &#39;Bret&#39;,
+  &#39;email&#39;: &#39;Sincere@april.biz&#39;,
+  &#39;phone&#39;: &#39;1-770-736-8031 x56442&#39;,
+  &#39;website&#39;: &#39;hildegard.org&#39;,
+  &#39;address.street&#39;: &#39;Kulas Light&#39;,
+  &#39;address.suite&#39;: &#39;Apt. 556&#39;,
+  &#39;address.city&#39;: &#39;Gwenborough&#39;,
+  &#39;address.zipcode&#39;: &#39;92998-3874&#39;,
+  &#39;address.geo.lat&#39;: &#39;-37.3159&#39;,
+  &#39;address.geo.lng&#39;: &#39;81.1496&#39;,
+  &#39;company.name&#39;: &#39;Romaguera-Crona&#39;,
+  &#39;company.catchPhrase&#39;: &#39;Multi-layered client-server neural-net&#39;,
+  &#39;company.bs&#39;: &#39;harness real-time e-markets&#39;},
+ &#39;1&#39;: {&#39;id&#39;: 2,
+  &#39;name&#39;: &#39;Ervin Howell&#39;,
+  &#39;username&#39;: &#39;Antonette&#39;,
+  &#39;email&#39;: &#39;Shanna@melissa.tv&#39;,
+  &#39;phone&#39;: &#39;010-692-6593 x09125&#39;,
+  &#39;website&#39;: &#39;anastasia.net&#39;,
+  &#39;address.street&#39;: &#39;Victor Plains&#39;,
+  &#39;address.suite&#39;: &#39;Suite 879&#39;,
+  &#39;address.city&#39;: &#39;Wisokyburgh&#39;,
+  &#39;address.zipcode&#39;: &#39;90566-7771&#39;,
+  &#39;address.geo.lat&#39;: &#39;-43.9509&#39;,
+  &#39;address.geo.lng&#39;: &#39;-34.4618&#39;,
+  &#39;company.name&#39;: &#39;Deckow-Crist&#39;,
+  &#39;company.catchPhrase&#39;: &#39;Proactive didactic contingency&#39;,
+  &#39;company.bs&#39;: &#39;synergize scalable supply-chains&#39;},
+ &#39;2&#39;: {&#39;id&#39;: 3,
+  &#39;name&#39;: &#39;Clementine Bauch&#39;,
+  &#39;username&#39;: &#39;Samantha&#39;,
+  &#39;email&#39;: &#39;Nathan@yesenia.net&#39;,
+  &#39;phone&#39;: &#39;1-463-123-4447&#39;,
+  &#39;website&#39;: &#39;ramiro.info&#39;,
+  &#39;address.street&#39;: &#39;Douglas Extension&#39;,
+  &#39;address.suite&#39;: &#39;Suite 847&#39;,
+  &#39;address.city&#39;: &#39;McKenziehaven&#39;,
+  &#39;address.zipcode&#39;: &#39;59590-4157&#39;,
+  &#39;address.geo.lat&#39;: &#39;-68.6102&#39;,
+  &#39;address.geo.lng&#39;: &#39;-47.0653&#39;,
+  &#39;company.name&#39;: &#39;Romaguera-Jacobson&#39;,
+  &#39;company.catchPhrase&#39;: &#39;Face to face bifurcated interface&#39;,
+  &#39;company.bs&#39;: &#39;e-enable strategic applications&#39;}}
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">orient=&quot;values&quot;</span></code> only contains the datapoints:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">new_json</span> <span class="o">=</span> <span class="n">users_df</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s2">&quot;values&quot;</span><span class="p">)</span>
+<span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">new_json</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[[1,
+  &#39;Leanne Graham&#39;,
+  &#39;Bret&#39;,
+  &#39;Sincere@april.biz&#39;,
+  &#39;1-770-736-8031 x56442&#39;,
+  &#39;hildegard.org&#39;,
+  &#39;Kulas Light&#39;,
+  &#39;Apt. 556&#39;,
+  &#39;Gwenborough&#39;,
+  &#39;92998-3874&#39;,
+  &#39;-37.3159&#39;,
+  &#39;81.1496&#39;,
+  &#39;Romaguera-Crona&#39;,
+  &#39;Multi-layered client-server neural-net&#39;,
+  &#39;harness real-time e-markets&#39;],
+ [2,
+  &#39;Ervin Howell&#39;,
+  &#39;Antonette&#39;,
+  &#39;Shanna@melissa.tv&#39;,
+  &#39;010-692-6593 x09125&#39;,
+  &#39;anastasia.net&#39;,
+  &#39;Victor Plains&#39;,
+  &#39;Suite 879&#39;,
+  &#39;Wisokyburgh&#39;,
+  &#39;90566-7771&#39;,
+  &#39;-43.9509&#39;,
+  &#39;-34.4618&#39;,
+  &#39;Deckow-Crist&#39;,
+  &#39;Proactive didactic contingency&#39;,
+  &#39;synergize scalable supply-chains&#39;],
+ [3,
+  &#39;Clementine Bauch&#39;,
+  &#39;Samantha&#39;,
+  &#39;Nathan@yesenia.net&#39;,
+  &#39;1-463-123-4447&#39;,
+  &#39;ramiro.info&#39;,
+  &#39;Douglas Extension&#39;,
+  &#39;Suite 847&#39;,
+  &#39;McKenziehaven&#39;,
+  &#39;59590-4157&#39;,
+  &#39;-68.6102&#39;,
+  &#39;-47.0653&#39;,
+  &#39;Romaguera-Jacobson&#39;,
+  &#39;Face to face bifurcated interface&#39;,
+  &#39;e-enable strategic applications&#39;]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>To save these files to disk, specify a filename (using the <code class="docutils literal notranslate"><span class="pre">os.chdir()</span></code> function to change the working directory to the folder in which you save to save this file), or a filename and path, for the first parameter:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">users_df</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="s2">&quot;myjson.json&quot;</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;values&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="ch2.html" title="previous page"><span class="section-number">2. </span>Loading Data from Electronic Data Files</a>
+    <a class='right-next' id="next-link" href="ch4.html" title="next page"><span class="section-number">4. </span>Acquiring Data from APIs</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jonathan Kropko (jkropko@virginia.edu)<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="_static/js/index.js"></script>
+    
+  </body>
+</html>

@@ -16,6 +16,6 @@ This website is free to use, and is licensed under the [Creative Commons Attribu
 
 This book is dedicated to Cypress.
 
-My sincere thanks to Cedric Harper, Nick Clifford, Brian Wright, Yash Tekriwal, Sucheta Soundarajan, Pete Alonzi, Raf Alvarado, and Nada Basit for help pulling material together and comments on the book.
+My sincere thanks to Cedric Harper, Nick Clifford, Brian Wright, Yash Tekriwal, Sucheta Soundarajan, Pete Alonzi, Raf Alvarado, Nada Basit, and Youssef Abubaker for help pulling material together and comments on the book.
 
 Icon image by <a href="https://pixabay.com/users/Kanenori-4749850/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2212948">かねのり 三浦</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2212948">Pixabay</a>

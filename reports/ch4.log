@@ -1,0 +1,234 @@
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.7/site-packages/jupyter_cache/executors/utils.py", line 56, in single_nb_execution
+    record_timing=False,
+  File "/opt/anaconda3/lib/python3.7/site-packages/nbclient/client.py", line 1112, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/anaconda3/lib/python3.7/site-packages/nbclient/util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/opt/anaconda3/lib/python3.7/site-packages/nbclient/util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "/opt/anaconda3/lib/python3.7/asyncio/base_events.py", line 587, in run_until_complete
+    return future.result()
+  File "/opt/anaconda3/lib/python3.7/site-packages/nbclient/client.py", line 554, in async_execute
+    cell, index, execution_count=self.code_cells_executed + 1
+  File "/opt/anaconda3/lib/python3.7/site-packages/nbclient/client.py", line 857, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/opt/anaconda3/lib/python3.7/site-packages/nbclient/client.py", line 760, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+msgs = []
+msg =[]
+
+for tweet in tweepy.Cursor(api.search, q='#uva').items(30):
+    msg = [tweet.text, tweet.created_at, tweet.user.screen_name] 
+    msg = tuple(msg)                    
+    msgs.append(msg)
+
+df = pd.DataFrame(msgs, columns = ['text', 'created_at', 'user'])
+df.head(30)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/tweepy/binder.py[0m in [0;36mexecute[0;34m(self)[0m
+[1;32m    188[0m                                                 [0mauth[0m[0;34m=[0m[0mauth[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 189[0;31m                                                 proxies=self.api.proxy)
+[0m[1;32m    190[0m                 [0;32mexcept[0m [0mException[0m [0;32mas[0m [0me[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/requests/sessions.py[0m in [0;36mrequest[0;34m(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)[0m
+[1;32m    518[0m         )
+[0;32m--> 519[0;31m         [0mprep[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mprepare_request[0m[0;34m([0m[0mreq[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    520[0m [0;34m[0m[0m
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/requests/sessions.py[0m in [0;36mprepare_request[0;34m(self, request)[0m
+[1;32m    461[0m             [0mcookies[0m[0;34m=[0m[0mmerged_cookies[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 462[0;31m             [0mhooks[0m[0;34m=[0m[0mmerge_hooks[0m[0;34m([0m[0mrequest[0m[0;34m.[0m[0mhooks[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0mhooks[0m[0;34m)[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    463[0m         )
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/requests/models.py[0m in [0;36mprepare[0;34m(self, method, url, headers, files, data, params, auth, cookies, hooks, json)[0m
+[1;32m    316[0m         [0mself[0m[0;34m.[0m[0mprepare_body[0m[0;34m([0m[0mdata[0m[0;34m,[0m [0mfiles[0m[0;34m,[0m [0mjson[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 317[0;31m         [0mself[0m[0;34m.[0m[0mprepare_auth[0m[0;34m([0m[0mauth[0m[0;34m,[0m [0murl[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    318[0m [0;34m[0m[0m
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/requests/models.py[0m in [0;36mprepare_auth[0;34m(self, auth, url)[0m
+[1;32m    547[0m             [0;31m# Allow auth to make its changes.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 548[0;31m             [0mr[0m [0;34m=[0m [0mauth[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    549[0m [0;34m[0m[0m
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/requests_oauthlib/oauth1_auth.py[0m in [0;36m__call__[0;34m(self, r)[0m
+[1;32m    108[0m             r.url, headers, _ = self.client.sign(
+[0;32m--> 109[0;31m                 [0municode[0m[0;34m([0m[0mr[0m[0;34m.[0m[0murl[0m[0;34m)[0m[0;34m,[0m [0municode[0m[0;34m([0m[0mr[0m[0;34m.[0m[0mmethod[0m[0;34m)[0m[0;34m,[0m [0;32mNone[0m[0;34m,[0m [0mr[0m[0;34m.[0m[0mheaders[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    110[0m             )
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/oauthlib/oauth1/rfc5849/__init__.py[0m in [0;36msign[0;34m(self, uri, http_method, body, headers, realm)[0m
+[1;32m    312[0m         request.oauth_params.append(
+[0;32m--> 313[0;31m             ('oauth_signature', self.get_oauth_signature(request)))
+[0m[1;32m    314[0m [0;34m[0m[0m
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/oauthlib/oauth1/rfc5849/__init__.py[0m in [0;36mget_oauth_signature[0;34m(self, request)[0m
+[1;32m    126[0m [0;34m[0m[0m
+[0;32m--> 127[0;31m         [0muri[0m[0;34m,[0m [0mheaders[0m[0;34m,[0m [0mbody[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_render[0m[0;34m([0m[0mrequest[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    128[0m [0;34m[0m[0m
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/oauthlib/oauth1/rfc5849/__init__.py[0m in [0;36m_render[0;34m(self, request, formencode, realm)[0m
+[1;32m    209[0m             headers = parameters.prepare_headers(
+[0;32m--> 210[0;31m                 request.oauth_params, request.headers, realm=realm)
+[0m[1;32m    211[0m         [0;32melif[0m [0mself[0m[0;34m.[0m[0msignature_type[0m [0;34m==[0m [0mSIGNATURE_TYPE_BODY[0m [0;32mand[0m [0mrequest[0m[0;34m.[0m[0mdecoded_body[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/oauthlib/oauth1/rfc5849/utils.py[0m in [0;36mwrapper[0;34m(params, *args, **kwargs)[0m
+[1;32m     31[0m         [0mparams[0m [0;34m=[0m [0mfilter_oauth_params[0m[0;34m([0m[0mparams[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 32[0;31m         [0;32mreturn[0m [0mtarget[0m[0;34m([0m[0mparams[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     33[0m [0;34m[0m[0m
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/oauthlib/oauth1/rfc5849/parameters.py[0m in [0;36mprepare_headers[0;34m(oauth_params, headers, realm)[0m
+[1;32m     58[0m         [0mescaped_name[0m [0;34m=[0m [0mutils[0m[0;34m.[0m[0mescape[0m[0;34m([0m[0moauth_parameter_name[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 59[0;31m         [0mescaped_value[0m [0;34m=[0m [0mutils[0m[0;34m.[0m[0mescape[0m[0;34m([0m[0mvalue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     60[0m [0;34m[0m[0m
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/oauthlib/oauth1/rfc5849/utils.py[0m in [0;36mescape[0;34m(u)[0m
+[1;32m     56[0m         raise ValueError('Only unicode objects are escapable. ' +
+[0;32m---> 57[0;31m                          'Got %r of type %s.' % (u, type(u)))
+[0m[1;32m     58[0m     [0;31m# Letters, digits, and the characters '_.-' are already treated as safe[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mValueError[0m: Only unicode objects are escapable. Got None of type <class 'NoneType'>.
+
+During handling of the above exception, another exception occurred:
+
+[0;31mTweepError[0m                                Traceback (most recent call last)
+[0;32m/var/folders/8k/ps7r1m2x3_zcd4_dznr8ns1m0000gp/T/ipykernel_1375/263323542.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0mmsg[0m [0;34m=[0m[0;34m[[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mfor[0m [0mtweet[0m [0;32min[0m [0mtweepy[0m[0;34m.[0m[0mCursor[0m[0;34m([0m[0mapi[0m[0;34m.[0m[0msearch[0m[0;34m,[0m [0mq[0m[0;34m=[0m[0;34m'#uva'[0m[0;34m)[0m[0;34m.[0m[0mitems[0m[0;34m([0m[0;36m30[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m     [0mmsg[0m [0;34m=[0m [0;34m[[0m[0mtweet[0m[0;34m.[0m[0mtext[0m[0;34m,[0m [0mtweet[0m[0;34m.[0m[0mcreated_at[0m[0;34m,[0m [0mtweet[0m[0;34m.[0m[0muser[0m[0;34m.[0m[0mscreen_name[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m     [0mmsg[0m [0;34m=[0m [0mtuple[0m[0;34m([0m[0mmsg[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/tweepy/cursor.py[0m in [0;36m__next__[0;34m(self)[0m
+[1;32m     45[0m [0;34m[0m[0m
+[1;32m     46[0m     [0;32mdef[0m [0m__next__[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 47[0;31m         [0;32mreturn[0m [0mself[0m[0;34m.[0m[0mnext[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     48[0m [0;34m[0m[0m
+[1;32m     49[0m     [0;32mdef[0m [0mnext[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/tweepy/cursor.py[0m in [0;36mnext[0;34m(self)[0m
+[1;32m    193[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0mcurrent_page[0m [0;32mis[0m [0;32mNone[0m [0;32mor[0m [0mself[0m[0;34m.[0m[0mpage_index[0m [0;34m==[0m [0mlen[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mcurrent_page[0m[0;34m)[0m [0;34m-[0m [0;36m1[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    194[0m             [0;31m# Reached end of current page, get the next page...[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 195[0;31m             [0mself[0m[0;34m.[0m[0mcurrent_page[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mpage_iterator[0m[0;34m.[0m[0mnext[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    196[0m             [0mself[0m[0;34m.[0m[0mpage_index[0m [0;34m=[0m [0;34m-[0m[0;36m1[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    197[0m         [0mself[0m[0;34m.[0m[0mpage_index[0m [0;34m+=[0m [0;36m1[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/tweepy/cursor.py[0m in [0;36mnext[0;34m(self)[0m
+[1;32m    104[0m [0;34m[0m[0m
+[1;32m    105[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0mindex[0m [0;34m>=[0m [0mlen[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mresults[0m[0;34m)[0m [0;34m-[0m [0;36m1[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 106[0;31m             [0mdata[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mmethod[0m[0;34m([0m[0mmax_id[0m[0;34m=[0m[0mself[0m[0;34m.[0m[0mmax_id[0m[0;34m,[0m [0mparser[0m[0;34m=[0m[0mRawParser[0m[0;34m([0m[0;34m)[0m[0;34m,[0m [0;34m*[0m[0mself[0m[0;34m.[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mself[0m[0;34m.[0m[0mkargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    107[0m [0;34m[0m[0m
+[1;32m    108[0m             [0;32mif[0m [0mhasattr[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mmethod[0m[0;34m,[0m [0;34m'__self__'[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/tweepy/binder.py[0m in [0;36m_call[0;34m(*args, **kwargs)[0m
+[1;32m    248[0m                 [0;32mreturn[0m [0mmethod[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    249[0m             [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 250[0;31m                 [0;32mreturn[0m [0mmethod[0m[0;34m.[0m[0mexecute[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    251[0m         [0;32mfinally[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    252[0m             [0mmethod[0m[0;34m.[0m[0msession[0m[0;34m.[0m[0mclose[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/tweepy/binder.py[0m in [0;36mexecute[0;34m(self)[0m
+[1;32m    189[0m                                                 proxies=self.api.proxy)
+[1;32m    190[0m                 [0;32mexcept[0m [0mException[0m [0;32mas[0m [0me[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 191[0;31m                     [0msix[0m[0;34m.[0m[0mreraise[0m[0;34m([0m[0mTweepError[0m[0;34m,[0m [0mTweepError[0m[0;34m([0m[0;34m'Failed to send request: %s'[0m [0;34m%[0m [0me[0m[0;34m)[0m[0;34m,[0m [0msys[0m[0;34m.[0m[0mexc_info[0m[0;34m([0m[0;34m)[0m[0;34m[[0m[0;36m2[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    192[0m [0;34m[0m[0m
+[1;32m    193[0m                 [0mrem_calls[0m [0;34m=[0m [0mresp[0m[0;34m.[0m[0mheaders[0m[0;34m.[0m[0mget[0m[0;34m([0m[0;34m'x-rate-limit-remaining'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/six.py[0m in [0;36mreraise[0;34m(tp, value, tb)[0m
+[1;32m    690[0m                 [0mvalue[0m [0;34m=[0m [0mtp[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    691[0m             [0;32mif[0m [0mvalue[0m[0;34m.[0m[0m__traceback__[0m [0;32mis[0m [0;32mnot[0m [0mtb[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 692[0;31m                 [0;32mraise[0m [0mvalue[0m[0;34m.[0m[0mwith_traceback[0m[0;34m([0m[0mtb[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    693[0m             [0;32mraise[0m [0mvalue[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    694[0m         [0;32mfinally[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/tweepy/binder.py[0m in [0;36mexecute[0;34m(self)[0m
+[1;32m    187[0m                                                 [0mtimeout[0m[0;34m=[0m[0mself[0m[0;34m.[0m[0mapi[0m[0;34m.[0m[0mtimeout[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    188[0m                                                 [0mauth[0m[0;34m=[0m[0mauth[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 189[0;31m                                                 proxies=self.api.proxy)
+[0m[1;32m    190[0m                 [0;32mexcept[0m [0mException[0m [0;32mas[0m [0me[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    191[0m                     [0msix[0m[0;34m.[0m[0mreraise[0m[0;34m([0m[0mTweepError[0m[0;34m,[0m [0mTweepError[0m[0;34m([0m[0;34m'Failed to send request: %s'[0m [0;34m%[0m [0me[0m[0;34m)[0m[0;34m,[0m [0msys[0m[0;34m.[0m[0mexc_info[0m[0;34m([0m[0;34m)[0m[0;34m[[0m[0;36m2[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/requests/sessions.py[0m in [0;36mrequest[0;34m(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)[0m
+[1;32m    517[0m             [0mhooks[0m[0;34m=[0m[0mhooks[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    518[0m         )
+[0;32m--> 519[0;31m         [0mprep[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mprepare_request[0m[0;34m([0m[0mreq[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    520[0m [0;34m[0m[0m
+[1;32m    521[0m         [0mproxies[0m [0;34m=[0m [0mproxies[0m [0;32mor[0m [0;34m{[0m[0;34m}[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/requests/sessions.py[0m in [0;36mprepare_request[0;34m(self, request)[0m
+[1;32m    460[0m             [0mauth[0m[0;34m=[0m[0mmerge_setting[0m[0;34m([0m[0mauth[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0mauth[0m[0;34m)[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    461[0m             [0mcookies[0m[0;34m=[0m[0mmerged_cookies[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 462[0;31m             [0mhooks[0m[0;34m=[0m[0mmerge_hooks[0m[0;34m([0m[0mrequest[0m[0;34m.[0m[0mhooks[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0mhooks[0m[0;34m)[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    463[0m         )
+[1;32m    464[0m         [0;32mreturn[0m [0mp[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/requests/models.py[0m in [0;36mprepare[0;34m(self, method, url, headers, files, data, params, auth, cookies, hooks, json)[0m
+[1;32m    315[0m         [0mself[0m[0;34m.[0m[0mprepare_cookies[0m[0;34m([0m[0mcookies[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    316[0m         [0mself[0m[0;34m.[0m[0mprepare_body[0m[0;34m([0m[0mdata[0m[0;34m,[0m [0mfiles[0m[0;34m,[0m [0mjson[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 317[0;31m         [0mself[0m[0;34m.[0m[0mprepare_auth[0m[0;34m([0m[0mauth[0m[0;34m,[0m [0murl[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    318[0m [0;34m[0m[0m
+[1;32m    319[0m         [0;31m# Note that prepare_auth must be last to enable authentication schemes[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/requests/models.py[0m in [0;36mprepare_auth[0;34m(self, auth, url)[0m
+[1;32m    546[0m [0;34m[0m[0m
+[1;32m    547[0m             [0;31m# Allow auth to make its changes.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 548[0;31m             [0mr[0m [0;34m=[0m [0mauth[0m[0;34m([0m[0mself[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    549[0m [0;34m[0m[0m
+[1;32m    550[0m             [0;31m# Update self to reflect the auth changes.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/requests_oauthlib/oauth1_auth.py[0m in [0;36m__call__[0;34m(self, r)[0m
+[1;32m    107[0m             [0;31m# Omit body data in the signing of non form-encoded requests[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    108[0m             r.url, headers, _ = self.client.sign(
+[0;32m--> 109[0;31m                 [0municode[0m[0;34m([0m[0mr[0m[0;34m.[0m[0murl[0m[0;34m)[0m[0;34m,[0m [0municode[0m[0;34m([0m[0mr[0m[0;34m.[0m[0mmethod[0m[0;34m)[0m[0;34m,[0m [0;32mNone[0m[0;34m,[0m [0mr[0m[0;34m.[0m[0mheaders[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    110[0m             )
+[1;32m    111[0m [0;34m[0m[0m
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/oauthlib/oauth1/rfc5849/__init__.py[0m in [0;36msign[0;34m(self, uri, http_method, body, headers, realm)[0m
+[1;32m    311[0m         [0;31m# generate the signature[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    312[0m         request.oauth_params.append(
+[0;32m--> 313[0;31m             ('oauth_signature', self.get_oauth_signature(request)))
+[0m[1;32m    314[0m [0;34m[0m[0m
+[1;32m    315[0m         [0;31m# render the signed request and return it[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/oauthlib/oauth1/rfc5849/__init__.py[0m in [0;36mget_oauth_signature[0;34m(self, request)[0m
+[1;32m    125[0m                                             self.resource_owner_secret)
+[1;32m    126[0m [0;34m[0m[0m
+[0;32m--> 127[0;31m         [0muri[0m[0;34m,[0m [0mheaders[0m[0;34m,[0m [0mbody[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_render[0m[0;34m([0m[0mrequest[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    128[0m [0;34m[0m[0m
+[1;32m    129[0m         collected_params = signature.collect_parameters(
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/oauthlib/oauth1/rfc5849/__init__.py[0m in [0;36m_render[0;34m(self, request, formencode, realm)[0m
+[1;32m    208[0m         [0;32mif[0m [0mself[0m[0;34m.[0m[0msignature_type[0m [0;34m==[0m [0mSIGNATURE_TYPE_AUTH_HEADER[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    209[0m             headers = parameters.prepare_headers(
+[0;32m--> 210[0;31m                 request.oauth_params, request.headers, realm=realm)
+[0m[1;32m    211[0m         [0;32melif[0m [0mself[0m[0;34m.[0m[0msignature_type[0m [0;34m==[0m [0mSIGNATURE_TYPE_BODY[0m [0;32mand[0m [0mrequest[0m[0;34m.[0m[0mdecoded_body[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    212[0m             body = parameters.prepare_form_encoded_body(
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/oauthlib/oauth1/rfc5849/utils.py[0m in [0;36mwrapper[0;34m(params, *args, **kwargs)[0m
+[1;32m     30[0m     [0;32mdef[0m [0mwrapper[0m[0;34m([0m[0mparams[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     31[0m         [0mparams[0m [0;34m=[0m [0mfilter_oauth_params[0m[0;34m([0m[0mparams[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 32[0;31m         [0;32mreturn[0m [0mtarget[0m[0;34m([0m[0mparams[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     33[0m [0;34m[0m[0m
+[1;32m     34[0m     [0mwrapper[0m[0;34m.[0m[0m__doc__[0m [0;34m=[0m [0mtarget[0m[0;34m.[0m[0m__doc__[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/oauthlib/oauth1/rfc5849/parameters.py[0m in [0;36mprepare_headers[0;34m(oauth_params, headers, realm)[0m
+[1;32m     57[0m         [0;31m# .. _`Section 3.6`: https://tools.ietf.org/html/rfc5849#section-3.6[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     58[0m         [0mescaped_name[0m [0;34m=[0m [0mutils[0m[0;34m.[0m[0mescape[0m[0;34m([0m[0moauth_parameter_name[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 59[0;31m         [0mescaped_value[0m [0;34m=[0m [0mutils[0m[0;34m.[0m[0mescape[0m[0;34m([0m[0mvalue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     60[0m [0;34m[0m[0m
+[1;32m     61[0m         [0;31m# 2.  Each parameter's name is immediately followed by an "=" character[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/oauthlib/oauth1/rfc5849/utils.py[0m in [0;36mescape[0;34m(u)[0m
+[1;32m     55[0m     [0;32mif[0m [0;32mnot[0m [0misinstance[0m[0;34m([0m[0mu[0m[0;34m,[0m [0municode_type[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     56[0m         raise ValueError('Only unicode objects are escapable. ' +
+[0;32m---> 57[0;31m                          'Got %r of type %s.' % (u, type(u)))
+[0m[1;32m     58[0m     [0;31m# Letters, digits, and the characters '_.-' are already treated as safe[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     59[0m     [0;31m# by urllib.quote(). We need to add '~' to fully support rfc5849.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mTweepError[0m: Failed to send request: Only unicode objects are escapable. Got None of type <class 'NoneType'>.
+TweepError: Failed to send request: Only unicode objects are escapable. Got None of type <class 'NoneType'>.
+

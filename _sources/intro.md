@@ -14,8 +14,10 @@ The pipeline refers to all of the steps needed to go from **raw, messy, original
 
 This website is free to use, and is licensed under the [Creative Commons Attribution-NonCommercial-NoDerivs 3.0 License](https://creativecommons.org/licenses/by-nc-nd/3.0/us/).
 
+If you catch any typos or mistakes, you can let me know by submitting an [issue](https://github.com/jkropko/surfing-the-data-pipeline/issues) on this book's GitHub repository. Or you can make changes yourself to the text by issuing a [pull request](https://github.com/jkropko/surfing-the-data-pipeline/pulls). If you do, I'll make sure you get thanked on this page.
+
 This book is dedicated to Cypress.
 
-My sincere thanks to Cedric Harper, Nick Clifford, Brian Wright, Yash Tekriwal, Sucheta Soundarajan, Pete Alonzi, Raf Alvarado, Nada Basit, Youssef Abubaker, and David Xu for help pulling material together and comments on the book.
+My sincere thanks to Cedric Harper, Nick Clifford, Brian Wright, Yash Tekriwal, Sucheta Soundarajan, Pete Alonzi, Raf Alvarado, Nada Basit, Youssef Abubaker, David Xu, and Mike Powers for help pulling material together and comments on the book.
 
 The book's icon is <a href="https://www.flickr.com/photos/37845599@N07/5097629627">"Surfing Dunedin" by Dunedin NZ</a>, and is licensed under CC BY-ND 2.0.

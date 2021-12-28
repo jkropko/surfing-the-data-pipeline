@@ -2,7 +2,7 @@ format: jb-book
 root: intro
 options:
   numbered: true
-sections:
+chapters:
 - file: ch1
 - file: ch2
 - file: ch3

@@ -1,37 +1,50 @@
 
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>1. Getting Yourself Unstuck &#8212; Surfing the Data Pipeline with Python</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/sphinx-book-theme.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/mystnb.js"></script>
-    <script src="_static/sphinx-book-theme.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -41,14 +54,14 @@
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="2. Loading Data from Electronic Data Files" href="ch2.html" />
     <link rel="prev" title="Surfing the Data Pipeline with Python" href="intro.html" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
-
-
-
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -57,30 +70,27 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
-  
-  <img src="_static/surf.jpg" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">Surfing the Data Pipeline with Python</h1>
-  
-</a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/surf.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Surfing the Data Pipeline with Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
    Surfing the Data Pipeline with Python
   </a>
  </li>
 </ul>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    1. Getting Yourself Unstuck
@@ -153,9 +163,8 @@
  </li>
 </ul>
 
-</nav>
-
- <!-- To handle the deprecated key -->
+    </div>
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
@@ -170,25 +179,25 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -200,27 +209,46 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
-        <!-- Source interaction buttons -->
 
+            <!-- Source interaction buttons -->
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Full screen (wrap in <a> to have style consistency -->
 
-        <!-- Launch buttons -->
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/ch1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
     </div>
+</div>
 
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> On this page
         </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction">
    1.1. Introduction
@@ -297,7 +325,8 @@
  </li>
 </ul>
 
-        </nav>
+            </nav>
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -305,7 +334,7 @@
         
               <div>
                 
-  <div class="section" id="getting-yourself-unstuck">
+  <section id="getting-yourself-unstuck">
 <h1><a class="toc-backref" href="#id1"><span class="section-number">1. </span>Getting Yourself Unstuck</a><a class="headerlink" href="#getting-yourself-unstuck" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="table-of-contents">
 <p class="topic-title">Table of Contents</p>
@@ -336,7 +365,7 @@
 </li>
 </ul>
 </div>
-<div class="section" id="introduction">
+<section id="introduction">
 <h2><a class="toc-backref" href="#id2"><span class="section-number">1.1. </span>Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>Welcome to DS 6001: Practice and Application of Data Science! In this course, we will focus on the <strong>data pipeline</strong>.</p>
 <figure>
@@ -375,8 +404,8 @@ Source <a href="https://pixabay.com/photos/wave-surfer-sport-sea-surf-water-1246
 <li><p>With interactive visualizations using <code class="docutils literal notranslate"><span class="pre">plotly</span></code> (Module 12)</p></li>
 </ul>
 <p>However, prior to launching into the data pipeline, we have to talk about the single most important skill for a data scientist: <strong>how to get yourself unstuck</strong>. That is, how to find the help you need to solve the inevitable problems, errors, and anomalies that will occur as you code. Remember, being a great data scientist does NOT mean doing everything perfectly. Great data scientists make mistakes just as often as anyone else. What sets them apart is their skill in using help resources to get to the <strong>right answer, as quickly as possible</strong>. In this notebook, we will discuss the various methods and resources at your disposal for finding help, and the <em>order</em> in which you should employ each resource. If you practice these skills for getting yourself unstuck, you won’t have any trouble squashing all the bugs in your code.</p>
-<img src="http://phdcomics.com/comics/archive/phd011406s.gif" width="600"></div>
-<div class="section" id="the-places-to-go-for-help-in-order">
+<img src="http://phdcomics.com/comics/archive/phd011406s.gif" width="600"></section>
+<section id="the-places-to-go-for-help-in-order">
 <h2><a class="toc-backref" href="#id3"><span class="section-number">1.2. </span>The Places to Go For Help, In Order</a><a class="headerlink" href="#the-places-to-go-for-help-in-order" title="Permalink to this headline">¶</a></h2>
 <p>There are many resources available to you. I suggest using the following resources in a particular order:</p>
 <ol class="simple">
@@ -388,10 +417,10 @@ Source <a href="https://pixabay.com/photos/wave-surfer-sport-sea-surf-water-1246
 <li><p>Internet relay chat (IRC) rooms with other Python users</p></li>
 <li><p>Various Python mailing lists</p></li>
 </ol>
-<p>See https://www.python.org/community/ for more information about these resources.</p>
+<p>See <a class="reference external" href="https://www.python.org/community/">https://www.python.org/community/</a> for more information about these resources.</p>
 <p>Please notice, many programmers use Google and Stack Overflow as their first options for getting help. I strongly suggest that you do <strong>not</strong> look to Google and Stack Overflow before trying to use the official Python built-in documentation. The documentation isn’t as intuitive and easy to access as Google, but the answers that the official documentation will provide are guaranteed to be correct and specific to the functions you are trying to use, if you know what those functions are. In contrast, for all of the strengths of Google and Stack Overflow, there is a lot of information out there that isn’t especially helpful and will slow you down a great deal.</p>
-</div>
-<div class="section" id="method-1-reading-and-understanding-python-errors">
+</section>
+<section id="method-1-reading-and-understanding-python-errors">
 <h2><a class="toc-backref" href="#id4"><span class="section-number">1.3. </span>Method 1: Reading and Understanding Python Errors</a><a class="headerlink" href="#method-1-reading-and-understanding-python-errors" title="Permalink to this headline">¶</a></h2>
 <p>Usually, when you are stuck, it’s because you ran some code that resulted in an error. Reading and understanding the error is the single most important and useful way to get yourself unstuck. These errors are not aesthetically pleasing, and they are written in technical language, but the <em>intention</em> of these error messages is to tell you exactly what went wrong. Many Python users skip reading the errors entirely, which is a shame because the error might indicate exactly the fastest way to solve the problem.</p>
 <p>There are two reasons why people skip over reading the errors:</p>
@@ -414,29 +443,29 @@ Source <a href="https://pixabay.com/photos/wave-surfer-sport-sea-surf-water-1246
       <span class="mi">2</span> <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/jkropko/DS-6001/master/localdata/anes_example_toplines.csv&quot;</span>
 <span class="o">----&gt;</span> <span class="mi">3</span> <span class="n">anes</span> <span class="o">=</span> <span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 
-<span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="o">.</span><span class="mi">7</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">pandas</span><span class="o">/</span><span class="n">io</span><span class="o">/</span><span class="n">parsers</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="n">parser_f</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">sep</span><span class="p">,</span> <span class="n">delimiter</span><span class="p">,</span> <span class="n">header</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">index_col</span><span class="p">,</span> <span class="n">usecols</span><span class="p">,</span> <span class="n">squeeze</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">mangle_dupe_cols</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">converters</span><span class="p">,</span> <span class="n">true_values</span><span class="p">,</span> <span class="n">false_values</span><span class="p">,</span> <span class="n">skipinitialspace</span><span class="p">,</span> <span class="n">skiprows</span><span class="p">,</span> <span class="n">skipfooter</span><span class="p">,</span> <span class="n">nrows</span><span class="p">,</span> <span class="n">na_values</span><span class="p">,</span> <span class="n">keep_default_na</span><span class="p">,</span> <span class="n">na_filter</span><span class="p">,</span> <span class="n">verbose</span><span class="p">,</span> <span class="n">skip_blank_lines</span><span class="p">,</span> <span class="n">parse_dates</span><span class="p">,</span> <span class="n">infer_datetime_format</span><span class="p">,</span> <span class="n">keep_date_col</span><span class="p">,</span> <span class="n">date_parser</span><span class="p">,</span> <span class="n">dayfirst</span><span class="p">,</span> <span class="n">cache_dates</span><span class="p">,</span> <span class="n">iterator</span><span class="p">,</span> <span class="n">chunksize</span><span class="p">,</span> <span class="n">compression</span><span class="p">,</span> <span class="n">thousands</span><span class="p">,</span> <span class="n">decimal</span><span class="p">,</span> <span class="n">lineterminator</span><span class="p">,</span> <span class="n">quotechar</span><span class="p">,</span> <span class="n">quoting</span><span class="p">,</span> <span class="n">doublequote</span><span class="p">,</span> <span class="n">escapechar</span><span class="p">,</span> <span class="n">comment</span><span class="p">,</span> <span class="n">encoding</span><span class="p">,</span> <span class="n">dialect</span><span class="p">,</span> <span class="n">error_bad_lines</span><span class="p">,</span> <span class="n">warn_bad_lines</span><span class="p">,</span> <span class="n">delim_whitespace</span><span class="p">,</span> <span class="n">low_memory</span><span class="p">,</span> <span class="n">memory_map</span><span class="p">,</span> <span class="n">float_precision</span><span class="p">)</span>
+<span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.7</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">pandas</span><span class="o">/</span><span class="n">io</span><span class="o">/</span><span class="n">parsers</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="n">parser_f</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">sep</span><span class="p">,</span> <span class="n">delimiter</span><span class="p">,</span> <span class="n">header</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">index_col</span><span class="p">,</span> <span class="n">usecols</span><span class="p">,</span> <span class="n">squeeze</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">mangle_dupe_cols</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">converters</span><span class="p">,</span> <span class="n">true_values</span><span class="p">,</span> <span class="n">false_values</span><span class="p">,</span> <span class="n">skipinitialspace</span><span class="p">,</span> <span class="n">skiprows</span><span class="p">,</span> <span class="n">skipfooter</span><span class="p">,</span> <span class="n">nrows</span><span class="p">,</span> <span class="n">na_values</span><span class="p">,</span> <span class="n">keep_default_na</span><span class="p">,</span> <span class="n">na_filter</span><span class="p">,</span> <span class="n">verbose</span><span class="p">,</span> <span class="n">skip_blank_lines</span><span class="p">,</span> <span class="n">parse_dates</span><span class="p">,</span> <span class="n">infer_datetime_format</span><span class="p">,</span> <span class="n">keep_date_col</span><span class="p">,</span> <span class="n">date_parser</span><span class="p">,</span> <span class="n">dayfirst</span><span class="p">,</span> <span class="n">cache_dates</span><span class="p">,</span> <span class="n">iterator</span><span class="p">,</span> <span class="n">chunksize</span><span class="p">,</span> <span class="n">compression</span><span class="p">,</span> <span class="n">thousands</span><span class="p">,</span> <span class="n">decimal</span><span class="p">,</span> <span class="n">lineterminator</span><span class="p">,</span> <span class="n">quotechar</span><span class="p">,</span> <span class="n">quoting</span><span class="p">,</span> <span class="n">doublequote</span><span class="p">,</span> <span class="n">escapechar</span><span class="p">,</span> <span class="n">comment</span><span class="p">,</span> <span class="n">encoding</span><span class="p">,</span> <span class="n">dialect</span><span class="p">,</span> <span class="n">error_bad_lines</span><span class="p">,</span> <span class="n">warn_bad_lines</span><span class="p">,</span> <span class="n">delim_whitespace</span><span class="p">,</span> <span class="n">low_memory</span><span class="p">,</span> <span class="n">memory_map</span><span class="p">,</span> <span class="n">float_precision</span><span class="p">)</span>
     <span class="mi">674</span>         <span class="p">)</span>
     <span class="mi">675</span> 
 <span class="o">--&gt;</span> <span class="mi">676</span>         <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
     <span class="mi">677</span> 
     <span class="mi">678</span>     <span class="n">parser_f</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="n">name</span>
 
-<span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="o">.</span><span class="mi">7</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">pandas</span><span class="o">/</span><span class="n">io</span><span class="o">/</span><span class="n">parsers</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.7</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">pandas</span><span class="o">/</span><span class="n">io</span><span class="o">/</span><span class="n">parsers</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
     <span class="mi">452</span> 
     <span class="mi">453</span>     <span class="k">try</span><span class="p">:</span>
 <span class="o">--&gt;</span> <span class="mi">454</span>         <span class="n">data</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">nrows</span><span class="p">)</span>
     <span class="mi">455</span>     <span class="k">finally</span><span class="p">:</span>
     <span class="mi">456</span>         <span class="n">parser</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
-<span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="o">.</span><span class="mi">7</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">pandas</span><span class="o">/</span><span class="n">io</span><span class="o">/</span><span class="n">parsers</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="n">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nrows</span><span class="p">)</span>
-   <span class="mi">1131</span>     <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.7</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">pandas</span><span class="o">/</span><span class="n">io</span><span class="o">/</span><span class="n">parsers</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="n">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nrows</span><span class="p">)</span>
+   <span class="mi">1131</span>     <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
    <span class="mi">1132</span>         <span class="n">nrows</span> <span class="o">=</span> <span class="n">_validate_integer</span><span class="p">(</span><span class="s2">&quot;nrows&quot;</span><span class="p">,</span> <span class="n">nrows</span><span class="p">)</span>
 <span class="o">-&gt;</span> <span class="mi">1133</span>         <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">nrows</span><span class="p">)</span>
    <span class="mi">1134</span> 
    <span class="mi">1135</span>         <span class="c1"># May alter columns / col_dict</span>
 
-<span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="o">.</span><span class="mi">7</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">pandas</span><span class="o">/</span><span class="n">io</span><span class="o">/</span><span class="n">parsers</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="n">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nrows</span><span class="p">)</span>
-   <span class="mi">2035</span>     <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.7</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">pandas</span><span class="o">/</span><span class="n">io</span><span class="o">/</span><span class="n">parsers</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="n">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nrows</span><span class="p">)</span>
+   <span class="mi">2035</span>     <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
    <span class="mi">2036</span>         <span class="k">try</span><span class="p">:</span>
 <span class="o">-&gt;</span> <span class="mi">2037</span>             <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">nrows</span><span class="p">)</span>
    <span class="mi">2038</span>         <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
@@ -459,7 +488,7 @@ Source <a href="https://pixabay.com/photos/wave-surfer-sport-sea-surf-water-1246
 <p>I recommend turning off the traceback to make reading error messages easier. To do this, load the <code class="docutils literal notranslate"><span class="pre">sys</span></code> library and issue the following command:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">tracebacklimit</span> <span class="o">=</span> <span class="mi">0</span>
 </pre></div>
 </div>
@@ -490,24 +519,24 @@ Source <a href="https://pixabay.com/photos/wave-surfer-sport-sea-surf-water-1246
 <p>To turn the traceback back on, simply type:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sys</span><span class="o">.</span><span class="n">tracebacklimit</span> <span class="o">=</span> <span class="kc">None</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sys</span><span class="o">.</span><span class="n">tracebacklimit</span> <span class="o">=</span> <span class="kc">None</span>
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="method-2-using-the-built-in-python-documentation">
+</section>
+<section id="method-2-using-the-built-in-python-documentation">
 <h2><a class="toc-backref" href="#id5"><span class="section-number">1.4. </span>Method 2: Using the Built-in Python Documentation</a><a class="headerlink" href="#method-2-using-the-built-in-python-documentation" title="Permalink to this headline">¶</a></h2>
 <p>Packages, modules, classes and functions in Python have built-in documentation that you can display directly in the console or in the output of a notebook. These built-in documentations are called <strong>docstrings</strong>.</p>
-<div class="section" id="using-a-console-window-in-jupyterlab">
+<section id="using-a-console-window-in-jupyterlab">
 <h3><a class="toc-backref" href="#id6"><span class="section-number">1.4.1. </span>Using a Console Window in JupyterLab</a><a class="headerlink" href="#using-a-console-window-in-jupyterlab" title="Permalink to this headline">¶</a></h3>
 <p>The docstring should be the first place to look for help with specific, pre-built Python code. The problem is, calling up a docstring is very annoying in a Jupyter notebook. Ideally, you should be working with two windows side by side: one for the notebook or script that contains your code, and one for calling docstrings and running commands to view saved objects.</p>
-<p>I strongly suggest using JupyterLab (not just Jupyter), which is available from  Anaconda Navigator: https://docs.anaconda.com/anaconda/navigator/. Please take a moment to download and install Anaconda Navigator, launch JupyterLab, and open this notebook in JupyterLab (by clicking on the file folder icon in the upper left corner of the screen, navigating to this file, and clicking on it) if you haven’t already done so.</p>
+<p>I strongly suggest using JupyterLab (not just Jupyter), which is available from  Anaconda Navigator: <a class="reference external" href="https://docs.anaconda.com/anaconda/navigator/">https://docs.anaconda.com/anaconda/navigator/</a>. Please take a moment to download and install Anaconda Navigator, launch JupyterLab, and open this notebook in JupyterLab (by clicking on the file folder icon in the upper left corner of the screen, navigating to this file, and clicking on it) if you haven’t already done so.</p>
 <p>Next, click <strong>File</strong>, then <strong>New</strong>, then <strong>Console</strong>. This will open a console window, in which you type commands one at a time into the bar at the bottom of the window, pressing SHIFT + ENTER/RETURN to execute the command. Find the tab at the top of the screen for the console, and click and drag it to the side of the screen. The notebook and console windows should now be side-by-side.</p>
 <p>Finally, click on the console window, then click on <strong>Kernel</strong> at the top of the screen, and <strong>Change Kernel…</strong>. That brings up a “Select Kernel” menu. In the drop-down menu, choose the name of this notebook. That loads all the packages and objects that have been stored in the notebook’s memory in the console.</p>
 <p>Now the console is very easy to use to call up docstrings or to run commands on the notebook’s objects.</p>
-</div>
-<div class="section" id="how-to-call-up-and-read-a-docstring">
+</section>
+<section id="how-to-call-up-and-read-a-docstring">
 <h3><a class="toc-backref" href="#id7"><span class="section-number">1.4.2. </span>How to Call Up and Read a Docstring</a><a class="headerlink" href="#how-to-call-up-and-read-a-docstring" title="Permalink to this headline">¶</a></h3>
 <p>There are a few ways to display the help documentation for a function or an object (replace <code class="docutils literal notranslate"><span class="pre">function</span></code> below with the function you want help with):</p>
 <ul class="simple">
@@ -519,12 +548,12 @@ signature (the complete function syntax, including all arguments and their defau
 <p>For example, consider the docstring for the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function, which displays results to the notebook or console output. We can call:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="nb">print</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="nb">print</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Help on built-in function print in module builtins:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on built-in function print in module builtins:
 
 print(...)
     print(value, ..., sep=&#39; &#39;, end=&#39;\n&#39;, file=sys.stdout, flush=False)
@@ -535,7 +564,6 @@ print(...)
     sep:   string inserted between values, default a space.
     end:   string appended after the last value, default a newline.
     flush: whether to forcibly flush the stream.
-
 </pre></div>
 </div>
 </div>
@@ -543,7 +571,7 @@ print(...)
 <p>Or alternatively:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>?print
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>print
 </pre></div>
 </div>
 </div>
@@ -551,7 +579,7 @@ print(...)
 <p>And finally:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>??print
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">??</span>print
 </pre></div>
 </div>
 </div>
@@ -576,9 +604,9 @@ Sometimes the parameters may be noted as either required or optional in a call t
 the examples into your notebook or script, run the code.  Then see if you
 can do more things with the given objects than the examples do.</p></li>
 </ol>
-</div>
-</div>
-<div class="section" id="method-3-using-google-and-other-search-engines">
+</section>
+</section>
+<section id="method-3-using-google-and-other-search-engines">
 <h2><a class="toc-backref" href="#id8"><span class="section-number">1.5. </span>Method 3: Using Google and Other Search Engines</a><a class="headerlink" href="#method-3-using-google-and-other-search-engines" title="Permalink to this headline">¶</a></h2>
 <p>Many of us have a habit of going to Google first whenever we have a coding problem. Please make a concerted effort starting right now to break this habit. If you know the functions you need more information about, using the built-in docstrings the best habit.</p>
 <p>The reason why we shouldn’t rely on Google as the first option is that Google is slow as a method of getting help. With open-source environments such as Python, there are many ways to do the same thing, and there are way too many presentations on the internet of any one topic to sift through efficiently. Many of the resources you find this way come from a field or a point of view that differs from your own, leading you to have to work hard to translate the language that explains the method. And some of the information is out of date or simply wrong.</p>
@@ -592,34 +620,34 @@ can do more things with the given objects than the examples do.</p></li>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Python</span> <span class="p">(</span><span class="n">the</span> <span class="n">function</span> <span class="n">you</span> <span class="n">want</span> <span class="n">help</span> <span class="k">with</span><span class="p">)</span> <span class="p">(</span><span class="n">additional</span> <span class="n">details</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Google will often take you to Stack Overflow (https://stackoverflow.com/), but other useful and credible websites that can help are</p>
+<p>Google will often take you to Stack Overflow (<a class="reference external" href="https://stackoverflow.com/">https://stackoverflow.com/</a>), but other useful and credible websites that can help are</p>
 <ul class="simple">
 <li><p>More detailed documentation for specific Python modules, such as:</p>
 <ul>
-<li><p>https://scikit-learn.org/</p></li>
-<li><p>https://pandas.pydata.org/</p></li>
-<li><p>https://matplotlib.org/</p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/">https://scikit-learn.org/</a></p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/">https://pandas.pydata.org/</a></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/">https://matplotlib.org/</a></p></li>
 </ul>
 </li>
 <li><p>High-quality blogs:</p>
 <ul>
-<li><p>https://towardsdatascience.com/</p></li>
-<li><p>https://medium.com/</p></li>
+<li><p><a class="reference external" href="https://towardsdatascience.com/">https://towardsdatascience.com/</a></p></li>
+<li><p><a class="reference external" href="https://medium.com/">https://medium.com/</a></p></li>
 </ul>
 </li>
 <li><p>Free content from tutorial websites with a lot more paid content:</p>
 <ul>
-<li><p>https://realpython.com/</p></li>
-<li><p>https://www.geeksforgeeks.org</p></li>
-<li><p>https://www.w3schools.com</p></li>
-<li><p>https://www.datacamp.com</p></li>
-<li><p>https://www.dataquest.io/</p></li>
+<li><p><a class="reference external" href="https://realpython.com/">https://realpython.com/</a></p></li>
+<li><p><a class="reference external" href="https://www.geeksforgeeks.org">https://www.geeksforgeeks.org</a></p></li>
+<li><p><a class="reference external" href="https://www.w3schools.com">https://www.w3schools.com</a></p></li>
+<li><p><a class="reference external" href="https://www.datacamp.com">https://www.datacamp.com</a></p></li>
+<li><p><a class="reference external" href="https://www.dataquest.io/">https://www.dataquest.io/</a></p></li>
 </ul>
 </li>
 </ul>
 <p>There are also many, many more resources and new ones are created all the time. Find the resources you like best: going directly to the most credible links will save you a great deal of time in this effort to get yourself unstuck.</p>
-</div>
-<div class="section" id="how-to-avoid-toxicity-in-online-communities">
+</section>
+<section id="how-to-avoid-toxicity-in-online-communities">
 <h2><a class="toc-backref" href="#id9"><span class="section-number">1.6. </span>How to Avoid Toxicity in Online Communities</a><a class="headerlink" href="#how-to-avoid-toxicity-in-online-communities" title="Permalink to this headline">¶</a></h2>
 <p>The next options involve becoming a <strong>responsible, respectful</strong> member of the worldwide community of Python users. Open-source platforms like Python and R depend on a community of volunteers who develop and maintain the tools that we use. All of these people are doing volunteer work for the common good, and that’s a beautiful thing.</p>
 <p>In addition to Python itself, Stack Overflow, Slack, the Freenode IRC, and mailing lists are online communities for Python users. But, like any online community, there’s the potential for a toxic culture to destroy everything.</p>
@@ -637,7 +665,7 @@ can do more things with the given objects than the examples do.</p></li>
 <li><p><strong>Shaming</strong>: attacking someone for asking a question by implying that the solution is easy and that someone is an idiot for not knowing it. Some examples: “Learn to debug your own code” and “If you don’t get this, you have no business being a data scientist.”</p></li>
 <li><p><strong>Downvotes without explanation</strong>: this can be both confusing and very upsetting to anyone, especially to people with less experience.</p></li>
 <li><p><strong>Virtue signaling</strong>: implying that people are superior/inferior because of the language, software, or methods they use. For example: “Real programmers don’t use for loops”, “You still use SAS?”, and so many memes:
-<img src="https://github.com/jkropko/DS-6001/raw/master/localimages/rpythonmeme.png" alt="" width="400"/></p></li>
+<img src="https://external-preview.redd.it/fU0szLnA4FwuYk3sMNqdf6f21vM_lvC9O-VgjyT11ek.jpg?width=1024&auto=webp&s=7634d370c0a5a46b794e8426850137538eadb615" alt="" width="600"/></p></li>
 <li><p><strong>Authoritarianism</strong>: Abusing people for failing to follow all of a community’s rules for asking questions. For example, a comment that entirely ignores the content of the question but comments “all questions must provide an example,” or editing a user’s post to remove where they wrote “Hi everyone” and “thanks.”</p></li>
 <li><p><strong>Overzealous curation</strong>: Being very quick to tag a question as a “duplicate” without checking to see nuanced ways in which the question comes from a new situation.</p></li>
 </ul>
@@ -645,13 +673,13 @@ can do more things with the given objects than the examples do.</p></li>
 <p><strong>Passive toxicity shrinks the community and makes it more homogeneous.</strong> Across society, small, homogeneous communities are much more likely to exclude or discriminate against people based on sex, race, class, language} and other factors. And that leads to many ethical problems.</p>
 <p><em>Under no circumstances are you to contribute to an active or passive toxic culture in any community, online or otherwise.</em></p>
 <p>Please keep the behaviors described here in mind when you engage in online communities, and avoid them. Don’t be afraid to call out other people who behave in these ways.</p>
-</div>
-<div class="section" id="method-4-stack-overflow">
+</section>
+<section id="method-4-stack-overflow">
 <h2><a class="toc-backref" href="#id10"><span class="section-number">1.7. </span>Method 4: Stack Overflow</a><a class="headerlink" href="#method-4-stack-overflow" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://stackoverflow.com">Stack Overflow</a> is the most popular and most useful website for help with programming of all kinds. Google searching a Python problem will usually lead to a Stack Overflow post on the same issue. Python is now the most frequent tag for posts on Stack Overflow, and shown in this video:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">IFrame</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
 <span class="n">IFrame</span><span class="p">(</span><span class="n">src</span><span class="o">=</span><span class="s2">&quot;https://www.youtube.com/embed/cKzP61Gjf00&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s2">&quot;560&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s2">&quot;315&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -668,7 +696,7 @@ can do more things with the given objects than the examples do.</p></li>
 </div></div>
 </div>
 <p>Finding a Stack Overflow post that’s relevant to your problem can give you both the code and underlying intuition to solve your problem. Or maybe not! Small differences in the situation can make the solution irrelevant to you. Be cautious and don’t treat a Stack Overflow post as automatically a definitive answer.</p>
-<div class="section" id="how-stack-overflow-works">
+<section id="how-stack-overflow-works">
 <h3><a class="toc-backref" href="#id11"><span class="section-number">1.7.1. </span>How Stack Overflow Works</a><a class="headerlink" href="#how-stack-overflow-works" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>Someone asks a question</p></li>
@@ -678,8 +706,8 @@ can do more things with the given objects than the examples do.</p></li>
 <li><p>Reputation points are awarded for asking questions or giving answers that other people upvote, or for having an answer accepted. Points are taken away for downvotes or spam or offensive posts.</p></li>
 </ol>
 <p>Going for reputation is an entirely optional activity. If you don’t want to worry about it, don’t.</p>
-</div>
-<div class="section" id="asking-a-question-on-stack-overflow">
+</section>
+<section id="asking-a-question-on-stack-overflow">
 <h3><a class="toc-backref" href="#id12"><span class="section-number">1.7.2. </span>Asking a Question on Stack Overflow</a><a class="headerlink" href="#asking-a-question-on-stack-overflow" title="Permalink to this headline">¶</a></h3>
 <p>Okay, so you’re stuck. You’ve combed through the Python documentation, Google, and old Stack Overflow posts, but you haven’t found a solution. It’s time to consider writing a new question on Stack Overflow.</p>
 <img src="https://github.com/jkropko/DS-6001/raw/master/localimages/leia.png" alt="" width="400"/>
@@ -713,19 +741,19 @@ can do more things with the given objects than the examples do.</p></li>
 <li><p>Don’t claim you found a bug in Python or in a module. It’s a bit rude to the people who programmed the code (who don’t get paid).</p></li>
 <li><p>Don’t ask about homework problems. (<a class="reference external" href="https://stackoverflow.com/questions/23098699/calculate-the-mean-of-one-column-from-several-csv-files-in-r">Here’s an example</a> of someone getting called out on this.)</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="method-5-python-slack">
+</section>
+</section>
+<section id="method-5-python-slack">
 <h2><a class="toc-backref" href="#id13"><span class="section-number">1.8. </span>Method 5: Python Slack</a><a class="headerlink" href="#method-5-python-slack" title="Permalink to this headline">¶</a></h2>
-<p>The main slack page for the global community of Python users is <strong>Pyslackers</strong>: https://pyslackers.com/web. To join, just go to the URL and click “join the community”. The main discussion happens on #python_, but there are many other useful channels including #data_science and #job_advice. This method is especially worthwhile if you already are used to using slack for work or for personal networking.</p>
-<p>If you aren’t used to slack, we will practice slack together in this course. One thing that helped me use slack much more consistently is downloading the desktop app (https://slack.com/downloads), and always leaving the app open on my local computer.</p>
-</div>
-<div class="section" id="method-6-live-chats-with-python-users-on-freenode">
+<p>The main slack page for the global community of Python users is <strong>Pyslackers</strong>: <a class="reference external" href="https://pyslackers.com/web">https://pyslackers.com/web</a>. To join, just go to the URL and click “join the community”. The main discussion happens on #python_, but there are many other useful channels including #data_science and #job_advice. This method is especially worthwhile if you already are used to using slack for work or for personal networking.</p>
+<p>If you aren’t used to slack, we will practice slack together in this course. One thing that helped me use slack much more consistently is downloading the desktop app (<a class="reference external" href="https://slack.com/downloads">https://slack.com/downloads</a>), and always leaving the app open on my local computer.</p>
+</section>
+<section id="method-6-live-chats-with-python-users-on-freenode">
 <h2><a class="toc-backref" href="#id14"><span class="section-number">1.9. </span>Method 6: Live Chats With Python Users on Freenode</a><a class="headerlink" href="#method-6-live-chats-with-python-users-on-freenode" title="Permalink to this headline">¶</a></h2>
-<p>The Python user community is world-wide, and for the most part, very supportive. There are active internet relay chat (IRC) networks where you can post a question to members who are also logged in, to possibly get an answer right away. The most active Python IRC is the #python channel on Freenode: https://webchat.freenode.net. When I logged in while writing this notebook, there were 1,778 people logged on.</p>
+<p>The Python user community is world-wide, and for the most part, very supportive. There are active internet relay chat (IRC) networks where you can post a question to members who are also logged in, to possibly get an answer right away. The most active Python IRC is the #python channel on Freenode: <a class="reference external" href="https://webchat.freenode.net">https://webchat.freenode.net</a>. When I logged in while writing this notebook, there were 1,778 people logged on.</p>
 <p>Internet chatrooms can be rough places, but the #python channel claims to enforce this <a class="reference external" href="https://www.python.org/psf/codeofconduct/">Code of Conduct</a>. Getting started on Freenode can be tricky, but it’s easier if you follow these steps:</p>
 <ol class="simple">
-<li><p>Go to https://webchat.freenode.net/. Choose a nickname, and make it professional (you’re a UVA student after all!) and unique.</p></li>
+<li><p>Go to <a class="reference external" href="https://webchat.freenode.net/">https://webchat.freenode.net/</a>. Choose a nickname, and make it professional (you’re a UVA student after all!) and unique.</p></li>
 <li><p>Don’t write anything under channel. Prove you are not a robot by selecting pictures of motorcycles or something. Then, once your humanity has been established, click “Start”.</p></li>
 <li><p>To use the #python channel, you need to register your nickname. To check if your nickname is unique, click on the “freenode” tab on the left-hand sidebar. A text box will appear on the bottom of the screen. Type:</p></li>
 </ol>
@@ -755,16 +783,16 @@ can do more things with the given objects than the examples do.</p></li>
 </pre></div>
 </div>
 <ol class="simple">
-<li><p>You are now registered! Return to https://webchat.freenode.net/ and log-in with your nickname and password. Type #python under channel. You are free to chat away. Pay attention to the guidelines that appear as links on the top of the screen.</p></li>
+<li><p>You are now registered! Return to <a class="reference external" href="https://webchat.freenode.net/">https://webchat.freenode.net/</a> and log-in with your nickname and password. Type #python under channel. You are free to chat away. Pay attention to the guidelines that appear as links on the top of the screen.</p></li>
 </ol>
-</div>
-<div class="section" id="method-7-python-mailing-lists-and-newsgroups">
+</section>
+<section id="method-7-python-mailing-lists-and-newsgroups">
 <h2><a class="toc-backref" href="#id15"><span class="section-number">1.10. </span>Method 7: Python Mailing Lists and Newsgroups</a><a class="headerlink" href="#method-7-python-mailing-lists-and-newsgroups" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Usenet">Usenet</a> is a distributed discussion system (which means it has no central server). It was invented in 1979, and is still in use today. The Python Usenet message boards are at https://mail.python.org/archives/?sort=popular. The <code class="docutils literal notranslate"><span class="pre">comp.lang.python</span></code> board is for general discussions and questions about Python.</p>
-<p>The tutor mailing list (https://mail.python.org/mailman/listinfo/tutor) is for users who want to ask questions about learning computer programming with Python.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Usenet">Usenet</a> is a distributed discussion system (which means it has no central server). It was invented in 1979, and is still in use today. The Python Usenet message boards are at <a class="reference external" href="https://mail.python.org/archives/?sort=popular">https://mail.python.org/archives/?sort=popular</a>. The <code class="docutils literal notranslate"><span class="pre">comp.lang.python</span></code> board is for general discussions and questions about Python.</p>
+<p>The tutor mailing list (<a class="reference external" href="https://mail.python.org/mailman/listinfo/tutor">https://mail.python.org/mailman/listinfo/tutor</a>) is for users who want to ask questions about learning computer programming with Python.</p>
 <p>If you have a question for the Python core development team, send an email to <a class="reference external" href="mailto:help&#37;&#52;&#48;python&#46;org">help<span>&#64;</span>python<span>&#46;</span>org</a>. The team is pretty busy, so be sure to check other resources and lists for an answer first.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -788,15 +816,15 @@ can do more things with the given objects than the examples do.</p></li>
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="intro.html" title="previous page">Surfing the Data Pipeline with Python</a>
     <a class='right-next' id="next-link" href="ch2.html" title="next page"><span class="section-number">2. </span>Loading Data from Electronic Data Files</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -804,7 +832,7 @@ can do more things with the given objects than the examples do.</p></li>
         
           By Jonathan Kropko (jkropko@virginia.edu)<br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; Copyright 2021.<br/>
       </p>
     </div>
   </footer>
@@ -813,8 +841,9 @@ can do more things with the given objects than the examples do.</p></li>
 
       </div>
     </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    <script src="_static/js/index.js"></script>
-    
+  
   </body>
 </html>

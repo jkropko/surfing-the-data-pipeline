@@ -1,37 +1,50 @@
 
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>9. Reshaping and Merging Data and Working with Strings, Dates, and Times &#8212; Surfing the Data Pipeline with Python</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/sphinx-book-theme.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/mystnb.js"></script>
-    <script src="_static/sphinx-book-theme.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -41,14 +54,14 @@
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="10. Exploratory Data Analysis" href="ch10.html" />
     <link rel="prev" title="8. Data Wrangling with pandas" href="ch8.html" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
-
-
-
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -57,30 +70,27 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
-  
-  <img src="_static/surf.jpg" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">Surfing the Data Pipeline with Python</h1>
-  
-</a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/surf.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Surfing the Data Pipeline with Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
    Surfing the Data Pipeline with Python
   </a>
  </li>
 </ul>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="ch1.html">
    1. Getting Yourself Unstuck
@@ -153,9 +163,8 @@
  </li>
 </ul>
 
-</nav>
-
- <!-- To handle the deprecated key -->
+    </div>
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
@@ -170,25 +179,25 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -200,27 +209,46 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
-        <!-- Source interaction buttons -->
 
+            <!-- Source interaction buttons -->
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Full screen (wrap in <a> to have style consistency -->
 
-        <!-- Launch buttons -->
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/ch9.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
     </div>
+</div>
 
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> On this page
         </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction-pandas-or-sql">
    9.1. Introduction:
@@ -326,7 +354,8 @@
  </li>
 </ul>
 
-        </nav>
+            </nav>
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -334,7 +363,7 @@
         
               <div>
                 
-  <div class="section" id="reshaping-and-merging-data-and-working-with-strings-dates-and-times">
+  <section id="reshaping-and-merging-data-and-working-with-strings-dates-and-times">
 <h1><a class="toc-backref" href="#id1"><span class="section-number">9. </span>Reshaping and Merging Data and Working with Strings, Dates, and Times</a><a class="headerlink" href="#reshaping-and-merging-data-and-working-with-strings-dates-and-times" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="table-of-contents">
 <p class="topic-title">Table of Contents</p>
@@ -374,7 +403,7 @@
 <div style= "float:left;position: relative; padding: 20px">
 <a href="https://xkcd.com/1409/"><img src="https://i.imgflip.com/45ymyw.jpg" width="300"></a>
 </div>
-<div class="section" id="introduction-pandas-or-sql">
+<section id="introduction-pandas-or-sql">
 <h2><a class="toc-backref" href="#id2"><span class="section-number">9.1. </span>Introduction: <code class="docutils literal notranslate"><span class="pre">pandas</span></code> or SQL?</a><a class="headerlink" href="#introduction-pandas-or-sql" title="Permalink to this headline">¶</a></h2>
 <p>As we saw in module 7, read operations in SQL not only extract data from a database, but they can select and rename columns, filter and sort rows, join tables, and aggregate data. With <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, we can also select and rename columns, filter and sort rows, join tables, and aggregate data. So the question is, should we be using SQL or <code class="docutils literal notranslate"><span class="pre">pandas</span></code> to perform all these data manipulation steps?</p>
 <p>SQL is sometimes referred to as <strong>server-side</strong> data manipulation, because databases are often stored on remote servers and SQL queries are processed on the server instead on on a local machine. Data manipulation that is conducted using <code class="docutils literal notranslate"><span class="pre">pandas</span></code> on a local Python installation is called <strong>client-side</strong> data manipulation.</p>
@@ -389,26 +418,26 @@
 <p>Fourth, both <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and SQL enable us to work as part of larger teams that share tools, but we might choose or be required to use one tool over the other to work better as part of the team. <code class="docutils literal notranslate"><span class="pre">pandas</span></code> is essential for projects in which the whole team works within Python. SQL is readable and usable for people who do not use Python but still work with databases.</p>
 <p>Fifth, and most importantly, the choice of SQL vs. <code class="docutils literal notranslate"><span class="pre">pandas</span></code> should be made based on how comfortable we feel with each tool. Both SQL and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> can perform data manipulation correctly, and it will probably be the case that we can remember the code with one tool better than with the other. We should try as much as we can to do the work that comprises 80% of our time as data scientists more quickly.</p>
 <p>For now, we need to practice both <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and SQL and get comfortable with these tools, and we need to be flexible in the future as different situations will call for SQL or <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
-</div>
-<div class="section" id="joining-dataframes">
+</section>
+<section id="joining-dataframes">
 <h2><a class="toc-backref" href="#id3"><span class="section-number">9.2. </span>Joining Dataframes</a><a class="headerlink" href="#joining-dataframes" title="Permalink to this headline">¶</a></h2>
 <p>Joining dataframes is also called merging dataframes, and I will use the words “join” and “merge” interchangeably below. Every kind of merge that is possible in SQL is possible in <code class="docutils literal notranslate"><span class="pre">pandas</span></code>: inner, outer, left, right, natural, cross, and anti-joins. One important difference between joining in SQL and merging in <code class="docutils literal notranslate"><span class="pre">pandas</span></code> is that dataframes might not be as carefully curated as data tables in a relational database, and we should not assume that the join worked properly even if there is no error. Primary keys might not uniquely identify rows in general, and joins might turn into cross joins. Some of values of keys that should match might not match due to differences in coding and spelling. And if we attempt a natural join, the wrong columns might be automatically selected as the keys.</p>
 <p>Too many discussions of merging data provide clean examples. Here I will show you how merging works when the data contain some common problems that may invalidate the merge. In the following discussion, we will discuss how to perform merges in <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, and also how to check that the merge worked in the way we want to.</p>
 <p>First, for the following examples, we load these packages:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="example-merging-data-on-u-s-state-election-results-income-economies-and-area">
+<section id="example-merging-data-on-u-s-state-election-results-income-economies-and-area">
 <h3><a class="toc-backref" href="#id4"><span class="section-number">9.2.1. </span>Example: Merging Data on U.S. State Election Results, Income, Economies, and Area</a><a class="headerlink" href="#example-merging-data-on-u-s-state-election-results-income-economies-and-area" title="Permalink to this headline">¶</a></h3>
 <p>The “state_elections.csv” file contains information about the result of presidential elections by state for every presidential election between 1964 and 2004. In this dataset, the primary keys are <code class="docutils literal notranslate"><span class="pre">State</span></code> and <code class="docutils literal notranslate"><span class="pre">year</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">elect</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://github.com/jkropko/DS-6001/raw/master/localdata/state_elections.csv&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elect</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://github.com/jkropko/DS-6001/raw/master/localdata/state_elections.csv&quot;</span><span class="p">)</span>
 <span class="n">elect</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -505,7 +534,7 @@
 <p>“state_income.txt” contains varous summary statistics (percentiles and means, broken down separately for men, for women, and for the overall population) about personal incomes within each state. In this dataset, the primary keys are <code class="docutils literal notranslate"><span class="pre">stcode</span></code> (the post office’s two letter abbreviation for states) and <code class="docutils literal notranslate"><span class="pre">year</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">income</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://github.com/jkropko/DS-6001/raw/master/localdata/state_income.txt&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># tab separated (note the header in this file)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">income</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://github.com/jkropko/DS-6001/raw/master/localdata/state_income.txt&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># tab separated (note the header in this file)</span>
 <span class="n">income</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -681,7 +710,7 @@
 <p>“state_economics.txt” contains information about the macro-level economy in each state and year, including overall and per capita gross domestic product, and GDP broken down by industry. In this dataset, the primary keys are <code class="docutils literal notranslate"><span class="pre">fips</span></code> (a standard numeric code that identifies countries and provinces within countries) and <code class="docutils literal notranslate"><span class="pre">year</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">econ</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://github.com/jkropko/DS-6001/raw/master/localdata/state_economics.txt&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span> <span class="c1"># semi-colon separated</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">econ</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://github.com/jkropko/DS-6001/raw/master/localdata/state_economics.txt&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span> <span class="c1"># semi-colon separated</span>
 <span class="n">econ</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -857,7 +886,7 @@
 <p>“state_area.csv” contains various measures of the total, land, and water areas of each state. In this dataset, the primary key is <code class="docutils literal notranslate"><span class="pre">state</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">area</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://github.com/jkropko/DS-6001/raw/master/localdata/state_area.csv&quot;</span><span class="p">)</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">area</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://github.com/jkropko/DS-6001/raw/master/localdata/state_area.csv&quot;</span><span class="p">)</span> 
 <span class="n">area</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -954,7 +983,7 @@
 <p>Because the datasets above contain three ways to identify states - by name, with two-letter abbreviations, and with FIPS codes - we also need a dataset that matches each state by name to its abbreviation and FIPS code. Datasets that exist solely for the purpose of matching values of keys across datasets are called <strong>crosswalks</strong>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">crosswalk</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://github.com/jkropko/DS-6001/raw/master/localdata/crosswalk.csv&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">crosswalk</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://github.com/jkropko/DS-6001/raw/master/localdata/crosswalk.csv&quot;</span><span class="p">)</span>
 <span class="n">crosswalk</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1019,13 +1048,13 @@
 </div></div></div>
 </div>
 <p>Our goal is to merge all five of these datasets together.</p>
-</div>
-<div class="section" id="using-the-pd-merge-function">
+</section>
+<section id="using-the-pd-merge-function">
 <h3><a class="toc-backref" href="#id5"><span class="section-number">9.2.2. </span>Using the <code class="docutils literal notranslate"><span class="pre">pd.merge()</span></code> Function</a><a class="headerlink" href="#using-the-pd-merge-function" title="Permalink to this headline">¶</a></h3>
 <p>When using a crosswalk to merge dataframes together, the first step is to merge a dataframe with the crosswalk. Here we start by joining the <code class="docutils literal notranslate"><span class="pre">elect</span></code> and <code class="docutils literal notranslate"><span class="pre">crosswalk</span></code> dataframes together. To join dataframes, we use the <code class="docutils literal notranslate"><span class="pre">pd.merge()</span></code> function. The following code works:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">merged_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">elect</span><span class="p">,</span> <span class="n">crosswalk</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;State&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">merged_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">elect</span><span class="p">,</span> <span class="n">crosswalk</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;State&#39;</span><span class="p">)</span>
 <span class="n">merged_data</span>
 </pre></div>
 </div>
@@ -1229,7 +1258,7 @@
 <p>Depending on the type of join we use, a row can be matched, or can come from just the first or just the second dataframe listed in <code class="docutils literal notranslate"><span class="pre">pd.merge()</span></code>. To see which rows come from which sources, specify <code class="docutils literal notranslate"><span class="pre">indicator='newname'</span></code>, where <code class="docutils literal notranslate"><span class="pre">'newname'</span></code> is a name you choose for a new column that contains this information. For example, the following code repeats the merge we performed above, but uses an outer join instead of an inner join and adds a column <code class="docutils literal notranslate"><span class="pre">matched</span></code> that tells us how each row is matched:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">merged_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">elect</span><span class="p">,</span> <span class="n">crosswalk</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;State&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span> <span class="n">indicator</span><span class="o">=</span><span class="s1">&#39;matched&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">merged_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">elect</span><span class="p">,</span> <span class="n">crosswalk</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;State&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span> <span class="n">indicator</span><span class="o">=</span><span class="s1">&#39;matched&#39;</span><span class="p">)</span>
 <span class="n">merged_data</span>
 </pre></div>
 </div>
@@ -1426,15 +1455,15 @@
 <p>561 rows × 11 columns</p>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="checking-for-problems-that-can-occur-without-errors">
+</section>
+<section id="checking-for-problems-that-can-occur-without-errors">
 <h3><a class="toc-backref" href="#id6"><span class="section-number">9.2.3. </span>Checking for Problems That Can Occur Without Errors</a><a class="headerlink" href="#checking-for-problems-that-can-occur-without-errors" title="Permalink to this headline">¶</a></h3>
 <p>Whenever we apply <code class="docutils literal notranslate"><span class="pre">pd.merge()</span></code>, there’s a great risk that the merge was incorrect even if the function runs without error. There are two ways that a merge can fail.</p>
 <p><strong>Problem 1:</strong> what we <em>thought</em> was a unique ID was not a unique ID.</p>
 <p>If we merge two dataframes on a column (or set of columns) that fail to uniquely identify the rows in either dataframe, then <code class="docutils literal notranslate"><span class="pre">pd.merge()</span></code> returns all pairwise combinations of rows with matching IDs. To see this, consider the following two example dataframes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dict1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">],</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dict1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">],</span>
          <span class="s1">&#39;data1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">150</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">25</span><span class="p">]}</span>
 <span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">dict1</span><span class="p">)</span>
 <span class="n">df1</span>
@@ -1491,7 +1520,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dict2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">],</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dict2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">],</span>
          <span class="s1">&#39;data2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="o">-</span><span class="mi">75</span><span class="p">,</span> <span class="o">-</span><span class="mi">125</span><span class="p">,</span> <span class="o">-</span><span class="mi">250</span><span class="p">]}</span>
 <span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">dict2</span><span class="p">)</span>
 <span class="n">df2</span>
@@ -1549,7 +1578,7 @@
 <p>Note that the two dataframes share a column “id”, but that “id” is not a unique identifier in either dataframe. If I try to merge the two based on “id”, the result is:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df_merge</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_merge</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
 <span class="n">df_merge</span>
 </pre></div>
 </div>
@@ -1648,7 +1677,7 @@
 <p>There are many reasons why our expectations might be incorrect. In messy, real-world data, mistakes like duplicated keys often make it past review processes and exist in the data without any clue of it in the codebook. The <code class="docutils literal notranslate"><span class="pre">validate</span></code> argument is an important check for these kinds of issues. For example, we expect that merging <code class="docutils literal notranslate"><span class="pre">elect</span></code> and <code class="docutils literal notranslate"><span class="pre">crosswalk</span></code> will be a many-to-one merge, so we confirm that the merge is many-to-one as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">merged_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">elect</span><span class="p">,</span> <span class="n">crosswalk</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;State&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">merged_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">elect</span><span class="p">,</span> <span class="n">crosswalk</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;State&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span> 
                        <span class="n">indicator</span><span class="o">=</span><span class="s1">&#39;matched&#39;</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="s1">&#39;many_to_one&#39;</span><span class="p">)</span>
 <span class="n">merged_data</span>
 </pre></div>
@@ -1851,7 +1880,7 @@
 <p>For this step, I recommend creating a second, working version of the data <code class="docutils literal notranslate"><span class="pre">merge_test</span></code> to contain the first attempt at the merge. If there are issues, it is easier to fix the problems and recreate the working dataframe than to restart the kernel. If there are no problems, then we can assign the <code class="docutils literal notranslate"><span class="pre">merged_data</span></code> dataframe to be equal to the working version.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">merge_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">elect</span><span class="p">,</span> <span class="n">crosswalk</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;State&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span> <span class="n">indicator</span><span class="o">=</span><span class="s1">&#39;matched&#39;</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="s1">&#39;many_to_one&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">merge_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">elect</span><span class="p">,</span> <span class="n">crosswalk</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;State&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span> <span class="n">indicator</span><span class="o">=</span><span class="s1">&#39;matched&#39;</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="s1">&#39;many_to_one&#39;</span><span class="p">)</span>
 <span class="n">merge_test</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;matched!=&#39;both&#39;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1897,18 +1926,18 @@
 <p>After performing this check, if we intend to perform another merge, we will either need to choose a new name for the indicator column, or we can drop the <code class="docutils literal notranslate"><span class="pre">matched</span></code> column so that we can reuse this name later. We set <code class="docutils literal notranslate"><span class="pre">merged_data</span></code> to the working dataframe <code class="docutils literal notranslate"><span class="pre">merge_test</span></code> without the <code class="docutils literal notranslate"><span class="pre">matched</span></code> column:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">merged_data</span> <span class="o">=</span> <span class="n">merge_test</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;matched&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">merged_data</span> <span class="o">=</span> <span class="n">merge_test</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;matched&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="merging-all-of-the-dataframes-together-while-checking-for-problems">
+</section>
+<section id="merging-all-of-the-dataframes-together-while-checking-for-problems">
 <h3><a class="toc-backref" href="#id7"><span class="section-number">9.2.4. </span>Merging all of the Dataframes Together While Checking for Problems</a><a class="headerlink" href="#merging-all-of-the-dataframes-together-while-checking-for-problems" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">merged_data</span></code> and <code class="docutils literal notranslate"><span class="pre">income</span></code> dataframes share keys named <code class="docutils literal notranslate"><span class="pre">stcode</span></code> and <code class="docutils literal notranslate"><span class="pre">year</span></code>. Joining these two dataframes should be a one-to-one merge because there should be only one occurrence of the same state and year in each dataframe. We use <code class="docutils literal notranslate"><span class="pre">how='outer'</span></code> and <code class="docutils literal notranslate"><span class="pre">indicator='matched'</span></code> (since we deleted the previous <code class="docutils literal notranslate"><span class="pre">matched</span></code> column) to enable us to filter the result to the unmatched rows, and we use <code class="docutils literal notranslate"><span class="pre">validate='one_to_one'</span></code> to catch anomolies that violate our expectation that this is a one-to-one merge:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">merge_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">merged_data</span><span class="p">,</span> <span class="n">income</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;stcode&#39;</span><span class="p">,</span><span class="s1">&#39;year&#39;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span> <span class="n">indicator</span><span class="o">=</span><span class="s1">&#39;matched&#39;</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="s1">&#39;one_to_one&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">merge_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">merged_data</span><span class="p">,</span> <span class="n">income</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;stcode&#39;</span><span class="p">,</span><span class="s1">&#39;year&#39;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span> <span class="n">indicator</span><span class="o">=</span><span class="s1">&#39;matched&#39;</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="s1">&#39;one_to_one&#39;</span><span class="p">)</span>
 <span class="n">merge_test</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;matched!=&#39;both&#39;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1964,7 +1993,7 @@
 <p>There are no unmatched rows so there are no issues with miscoded or mispelled ID values. The merged data now contain information on both state election results and state incomes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">merge_test</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">merge_test</span>
 </pre></div>
 </div>
 </div>
@@ -2283,7 +2312,7 @@
 <p>Since there are no problems, we set <code class="docutils literal notranslate"><span class="pre">merged_data</span></code> equal to <code class="docutils literal notranslate"><span class="pre">merge_test</span></code>. Because we intend to merge the data with another dataframe, we drop the <code class="docutils literal notranslate"><span class="pre">matched</span></code> column.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">merged_data</span> <span class="o">=</span> <span class="n">merge_test</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;matched&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">merged_data</span> <span class="o">=</span> <span class="n">merge_test</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;matched&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2291,7 +2320,7 @@
 <p>Next we merge this result with the <code class="docutils literal notranslate"><span class="pre">econ</span></code> dataframe. These two dataframes share <code class="docutils literal notranslate"><span class="pre">fips</span></code> and <code class="docutils literal notranslate"><span class="pre">year</span></code> as keys, and should also be a one-to-one merge. We check to see whether there are unmatched rows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">merge_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">merged_data</span><span class="p">,</span> <span class="n">econ</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;fips&#39;</span><span class="p">,</span><span class="s1">&#39;year&#39;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span> <span class="n">indicator</span><span class="o">=</span><span class="s1">&#39;matched&#39;</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="s1">&#39;one_to_one&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">merge_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">merged_data</span><span class="p">,</span> <span class="n">econ</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;fips&#39;</span><span class="p">,</span><span class="s1">&#39;year&#39;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span> <span class="n">indicator</span><span class="o">=</span><span class="s1">&#39;matched&#39;</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="s1">&#39;one_to_one&#39;</span><span class="p">)</span>
 <span class="n">merge_test</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;matched!=&#39;both&#39;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2347,7 +2376,7 @@
 <p>Again, there are no unmatched rows so there are no issues with miscoded or mispelled ID values. The merged data now contain information on state election results, state incomes, and state economies:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">merge_test</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">merge_test</span>
 </pre></div>
 </div>
 </div>
@@ -2666,7 +2695,7 @@
 <p>Again, we set <code class="docutils literal notranslate"><span class="pre">merged_data</span></code> equal to <code class="docutils literal notranslate"><span class="pre">merge_test</span></code>, dropping the <code class="docutils literal notranslate"><span class="pre">matched</span></code> column so that we can reuse this name in the next join:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">merged_data</span> <span class="o">=</span> <span class="n">merge_test</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;matched&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">merged_data</span> <span class="o">=</span> <span class="n">merge_test</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;matched&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2674,7 +2703,7 @@
 <p>Finally we merge the data with the <code class="docutils literal notranslate"><span class="pre">area</span></code> dataframe. This merge matches <code class="docutils literal notranslate"><span class="pre">State</span></code> in <code class="docutils literal notranslate"><span class="pre">merged_data</span></code> to <code class="docutils literal notranslate"><span class="pre">state</span></code> in area: this subtle difference is easy to miss and will result in an error if we fail to notice the lowercase s and write <code class="docutils literal notranslate"><span class="pre">on='State'</span></code>. This merge should be a many-to-one merge, as there are many rows for each state in <code class="docutils literal notranslate"><span class="pre">merged_data</span></code> (for many years), but only one row for each state in <code class="docutils literal notranslate"><span class="pre">area</span></code>. As</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">merge_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">merged_data</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;outer&quot;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">merge_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">merged_data</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;outer&quot;</span><span class="p">,</span>
                       <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;State&#39;</span><span class="p">,</span><span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> 
                       <span class="n">indicator</span><span class="o">=</span><span class="s1">&#39;matched&#39;</span><span class="p">,</span> 
                       <span class="n">validate</span><span class="o">=</span><span class="s1">&#39;many_to_one&#39;</span><span class="p">)</span>
@@ -2842,7 +2871,7 @@
 <p>In this case, one of our validation checks failed: we have unmatched rows. Some of these rows are due to differences in coverage: we will not bring Puerto Rico, the Northern Mariana Islands, the United States Virgin Islands, American Samoa, Guam, or the United States Minor Outlying Islands into the merged data as these territories do not receive votes in the electoral college. We will however bring the District of Columbia into the merged data as D.C. does get 3 votes in the electoral college. D.C. is unmatched due to spelling discrepancies, and we must correct this mistake before we can proceed. The easiest way to fix the error is to replace values of “District of Columbia” in the <code class="docutils literal notranslate"><span class="pre">area</span></code> dataframe with “D. C.”, as it is written in the merged data. We can use the <code class="docutils literal notranslate"><span class="pre">.replace()</span></code> method (because we only want to replace one <code class="docutils literal notranslate"><span class="pre">state</span></code> category and <code class="docutils literal notranslate"><span class="pre">.replace()</span></code> leaves unlisted categories alone, as opposed to <code class="docutils literal notranslate"><span class="pre">.map()</span></code> which would replace unlisted categories with missing values), as we discussed in module 8:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">area</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">area</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">&#39;District of Columbia&#39;</span><span class="p">:</span><span class="s1">&#39;D. C.&#39;</span><span class="p">})</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">area</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">area</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">&#39;District of Columbia&#39;</span><span class="p">:</span><span class="s1">&#39;D. C.&#39;</span><span class="p">})</span>
 </pre></div>
 </div>
 </div>
@@ -2850,7 +2879,7 @@
 <p>Now if we repeat the test, we will only see the rows that are unmatched due to differences in coverage:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">merge_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">merged_data</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;State&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;outer&quot;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="n">indicator</span><span class="o">=</span><span class="s1">&#39;matched&#39;</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="s1">&#39;many_to_one&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">merge_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">merged_data</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;State&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;outer&quot;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="n">indicator</span><span class="o">=</span><span class="s1">&#39;matched&#39;</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="s1">&#39;many_to_one&#39;</span><span class="p">)</span>
 <span class="n">merge_test</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;matched!=&#39;both&#39;&quot;</span><span class="p">)[[</span><span class="s1">&#39;State&#39;</span><span class="p">,</span> <span class="s1">&#39;state&#39;</span><span class="p">,</span><span class="s1">&#39;year&#39;</span><span class="p">,</span><span class="s1">&#39;matched&#39;</span><span class="p">]]</span>
 </pre></div>
 </div>
@@ -2930,7 +2959,7 @@
 <p>We replace the <code class="docutils literal notranslate"><span class="pre">merged_data</span></code> dataframe with <code class="docutils literal notranslate"><span class="pre">merge_test</span></code>, keeping only the rows for which <code class="docutils literal notranslate"><span class="pre">matched='both'</span></code>, then dropping the <code class="docutils literal notranslate"><span class="pre">matched</span></code> column:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">merged_data</span> <span class="o">=</span> <span class="n">merge_test</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;matched==&#39;both&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;matched&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">merged_data</span> <span class="o">=</span> <span class="n">merge_test</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;matched==&#39;both&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;matched&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2938,7 +2967,7 @@
 <p>Now <code class="docutils literal notranslate"><span class="pre">merged_data</span></code> contains all of the data we need, including state election results, income, economic data, and area:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">merged_data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">merged_data</span>
 </pre></div>
 </div>
 </div>
@@ -3254,27 +3283,26 @@
 <p>561 rows × 105 columns</p>
 </div></div></div>
 </div>
-</div>
-</div>
-<div class="section" id="reshaping-data">
+</section>
+</section>
+<section id="reshaping-data">
 <h2><a class="toc-backref" href="#id8"><span class="section-number">9.3. </span>Reshaping Data</a><a class="headerlink" href="#reshaping-data" title="Permalink to this headline">¶</a></h2>
 <p><strong>Reshaping</strong> a dataframe refers to turning the rows of a dataframe into columns (also known as a long-to-wide reshape), or turning columns into rows (also known as a wide-to-long reshape), in a way that cannot be accomplished by simply transposing the data matrix. It is also called <strong>pivoting</strong> for a long-to-wide reshape, <strong>melting</strong> for a wide-to-long reshape. It’s a notoriously tricky skill to master, and it helps a lot to understand every part of the function we need, so that we’re not blindly trying every combination of parameters hoping one of these combinations works.</p>
-<div class="section" id="example-gross-domestic-product-by-state-1997-2015">
+<section id="example-gross-domestic-product-by-state-1997-2015">
 <h3><a class="toc-backref" href="#id9"><span class="section-number">9.3.1. </span>Example: Gross domestic product by state, 1997-2015</a><a class="headerlink" href="#example-gross-domestic-product-by-state-1997-2015" title="Permalink to this headline">¶</a></h3>
-<p>To demonstrate the method for pivoting a dataframe, we use example data from the U.S. Bureau of Economic Affairs (www.bea.gov) on economic output for the American states. We load the data, skipping the last four rows as these rows contain attribution information and notes, and are not part of the data. We also use the <code class="docutils literal notranslate"><span class="pre">.str.strip()</span></code> method to remove all the leading and trailing whitespace in the <code class="docutils literal notranslate"><span class="pre">Description</span></code> column:</p>
+<p>To demonstrate the method for pivoting a dataframe, we use example data from the U.S. Bureau of Economic Affairs (<a class="reference external" href="http://www.bea.gov">www.bea.gov</a>) on economic output for the American states. We load the data, skipping the last four rows as these rows contain attribution information and notes, and are not part of the data. We also use the <code class="docutils literal notranslate"><span class="pre">.str.strip()</span></code> method to remove all the leading and trailing whitespace in the <code class="docutils literal notranslate"><span class="pre">Description</span></code> column:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gsp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://github.com/jkropko/DS-6001/raw/master/localdata/gsp_naics_all.csv&quot;</span><span class="p">,</span> <span class="n">skipfooter</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gsp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://github.com/jkropko/DS-6001/raw/master/localdata/gsp_naics_all.csv&quot;</span><span class="p">,</span> <span class="n">skipfooter</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">gsp</span><span class="p">[</span><span class="s1">&#39;Description&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gsp</span><span class="p">[</span><span class="s1">&#39;Description&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 <span class="n">gsp</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="stderr docutils container">
-<pre class="stderr literal-block">/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:1: ParserWarning: Falling back to the 'python' engine because the 'c' engine does not support skipfooter; you can avoid this warning by specifying engine='python'.
-  &quot;&quot;&quot;Entry point for launching an IPython kernel.
-</pre>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/pandas/util/_decorators.py:311: ParserWarning: Falling back to the &#39;python&#39; engine because the &#39;c&#39; engine does not support skipfooter; you can avoid this warning by specifying engine=&#39;python&#39;.
+  return func(*args, **kwargs)
+</pre></div>
 </div>
 <div class="output text_html"><div>
 <style scoped>
@@ -3597,7 +3625,7 @@
 <p>First we need to reduce the data to only the features we need: state GDP, state GDP per capita, and state GDP from private industries. Right now, however, the features are not stored in the columns, but in the rows. Specifically, the data we need are contains in the rows in which <code class="docutils literal notranslate"><span class="pre">Description</span></code> is “All industry total” or “Private industries” and <code class="docutils literal notranslate"><span class="pre">ComponentName</span></code> is “Gross domestic product (GDP) by state” or “Per capita real GDP by state”. We use <code class="docutils literal notranslate"><span class="pre">.query()</span></code> to isolate these rows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gsp_clean</span> <span class="o">=</span> <span class="n">gsp</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gsp_clean</span> <span class="o">=</span> <span class="n">gsp</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
     <span class="s2">&quot;Description in [&#39;All industry total&#39;, &#39;Private industries&#39;]&quot;</span>
 <span class="p">)</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
     <span class="s2">&quot;ComponentName in [&#39;Gross domestic product (GDP) by state&#39;,&#39;Per capita real GDP by state&#39;]&quot;</span><span class="p">)</span>
@@ -3920,12 +3948,12 @@
 <p>Next, we only want the 50 states, no regions, territories, or districts, so we issue another <code class="docutils literal notranslate"><span class="pre">.query()</span></code> to remove the territories. To see these non-states, we call up a list of the unique values of <code class="docutils literal notranslate"><span class="pre">GeoName</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gsp_clean</span><span class="p">[</span><span class="s1">&#39;GeoName&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gsp_clean</span><span class="p">[</span><span class="s1">&#39;GeoName&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([&#39;United States&#39;, &#39;Alabama&#39;, &#39;Alaska&#39;, &#39;Arizona&#39;, &#39;Arkansas&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;United States&#39;, &#39;Alabama&#39;, &#39;Alaska&#39;, &#39;Arizona&#39;, &#39;Arkansas&#39;,
        &#39;California&#39;, &#39;Colorado&#39;, &#39;Connecticut&#39;, &#39;Delaware&#39;,
        &#39;District of Columbia&#39;, &#39;Florida&#39;, &#39;Georgia&#39;, &#39;Hawaii&#39;, &#39;Idaho&#39;,
        &#39;Illinois&#39;, &#39;Indiana&#39;, &#39;Iowa&#39;, &#39;Kansas&#39;, &#39;Kentucky&#39;, &#39;Louisiana&#39;,
@@ -3945,7 +3973,7 @@
 <p>We need to remove the rows in which <code class="docutils literal notranslate"><span class="pre">GeoName</span></code> is “United States”, “District of Columbia”, “New England”, “Mideast”, “Great Lakes”, “Plains”, “Southeast”, “Southwest”, “Rocky Mountain”, or “Far West”:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gsp_clean</span> <span class="o">=</span> <span class="n">gsp_clean</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;GeoName not in [&#39;United States&#39;, &#39;District of Columbia&#39;, &#39;New England&#39;, &#39;Mideast&#39;, &#39;Great Lakes&#39;, &#39;Plains&#39;, &#39;Southeast&#39;, &#39;Southwest&#39;, &#39;Rocky Mountain&#39;, &#39;Far West&#39;]&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gsp_clean</span> <span class="o">=</span> <span class="n">gsp_clean</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;GeoName not in [&#39;United States&#39;, &#39;District of Columbia&#39;, &#39;New England&#39;, &#39;Mideast&#39;, &#39;Great Lakes&#39;, &#39;Plains&#39;, &#39;Southeast&#39;, &#39;Southwest&#39;, &#39;Rocky Mountain&#39;, &#39;Far West&#39;]&quot;</span><span class="p">)</span>
 <span class="n">gsp_clean</span>
 </pre></div>
 </div>
@@ -4262,8 +4290,8 @@
 <p>150 rows × 27 columns</p>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="melting-turning-columns-to-rows">
+</section>
+<section id="melting-turning-columns-to-rows">
 <h3><a class="toc-backref" href="#id10"><span class="section-number">9.3.2. </span>Melting: Turning Columns to Rows</a><a class="headerlink" href="#melting-turning-columns-to-rows" title="Permalink to this headline">¶</a></h3>
 <p>Notice that many of the columns refer to particular years. We want to move these columns to the rows, so that each state has one row for each year covered in the data. The best function to use when we need to turn columns into rows is <code class="docutils literal notranslate"><span class="pre">pd.melt()</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">id_vars</span><span class="p">,</span> <span class="n">value_vars</span><span class="p">)</span>
@@ -4279,7 +4307,7 @@
 <p>For example, we melt the <code class="docutils literal notranslate"><span class="pre">gsp_clean</span></code> dataframe with the following code:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gsp_clean</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">gsp_clean</span><span class="p">,</span> <span class="n">id_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;GeoName&#39;</span><span class="p">,</span> <span class="s1">&#39;GeoFIPS&#39;</span><span class="p">,</span> <span class="s1">&#39;Region&#39;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gsp_clean</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">gsp_clean</span><span class="p">,</span> <span class="n">id_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;GeoName&#39;</span><span class="p">,</span> <span class="s1">&#39;GeoFIPS&#39;</span><span class="p">,</span> <span class="s1">&#39;Region&#39;</span><span class="p">,</span>
                              <span class="s1">&#39;ComponentName&#39;</span><span class="p">,</span> <span class="s1">&#39;Description&#39;</span><span class="p">],</span> 
         <span class="n">value_vars</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1997</span><span class="p">,</span><span class="mi">2015</span><span class="p">)])</span>
 <span class="n">gsp_clean</span>
@@ -4434,7 +4462,7 @@
 <p>Before moving on, let’s rename some of the columns to avoid confusion in the next step:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gsp_clean</span> <span class="o">=</span> <span class="n">gsp_clean</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;GeoName&#39;</span><span class="p">:</span><span class="s1">&#39;State&#39;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gsp_clean</span> <span class="o">=</span> <span class="n">gsp_clean</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;GeoName&#39;</span><span class="p">:</span><span class="s1">&#39;State&#39;</span><span class="p">,</span>
                              <span class="s1">&#39;GeoFIPS&#39;</span><span class="p">:</span><span class="s1">&#39;FIPS&#39;</span><span class="p">,</span>
                              <span class="s1">&#39;variable&#39;</span><span class="p">:</span><span class="s1">&#39;Year&#39;</span><span class="p">},</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">gsp_clean</span>
@@ -4585,13 +4613,13 @@
 <p>2700 rows × 7 columns</p>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="pivoting-turning-rows-to-columns">
+</section>
+<section id="pivoting-turning-rows-to-columns">
 <h3><a class="toc-backref" href="#id11"><span class="section-number">9.3.3. </span>Pivoting: Turning Rows to Columns</a><a class="headerlink" href="#pivoting-turning-rows-to-columns" title="Permalink to this headline">¶</a></h3>
 <p>The rows contain features that we want to move to the columns. Specifically, we need separate columns for the different combinations of <code class="docutils literal notranslate"><span class="pre">ComponentName</span></code> and <code class="docutils literal notranslate"><span class="pre">Description</span></code> since the feature names are contained in two columns, so we can combine these two columns by concatenating them together and creating a new column called “feature”. Then we can drop <code class="docutils literal notranslate"><span class="pre">ComponentName</span></code> and <code class="docutils literal notranslate"><span class="pre">Description</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gsp_clean</span> <span class="o">=</span> <span class="n">gsp_clean</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">feature</span> <span class="o">=</span> <span class="n">gsp_clean</span><span class="p">[</span><span class="s1">&#39;ComponentName&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">gsp_clean</span><span class="p">[</span><span class="s1">&#39;Description&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gsp_clean</span> <span class="o">=</span> <span class="n">gsp_clean</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">feature</span> <span class="o">=</span> <span class="n">gsp_clean</span><span class="p">[</span><span class="s1">&#39;ComponentName&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">gsp_clean</span><span class="p">[</span><span class="s1">&#39;Description&#39;</span><span class="p">])</span>
 <span class="n">gsp_clean</span> <span class="o">=</span> <span class="n">gsp_clean</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;ComponentName&#39;</span><span class="p">,</span> <span class="s1">&#39;Description&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">gsp_clean</span>
 </pre></div>
@@ -4743,12 +4771,12 @@
 <p>Presently within <code class="docutils literal notranslate"><span class="pre">gsp_clean</span></code> the datapoints are contained within the <code class="docutils literal notranslate"><span class="pre">value</span></code> column. Unfortunately, <code class="docutils literal notranslate"><span class="pre">value</span></code> is not currently understood to be numeric:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gsp_clean</span><span class="o">.</span><span class="n">dtypes</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gsp_clean</span><span class="o">.</span><span class="n">dtypes</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>State      object
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>State      object
 FIPS       object
 Region     object
 Year       object
@@ -4762,13 +4790,13 @@ dtype: object
 <p>Following our code from module 8, we convert value to a numeric class:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gsp_clean</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">gsp_clean</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gsp_clean</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">gsp_clean</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">)</span>
 <span class="n">gsp_clean</span><span class="o">.</span><span class="n">dtypes</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>State       object
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>State       object
 FIPS        object
 Region      object
 Year        object
@@ -4782,7 +4810,7 @@ dtype: object
 <p>Now we can reshape the data with <code class="docutils literal notranslate"><span class="pre">.pivot_table()</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gsp_clean</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gsp_clean</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="c1"># first convert this column to int </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gsp_clean</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gsp_clean</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="c1"># first convert this column to int </span>
 <span class="n">gsp_clean</span> <span class="o">=</span> <span class="n">gsp_clean</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;State&#39;</span><span class="p">,</span><span class="s1">&#39;FIPS&#39;</span><span class="p">,</span> <span class="s1">&#39;Region&#39;</span><span class="p">,</span><span class="s1">&#39;Year&#39;</span><span class="p">],</span> 
                                   <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;feature&#39;</span><span class="p">,</span> 
                                   <span class="n">values</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
@@ -4917,7 +4945,7 @@ dtype: object
 <p>Note that the dataframe is not formated in a flat way, because the IDs and related features are stored in the row-indices instead of in columns. To convert the dataframe back to a standard format, use the <code class="docutils literal notranslate"><span class="pre">.to_records()</span></code> method within the <code class="docutils literal notranslate"><span class="pre">pd.DataFrame()</span></code> function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gsp_clean</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">gsp_clean</span><span class="o">.</span><span class="n">to_records</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gsp_clean</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">gsp_clean</span><span class="o">.</span><span class="n">to_records</span><span class="p">())</span>
 <span class="n">gsp_clean</span>
 </pre></div>
 </div>
@@ -5069,7 +5097,7 @@ dtype: object
 <p>All that’s left to clean the data is to rename the columns and to create a new column containing the percent of the state’s GDP that comes from private industry:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gsp_clean</span> <span class="o">=</span> <span class="n">gsp_clean</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;Gross domestic product (GDP) by stateAll industry total&#39;</span><span class="p">:</span><span class="s1">&#39;GDP&#39;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gsp_clean</span> <span class="o">=</span> <span class="n">gsp_clean</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;Gross domestic product (GDP) by stateAll industry total&#39;</span><span class="p">:</span><span class="s1">&#39;GDP&#39;</span><span class="p">,</span>
                              <span class="s1">&#39;Gross domestic product (GDP) by statePrivate industries&#39;</span><span class="p">:</span><span class="s1">&#39;GDPprivate&#39;</span><span class="p">,</span>
                              <span class="s1">&#39;Per capita real GDP by stateAll industry total&#39;</span><span class="p">:</span><span class="s1">&#39;GDPpc&#39;</span><span class="p">},</span> 
                              <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -5234,14 +5262,14 @@ dtype: object
 <p>900 rows × 8 columns</p>
 </div></div></div>
 </div>
-</div>
-</div>
-<div class="section" id="working-with-strings-example-the-2019-anes-pilot-study">
+</section>
+</section>
+<section id="working-with-strings-example-the-2019-anes-pilot-study">
 <h2><a class="toc-backref" href="#id12"><span class="section-number">9.4. </span>Working with Strings (Example: the 2019 ANES Pilot Study)</a><a class="headerlink" href="#working-with-strings-example-the-2019-anes-pilot-study" title="Permalink to this headline">¶</a></h2>
 <p>In module 8, we worked with the 2019 American National Election Study pilot survey and saved the cleaned data in a separate CSV file:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://github.com/jkropko/DS-6001/raw/master/localdata/anes_clean.csv&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://github.com/jkropko/DS-6001/raw/master/localdata/anes_clean.csv&quot;</span><span class="p">)</span>
 <span class="n">anes</span>
 </pre></div>
 </div>
@@ -5561,12 +5589,12 @@ dtype: object
 <p>The data contain a column <code class="docutils literal notranslate"><span class="pre">most_important_issue</span></code> which records individuals’ responses to the question of what they feel is the most important issue facing the United States as of December 2019. These responses are in the respondents’ own words. For example, one response is</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;The influence of big money on our political system both domestic and foreign&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The influence of big money on our political system both domestic and foreign&#39;
 </pre></div>
 </div>
 </div>
@@ -5575,12 +5603,12 @@ dtype: object
 <p>One important technique is to alter the case within the text so that we can identify words without worrying about case sensitivity. To turn all responses to lowercase, use <code class="docutils literal notranslate"><span class="pre">.str.lower()</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0                                             health care
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0                                             health care
 1                                        working together
 2                                             health care
 3                                            the economy.
@@ -5599,12 +5627,12 @@ Name: most_important_issue, Length: 3165, dtype: object
 <p>And to turn all the text to uppercase, use <code class="docutils literal notranslate"><span class="pre">.str.upper()</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0                                             HEALTH CARE
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0                                             HEALTH CARE
 1                                        WORKING TOGETHER
 2                                             HEALTH CARE
 3                                            THE ECONOMY.
@@ -5623,7 +5651,7 @@ Name: most_important_issue, Length: 3165, dtype: object
 <p>One issue that can inhibit our ability to search through text is the existence of leading and trailing whitespace in the responses. White space can exist, invisibily, for several reasons. It is possible that the data authors included white space in order to standardize the number of spaces that the column takes up in the data file. To remove both leading and trailing white spaces, use <code class="docutils literal notranslate"><span class="pre">.str.strip()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span> <span class="o">=</span> <span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span> <span class="o">=</span> <span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -5631,12 +5659,12 @@ Name: most_important_issue, Length: 3165, dtype: object
 <p>The <code class="docutils literal notranslate"><span class="pre">str.replace()</span></code> method finds and replaces specific whole strings with different strings. For example, we can replace every response that reads “health care” with “hospital stuff”:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;health care&#39;</span><span class="p">,</span> <span class="s1">&#39;hospital stuff&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;health care&#39;</span><span class="p">,</span> <span class="s1">&#39;hospital stuff&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0                                          hospital stuff
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0                                          hospital stuff
 1                                        working together
 2                                          hospital stuff
 3                                            the economy.
@@ -5655,12 +5683,12 @@ Name: most_important_issue, Length: 3165, dtype: object
 <p>If we want to replace pieces of these strings, we can specify the <code class="docutils literal notranslate"><span class="pre">regex=True</span></code> argument. The following line of code replaces all occurrences of “trump” when the strings are converted to lowercase to “twimp”. With <code class="docutils literal notranslate"><span class="pre">regex=True</span></code>, the method replaces the pattern “trump” anywhere it appears, as opposed to the default <code class="docutils literal notranslate"><span class="pre">regex=False</span></code> which only replaces entire entries that are exactly “trump”:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;trump&#39;</span><span class="p">,</span> <span class="s1">&#39;twimp&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;trump&#39;</span><span class="p">,</span> <span class="s1">&#39;twimp&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0                                             health care
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0                                             health care
 1                                        working together
 2                                             health care
 3                                            the economy.
@@ -5679,12 +5707,12 @@ Name: most_important_issue, Length: 3165, dtype: object
 <p>To create a new column that identifies when particular words are used, use either the <code class="docutils literal notranslate"><span class="pre">.str.match()</span></code> or <code class="docutils literal notranslate"><span class="pre">.str.contains()</span></code> method. <code class="docutils literal notranslate"><span class="pre">.str.match()</span></code> is true if the entire entry matches the provided string,</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;trump&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;trump&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0       False
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       False
 1       False
 2       False
 3       False
@@ -5703,12 +5731,12 @@ Name: most_important_issue, Length: 3165, dtype: object
 <p>and <code class="docutils literal notranslate"><span class="pre">.str.contains()</span></code> is true if the provided string exists anywhere within the entry.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;trump&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;trump&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0       False
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       False
 1       False
 2       False
 3       False
@@ -5727,7 +5755,7 @@ Name: most_important_issue, Length: 3165, dtype: object
 <p>These columns of logical values can be placed into the data to filter or for other purposes. For example, we can see the number of Democrats, Republicans, and independents who use the word “trump” in their statement of the country’s most important problem:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span><span class="p">[</span><span class="s1">&#39;problem_trump&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;trump&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span><span class="p">[</span><span class="s1">&#39;problem_trump&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;trump&#39;</span><span class="p">)</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">anes</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;partyID&#39;</span><span class="p">,</span> <span class="s1">&#39;problem_trump&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -5784,12 +5812,12 @@ Name: most_important_issue, Length: 3165, dtype: object
 <p>To calculate the length of each response in terms of the number of characters, use <code class="docutils literal notranslate"><span class="pre">.str.len()</span></code>. In this case, it is important to make sure the whitespace is removed first with <code class="docutils literal notranslate"><span class="pre">.str.strip()</span></code>, otherwise the spaces will count towards the length:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0        11.0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0        11.0
 1        16.0
 2        11.0
 3        12.0
@@ -5808,14 +5836,14 @@ Name: most_important_issue, Length: 3165, dtype: float64
 <p>We can use the length to display, for example, the single longest response in the data. To display the whole string, turn off the display limit by typing <code class="docutils literal notranslate"><span class="pre">pd.options.display.max_colwidth</span> <span class="pre">=</span> <span class="pre">None</span></code>. Here I set the limit to 500, because it sort of goes off the rails and I’d rather not display it:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span><span class="p">[</span><span class="s1">&#39;length&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span><span class="p">[</span><span class="s1">&#39;length&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_colwidth</span> <span class="o">=</span> <span class="mi">500</span>
 <span class="n">anes</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="s1">&#39;length&#39;</span><span class="p">,</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">most_important_issue</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>819    Immigration has been and has become a very big problem. The gangs, drug wars, the crime has climbed in every single town, county, state in this country and I believe it all revolves around too many different races, too many prejudices. Most people I talk to dislike foreigners and most foreigners hate Americans. We ask, why come here then? Because they get financial aid, housing, medical, dental aid and compared to the wars, poverty and the way they lived in their own country, America is heav...
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>819    Immigration has been and has become a very big problem. The gangs, drug wars, the crime has climbed in every single town, county, state in this country and I believe it all revolves around too many different races, too many prejudices. Most people I talk to dislike foreigners and most foreigners hate Americans. We ask, why come here then? Because they get financial aid, housing, medical, dental aid and compared to the wars, poverty and the way they lived in their own country, America is heav...
 Name: most_important_issue, dtype: object
 </pre></div>
 </div>
@@ -5824,7 +5852,7 @@ Name: most_important_issue, dtype: object
 <p>After all that, we set the string display limit back to the default of 50 characters:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_colwidth</span> <span class="o">=</span> <span class="mi">50</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_colwidth</span> <span class="o">=</span> <span class="mi">50</span>
 </pre></div>
 </div>
 </div>
@@ -5832,12 +5860,12 @@ Name: most_important_issue, dtype: object
 <p>In some cases it might be necessary to split entries into different features according to a delimiter or pattern. It doesn’t make sense to split the <code class="docutils literal notranslate"><span class="pre">most_important_problem</span></code> column in this example, but as an illiustration, we can split the responses on periods:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0                                           [Health Care]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0                                           [Health Care]
 1                                      [Working together]
 2                                           [health care]
 3                                         [The economy, ]
@@ -5856,7 +5884,7 @@ Name: most_important_issue, Length: 3165, dtype: object
 <p>The <code class="docutils literal notranslate"><span class="pre">expand=True</span></code> argument displays these split strings in different columns in a dataframe:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -6175,7 +6203,7 @@ Name: most_important_issue, Length: 3165, dtype: object
 <p>Writing <code class="docutils literal notranslate"><span class="pre">n=1</span></code> only splits on the first occurrence of the delimiter, <code class="docutils literal notranslate"><span class="pre">n=2</span></code> splits on the first and second occurrence, and so on:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -6278,12 +6306,12 @@ Name: most_important_issue, Length: 3165, dtype: object
 <p>An individual string can be indexed according to character number. These indices can be applied to every entry in a string column as well. To pull just the first five characters out of each response in <code class="docutils literal notranslate"><span class="pre">most_important_issue</span></code>, we can type:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0       Healt
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       Healt
 1       Worki
 2       healt
 3       The e
@@ -6302,12 +6330,12 @@ Name: most_important_issue, Length: 3165, dtype: object
 <p>To pull characters 6 through 10, we type</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">11</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">11</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0        Care
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0        Care
 1       g tog
 2        care
 3       onomy
@@ -6326,12 +6354,12 @@ Name: most_important_issue, Length: 3165, dtype: object
 <p>To pull the last four characters, use a negative number to begin the range, and leave the end of the range blank:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">:]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anes</span><span class="o">.</span><span class="n">most_important_issue</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">:]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0       Care
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       Care
 1       ther
 2       care
 3       omy.
@@ -6347,13 +6375,13 @@ Name: most_important_issue, Length: 3165, dtype: object
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="working-with-dates-and-times-example-twitter">
+</section>
+<section id="working-with-dates-and-times-example-twitter">
 <h2><a class="toc-backref" href="#id13"><span class="section-number">9.5. </span>Working with Dates and Times (Example: Twitter)</a><a class="headerlink" href="#working-with-dates-and-times-example-twitter" title="Permalink to this headline">¶</a></h2>
 <p>In module 4 we discussed Twitter as an example of how to use an API in Python. We save the four credentials we need to access the API (the consumer key, the consumer secret, the access token, and the access token secret) in a .env file, and we load those keys into Python without displaying them in our notebooks by using the <code class="docutils literal notranslate"><span class="pre">dotenv</span></code> package:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dotenv</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dotenv</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;/Users/jk8sd/Box Sync/Practice and Applications 1 online/Module 9 - Data Managenent in pandas Part 2&#39;</span><span class="p">)</span>
 <span class="n">dotenv</span><span class="o">.</span><span class="n">load_dotenv</span><span class="p">()</span>
@@ -6368,7 +6396,7 @@ Name: most_important_issue, Length: 3165, dtype: object
 <p>Then we use the <code class="docutils literal notranslate"><span class="pre">tweepy</span></code> package to work with the Twitter API and we create a Twitter cursor with our credentials:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tweepy</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tweepy</span>
 <span class="n">auth</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">OAuthHandler</span><span class="p">(</span><span class="n">ConsumerKey</span><span class="p">,</span> <span class="n">ConsumerSecret</span><span class="p">)</span>
 <span class="n">auth</span><span class="o">.</span><span class="n">set_access_token</span><span class="p">(</span><span class="n">AccessToken</span><span class="p">,</span> <span class="n">AccessTokenSecret</span><span class="p">)</span>
 <span class="n">api</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span>
@@ -6379,7 +6407,7 @@ Name: most_important_issue, Length: 3165, dtype: object
 <p>The following code extracts 1000 tweets that contain the hashtag “#uva”:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">msgs</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msgs</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">msg</span> <span class="o">=</span><span class="p">[]</span>
 
 <span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">Cursor</span><span class="p">(</span><span class="n">api</span><span class="o">.</span><span class="n">search</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="s1">&#39;#uva&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
@@ -6419,33 +6447,33 @@ Name: most_important_issue, Length: 3165, dtype: object
   <tbody>
     <tr>
       <th>0</th>
-      <td>RT @LisandroTosello: Celebro que @alferdez rel...</td>
-      <td>2020-08-04 19:24:13</td>
-      <td>ardilla37003783</td>
+      <td>Tony Elliott announces his first official hiri...</td>
+      <td>2021-12-27 20:40:59</td>
+      <td>thesabre</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>RT @LuisContigiani: En estos días se habla de ...</td>
-      <td>2020-08-04 19:24:06</td>
-      <td>uvacaba</td>
+      <td>RT @RTD_MikeBarber: #UVA outside linebacker No...</td>
+      <td>2021-12-27 20:34:51</td>
+      <td>RedlegsFan30</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>RT @LisandroTosello: Celebro que @alferdez rel...</td>
-      <td>2020-08-04 19:24:06</td>
-      <td>ProfeMolina1</td>
+      <td>RT @ByDavidTeel: Bronco Mendenhall's time at #...</td>
+      <td>2021-12-27 20:34:07</td>
+      <td>IntheAyer14</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>RT @LuisContigiani: En estos días se habla de ...</td>
-      <td>2020-08-04 19:22:29</td>
-      <td>marialaura2025</td>
+      <td>RT @ByDavidTeel: Bronco Mendenhall's time at #...</td>
+      <td>2021-12-27 20:31:16</td>
+      <td>JohnSchick</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>RT @ByDavidTeel: Transfer from Notre Dame elig...</td>
-      <td>2020-08-04 19:15:10</td>
-      <td>BFriedACC</td>
+      <td>RT @JacquieFran_: #UVA also announces the hiri...</td>
+      <td>2021-12-27 20:29:10</td>
+      <td>hooamp</td>
     </tr>
     <tr>
       <th>...</th>
@@ -6455,50 +6483,50 @@ Name: most_important_issue, Length: 3165, dtype: object
     </tr>
     <tr>
       <th>995</th>
-      <td>RT @RTD_MikeBarber: #UVA's Bronco Mendenhall o...</td>
-      <td>2020-07-29 18:13:01</td>
-      <td>joshpr96</td>
+      <td>RT @cocina_facil_mx: La #uva es una de las fru...</td>
+      <td>2021-12-22 10:49:32</td>
+      <td>AlbaNel51617286</td>
     </tr>
     <tr>
       <th>996</th>
-      <td>RT @RTD_MikeBarber: #UVA's Bronco Mendenhall o...</td>
-      <td>2020-07-29 18:12:57</td>
-      <td>johnrivers131</td>
+      <td>RT @UVa_es: El @GrupoTesea #UVA trabaja en el ...</td>
+      <td>2021-12-22 10:44:02</td>
+      <td>CampusMDelibes</td>
     </tr>
     <tr>
       <th>997</th>
-      <td>RT @RTD_MikeBarber: #UVA's Bronco Mendenhall o...</td>
-      <td>2020-07-29 18:12:56</td>
-      <td>WolfpackMaven</td>
+      <td>📝 Oferta de empleo para doctores 📝\n\n💻 Accede...</td>
+      <td>2021-12-22 10:40:44</td>
+      <td>ETSIIAAPalencia</td>
     </tr>
     <tr>
       <th>998</th>
-      <td>RT @RTD_MikeBarber: #UVA's Bronco Mendenhall o...</td>
-      <td>2020-07-29 18:12:50</td>
-      <td>ParrishWalton</td>
+      <td>El @GrupoTesea #UVA trabaja en el desarrollo d...</td>
+      <td>2021-12-22 10:34:33</td>
+      <td>UVa_es</td>
     </tr>
     <tr>
       <th>999</th>
-      <td>RT @RTD_MikeBarber: #UVA's Bronco Mendenhall o...</td>
-      <td>2020-07-29 18:12:08</td>
-      <td>JoshTheAthletic</td>
+      <td>Vind het onbegrijpelijk dat het land in lockdo...</td>
+      <td>2021-12-22 09:58:32</td>
+      <td>hetisfriet11</td>
     </tr>
   </tbody>
 </table>
 <p>1000 rows × 3 columns</p>
 </div></div></div>
 </div>
-<div class="section" id="extracting-year-month-day-and-time-from-a-timestamp-column">
+<section id="extracting-year-month-day-and-time-from-a-timestamp-column">
 <h3><a class="toc-backref" href="#id14"><span class="section-number">9.5.1. </span>Extracting Year, Month, Day, and Time from a Timestamp Column</a><a class="headerlink" href="#extracting-year-month-day-and-time-from-a-timestamp-column" title="Permalink to this headline">¶</a></h3>
 <p>Note that the data contain timestamps that include the date and time, to the second, of each tweet. The <code class="docutils literal notranslate"><span class="pre">created_at</span></code> column has a <code class="docutils literal notranslate"><span class="pre">datetime64</span></code> data type:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tweets</span><span class="o">.</span><span class="n">dtypes</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tweets</span><span class="o">.</span><span class="n">dtypes</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>text                  object
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>text                  object
 created_at    datetime64[ns]
 user                  object
 dtype: object
@@ -6509,14 +6537,14 @@ dtype: object
 <p>The difference between a <code class="docutils literal notranslate"><span class="pre">datetime64</span></code> data type and an <code class="docutils literal notranslate"><span class="pre">object</span></code> or numeric type is that we have the ability to extract individual elements of time from a <code class="docutils literal notranslate"><span class="pre">datetime64</span></code> value. To pull out the year, month, day, hour, minute, and second of the timestamp, we use the following attributes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">tweets</span><span class="o">.</span><span class="n">created_at</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="n">tweets</span><span class="o">.</span><span class="n">created_at</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">day</span><span class="p">,</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">tweets</span><span class="o">.</span><span class="n">created_at</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="n">tweets</span><span class="o">.</span><span class="n">created_at</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">day</span><span class="p">,</span> 
  <span class="n">tweets</span><span class="o">.</span><span class="n">created_at</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="n">tweets</span><span class="o">.</span><span class="n">created_at</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hour</span><span class="p">,</span> 
  <span class="n">tweets</span><span class="o">.</span><span class="n">created_at</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">minute</span><span class="p">,</span> <span class="n">tweets</span><span class="o">.</span><span class="n">created_at</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">second</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[8, 4, 2020, 19, 24, 13]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[12, 27, 2021, 20, 40, 59]
 </pre></div>
 </div>
 </div>
@@ -6524,7 +6552,7 @@ dtype: object
 <p>The easiest way to create new columns with these elements for all the values in the dataframe is to use comprehension loops:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tweets</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">month</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">tweets</span><span class="o">.</span><span class="n">created_at</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tweets</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">month</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">tweets</span><span class="o">.</span><span class="n">created_at</span><span class="p">]</span>
 <span class="n">tweets</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">day</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">tweets</span><span class="o">.</span><span class="n">created_at</span><span class="p">]</span>
 <span class="n">tweets</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">year</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">tweets</span><span class="o">.</span><span class="n">created_at</span><span class="p">]</span>
 <span class="n">tweets</span><span class="p">[</span><span class="s1">&#39;hour&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">hour</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">tweets</span><span class="o">.</span><span class="n">created_at</span><span class="p">]</span>
@@ -6567,62 +6595,62 @@ dtype: object
   <tbody>
     <tr>
       <th>0</th>
-      <td>RT @LisandroTosello: Celebro que @alferdez rel...</td>
-      <td>2020-08-04 19:24:13</td>
-      <td>ardilla37003783</td>
-      <td>8</td>
-      <td>4</td>
-      <td>2020</td>
-      <td>19</td>
-      <td>24</td>
-      <td>13</td>
+      <td>Tony Elliott announces his first official hiri...</td>
+      <td>2021-12-27 20:40:59</td>
+      <td>thesabre</td>
+      <td>12</td>
+      <td>27</td>
+      <td>2021</td>
+      <td>20</td>
+      <td>40</td>
+      <td>59</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>RT @LuisContigiani: En estos días se habla de ...</td>
-      <td>2020-08-04 19:24:06</td>
-      <td>uvacaba</td>
-      <td>8</td>
-      <td>4</td>
-      <td>2020</td>
-      <td>19</td>
-      <td>24</td>
-      <td>6</td>
+      <td>RT @RTD_MikeBarber: #UVA outside linebacker No...</td>
+      <td>2021-12-27 20:34:51</td>
+      <td>RedlegsFan30</td>
+      <td>12</td>
+      <td>27</td>
+      <td>2021</td>
+      <td>20</td>
+      <td>34</td>
+      <td>51</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>RT @LisandroTosello: Celebro que @alferdez rel...</td>
-      <td>2020-08-04 19:24:06</td>
-      <td>ProfeMolina1</td>
-      <td>8</td>
-      <td>4</td>
-      <td>2020</td>
-      <td>19</td>
-      <td>24</td>
-      <td>6</td>
+      <td>RT @ByDavidTeel: Bronco Mendenhall's time at #...</td>
+      <td>2021-12-27 20:34:07</td>
+      <td>IntheAyer14</td>
+      <td>12</td>
+      <td>27</td>
+      <td>2021</td>
+      <td>20</td>
+      <td>34</td>
+      <td>7</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>RT @LuisContigiani: En estos días se habla de ...</td>
-      <td>2020-08-04 19:22:29</td>
-      <td>marialaura2025</td>
-      <td>8</td>
-      <td>4</td>
-      <td>2020</td>
-      <td>19</td>
-      <td>22</td>
-      <td>29</td>
+      <td>RT @ByDavidTeel: Bronco Mendenhall's time at #...</td>
+      <td>2021-12-27 20:31:16</td>
+      <td>JohnSchick</td>
+      <td>12</td>
+      <td>27</td>
+      <td>2021</td>
+      <td>20</td>
+      <td>31</td>
+      <td>16</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>RT @ByDavidTeel: Transfer from Notre Dame elig...</td>
-      <td>2020-08-04 19:15:10</td>
-      <td>BFriedACC</td>
-      <td>8</td>
-      <td>4</td>
-      <td>2020</td>
-      <td>19</td>
-      <td>15</td>
+      <td>RT @JacquieFran_: #UVA also announces the hiri...</td>
+      <td>2021-12-27 20:29:10</td>
+      <td>hooamp</td>
+      <td>12</td>
+      <td>27</td>
+      <td>2021</td>
+      <td>20</td>
+      <td>29</td>
       <td>10</td>
     </tr>
     <tr>
@@ -6639,71 +6667,71 @@ dtype: object
     </tr>
     <tr>
       <th>995</th>
-      <td>RT @RTD_MikeBarber: #UVA's Bronco Mendenhall o...</td>
-      <td>2020-07-29 18:13:01</td>
-      <td>joshpr96</td>
-      <td>7</td>
-      <td>29</td>
-      <td>2020</td>
-      <td>18</td>
-      <td>13</td>
-      <td>1</td>
+      <td>RT @cocina_facil_mx: La #uva es una de las fru...</td>
+      <td>2021-12-22 10:49:32</td>
+      <td>AlbaNel51617286</td>
+      <td>12</td>
+      <td>22</td>
+      <td>2021</td>
+      <td>10</td>
+      <td>49</td>
+      <td>32</td>
     </tr>
     <tr>
       <th>996</th>
-      <td>RT @RTD_MikeBarber: #UVA's Bronco Mendenhall o...</td>
-      <td>2020-07-29 18:12:57</td>
-      <td>johnrivers131</td>
-      <td>7</td>
-      <td>29</td>
-      <td>2020</td>
-      <td>18</td>
+      <td>RT @UVa_es: El @GrupoTesea #UVA trabaja en el ...</td>
+      <td>2021-12-22 10:44:02</td>
+      <td>CampusMDelibes</td>
       <td>12</td>
-      <td>57</td>
+      <td>22</td>
+      <td>2021</td>
+      <td>10</td>
+      <td>44</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>997</th>
-      <td>RT @RTD_MikeBarber: #UVA's Bronco Mendenhall o...</td>
-      <td>2020-07-29 18:12:56</td>
-      <td>WolfpackMaven</td>
-      <td>7</td>
-      <td>29</td>
-      <td>2020</td>
-      <td>18</td>
+      <td>📝 Oferta de empleo para doctores 📝\n\n💻 Accede...</td>
+      <td>2021-12-22 10:40:44</td>
+      <td>ETSIIAAPalencia</td>
       <td>12</td>
-      <td>56</td>
+      <td>22</td>
+      <td>2021</td>
+      <td>10</td>
+      <td>40</td>
+      <td>44</td>
     </tr>
     <tr>
       <th>998</th>
-      <td>RT @RTD_MikeBarber: #UVA's Bronco Mendenhall o...</td>
-      <td>2020-07-29 18:12:50</td>
-      <td>ParrishWalton</td>
-      <td>7</td>
-      <td>29</td>
-      <td>2020</td>
-      <td>18</td>
+      <td>El @GrupoTesea #UVA trabaja en el desarrollo d...</td>
+      <td>2021-12-22 10:34:33</td>
+      <td>UVa_es</td>
       <td>12</td>
-      <td>50</td>
+      <td>22</td>
+      <td>2021</td>
+      <td>10</td>
+      <td>34</td>
+      <td>33</td>
     </tr>
     <tr>
       <th>999</th>
-      <td>RT @RTD_MikeBarber: #UVA's Bronco Mendenhall o...</td>
-      <td>2020-07-29 18:12:08</td>
-      <td>JoshTheAthletic</td>
-      <td>7</td>
-      <td>29</td>
-      <td>2020</td>
-      <td>18</td>
+      <td>Vind het onbegrijpelijk dat het land in lockdo...</td>
+      <td>2021-12-22 09:58:32</td>
+      <td>hetisfriet11</td>
       <td>12</td>
-      <td>8</td>
+      <td>22</td>
+      <td>2021</td>
+      <td>9</td>
+      <td>58</td>
+      <td>32</td>
     </tr>
   </tbody>
 </table>
 <p>1000 rows × 9 columns</p>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="generating-timestamps-from-separate-month-day-and-year-columns">
+</section>
+<section id="generating-timestamps-from-separate-month-day-and-year-columns">
 <h3><a class="toc-backref" href="#id15"><span class="section-number">9.5.2. </span>Generating Timestamps from Separate Month, Day, and Year Columns</a><a class="headerlink" href="#generating-timestamps-from-separate-month-day-and-year-columns" title="Permalink to this headline">¶</a></h3>
 <p>Sometimes raw data will come to us with these time elements already placed in separate columns, so that we have a <code class="docutils literal notranslate"><span class="pre">month</span></code>, <code class="docutils literal notranslate"><span class="pre">day</span></code>, and <code class="docutils literal notranslate"><span class="pre">year</span></code> column but no <code class="docutils literal notranslate"><span class="pre">date</span></code> column. There are important advantages to placing all this information in one column in values that Python understands as timestamps: timestamps are easier to filter, manipulate, index, and plot. To create one timestamp from separate columns that contain the month, day, and year (and optionally the hour, minute, and second), use the <code class="docutils literal notranslate"><span class="pre">pd.to_datatime</span></code> function:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
@@ -6713,7 +6741,7 @@ dtype: object
 <p>To create a timestamp from the individual time element columns, we can type:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tweets</span><span class="p">[</span><span class="s1">&#39;timestamp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">tweets</span><span class="p">[[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;month&#39;</span><span class="p">,</span> <span class="s1">&#39;day&#39;</span><span class="p">,</span> <span class="s1">&#39;hour&#39;</span><span class="p">,</span> <span class="s1">&#39;minute&#39;</span><span class="p">,</span> <span class="s1">&#39;second&#39;</span><span class="p">]])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tweets</span><span class="p">[</span><span class="s1">&#39;timestamp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">tweets</span><span class="p">[[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;month&#39;</span><span class="p">,</span> <span class="s1">&#39;day&#39;</span><span class="p">,</span> <span class="s1">&#39;hour&#39;</span><span class="p">,</span> <span class="s1">&#39;minute&#39;</span><span class="p">,</span> <span class="s1">&#39;second&#39;</span><span class="p">]])</span>
 <span class="n">tweets</span>
 </pre></div>
 </div>
@@ -6752,68 +6780,68 @@ dtype: object
   <tbody>
     <tr>
       <th>0</th>
-      <td>RT @LisandroTosello: Celebro que @alferdez rel...</td>
-      <td>2020-08-04 19:24:13</td>
-      <td>ardilla37003783</td>
-      <td>8</td>
-      <td>4</td>
-      <td>2020</td>
-      <td>19</td>
-      <td>24</td>
-      <td>13</td>
-      <td>2020-08-04 19:24:13</td>
+      <td>Tony Elliott announces his first official hiri...</td>
+      <td>2021-12-27 20:40:59</td>
+      <td>thesabre</td>
+      <td>12</td>
+      <td>27</td>
+      <td>2021</td>
+      <td>20</td>
+      <td>40</td>
+      <td>59</td>
+      <td>2021-12-27 20:40:59</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>RT @LuisContigiani: En estos días se habla de ...</td>
-      <td>2020-08-04 19:24:06</td>
-      <td>uvacaba</td>
-      <td>8</td>
-      <td>4</td>
-      <td>2020</td>
-      <td>19</td>
-      <td>24</td>
-      <td>6</td>
-      <td>2020-08-04 19:24:06</td>
+      <td>RT @RTD_MikeBarber: #UVA outside linebacker No...</td>
+      <td>2021-12-27 20:34:51</td>
+      <td>RedlegsFan30</td>
+      <td>12</td>
+      <td>27</td>
+      <td>2021</td>
+      <td>20</td>
+      <td>34</td>
+      <td>51</td>
+      <td>2021-12-27 20:34:51</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>RT @LisandroTosello: Celebro que @alferdez rel...</td>
-      <td>2020-08-04 19:24:06</td>
-      <td>ProfeMolina1</td>
-      <td>8</td>
-      <td>4</td>
-      <td>2020</td>
-      <td>19</td>
-      <td>24</td>
-      <td>6</td>
-      <td>2020-08-04 19:24:06</td>
+      <td>RT @ByDavidTeel: Bronco Mendenhall's time at #...</td>
+      <td>2021-12-27 20:34:07</td>
+      <td>IntheAyer14</td>
+      <td>12</td>
+      <td>27</td>
+      <td>2021</td>
+      <td>20</td>
+      <td>34</td>
+      <td>7</td>
+      <td>2021-12-27 20:34:07</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>RT @LuisContigiani: En estos días se habla de ...</td>
-      <td>2020-08-04 19:22:29</td>
-      <td>marialaura2025</td>
-      <td>8</td>
-      <td>4</td>
-      <td>2020</td>
-      <td>19</td>
-      <td>22</td>
-      <td>29</td>
-      <td>2020-08-04 19:22:29</td>
+      <td>RT @ByDavidTeel: Bronco Mendenhall's time at #...</td>
+      <td>2021-12-27 20:31:16</td>
+      <td>JohnSchick</td>
+      <td>12</td>
+      <td>27</td>
+      <td>2021</td>
+      <td>20</td>
+      <td>31</td>
+      <td>16</td>
+      <td>2021-12-27 20:31:16</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>RT @ByDavidTeel: Transfer from Notre Dame elig...</td>
-      <td>2020-08-04 19:15:10</td>
-      <td>BFriedACC</td>
-      <td>8</td>
-      <td>4</td>
-      <td>2020</td>
-      <td>19</td>
-      <td>15</td>
+      <td>RT @JacquieFran_: #UVA also announces the hiri...</td>
+      <td>2021-12-27 20:29:10</td>
+      <td>hooamp</td>
+      <td>12</td>
+      <td>27</td>
+      <td>2021</td>
+      <td>20</td>
+      <td>29</td>
       <td>10</td>
-      <td>2020-08-04 19:15:10</td>
+      <td>2021-12-27 20:29:10</td>
     </tr>
     <tr>
       <th>...</th>
@@ -6830,68 +6858,68 @@ dtype: object
     </tr>
     <tr>
       <th>995</th>
-      <td>RT @RTD_MikeBarber: #UVA's Bronco Mendenhall o...</td>
-      <td>2020-07-29 18:13:01</td>
-      <td>joshpr96</td>
-      <td>7</td>
-      <td>29</td>
-      <td>2020</td>
-      <td>18</td>
-      <td>13</td>
-      <td>1</td>
-      <td>2020-07-29 18:13:01</td>
+      <td>RT @cocina_facil_mx: La #uva es una de las fru...</td>
+      <td>2021-12-22 10:49:32</td>
+      <td>AlbaNel51617286</td>
+      <td>12</td>
+      <td>22</td>
+      <td>2021</td>
+      <td>10</td>
+      <td>49</td>
+      <td>32</td>
+      <td>2021-12-22 10:49:32</td>
     </tr>
     <tr>
       <th>996</th>
-      <td>RT @RTD_MikeBarber: #UVA's Bronco Mendenhall o...</td>
-      <td>2020-07-29 18:12:57</td>
-      <td>johnrivers131</td>
-      <td>7</td>
-      <td>29</td>
-      <td>2020</td>
-      <td>18</td>
+      <td>RT @UVa_es: El @GrupoTesea #UVA trabaja en el ...</td>
+      <td>2021-12-22 10:44:02</td>
+      <td>CampusMDelibes</td>
       <td>12</td>
-      <td>57</td>
-      <td>2020-07-29 18:12:57</td>
+      <td>22</td>
+      <td>2021</td>
+      <td>10</td>
+      <td>44</td>
+      <td>2</td>
+      <td>2021-12-22 10:44:02</td>
     </tr>
     <tr>
       <th>997</th>
-      <td>RT @RTD_MikeBarber: #UVA's Bronco Mendenhall o...</td>
-      <td>2020-07-29 18:12:56</td>
-      <td>WolfpackMaven</td>
-      <td>7</td>
-      <td>29</td>
-      <td>2020</td>
-      <td>18</td>
+      <td>📝 Oferta de empleo para doctores 📝\n\n💻 Accede...</td>
+      <td>2021-12-22 10:40:44</td>
+      <td>ETSIIAAPalencia</td>
       <td>12</td>
-      <td>56</td>
-      <td>2020-07-29 18:12:56</td>
+      <td>22</td>
+      <td>2021</td>
+      <td>10</td>
+      <td>40</td>
+      <td>44</td>
+      <td>2021-12-22 10:40:44</td>
     </tr>
     <tr>
       <th>998</th>
-      <td>RT @RTD_MikeBarber: #UVA's Bronco Mendenhall o...</td>
-      <td>2020-07-29 18:12:50</td>
-      <td>ParrishWalton</td>
-      <td>7</td>
-      <td>29</td>
-      <td>2020</td>
-      <td>18</td>
+      <td>El @GrupoTesea #UVA trabaja en el desarrollo d...</td>
+      <td>2021-12-22 10:34:33</td>
+      <td>UVa_es</td>
       <td>12</td>
-      <td>50</td>
-      <td>2020-07-29 18:12:50</td>
+      <td>22</td>
+      <td>2021</td>
+      <td>10</td>
+      <td>34</td>
+      <td>33</td>
+      <td>2021-12-22 10:34:33</td>
     </tr>
     <tr>
       <th>999</th>
-      <td>RT @RTD_MikeBarber: #UVA's Bronco Mendenhall o...</td>
-      <td>2020-07-29 18:12:08</td>
-      <td>JoshTheAthletic</td>
-      <td>7</td>
-      <td>29</td>
-      <td>2020</td>
-      <td>18</td>
+      <td>Vind het onbegrijpelijk dat het land in lockdo...</td>
+      <td>2021-12-22 09:58:32</td>
+      <td>hetisfriet11</td>
       <td>12</td>
-      <td>8</td>
-      <td>2020-07-29 18:12:08</td>
+      <td>22</td>
+      <td>2021</td>
+      <td>9</td>
+      <td>58</td>
+      <td>32</td>
+      <td>2021-12-22 09:58:32</td>
     </tr>
   </tbody>
 </table>
@@ -6901,12 +6929,12 @@ dtype: object
 <p>Like <code class="docutils literal notranslate"><span class="pre">created_at</span></code>, the new <code class="docutils literal notranslate"><span class="pre">timestamp</span></code> column is also of the <code class="docutils literal notranslate"><span class="pre">datetime64</span></code> data type:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tweets</span><span class="o">.</span><span class="n">dtypes</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tweets</span><span class="o">.</span><span class="n">dtypes</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>text                  object
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>text                  object
 created_at    datetime64[ns]
 user                  object
 month                  int64
@@ -6921,8 +6949,8 @@ dtype: object
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="converting-string-columns-to-timestamps">
+</section>
+<section id="converting-string-columns-to-timestamps">
 <h3><a class="toc-backref" href="#id16"><span class="section-number">9.5.3. </span>Converting String Columns to Timestamps</a><a class="headerlink" href="#converting-string-columns-to-timestamps" title="Permalink to this headline">¶</a></h3>
 <p>Sometimes information about the date and time of an event in the data will be coded as a string. In that case, to use the time series functionality on the dates in a dataframe, a string column that contains the dates and times will need to be converted to the <code class="docutils literal notranslate"><span class="pre">datetime64</span></code> data type. The best way to do that is to use the <code class="docutils literal notranslate"><span class="pre">pd.to_datetime()</span></code> function once again. This time, we pass the column that contains the dates in string format to the <code class="docutils literal notranslate"><span class="pre">pd.to_datetime()</span></code> function. This function can identify the year, month, day, hour, minute, and second from many different formats.</p>
 <p>For example, we can write the date Sunday, June 19, 2016 at 8:00 PM (the date and time of game 7 of the 2016 NBA finals, the greatest moment in sports history) in many different ways such as:</p>
@@ -6935,48 +6963,48 @@ dtype: object
 <p>The <code class="docutils literal notranslate"><span class="pre">pd.to_datetime()</span></code> function reads all of these formats:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;Sunday, June 19, 2016, 8:00 PM&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;Sunday, June 19, 2016, 8:00 PM&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Timestamp(&#39;2016-06-19 20:00:00&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Timestamp(&#39;2016-06-19 20:00:00&#39;)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;6-19-2016 8PM&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;6-19-2016 8PM&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Timestamp(&#39;2016-06-19 20:00:00&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Timestamp(&#39;2016-06-19 20:00:00&#39;)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;6/19/16 8 p.m.&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;6/19/16 8 p.m.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Timestamp(&#39;2016-06-19 20:00:00&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Timestamp(&#39;2016-06-19 20:00:00&#39;)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;19/6/16 8pm&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;19/6/16 8pm&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Timestamp(&#39;2016-06-19 20:00:00&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Timestamp(&#39;2016-06-19 20:00:00&#39;)
 </pre></div>
 </div>
 </div>
@@ -6984,12 +7012,12 @@ dtype: object
 <p>The <code class="docutils literal notranslate"><span class="pre">pd.to_datetime()</span></code> function can feel like a magic trick because it automatically detects where the different elements of the date and time are located in the string. However, it can go wrong, and it is important to check that the date was correctly understood by <code class="docutils literal notranslate"><span class="pre">pd.to_datetime()</span></code>. Suppose for example that the date was June 19, 1945, coded as “6/19/45”. <code class="docutils literal notranslate"><span class="pre">pd.to_datetime()</span></code> reads the date as 2045:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;6/19/45&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;6/19/45&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Timestamp(&#39;2045-06-19 00:00:00&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Timestamp(&#39;2045-06-19 00:00:00&#39;)
 </pre></div>
 </div>
 </div>
@@ -6998,13 +7026,13 @@ dtype: object
 <p>The <code class="docutils literal notranslate"><span class="pre">pd.to_datetime()</span></code> function also works on an entire column of dates coded as strings. For example, let’s convert the <code class="docutils literal notranslate"><span class="pre">created_at</span></code> column to string:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tweets</span><span class="p">[</span><span class="s1">&#39;created_at&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tweets</span><span class="o">.</span><span class="n">created_at</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;str&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tweets</span><span class="p">[</span><span class="s1">&#39;created_at&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tweets</span><span class="o">.</span><span class="n">created_at</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;str&#39;</span><span class="p">)</span>
 <span class="n">tweets</span><span class="o">.</span><span class="n">dtypes</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>text                  object
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>text                  object
 created_at            object
 user                  object
 month                  int64
@@ -7022,13 +7050,13 @@ dtype: object
 <p>To convert the <code class="docutils literal notranslate"><span class="pre">created_at</span></code> column back to a timestamp, we can apply <code class="docutils literal notranslate"><span class="pre">pd.to_dataframe()</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tweets</span><span class="p">[</span><span class="s1">&#39;created_at&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">tweets</span><span class="o">.</span><span class="n">created_at</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tweets</span><span class="p">[</span><span class="s1">&#39;created_at&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">tweets</span><span class="o">.</span><span class="n">created_at</span><span class="p">)</span>
 <span class="n">tweets</span><span class="o">.</span><span class="n">dtypes</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>text                  object
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>text                  object
 created_at    datetime64[ns]
 user                  object
 month                  int64
@@ -7043,13 +7071,13 @@ dtype: object
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="filtering-rows-based-on-date-ranges">
+</section>
+<section id="filtering-rows-based-on-date-ranges">
 <h3><a class="toc-backref" href="#id17"><span class="section-number">9.5.4. </span>Filtering Rows Based on Date Ranges</a><a class="headerlink" href="#filtering-rows-based-on-date-ranges" title="Permalink to this headline">¶</a></h3>
 <p>If every row in the data has a unique timestamp, then one convenient way to use the times to filter the data is to set the <strong>index</strong> (the row labels) to be equal to the timestamps:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tweets</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">tweets</span><span class="p">[</span><span class="s1">&#39;created_at&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tweets</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">tweets</span><span class="p">[</span><span class="s1">&#39;created_at&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -7057,11 +7085,15 @@ dtype: object
 <p>A <code class="docutils literal notranslate"><span class="pre">pandas</span></code> dataframe uses <code class="docutils literal notranslate"><span class="pre">pd.to_datetime()</span></code> to read dates and times in many formats, and we can pass any of these formats to the index of <code class="docutils literal notranslate"><span class="pre">tweets</span></code>. For example, to see all the tweets made on June 30, we can type:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tweets</span><span class="p">[</span><span class="s1">&#39;June 30, 2020&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tweets</span><span class="p">[</span><span class="s1">&#39;June 30, 2020&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:1: FutureWarning: Indexing a DataFrame with a datetimelike index using a single string to slice the rows, like `frame[string]`, is deprecated and will be removed in a future version. Use `frame.loc[string]` instead.
+  &quot;&quot;&quot;Entry point for launching an IPython kernel.
+</pre></div>
+</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -7113,11 +7145,15 @@ dtype: object
 <p>If these row labels are in chronological order, then we can extract slices of the data that fall within a time range. We write two dates separated by a colon, and the output extracts all rows from the row that matches the first date through the row that matches the last date. Because the rows are generally listed with the most recent ones first, we write the ending timestamp first and the ending timestamp second. If these exact dates and times do not exist in the data, the syntax still finds the locations where these rows would exist and extracts the rows in between these two locations. Here is code to extract all tweets that were posted between 2pm and 3pm on June 29:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tweets</span><span class="p">[</span><span class="s1">&#39;6/29/2020 15:00&#39;</span><span class="p">:</span><span class="s1">&#39;6/29/2020 14:00&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tweets</span><span class="p">[</span><span class="s1">&#39;6/29/2020 15:00&#39;</span><span class="p">:</span><span class="s1">&#39;6/29/2020 14:00&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:1: FutureWarning: Value based partial slicing on non-monotonic DatetimeIndexes with non-existing keys is deprecated and will raise a KeyError in a future Version.
+  &quot;&quot;&quot;Entry point for launching an IPython kernel.
+</pre></div>
+</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -7169,7 +7205,7 @@ dtype: object
 <p>To extract all tweets before point in time, write the timestamp before the colon and write nothing after the colon. To extract all tweets after a point in time, write nothing before the colon and write the timestamp after the colon. To extract all tweets posted after June 29 at 3pm:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tweets</span><span class="p">[:</span><span class="s1">&#39;6/29/2020 15:00&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tweets</span><span class="p">[:</span><span class="s1">&#39;6/29/2020 15:00&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -7218,163 +7254,19 @@ dtype: object
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th>2020-08-04 19:24:13</th>
-      <td>RT @LisandroTosello: Celebro que @alferdez rel...</td>
-      <td>2020-08-04 19:24:13</td>
-      <td>ardilla37003783</td>
-      <td>8</td>
-      <td>4</td>
-      <td>2020</td>
-      <td>19</td>
-      <td>24</td>
-      <td>13</td>
-      <td>2020-08-04 19:24:13</td>
-    </tr>
-    <tr>
-      <th>2020-08-04 19:24:06</th>
-      <td>RT @LuisContigiani: En estos días se habla de ...</td>
-      <td>2020-08-04 19:24:06</td>
-      <td>uvacaba</td>
-      <td>8</td>
-      <td>4</td>
-      <td>2020</td>
-      <td>19</td>
-      <td>24</td>
-      <td>6</td>
-      <td>2020-08-04 19:24:06</td>
-    </tr>
-    <tr>
-      <th>2020-08-04 19:24:06</th>
-      <td>RT @LisandroTosello: Celebro que @alferdez rel...</td>
-      <td>2020-08-04 19:24:06</td>
-      <td>ProfeMolina1</td>
-      <td>8</td>
-      <td>4</td>
-      <td>2020</td>
-      <td>19</td>
-      <td>24</td>
-      <td>6</td>
-      <td>2020-08-04 19:24:06</td>
-    </tr>
-    <tr>
-      <th>2020-08-04 19:22:29</th>
-      <td>RT @LuisContigiani: En estos días se habla de ...</td>
-      <td>2020-08-04 19:22:29</td>
-      <td>marialaura2025</td>
-      <td>8</td>
-      <td>4</td>
-      <td>2020</td>
-      <td>19</td>
-      <td>22</td>
-      <td>29</td>
-      <td>2020-08-04 19:22:29</td>
-    </tr>
-    <tr>
-      <th>2020-08-04 19:15:10</th>
-      <td>RT @ByDavidTeel: Transfer from Notre Dame elig...</td>
-      <td>2020-08-04 19:15:10</td>
-      <td>BFriedACC</td>
-      <td>8</td>
-      <td>4</td>
-      <td>2020</td>
-      <td>19</td>
-      <td>15</td>
-      <td>10</td>
-      <td>2020-08-04 19:15:10</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>2020-07-29 18:13:01</th>
-      <td>RT @RTD_MikeBarber: #UVA's Bronco Mendenhall o...</td>
-      <td>2020-07-29 18:13:01</td>
-      <td>joshpr96</td>
-      <td>7</td>
-      <td>29</td>
-      <td>2020</td>
-      <td>18</td>
-      <td>13</td>
-      <td>1</td>
-      <td>2020-07-29 18:13:01</td>
-    </tr>
-    <tr>
-      <th>2020-07-29 18:12:57</th>
-      <td>RT @RTD_MikeBarber: #UVA's Bronco Mendenhall o...</td>
-      <td>2020-07-29 18:12:57</td>
-      <td>johnrivers131</td>
-      <td>7</td>
-      <td>29</td>
-      <td>2020</td>
-      <td>18</td>
-      <td>12</td>
-      <td>57</td>
-      <td>2020-07-29 18:12:57</td>
-    </tr>
-    <tr>
-      <th>2020-07-29 18:12:56</th>
-      <td>RT @RTD_MikeBarber: #UVA's Bronco Mendenhall o...</td>
-      <td>2020-07-29 18:12:56</td>
-      <td>WolfpackMaven</td>
-      <td>7</td>
-      <td>29</td>
-      <td>2020</td>
-      <td>18</td>
-      <td>12</td>
-      <td>56</td>
-      <td>2020-07-29 18:12:56</td>
-    </tr>
-    <tr>
-      <th>2020-07-29 18:12:50</th>
-      <td>RT @RTD_MikeBarber: #UVA's Bronco Mendenhall o...</td>
-      <td>2020-07-29 18:12:50</td>
-      <td>ParrishWalton</td>
-      <td>7</td>
-      <td>29</td>
-      <td>2020</td>
-      <td>18</td>
-      <td>12</td>
-      <td>50</td>
-      <td>2020-07-29 18:12:50</td>
-    </tr>
-    <tr>
-      <th>2020-07-29 18:12:08</th>
-      <td>RT @RTD_MikeBarber: #UVA's Bronco Mendenhall o...</td>
-      <td>2020-07-29 18:12:08</td>
-      <td>JoshTheAthletic</td>
-      <td>7</td>
-      <td>29</td>
-      <td>2020</td>
-      <td>18</td>
-      <td>12</td>
-      <td>8</td>
-      <td>2020-07-29 18:12:08</td>
-    </tr>
   </tbody>
 </table>
-<p>1000 rows × 10 columns</p>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="leads-and-lags">
+</section>
+<section id="leads-and-lags">
 <h3><a class="toc-backref" href="#id18"><span class="section-number">9.5.5. </span>Leads and Lags</a><a class="headerlink" href="#leads-and-lags" title="Permalink to this headline">¶</a></h3>
 <p>In time series data in which the rows represent particular points in time in descending chronological order, a <strong>lag</strong> is a column that contains the values of another column shifted up one cell. That is, if the rows represent days, and a column represents today’s high temperature, the lag represents yesterday’s high temperature. A <strong>lead</strong> is a existing column with its values shifted one row down: tomorrow’s high temperature.</p>
 <p>To create a lead or a lag, apply the <code class="docutils literal notranslate"><span class="pre">.shift()</span></code> method to a dataframe. The argument of <code class="docutils literal notranslate"><span class="pre">.shift()</span></code> is an integer: positive integers shift values down, creating leads, and negative values shift values up, creating lags. Whenever we shift values up or down, we create new missing values at the top or bottom of the dataframe for the lead or lagged column.</p>
 <p>For example, in the <code class="docutils literal notranslate"><span class="pre">tweets</span></code> dataframe we can create two new columns, <code class="docutils literal notranslate"><span class="pre">previous_tweet</span></code> and <code class="docutils literal notranslate"><span class="pre">next_tweet</span></code> to compare with <code class="docutils literal notranslate"><span class="pre">text</span></code> by using <code class="docutils literal notranslate"><span class="pre">.shift(-1)</span></code> and <code class="docutils literal notranslate"><span class="pre">.shift(1)</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tweets</span><span class="p">[</span><span class="s1">&#39;previous_tweet&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tweets</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tweets</span><span class="p">[</span><span class="s1">&#39;previous_tweet&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tweets</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
 <span class="n">tweets</span><span class="p">[</span><span class="s1">&#39;next_tweet&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tweets</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
 <span class="n">tweets</span><span class="p">[[</span><span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="s1">&#39;previous_tweet&#39;</span><span class="p">,</span> <span class="s1">&#39;next_tweet&#39;</span><span class="p">]]</span>
 </pre></div>
@@ -7412,34 +7304,34 @@ dtype: object
   </thead>
   <tbody>
     <tr>
-      <th>2020-08-04 19:24:13</th>
-      <td>RT @LisandroTosello: Celebro que @alferdez rel...</td>
-      <td>RT @LuisContigiani: En estos días se habla de ...</td>
+      <th>2021-12-27 20:40:59</th>
+      <td>Tony Elliott announces his first official hiri...</td>
+      <td>RT @RTD_MikeBarber: #UVA outside linebacker No...</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>2020-08-04 19:24:06</th>
-      <td>RT @LuisContigiani: En estos días se habla de ...</td>
-      <td>RT @LisandroTosello: Celebro que @alferdez rel...</td>
-      <td>RT @LisandroTosello: Celebro que @alferdez rel...</td>
+      <th>2021-12-27 20:34:51</th>
+      <td>RT @RTD_MikeBarber: #UVA outside linebacker No...</td>
+      <td>RT @ByDavidTeel: Bronco Mendenhall's time at #...</td>
+      <td>Tony Elliott announces his first official hiri...</td>
     </tr>
     <tr>
-      <th>2020-08-04 19:24:06</th>
-      <td>RT @LisandroTosello: Celebro que @alferdez rel...</td>
-      <td>RT @LuisContigiani: En estos días se habla de ...</td>
-      <td>RT @LuisContigiani: En estos días se habla de ...</td>
+      <th>2021-12-27 20:34:07</th>
+      <td>RT @ByDavidTeel: Bronco Mendenhall's time at #...</td>
+      <td>RT @ByDavidTeel: Bronco Mendenhall's time at #...</td>
+      <td>RT @RTD_MikeBarber: #UVA outside linebacker No...</td>
     </tr>
     <tr>
-      <th>2020-08-04 19:22:29</th>
-      <td>RT @LuisContigiani: En estos días se habla de ...</td>
-      <td>RT @ByDavidTeel: Transfer from Notre Dame elig...</td>
-      <td>RT @LisandroTosello: Celebro que @alferdez rel...</td>
+      <th>2021-12-27 20:31:16</th>
+      <td>RT @ByDavidTeel: Bronco Mendenhall's time at #...</td>
+      <td>RT @JacquieFran_: #UVA also announces the hiri...</td>
+      <td>RT @ByDavidTeel: Bronco Mendenhall's time at #...</td>
     </tr>
     <tr>
-      <th>2020-08-04 19:15:10</th>
-      <td>RT @ByDavidTeel: Transfer from Notre Dame elig...</td>
-      <td>RT @tinavargasv: La #uva #pinotnoir ofrecen #v...</td>
-      <td>RT @LuisContigiani: En estos días se habla de ...</td>
+      <th>2021-12-27 20:29:10</th>
+      <td>RT @JacquieFran_: #UVA also announces the hiri...</td>
+      <td>RT @JacquieFran_: #UVA officially announces OL...</td>
+      <td>RT @ByDavidTeel: Bronco Mendenhall's time at #...</td>
     </tr>
     <tr>
       <th>...</th>
@@ -7448,43 +7340,43 @@ dtype: object
       <td>...</td>
     </tr>
     <tr>
-      <th>2020-07-29 18:13:01</th>
-      <td>RT @RTD_MikeBarber: #UVA's Bronco Mendenhall o...</td>
-      <td>RT @RTD_MikeBarber: #UVA's Bronco Mendenhall o...</td>
-      <td>RT @RTD_MikeBarber: #UVA's Bronco Mendenhall o...</td>
+      <th>2021-12-22 10:49:32</th>
+      <td>RT @cocina_facil_mx: La #uva es una de las fru...</td>
+      <td>RT @UVa_es: El @GrupoTesea #UVA trabaja en el ...</td>
+      <td>RT @Juancgomex: @Infconstruccion Alberto le so...</td>
     </tr>
     <tr>
-      <th>2020-07-29 18:12:57</th>
-      <td>RT @RTD_MikeBarber: #UVA's Bronco Mendenhall o...</td>
-      <td>RT @RTD_MikeBarber: #UVA's Bronco Mendenhall o...</td>
-      <td>RT @RTD_MikeBarber: #UVA's Bronco Mendenhall o...</td>
+      <th>2021-12-22 10:44:02</th>
+      <td>RT @UVa_es: El @GrupoTesea #UVA trabaja en el ...</td>
+      <td>📝 Oferta de empleo para doctores 📝\n\n💻 Accede...</td>
+      <td>RT @cocina_facil_mx: La #uva es una de las fru...</td>
     </tr>
     <tr>
-      <th>2020-07-29 18:12:56</th>
-      <td>RT @RTD_MikeBarber: #UVA's Bronco Mendenhall o...</td>
-      <td>RT @RTD_MikeBarber: #UVA's Bronco Mendenhall o...</td>
-      <td>RT @RTD_MikeBarber: #UVA's Bronco Mendenhall o...</td>
+      <th>2021-12-22 10:40:44</th>
+      <td>📝 Oferta de empleo para doctores 📝\n\n💻 Accede...</td>
+      <td>El @GrupoTesea #UVA trabaja en el desarrollo d...</td>
+      <td>RT @UVa_es: El @GrupoTesea #UVA trabaja en el ...</td>
     </tr>
     <tr>
-      <th>2020-07-29 18:12:50</th>
-      <td>RT @RTD_MikeBarber: #UVA's Bronco Mendenhall o...</td>
-      <td>RT @RTD_MikeBarber: #UVA's Bronco Mendenhall o...</td>
-      <td>RT @RTD_MikeBarber: #UVA's Bronco Mendenhall o...</td>
+      <th>2021-12-22 10:34:33</th>
+      <td>El @GrupoTesea #UVA trabaja en el desarrollo d...</td>
+      <td>Vind het onbegrijpelijk dat het land in lockdo...</td>
+      <td>📝 Oferta de empleo para doctores 📝\n\n💻 Accede...</td>
     </tr>
     <tr>
-      <th>2020-07-29 18:12:08</th>
-      <td>RT @RTD_MikeBarber: #UVA's Bronco Mendenhall o...</td>
+      <th>2021-12-22 09:58:32</th>
+      <td>Vind het onbegrijpelijk dat het land in lockdo...</td>
       <td>NaN</td>
-      <td>RT @RTD_MikeBarber: #UVA's Bronco Mendenhall o...</td>
+      <td>El @GrupoTesea #UVA trabaja en el desarrollo d...</td>
     </tr>
   </tbody>
 </table>
 <p>1000 rows × 3 columns</p>
 </div></div></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -7508,15 +7400,15 @@ dtype: object
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="ch8.html" title="previous page"><span class="section-number">8. </span>Data Wrangling with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a>
     <a class='right-next' id="next-link" href="ch10.html" title="next page"><span class="section-number">10. </span>Exploratory Data Analysis</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -7524,7 +7416,7 @@ dtype: object
         
           By Jonathan Kropko (jkropko@virginia.edu)<br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; Copyright 2021.<br/>
       </p>
     </div>
   </footer>
@@ -7533,8 +7425,9 @@ dtype: object
 
       </div>
     </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    <script src="_static/js/index.js"></script>
-    
+  
   </body>
 </html>

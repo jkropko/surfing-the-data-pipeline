@@ -96,7 +96,7 @@ df.head(30)
 During handling of the above exception, another exception occurred:
 
 [0;31mTweepError[0m                                Traceback (most recent call last)
-[0;32m/var/folders/8k/ps7r1m2x3_zcd4_dznr8ns1m0000gp/T/ipykernel_1375/263323542.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/var/folders/8k/ps7r1m2x3_zcd4_dznr8ns1m0000gp/T/ipykernel_15949/263323542.py[0m in [0;36m<module>[0;34m[0m
 [1;32m      2[0m [0mmsg[0m [0;34m=[0m[0;34m[[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
 [1;32m      3[0m [0;34m[0m[0m
 [0;32m----> 4[0;31m [0;32mfor[0m [0mtweet[0m [0;32min[0m [0mtweepy[0m[0;34m.[0m[0mCursor[0m[0;34m([0m[0mapi[0m[0;34m.[0m[0msearch[0m[0;34m,[0m [0mq[0m[0;34m=[0m[0;34m'#uva'[0m[0;34m)[0m[0;34m.[0m[0mitems[0m[0;34m([0m[0;36m30[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m

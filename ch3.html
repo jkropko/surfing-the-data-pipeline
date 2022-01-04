@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>3. Loading, Converting, and Writing JSON Files &#8212; Surfing the Data Pipeline with Python</title>
+    <title>Loading, Converting, and Writing JSON Files &#8212; Surfing the Data Pipeline with Python</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -52,8 +52,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="4. Acquiring Data from APIs" href="ch4.html" />
-    <link rel="prev" title="2. Loading Data from Electronic Data Files" href="ch2.html" />
+    <link rel="next" title="Acquiring Data from APIs" href="ch4.html" />
+    <link rel="prev" title="Loading Data from Electronic Data Files" href="ch2.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -90,30 +90,42 @@
   </a>
  </li>
 </ul>
-<ul class="current nav bd-sidenav">
+<p class="caption">
+ <span class="caption-text">
+  Get Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="ch1.html">
-   1. Getting Yourself Unstuck
+   Getting Yourself Unstuck
   </a>
  </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Get Data
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="ch2.html">
-   2. Loading Data from Electronic Data Files
+   Loading Data from Electronic Data Files
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   3. Loading, Converting, and Writing JSON Files
+   Loading, Converting, and Writing JSON Files
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ch4.html">
-   4. Acquiring Data from APIs
+   Acquiring Data from APIs
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ch5.html">
-   5. Web Scraping Using
+   Web Scraping Using
    <code class="docutils literal notranslate">
     <span class="pre">
      BeautifulSoup
@@ -123,17 +135,24 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ch6.html">
-   6. Creating and Connecting to Databases
+   Creating and Connecting to Databases
   </a>
  </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Wrangle Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="ch7.html">
-   7. Database Queries
+   Database Queries
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ch8.html">
-   8. Data Wrangling with
+   Data Wrangling with
    <code class="docutils literal notranslate">
     <span class="pre">
      pandas
@@ -143,22 +162,29 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ch9.html">
-   9. Reshaping and Merging Data and Working with Strings, Dates, and Times
+   Reshaping and Merging Data and Working with Strings, Dates, and Times
   </a>
  </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Explore and Communicate Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="ch10.html">
-   10. Exploratory Data Analysis
+   Exploratory Data Analysis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ch11.html">
-   11. Static Data Visualizations
+   Static Data Visualizations
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ch12.html">
-   12. Interactive Data Visualizations and Dashboards
+   Interactive Data Visualizations and Dashboards
   </a>
  </li>
 </ul>
@@ -251,44 +277,44 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction-douglas-crockford-s-json-saga">
-   3.1. Introduction: Douglas Crockford’s JSON Saga
+   Introduction: Douglas Crockford’s JSON Saga
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-structure-of-a-json-file">
-   3.2. The Structure of a JSON File
+   The Structure of a JSON File
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#lists-sets-and-dictionaries">
-     3.2.1. Lists, Sets, and Dictionaries
+     Lists, Sets, and Dictionaries
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#nested-structures">
-     3.2.2. Nested Structures
+     Nested Structures
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#metadata">
-     3.2.3. Metadata
+     Metadata
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#missing-values-and-different-data-types">
-     3.2.4. Missing Values and Different Data Types
+     Missing Values and Different Data Types
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#loading-and-reading-json-data-in-python">
-   3.3. Loading and Reading JSON Data in Python
+   Loading and Reading JSON Data in Python
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#using-the-requests-get-json-loads-and-json-dumps-functions">
-     3.3.1. Using the
+     Using the
      <code class="docutils literal notranslate">
       <span class="pre">
        requests.get()
@@ -311,19 +337,19 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#searching-along-the-json-index-path">
-     3.3.2. Searching Along the JSON Index Path
+     Searching Along the JSON Index Path
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#looping-across-records-to-extract-datapoints">
-     3.3.3. Looping Across Records to Extract Datapoints
+     Looping Across Records to Extract Datapoints
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#using-pd-read-json-and-pd-json-normalize-to-store-json-data-in-a-data-frame">
-   3.4. Using
+   Using
    <code class="docutils literal notranslate">
     <span class="pre">
      pd.read_json()
@@ -340,34 +366,34 @@
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#situation-1-no-nesting-no-metadata">
-     3.4.1. Situation 1: No nesting, no metadata
+     Situation 1: No nesting, no metadata
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#situation-2-nesting-but-no-metadata">
-     3.4.2. Situation 2: Nesting, but no metadata
+     Situation 2: Nesting, but no metadata
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#situation-3-metadata">
-     3.4.3. Situation 3: Metadata
+     Situation 3: Metadata
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#saving-json-files-and-converting-data-frames-to-json">
-   3.5. Saving JSON Files and Converting Data Frames to JSON
+   Saving JSON Files and Converting Data Frames to JSON
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#saving-existing-json-files-to-disk">
-     3.5.1. Saving Existing JSON Files to Disk
+     Saving Existing JSON Files to Disk
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#converting-tabular-dataframes-to-json">
-     3.5.2. Converting Tabular DataFrames to JSON
+     Converting Tabular DataFrames to JSON
     </a>
    </li>
   </ul>
@@ -384,7 +410,7 @@
               <div>
                 
   <section id="loading-converting-and-writing-json-files">
-<h1><a class="toc-backref" href="#id1"><span class="section-number">3. </span>Loading, Converting, and Writing JSON Files</a><a class="headerlink" href="#loading-converting-and-writing-json-files" title="Permalink to this headline">¶</a></h1>
+<h1><a class="toc-backref" href="#id1">Loading, Converting, and Writing JSON Files</a><a class="headerlink" href="#loading-converting-and-writing-json-files" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="table-of-contents">
 <p class="topic-title">Table of Contents</p>
 <ul class="simple">
@@ -424,7 +450,7 @@
 </ul>
 </div>
 <section id="introduction-douglas-crockford-s-json-saga">
-<h2><a class="toc-backref" href="#id2"><span class="section-number">3.1. </span>Introduction: Douglas Crockford’s JSON Saga</a><a class="headerlink" href="#introduction-douglas-crockford-s-json-saga" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id2">Introduction: Douglas Crockford’s JSON Saga</a><a class="headerlink" href="#introduction-douglas-crockford-s-json-saga" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://www.json.org/json-en.html">JSON</a> stands for <strong>JavaScript Object Notation</strong>, and it is one of the most frequently used data formats for transferring data over the Internet. If you will be using a web-based data transfer system, such as an API (more on that in the next module), you will be dealing with data in JSON format.</p>
 <p>The JSON data format is attributed to Douglas Crockford, a Javascript architect at Yahoo!, although in his words: “I discovered JSON. I do not claim to have invented JSON, because it already existed in nature. What I did was I found it, I named it, I described how it was useful.” Here’s an excellent talk by Douglas Crockford in which he describes the origin of JSON and the early struggles to create a universal and lightweight language for data transference. The talk is about 50 minutes long, but it is worth watching if you have the time.</p>
 <div class="cell docutils container">
@@ -466,7 +492,7 @@
 </div>
 </section>
 <section id="the-structure-of-a-json-file">
-<h2><a class="toc-backref" href="#id3"><span class="section-number">3.2. </span>The Structure of a JSON File</a><a class="headerlink" href="#the-structure-of-a-json-file" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id3">The Structure of a JSON File</a><a class="headerlink" href="#the-structure-of-a-json-file" title="Permalink to this headline">¶</a></h2>
 <p>The biggest difference between JSON (and other data interchange formats like XML, PHP, and YAML) and CSV is that JSON accomodates <strong>tree-based</strong> data structures, whereas CSV only handles <strong>tabular</strong> data. Many real-world applications require a tree-based structure for data. For example, here are the first two records from fake data from a business’s customer records:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -528,7 +554,7 @@
 </div>
 <p>There are several elements of the JSON format that we need to discuss.</p>
 <section id="lists-sets-and-dictionaries">
-<h3><a class="toc-backref" href="#id4"><span class="section-number">3.2.1. </span>Lists, Sets, and Dictionaries</a><a class="headerlink" href="#lists-sets-and-dictionaries" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id4">Lists, Sets, and Dictionaries</a><a class="headerlink" href="#lists-sets-and-dictionaries" title="Permalink to this headline">¶</a></h3>
 <p>First, notice the opening square brace <code class="docutils literal notranslate"><span class="pre">[</span></code>. This character tells Python to read all the following records as elements of a <strong>list</strong>. In a Python list, the order of the elements matters and elements can be repeated, but are not given names. The first element is denoted with index 0, the second element is denoted with index 1, and so on. For example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -588,7 +614,7 @@
 <p>That means that JSON notation is the same as a <strong>list in which each element is a dictionary</strong> in Python. Every dictionary represents one record in the data, and when we convert the data to a tabular dataframe, each record will occupy one row in the data.</p>
 </section>
 <section id="nested-structures">
-<h3><a class="toc-backref" href="#id5"><span class="section-number">3.2.2. </span>Nested Structures</a><a class="headerlink" href="#nested-structures" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id5">Nested Structures</a><a class="headerlink" href="#nested-structures" title="Permalink to this headline">¶</a></h3>
 <p>JSON can store data structures that are awkward or impossible for CSV. We can convert JSON formats to tabular formats to store the data in a data frame, but in doing so, we lose information about which features are nested within other fields.</p>
 <p>Let’s return to the example of the customer records stored in JSON format.  In these data, some features are themselves dictionaries that contain additional features, resulting in a nested and tree-like shape to the data. The first record looks like:</p>
 <div class="cell docutils container">
@@ -631,13 +657,13 @@
 <img src="https://github.com/jkropko/DS-6001/raw/master/localimages/jsontree.png" width=400><p>This tree can only be placed into a table, as we must do to work with a data frame, if we lose the information about nesting and instead treat the 15 distinct features as 15 columns in the data frame.</p>
 </section>
 <section id="metadata">
-<h3><a class="toc-backref" href="#id6"><span class="section-number">3.2.3. </span>Metadata</a><a class="headerlink" href="#metadata" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id6">Metadata</a><a class="headerlink" href="#metadata" title="Permalink to this headline">¶</a></h3>
 <p>In addition to nesting, JSON is an ideal format for placing metadata in the same file as the main data. Metadata is “<a class="reference external" href="https://en.wikipedia.org/wiki/Metadata">data that provides information about other data</a>”. Metadata might describe the date the data were last accessed, provide the stable URL for accessing the data, might credit authorship or describe copyright, and so on, prior to displaying information about each of the records in the data. In general, JSON formats with metadata can look like this:</p>
 <img src="https://github.com/jkropko/DS-6001/raw/master/localimages/metadata.png" width=300>
 <p>In order to convert JSON data with a metadata format to a tabular data frame, you will have to specify the name of the branch that contains the records. As with nested structures, this procedure involves losing information. In this case, we will lose the metadata.</p>
 </section>
 <section id="missing-values-and-different-data-types">
-<h3><a class="toc-backref" href="#id7"><span class="section-number">3.2.4. </span>Missing Values and Different Data Types</a><a class="headerlink" href="#missing-values-and-different-data-types" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id7">Missing Values and Different Data Types</a><a class="headerlink" href="#missing-values-and-different-data-types" title="Permalink to this headline">¶</a></h3>
 <p>After unpacking the nested structure of a JSON data file and removing metadata, there can be differences from record to record in the information stored in the file. It’s possible that some records do not have data on the same set of features that other records do. Even if the same feature is present across records, it is possible that its value has one data type in some records and another data type in other records.</p>
 <p>For example, consider public opinion data in which records are individuals answering questions on a survey and the features include an individual ID number, the individual’s rating of the Republican Candidate, the individual’s rating of the Democratic candidate, and the individual’s birthyear and gender. One possible way a few records can look like in JSON format (and then converted to a data frame) is:</p>
 <div class="cell docutils container">
@@ -742,10 +768,10 @@ dtype: object
 </section>
 </section>
 <section id="loading-and-reading-json-data-in-python">
-<h2><a class="toc-backref" href="#id8"><span class="section-number">3.3. </span>Loading and Reading JSON Data in Python</a><a class="headerlink" href="#loading-and-reading-json-data-in-python" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">Loading and Reading JSON Data in Python</a><a class="headerlink" href="#loading-and-reading-json-data-in-python" title="Permalink to this headline">¶</a></h2>
 <p>JSON, like CSV and ASCII, is a <strong>text-based</strong> system for data storage. When first loading JSON data into Python, the data will be read as a giant block of text. First we need to get Python to understand that the text is actually organized JSON data using the <code class="docutils literal notranslate"><span class="pre">json</span></code> library. Once we can work with the data as JSON, we can search through the JSON data’s index path to extract particular datapoints. We can even construct loops to pull out lists of values from across the records.</p>
 <section id="using-the-requests-get-json-loads-and-json-dumps-functions">
-<h3><a class="toc-backref" href="#id9"><span class="section-number">3.3.1. </span>Using the <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code>, <code class="docutils literal notranslate"><span class="pre">json.loads()</span></code> and <code class="docutils literal notranslate"><span class="pre">json.dumps()</span></code> Functions</a><a class="headerlink" href="#using-the-requests-get-json-loads-and-json-dumps-functions" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id9">Using the <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code>, <code class="docutils literal notranslate"><span class="pre">json.loads()</span></code> and <code class="docutils literal notranslate"><span class="pre">json.dumps()</span></code> Functions</a><a class="headerlink" href="#using-the-requests-get-json-loads-and-json-dumps-functions" title="Permalink to this headline">¶</a></h3>
 <p>There is an important function from the <code class="docutils literal notranslate"><span class="pre">requests</span></code> library and two important functions in the <code class="docutils literal notranslate"><span class="pre">json</span></code> library for us to know when working with JSON data:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">requests.get()</span></code> downloads data from a URL and stores it in Python’s memory as a giant block of text. It also can include additional parameters to send to the website to provide information on credentials or on specifying the subset of data to collect.</p></li>
@@ -853,7 +879,7 @@ dtype: object
 </div>
 </section>
 <section id="searching-along-the-json-index-path">
-<h3><a class="toc-backref" href="#id10"><span class="section-number">3.3.2. </span>Searching Along the JSON Index Path</a><a class="headerlink" href="#searching-along-the-json-index-path" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id10">Searching Along the JSON Index Path</a><a class="headerlink" href="#searching-along-the-json-index-path" title="Permalink to this headline">¶</a></h3>
 <p>After using <code class="docutils literal notranslate"><span class="pre">json.loads()</span></code>, Python understands the JSON data to be a list-of-lists. We can now use indices to extract particular datapoints. The records are numbers, starting with 0, and keys within particular records can be called by name.</p>
 <p>For example, to extract the email address of the fifth customer (element 4), in the data, I type:</p>
 <div class="cell docutils container">
@@ -914,7 +940,7 @@ dtype: object
 </div>
 </section>
 <section id="looping-across-records-to-extract-datapoints">
-<h3><a class="toc-backref" href="#id11"><span class="section-number">3.3.3. </span>Looping Across Records to Extract Datapoints</a><a class="headerlink" href="#looping-across-records-to-extract-datapoints" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id11">Looping Across Records to Extract Datapoints</a><a class="headerlink" href="#looping-across-records-to-extract-datapoints" title="Permalink to this headline">¶</a></h3>
 <p>While JSON is a well-organized and flexible data format that preserves a lot of the meaningful context of the data, most analytical tools and statistical models can only operate on tabular data. So a major challenge with JSON data is converting the data to a tabular format to be saved in a data frame. One method is to construct a loop across records to extract desired elements.</p>
 <p>Before we discuss this method, I do not recommend using this approach in general. Loops are usually slow, and it is much faster to perform these kinds of operations by <strong>vectorizing</strong> code. <a class="reference external" href="https://stackoverflow.com/questions/1422149/what-is-vectorization#1422181">Vectorizing</a> refers to the ability of a programming language to operate on an entire vector of data and work on several elements simultaneously, rather than on each element one at a time. Vectorization is the specialty of the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> library, and most functions in <code class="docutils literal notranslate"><span class="pre">pandas</span></code> are vectorized as well. I suggest using <code class="docutils literal notranslate"><span class="pre">pd.read_json()</span></code> and <code class="docutils literal notranslate"><span class="pre">pd.json_normalize()</span></code> to convert JSON data to a data frame as they will be several orders of magnitude faster for converting the entire JSON to a data frame. Looping make sense only when we need to extract a small number of features from JSON data with a large feature set, because with the loop we directly call the features we want and we can avoid having to work with features we don’t need.</p>
 <p>To start the loop, choose an index to represent one record. To display all of the email addresses, type:</p>
@@ -1067,10 +1093,10 @@ Rey.Padberg@karina.biz
 </section>
 </section>
 <section id="using-pd-read-json-and-pd-json-normalize-to-store-json-data-in-a-data-frame">
-<h2><a class="toc-backref" href="#id12"><span class="section-number">3.4. </span>Using <code class="docutils literal notranslate"><span class="pre">pd.read_json()</span></code> and <code class="docutils literal notranslate"><span class="pre">pd.json_normalize()</span></code> to Store JSON Data in a Data Frame</a><a class="headerlink" href="#using-pd-read-json-and-pd-json-normalize-to-store-json-data-in-a-data-frame" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id12">Using <code class="docutils literal notranslate"><span class="pre">pd.read_json()</span></code> and <code class="docutils literal notranslate"><span class="pre">pd.json_normalize()</span></code> to Store JSON Data in a Data Frame</a><a class="headerlink" href="#using-pd-read-json-and-pd-json-normalize-to-store-json-data-in-a-data-frame" title="Permalink to this headline">¶</a></h2>
 <p>If there aren’t too many features in the data, or if you want to keep all of the features in the data anyway, then the fastest and best way to convert JSON data to a tabular data frame depends on <strong>whether or not the JSON data has metadata or a nested structure</strong>.</p>
 <section id="situation-1-no-nesting-no-metadata">
-<h3><a class="toc-backref" href="#id13"><span class="section-number">3.4.1. </span>Situation 1: No nesting, no metadata</a><a class="headerlink" href="#situation-1-no-nesting-no-metadata" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id13">Situation 1: No nesting, no metadata</a><a class="headerlink" href="#situation-1-no-nesting-no-metadata" title="Permalink to this headline">¶</a></h3>
 <p>If the JSON has no nesting - that is, if every key is associated with a single datapoint, and no key is associated with a dictionary that contains additional features - and also does not include metadata, then use the following steps:</p>
 <ol class="simple">
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code> to download the raw JSON data (unless you have another way of acquiring the raw data)</p></li>
@@ -1195,7 +1221,7 @@ Rey.Padberg@karina.biz
 </div>
 </section>
 <section id="situation-2-nesting-but-no-metadata">
-<h3><a class="toc-backref" href="#id14"><span class="section-number">3.4.2. </span>Situation 2: Nesting, but no metadata</a><a class="headerlink" href="#situation-2-nesting-but-no-metadata" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id14">Situation 2: Nesting, but no metadata</a><a class="headerlink" href="#situation-2-nesting-but-no-metadata" title="Permalink to this headline">¶</a></h3>
 <p>If the JSON file contains nesting, but no metadata, then the best strategy is to</p>
 <ol class="simple">
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code> to download the raw JSON data (unless you have another way of acquiring the raw data)</p></li>
@@ -1436,7 +1462,7 @@ Rey.Padberg@karina.biz
 </div>
 </section>
 <section id="situation-3-metadata">
-<h3><a class="toc-backref" href="#id15"><span class="section-number">3.4.3. </span>Situation 3: Metadata</a><a class="headerlink" href="#situation-3-metadata" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id15">Situation 3: Metadata</a><a class="headerlink" href="#situation-3-metadata" title="Permalink to this headline">¶</a></h3>
 <p>Finally, if the JSON file contains metadata (regardless of whether or not the records contain nested data), follow these steps:</p>
 <ol class="simple">
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code> to download the raw JSON data (unless you have another way of acquiring the raw data)</p></li>
@@ -1486,16 +1512,16 @@ Rey.Padberg@karina.biz
       <th>data.clicked</th>
       <th>data.title</th>
       <th>...</th>
-      <th>data.media.oembed.height</th>
-      <th>data.media.oembed.width</th>
-      <th>data.media.oembed.html</th>
-      <th>data.media.oembed.thumbnail_width</th>
-      <th>data.media.oembed.version</th>
-      <th>data.media.oembed.provider_name</th>
-      <th>data.media.oembed.thumbnail_url</th>
-      <th>data.media.oembed.type</th>
-      <th>data.media.oembed.thumbnail_height</th>
-      <th>data.media.type</th>
+      <th>data.media.reddit_video.height</th>
+      <th>data.media.reddit_video.width</th>
+      <th>data.media.reddit_video.scrubber_media_url</th>
+      <th>data.media.reddit_video.dash_url</th>
+      <th>data.media.reddit_video.duration</th>
+      <th>data.media.reddit_video.hls_url</th>
+      <th>data.media.reddit_video.is_gif</th>
+      <th>data.media.reddit_video.transcoding_status</th>
+      <th>data.gildings.gid_3</th>
+      <th>data.link_flair_template_id</th>
     </tr>
   </thead>
   <tbody>
@@ -1503,14 +1529,14 @@ Rey.Padberg@karina.biz
       <th>0</th>
       <td>t3</td>
       <td>None</td>
-      <td>funny</td>
+      <td>aww</td>
       <td></td>
-      <td>t2_1m9tst1h</td>
+      <td>t2_21yiwbft</td>
       <td>False</td>
       <td>None</td>
-      <td>7</td>
+      <td>1</td>
       <td>False</td>
-      <td>Today, James Webb telescope switched on camera...</td>
+      <td>May I introduce you to one of my precious rats...</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1529,12 +1555,12 @@ Rey.Padberg@karina.biz
       <td>None</td>
       <td>HolUp</td>
       <td></td>
-      <td>t2_6xrnvufr</td>
+      <td>t2_8pkej262</td>
       <td>False</td>
       <td>None</td>
-      <td>0</td>
+      <td>4</td>
       <td>False</td>
-      <td>No love</td>
+      <td>Wildly offensive English language t-shirts are...</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1551,14 +1577,14 @@ Rey.Padberg@karina.biz
       <th>2</th>
       <td>t3</td>
       <td>None</td>
-      <td>oddlysatisfying</td>
+      <td>memes</td>
       <td></td>
-      <td>t2_7z8ym6jm</td>
+      <td>t2_55mb2lpa</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>Studio Ghibli’s depiction of food</td>
+      <td>It's just for a little bit don't worry</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1575,23 +1601,23 @@ Rey.Padberg@karina.biz
       <th>3</th>
       <td>t3</td>
       <td>None</td>
-      <td>HumansBeingBros</td>
+      <td>nextfuckinglevel</td>
       <td></td>
-      <td>t2_5l6dz4eu</td>
+      <td>t2_9t7mgdrw</td>
       <td>False</td>
       <td>None</td>
-      <td>0</td>
+      <td>2</td>
       <td>False</td>
-      <td>This restaurant offers food for free if you ca...</td>
+      <td>Booby traps that were used by Vietnamese durin...</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>720.0</td>
+      <td>405.0</td>
+      <td>https://v.redd.it/6pn5qvqptm981/DASH_96.mp4</td>
+      <td>https://v.redd.it/6pn5qvqptm981/DASHPlaylist.m...</td>
+      <td>68.0</td>
+      <td>https://v.redd.it/6pn5qvqptm981/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
@@ -1599,14 +1625,14 @@ Rey.Padberg@karina.biz
       <th>4</th>
       <td>t3</td>
       <td>None</td>
-      <td>facepalm</td>
+      <td>WhitePeopleTwitter</td>
       <td></td>
-      <td>t2_eovuduf</td>
+      <td>t2_dath578b</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>This woman talking about what kind of men she ...</td>
+      <td>What do you think about this subject ??</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1623,14 +1649,14 @@ Rey.Padberg@karina.biz
       <th>5</th>
       <td>t3</td>
       <td>None</td>
-      <td>antiwork</td>
-      <td>Fuck him, all of the idiots that think he’s on...</td>
-      <td>t2_42nq2x4c</td>
+      <td>HolUp</td>
+      <td></td>
+      <td>t2_2ixcomyt</td>
       <td>False</td>
       <td>None</td>
-      <td>13</td>
+      <td>6</td>
       <td>False</td>
-      <td>Ronald Reagen is the single worst thing to hap...</td>
+      <td>An idiot always tries twice...</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1640,45 +1666,45 @@ Rey.Padberg@karina.biz
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
+      <td>4.0</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>6</th>
       <td>t3</td>
       <td>None</td>
-      <td>MadeMeSmile</td>
+      <td>blackmagicfuckery</td>
       <td></td>
-      <td>t2_4by38tua</td>
+      <td>t2_2stz7obn</td>
       <td>False</td>
       <td>None</td>
-      <td>1</td>
+      <td>0</td>
       <td>False</td>
-      <td>Oscar goes to ...</td>
+      <td>Bioluminescent algae embedded in sand</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>720.0</td>
+      <td>576.0</td>
+      <td>https://v.redd.it/0ib9i86gfk981/DASH_96.mp4</td>
+      <td>https://v.redd.it/0ib9i86gfk981/DASHPlaylist.m...</td>
+      <td>60.0</td>
+      <td>https://v.redd.it/0ib9i86gfk981/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
+      <td>1.0</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>7</th>
       <td>t3</td>
       <td>None</td>
-      <td>mildlyinteresting</td>
+      <td>todayilearned</td>
       <td></td>
-      <td>t2_azhwq</td>
+      <td>t2_3ma9emr2</td>
       <td>False</td>
       <td>None</td>
-      <td>1</td>
+      <td>0</td>
       <td>False</td>
-      <td>A gift bag my mom has been reusing for 39 years.</td>
+      <td>TIL a depressed man built a secret room within...</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1695,14 +1721,14 @@ Rey.Padberg@karina.biz
       <th>8</th>
       <td>t3</td>
       <td>None</td>
-      <td>aww</td>
+      <td>funny</td>
       <td></td>
-      <td>t2_mkhzrd9</td>
+      <td>t2_xsa3t</td>
       <td>False</td>
       <td>None</td>
-      <td>0</td>
+      <td>1</td>
       <td>False</td>
-      <td>The prophecy is true</td>
+      <td>First 3 trillion dollars company</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1719,14 +1745,14 @@ Rey.Padberg@karina.biz
       <th>9</th>
       <td>t3</td>
       <td>None</td>
-      <td>antiwork</td>
+      <td>assholedesign</td>
       <td></td>
-      <td>t2_c00f7d9o</td>
+      <td>t2_9pvfpjcd</td>
       <td>False</td>
       <td>None</td>
-      <td>0</td>
+      <td>2</td>
       <td>False</td>
-      <td>So this is why we're protesting?</td>
+      <td>Keurig sensor blocks your brew unless it's "K-...</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1743,23 +1769,23 @@ Rey.Padberg@karina.biz
       <th>10</th>
       <td>t3</td>
       <td>None</td>
-      <td>Unexpected</td>
+      <td>interestingasfuck</td>
       <td></td>
-      <td>t2_dtfud400</td>
+      <td>t2_5blo16kt</td>
       <td>False</td>
       <td>None</td>
-      <td>1</td>
+      <td>0</td>
       <td>False</td>
-      <td>"He had me on the first half, not gonna lie."</td>
+      <td>A shocking experience, synchronized scream!</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>720.0</td>
+      <td>1280.0</td>
+      <td>https://v.redd.it/ixm1hgywvj981/DASH_96.mp4</td>
+      <td>https://v.redd.it/ixm1hgywvj981/DASHPlaylist.m...</td>
+      <td>30.0</td>
+      <td>https://v.redd.it/ixm1hgywvj981/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
@@ -1767,23 +1793,23 @@ Rey.Padberg@karina.biz
       <th>11</th>
       <td>t3</td>
       <td>None</td>
-      <td>funny</td>
+      <td>aww</td>
       <td></td>
-      <td>t2_7qkibqs3</td>
+      <td>t2_5blo16kt</td>
       <td>False</td>
       <td>None</td>
-      <td>1</td>
+      <td>0</td>
       <td>False</td>
-      <td>Yet another year as the last unmarried in the ...</td>
+      <td>A guy surprised his wife with a golden retriev...</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>720.0</td>
+      <td>960.0</td>
+      <td>https://v.redd.it/9jr24peppm981/DASH_96.mp4</td>
+      <td>https://v.redd.it/9jr24peppm981/DASHPlaylist.m...</td>
+      <td>111.0</td>
+      <td>https://v.redd.it/9jr24peppm981/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
@@ -1791,14 +1817,14 @@ Rey.Padberg@karina.biz
       <th>12</th>
       <td>t3</td>
       <td>None</td>
-      <td>nottheonion</td>
+      <td>wholesomememes</td>
       <td></td>
-      <td>t2_1m2vhhi4</td>
+      <td>t2_4ji08be0</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>NASCAR driver who unintentionally sparked 'Let...</td>
+      <td>I appreciate the love</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1815,14 +1841,14 @@ Rey.Padberg@karina.biz
       <th>13</th>
       <td>t3</td>
       <td>None</td>
-      <td>WhitePeopleTwitter</td>
+      <td>pics</td>
       <td></td>
-      <td>t2_4wm6c</td>
+      <td>t2_qusil</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>Richie Rich</td>
+      <td>Uuno works as a game developer. When you pat a...</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1839,14 +1865,14 @@ Rey.Padberg@karina.biz
       <th>14</th>
       <td>t3</td>
       <td>None</td>
-      <td>news</td>
+      <td>Damnthatsinteresting</td>
       <td></td>
-      <td>t2_bumyu0r</td>
+      <td>t2_ek404o9u</td>
       <td>False</td>
       <td>None</td>
-      <td>1</td>
+      <td>0</td>
       <td>False</td>
-      <td>Sarah Weddington, attorney who won Roe v Wade ...</td>
+      <td>Oldest surviving pair of Levis jeans, 1879. Fo...</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1863,14 +1889,14 @@ Rey.Padberg@karina.biz
       <th>15</th>
       <td>t3</td>
       <td>None</td>
-      <td>pics</td>
+      <td>WhitePeopleTwitter</td>
       <td></td>
-      <td>t2_68s73s04</td>
+      <td>t2_gty1lcqa</td>
       <td>False</td>
       <td>None</td>
-      <td>2</td>
+      <td>0</td>
       <td>False</td>
-      <td>Mark Bryan a robotic engineer is shattering ge...</td>
+      <td>Got emm</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1887,14 +1913,14 @@ Rey.Padberg@karina.biz
       <th>16</th>
       <td>t3</td>
       <td>None</td>
-      <td>AdviceAnimals</td>
+      <td>worldnews</td>
       <td></td>
-      <td>t2_ah4sn</td>
+      <td>t2_i5y5eyum</td>
       <td>False</td>
       <td>None</td>
-      <td>1</td>
+      <td>0</td>
       <td>False</td>
-      <td>Alex Jones attacked by wife says it’s a privat...</td>
+      <td>Saudi Crown Prince Mohammed bin Salman wants T...</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1911,62 +1937,62 @@ Rey.Padberg@karina.biz
       <th>17</th>
       <td>t3</td>
       <td>None</td>
-      <td>antiwork</td>
+      <td>BeAmazed</td>
       <td></td>
-      <td>t2_hqqkjy1m</td>
+      <td>t2_58ul0zgf</td>
       <td>False</td>
       <td>None</td>
-      <td>1</td>
+      <td>4</td>
       <td>False</td>
-      <td>It's true.</td>
+      <td>Teacher surprises young boy with a new drum set 🥁</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>720.0</td>
+      <td>521.0</td>
+      <td>https://v.redd.it/hnl1010s2k981/DASH_96.mp4</td>
+      <td>https://v.redd.it/hnl1010s2k981/DASHPlaylist.m...</td>
+      <td>58.0</td>
+      <td>https://v.redd.it/hnl1010s2k981/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
+      <td>1.0</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>18</th>
       <td>t3</td>
       <td>None</td>
-      <td>facepalm</td>
+      <td>MadeMeSmile</td>
       <td></td>
-      <td>t2_42oin6ux</td>
+      <td>t2_g9cwxfo9</td>
       <td>False</td>
       <td>None</td>
-      <td>0</td>
+      <td>1</td>
       <td>False</td>
-      <td>The amount of time it took to lock the gate co...</td>
+      <td>What dog doin??</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>480.0</td>
+      <td>480.0</td>
+      <td>https://v.redd.it/u9lkzzkqij981/DASH_96.mp4</td>
+      <td>https://v.redd.it/u9lkzzkqij981/DASHPlaylist.m...</td>
+      <td>9.0</td>
+      <td>https://v.redd.it/u9lkzzkqij981/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
+      <td>1.0</td>
+      <td>e7f335a0-b96c-11ea-92a3-0efb7125cdbf</td>
     </tr>
     <tr>
       <th>19</th>
       <td>t3</td>
       <td>None</td>
-      <td>funny</td>
+      <td>oddlysatisfying</td>
       <td></td>
-      <td>t2_gq73tr1</td>
+      <td>t2_2q9ghv0n</td>
       <td>False</td>
       <td>None</td>
-      <td>0</td>
+      <td>1</td>
       <td>False</td>
-      <td>I really need one of these nearby</td>
+      <td>Who wants some beautiful eggs</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1983,14 +2009,14 @@ Rey.Padberg@karina.biz
       <th>20</th>
       <td>t3</td>
       <td>None</td>
-      <td>me_irl</td>
+      <td>pics</td>
       <td></td>
-      <td>t2_2fkkh07z</td>
+      <td>t2_4rqopyo3</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>me_irl</td>
+      <td>Don't get COVID fellas, I'm glad to be leaving...</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2007,14 +2033,14 @@ Rey.Padberg@karina.biz
       <th>21</th>
       <td>t3</td>
       <td>None</td>
-      <td>WhitePeopleTwitter</td>
+      <td>memes</td>
       <td></td>
-      <td>t2_pvcpgro</td>
+      <td>t2_41k18ey4</td>
       <td>False</td>
       <td>None</td>
-      <td>0</td>
+      <td>2</td>
       <td>False</td>
-      <td>Can’t wait</td>
+      <td>He would stay up all night if necessary</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2031,38 +2057,38 @@ Rey.Padberg@karina.biz
       <th>22</th>
       <td>t3</td>
       <td>None</td>
-      <td>nextfuckinglevel</td>
+      <td>me_irl</td>
       <td></td>
-      <td>t2_86gms</td>
+      <td>t2_eal9klf1</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>Jaw dropping fakeout on a charging wild boar.</td>
+      <td>me_irl</td>
       <td>...</td>
-      <td>320.0</td>
-      <td>320.0</td>
-      <td>&amp;lt;iframe class="embedly-embed" src="https://...</td>
-      <td>280.0</td>
-      <td>1.0</td>
-      <td>Gfycat</td>
-      <td>https://thumbs.gfycat.com/AccomplishedMedicalG...</td>
-      <td>video</td>
-      <td>280.0</td>
-      <td>gfycat.com</td>
+      <td>720.0</td>
+      <td>624.0</td>
+      <td>https://v.redd.it/9uu6839whm981/DASH_96.mp4</td>
+      <td>https://v.redd.it/9uu6839whm981/DASHPlaylist.m...</td>
+      <td>12.0</td>
+      <td>https://v.redd.it/9uu6839whm981/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>23</th>
       <td>t3</td>
       <td>None</td>
-      <td>me_irl</td>
+      <td>MadeMeSmile</td>
       <td></td>
-      <td>t2_3opfaw</td>
+      <td>t2_bdthneg5</td>
       <td>False</td>
       <td>None</td>
       <td>1</td>
       <td>False</td>
-      <td>me_irl</td>
+      <td>A great plot twist</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2079,29 +2105,29 @@ Rey.Padberg@karina.biz
       <th>24</th>
       <td>t3</td>
       <td>None</td>
-      <td>politics</td>
+      <td>maybemaybemaybe</td>
       <td></td>
-      <td>t2_1b2amvxq</td>
+      <td>t2_5tpp3t3u</td>
       <td>False</td>
       <td>None</td>
-      <td>1</td>
+      <td>0</td>
       <td>False</td>
-      <td>Harris says Americans under the pressures of s...</td>
+      <td>maybe maybe maybe</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>1080.0</td>
+      <td>864.0</td>
+      <td>https://v.redd.it/moggmjj07l981/DASH_96.mp4</td>
+      <td>https://v.redd.it/moggmjj07l981/DASHPlaylist.m...</td>
+      <td>36.0</td>
+      <td>https://v.redd.it/moggmjj07l981/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
   </tbody>
 </table>
-<p>25 rows × 179 columns</p>
+<p>25 rows × 246 columns</p>
 </div></div></div>
 </div>
 <p>Please note: we added <code class="docutils literal notranslate"><span class="pre">headers</span> <span class="pre">=</span> <span class="pre">{'User-agent':</span> <span class="pre">'DS6001'}</span></code> to the <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code> function. When we use <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code>, we are accessing an API: a web-based interface for transferring data, usually in the form of JSON files. We will cover APIs in the next module. Most APIs, including Reddit’s, include some security to keep any one user from overusing the API and causing it to crash. For Reddit, we only need to provide a unique “<a class="reference external" href="https://www.reddit.com/r/redditdev/comments/3qbll8/429_too_many_requests/">User-agent</a>”, which is an ID that Reddit uses to keep track of how much we are using the API. If two people use the same User-agent, both uses are counted against the same limit, so it’s better to choose a User-agent that has a unique name. If this block of code results in an error for you (so that <code class="docutils literal notranslate"><span class="pre">reddit.text</span></code> displays as <code class="docutils literal notranslate"><span class="pre">'{&quot;message&quot;:</span> <span class="pre">&quot;Too</span> <span class="pre">Many</span> <span class="pre">Requests&quot;,</span> <span class="pre">&quot;error&quot;:</span> <span class="pre">429}'</span></code>), then change <code class="docutils literal notranslate"><span class="pre">DS6001</span></code> to something else, and it should work.</p>
@@ -2150,14 +2176,14 @@ Rey.Padberg@karina.biz
       <th>data.clicked</th>
       <th>data.title</th>
       <th>...</th>
-      <th>data.media.oembed.html</th>
-      <th>data.media.oembed.thumbnail_width</th>
-      <th>data.media.oembed.version</th>
-      <th>data.media.oembed.provider_name</th>
-      <th>data.media.oembed.thumbnail_url</th>
-      <th>data.media.oembed.type</th>
-      <th>data.media.oembed.thumbnail_height</th>
-      <th>data.media.type</th>
+      <th>data.media.reddit_video.scrubber_media_url</th>
+      <th>data.media.reddit_video.dash_url</th>
+      <th>data.media.reddit_video.duration</th>
+      <th>data.media.reddit_video.hls_url</th>
+      <th>data.media.reddit_video.is_gif</th>
+      <th>data.media.reddit_video.transcoding_status</th>
+      <th>data.gildings.gid_3</th>
+      <th>data.link_flair_template_id</th>
       <th>metakind</th>
       <th>metadata.after</th>
     </tr>
@@ -2167,14 +2193,14 @@ Rey.Padberg@karina.biz
       <th>0</th>
       <td>t3</td>
       <td>None</td>
-      <td>funny</td>
+      <td>aww</td>
       <td></td>
-      <td>t2_1m9tst1h</td>
+      <td>t2_21yiwbft</td>
       <td>False</td>
       <td>None</td>
-      <td>7</td>
+      <td>1</td>
       <td>False</td>
-      <td>Today, James Webb telescope switched on camera...</td>
+      <td>May I introduce you to one of my precious rats...</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2185,7 +2211,7 @@ Rey.Padberg@karina.biz
       <td>NaN</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_rp6xfl</td>
+      <td>t3_rvjv58</td>
     </tr>
     <tr>
       <th>1</th>
@@ -2193,12 +2219,12 @@ Rey.Padberg@karina.biz
       <td>None</td>
       <td>HolUp</td>
       <td></td>
-      <td>t2_6xrnvufr</td>
+      <td>t2_8pkej262</td>
       <td>False</td>
       <td>None</td>
-      <td>0</td>
+      <td>4</td>
       <td>False</td>
-      <td>No love</td>
+      <td>Wildly offensive English language t-shirts are...</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2209,20 +2235,20 @@ Rey.Padberg@karina.biz
       <td>NaN</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_rp6xfl</td>
+      <td>t3_rvjv58</td>
     </tr>
     <tr>
       <th>2</th>
       <td>t3</td>
       <td>None</td>
-      <td>oddlysatisfying</td>
+      <td>memes</td>
       <td></td>
-      <td>t2_7z8ym6jm</td>
+      <td>t2_55mb2lpa</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>Studio Ghibli’s depiction of food</td>
+      <td>It's just for a little bit don't worry</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2233,44 +2259,44 @@ Rey.Padberg@karina.biz
       <td>NaN</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_rp6xfl</td>
+      <td>t3_rvjv58</td>
     </tr>
     <tr>
       <th>3</th>
       <td>t3</td>
       <td>None</td>
-      <td>HumansBeingBros</td>
+      <td>nextfuckinglevel</td>
       <td></td>
-      <td>t2_5l6dz4eu</td>
+      <td>t2_9t7mgdrw</td>
       <td>False</td>
       <td>None</td>
-      <td>0</td>
+      <td>2</td>
       <td>False</td>
-      <td>This restaurant offers food for free if you ca...</td>
+      <td>Booby traps that were used by Vietnamese durin...</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>https://v.redd.it/6pn5qvqptm981/DASH_96.mp4</td>
+      <td>https://v.redd.it/6pn5qvqptm981/DASHPlaylist.m...</td>
+      <td>68.0</td>
+      <td>https://v.redd.it/6pn5qvqptm981/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_rp6xfl</td>
+      <td>t3_rvjv58</td>
     </tr>
     <tr>
       <th>4</th>
       <td>t3</td>
       <td>None</td>
-      <td>facepalm</td>
+      <td>WhitePeopleTwitter</td>
       <td></td>
-      <td>t2_eovuduf</td>
+      <td>t2_dath578b</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>This woman talking about what kind of men she ...</td>
+      <td>What do you think about this subject ??</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2281,20 +2307,20 @@ Rey.Padberg@karina.biz
       <td>NaN</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_rp6xfl</td>
+      <td>t3_rvjv58</td>
     </tr>
     <tr>
       <th>5</th>
       <td>t3</td>
       <td>None</td>
-      <td>antiwork</td>
-      <td>Fuck him, all of the idiots that think he’s on...</td>
-      <td>t2_42nq2x4c</td>
+      <td>HolUp</td>
+      <td></td>
+      <td>t2_2ixcomyt</td>
       <td>False</td>
       <td>None</td>
-      <td>13</td>
+      <td>6</td>
       <td>False</td>
-      <td>Ronald Reagen is the single worst thing to hap...</td>
+      <td>An idiot always tries twice...</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2302,47 +2328,47 @@ Rey.Padberg@karina.biz
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
+      <td>4.0</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_rp6xfl</td>
+      <td>t3_rvjv58</td>
     </tr>
     <tr>
       <th>6</th>
       <td>t3</td>
       <td>None</td>
-      <td>MadeMeSmile</td>
+      <td>blackmagicfuckery</td>
       <td></td>
-      <td>t2_4by38tua</td>
+      <td>t2_2stz7obn</td>
       <td>False</td>
       <td>None</td>
-      <td>1</td>
+      <td>0</td>
       <td>False</td>
-      <td>Oscar goes to ...</td>
+      <td>Bioluminescent algae embedded in sand</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>https://v.redd.it/0ib9i86gfk981/DASH_96.mp4</td>
+      <td>https://v.redd.it/0ib9i86gfk981/DASHPlaylist.m...</td>
+      <td>60.0</td>
+      <td>https://v.redd.it/0ib9i86gfk981/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_rp6xfl</td>
+      <td>t3_rvjv58</td>
     </tr>
     <tr>
       <th>7</th>
       <td>t3</td>
       <td>None</td>
-      <td>mildlyinteresting</td>
+      <td>todayilearned</td>
       <td></td>
-      <td>t2_azhwq</td>
+      <td>t2_3ma9emr2</td>
       <td>False</td>
       <td>None</td>
-      <td>1</td>
+      <td>0</td>
       <td>False</td>
-      <td>A gift bag my mom has been reusing for 39 years.</td>
+      <td>TIL a depressed man built a secret room within...</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2353,20 +2379,20 @@ Rey.Padberg@karina.biz
       <td>NaN</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_rp6xfl</td>
+      <td>t3_rvjv58</td>
     </tr>
     <tr>
       <th>8</th>
       <td>t3</td>
       <td>None</td>
-      <td>aww</td>
+      <td>funny</td>
       <td></td>
-      <td>t2_mkhzrd9</td>
+      <td>t2_xsa3t</td>
       <td>False</td>
       <td>None</td>
-      <td>0</td>
+      <td>1</td>
       <td>False</td>
-      <td>The prophecy is true</td>
+      <td>First 3 trillion dollars company</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2377,20 +2403,20 @@ Rey.Padberg@karina.biz
       <td>NaN</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_rp6xfl</td>
+      <td>t3_rvjv58</td>
     </tr>
     <tr>
       <th>9</th>
       <td>t3</td>
       <td>None</td>
-      <td>antiwork</td>
+      <td>assholedesign</td>
       <td></td>
-      <td>t2_c00f7d9o</td>
+      <td>t2_9pvfpjcd</td>
       <td>False</td>
       <td>None</td>
-      <td>0</td>
+      <td>2</td>
       <td>False</td>
-      <td>So this is why we're protesting?</td>
+      <td>Keurig sensor blocks your brew unless it's "K-...</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2401,68 +2427,68 @@ Rey.Padberg@karina.biz
       <td>NaN</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_rp6xfl</td>
+      <td>t3_rvjv58</td>
     </tr>
     <tr>
       <th>10</th>
       <td>t3</td>
       <td>None</td>
-      <td>Unexpected</td>
+      <td>interestingasfuck</td>
       <td></td>
-      <td>t2_dtfud400</td>
+      <td>t2_5blo16kt</td>
       <td>False</td>
       <td>None</td>
-      <td>1</td>
+      <td>0</td>
       <td>False</td>
-      <td>"He had me on the first half, not gonna lie."</td>
+      <td>A shocking experience, synchronized scream!</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>https://v.redd.it/ixm1hgywvj981/DASH_96.mp4</td>
+      <td>https://v.redd.it/ixm1hgywvj981/DASHPlaylist.m...</td>
+      <td>30.0</td>
+      <td>https://v.redd.it/ixm1hgywvj981/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_rp6xfl</td>
+      <td>t3_rvjv58</td>
     </tr>
     <tr>
       <th>11</th>
       <td>t3</td>
       <td>None</td>
-      <td>funny</td>
+      <td>aww</td>
       <td></td>
-      <td>t2_7qkibqs3</td>
+      <td>t2_5blo16kt</td>
       <td>False</td>
       <td>None</td>
-      <td>1</td>
+      <td>0</td>
       <td>False</td>
-      <td>Yet another year as the last unmarried in the ...</td>
+      <td>A guy surprised his wife with a golden retriev...</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>https://v.redd.it/9jr24peppm981/DASH_96.mp4</td>
+      <td>https://v.redd.it/9jr24peppm981/DASHPlaylist.m...</td>
+      <td>111.0</td>
+      <td>https://v.redd.it/9jr24peppm981/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_rp6xfl</td>
+      <td>t3_rvjv58</td>
     </tr>
     <tr>
       <th>12</th>
       <td>t3</td>
       <td>None</td>
-      <td>nottheonion</td>
+      <td>wholesomememes</td>
       <td></td>
-      <td>t2_1m2vhhi4</td>
+      <td>t2_4ji08be0</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>NASCAR driver who unintentionally sparked 'Let...</td>
+      <td>I appreciate the love</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2473,20 +2499,20 @@ Rey.Padberg@karina.biz
       <td>NaN</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_rp6xfl</td>
+      <td>t3_rvjv58</td>
     </tr>
     <tr>
       <th>13</th>
       <td>t3</td>
       <td>None</td>
-      <td>WhitePeopleTwitter</td>
+      <td>pics</td>
       <td></td>
-      <td>t2_4wm6c</td>
+      <td>t2_qusil</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>Richie Rich</td>
+      <td>Uuno works as a game developer. When you pat a...</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2497,20 +2523,20 @@ Rey.Padberg@karina.biz
       <td>NaN</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_rp6xfl</td>
+      <td>t3_rvjv58</td>
     </tr>
     <tr>
       <th>14</th>
       <td>t3</td>
       <td>None</td>
-      <td>news</td>
+      <td>Damnthatsinteresting</td>
       <td></td>
-      <td>t2_bumyu0r</td>
+      <td>t2_ek404o9u</td>
       <td>False</td>
       <td>None</td>
-      <td>1</td>
+      <td>0</td>
       <td>False</td>
-      <td>Sarah Weddington, attorney who won Roe v Wade ...</td>
+      <td>Oldest surviving pair of Levis jeans, 1879. Fo...</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2521,20 +2547,20 @@ Rey.Padberg@karina.biz
       <td>NaN</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_rp6xfl</td>
+      <td>t3_rvjv58</td>
     </tr>
     <tr>
       <th>15</th>
       <td>t3</td>
       <td>None</td>
-      <td>pics</td>
+      <td>WhitePeopleTwitter</td>
       <td></td>
-      <td>t2_68s73s04</td>
+      <td>t2_gty1lcqa</td>
       <td>False</td>
       <td>None</td>
-      <td>2</td>
+      <td>0</td>
       <td>False</td>
-      <td>Mark Bryan a robotic engineer is shattering ge...</td>
+      <td>Got emm</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2545,20 +2571,20 @@ Rey.Padberg@karina.biz
       <td>NaN</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_rp6xfl</td>
+      <td>t3_rvjv58</td>
     </tr>
     <tr>
       <th>16</th>
       <td>t3</td>
       <td>None</td>
-      <td>AdviceAnimals</td>
+      <td>worldnews</td>
       <td></td>
-      <td>t2_ah4sn</td>
+      <td>t2_i5y5eyum</td>
       <td>False</td>
       <td>None</td>
-      <td>1</td>
+      <td>0</td>
       <td>False</td>
-      <td>Alex Jones attacked by wife says it’s a privat...</td>
+      <td>Saudi Crown Prince Mohammed bin Salman wants T...</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2569,68 +2595,68 @@ Rey.Padberg@karina.biz
       <td>NaN</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_rp6xfl</td>
+      <td>t3_rvjv58</td>
     </tr>
     <tr>
       <th>17</th>
       <td>t3</td>
       <td>None</td>
-      <td>antiwork</td>
+      <td>BeAmazed</td>
       <td></td>
-      <td>t2_hqqkjy1m</td>
+      <td>t2_58ul0zgf</td>
       <td>False</td>
       <td>None</td>
-      <td>1</td>
+      <td>4</td>
       <td>False</td>
-      <td>It's true.</td>
+      <td>Teacher surprises young boy with a new drum set 🥁</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>https://v.redd.it/hnl1010s2k981/DASH_96.mp4</td>
+      <td>https://v.redd.it/hnl1010s2k981/DASHPlaylist.m...</td>
+      <td>58.0</td>
+      <td>https://v.redd.it/hnl1010s2k981/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_rp6xfl</td>
+      <td>t3_rvjv58</td>
     </tr>
     <tr>
       <th>18</th>
       <td>t3</td>
       <td>None</td>
-      <td>facepalm</td>
+      <td>MadeMeSmile</td>
       <td></td>
-      <td>t2_42oin6ux</td>
+      <td>t2_g9cwxfo9</td>
       <td>False</td>
       <td>None</td>
-      <td>0</td>
+      <td>1</td>
       <td>False</td>
-      <td>The amount of time it took to lock the gate co...</td>
+      <td>What dog doin??</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>https://v.redd.it/u9lkzzkqij981/DASH_96.mp4</td>
+      <td>https://v.redd.it/u9lkzzkqij981/DASHPlaylist.m...</td>
+      <td>9.0</td>
+      <td>https://v.redd.it/u9lkzzkqij981/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
+      <td>1.0</td>
+      <td>e7f335a0-b96c-11ea-92a3-0efb7125cdbf</td>
       <td>Listing</td>
-      <td>t3_rp6xfl</td>
+      <td>t3_rvjv58</td>
     </tr>
     <tr>
       <th>19</th>
       <td>t3</td>
       <td>None</td>
-      <td>funny</td>
+      <td>oddlysatisfying</td>
       <td></td>
-      <td>t2_gq73tr1</td>
+      <td>t2_2q9ghv0n</td>
       <td>False</td>
       <td>None</td>
-      <td>0</td>
+      <td>1</td>
       <td>False</td>
-      <td>I really need one of these nearby</td>
+      <td>Who wants some beautiful eggs</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2641,20 +2667,20 @@ Rey.Padberg@karina.biz
       <td>NaN</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_rp6xfl</td>
+      <td>t3_rvjv58</td>
     </tr>
     <tr>
       <th>20</th>
       <td>t3</td>
       <td>None</td>
-      <td>me_irl</td>
+      <td>pics</td>
       <td></td>
-      <td>t2_2fkkh07z</td>
+      <td>t2_4rqopyo3</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>me_irl</td>
+      <td>Don't get COVID fellas, I'm glad to be leaving...</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2665,20 +2691,20 @@ Rey.Padberg@karina.biz
       <td>NaN</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_rp6xfl</td>
+      <td>t3_rvjv58</td>
     </tr>
     <tr>
       <th>21</th>
       <td>t3</td>
       <td>None</td>
-      <td>WhitePeopleTwitter</td>
+      <td>memes</td>
       <td></td>
-      <td>t2_pvcpgro</td>
+      <td>t2_41k18ey4</td>
       <td>False</td>
       <td>None</td>
-      <td>0</td>
+      <td>2</td>
       <td>False</td>
-      <td>Can’t wait</td>
+      <td>He would stay up all night if necessary</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2689,44 +2715,44 @@ Rey.Padberg@karina.biz
       <td>NaN</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_rp6xfl</td>
+      <td>t3_rvjv58</td>
     </tr>
     <tr>
       <th>22</th>
       <td>t3</td>
       <td>None</td>
-      <td>nextfuckinglevel</td>
+      <td>me_irl</td>
       <td></td>
-      <td>t2_86gms</td>
+      <td>t2_eal9klf1</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>Jaw dropping fakeout on a charging wild boar.</td>
+      <td>me_irl</td>
       <td>...</td>
-      <td>&amp;lt;iframe class="embedly-embed" src="https://...</td>
-      <td>280.0</td>
-      <td>1.0</td>
-      <td>Gfycat</td>
-      <td>https://thumbs.gfycat.com/AccomplishedMedicalG...</td>
-      <td>video</td>
-      <td>280.0</td>
-      <td>gfycat.com</td>
+      <td>https://v.redd.it/9uu6839whm981/DASH_96.mp4</td>
+      <td>https://v.redd.it/9uu6839whm981/DASHPlaylist.m...</td>
+      <td>12.0</td>
+      <td>https://v.redd.it/9uu6839whm981/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>Listing</td>
-      <td>t3_rp6xfl</td>
+      <td>t3_rvjv58</td>
     </tr>
     <tr>
       <th>23</th>
       <td>t3</td>
       <td>None</td>
-      <td>me_irl</td>
+      <td>MadeMeSmile</td>
       <td></td>
-      <td>t2_3opfaw</td>
+      <td>t2_bdthneg5</td>
       <td>False</td>
       <td>None</td>
       <td>1</td>
       <td>False</td>
-      <td>me_irl</td>
+      <td>A great plot twist</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2737,44 +2763,44 @@ Rey.Padberg@karina.biz
       <td>NaN</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_rp6xfl</td>
+      <td>t3_rvjv58</td>
     </tr>
     <tr>
       <th>24</th>
       <td>t3</td>
       <td>None</td>
-      <td>politics</td>
+      <td>maybemaybemaybe</td>
       <td></td>
-      <td>t2_1b2amvxq</td>
+      <td>t2_5tpp3t3u</td>
       <td>False</td>
       <td>None</td>
-      <td>1</td>
+      <td>0</td>
       <td>False</td>
-      <td>Harris says Americans under the pressures of s...</td>
+      <td>maybe maybe maybe</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>https://v.redd.it/moggmjj07l981/DASH_96.mp4</td>
+      <td>https://v.redd.it/moggmjj07l981/DASHPlaylist.m...</td>
+      <td>36.0</td>
+      <td>https://v.redd.it/moggmjj07l981/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_rp6xfl</td>
+      <td>t3_rvjv58</td>
     </tr>
   </tbody>
 </table>
-<p>25 rows × 181 columns</p>
+<p>25 rows × 248 columns</p>
 </div></div></div>
 </div>
 </section>
 </section>
 <section id="saving-json-files-and-converting-data-frames-to-json">
-<h2><a class="toc-backref" href="#id16"><span class="section-number">3.5. </span>Saving JSON Files and Converting Data Frames to JSON</a><a class="headerlink" href="#saving-json-files-and-converting-data-frames-to-json" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id16">Saving JSON Files and Converting Data Frames to JSON</a><a class="headerlink" href="#saving-json-files-and-converting-data-frames-to-json" title="Permalink to this headline">¶</a></h2>
 <p>It is possible to save a JSON file to your local disk space, or to convert a dataframe to JSON and, if you want to, save that JSON to disk.</p>
 <section id="saving-existing-json-files-to-disk">
-<h3><a class="toc-backref" href="#id17"><span class="section-number">3.5.1. </span>Saving Existing JSON Files to Disk</a><a class="headerlink" href="#saving-existing-json-files-to-disk" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id17">Saving Existing JSON Files to Disk</a><a class="headerlink" href="#saving-existing-json-files-to-disk" title="Permalink to this headline">¶</a></h3>
 <p>Once we’ve used the <code class="docutils literal notranslate"><span class="pre">json.loads()</span></code> function to register data as JSON in Python, we can save that JSON to our local disk space by using <code class="docutils literal notranslate"><span class="pre">open()</span></code> to create a new file, and <code class="docutils literal notranslate"><span class="pre">json.dump()</span></code> (note: not <code class="docutils literal notranslate"><span class="pre">json.dumps()</span></code>) to save the JSON to that file.</p>
 <p>For example, we registered the customer data as JSON in Python with the following code:</p>
 <div class="cell docutils container">
@@ -2798,7 +2824,7 @@ Rey.Padberg@karina.biz
 <p>It is also possible to use a file extension such as <code class="docutils literal notranslate"><span class="pre">.txt</span></code> instead of <code class="docutils literal notranslate"><span class="pre">.json</span></code> to save the JSON formatted data in a plain text file.</p>
 </section>
 <section id="converting-tabular-dataframes-to-json">
-<h3><a class="toc-backref" href="#id18"><span class="section-number">3.5.2. </span>Converting Tabular DataFrames to JSON</a><a class="headerlink" href="#converting-tabular-dataframes-to-json" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id18">Converting Tabular DataFrames to JSON</a><a class="headerlink" href="#converting-tabular-dataframes-to-json" title="Permalink to this headline">¶</a></h3>
 <p>Any dataframe can be turned into a JSON file by applying the <code class="docutils literal notranslate"><span class="pre">.to_json()</span></code> method to the dataframe that is saved in Python’s memory. The trick is specifying a good organization for this file. Recall that JSON structures are much more flexible than dataframes. It is not possible to go from a dataframe to a nested, complicated JSON structure because the information about nesting simply does not exist for dataframes. That said, there are several choices for organizing the data:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">orient=&quot;records&quot;</span></code> works with JSON files organized as a list-of-sets, where each set is an entire record (or a row in flat data):</p></li>
@@ -3108,8 +3134,8 @@ Rey.Padberg@karina.biz
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="ch2.html" title="previous page"><span class="section-number">2. </span>Loading Data from Electronic Data Files</a>
-    <a class='right-next' id="next-link" href="ch4.html" title="next page"><span class="section-number">4. </span>Acquiring Data from APIs</a>
+    <a class='left-prev' id="prev-link" href="ch2.html" title="previous page">Loading Data from Electronic Data Files</a>
+    <a class='right-next' id="next-link" href="ch4.html" title="next page">Acquiring Data from APIs</a>
 
         </div>
         

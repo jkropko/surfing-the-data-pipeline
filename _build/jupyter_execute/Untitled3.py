@@ -134,19 +134,19 @@ to_drop = [column for column in upper.columns if any(upper[column] > 0.95)]
 nba.drop(to_drop, axis=1, inplace=True)
 
 
-# In[21]:
+# In[14]:
 
 
 nba['date'] = pd.to_datetime(nba['date'])
 
 
-# In[25]:
+# In[15]:
 
 
 nba.dtypes
 
 
-# In[29]:
+# In[16]:
 
 
 nba.drop(['Unnamed: 0', 'home_team', 'away_team', 'location_x', 'location_y', 
@@ -154,27 +154,27 @@ nba.drop(['Unnamed: 0', 'home_team', 'away_team', 'location_x', 'location_y',
             'minute', 'second'], axis=1, inplace=True)
 
 
-# In[31]:
+# In[17]:
 
 
 y = nba['current_shot_outcome']
 X = nba.drop(['current_shot_outcome'], axis=1)
 
 
-# In[32]:
+# In[18]:
 
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
 
 
-# In[41]:
+# In[19]:
 
 
 model = XGBClassifier(max_depth=2, n_estimators=30, enable_categorical=True)
 model
 
 
-# In[43]:
+# In[20]:
 
 
 # Initialize the KFold parameters
@@ -185,7 +185,7 @@ results = cross_val_score(model, X_train, y_train, cv=kfold)
 print("Accuracy: %.2f%% (%.2f%%)" % (results.mean()*100, results.std()*100))
 
 
-# In[44]:
+# In[21]:
 
 
 model.fit(X_train, y_train)

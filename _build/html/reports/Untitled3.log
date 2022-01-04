@@ -1,15 +1,4 @@
 Traceback (most recent call last):
-  File "/opt/anaconda3/lib/python3.7/site-packages/nbclient/client.py", line 622, in _async_poll_for_reply
-    msg = await ensure_async(self.kc.shell_channel.get_msg(timeout=new_timeout))
-  File "/opt/anaconda3/lib/python3.7/site-packages/nbclient/util.py", line 85, in ensure_async
-    result = await obj
-  File "/opt/anaconda3/lib/python3.7/site-packages/jupyter_client/asynchronous/channels.py", line 48, in get_msg
-    raise Empty
-_queue.Empty
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
   File "/opt/anaconda3/lib/python3.7/site-packages/jupyter_cache/executors/utils.py", line 56, in single_nb_execution
     record_timing=False,
   File "/opt/anaconda3/lib/python3.7/site-packages/nbclient/client.py", line 1112, in execute
@@ -22,18 +11,87 @@ Traceback (most recent call last):
     return future.result()
   File "/opt/anaconda3/lib/python3.7/site-packages/nbclient/client.py", line 554, in async_execute
     cell, index, execution_count=self.code_cells_executed + 1
-  File "/opt/anaconda3/lib/python3.7/site-packages/nbclient/client.py", line 841, in async_execute_cell
-    exec_reply = await self.task_poll_for_reply
-  File "/opt/anaconda3/lib/python3.7/site-packages/nbclient/client.py", line 646, in _async_poll_for_reply
-    await self._async_handle_timeout(timeout, cell)
-  File "/opt/anaconda3/lib/python3.7/site-packages/nbclient/client.py", line 697, in _async_handle_timeout
-    "Cell execution timed out", timeout, cell
-nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 30 seconds.
-The message was: Cell execution timed out.
-Here is a preview of the cell contents:
--------------------
-url = 'https://github.com/uvasds-sportsanalyticsclub/NBA_Shotlog/raw/main/Data/nba_shotlog_train.csv'
-nba = pd.read_csv(url)
-nba
--------------------
+  File "/opt/anaconda3/lib/python3.7/site-packages/nbclient/client.py", line 857, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/opt/anaconda3/lib/python3.7/site-packages/nbclient/client.py", line 760, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+model.fit(X_train, y_train)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m/var/folders/8k/ps7r1m2x3_zcd4_dznr8ns1m0000gp/T/ipykernel_15466/180087699.py[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mmodel[0m[0;34m.[0m[0mfit[0m[0;34m([0m[0mX_train[0m[0;34m,[0m [0my_train[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/xgboost/core.py[0m in [0;36minner_f[0;34m(*args, **kwargs)[0m
+[1;32m    431[0m         [0;32mfor[0m [0mk[0m[0;34m,[0m [0marg[0m [0;32min[0m [0mzip[0m[0;34m([0m[0msig[0m[0;34m.[0m[0mparameters[0m[0;34m,[0m [0margs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    432[0m             [0mkwargs[0m[0;34m[[0m[0mk[0m[0;34m][0m [0;34m=[0m [0marg[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 433[0;31m         [0;32mreturn[0m [0mf[0m[0;34m([0m[0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    434[0m [0;34m[0m[0m
+[1;32m    435[0m     [0;32mreturn[0m [0minner_f[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/xgboost/sklearn.py[0m in [0;36mfit[0;34m(self, X, y, sample_weight, base_margin, eval_set, eval_metric, early_stopping_rounds, verbose, xgb_model, sample_weight_eval_set, base_margin_eval_set, feature_weights, callbacks)[0m
+[1;32m   1171[0m             [0meval_qid[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1172[0m             [0mcreate_dmatrix[0m[0;34m=[0m[0;32mlambda[0m [0;34m**[0m[0mkwargs[0m[0;34m:[0m [0mDMatrix[0m[0;34m([0m[0mnthread[0m[0;34m=[0m[0mself[0m[0;34m.[0m[0mn_jobs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1173[0;31m             [0mlabel_transform[0m[0;34m=[0m[0mlabel_transform[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1174[0m         )
+[1;32m   1175[0m [0;34m[0m[0m
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/xgboost/sklearn.py[0m in [0;36m_wrap_evaluation_matrices[0;34m(missing, X, y, group, qid, sample_weight, base_margin, feature_weights, eval_set, sample_weight_eval_set, base_margin_eval_set, eval_group, eval_qid, create_dmatrix, label_transform)[0m
+[1;32m    242[0m         [0mbase_margin[0m[0;34m=[0m[0mbase_margin[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    243[0m         [0mfeature_weights[0m[0;34m=[0m[0mfeature_weights[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 244[0;31m         [0mmissing[0m[0;34m=[0m[0mmissing[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    245[0m     )
+[1;32m    246[0m [0;34m[0m[0m
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/xgboost/sklearn.py[0m in [0;36m<lambda>[0;34m(**kwargs)[0m
+[1;32m   1170[0m             [0meval_group[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1171[0m             [0meval_qid[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1172[0;31m             [0mcreate_dmatrix[0m[0;34m=[0m[0;32mlambda[0m [0;34m**[0m[0mkwargs[0m[0;34m:[0m [0mDMatrix[0m[0;34m([0m[0mnthread[0m[0;34m=[0m[0mself[0m[0;34m.[0m[0mn_jobs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1173[0m             [0mlabel_transform[0m[0;34m=[0m[0mlabel_transform[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1174[0m         )
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/xgboost/core.py[0m in [0;36minner_f[0;34m(*args, **kwargs)[0m
+[1;32m    431[0m         [0;32mfor[0m [0mk[0m[0;34m,[0m [0marg[0m [0;32min[0m [0mzip[0m[0;34m([0m[0msig[0m[0;34m.[0m[0mparameters[0m[0;34m,[0m [0margs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    432[0m             [0mkwargs[0m[0;34m[[0m[0mk[0m[0;34m][0m [0;34m=[0m [0marg[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 433[0;31m         [0;32mreturn[0m [0mf[0m[0;34m([0m[0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    434[0m [0;34m[0m[0m
+[1;32m    435[0m     [0;32mreturn[0m [0minner_f[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/xgboost/core.py[0m in [0;36m__init__[0;34m(self, data, label, weight, base_margin, missing, silent, feature_names, feature_types, nthread, group, qid, label_lower_bound, label_upper_bound, feature_weights, enable_categorical)[0m
+[1;32m    542[0m             [0mfeature_names[0m[0;34m=[0m[0mfeature_names[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    543[0m             [0mfeature_types[0m[0;34m=[0m[0mfeature_types[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 544[0;31m             [0menable_categorical[0m[0;34m=[0m[0menable_categorical[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    545[0m         )
+[1;32m    546[0m         [0;32massert[0m [0mhandle[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/xgboost/data.py[0m in [0;36mdispatch_data_backend[0;34m(data, missing, threads, feature_names, feature_types, enable_categorical)[0m
+[1;32m    564[0m     [0;32mif[0m [0m_is_pandas_df[0m[0;34m([0m[0mdata[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    565[0m         return _from_pandas_df(data, enable_categorical, missing, threads,
+[0;32m--> 566[0;31m                                feature_names, feature_types)
+[0m[1;32m    567[0m     [0;32mif[0m [0m_is_pandas_series[0m[0;34m([0m[0mdata[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    568[0m         return _from_pandas_series(data, missing, threads, feature_names,
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/xgboost/data.py[0m in [0;36m_from_pandas_df[0;34m(data, enable_categorical, missing, nthread, feature_names, feature_types)[0m
+[1;32m    249[0m                     feature_names, feature_types):
+[1;32m    250[0m     data, feature_names, feature_types = _transform_pandas_df(
+[0;32m--> 251[0;31m         data, enable_categorical, feature_names, feature_types)
+[0m[1;32m    252[0m     return _from_numpy_array(data, missing, nthread, feature_names,
+[1;32m    253[0m                              feature_types)
+
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/xgboost/data.py[0m in [0;36m_transform_pandas_df[0;34m(data, enable_categorical, feature_names, feature_types, meta, meta_type)[0m
+[1;32m    213[0m                 [0mcategorical[0m [0mtype[0m [0;32mis[0m [0msupplied[0m[0;34m,[0m [0mDMatrix[0m [0mparameter[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    214[0m                 `enable_categorical` must be set to `True`."""
+[0;32m--> 215[0;31m         [0;32mraise[0m [0mValueError[0m[0;34m([0m[0mmsg[0m [0;34m+[0m [0;34m', '[0m[0;34m.[0m[0mjoin[0m[0;34m([0m[0mbad_fields[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    216[0m [0;34m[0m[0m
+[1;32m    217[0m     [0;32mif[0m [0mfeature_names[0m [0;32mis[0m [0;32mNone[0m [0;32mand[0m [0mmeta[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mValueError[0m: DataFrame.dtypes for data must be int, float, bool or categorical.  When
+                categorical type is supplied, DMatrix parameter
+                `enable_categorical` must be set to `True`.self_previous_shot, player_position, home_game, opponent_previous_shot, date
+ValueError: DataFrame.dtypes for data must be int, float, bool or categorical.  When
+                categorical type is supplied, DMatrix parameter
+                `enable_categorical` must be set to `True`.self_previous_shot, player_position, home_game, opponent_previous_shot, date
 

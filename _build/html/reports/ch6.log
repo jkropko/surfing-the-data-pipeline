@@ -32,7 +32,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-total = pd.read_csv("https://github.com/jkropko/DS-6001/raw/master/localdata/winemag.csv")
-total
+collist = winedb.list_collection_names()
+if "winecollection" in collist:
+  winedb.winecollection.drop()
 -------------------
 

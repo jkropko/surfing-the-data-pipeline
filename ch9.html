@@ -1,397 +1,381 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Reshaping and Merging Data and Working with Strings, Dates, and Times &#8212; Surfing the Data Pipeline with Python</title>
-    
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch9';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Exploratory Data Analysis" href="ch10.html" />
     <link rel="prev" title="Data Wrangling with pandas" href="ch8.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      <img src="_static/surf.jpg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Surfing the Data Pipeline with Python</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
-   Surfing the Data Pipeline with Python
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Get Started
- </span>
-</p>
+    
+    
+    <img src="_static/surf.jpg" class="logo__image only-light" alt="Surfing the Data Pipeline with Python - Home"/>
+    <script>document.write(`<img src="_static/surf.jpg" class="logo__image only-dark" alt="Surfing the Data Pipeline with Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Surfing the Data Pipeline with Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Get Started</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="ch1.html">
-   Getting Yourself Unstuck
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="ch1.html">Getting Yourself Unstuck</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Get Data
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Get Data</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="ch2.html">
-   Loading Data from Electronic Data Files
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ch3.html">
-   Loading, Converting, and Writing JSON Files
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ch4.html">
-   Acquiring Data from APIs
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ch5.html">
-   Web Scraping Using
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     BeautifulSoup
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ch6.html">
-   Creating and Connecting to Databases
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="ch2.html">Loading Data from Electronic Data Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch3.html">Loading, Converting, and Writing JSON Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch4.html">Acquiring Data from APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch5.html">Web Scraping Using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch6.html">Creating and Connecting to Databases</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Wrangle Data
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wrangle Data</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="ch7.html">
-   Database Queries
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ch8.html">
-   Data Wrangling with
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     pandas
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Reshaping and Merging Data and Working with Strings, Dates, and Times
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="ch7.html">Database Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch8.html">Data Wrangling with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Reshaping and Merging Data and Working with Strings, Dates, and Times</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Explore and Communicate Data
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Explore and Communicate Data</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="ch10.html">
-   Exploratory Data Analysis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ch11.html">
-   Static Data Visualizations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ch12.html">
-   Interactive Data Visualizations and Dashboards
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="ch10.html">Exploratory Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch11.html">Static Data Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch12.html">Interactive Data Visualizations and Dashboards</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/ch9.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/ch9.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main">
         
         
-        
-        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ch9.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
-        </div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Reshaping and Merging Data and Working with Strings, Dates, and Times</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction-pandas-or-sql">
-   Introduction:
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     pandas
-    </span>
-   </code>
-   or SQL?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#joining-dataframes">
-   Joining Dataframes
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-merging-data-on-u-s-state-election-results-income-economies-and-area">
-     Example: Merging Data on U.S. State Election Results, Income, Economies, and Area
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#using-the-pd-merge-function">
-     Using the
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       pd.merge()
-      </span>
-     </code>
-     Function
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#checking-for-problems-that-can-occur-without-errors">
-     Checking for Problems That Can Occur Without Errors
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#merging-all-of-the-dataframes-together-while-checking-for-problems">
-     Merging all of the Dataframes Together While Checking for Problems
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#reshaping-data">
-   Reshaping Data
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-gross-domestic-product-by-state-1997-2015">
-     Example: Gross domestic product by state, 1997-2015
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#melting-turning-columns-to-rows">
-     Melting: Turning Columns to Rows
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pivoting-turning-rows-to-columns">
-     Pivoting: Turning Rows to Columns
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#working-with-strings-example-the-2019-anes-pilot-study">
-   Working with Strings (Example: the 2019 ANES Pilot Study)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#working-with-dates-and-times-example-twitter">
-   Working with Dates and Times (Example: Twitter)
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#extracting-year-month-day-and-time-from-a-timestamp-column">
-     Extracting Year, Month, Day, and Time from a Timestamp Column
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#generating-timestamps-from-separate-month-day-and-year-columns">
-     Generating Timestamps from Separate Month, Day, and Year Columns
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#converting-string-columns-to-timestamps">
-     Converting String Columns to Timestamps
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#filtering-rows-based-on-date-ranges">
-     Filtering Rows Based on Date Ranges
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#leads-and-lags">
-     Leads and Lags
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-pandas-or-sql">Introduction: <code class="docutils literal notranslate"><span class="pre">pandas</span></code> or SQL?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#joining-dataframes">Joining Dataframes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-merging-data-on-u-s-state-election-results-income-economies-and-area">Example: Merging Data on U.S. State Election Results, Income, Economies, and Area</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-pd-merge-function">Using the <code class="docutils literal notranslate"><span class="pre">pd.merge()</span></code> Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-for-problems-that-can-occur-without-errors">Checking for Problems That Can Occur Without Errors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#merging-all-of-the-dataframes-together-while-checking-for-problems">Merging all of the Dataframes Together While Checking for Problems</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reshaping-data">Reshaping Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-gross-domestic-product-by-state-1997-2015">Example: Gross domestic product by state, 1997-2015</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#melting-turning-columns-to-rows">Melting: Turning Columns to Rows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pivoting-turning-rows-to-columns">Pivoting: Turning Rows to Columns</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-strings-example-the-2019-anes-pilot-study">Working with Strings (Example: the 2019 ANES Pilot Study)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-dates-and-times-example-twitter">Working with Dates and Times (Example: Twitter)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-year-month-day-and-time-from-a-timestamp-column">Extracting Year, Month, Day, and Time from a Timestamp Column</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-timestamps-from-separate-month-day-and-year-columns">Generating Timestamps from Separate Month, Day, and Year Columns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-string-columns-to-timestamps">Converting String Columns to Timestamps</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-rows-based-on-date-ranges">Filtering Rows Based on Date Ranges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#leads-and-lags">Leads and Lags</a></li>
+</ul>
+</li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <section id="reshaping-and-merging-data-and-working-with-strings-dates-and-times">
-<h1><a class="toc-backref" href="#id1">Reshaping and Merging Data and Working with Strings, Dates, and Times</a><a class="headerlink" href="#reshaping-and-merging-data-and-working-with-strings-dates-and-times" title="Permalink to this headline">¶</a></h1>
-<div class="contents topic" id="table-of-contents">
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="reshaping-and-merging-data-and-working-with-strings-dates-and-times">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Reshaping and Merging Data and Working with Strings, Dates, and Times</a><a class="headerlink" href="#reshaping-and-merging-data-and-working-with-strings-dates-and-times" title="Permalink to this heading">#</a></h1>
+<nav class="contents" id="table-of-contents">
 <p class="topic-title">Table of Contents</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#reshaping-and-merging-data-and-working-with-strings-dates-and-times" id="id1">Reshaping and Merging Data and Working with Strings, Dates, and Times</a></p>
@@ -425,12 +409,12 @@
 </ul>
 </li>
 </ul>
-</div>
+</nav>
 <div style= "float:left;position: relative; padding: 20px">
 <a href="https://xkcd.com/1409/"><img src="https://i.imgflip.com/45ymyw.jpg" width="300"></a>
 </div>
 <section id="introduction-pandas-or-sql">
-<h2><a class="toc-backref" href="#id2">Introduction: <code class="docutils literal notranslate"><span class="pre">pandas</span></code> or SQL?</a><a class="headerlink" href="#introduction-pandas-or-sql" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Introduction: <code class="docutils literal notranslate"><span class="pre">pandas</span></code> or SQL?</a><a class="headerlink" href="#introduction-pandas-or-sql" title="Permalink to this heading">#</a></h2>
 <p>As we saw in module 7, read operations in SQL not only extract data from a database, but they can select and rename columns, filter and sort rows, join tables, and aggregate data. With <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, we can also select and rename columns, filter and sort rows, join tables, and aggregate data. So the question is, should we be using SQL or <code class="docutils literal notranslate"><span class="pre">pandas</span></code> to perform all these data manipulation steps?</p>
 <p>SQL is sometimes referred to as <strong>server-side</strong> data manipulation, because databases are often stored on remote servers and SQL queries are processed on the server instead on on a local machine. Data manipulation that is conducted using <code class="docutils literal notranslate"><span class="pre">pandas</span></code> on a local Python installation is called <strong>client-side</strong> data manipulation.</p>
 <p>The question of SQL vs. <code class="docutils literal notranslate"><span class="pre">pandas</span></code> (or SQL vs. the tidyverse in R) is the subject of a lot of debate among professionals who use data. The question <a class="reference external" href="https://www.quora.com/In-what-situations-should-you-use-SQL-instead-of-Pandas-as-a-data-scientist">comes up</a> <a class="reference external" href="https://towardsdatascience.com/sql-and-pandas-268f634a4f5d">frequently</a> on <a class="reference external" href="https://www.reddit.com/r/Python/comments/1tqjt4/why_do_you_use_pandas_instead_of_sql/">various</a> <a class="reference external" href="https://datascience.stackexchange.com/questions/34357/why-do-people-prefer-pandas-to-sql">coding forums</a>. Some <a class="reference external" href="https://blog.thedataincubator.com/2018/05/sqlite-vs-pandas-performance-benchmarks/">blog posts</a> have tried to compare SQL and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> in terms of the <a class="reference external" href="https://wesmckinney.com/blog/high-performance-database-joins-with-pandas-dataframe-more-benchmarks/">speed</a> with which they complete equivalent operations, with differing results. <a class="reference external" href="https://medium.com/carwow-product-engineering/sql-vs-pandas-how-to-balance-tasks-between-server-and-client-side-9e2f6c95677">Tina Wenzel and Kavya Gupta</a> note that many factors influence the relative speed of SQL and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> operations, including the configuration of a PostgreSQL database and the bandwidth available in a network connection. They take the mixed evidence into account and conclude that</p>
@@ -446,7 +430,7 @@
 <p>For now, we need to practice both <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and SQL and get comfortable with these tools, and we need to be flexible in the future as different situations will call for SQL or <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
 </section>
 <section id="joining-dataframes">
-<h2><a class="toc-backref" href="#id3">Joining Dataframes</a><a class="headerlink" href="#joining-dataframes" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Joining Dataframes</a><a class="headerlink" href="#joining-dataframes" title="Permalink to this heading">#</a></h2>
 <p>Joining dataframes is also called merging dataframes, and I will use the words “join” and “merge” interchangeably below. Every kind of merge that is possible in SQL is possible in <code class="docutils literal notranslate"><span class="pre">pandas</span></code>: inner, outer, left, right, natural, cross, and anti-joins. One important difference between joining in SQL and merging in <code class="docutils literal notranslate"><span class="pre">pandas</span></code> is that dataframes might not be as carefully curated as data tables in a relational database, and we should not assume that the join worked properly even if there is no error. Primary keys might not uniquely identify rows in general, and joins might turn into cross joins. Some of values of keys that should match might not match due to differences in coding and spelling. And if we attempt a natural join, the wrong columns might be automatically selected as the keys.</p>
 <p>Too many discussions of merging data provide clean examples. Here I will show you how merging works when the data contain some common problems that may invalidate the merge. In the following discussion, we will discuss how to perform merges in <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, and also how to check that the merge worked in the way we want to.</p>
 <p>First, for the following examples, we load these packages:</p>
@@ -459,7 +443,7 @@
 </div>
 </div>
 <section id="example-merging-data-on-u-s-state-election-results-income-economies-and-area">
-<h3><a class="toc-backref" href="#id4">Example: Merging Data on U.S. State Election Results, Income, Economies, and Area</a><a class="headerlink" href="#example-merging-data-on-u-s-state-election-results-income-economies-and-area" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Example: Merging Data on U.S. State Election Results, Income, Economies, and Area</a><a class="headerlink" href="#example-merging-data-on-u-s-state-election-results-income-economies-and-area" title="Permalink to this heading">#</a></h3>
 <p>The “state_elections.csv” file contains information about the result of presidential elections by state for every presidential election between 1964 and 2004. In this dataset, the primary keys are <code class="docutils literal notranslate"><span class="pre">State</span></code> and <code class="docutils literal notranslate"><span class="pre">year</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1076,7 +1060,7 @@
 <p>Our goal is to merge all five of these datasets together.</p>
 </section>
 <section id="using-the-pd-merge-function">
-<h3><a class="toc-backref" href="#id5">Using the <code class="docutils literal notranslate"><span class="pre">pd.merge()</span></code> Function</a><a class="headerlink" href="#using-the-pd-merge-function" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Using the <code class="docutils literal notranslate"><span class="pre">pd.merge()</span></code> Function</a><a class="headerlink" href="#using-the-pd-merge-function" title="Permalink to this heading">#</a></h3>
 <p>When using a crosswalk to merge dataframes together, the first step is to merge a dataframe with the crosswalk. Here we start by joining the <code class="docutils literal notranslate"><span class="pre">elect</span></code> and <code class="docutils literal notranslate"><span class="pre">crosswalk</span></code> dataframes together. To join dataframes, we use the <code class="docutils literal notranslate"><span class="pre">pd.merge()</span></code> function. The following code works:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1483,7 +1467,7 @@
 </div>
 </section>
 <section id="checking-for-problems-that-can-occur-without-errors">
-<h3><a class="toc-backref" href="#id6">Checking for Problems That Can Occur Without Errors</a><a class="headerlink" href="#checking-for-problems-that-can-occur-without-errors" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Checking for Problems That Can Occur Without Errors</a><a class="headerlink" href="#checking-for-problems-that-can-occur-without-errors" title="Permalink to this heading">#</a></h3>
 <p>Whenever we apply <code class="docutils literal notranslate"><span class="pre">pd.merge()</span></code>, there’s a great risk that the merge was incorrect even if the function runs without error. There are two ways that a merge can fail.</p>
 <p><strong>Problem 1:</strong> what we <em>thought</em> was a unique ID was not a unique ID.</p>
 <p>If we merge two dataframes on a column (or set of columns) that fail to uniquely identify the rows in either dataframe, then <code class="docutils literal notranslate"><span class="pre">pd.merge()</span></code> returns all pairwise combinations of rows with matching IDs. To see this, consider the following two example dataframes:</p>
@@ -1959,7 +1943,7 @@
 </div>
 </section>
 <section id="merging-all-of-the-dataframes-together-while-checking-for-problems">
-<h3><a class="toc-backref" href="#id7">Merging all of the Dataframes Together While Checking for Problems</a><a class="headerlink" href="#merging-all-of-the-dataframes-together-while-checking-for-problems" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Merging all of the Dataframes Together While Checking for Problems</a><a class="headerlink" href="#merging-all-of-the-dataframes-together-while-checking-for-problems" title="Permalink to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">merged_data</span></code> and <code class="docutils literal notranslate"><span class="pre">income</span></code> dataframes share keys named <code class="docutils literal notranslate"><span class="pre">stcode</span></code> and <code class="docutils literal notranslate"><span class="pre">year</span></code>. Joining these two dataframes should be a one-to-one merge because there should be only one occurrence of the same state and year in each dataframe. We use <code class="docutils literal notranslate"><span class="pre">how='outer'</span></code> and <code class="docutils literal notranslate"><span class="pre">indicator='matched'</span></code> (since we deleted the previous <code class="docutils literal notranslate"><span class="pre">matched</span></code> column) to enable us to filter the result to the unmatched rows, and we use <code class="docutils literal notranslate"><span class="pre">validate='one_to_one'</span></code> to catch anomolies that violate our expectation that this is a one-to-one merge:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3312,10 +3296,10 @@
 </section>
 </section>
 <section id="reshaping-data">
-<h2><a class="toc-backref" href="#id8">Reshaping Data</a><a class="headerlink" href="#reshaping-data" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Reshaping Data</a><a class="headerlink" href="#reshaping-data" title="Permalink to this heading">#</a></h2>
 <p><strong>Reshaping</strong> a dataframe refers to turning the rows of a dataframe into columns (also known as a long-to-wide reshape), or turning columns into rows (also known as a wide-to-long reshape), in a way that cannot be accomplished by simply transposing the data matrix. It is also called <strong>pivoting</strong> for a long-to-wide reshape, <strong>melting</strong> for a wide-to-long reshape. It’s a notoriously tricky skill to master, and it helps a lot to understand every part of the function we need, so that we’re not blindly trying every combination of parameters hoping one of these combinations works.</p>
 <section id="example-gross-domestic-product-by-state-1997-2015">
-<h3><a class="toc-backref" href="#id9">Example: Gross domestic product by state, 1997-2015</a><a class="headerlink" href="#example-gross-domestic-product-by-state-1997-2015" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Example: Gross domestic product by state, 1997-2015</a><a class="headerlink" href="#example-gross-domestic-product-by-state-1997-2015" title="Permalink to this heading">#</a></h3>
 <p>To demonstrate the method for pivoting a dataframe, we use example data from the U.S. Bureau of Economic Affairs (<a class="reference external" href="http://www.bea.gov">www.bea.gov</a>) on economic output for the American states. We load the data, skipping the last four rows as these rows contain attribution information and notes, and are not part of the data. We also use the <code class="docutils literal notranslate"><span class="pre">.str.strip()</span></code> method to remove all the leading and trailing whitespace in the <code class="docutils literal notranslate"><span class="pre">Description</span></code> column:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3326,8 +3310,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/pandas/util/_decorators.py:311: ParserWarning: Falling back to the &#39;python&#39; engine because the &#39;c&#39; engine does not support skipfooter; you can avoid this warning by specifying engine=&#39;python&#39;.
-  return func(*args, **kwargs)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/4w/k9sqqcbx4dxgpjtwgv_1m29h0000gq/T/ipykernel_7236/793934051.py:1: ParserWarning: Falling back to the &#39;python&#39; engine because the &#39;c&#39; engine does not support skipfooter; you can avoid this warning by specifying engine=&#39;python&#39;.
+  gsp = pd.read_csv(&quot;https://github.com/jkropko/DS-6001/raw/master/localdata/gsp_naics_all.csv&quot;, skipfooter=4)
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -4318,13 +4302,13 @@
 </div>
 </section>
 <section id="melting-turning-columns-to-rows">
-<h3><a class="toc-backref" href="#id10">Melting: Turning Columns to Rows</a><a class="headerlink" href="#melting-turning-columns-to-rows" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Melting: Turning Columns to Rows</a><a class="headerlink" href="#melting-turning-columns-to-rows" title="Permalink to this heading">#</a></h3>
 <p>Notice that many of the columns refer to particular years. We want to move these columns to the rows, so that each state has one row for each year covered in the data. The best function to use when we need to turn columns into rows is <code class="docutils literal notranslate"><span class="pre">pd.melt()</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">id_vars</span><span class="p">,</span> <span class="n">value_vars</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This function takes three parameters:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>The name of the dataframe you wish to edit</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">id_vars</span></code>: A list of the names of the columns that we want to continue to exist as columns after the dataframe is melted. In our example, this list will contain both IDs that currently uniquely identify the rows (<code class="docutils literal notranslate"><span class="pre">GeoName</span></code>, <code class="docutils literal notranslate"><span class="pre">ComponentName</span></code>, <code class="docutils literal notranslate"><span class="pre">Description</span></code>), synonyms for the IDs (<code class="docutils literal notranslate"><span class="pre">GeoFIPS</span></code>) that we want to keep, and features that vary across ID but not across the columns (<code class="docutils literal notranslate"><span class="pre">Region</span></code>).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">value_vars</span></code>: A list of the names of the columns we want to store in the rows. If the columns have numeric names and can be sequentially ordered, as is the case in our example with years, a shortcut for creating a list of these column names is <code class="docutils literal notranslate"><span class="pre">[str(i)</span> <span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">range(1997,2015)]</span></code>, which loops over intergers from 1997 to 2015, placing each year as a string in the list.</p></li>
@@ -4641,7 +4625,7 @@
 </div>
 </section>
 <section id="pivoting-turning-rows-to-columns">
-<h3><a class="toc-backref" href="#id11">Pivoting: Turning Rows to Columns</a><a class="headerlink" href="#pivoting-turning-rows-to-columns" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Pivoting: Turning Rows to Columns</a><a class="headerlink" href="#pivoting-turning-rows-to-columns" title="Permalink to this heading">#</a></h3>
 <p>The rows contain features that we want to move to the columns. Specifically, we need separate columns for the different combinations of <code class="docutils literal notranslate"><span class="pre">ComponentName</span></code> and <code class="docutils literal notranslate"><span class="pre">Description</span></code> since the feature names are contained in two columns, so we can combine these two columns by concatenating them together and creating a new column called “feature”. Then we can drop <code class="docutils literal notranslate"><span class="pre">ComponentName</span></code> and <code class="docutils literal notranslate"><span class="pre">Description</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4788,7 +4772,7 @@
 </pre></div>
 </div>
 <p>To understand this method, pay close attention to its parameters:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">index</span></code> - a list containing the names of the current columns that we want to remain columns in the reshaped data. These include the primary keys (<code class="docutils literal notranslate"><span class="pre">State</span></code> and <code class="docutils literal notranslate"><span class="pre">Year</span></code> in this example), synonyms for a key (<code class="docutils literal notranslate"><span class="pre">FIPS</span></code>), and features that vary only by ID (<code class="docutils literal notranslate"><span class="pre">Region</span></code>).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">columns</span></code> - the name of the column that contains the <strong>names</strong> of the new columns we are trying to create.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">values</span></code> - the name of the column that contains the <strong>datapoints</strong> we are trying to move to the new columns.</p></li>
@@ -5291,7 +5275,7 @@ dtype: object
 </section>
 </section>
 <section id="working-with-strings-example-the-2019-anes-pilot-study">
-<h2><a class="toc-backref" href="#id12">Working with Strings (Example: the 2019 ANES Pilot Study)</a><a class="headerlink" href="#working-with-strings-example-the-2019-anes-pilot-study" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Working with Strings (Example: the 2019 ANES Pilot Study)</a><a class="headerlink" href="#working-with-strings-example-the-2019-anes-pilot-study" title="Permalink to this heading">#</a></h2>
 <p>In module 8, we worked with the 2019 American National Election Study pilot survey and saved the cleaned data in a separate CSV file:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -5817,7 +5801,7 @@ Name: most_important_issue, Length: 3165, dtype: object
   <tbody>
     <tr>
       <th>Democrat</th>
-      <td>1030</td>
+      <td>1029</td>
       <td>293</td>
     </tr>
     <tr>
@@ -5827,7 +5811,7 @@ Name: most_important_issue, Length: 3165, dtype: object
     </tr>
     <tr>
       <th>Republican</th>
-      <td>1122</td>
+      <td>1121</td>
       <td>73</td>
     </tr>
   </tbody>
@@ -6403,7 +6387,7 @@ Name: most_important_issue, Length: 3165, dtype: object
 </div>
 </section>
 <section id="working-with-dates-and-times-example-twitter">
-<h2><a class="toc-backref" href="#id13">Working with Dates and Times (Example: Twitter)</a><a class="headerlink" href="#working-with-dates-and-times-example-twitter" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Working with Dates and Times (Example: Twitter)</a><a class="headerlink" href="#working-with-dates-and-times-example-twitter" title="Permalink to this heading">#</a></h2>
 <p>In module 4 we discussed Twitter as an example of how to use an API in Python. We save the four credentials we need to access the API (the consumer key, the consumer secret, the access token, and the access token secret) in a .env file, and we load those keys into Python without displaying them in our notebooks by using the <code class="docutils literal notranslate"><span class="pre">dotenv</span></code> package:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -6429,6 +6413,18 @@ Name: most_important_issue, Length: 3165, dtype: object
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">58</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">tweepy</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">auth</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">OAuthHandler</span><span class="p">(</span><span class="n">ConsumerKey</span><span class="p">,</span> <span class="n">ConsumerSecret</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">auth</span><span class="o">.</span><span class="n">set_access_token</span><span class="p">(</span><span class="n">AccessToken</span><span class="p">,</span> <span class="n">AccessTokenSecret</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;tweepy&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <p>The following code extracts 1000 tweets that contain the hashtag “#uva”:</p>
 <div class="cell docutils container">
@@ -6447,57 +6443,103 @@ Name: most_important_issue, Length: 3165, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TweepError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">8</span><span class="n">k</span><span class="o">/</span><span class="n">ps7r1m2x3_zcd4_dznr8ns1m0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_16040</span><span class="o">/</span><span class="mf">2044521528.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">msg</span> <span class="o">=</span><span class="p">[]</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">Cursor</span><span class="p">(</span><span class="n">api</span><span class="o">.</span><span class="n">search</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="s1">&#39;#uva&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">msg</span> <span class="o">=</span> <span class="p">[</span><span class="n">tweet</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">tweet</span><span class="o">.</span><span class="n">created_at</span><span class="p">,</span> <span class="n">tweet</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">screen_name</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">msg</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/tweepy/cursor.py</span> in <span class="ni">__next__</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">     </span><span class="mi">45</span> 
-<span class="g g-Whitespace">     </span><span class="mi">46</span>     <span class="k">def</span> <span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">47</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">48</span> 
-<span class="g g-Whitespace">     </span><span class="mi">49</span>     <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/tweepy/cursor.py</span> in <span class="ni">next</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">193</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_page</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">page_index</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_page</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">194</span>             <span class="c1"># Reached end of current page, get the next page...</span>
-<span class="ne">--&gt; </span><span class="mi">195</span>             <span class="bp">self</span><span class="o">.</span><span class="n">current_page</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">page_iterator</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">196</span>             <span class="bp">self</span><span class="o">.</span><span class="n">page_index</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-<span class="g g-Whitespace">    </span><span class="mi">197</span>         <span class="bp">self</span><span class="o">.</span><span class="n">page_index</span> <span class="o">+=</span> <span class="mi">1</span>
-
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/tweepy/cursor.py</span> in <span class="ni">next</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">104</span> 
-<span class="g g-Whitespace">    </span><span class="mi">105</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">106</span>             <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="p">(</span><span class="n">max_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_id</span><span class="p">,</span> <span class="n">parser</span><span class="o">=</span><span class="n">RawParser</span><span class="p">(),</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">kargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">107</span> 
-<span class="g g-Whitespace">    </span><span class="mi">108</span>             <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="p">,</span> <span class="s1">&#39;__self__&#39;</span><span class="p">):</span>
-
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/tweepy/binder.py</span> in <span class="ni">_call</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">248</span>                 <span class="k">return</span> <span class="n">method</span>
-<span class="g g-Whitespace">    </span><span class="mi">249</span>             <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">250</span>                 <span class="k">return</span> <span class="n">method</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">251</span>         <span class="k">finally</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">252</span>             <span class="n">method</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/tweepy/binder.py</span> in <span class="ni">execute</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">231</span>                     <span class="k">raise</span> <span class="n">RateLimitError</span><span class="p">(</span><span class="n">error_msg</span><span class="p">,</span> <span class="n">resp</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">232</span>                 <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">233</span>                     <span class="k">raise</span> <span class="n">TweepError</span><span class="p">(</span><span class="n">error_msg</span><span class="p">,</span> <span class="n">resp</span><span class="p">,</span> <span class="n">api_code</span><span class="o">=</span><span class="n">api_error_code</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">234</span> 
-<span class="g g-Whitespace">    </span><span class="mi">235</span>             <span class="c1"># Parse the response payload</span>
-
-<span class="ne">TweepError</span>: Twitter error response: status code = 429
-</pre></div>
-</div>
-</div>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>text</th>
+      <th>created_at</th>
+      <th>user</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>@KymoraJohnson_ let me call @IamTinaThompson s...</td>
+      <td>2020-06-30 02:20:43</td>
+      <td>SweetLickKing</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Congrats Eric. It’s was really great to have w...</td>
+      <td>2020-06-30 02:18:17</td>
+      <td>Daniel_B_Ennis</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>RT @KathrynsScGifts: "OGX Fade-defying + Orchi...</td>
+      <td>2020-06-30 01:55:02</td>
+      <td>blimeyonline1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Former #UVA stars Quin Blanding, Micah Kiser n...</td>
+      <td>2020-06-30 01:40:00</td>
+      <td>Wahoos247</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Former #UVA stars Quin Blanding, Micah Kiser n...</td>
+      <td>2020-06-30 01:39:42</td>
+      <td>JamieOakes247</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>995</th>
+      <td>RT @AgNPalabras: #UVA: 54,87. Sube 0,20% diari...</td>
+      <td>2020-06-23 15:12:08</td>
+      <td>norahlfy</td>
+    </tr>
+    <tr>
+      <th>996</th>
+      <td>#UVA: 54,87. Sube 0,20% diario, 1,22% en junio...</td>
+      <td>2020-06-23 15:08:40</td>
+      <td>AgNPalabras</td>
+    </tr>
+    <tr>
+      <th>997</th>
+      <td>Zur Einstimmung #UVA vom letzten #gig bei uns ...</td>
+      <td>2020-06-23 14:52:23</td>
+      <td>WeAppU</td>
+    </tr>
+    <tr>
+      <th>998</th>
+      <td>RT @JLuis_Sommelier: #Mosto: jugo obtenido de ...</td>
+      <td>2020-06-23 14:49:22</td>
+      <td>VirialexViri</td>
+    </tr>
+    <tr>
+      <th>999</th>
+      <td>Good question... My instinct says Ty Jerome, b...</td>
+      <td>2020-06-23 14:32:44</td>
+      <td>The_Superhoo</td>
+    </tr>
+  </tbody>
+</table>
+<p>1000 rows × 3 columns</p>
+</div></div></div>
 </div>
 <section id="extracting-year-month-day-and-time-from-a-timestamp-column">
-<h3><a class="toc-backref" href="#id14">Extracting Year, Month, Day, and Time from a Timestamp Column</a><a class="headerlink" href="#extracting-year-month-day-and-time-from-a-timestamp-column" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Extracting Year, Month, Day, and Time from a Timestamp Column</a><a class="headerlink" href="#extracting-year-month-day-and-time-from-a-timestamp-column" title="Permalink to this heading">#</a></h3>
 <p>Note that the data contain timestamps that include the date and time, to the second, of each tweet. The <code class="docutils literal notranslate"><span class="pre">created_at</span></code> column has a <code class="docutils literal notranslate"><span class="pre">datetime64</span></code> data type:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -6712,7 +6754,7 @@ dtype: object
 </div>
 </section>
 <section id="generating-timestamps-from-separate-month-day-and-year-columns">
-<h3><a class="toc-backref" href="#id15">Generating Timestamps from Separate Month, Day, and Year Columns</a><a class="headerlink" href="#generating-timestamps-from-separate-month-day-and-year-columns" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">Generating Timestamps from Separate Month, Day, and Year Columns</a><a class="headerlink" href="#generating-timestamps-from-separate-month-day-and-year-columns" title="Permalink to this heading">#</a></h3>
 <p>Sometimes raw data will come to us with these time elements already placed in separate columns, so that we have a <code class="docutils literal notranslate"><span class="pre">month</span></code>, <code class="docutils literal notranslate"><span class="pre">day</span></code>, and <code class="docutils literal notranslate"><span class="pre">year</span></code> column but no <code class="docutils literal notranslate"><span class="pre">date</span></code> column. There are important advantages to placing all this information in one column in values that Python understands as timestamps: timestamps are easier to filter, manipulate, index, and plot. To create one timestamp from separate columns that contain the month, day, and year (and optionally the hour, minute, and second), use the <code class="docutils literal notranslate"><span class="pre">pd.to_datatime</span></code> function:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
@@ -6931,7 +6973,7 @@ dtype: object
 </div>
 </section>
 <section id="converting-string-columns-to-timestamps">
-<h3><a class="toc-backref" href="#id16">Converting String Columns to Timestamps</a><a class="headerlink" href="#converting-string-columns-to-timestamps" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Converting String Columns to Timestamps</a><a class="headerlink" href="#converting-string-columns-to-timestamps" title="Permalink to this heading">#</a></h3>
 <p>Sometimes information about the date and time of an event in the data will be coded as a string. In that case, to use the time series functionality on the dates in a dataframe, a string column that contains the dates and times will need to be converted to the <code class="docutils literal notranslate"><span class="pre">datetime64</span></code> data type. The best way to do that is to use the <code class="docutils literal notranslate"><span class="pre">pd.to_datetime()</span></code> function once again. This time, we pass the column that contains the dates in string format to the <code class="docutils literal notranslate"><span class="pre">pd.to_datetime()</span></code> function. This function can identify the year, month, day, hour, minute, and second from many different formats.</p>
 <p>For example, we can write the date Sunday, June 19, 2016 at 8:00 PM (the date and time of game 7 of the 2016 NBA finals, the greatest moment in sports history) in many different ways such as:</p>
 <ul class="simple">
@@ -7053,7 +7095,7 @@ dtype: object
 </div>
 </section>
 <section id="filtering-rows-based-on-date-ranges">
-<h3><a class="toc-backref" href="#id17">Filtering Rows Based on Date Ranges</a><a class="headerlink" href="#filtering-rows-based-on-date-ranges" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Filtering Rows Based on Date Ranges</a><a class="headerlink" href="#filtering-rows-based-on-date-ranges" title="Permalink to this heading">#</a></h3>
 <p>If every row in the data has a unique timestamp, then one convenient way to use the times to filter the data is to set the <strong>index</strong> (the row labels) to be equal to the timestamps:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -7675,7 +7717,7 @@ dtype: object
 </div>
 </section>
 <section id="leads-and-lags">
-<h3><a class="toc-backref" href="#id18">Leads and Lags</a><a class="headerlink" href="#leads-and-lags" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">Leads and Lags</a><a class="headerlink" href="#leads-and-lags" title="Permalink to this heading">#</a></h3>
 <p>In time series data in which the rows represent particular points in time in descending chronological order, a <strong>lag</strong> is a column that contains the values of another column shifted up one cell. That is, if the rows represent days, and a column represents today’s high temperature, the lag represents yesterday’s high temperature. A <strong>lead</strong> is a existing column with its values shifted one row down: tomorrow’s high temperature.</p>
 <p>To create a lead or a lag, apply the <code class="docutils literal notranslate"><span class="pre">.shift()</span></code> method to a dataframe. The argument of <code class="docutils literal notranslate"><span class="pre">.shift()</span></code> is an integer: positive integers shift values down, creating leads, and negative values shift values up, creating lags. Whenever we shift values up or down, we create new missing values at the top or bottom of the dataframe for the lead or lagged column.</p>
 <p>For example, in the <code class="docutils literal notranslate"><span class="pre">tweets</span></code> dataframe we can create two new columns, <code class="docutils literal notranslate"><span class="pre">previous_tweet</span></code> and <code class="docutils literal notranslate"><span class="pre">next_tweet</span></code> to compare with <code class="docutils literal notranslate"><span class="pre">text</span></code> by using <code class="docutils literal notranslate"><span class="pre">.shift(-1)</span></code> and <code class="docutils literal notranslate"><span class="pre">.shift(1)</span></code>:</p>
@@ -7805,7 +7847,7 @@ dtype: object
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -7813,36 +7855,124 @@ dtype: object
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-        <div class='prev-next-bottom'>
-            
-    <a class='left-prev' id="prev-link" href="ch8.html" title="previous page">Data Wrangling with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a>
-    <a class='right-next' id="next-link" href="ch10.html" title="next page">Exploratory Data Analysis</a>
 
-        </div>
-        
-        </div>
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Jonathan Kropko (jkropko@virginia.edu)<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ch8.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Data Wrangling with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></p>
       </div>
-    </div>
-  
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+    </a>
+    <a class="right-next"
+       href="ch10.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Exploratory Data Analysis</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-pandas-or-sql">Introduction: <code class="docutils literal notranslate"><span class="pre">pandas</span></code> or SQL?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#joining-dataframes">Joining Dataframes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-merging-data-on-u-s-state-election-results-income-economies-and-area">Example: Merging Data on U.S. State Election Results, Income, Economies, and Area</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-pd-merge-function">Using the <code class="docutils literal notranslate"><span class="pre">pd.merge()</span></code> Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-for-problems-that-can-occur-without-errors">Checking for Problems That Can Occur Without Errors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#merging-all-of-the-dataframes-together-while-checking-for-problems">Merging all of the Dataframes Together While Checking for Problems</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reshaping-data">Reshaping Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-gross-domestic-product-by-state-1997-2015">Example: Gross domestic product by state, 1997-2015</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#melting-turning-columns-to-rows">Melting: Turning Columns to Rows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pivoting-turning-rows-to-columns">Pivoting: Turning Rows to Columns</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-strings-example-the-2019-anes-pilot-study">Working with Strings (Example: the 2019 ANES Pilot Study)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-dates-and-times-example-twitter">Working with Dates and Times (Example: Twitter)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-year-month-day-and-time-from-a-timestamp-column">Extracting Year, Month, Day, and Time from a Timestamp Column</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-timestamps-from-separate-month-day-and-year-columns">Generating Timestamps from Separate Month, Day, and Year Columns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-string-columns-to-timestamps">Converting String Columns to Timestamps</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-rows-based-on-date-ranges">Filtering Rows Based on Date Ranges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#leads-and-lags">Leads and Lags</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jonathan Kropko (jkropko@virginia.edu)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

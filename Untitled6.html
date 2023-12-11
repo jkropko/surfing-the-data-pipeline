@@ -1,0 +1,3566 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; Surfing the Data Pipeline with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Untitled6';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/surf.jpg" class="logo__image only-light" alt="Surfing the Data Pipeline with Python - Home"/>
+    <script>document.write(`<img src="_static/surf.jpg" class="logo__image only-dark" alt="Surfing the Data Pipeline with Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Surfing the Data Pipeline with Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ch1.html">Getting Yourself Unstuck</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Get Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ch2.html">Loading Data from Electronic Data Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch3.html">Loading, Converting, and Writing JSON Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch4.html">Acquiring Data from APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch5.html">Web Scraping Using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch6.html">Creating and Connecting to Databases</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wrangle Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ch7.html">Database Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch8.html">Data Wrangling with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch9.html">Reshaping and Merging Data and Working with Strings, Dates, and Times</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Explore and Communicate Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ch10.html">Exploratory Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch11.html">Static Data Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch12.html">Interactive Data Visualizations and Dashboards</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Untitled6.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">math</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;/Users/jk8sd/Downloads&quot;</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>pd.read_sas
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gallup1936</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;USAIPO1936-0053.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gallup1936</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>form</th>
+      <th>state</th>
+      <th>region</th>
+      <th>female</th>
+      <th>age</th>
+      <th>class</th>
+      <th>OCCUPATION1</th>
+      <th>OCCUPATION2</th>
+      <th>OCCUPATION3</th>
+      <th>black</th>
+      <th>size</th>
+      <th>education</th>
+      <th>AGE_3WAY</th>
+      <th>AGE40</th>
+      <th>OCC8</th>
+      <th>prof</th>
+      <th>REGION4</th>
+      <th>EDU_RECODE</th>
+      <th>VOTE_PRO</th>
+      <th>VOTE_RETRO</th>
+      <th>PHONE_RECODE</th>
+      <th>CAR_RECODE</th>
+      <th>ballot</th>
+      <th>Q1</th>
+      <th>Q2</th>
+      <th>Q3</th>
+      <th>Q4A</th>
+      <th>Q4B</th>
+      <th>Q4C</th>
+      <th>Q5A</th>
+      <th>Q5B</th>
+      <th>farm</th>
+      <th>SIZE3</th>
+      <th>urban</th>
+      <th>StPOAbrv</th>
+      <th>SOUTH11</th>
+      <th>SOUTH11xBLACK</th>
+      <th>SOUTH12</th>
+      <th>SOUTH12xBLACK</th>
+      <th>south</th>
+      <th>SOUTHxBLACK</th>
+      <th>year</th>
+      <th>WtPubFeas</th>
+      <th>WtVotFeas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>NaN</td>
+      <td>Indiana</td>
+      <td>East Central</td>
+      <td>Male</td>
+      <td>NaN</td>
+      <td>Av+</td>
+      <td>Skilled workers</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Urban</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Labor</td>
+      <td>Not Professional</td>
+      <td>Midwest</td>
+      <td>NaN</td>
+      <td>Landon</td>
+      <td>Hoover</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>53</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Roosevelt</td>
+      <td>Roosevelt</td>
+      <td>Landon</td>
+      <td>Landon</td>
+      <td>Yes, voted for Hoover</td>
+      <td>Non-Farm</td>
+      <td>Urban</td>
+      <td>Urban</td>
+      <td>in</td>
+      <td>Non-South</td>
+      <td>NaN</td>
+      <td>Non-South</td>
+      <td>NaN</td>
+      <td>Non-South</td>
+      <td>NaN</td>
+      <td>1936</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>NaN</td>
+      <td>Illinois</td>
+      <td>East Central</td>
+      <td>Male</td>
+      <td>NaN</td>
+      <td>Av+</td>
+      <td>Skilled workers</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Urban</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Labor</td>
+      <td>Not Professional</td>
+      <td>Midwest</td>
+      <td>NaN</td>
+      <td>Landon</td>
+      <td>Hoover</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>53</td>
+      <td>Yes</td>
+      <td>NaN</td>
+      <td>Yes</td>
+      <td>Landon</td>
+      <td>Landon</td>
+      <td>Landon</td>
+      <td>Landon</td>
+      <td>Yes, voted for Hoover</td>
+      <td>Non-Farm</td>
+      <td>Urban</td>
+      <td>Urban</td>
+      <td>il</td>
+      <td>Non-South</td>
+      <td>NaN</td>
+      <td>Non-South</td>
+      <td>NaN</td>
+      <td>Non-South</td>
+      <td>NaN</td>
+      <td>1936</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NaN</td>
+      <td>Michigan</td>
+      <td>East Central</td>
+      <td>Male</td>
+      <td>NaN</td>
+      <td>Av</td>
+      <td>Business</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Urban</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Professional</td>
+      <td>Professional</td>
+      <td>Midwest</td>
+      <td>NaN</td>
+      <td>Landon</td>
+      <td>Hoover</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>53</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Landon</td>
+      <td>Landon</td>
+      <td>Landon</td>
+      <td>Landon</td>
+      <td>Yes, voted for Hoover</td>
+      <td>Non-Farm</td>
+      <td>Urban</td>
+      <td>Urban</td>
+      <td>mi</td>
+      <td>Non-South</td>
+      <td>NaN</td>
+      <td>Non-South</td>
+      <td>NaN</td>
+      <td>Non-South</td>
+      <td>NaN</td>
+      <td>1936</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>NaN</td>
+      <td>Virginia</td>
+      <td>South and Southwest</td>
+      <td>Male</td>
+      <td>55 yrs and over</td>
+      <td>P or P+</td>
+      <td>Skilled workers</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Urban</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Labor</td>
+      <td>Not Professional</td>
+      <td>South</td>
+      <td>NaN</td>
+      <td>fdr</td>
+      <td>fdr</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>53</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Roosevelt</td>
+      <td>Roosevelt</td>
+      <td>Roosevelt</td>
+      <td>Roosevelt</td>
+      <td>Yes, voted for Roosevelt</td>
+      <td>Non-Farm</td>
+      <td>Urban</td>
+      <td>Urban</td>
+      <td>va</td>
+      <td>South</td>
+      <td>NaN</td>
+      <td>South</td>
+      <td>NaN</td>
+      <td>South</td>
+      <td>NaN</td>
+      <td>1936</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>NaN</td>
+      <td>Florida</td>
+      <td>South and Southwest</td>
+      <td>Male</td>
+      <td>55 yrs and over</td>
+      <td>Av+</td>
+      <td>Skilled workers</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Small town</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Labor</td>
+      <td>Not Professional</td>
+      <td>South</td>
+      <td>NaN</td>
+      <td>fdr</td>
+      <td>fdr</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>53</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Roosevelt</td>
+      <td>Roosevelt</td>
+      <td>Roosevelt</td>
+      <td>Roosevelt</td>
+      <td>Yes, voted for Roosevelt</td>
+      <td>Non-Farm</td>
+      <td>Rural Non-Farm</td>
+      <td>Non-Urban</td>
+      <td>fl</td>
+      <td>South</td>
+      <td>NaN</td>
+      <td>South</td>
+      <td>NaN</td>
+      <td>South</td>
+      <td>NaN</td>
+      <td>1936</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>5510</th>
+      <td>NaN</td>
+      <td>Mississippi</td>
+      <td>South and Southwest</td>
+      <td>Male</td>
+      <td>55 yrs and over</td>
+      <td>Av+</td>
+      <td>Skilled workers</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Farm</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Labor</td>
+      <td>Not Professional</td>
+      <td>South</td>
+      <td>NaN</td>
+      <td>fdr</td>
+      <td>fdr</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>53</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Roosevelt</td>
+      <td>Roosevelt</td>
+      <td>Roosevelt</td>
+      <td>Roosevelt</td>
+      <td>Yes, voted for Roosevelt</td>
+      <td>Farm</td>
+      <td>Farm</td>
+      <td>Non-Urban</td>
+      <td>ms</td>
+      <td>South</td>
+      <td>NaN</td>
+      <td>South</td>
+      <td>NaN</td>
+      <td>South</td>
+      <td>NaN</td>
+      <td>1936</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5511</th>
+      <td>NaN</td>
+      <td>Indiana</td>
+      <td>East Central</td>
+      <td>Male</td>
+      <td>25-34 yrs</td>
+      <td>Av+</td>
+      <td>Skilled workers</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Farm</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Labor</td>
+      <td>Not Professional</td>
+      <td>Midwest</td>
+      <td>NaN</td>
+      <td>Landon</td>
+      <td>Hoover</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>53</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Landon</td>
+      <td>Landon</td>
+      <td>Roosevelt</td>
+      <td>Landon</td>
+      <td>Yes, voted for Hoover</td>
+      <td>Farm</td>
+      <td>Farm</td>
+      <td>Non-Urban</td>
+      <td>in</td>
+      <td>Non-South</td>
+      <td>NaN</td>
+      <td>Non-South</td>
+      <td>NaN</td>
+      <td>Non-South</td>
+      <td>NaN</td>
+      <td>1936</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5512</th>
+      <td>NaN</td>
+      <td>Illinois</td>
+      <td>East Central</td>
+      <td>Male</td>
+      <td>25-34 yrs</td>
+      <td>Av</td>
+      <td>Professiol</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Urban</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Professional</td>
+      <td>Professional</td>
+      <td>Midwest</td>
+      <td>NaN</td>
+      <td>Landon</td>
+      <td>Hoover</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>53</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Roosevelt</td>
+      <td>Roosevelt</td>
+      <td>Landon</td>
+      <td>Landon</td>
+      <td>Yes, voted for Hoover</td>
+      <td>Non-Farm</td>
+      <td>Urban</td>
+      <td>Urban</td>
+      <td>il</td>
+      <td>Non-South</td>
+      <td>NaN</td>
+      <td>Non-South</td>
+      <td>NaN</td>
+      <td>Non-South</td>
+      <td>NaN</td>
+      <td>1936</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5513</th>
+      <td>NaN</td>
+      <td>Michigan</td>
+      <td>East Central</td>
+      <td>Female</td>
+      <td>35-44 yrs</td>
+      <td>Av</td>
+      <td>Professiol</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Urban</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Professional</td>
+      <td>Professional</td>
+      <td>Midwest</td>
+      <td>NaN</td>
+      <td>Landon</td>
+      <td>Hoover</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>53</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Roosevelt</td>
+      <td>Landon</td>
+      <td>Landon</td>
+      <td>Landon</td>
+      <td>Yes, voted for Hoover</td>
+      <td>Non-Farm</td>
+      <td>Urban</td>
+      <td>Urban</td>
+      <td>mi</td>
+      <td>Non-South</td>
+      <td>NaN</td>
+      <td>Non-South</td>
+      <td>NaN</td>
+      <td>Non-South</td>
+      <td>NaN</td>
+      <td>1936</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5514</th>
+      <td>NaN</td>
+      <td>Ohio</td>
+      <td>East Central</td>
+      <td>Male</td>
+      <td>55 yrs and over</td>
+      <td>Av+</td>
+      <td>Skilled workers</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Small town</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Labor</td>
+      <td>Not Professional</td>
+      <td>Midwest</td>
+      <td>NaN</td>
+      <td>Landon</td>
+      <td>Hoover</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>53</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>NaN</td>
+      <td>Landon</td>
+      <td>Neither</td>
+      <td>Landon</td>
+      <td>Yes, voted for Hoover</td>
+      <td>Non-Farm</td>
+      <td>Rural Non-Farm</td>
+      <td>Non-Urban</td>
+      <td>oh</td>
+      <td>Non-South</td>
+      <td>NaN</td>
+      <td>Non-South</td>
+      <td>NaN</td>
+      <td>Non-South</td>
+      <td>NaN</td>
+      <td>1936</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>5515 rows × 44 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gallup1936</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>form</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>state</th>
+      <td>Indiana</td>
+    </tr>
+    <tr>
+      <th>region</th>
+      <td>East Central</td>
+    </tr>
+    <tr>
+      <th>female</th>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>age</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>class</th>
+      <td>Av+</td>
+    </tr>
+    <tr>
+      <th>OCCUPATION1</th>
+      <td>Skilled workers</td>
+    </tr>
+    <tr>
+      <th>OCCUPATION2</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>OCCUPATION3</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>black</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>size</th>
+      <td>Urban</td>
+    </tr>
+    <tr>
+      <th>education</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>AGE_3WAY</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>AGE40</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>OCC8</th>
+      <td>Labor</td>
+    </tr>
+    <tr>
+      <th>prof</th>
+      <td>Not Professional</td>
+    </tr>
+    <tr>
+      <th>REGION4</th>
+      <td>Midwest</td>
+    </tr>
+    <tr>
+      <th>EDU_RECODE</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>VOTE_PRO</th>
+      <td>Landon</td>
+    </tr>
+    <tr>
+      <th>VOTE_RETRO</th>
+      <td>Hoover</td>
+    </tr>
+    <tr>
+      <th>PHONE_RECODE</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>CAR_RECODE</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>ballot</th>
+      <td>53</td>
+    </tr>
+    <tr>
+      <th>Q1</th>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <th>Q2</th>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <th>Q3</th>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <th>Q4A</th>
+      <td>Roosevelt</td>
+    </tr>
+    <tr>
+      <th>Q4B</th>
+      <td>Roosevelt</td>
+    </tr>
+    <tr>
+      <th>Q4C</th>
+      <td>Landon</td>
+    </tr>
+    <tr>
+      <th>Q5A</th>
+      <td>Landon</td>
+    </tr>
+    <tr>
+      <th>Q5B</th>
+      <td>Yes, voted for Hoover</td>
+    </tr>
+    <tr>
+      <th>farm</th>
+      <td>Non-Farm</td>
+    </tr>
+    <tr>
+      <th>SIZE3</th>
+      <td>Urban</td>
+    </tr>
+    <tr>
+      <th>urban</th>
+      <td>Urban</td>
+    </tr>
+    <tr>
+      <th>StPOAbrv</th>
+      <td>in</td>
+    </tr>
+    <tr>
+      <th>SOUTH11</th>
+      <td>Non-South</td>
+    </tr>
+    <tr>
+      <th>SOUTH11xBLACK</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>SOUTH12</th>
+      <td>Non-South</td>
+    </tr>
+    <tr>
+      <th>SOUTH12xBLACK</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>south</th>
+      <td>Non-South</td>
+    </tr>
+    <tr>
+      <th>SOUTHxBLACK</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>year</th>
+      <td>1936</td>
+    </tr>
+    <tr>
+      <th>WtPubFeas</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>WtVotFeas</th>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gallup1936</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 5515 entries, 0 to 5514
+Data columns (total 44 columns):
+ #   Column         Non-Null Count  Dtype  
+---  ------         --------------  -----  
+ 0   form           0 non-null      float64
+ 1   state          5515 non-null   object 
+ 2   region         5515 non-null   object 
+ 3   female         5514 non-null   object 
+ 4   age            5169 non-null   object 
+ 5   class          4619 non-null   object 
+ 6   OCCUPATION1    5513 non-null   object 
+ 7   OCCUPATION2    0 non-null      float64
+ 8   OCCUPATION3    0 non-null      float64
+ 9   black          2058 non-null   object 
+ 10  size           5514 non-null   object 
+ 11  education      0 non-null      float64
+ 12  AGE_3WAY       0 non-null      float64
+ 13  AGE40          0 non-null      float64
+ 14  OCC8           5513 non-null   object 
+ 15  prof           5513 non-null   object 
+ 16  REGION4        5515 non-null   object 
+ 17  EDU_RECODE     0 non-null      float64
+ 18  VOTE_PRO       5382 non-null   object 
+ 19  VOTE_RETRO     5460 non-null   object 
+ 20  PHONE_RECODE   0 non-null      float64
+ 21  CAR_RECODE     2054 non-null   object 
+ 22  ballot         5515 non-null   int64  
+ 23  Q1             4410 non-null   object 
+ 24  Q2             4640 non-null   object 
+ 25  Q3             4553 non-null   object 
+ 26  Q4A            5124 non-null   object 
+ 27  Q4B            4988 non-null   object 
+ 28  Q4C            4923 non-null   object 
+ 29  Q5A            5382 non-null   object 
+ 30  Q5B            5460 non-null   object 
+ 31  farm           5514 non-null   object 
+ 32  SIZE3          5514 non-null   object 
+ 33  urban          5514 non-null   object 
+ 34  StPOAbrv       5515 non-null   object 
+ 35  SOUTH11        5515 non-null   object 
+ 36  SOUTH11xBLACK  2058 non-null   object 
+ 37  SOUTH12        5515 non-null   object 
+ 38  SOUTH12xBLACK  2058 non-null   object 
+ 39  south          5515 non-null   object 
+ 40  SOUTHxBLACK    2058 non-null   object 
+ 41  year           5515 non-null   int64  
+ 42  WtPubFeas      2055 non-null   float64
+ 43  WtVotFeas      2051 non-null   float64
+dtypes: float64(10), int64(2), object(32)
+memory usage: 1.9+ MB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kaiser2021</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_stata</span><span class="p">(</span><span class="s2">&quot;31119104.DTA&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kaiser2021</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>id</th>
+      <td>00000002</td>
+    </tr>
+    <tr>
+      <th>BIDENT1</th>
+      <td>web</td>
+    </tr>
+    <tr>
+      <th>userdata</th>
+      <td>SSRS Probability Panel</td>
+    </tr>
+    <tr>
+      <th>language</th>
+      <td>English</td>
+    </tr>
+    <tr>
+      <th>INT1A</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>INT3A</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>D1</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>age</th>
+      <td>68</td>
+    </tr>
+    <tr>
+      <th>AGE2</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>recage</th>
+      <td>65+</td>
+    </tr>
+    <tr>
+      <th>RECAGE2</th>
+      <td>65+</td>
+    </tr>
+    <tr>
+      <th>RECAGE3</th>
+      <td>65+</td>
+    </tr>
+    <tr>
+      <th>RECAGE4</th>
+      <td>60-69</td>
+    </tr>
+    <tr>
+      <th>RECAGE5</th>
+      <td>65+</td>
+    </tr>
+    <tr>
+      <th>RECAGE6</th>
+      <td>50+</td>
+    </tr>
+    <tr>
+      <th>hispanic</th>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>race</th>
+      <td>White</td>
+    </tr>
+    <tr>
+      <th>racethn</th>
+      <td>White, non-Hispanic</td>
+    </tr>
+    <tr>
+      <th>nativity</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>RACETHN2</th>
+      <td>White, non-Hispanic</td>
+    </tr>
+    <tr>
+      <th>VAXQ1</th>
+      <td>Somewhat worried</td>
+    </tr>
+    <tr>
+      <th>VAXQ2</th>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <th>VAXQ3</th>
+      <td>Yes, received a booster</td>
+    </tr>
+    <tr>
+      <th>VAXQ4</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>VAXQ5</th>
+      <td>Have recommended this</td>
+    </tr>
+    <tr>
+      <th>VAXQ6</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>VAXQ7</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>coverage</th>
+      <td>Covered by health insurance</td>
+    </tr>
+    <tr>
+      <th>agecov</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>covtype</th>
+      <td>Medicare</td>
+    </tr>
+    <tr>
+      <th>agecovty</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>covselfo</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>covself</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>COVSEL_1</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th>child</th>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>marital</th>
+      <td>Married</td>
+    </tr>
+    <tr>
+      <th>employ</th>
+      <td>Retired</td>
+    </tr>
+    <tr>
+      <th>recemplo</th>
+      <td>Retired</td>
+    </tr>
+    <tr>
+      <th>selfempl</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>rgender</th>
+      <td>Man</td>
+    </tr>
+    <tr>
+      <th>genderva</th>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>lgbt</th>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>party</th>
+      <td>Or what/Other</td>
+    </tr>
+    <tr>
+      <th>partylea</th>
+      <td>Independent/don't lean to either party</td>
+    </tr>
+    <tr>
+      <th>PARTY3</th>
+      <td>Pure Independents</td>
+    </tr>
+    <tr>
+      <th>PARTY5</th>
+      <td>Independent/Don't lean</td>
+    </tr>
+    <tr>
+      <th>ideology</th>
+      <td>Liberal</td>
+    </tr>
+    <tr>
+      <th>educ</th>
+      <td>Some college, no degree (includes some communi...</td>
+    </tr>
+    <tr>
+      <th>receduc</th>
+      <td>Some college</td>
+    </tr>
+    <tr>
+      <th>RECEDUC2</th>
+      <td>Some college</td>
+    </tr>
+    <tr>
+      <th>RECEDUC3</th>
+      <td>Less than college</td>
+    </tr>
+    <tr>
+      <th>income</th>
+      <td>$40,000 to less than $50,000</td>
+    </tr>
+    <tr>
+      <th>recincom</th>
+      <td>$40K-$89.9K</td>
+    </tr>
+    <tr>
+      <th>RECINC_1</th>
+      <td>$40K+</td>
+    </tr>
+    <tr>
+      <th>CE14</th>
+      <td>Once a month</td>
+    </tr>
+    <tr>
+      <th>CE17</th>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>TRP2</th>
+      <td>Purple</td>
+    </tr>
+    <tr>
+      <th>cell</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>hhcell</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>landline</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>hhadults</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>int</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>loi</th>
+      <td>332</td>
+    </tr>
+    <tr>
+      <th>devicety</th>
+      <td>Other smart phone (smart phones that is not io...</td>
+    </tr>
+    <tr>
+      <th>deviceca</th>
+      <td>Smartphone or equivalent (&lt;7 inch)</td>
+    </tr>
+    <tr>
+      <th>BSSRS_MA</th>
+      <td>27082976.0</td>
+    </tr>
+    <tr>
+      <th>cstate</th>
+      <td>New York</td>
+    </tr>
+    <tr>
+      <th>cregion</th>
+      <td>Northeast</td>
+    </tr>
+    <tr>
+      <th>density</th>
+      <td>Lowest</td>
+    </tr>
+    <tr>
+      <th>complete</th>
+      <td>20211215</td>
+    </tr>
+    <tr>
+      <th>weight</th>
+      <td>0.3532</td>
+    </tr>
+    <tr>
+      <th>RECINC_2</th>
+      <td>Less than $50K</td>
+    </tr>
+    <tr>
+      <th>division</th>
+      <td>Mid Atlantic</td>
+    </tr>
+    <tr>
+      <th>changese</th>
+      <td>sex = rgender</td>
+    </tr>
+    <tr>
+      <th>CDC2013</th>
+      <td>Non-core</td>
+    </tr>
+    <tr>
+      <th>CDC2013U</th>
+      <td>Rural (CDC=4-6)</td>
+    </tr>
+    <tr>
+      <th>state</th>
+      <td>NEW YORK</td>
+    </tr>
+    <tr>
+      <th>usr</th>
+      <td>Rural</td>
+    </tr>
+    <tr>
+      <th>USR_NEW</th>
+      <td>Rural</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kaiser2021</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>state
+california              101
+texas                    79
+florida                  61
+refused                  56
+NEW YORK                 52
+pennsylvania             41
+NORTH CAROLINA           38
+illinois                 37
+virginia                 37
+georgia                  34
+indiana                  29
+ohio                     29
+NEW JERSEY               27
+wisconsin                27
+arizona                  27
+minnesota                24
+washington               24
+SOUTH CAROLINA           22
+colorado                 21
+michigan                 19
+maryland                 19
+missouri                 19
+tennessee                16
+utah                     16
+iowa                     15
+connecticut              15
+massachusetts            15
+oregon                   13
+alabama                  12
+louisiana                12
+nevada                   11
+mississippi              11
+kansas                   11
+kentucky                 10
+maine                    10
+oklahoma                  9
+idaho                     9
+arkansas                  8
+NORTH DAKOTA              7
+NEW HAMPSHIRE             6
+NEW MEXICO                6
+nebraska                  6
+hawaii                    5
+RHODE ISLAND              3
+SOUTH DAKOTA              3
+delaware                  3
+DISTRICT OF COLUMBIA      3
+vermont                   2
+wyoming                   2
+WEST VIRGINIA             1
+alaska                    1
+montana                   1
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">widths</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;poll_widths_ds6001 - Sheet1.csv&quot;</span><span class="p">)</span>
+<span class="n">widths</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">widths</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;poll_widths_ds6001 - Sheet1.csv&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">widths</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.4/lib/python3.11/site-packages/pandas/io/parsers/readers.py:912,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)</span>
+<span class="g g-Whitespace">    </span><span class="mi">899</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">900</span>     <span class="n">dialect</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">901</span>     <span class="n">delimiter</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">908</span>     <span class="n">dtype_backend</span><span class="o">=</span><span class="n">dtype_backend</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">909</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">910</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">912</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.4/lib/python3.11/site-packages/pandas/io/parsers/readers.py:577,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">574</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">576</span> <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">577</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">579</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">580</span>     <span class="k">return</span> <span class="n">parser</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.4/lib/python3.11/site-packages/pandas/io/parsers/readers.py:1407,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1404</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1406</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">-&gt; </span><span class="mi">1407</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.4/lib/python3.11/site-packages/pandas/io/parsers/readers.py:1661,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, f, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1659</span>     <span class="k">if</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1660</span>         <span class="n">mode</span> <span class="o">+=</span> <span class="s2">&quot;b&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1661</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1662</span>     <span class="n">f</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1663</span>     <span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1664</span>     <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1665</span>     <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1666</span>     <span class="n">memory_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1667</span>     <span class="n">is_text</span><span class="o">=</span><span class="n">is_text</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1668</span>     <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1669</span>     <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1670</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1671</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">1672</span> <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="o">.</span><span class="n">handle</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.4/lib/python3.11/site-packages/pandas/io/common.py:859,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">854</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">855</span>     <span class="c1"># Check whether the filename is to be opened in binary mode.</span>
+<span class="g g-Whitespace">    </span><span class="mi">856</span>     <span class="c1"># Binary mode does not support &#39;encoding&#39; and &#39;newline&#39;.</span>
+<span class="g g-Whitespace">    </span><span class="mi">857</span>     <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">858</span>         <span class="c1"># Encoding</span>
+<span class="ne">--&gt; </span><span class="mi">859</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">860</span>             <span class="n">handle</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">861</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">862</span>             <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">863</span>             <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">864</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">865</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">866</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">867</span>         <span class="c1"># Binary mode</span>
+<span class="g g-Whitespace">    </span><span class="mi">868</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;poll_widths_ds6001 - Sheet1.csv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pakistan</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_fwf</span><span class="p">(</span><span class="s2">&quot;i20068.dat&quot;</span><span class="p">,</span> <span class="n">widths</span><span class="o">=</span><span class="n">widths</span><span class="p">[</span><span class="s1">&#39;Width&#39;</span><span class="p">],</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">pakistan</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>10</th>
+      <th>11</th>
+      <th>12</th>
+      <th>13</th>
+      <th>14</th>
+      <th>15</th>
+      <th>16</th>
+      <th>17</th>
+      <th>18</th>
+      <th>19</th>
+      <th>20</th>
+      <th>21</th>
+      <th>22</th>
+      <th>23</th>
+      <th>24</th>
+      <th>25</th>
+      <th>26</th>
+      <th>27</th>
+      <th>28</th>
+      <th>29</th>
+      <th>30</th>
+      <th>31</th>
+      <th>32</th>
+      <th>33</th>
+      <th>34</th>
+      <th>35</th>
+      <th>36</th>
+      <th>37</th>
+      <th>38</th>
+      <th>39</th>
+      <th>40</th>
+      <th>41</th>
+      <th>42</th>
+      <th>43</th>
+      <th>44</th>
+      <th>45</th>
+      <th>46</th>
+      <th>47</th>
+      <th>48</th>
+      <th>49</th>
+      <th>50</th>
+      <th>51</th>
+      <th>52</th>
+      <th>53</th>
+      <th>54</th>
+      <th>55</th>
+      <th>56</th>
+      <th>57</th>
+      <th>58</th>
+      <th>59</th>
+      <th>60</th>
+      <th>61</th>
+      <th>62</th>
+      <th>63</th>
+      <th>64</th>
+      <th>65</th>
+      <th>66</th>
+      <th>67</th>
+      <th>68</th>
+      <th>69</th>
+      <th>70</th>
+      <th>71</th>
+      <th>72</th>
+      <th>73</th>
+      <th>74</th>
+      <th>75</th>
+      <th>76</th>
+      <th>77</th>
+      <th>78</th>
+      <th>79</th>
+      <th>80</th>
+      <th>81</th>
+      <th>82</th>
+      <th>83</th>
+      <th>84</th>
+      <th>85</th>
+      <th>86</th>
+      <th>87</th>
+      <th>88</th>
+      <th>89</th>
+      <th>90</th>
+      <th>91</th>
+      <th>92</th>
+      <th>93</th>
+      <th>94</th>
+      <th>95</th>
+      <th>96</th>
+      <th>97</th>
+      <th>98</th>
+      <th>99</th>
+      <th>100</th>
+      <th>101</th>
+      <th>102</th>
+      <th>103</th>
+      <th>104</th>
+      <th>105</th>
+      <th>106</th>
+      <th>107</th>
+      <th>108</th>
+      <th>109</th>
+      <th>110</th>
+      <th>111</th>
+      <th>112</th>
+      <th>113</th>
+      <th>114</th>
+      <th>115</th>
+      <th>116</th>
+      <th>117</th>
+      <th>118</th>
+      <th>119</th>
+      <th>120</th>
+      <th>121</th>
+      <th>122</th>
+      <th>123</th>
+      <th>124</th>
+      <th>125</th>
+      <th>126</th>
+      <th>127</th>
+      <th>128</th>
+      <th>129</th>
+      <th>130</th>
+      <th>131</th>
+      <th>132</th>
+      <th>133</th>
+      <th>134</th>
+      <th>135</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>155.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>108.0</td>
+      <td>12.0</td>
+      <td>14.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>6.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>85.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>6.0</td>
+      <td>16.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>31.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>35.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>6.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>6.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>155.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>120.0</td>
+      <td>9.0</td>
+      <td>13.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>85.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>8.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>8.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>6.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>10.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>41.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>6.0</td>
+      <td>6.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>155.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>102.0</td>
+      <td>14.0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>8.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>90.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>78.0</td>
+      <td>8.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.0</td>
+      <td>104.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>32.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>155.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>129.0</td>
+      <td>9.0</td>
+      <td>13.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>6.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>30.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>7.0</td>
+      <td>18.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>27.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>6.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>155.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>13.0</td>
+      <td>9.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>6.0</td>
+      <td>8.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>47.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>75.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>7.0</td>
+      <td>10.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>40.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>6.0</td>
+      <td>7.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2033</th>
+      <td>2248</td>
+      <td>283.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>102.0</td>
+      <td>6.0</td>
+      <td>11.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>8.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>98.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>8.0</td>
+      <td>1.0</td>
+      <td>98.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>97.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>98.0</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>98.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>55.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>17.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>7.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>7.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>2034</th>
+      <td>2249</td>
+      <td>283.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>8.0</td>
+      <td>NaN</td>
+      <td>98.0</td>
+      <td>NaN</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>NaN</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>9.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>NaN</td>
+      <td>98.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>98.0</td>
+      <td>NaN</td>
+      <td>9.0</td>
+      <td>99.0</td>
+      <td>NaN</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>7.0</td>
+      <td>8.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>5.0</td>
+      <td>15.0</td>
+      <td>2.0</td>
+      <td>10.0</td>
+      <td>20.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>17.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>7.0</td>
+    </tr>
+    <tr>
+      <th>2035</th>
+      <td>2250</td>
+      <td>283.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>9.0</td>
+      <td>NaN</td>
+      <td>98.0</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>98.0</td>
+      <td>8.0</td>
+      <td>1.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>NaN</td>
+      <td>98.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>99.0</td>
+      <td>NaN</td>
+      <td>8.0</td>
+      <td>99.0</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>50.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>17.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>6.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>2036</th>
+      <td>2251</td>
+      <td>255.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>163.0</td>
+      <td>9.0</td>
+      <td>6.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>8.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>8.0</td>
+      <td>NaN</td>
+      <td>8.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>2.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>NaN</td>
+      <td>98.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>1.0</td>
+      <td>8.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>1.0</td>
+      <td>8.0</td>
+      <td>4.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>99.0</td>
+      <td>NaN</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>45.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>17.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>6.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>2037</th>
+      <td></td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>2038 rows × 136 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mf">3.0</span>
+<span class="c1">#[a for a in x]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mf">4.0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>None
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jonathan Kropko (jkropko@virginia.edu)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

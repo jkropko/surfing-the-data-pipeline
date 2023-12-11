@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>9. Reshaping and Merging Data and Working with Strings, Dates, and Times &#8212; Surfing the Data Pipeline with Python</title>
+    <title>Reshaping and Merging Data and Working with Strings, Dates, and Times &#8212; Surfing the Data Pipeline with Python</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -52,8 +52,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="10. Exploratory Data Analysis" href="ch10.html" />
-    <link rel="prev" title="8. Data Wrangling with pandas" href="ch8.html" />
+    <link rel="next" title="Exploratory Data Analysis" href="ch10.html" />
+    <link rel="prev" title="Data Wrangling with pandas" href="ch8.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -90,30 +90,42 @@
   </a>
  </li>
 </ul>
-<ul class="current nav bd-sidenav">
+<p class="caption">
+ <span class="caption-text">
+  Get Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="ch1.html">
-   1. Getting Yourself Unstuck
+   Getting Yourself Unstuck
   </a>
  </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Get Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="ch2.html">
-   2. Loading Data from Electronic Data Files
+   Loading Data from Electronic Data Files
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ch3.html">
-   3. Loading, Converting, and Writing JSON Files
+   Loading, Converting, and Writing JSON Files
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ch4.html">
-   4. Acquiring Data from APIs
+   Acquiring Data from APIs
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ch5.html">
-   5. Web Scraping Using
+   Web Scraping Using
    <code class="docutils literal notranslate">
     <span class="pre">
      BeautifulSoup
@@ -123,17 +135,24 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ch6.html">
-   6. Creating and Connecting to Databases
+   Creating and Connecting to Databases
   </a>
  </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Wrangle Data
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="ch7.html">
-   7. Database Queries
+   Database Queries
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ch8.html">
-   8. Data Wrangling with
+   Data Wrangling with
    <code class="docutils literal notranslate">
     <span class="pre">
      pandas
@@ -143,22 +162,29 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   9. Reshaping and Merging Data and Working with Strings, Dates, and Times
+   Reshaping and Merging Data and Working with Strings, Dates, and Times
   </a>
  </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Explore and Communicate Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="ch10.html">
-   10. Exploratory Data Analysis
+   Exploratory Data Analysis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ch11.html">
-   11. Static Data Visualizations
+   Static Data Visualizations
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ch12.html">
-   12. Interactive Data Visualizations and Dashboards
+   Interactive Data Visualizations and Dashboards
   </a>
  </li>
 </ul>
@@ -251,7 +277,7 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction-pandas-or-sql">
-   9.1. Introduction:
+   Introduction:
    <code class="docutils literal notranslate">
     <span class="pre">
      pandas
@@ -262,17 +288,17 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#joining-dataframes">
-   9.2. Joining Dataframes
+   Joining Dataframes
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#example-merging-data-on-u-s-state-election-results-income-economies-and-area">
-     9.2.1. Example: Merging Data on U.S. State Election Results, Income, Economies, and Area
+     Example: Merging Data on U.S. State Election Results, Income, Economies, and Area
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#using-the-pd-merge-function">
-     9.2.2. Using the
+     Using the
      <code class="docutils literal notranslate">
       <span class="pre">
        pd.merge()
@@ -283,71 +309,71 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#checking-for-problems-that-can-occur-without-errors">
-     9.2.3. Checking for Problems That Can Occur Without Errors
+     Checking for Problems That Can Occur Without Errors
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#merging-all-of-the-dataframes-together-while-checking-for-problems">
-     9.2.4. Merging all of the Dataframes Together While Checking for Problems
+     Merging all of the Dataframes Together While Checking for Problems
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#reshaping-data">
-   9.3. Reshaping Data
+   Reshaping Data
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#example-gross-domestic-product-by-state-1997-2015">
-     9.3.1. Example: Gross domestic product by state, 1997-2015
+     Example: Gross domestic product by state, 1997-2015
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#melting-turning-columns-to-rows">
-     9.3.2. Melting: Turning Columns to Rows
+     Melting: Turning Columns to Rows
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#pivoting-turning-rows-to-columns">
-     9.3.3. Pivoting: Turning Rows to Columns
+     Pivoting: Turning Rows to Columns
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#working-with-strings-example-the-2019-anes-pilot-study">
-   9.4. Working with Strings (Example: the 2019 ANES Pilot Study)
+   Working with Strings (Example: the 2019 ANES Pilot Study)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#working-with-dates-and-times-example-twitter">
-   9.5. Working with Dates and Times (Example: Twitter)
+   Working with Dates and Times (Example: Twitter)
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#extracting-year-month-day-and-time-from-a-timestamp-column">
-     9.5.1. Extracting Year, Month, Day, and Time from a Timestamp Column
+     Extracting Year, Month, Day, and Time from a Timestamp Column
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#generating-timestamps-from-separate-month-day-and-year-columns">
-     9.5.2. Generating Timestamps from Separate Month, Day, and Year Columns
+     Generating Timestamps from Separate Month, Day, and Year Columns
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#converting-string-columns-to-timestamps">
-     9.5.3. Converting String Columns to Timestamps
+     Converting String Columns to Timestamps
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#filtering-rows-based-on-date-ranges">
-     9.5.4. Filtering Rows Based on Date Ranges
+     Filtering Rows Based on Date Ranges
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#leads-and-lags">
-     9.5.5. Leads and Lags
+     Leads and Lags
     </a>
    </li>
   </ul>
@@ -364,7 +390,7 @@
               <div>
                 
   <section id="reshaping-and-merging-data-and-working-with-strings-dates-and-times">
-<h1><a class="toc-backref" href="#id1"><span class="section-number">9. </span>Reshaping and Merging Data and Working with Strings, Dates, and Times</a><a class="headerlink" href="#reshaping-and-merging-data-and-working-with-strings-dates-and-times" title="Permalink to this headline">¶</a></h1>
+<h1><a class="toc-backref" href="#id1">Reshaping and Merging Data and Working with Strings, Dates, and Times</a><a class="headerlink" href="#reshaping-and-merging-data-and-working-with-strings-dates-and-times" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="table-of-contents">
 <p class="topic-title">Table of Contents</p>
 <ul class="simple">
@@ -404,7 +430,7 @@
 <a href="https://xkcd.com/1409/"><img src="https://i.imgflip.com/45ymyw.jpg" width="300"></a>
 </div>
 <section id="introduction-pandas-or-sql">
-<h2><a class="toc-backref" href="#id2"><span class="section-number">9.1. </span>Introduction: <code class="docutils literal notranslate"><span class="pre">pandas</span></code> or SQL?</a><a class="headerlink" href="#introduction-pandas-or-sql" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id2">Introduction: <code class="docutils literal notranslate"><span class="pre">pandas</span></code> or SQL?</a><a class="headerlink" href="#introduction-pandas-or-sql" title="Permalink to this headline">¶</a></h2>
 <p>As we saw in module 7, read operations in SQL not only extract data from a database, but they can select and rename columns, filter and sort rows, join tables, and aggregate data. With <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, we can also select and rename columns, filter and sort rows, join tables, and aggregate data. So the question is, should we be using SQL or <code class="docutils literal notranslate"><span class="pre">pandas</span></code> to perform all these data manipulation steps?</p>
 <p>SQL is sometimes referred to as <strong>server-side</strong> data manipulation, because databases are often stored on remote servers and SQL queries are processed on the server instead on on a local machine. Data manipulation that is conducted using <code class="docutils literal notranslate"><span class="pre">pandas</span></code> on a local Python installation is called <strong>client-side</strong> data manipulation.</p>
 <p>The question of SQL vs. <code class="docutils literal notranslate"><span class="pre">pandas</span></code> (or SQL vs. the tidyverse in R) is the subject of a lot of debate among professionals who use data. The question <a class="reference external" href="https://www.quora.com/In-what-situations-should-you-use-SQL-instead-of-Pandas-as-a-data-scientist">comes up</a> <a class="reference external" href="https://towardsdatascience.com/sql-and-pandas-268f634a4f5d">frequently</a> on <a class="reference external" href="https://www.reddit.com/r/Python/comments/1tqjt4/why_do_you_use_pandas_instead_of_sql/">various</a> <a class="reference external" href="https://datascience.stackexchange.com/questions/34357/why-do-people-prefer-pandas-to-sql">coding forums</a>. Some <a class="reference external" href="https://blog.thedataincubator.com/2018/05/sqlite-vs-pandas-performance-benchmarks/">blog posts</a> have tried to compare SQL and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> in terms of the <a class="reference external" href="https://wesmckinney.com/blog/high-performance-database-joins-with-pandas-dataframe-more-benchmarks/">speed</a> with which they complete equivalent operations, with differing results. <a class="reference external" href="https://medium.com/carwow-product-engineering/sql-vs-pandas-how-to-balance-tasks-between-server-and-client-side-9e2f6c95677">Tina Wenzel and Kavya Gupta</a> note that many factors influence the relative speed of SQL and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> operations, including the configuration of a PostgreSQL database and the bandwidth available in a network connection. They take the mixed evidence into account and conclude that</p>
@@ -420,7 +446,7 @@
 <p>For now, we need to practice both <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and SQL and get comfortable with these tools, and we need to be flexible in the future as different situations will call for SQL or <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
 </section>
 <section id="joining-dataframes">
-<h2><a class="toc-backref" href="#id3"><span class="section-number">9.2. </span>Joining Dataframes</a><a class="headerlink" href="#joining-dataframes" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id3">Joining Dataframes</a><a class="headerlink" href="#joining-dataframes" title="Permalink to this headline">¶</a></h2>
 <p>Joining dataframes is also called merging dataframes, and I will use the words “join” and “merge” interchangeably below. Every kind of merge that is possible in SQL is possible in <code class="docutils literal notranslate"><span class="pre">pandas</span></code>: inner, outer, left, right, natural, cross, and anti-joins. One important difference between joining in SQL and merging in <code class="docutils literal notranslate"><span class="pre">pandas</span></code> is that dataframes might not be as carefully curated as data tables in a relational database, and we should not assume that the join worked properly even if there is no error. Primary keys might not uniquely identify rows in general, and joins might turn into cross joins. Some of values of keys that should match might not match due to differences in coding and spelling. And if we attempt a natural join, the wrong columns might be automatically selected as the keys.</p>
 <p>Too many discussions of merging data provide clean examples. Here I will show you how merging works when the data contain some common problems that may invalidate the merge. In the following discussion, we will discuss how to perform merges in <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, and also how to check that the merge worked in the way we want to.</p>
 <p>First, for the following examples, we load these packages:</p>
@@ -433,7 +459,7 @@
 </div>
 </div>
 <section id="example-merging-data-on-u-s-state-election-results-income-economies-and-area">
-<h3><a class="toc-backref" href="#id4"><span class="section-number">9.2.1. </span>Example: Merging Data on U.S. State Election Results, Income, Economies, and Area</a><a class="headerlink" href="#example-merging-data-on-u-s-state-election-results-income-economies-and-area" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id4">Example: Merging Data on U.S. State Election Results, Income, Economies, and Area</a><a class="headerlink" href="#example-merging-data-on-u-s-state-election-results-income-economies-and-area" title="Permalink to this headline">¶</a></h3>
 <p>The “state_elections.csv” file contains information about the result of presidential elections by state for every presidential election between 1964 and 2004. In this dataset, the primary keys are <code class="docutils literal notranslate"><span class="pre">State</span></code> and <code class="docutils literal notranslate"><span class="pre">year</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1050,7 +1076,7 @@
 <p>Our goal is to merge all five of these datasets together.</p>
 </section>
 <section id="using-the-pd-merge-function">
-<h3><a class="toc-backref" href="#id5"><span class="section-number">9.2.2. </span>Using the <code class="docutils literal notranslate"><span class="pre">pd.merge()</span></code> Function</a><a class="headerlink" href="#using-the-pd-merge-function" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id5">Using the <code class="docutils literal notranslate"><span class="pre">pd.merge()</span></code> Function</a><a class="headerlink" href="#using-the-pd-merge-function" title="Permalink to this headline">¶</a></h3>
 <p>When using a crosswalk to merge dataframes together, the first step is to merge a dataframe with the crosswalk. Here we start by joining the <code class="docutils literal notranslate"><span class="pre">elect</span></code> and <code class="docutils literal notranslate"><span class="pre">crosswalk</span></code> dataframes together. To join dataframes, we use the <code class="docutils literal notranslate"><span class="pre">pd.merge()</span></code> function. The following code works:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1457,7 +1483,7 @@
 </div>
 </section>
 <section id="checking-for-problems-that-can-occur-without-errors">
-<h3><a class="toc-backref" href="#id6"><span class="section-number">9.2.3. </span>Checking for Problems That Can Occur Without Errors</a><a class="headerlink" href="#checking-for-problems-that-can-occur-without-errors" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id6">Checking for Problems That Can Occur Without Errors</a><a class="headerlink" href="#checking-for-problems-that-can-occur-without-errors" title="Permalink to this headline">¶</a></h3>
 <p>Whenever we apply <code class="docutils literal notranslate"><span class="pre">pd.merge()</span></code>, there’s a great risk that the merge was incorrect even if the function runs without error. There are two ways that a merge can fail.</p>
 <p><strong>Problem 1:</strong> what we <em>thought</em> was a unique ID was not a unique ID.</p>
 <p>If we merge two dataframes on a column (or set of columns) that fail to uniquely identify the rows in either dataframe, then <code class="docutils literal notranslate"><span class="pre">pd.merge()</span></code> returns all pairwise combinations of rows with matching IDs. To see this, consider the following two example dataframes:</p>
@@ -1933,7 +1959,7 @@
 </div>
 </section>
 <section id="merging-all-of-the-dataframes-together-while-checking-for-problems">
-<h3><a class="toc-backref" href="#id7"><span class="section-number">9.2.4. </span>Merging all of the Dataframes Together While Checking for Problems</a><a class="headerlink" href="#merging-all-of-the-dataframes-together-while-checking-for-problems" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id7">Merging all of the Dataframes Together While Checking for Problems</a><a class="headerlink" href="#merging-all-of-the-dataframes-together-while-checking-for-problems" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">merged_data</span></code> and <code class="docutils literal notranslate"><span class="pre">income</span></code> dataframes share keys named <code class="docutils literal notranslate"><span class="pre">stcode</span></code> and <code class="docutils literal notranslate"><span class="pre">year</span></code>. Joining these two dataframes should be a one-to-one merge because there should be only one occurrence of the same state and year in each dataframe. We use <code class="docutils literal notranslate"><span class="pre">how='outer'</span></code> and <code class="docutils literal notranslate"><span class="pre">indicator='matched'</span></code> (since we deleted the previous <code class="docutils literal notranslate"><span class="pre">matched</span></code> column) to enable us to filter the result to the unmatched rows, and we use <code class="docutils literal notranslate"><span class="pre">validate='one_to_one'</span></code> to catch anomolies that violate our expectation that this is a one-to-one merge:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3286,10 +3312,10 @@
 </section>
 </section>
 <section id="reshaping-data">
-<h2><a class="toc-backref" href="#id8"><span class="section-number">9.3. </span>Reshaping Data</a><a class="headerlink" href="#reshaping-data" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">Reshaping Data</a><a class="headerlink" href="#reshaping-data" title="Permalink to this headline">¶</a></h2>
 <p><strong>Reshaping</strong> a dataframe refers to turning the rows of a dataframe into columns (also known as a long-to-wide reshape), or turning columns into rows (also known as a wide-to-long reshape), in a way that cannot be accomplished by simply transposing the data matrix. It is also called <strong>pivoting</strong> for a long-to-wide reshape, <strong>melting</strong> for a wide-to-long reshape. It’s a notoriously tricky skill to master, and it helps a lot to understand every part of the function we need, so that we’re not blindly trying every combination of parameters hoping one of these combinations works.</p>
 <section id="example-gross-domestic-product-by-state-1997-2015">
-<h3><a class="toc-backref" href="#id9"><span class="section-number">9.3.1. </span>Example: Gross domestic product by state, 1997-2015</a><a class="headerlink" href="#example-gross-domestic-product-by-state-1997-2015" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id9">Example: Gross domestic product by state, 1997-2015</a><a class="headerlink" href="#example-gross-domestic-product-by-state-1997-2015" title="Permalink to this headline">¶</a></h3>
 <p>To demonstrate the method for pivoting a dataframe, we use example data from the U.S. Bureau of Economic Affairs (<a class="reference external" href="http://www.bea.gov">www.bea.gov</a>) on economic output for the American states. We load the data, skipping the last four rows as these rows contain attribution information and notes, and are not part of the data. We also use the <code class="docutils literal notranslate"><span class="pre">.str.strip()</span></code> method to remove all the leading and trailing whitespace in the <code class="docutils literal notranslate"><span class="pre">Description</span></code> column:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4292,7 +4318,7 @@
 </div>
 </section>
 <section id="melting-turning-columns-to-rows">
-<h3><a class="toc-backref" href="#id10"><span class="section-number">9.3.2. </span>Melting: Turning Columns to Rows</a><a class="headerlink" href="#melting-turning-columns-to-rows" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id10">Melting: Turning Columns to Rows</a><a class="headerlink" href="#melting-turning-columns-to-rows" title="Permalink to this headline">¶</a></h3>
 <p>Notice that many of the columns refer to particular years. We want to move these columns to the rows, so that each state has one row for each year covered in the data. The best function to use when we need to turn columns into rows is <code class="docutils literal notranslate"><span class="pre">pd.melt()</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">id_vars</span><span class="p">,</span> <span class="n">value_vars</span><span class="p">)</span>
 </pre></div>
@@ -4615,7 +4641,7 @@
 </div>
 </section>
 <section id="pivoting-turning-rows-to-columns">
-<h3><a class="toc-backref" href="#id11"><span class="section-number">9.3.3. </span>Pivoting: Turning Rows to Columns</a><a class="headerlink" href="#pivoting-turning-rows-to-columns" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id11">Pivoting: Turning Rows to Columns</a><a class="headerlink" href="#pivoting-turning-rows-to-columns" title="Permalink to this headline">¶</a></h3>
 <p>The rows contain features that we want to move to the columns. Specifically, we need separate columns for the different combinations of <code class="docutils literal notranslate"><span class="pre">ComponentName</span></code> and <code class="docutils literal notranslate"><span class="pre">Description</span></code> since the feature names are contained in two columns, so we can combine these two columns by concatenating them together and creating a new column called “feature”. Then we can drop <code class="docutils literal notranslate"><span class="pre">ComponentName</span></code> and <code class="docutils literal notranslate"><span class="pre">Description</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -5265,7 +5291,7 @@ dtype: object
 </section>
 </section>
 <section id="working-with-strings-example-the-2019-anes-pilot-study">
-<h2><a class="toc-backref" href="#id12"><span class="section-number">9.4. </span>Working with Strings (Example: the 2019 ANES Pilot Study)</a><a class="headerlink" href="#working-with-strings-example-the-2019-anes-pilot-study" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id12">Working with Strings (Example: the 2019 ANES Pilot Study)</a><a class="headerlink" href="#working-with-strings-example-the-2019-anes-pilot-study" title="Permalink to this headline">¶</a></h2>
 <p>In module 8, we worked with the 2019 American National Election Study pilot survey and saved the cleaned data in a separate CSV file:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -6377,7 +6403,7 @@ Name: most_important_issue, Length: 3165, dtype: object
 </div>
 </section>
 <section id="working-with-dates-and-times-example-twitter">
-<h2><a class="toc-backref" href="#id13"><span class="section-number">9.5. </span>Working with Dates and Times (Example: Twitter)</a><a class="headerlink" href="#working-with-dates-and-times-example-twitter" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id13">Working with Dates and Times (Example: Twitter)</a><a class="headerlink" href="#working-with-dates-and-times-example-twitter" title="Permalink to this headline">¶</a></h2>
 <p>In module 4 we discussed Twitter as an example of how to use an API in Python. We save the four credentials we need to access the API (the consumer key, the consumer secret, the access token, and the access token secret) in a .env file, and we load those keys into Python without displaying them in our notebooks by using the <code class="docutils literal notranslate"><span class="pre">dotenv</span></code> package:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -6421,103 +6447,57 @@ Name: most_important_issue, Length: 3165, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TweepError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">8</span><span class="n">k</span><span class="o">/</span><span class="n">ps7r1m2x3_zcd4_dznr8ns1m0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_16040</span><span class="o">/</span><span class="mf">2044521528.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">msg</span> <span class="o">=</span><span class="p">[]</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">Cursor</span><span class="p">(</span><span class="n">api</span><span class="o">.</span><span class="n">search</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="s1">&#39;#uva&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">msg</span> <span class="o">=</span> <span class="p">[</span><span class="n">tweet</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">tweet</span><span class="o">.</span><span class="n">created_at</span><span class="p">,</span> <span class="n">tweet</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">screen_name</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">msg</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
+<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/tweepy/cursor.py</span> in <span class="ni">__next__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">     </span><span class="mi">45</span> 
+<span class="g g-Whitespace">     </span><span class="mi">46</span>     <span class="k">def</span> <span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">47</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span> 
+<span class="g g-Whitespace">     </span><span class="mi">49</span>     <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>text</th>
-      <th>created_at</th>
-      <th>user</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Tony Elliott announces his first official hiri...</td>
-      <td>2021-12-27 20:40:59</td>
-      <td>thesabre</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>RT @RTD_MikeBarber: #UVA outside linebacker No...</td>
-      <td>2021-12-27 20:34:51</td>
-      <td>RedlegsFan30</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>RT @ByDavidTeel: Bronco Mendenhall's time at #...</td>
-      <td>2021-12-27 20:34:07</td>
-      <td>IntheAyer14</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>RT @ByDavidTeel: Bronco Mendenhall's time at #...</td>
-      <td>2021-12-27 20:31:16</td>
-      <td>JohnSchick</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>RT @JacquieFran_: #UVA also announces the hiri...</td>
-      <td>2021-12-27 20:29:10</td>
-      <td>hooamp</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>995</th>
-      <td>RT @cocina_facil_mx: La #uva es una de las fru...</td>
-      <td>2021-12-22 10:49:32</td>
-      <td>AlbaNel51617286</td>
-    </tr>
-    <tr>
-      <th>996</th>
-      <td>RT @UVa_es: El @GrupoTesea #UVA trabaja en el ...</td>
-      <td>2021-12-22 10:44:02</td>
-      <td>CampusMDelibes</td>
-    </tr>
-    <tr>
-      <th>997</th>
-      <td>📝 Oferta de empleo para doctores 📝\n\n💻 Accede...</td>
-      <td>2021-12-22 10:40:44</td>
-      <td>ETSIIAAPalencia</td>
-    </tr>
-    <tr>
-      <th>998</th>
-      <td>El @GrupoTesea #UVA trabaja en el desarrollo d...</td>
-      <td>2021-12-22 10:34:33</td>
-      <td>UVa_es</td>
-    </tr>
-    <tr>
-      <th>999</th>
-      <td>Vind het onbegrijpelijk dat het land in lockdo...</td>
-      <td>2021-12-22 09:58:32</td>
-      <td>hetisfriet11</td>
-    </tr>
-  </tbody>
-</table>
-<p>1000 rows × 3 columns</p>
-</div></div></div>
+<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/tweepy/cursor.py</span> in <span class="ni">next</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">193</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_page</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">page_index</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_page</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">194</span>             <span class="c1"># Reached end of current page, get the next page...</span>
+<span class="ne">--&gt; </span><span class="mi">195</span>             <span class="bp">self</span><span class="o">.</span><span class="n">current_page</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">page_iterator</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">196</span>             <span class="bp">self</span><span class="o">.</span><span class="n">page_index</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="g g-Whitespace">    </span><span class="mi">197</span>         <span class="bp">self</span><span class="o">.</span><span class="n">page_index</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/tweepy/cursor.py</span> in <span class="ni">next</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">104</span> 
+<span class="g g-Whitespace">    </span><span class="mi">105</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">106</span>             <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="p">(</span><span class="n">max_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_id</span><span class="p">,</span> <span class="n">parser</span><span class="o">=</span><span class="n">RawParser</span><span class="p">(),</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">kargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">107</span> 
+<span class="g g-Whitespace">    </span><span class="mi">108</span>             <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="p">,</span> <span class="s1">&#39;__self__&#39;</span><span class="p">):</span>
+
+<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/tweepy/binder.py</span> in <span class="ni">_call</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">248</span>                 <span class="k">return</span> <span class="n">method</span>
+<span class="g g-Whitespace">    </span><span class="mi">249</span>             <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">250</span>                 <span class="k">return</span> <span class="n">method</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">251</span>         <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">252</span>             <span class="n">method</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/tweepy/binder.py</span> in <span class="ni">execute</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">231</span>                     <span class="k">raise</span> <span class="n">RateLimitError</span><span class="p">(</span><span class="n">error_msg</span><span class="p">,</span> <span class="n">resp</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">232</span>                 <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">233</span>                     <span class="k">raise</span> <span class="n">TweepError</span><span class="p">(</span><span class="n">error_msg</span><span class="p">,</span> <span class="n">resp</span><span class="p">,</span> <span class="n">api_code</span><span class="o">=</span><span class="n">api_error_code</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">234</span> 
+<span class="g g-Whitespace">    </span><span class="mi">235</span>             <span class="c1"># Parse the response payload</span>
+
+<span class="ne">TweepError</span>: Twitter error response: status code = 429
+</pre></div>
+</div>
+</div>
 </div>
 <section id="extracting-year-month-day-and-time-from-a-timestamp-column">
-<h3><a class="toc-backref" href="#id14"><span class="section-number">9.5.1. </span>Extracting Year, Month, Day, and Time from a Timestamp Column</a><a class="headerlink" href="#extracting-year-month-day-and-time-from-a-timestamp-column" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id14">Extracting Year, Month, Day, and Time from a Timestamp Column</a><a class="headerlink" href="#extracting-year-month-day-and-time-from-a-timestamp-column" title="Permalink to this headline">¶</a></h3>
 <p>Note that the data contain timestamps that include the date and time, to the second, of each tweet. The <code class="docutils literal notranslate"><span class="pre">created_at</span></code> column has a <code class="docutils literal notranslate"><span class="pre">datetime64</span></code> data type:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -6544,7 +6524,7 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[12, 27, 2021, 20, 40, 59]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[6, 30, 2020, 2, 20, 43]
 </pre></div>
 </div>
 </div>
@@ -6595,63 +6575,63 @@ dtype: object
   <tbody>
     <tr>
       <th>0</th>
-      <td>Tony Elliott announces his first official hiri...</td>
-      <td>2021-12-27 20:40:59</td>
-      <td>thesabre</td>
-      <td>12</td>
-      <td>27</td>
-      <td>2021</td>
+      <td>@KymoraJohnson_ let me call @IamTinaThompson s...</td>
+      <td>2020-06-30 02:20:43</td>
+      <td>SweetLickKing</td>
+      <td>6</td>
+      <td>30</td>
+      <td>2020</td>
+      <td>2</td>
       <td>20</td>
-      <td>40</td>
-      <td>59</td>
+      <td>43</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>RT @RTD_MikeBarber: #UVA outside linebacker No...</td>
-      <td>2021-12-27 20:34:51</td>
-      <td>RedlegsFan30</td>
-      <td>12</td>
-      <td>27</td>
-      <td>2021</td>
-      <td>20</td>
-      <td>34</td>
-      <td>51</td>
+      <td>Congrats Eric. It’s was really great to have w...</td>
+      <td>2020-06-30 02:18:17</td>
+      <td>Daniel_B_Ennis</td>
+      <td>6</td>
+      <td>30</td>
+      <td>2020</td>
+      <td>2</td>
+      <td>18</td>
+      <td>17</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>RT @ByDavidTeel: Bronco Mendenhall's time at #...</td>
-      <td>2021-12-27 20:34:07</td>
-      <td>IntheAyer14</td>
-      <td>12</td>
-      <td>27</td>
-      <td>2021</td>
-      <td>20</td>
-      <td>34</td>
-      <td>7</td>
+      <td>RT @KathrynsScGifts: "OGX Fade-defying + Orchi...</td>
+      <td>2020-06-30 01:55:02</td>
+      <td>blimeyonline1</td>
+      <td>6</td>
+      <td>30</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>55</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>RT @ByDavidTeel: Bronco Mendenhall's time at #...</td>
-      <td>2021-12-27 20:31:16</td>
-      <td>JohnSchick</td>
-      <td>12</td>
-      <td>27</td>
-      <td>2021</td>
-      <td>20</td>
-      <td>31</td>
-      <td>16</td>
+      <td>Former #UVA stars Quin Blanding, Micah Kiser n...</td>
+      <td>2020-06-30 01:40:00</td>
+      <td>Wahoos247</td>
+      <td>6</td>
+      <td>30</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>40</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>RT @JacquieFran_: #UVA also announces the hiri...</td>
-      <td>2021-12-27 20:29:10</td>
-      <td>hooamp</td>
-      <td>12</td>
-      <td>27</td>
-      <td>2021</td>
-      <td>20</td>
-      <td>29</td>
-      <td>10</td>
+      <td>Former #UVA stars Quin Blanding, Micah Kiser n...</td>
+      <td>2020-06-30 01:39:42</td>
+      <td>JamieOakes247</td>
+      <td>6</td>
+      <td>30</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>39</td>
+      <td>42</td>
     </tr>
     <tr>
       <th>...</th>
@@ -6667,63 +6647,63 @@ dtype: object
     </tr>
     <tr>
       <th>995</th>
-      <td>RT @cocina_facil_mx: La #uva es una de las fru...</td>
-      <td>2021-12-22 10:49:32</td>
-      <td>AlbaNel51617286</td>
+      <td>RT @AgNPalabras: #UVA: 54,87. Sube 0,20% diari...</td>
+      <td>2020-06-23 15:12:08</td>
+      <td>norahlfy</td>
+      <td>6</td>
+      <td>23</td>
+      <td>2020</td>
+      <td>15</td>
       <td>12</td>
-      <td>22</td>
-      <td>2021</td>
-      <td>10</td>
-      <td>49</td>
-      <td>32</td>
+      <td>8</td>
     </tr>
     <tr>
       <th>996</th>
-      <td>RT @UVa_es: El @GrupoTesea #UVA trabaja en el ...</td>
-      <td>2021-12-22 10:44:02</td>
-      <td>CampusMDelibes</td>
-      <td>12</td>
-      <td>22</td>
-      <td>2021</td>
-      <td>10</td>
-      <td>44</td>
-      <td>2</td>
+      <td>#UVA: 54,87. Sube 0,20% diario, 1,22% en junio...</td>
+      <td>2020-06-23 15:08:40</td>
+      <td>AgNPalabras</td>
+      <td>6</td>
+      <td>23</td>
+      <td>2020</td>
+      <td>15</td>
+      <td>8</td>
+      <td>40</td>
     </tr>
     <tr>
       <th>997</th>
-      <td>📝 Oferta de empleo para doctores 📝\n\n💻 Accede...</td>
-      <td>2021-12-22 10:40:44</td>
-      <td>ETSIIAAPalencia</td>
-      <td>12</td>
-      <td>22</td>
-      <td>2021</td>
-      <td>10</td>
-      <td>40</td>
-      <td>44</td>
+      <td>Zur Einstimmung #UVA vom letzten #gig bei uns ...</td>
+      <td>2020-06-23 14:52:23</td>
+      <td>WeAppU</td>
+      <td>6</td>
+      <td>23</td>
+      <td>2020</td>
+      <td>14</td>
+      <td>52</td>
+      <td>23</td>
     </tr>
     <tr>
       <th>998</th>
-      <td>El @GrupoTesea #UVA trabaja en el desarrollo d...</td>
-      <td>2021-12-22 10:34:33</td>
-      <td>UVa_es</td>
-      <td>12</td>
+      <td>RT @JLuis_Sommelier: #Mosto: jugo obtenido de ...</td>
+      <td>2020-06-23 14:49:22</td>
+      <td>VirialexViri</td>
+      <td>6</td>
+      <td>23</td>
+      <td>2020</td>
+      <td>14</td>
+      <td>49</td>
       <td>22</td>
-      <td>2021</td>
-      <td>10</td>
-      <td>34</td>
-      <td>33</td>
     </tr>
     <tr>
       <th>999</th>
-      <td>Vind het onbegrijpelijk dat het land in lockdo...</td>
-      <td>2021-12-22 09:58:32</td>
-      <td>hetisfriet11</td>
-      <td>12</td>
-      <td>22</td>
-      <td>2021</td>
-      <td>9</td>
-      <td>58</td>
+      <td>Good question... My instinct says Ty Jerome, b...</td>
+      <td>2020-06-23 14:32:44</td>
+      <td>The_Superhoo</td>
+      <td>6</td>
+      <td>23</td>
+      <td>2020</td>
+      <td>14</td>
       <td>32</td>
+      <td>44</td>
     </tr>
   </tbody>
 </table>
@@ -6732,7 +6712,7 @@ dtype: object
 </div>
 </section>
 <section id="generating-timestamps-from-separate-month-day-and-year-columns">
-<h3><a class="toc-backref" href="#id15"><span class="section-number">9.5.2. </span>Generating Timestamps from Separate Month, Day, and Year Columns</a><a class="headerlink" href="#generating-timestamps-from-separate-month-day-and-year-columns" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id15">Generating Timestamps from Separate Month, Day, and Year Columns</a><a class="headerlink" href="#generating-timestamps-from-separate-month-day-and-year-columns" title="Permalink to this headline">¶</a></h3>
 <p>Sometimes raw data will come to us with these time elements already placed in separate columns, so that we have a <code class="docutils literal notranslate"><span class="pre">month</span></code>, <code class="docutils literal notranslate"><span class="pre">day</span></code>, and <code class="docutils literal notranslate"><span class="pre">year</span></code> column but no <code class="docutils literal notranslate"><span class="pre">date</span></code> column. There are important advantages to placing all this information in one column in values that Python understands as timestamps: timestamps are easier to filter, manipulate, index, and plot. To create one timestamp from separate columns that contain the month, day, and year (and optionally the hour, minute, and second), use the <code class="docutils literal notranslate"><span class="pre">pd.to_datatime</span></code> function:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
@@ -6780,68 +6760,68 @@ dtype: object
   <tbody>
     <tr>
       <th>0</th>
-      <td>Tony Elliott announces his first official hiri...</td>
-      <td>2021-12-27 20:40:59</td>
-      <td>thesabre</td>
-      <td>12</td>
-      <td>27</td>
-      <td>2021</td>
+      <td>@KymoraJohnson_ let me call @IamTinaThompson s...</td>
+      <td>2020-06-30 02:20:43</td>
+      <td>SweetLickKing</td>
+      <td>6</td>
+      <td>30</td>
+      <td>2020</td>
+      <td>2</td>
       <td>20</td>
-      <td>40</td>
-      <td>59</td>
-      <td>2021-12-27 20:40:59</td>
+      <td>43</td>
+      <td>2020-06-30 02:20:43</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>RT @RTD_MikeBarber: #UVA outside linebacker No...</td>
-      <td>2021-12-27 20:34:51</td>
-      <td>RedlegsFan30</td>
-      <td>12</td>
-      <td>27</td>
-      <td>2021</td>
-      <td>20</td>
-      <td>34</td>
-      <td>51</td>
-      <td>2021-12-27 20:34:51</td>
+      <td>Congrats Eric. It’s was really great to have w...</td>
+      <td>2020-06-30 02:18:17</td>
+      <td>Daniel_B_Ennis</td>
+      <td>6</td>
+      <td>30</td>
+      <td>2020</td>
+      <td>2</td>
+      <td>18</td>
+      <td>17</td>
+      <td>2020-06-30 02:18:17</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>RT @ByDavidTeel: Bronco Mendenhall's time at #...</td>
-      <td>2021-12-27 20:34:07</td>
-      <td>IntheAyer14</td>
-      <td>12</td>
-      <td>27</td>
-      <td>2021</td>
-      <td>20</td>
-      <td>34</td>
-      <td>7</td>
-      <td>2021-12-27 20:34:07</td>
+      <td>RT @KathrynsScGifts: "OGX Fade-defying + Orchi...</td>
+      <td>2020-06-30 01:55:02</td>
+      <td>blimeyonline1</td>
+      <td>6</td>
+      <td>30</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>55</td>
+      <td>2</td>
+      <td>2020-06-30 01:55:02</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>RT @ByDavidTeel: Bronco Mendenhall's time at #...</td>
-      <td>2021-12-27 20:31:16</td>
-      <td>JohnSchick</td>
-      <td>12</td>
-      <td>27</td>
-      <td>2021</td>
-      <td>20</td>
-      <td>31</td>
-      <td>16</td>
-      <td>2021-12-27 20:31:16</td>
+      <td>Former #UVA stars Quin Blanding, Micah Kiser n...</td>
+      <td>2020-06-30 01:40:00</td>
+      <td>Wahoos247</td>
+      <td>6</td>
+      <td>30</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>40</td>
+      <td>0</td>
+      <td>2020-06-30 01:40:00</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>RT @JacquieFran_: #UVA also announces the hiri...</td>
-      <td>2021-12-27 20:29:10</td>
-      <td>hooamp</td>
-      <td>12</td>
-      <td>27</td>
-      <td>2021</td>
-      <td>20</td>
-      <td>29</td>
-      <td>10</td>
-      <td>2021-12-27 20:29:10</td>
+      <td>Former #UVA stars Quin Blanding, Micah Kiser n...</td>
+      <td>2020-06-30 01:39:42</td>
+      <td>JamieOakes247</td>
+      <td>6</td>
+      <td>30</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>39</td>
+      <td>42</td>
+      <td>2020-06-30 01:39:42</td>
     </tr>
     <tr>
       <th>...</th>
@@ -6858,68 +6838,68 @@ dtype: object
     </tr>
     <tr>
       <th>995</th>
-      <td>RT @cocina_facil_mx: La #uva es una de las fru...</td>
-      <td>2021-12-22 10:49:32</td>
-      <td>AlbaNel51617286</td>
+      <td>RT @AgNPalabras: #UVA: 54,87. Sube 0,20% diari...</td>
+      <td>2020-06-23 15:12:08</td>
+      <td>norahlfy</td>
+      <td>6</td>
+      <td>23</td>
+      <td>2020</td>
+      <td>15</td>
       <td>12</td>
-      <td>22</td>
-      <td>2021</td>
-      <td>10</td>
-      <td>49</td>
-      <td>32</td>
-      <td>2021-12-22 10:49:32</td>
+      <td>8</td>
+      <td>2020-06-23 15:12:08</td>
     </tr>
     <tr>
       <th>996</th>
-      <td>RT @UVa_es: El @GrupoTesea #UVA trabaja en el ...</td>
-      <td>2021-12-22 10:44:02</td>
-      <td>CampusMDelibes</td>
-      <td>12</td>
-      <td>22</td>
-      <td>2021</td>
-      <td>10</td>
-      <td>44</td>
-      <td>2</td>
-      <td>2021-12-22 10:44:02</td>
+      <td>#UVA: 54,87. Sube 0,20% diario, 1,22% en junio...</td>
+      <td>2020-06-23 15:08:40</td>
+      <td>AgNPalabras</td>
+      <td>6</td>
+      <td>23</td>
+      <td>2020</td>
+      <td>15</td>
+      <td>8</td>
+      <td>40</td>
+      <td>2020-06-23 15:08:40</td>
     </tr>
     <tr>
       <th>997</th>
-      <td>📝 Oferta de empleo para doctores 📝\n\n💻 Accede...</td>
-      <td>2021-12-22 10:40:44</td>
-      <td>ETSIIAAPalencia</td>
-      <td>12</td>
-      <td>22</td>
-      <td>2021</td>
-      <td>10</td>
-      <td>40</td>
-      <td>44</td>
-      <td>2021-12-22 10:40:44</td>
+      <td>Zur Einstimmung #UVA vom letzten #gig bei uns ...</td>
+      <td>2020-06-23 14:52:23</td>
+      <td>WeAppU</td>
+      <td>6</td>
+      <td>23</td>
+      <td>2020</td>
+      <td>14</td>
+      <td>52</td>
+      <td>23</td>
+      <td>2020-06-23 14:52:23</td>
     </tr>
     <tr>
       <th>998</th>
-      <td>El @GrupoTesea #UVA trabaja en el desarrollo d...</td>
-      <td>2021-12-22 10:34:33</td>
-      <td>UVa_es</td>
-      <td>12</td>
+      <td>RT @JLuis_Sommelier: #Mosto: jugo obtenido de ...</td>
+      <td>2020-06-23 14:49:22</td>
+      <td>VirialexViri</td>
+      <td>6</td>
+      <td>23</td>
+      <td>2020</td>
+      <td>14</td>
+      <td>49</td>
       <td>22</td>
-      <td>2021</td>
-      <td>10</td>
-      <td>34</td>
-      <td>33</td>
-      <td>2021-12-22 10:34:33</td>
+      <td>2020-06-23 14:49:22</td>
     </tr>
     <tr>
       <th>999</th>
-      <td>Vind het onbegrijpelijk dat het land in lockdo...</td>
-      <td>2021-12-22 09:58:32</td>
-      <td>hetisfriet11</td>
-      <td>12</td>
-      <td>22</td>
-      <td>2021</td>
-      <td>9</td>
-      <td>58</td>
+      <td>Good question... My instinct says Ty Jerome, b...</td>
+      <td>2020-06-23 14:32:44</td>
+      <td>The_Superhoo</td>
+      <td>6</td>
+      <td>23</td>
+      <td>2020</td>
+      <td>14</td>
       <td>32</td>
-      <td>2021-12-22 09:58:32</td>
+      <td>44</td>
+      <td>2020-06-23 14:32:44</td>
     </tr>
   </tbody>
 </table>
@@ -6951,7 +6931,7 @@ dtype: object
 </div>
 </section>
 <section id="converting-string-columns-to-timestamps">
-<h3><a class="toc-backref" href="#id16"><span class="section-number">9.5.3. </span>Converting String Columns to Timestamps</a><a class="headerlink" href="#converting-string-columns-to-timestamps" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id16">Converting String Columns to Timestamps</a><a class="headerlink" href="#converting-string-columns-to-timestamps" title="Permalink to this headline">¶</a></h3>
 <p>Sometimes information about the date and time of an event in the data will be coded as a string. In that case, to use the time series functionality on the dates in a dataframe, a string column that contains the dates and times will need to be converted to the <code class="docutils literal notranslate"><span class="pre">datetime64</span></code> data type. The best way to do that is to use the <code class="docutils literal notranslate"><span class="pre">pd.to_datetime()</span></code> function once again. This time, we pass the column that contains the dates in string format to the <code class="docutils literal notranslate"><span class="pre">pd.to_datetime()</span></code> function. This function can identify the year, month, day, hour, minute, and second from many different formats.</p>
 <p>For example, we can write the date Sunday, June 19, 2016 at 8:00 PM (the date and time of game 7 of the 2016 NBA finals, the greatest moment in sports history) in many different ways such as:</p>
 <ul class="simple">
@@ -7073,7 +7053,7 @@ dtype: object
 </div>
 </section>
 <section id="filtering-rows-based-on-date-ranges">
-<h3><a class="toc-backref" href="#id17"><span class="section-number">9.5.4. </span>Filtering Rows Based on Date Ranges</a><a class="headerlink" href="#filtering-rows-based-on-date-ranges" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id17">Filtering Rows Based on Date Ranges</a><a class="headerlink" href="#filtering-rows-based-on-date-ranges" title="Permalink to this headline">¶</a></h3>
 <p>If every row in the data has a unique timestamp, then one convenient way to use the times to filter the data is to set the <strong>index</strong> (the row labels) to be equal to the timestamps:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -7090,10 +7070,6 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:1: FutureWarning: Indexing a DataFrame with a datetimelike index using a single string to slice the rows, like `frame[string]`, is deprecated and will be removed in a future version. Use `frame.loc[string]` instead.
-  &quot;&quot;&quot;Entry point for launching an IPython kernel.
-</pre></div>
-</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -7138,6 +7114,123 @@ dtype: object
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <th>2020-06-30 02:20:43</th>
+      <td>@KymoraJohnson_ let me call @IamTinaThompson s...</td>
+      <td>2020-06-30 02:20:43</td>
+      <td>SweetLickKing</td>
+      <td>6</td>
+      <td>30</td>
+      <td>2020</td>
+      <td>2</td>
+      <td>20</td>
+      <td>43</td>
+      <td>2020-06-30 02:20:43</td>
+    </tr>
+    <tr>
+      <th>2020-06-30 02:18:17</th>
+      <td>Congrats Eric. It’s was really great to have w...</td>
+      <td>2020-06-30 02:18:17</td>
+      <td>Daniel_B_Ennis</td>
+      <td>6</td>
+      <td>30</td>
+      <td>2020</td>
+      <td>2</td>
+      <td>18</td>
+      <td>17</td>
+      <td>2020-06-30 02:18:17</td>
+    </tr>
+    <tr>
+      <th>2020-06-30 01:55:02</th>
+      <td>RT @KathrynsScGifts: "OGX Fade-defying + Orchi...</td>
+      <td>2020-06-30 01:55:02</td>
+      <td>blimeyonline1</td>
+      <td>6</td>
+      <td>30</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>55</td>
+      <td>2</td>
+      <td>2020-06-30 01:55:02</td>
+    </tr>
+    <tr>
+      <th>2020-06-30 01:40:00</th>
+      <td>Former #UVA stars Quin Blanding, Micah Kiser n...</td>
+      <td>2020-06-30 01:40:00</td>
+      <td>Wahoos247</td>
+      <td>6</td>
+      <td>30</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>40</td>
+      <td>0</td>
+      <td>2020-06-30 01:40:00</td>
+    </tr>
+    <tr>
+      <th>2020-06-30 01:39:42</th>
+      <td>Former #UVA stars Quin Blanding, Micah Kiser n...</td>
+      <td>2020-06-30 01:39:42</td>
+      <td>JamieOakes247</td>
+      <td>6</td>
+      <td>30</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>39</td>
+      <td>42</td>
+      <td>2020-06-30 01:39:42</td>
+    </tr>
+    <tr>
+      <th>2020-06-30 01:30:45</th>
+      <td>RT @ThinakaranLK: சில இடங்களில் மழை பெய்யும் ச...</td>
+      <td>2020-06-30 01:30:45</td>
+      <td>sumanebot</td>
+      <td>6</td>
+      <td>30</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>30</td>
+      <td>45</td>
+      <td>2020-06-30 01:30:45</td>
+    </tr>
+    <tr>
+      <th>2020-06-30 01:08:08</th>
+      <td>We are🎉excited to🗣announce opening for in-pers...</td>
+      <td>2020-06-30 01:08:08</td>
+      <td>GrandMarc_UVA</td>
+      <td>6</td>
+      <td>30</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>8</td>
+      <td>8</td>
+      <td>2020-06-30 01:08:08</td>
+    </tr>
+    <tr>
+      <th>2020-06-30 00:20:15</th>
+      <td>RT @cavalierinsider: On Saturday, The Basketba...</td>
+      <td>2020-06-30 00:20:15</td>
+      <td>annefutch</td>
+      <td>6</td>
+      <td>30</td>
+      <td>2020</td>
+      <td>0</td>
+      <td>20</td>
+      <td>15</td>
+      <td>2020-06-30 00:20:15</td>
+    </tr>
+    <tr>
+      <th>2020-06-30 00:19:00</th>
+      <td>Anthony Harris part of NFL's top safety tandem...</td>
+      <td>2020-06-30 00:19:00</td>
+      <td>hoosdaily</td>
+      <td>6</td>
+      <td>30</td>
+      <td>2020</td>
+      <td>0</td>
+      <td>19</td>
+      <td>0</td>
+      <td>2020-06-30 00:19:00</td>
+    </tr>
   </tbody>
 </table>
 </div></div></div>
@@ -7150,10 +7243,6 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:1: FutureWarning: Value based partial slicing on non-monotonic DatetimeIndexes with non-existing keys is deprecated and will raise a KeyError in a future Version.
-  &quot;&quot;&quot;Entry point for launching an IPython kernel.
-</pre></div>
-</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -7198,6 +7287,188 @@ dtype: object
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <th>2020-06-29 14:54:31</th>
+      <td>UVa alumni team opts out of 2020 TBT, plans to...</td>
+      <td>2020-06-29 14:54:31</td>
+      <td>hoosdaily</td>
+      <td>6</td>
+      <td>29</td>
+      <td>2020</td>
+      <td>14</td>
+      <td>54</td>
+      <td>31</td>
+      <td>2020-06-29 14:54:31</td>
+    </tr>
+    <tr>
+      <th>2020-06-29 14:54:26</th>
+      <td>Ben Wallace Is a Proud Dad of Three Kids — Mee...</td>
+      <td>2020-06-29 14:54:26</td>
+      <td>hoosdaily</td>
+      <td>6</td>
+      <td>29</td>
+      <td>2020</td>
+      <td>14</td>
+      <td>54</td>
+      <td>26</td>
+      <td>2020-06-29 14:54:26</td>
+    </tr>
+    <tr>
+      <th>2020-06-29 14:51:16</th>
+      <td>Inicia Sonora exportación de uva a Corea del S...</td>
+      <td>2020-06-29 14:51:16</td>
+      <td>AgroTratos</td>
+      <td>6</td>
+      <td>29</td>
+      <td>2020</td>
+      <td>14</td>
+      <td>51</td>
+      <td>16</td>
+      <td>2020-06-29 14:51:16</td>
+    </tr>
+    <tr>
+      <th>2020-06-29 14:50:46</th>
+      <td>RT @Wahoos247: Wake Forest commitment Christia...</td>
+      <td>2020-06-29 14:50:46</td>
+      <td>FatWhite101</td>
+      <td>6</td>
+      <td>29</td>
+      <td>2020</td>
+      <td>14</td>
+      <td>50</td>
+      <td>46</td>
+      <td>2020-06-29 14:50:46</td>
+    </tr>
+    <tr>
+      <th>2020-06-29 14:42:28</th>
+      <td>RT @Cavs_Corner: Film Room: In the next instal...</td>
+      <td>2020-06-29 14:42:28</td>
+      <td>oleuva</td>
+      <td>6</td>
+      <td>29</td>
+      <td>2020</td>
+      <td>14</td>
+      <td>42</td>
+      <td>28</td>
+      <td>2020-06-29 14:42:28</td>
+    </tr>
+    <tr>
+      <th>2020-06-29 14:40:56</th>
+      <td>RT @cavalierinsider: On Saturday, The Basketba...</td>
+      <td>2020-06-29 14:40:56</td>
+      <td>John_Shifflett</td>
+      <td>6</td>
+      <td>29</td>
+      <td>2020</td>
+      <td>14</td>
+      <td>40</td>
+      <td>56</td>
+      <td>2020-06-29 14:40:56</td>
+    </tr>
+    <tr>
+      <th>2020-06-29 14:37:11</th>
+      <td>Tatil planları yapmaya başladıysan sana harika...</td>
+      <td>2020-06-29 14:37:11</td>
+      <td>YasinALTINEL</td>
+      <td>6</td>
+      <td>29</td>
+      <td>2020</td>
+      <td>14</td>
+      <td>37</td>
+      <td>11</td>
+      <td>2020-06-29 14:37:11</td>
+    </tr>
+    <tr>
+      <th>2020-06-29 14:35:52</th>
+      <td>On Saturday, The Basketball Tournament will be...</td>
+      <td>2020-06-29 14:35:52</td>
+      <td>cavalierinsider</td>
+      <td>6</td>
+      <td>29</td>
+      <td>2020</td>
+      <td>14</td>
+      <td>35</td>
+      <td>52</td>
+      <td>2020-06-29 14:35:52</td>
+    </tr>
+    <tr>
+      <th>2020-06-29 14:29:17</th>
+      <td>Jesse Rutherford of the Nelson County Board of...</td>
+      <td>2020-06-29 14:29:17</td>
+      <td>JerryMillerNow</td>
+      <td>6</td>
+      <td>29</td>
+      <td>2020</td>
+      <td>14</td>
+      <td>29</td>
+      <td>17</td>
+      <td>2020-06-29 14:29:17</td>
+    </tr>
+    <tr>
+      <th>2020-06-29 14:20:58</th>
+      <td>RT @thesabre: NewsLink is updated! #UVA sports...</td>
+      <td>2020-06-29 14:20:58</td>
+      <td>Slider_Hoos</td>
+      <td>6</td>
+      <td>29</td>
+      <td>2020</td>
+      <td>14</td>
+      <td>20</td>
+      <td>58</td>
+      <td>2020-06-29 14:20:58</td>
+    </tr>
+    <tr>
+      <th>2020-06-29 14:20:44</th>
+      <td>RT @Wahoos247: Wake Forest commitment Christia...</td>
+      <td>2020-06-29 14:20:44</td>
+      <td>agee_brandon</td>
+      <td>6</td>
+      <td>29</td>
+      <td>2020</td>
+      <td>14</td>
+      <td>20</td>
+      <td>44</td>
+      <td>2020-06-29 14:20:44</td>
+    </tr>
+    <tr>
+      <th>2020-06-29 14:18:33</th>
+      <td>Ramseyer fondly recalls Cavs' perfect regular ...</td>
+      <td>2020-06-29 14:18:33</td>
+      <td>hoosdaily</td>
+      <td>6</td>
+      <td>29</td>
+      <td>2020</td>
+      <td>14</td>
+      <td>18</td>
+      <td>33</td>
+      <td>2020-06-29 14:18:33</td>
+    </tr>
+    <tr>
+      <th>2020-06-29 14:15:32</th>
+      <td>Ben Wallace Is a Proud Dad of Three Kids — Mee...</td>
+      <td>2020-06-29 14:15:32</td>
+      <td>hoosdaily</td>
+      <td>6</td>
+      <td>29</td>
+      <td>2020</td>
+      <td>14</td>
+      <td>15</td>
+      <td>32</td>
+      <td>2020-06-29 14:15:32</td>
+    </tr>
+    <tr>
+      <th>2020-06-29 14:11:08</th>
+      <td>NewsLink is updated! #UVA sports links all in ...</td>
+      <td>2020-06-29 14:11:08</td>
+      <td>thesabre</td>
+      <td>6</td>
+      <td>29</td>
+      <td>2020</td>
+      <td>14</td>
+      <td>11</td>
+      <td>8</td>
+      <td>2020-06-29 14:11:08</td>
+    </tr>
   </tbody>
 </table>
 </div></div></div>
@@ -7254,13 +7525,157 @@ dtype: object
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <th>2020-06-30 02:20:43</th>
+      <td>@KymoraJohnson_ let me call @IamTinaThompson s...</td>
+      <td>2020-06-30 02:20:43</td>
+      <td>SweetLickKing</td>
+      <td>6</td>
+      <td>30</td>
+      <td>2020</td>
+      <td>2</td>
+      <td>20</td>
+      <td>43</td>
+      <td>2020-06-30 02:20:43</td>
+    </tr>
+    <tr>
+      <th>2020-06-30 02:18:17</th>
+      <td>Congrats Eric. It’s was really great to have w...</td>
+      <td>2020-06-30 02:18:17</td>
+      <td>Daniel_B_Ennis</td>
+      <td>6</td>
+      <td>30</td>
+      <td>2020</td>
+      <td>2</td>
+      <td>18</td>
+      <td>17</td>
+      <td>2020-06-30 02:18:17</td>
+    </tr>
+    <tr>
+      <th>2020-06-30 01:55:02</th>
+      <td>RT @KathrynsScGifts: "OGX Fade-defying + Orchi...</td>
+      <td>2020-06-30 01:55:02</td>
+      <td>blimeyonline1</td>
+      <td>6</td>
+      <td>30</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>55</td>
+      <td>2</td>
+      <td>2020-06-30 01:55:02</td>
+    </tr>
+    <tr>
+      <th>2020-06-30 01:40:00</th>
+      <td>Former #UVA stars Quin Blanding, Micah Kiser n...</td>
+      <td>2020-06-30 01:40:00</td>
+      <td>Wahoos247</td>
+      <td>6</td>
+      <td>30</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>40</td>
+      <td>0</td>
+      <td>2020-06-30 01:40:00</td>
+    </tr>
+    <tr>
+      <th>2020-06-30 01:39:42</th>
+      <td>Former #UVA stars Quin Blanding, Micah Kiser n...</td>
+      <td>2020-06-30 01:39:42</td>
+      <td>JamieOakes247</td>
+      <td>6</td>
+      <td>30</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>39</td>
+      <td>42</td>
+      <td>2020-06-30 01:39:42</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2020-06-29 15:38:19</th>
+      <td>#UvA Last week a number of practicals started ...</td>
+      <td>2020-06-29 15:38:19</td>
+      <td>JJ_Angelus</td>
+      <td>6</td>
+      <td>29</td>
+      <td>2020</td>
+      <td>15</td>
+      <td>38</td>
+      <td>19</td>
+      <td>2020-06-29 15:38:19</td>
+    </tr>
+    <tr>
+      <th>2020-06-29 15:27:34</th>
+      <td>Playing through: UVa golfers hone their games ...</td>
+      <td>2020-06-29 15:27:34</td>
+      <td>hoosdaily</td>
+      <td>6</td>
+      <td>29</td>
+      <td>2020</td>
+      <td>15</td>
+      <td>27</td>
+      <td>34</td>
+      <td>2020-06-29 15:27:34</td>
+    </tr>
+    <tr>
+      <th>2020-06-29 15:27:29</th>
+      <td>Playing through: UVa golfers hone their games ...</td>
+      <td>2020-06-29 15:27:29</td>
+      <td>hoosdaily</td>
+      <td>6</td>
+      <td>29</td>
+      <td>2020</td>
+      <td>15</td>
+      <td>27</td>
+      <td>29</td>
+      <td>2020-06-29 15:27:29</td>
+    </tr>
+    <tr>
+      <th>2020-06-29 15:27:21</th>
+      <td>Ramseyer fondly recalls Cavs' perfect regular ...</td>
+      <td>2020-06-29 15:27:21</td>
+      <td>hoosdaily</td>
+      <td>6</td>
+      <td>29</td>
+      <td>2020</td>
+      <td>15</td>
+      <td>27</td>
+      <td>21</td>
+      <td>2020-06-29 15:27:21</td>
+    </tr>
+    <tr>
+      <th>2020-06-29 15:06:57</th>
+      <td>While many college athletes have been unable t...</td>
+      <td>2020-06-29 15:06:57</td>
+      <td>cavalierinsider</td>
+      <td>6</td>
+      <td>29</td>
+      <td>2020</td>
+      <td>15</td>
+      <td>6</td>
+      <td>57</td>
+      <td>2020-06-29 15:06:57</td>
+    </tr>
   </tbody>
 </table>
+<p>71 rows × 10 columns</p>
 </div></div></div>
 </div>
 </section>
 <section id="leads-and-lags">
-<h3><a class="toc-backref" href="#id18"><span class="section-number">9.5.5. </span>Leads and Lags</a><a class="headerlink" href="#leads-and-lags" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id18">Leads and Lags</a><a class="headerlink" href="#leads-and-lags" title="Permalink to this headline">¶</a></h3>
 <p>In time series data in which the rows represent particular points in time in descending chronological order, a <strong>lag</strong> is a column that contains the values of another column shifted up one cell. That is, if the rows represent days, and a column represents today’s high temperature, the lag represents yesterday’s high temperature. A <strong>lead</strong> is a existing column with its values shifted one row down: tomorrow’s high temperature.</p>
 <p>To create a lead or a lag, apply the <code class="docutils literal notranslate"><span class="pre">.shift()</span></code> method to a dataframe. The argument of <code class="docutils literal notranslate"><span class="pre">.shift()</span></code> is an integer: positive integers shift values down, creating leads, and negative values shift values up, creating lags. Whenever we shift values up or down, we create new missing values at the top or bottom of the dataframe for the lead or lagged column.</p>
 <p>For example, in the <code class="docutils literal notranslate"><span class="pre">tweets</span></code> dataframe we can create two new columns, <code class="docutils literal notranslate"><span class="pre">previous_tweet</span></code> and <code class="docutils literal notranslate"><span class="pre">next_tweet</span></code> to compare with <code class="docutils literal notranslate"><span class="pre">text</span></code> by using <code class="docutils literal notranslate"><span class="pre">.shift(-1)</span></code> and <code class="docutils literal notranslate"><span class="pre">.shift(1)</span></code>:</p>
@@ -7304,34 +7719,34 @@ dtype: object
   </thead>
   <tbody>
     <tr>
-      <th>2021-12-27 20:40:59</th>
-      <td>Tony Elliott announces his first official hiri...</td>
-      <td>RT @RTD_MikeBarber: #UVA outside linebacker No...</td>
+      <th>2020-06-30 02:20:43</th>
+      <td>@KymoraJohnson_ let me call @IamTinaThompson s...</td>
+      <td>Congrats Eric. It’s was really great to have w...</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>2021-12-27 20:34:51</th>
-      <td>RT @RTD_MikeBarber: #UVA outside linebacker No...</td>
-      <td>RT @ByDavidTeel: Bronco Mendenhall's time at #...</td>
-      <td>Tony Elliott announces his first official hiri...</td>
+      <th>2020-06-30 02:18:17</th>
+      <td>Congrats Eric. It’s was really great to have w...</td>
+      <td>RT @KathrynsScGifts: "OGX Fade-defying + Orchi...</td>
+      <td>@KymoraJohnson_ let me call @IamTinaThompson s...</td>
     </tr>
     <tr>
-      <th>2021-12-27 20:34:07</th>
-      <td>RT @ByDavidTeel: Bronco Mendenhall's time at #...</td>
-      <td>RT @ByDavidTeel: Bronco Mendenhall's time at #...</td>
-      <td>RT @RTD_MikeBarber: #UVA outside linebacker No...</td>
+      <th>2020-06-30 01:55:02</th>
+      <td>RT @KathrynsScGifts: "OGX Fade-defying + Orchi...</td>
+      <td>Former #UVA stars Quin Blanding, Micah Kiser n...</td>
+      <td>Congrats Eric. It’s was really great to have w...</td>
     </tr>
     <tr>
-      <th>2021-12-27 20:31:16</th>
-      <td>RT @ByDavidTeel: Bronco Mendenhall's time at #...</td>
-      <td>RT @JacquieFran_: #UVA also announces the hiri...</td>
-      <td>RT @ByDavidTeel: Bronco Mendenhall's time at #...</td>
+      <th>2020-06-30 01:40:00</th>
+      <td>Former #UVA stars Quin Blanding, Micah Kiser n...</td>
+      <td>Former #UVA stars Quin Blanding, Micah Kiser n...</td>
+      <td>RT @KathrynsScGifts: "OGX Fade-defying + Orchi...</td>
     </tr>
     <tr>
-      <th>2021-12-27 20:29:10</th>
-      <td>RT @JacquieFran_: #UVA also announces the hiri...</td>
-      <td>RT @JacquieFran_: #UVA officially announces OL...</td>
-      <td>RT @ByDavidTeel: Bronco Mendenhall's time at #...</td>
+      <th>2020-06-30 01:39:42</th>
+      <td>Former #UVA stars Quin Blanding, Micah Kiser n...</td>
+      <td>RT @ThinakaranLK: சில இடங்களில் மழை பெய்யும் ச...</td>
+      <td>Former #UVA stars Quin Blanding, Micah Kiser n...</td>
     </tr>
     <tr>
       <th>...</th>
@@ -7340,34 +7755,34 @@ dtype: object
       <td>...</td>
     </tr>
     <tr>
-      <th>2021-12-22 10:49:32</th>
-      <td>RT @cocina_facil_mx: La #uva es una de las fru...</td>
-      <td>RT @UVa_es: El @GrupoTesea #UVA trabaja en el ...</td>
-      <td>RT @Juancgomex: @Infconstruccion Alberto le so...</td>
+      <th>2020-06-23 15:12:08</th>
+      <td>RT @AgNPalabras: #UVA: 54,87. Sube 0,20% diari...</td>
+      <td>#UVA: 54,87. Sube 0,20% diario, 1,22% en junio...</td>
+      <td>WATCH: Top plays of UVA's 2019-20 basketball s...</td>
     </tr>
     <tr>
-      <th>2021-12-22 10:44:02</th>
-      <td>RT @UVa_es: El @GrupoTesea #UVA trabaja en el ...</td>
-      <td>📝 Oferta de empleo para doctores 📝\n\n💻 Accede...</td>
-      <td>RT @cocina_facil_mx: La #uva es una de las fru...</td>
+      <th>2020-06-23 15:08:40</th>
+      <td>#UVA: 54,87. Sube 0,20% diario, 1,22% en junio...</td>
+      <td>Zur Einstimmung #UVA vom letzten #gig bei uns ...</td>
+      <td>RT @AgNPalabras: #UVA: 54,87. Sube 0,20% diari...</td>
     </tr>
     <tr>
-      <th>2021-12-22 10:40:44</th>
-      <td>📝 Oferta de empleo para doctores 📝\n\n💻 Accede...</td>
-      <td>El @GrupoTesea #UVA trabaja en el desarrollo d...</td>
-      <td>RT @UVa_es: El @GrupoTesea #UVA trabaja en el ...</td>
+      <th>2020-06-23 14:52:23</th>
+      <td>Zur Einstimmung #UVA vom letzten #gig bei uns ...</td>
+      <td>RT @JLuis_Sommelier: #Mosto: jugo obtenido de ...</td>
+      <td>#UVA: 54,87. Sube 0,20% diario, 1,22% en junio...</td>
     </tr>
     <tr>
-      <th>2021-12-22 10:34:33</th>
-      <td>El @GrupoTesea #UVA trabaja en el desarrollo d...</td>
-      <td>Vind het onbegrijpelijk dat het land in lockdo...</td>
-      <td>📝 Oferta de empleo para doctores 📝\n\n💻 Accede...</td>
+      <th>2020-06-23 14:49:22</th>
+      <td>RT @JLuis_Sommelier: #Mosto: jugo obtenido de ...</td>
+      <td>Good question... My instinct says Ty Jerome, b...</td>
+      <td>Zur Einstimmung #UVA vom letzten #gig bei uns ...</td>
     </tr>
     <tr>
-      <th>2021-12-22 09:58:32</th>
-      <td>Vind het onbegrijpelijk dat het land in lockdo...</td>
+      <th>2020-06-23 14:32:44</th>
+      <td>Good question... My instinct says Ty Jerome, b...</td>
       <td>NaN</td>
-      <td>El @GrupoTesea #UVA trabaja en el desarrollo d...</td>
+      <td>RT @JLuis_Sommelier: #Mosto: jugo obtenido de ...</td>
     </tr>
   </tbody>
 </table>
@@ -7403,8 +7818,8 @@ dtype: object
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="ch8.html" title="previous page"><span class="section-number">8. </span>Data Wrangling with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a>
-    <a class='right-next' id="next-link" href="ch10.html" title="next page"><span class="section-number">10. </span>Exploratory Data Analysis</a>
+    <a class='left-prev' id="prev-link" href="ch8.html" title="previous page">Data Wrangling with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a>
+    <a class='right-next' id="next-link" href="ch10.html" title="next page">Exploratory Data Analysis</a>
 
         </div>
         

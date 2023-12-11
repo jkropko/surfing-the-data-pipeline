@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>1. Getting Yourself Unstuck &#8212; Surfing the Data Pipeline with Python</title>
+    <title>Getting Yourself Unstuck &#8212; Surfing the Data Pipeline with Python</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -52,7 +52,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="2. Loading Data from Electronic Data Files" href="ch2.html" />
+    <link rel="next" title="Loading Data from Electronic Data Files" href="ch2.html" />
     <link rel="prev" title="Surfing the Data Pipeline with Python" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -90,30 +90,42 @@
   </a>
  </li>
 </ul>
+<p class="caption">
+ <span class="caption-text">
+  Get Started
+ </span>
+</p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   1. Getting Yourself Unstuck
+   Getting Yourself Unstuck
   </a>
  </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Get Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="ch2.html">
-   2. Loading Data from Electronic Data Files
+   Loading Data from Electronic Data Files
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ch3.html">
-   3. Loading, Converting, and Writing JSON Files
+   Loading, Converting, and Writing JSON Files
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ch4.html">
-   4. Acquiring Data from APIs
+   Acquiring Data from APIs
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ch5.html">
-   5. Web Scraping Using
+   Web Scraping Using
    <code class="docutils literal notranslate">
     <span class="pre">
      BeautifulSoup
@@ -123,17 +135,24 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ch6.html">
-   6. Creating and Connecting to Databases
+   Creating and Connecting to Databases
   </a>
  </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Wrangle Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="ch7.html">
-   7. Database Queries
+   Database Queries
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ch8.html">
-   8. Data Wrangling with
+   Data Wrangling with
    <code class="docutils literal notranslate">
     <span class="pre">
      pandas
@@ -143,22 +162,29 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ch9.html">
-   9. Reshaping and Merging Data and Working with Strings, Dates, and Times
+   Reshaping and Merging Data and Working with Strings, Dates, and Times
   </a>
  </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Explore and Communicate Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="ch10.html">
-   10. Exploratory Data Analysis
+   Exploratory Data Analysis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ch11.html">
-   11. Static Data Visualizations
+   Static Data Visualizations
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ch12.html">
-   12. Interactive Data Visualizations and Dashboards
+   Interactive Data Visualizations and Dashboards
   </a>
  </li>
 </ul>
@@ -251,76 +277,81 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction">
-   1.1. Introduction
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#being-a-data-scientist-means-knowing-how-to-get-yourself-unstuck">
+   Being a Data Scientist Means Knowing How to Get Yourself Unstuck
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-places-to-go-for-help-in-order">
-   1.2. The Places to Go For Help, In Order
+   The Places to Go For Help, In Order
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#method-1-reading-and-understanding-python-errors">
-   1.3. Method 1: Reading and Understanding Python Errors
+   Method 1: Reading and Understanding Python Errors
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#method-2-using-the-built-in-python-documentation">
-   1.4. Method 2: Using the Built-in Python Documentation
+   Method 2: Using the Built-in Python Documentation
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#using-a-console-window-in-jupyterlab">
-     1.4.1. Using a Console Window in JupyterLab
+     Using a Console Window in JupyterLab
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#how-to-call-up-and-read-a-docstring">
-     1.4.2. How to Call Up and Read a Docstring
+     How to Call Up and Read a Docstring
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#method-3-using-google-and-other-search-engines">
-   1.5. Method 3: Using Google and Other Search Engines
+   Method 3: Using Google and Other Search Engines
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#how-to-avoid-toxicity-in-online-communities">
-   1.6. How to Avoid Toxicity in Online Communities
+   How to Avoid Toxicity in Online Communities
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#method-4-stack-overflow">
-   1.7. Method 4: Stack Overflow
+   Method 4: Stack Overflow
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#how-stack-overflow-works">
-     1.7.1. How Stack Overflow Works
+     How Stack Overflow Works
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#asking-a-question-on-stack-overflow">
-     1.7.2. Asking a Question on Stack Overflow
+     Asking a Question on Stack Overflow
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#method-5-python-slack">
-   1.8. Method 5: Python Slack
+  <a class="reference internal nav-link" href="#method-5-python-slack-and-discord">
+   Method 5: Python Slack and Discord
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#method-6-live-chats-with-python-users-on-freenode">
-   1.9. Method 6: Live Chats With Python Users on Freenode
+   Method 6: Live Chats With Python Users on Freenode
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#method-7-python-mailing-lists-and-newsgroups">
-   1.10. Method 7: Python Mailing Lists and Newsgroups
+   Method 7: Python Mailing Lists and Newsgroups
   </a>
  </li>
 </ul>
@@ -335,156 +366,117 @@
               <div>
                 
   <section id="getting-yourself-unstuck">
-<h1><a class="toc-backref" href="#id1"><span class="section-number">1. </span>Getting Yourself Unstuck</a><a class="headerlink" href="#getting-yourself-unstuck" title="Permalink to this headline">¶</a></h1>
+<h1><a class="toc-backref" href="#id1">Getting Yourself Unstuck</a><a class="headerlink" href="#getting-yourself-unstuck" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="table-of-contents">
 <p class="topic-title">Table of Contents</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#getting-yourself-unstuck" id="id1">Getting Yourself Unstuck</a></p>
 <ul>
 <li><p><a class="reference internal" href="#introduction" id="id2">Introduction</a></p></li>
-<li><p><a class="reference internal" href="#the-places-to-go-for-help-in-order" id="id3">The Places to Go For Help, In Order</a></p></li>
-<li><p><a class="reference internal" href="#method-1-reading-and-understanding-python-errors" id="id4">Method 1: Reading and Understanding Python Errors</a></p></li>
-<li><p><a class="reference internal" href="#method-2-using-the-built-in-python-documentation" id="id5">Method 2: Using the Built-in Python Documentation</a></p>
+<li><p><a class="reference internal" href="#being-a-data-scientist-means-knowing-how-to-get-yourself-unstuck" id="id3">Being a Data Scientist Means Knowing How to Get Yourself Unstuck</a></p></li>
+<li><p><a class="reference internal" href="#the-places-to-go-for-help-in-order" id="id4">The Places to Go For Help, In Order</a></p></li>
+<li><p><a class="reference internal" href="#method-1-reading-and-understanding-python-errors" id="id5">Method 1: Reading and Understanding Python Errors</a></p></li>
+<li><p><a class="reference internal" href="#method-2-using-the-built-in-python-documentation" id="id6">Method 2: Using the Built-in Python Documentation</a></p>
 <ul>
-<li><p><a class="reference internal" href="#using-a-console-window-in-jupyterlab" id="id6">Using a Console Window in JupyterLab</a></p></li>
-<li><p><a class="reference internal" href="#how-to-call-up-and-read-a-docstring" id="id7">How to Call Up and Read a Docstring</a></p></li>
+<li><p><a class="reference internal" href="#using-a-console-window-in-jupyterlab" id="id7">Using a Console Window in JupyterLab</a></p></li>
+<li><p><a class="reference internal" href="#how-to-call-up-and-read-a-docstring" id="id8">How to Call Up and Read a Docstring</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#method-3-using-google-and-other-search-engines" id="id8">Method 3: Using Google and Other Search Engines</a></p></li>
-<li><p><a class="reference internal" href="#how-to-avoid-toxicity-in-online-communities" id="id9">How to Avoid Toxicity in Online Communities</a></p></li>
-<li><p><a class="reference internal" href="#method-4-stack-overflow" id="id10">Method 4: Stack Overflow</a></p>
+<li><p><a class="reference internal" href="#method-3-using-google-and-other-search-engines" id="id9">Method 3: Using Google and Other Search Engines</a></p></li>
+<li><p><a class="reference internal" href="#how-to-avoid-toxicity-in-online-communities" id="id10">How to Avoid Toxicity in Online Communities</a></p></li>
+<li><p><a class="reference internal" href="#method-4-stack-overflow" id="id11">Method 4: Stack Overflow</a></p>
 <ul>
-<li><p><a class="reference internal" href="#how-stack-overflow-works" id="id11">How Stack Overflow Works</a></p></li>
-<li><p><a class="reference internal" href="#asking-a-question-on-stack-overflow" id="id12">Asking a Question on Stack Overflow</a></p></li>
+<li><p><a class="reference internal" href="#how-stack-overflow-works" id="id12">How Stack Overflow Works</a></p></li>
+<li><p><a class="reference internal" href="#asking-a-question-on-stack-overflow" id="id13">Asking a Question on Stack Overflow</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#method-5-python-slack" id="id13">Method 5: Python Slack</a></p></li>
-<li><p><a class="reference internal" href="#method-6-live-chats-with-python-users-on-freenode" id="id14">Method 6: Live Chats With Python Users on Freenode</a></p></li>
-<li><p><a class="reference internal" href="#method-7-python-mailing-lists-and-newsgroups" id="id15">Method 7: Python Mailing Lists and Newsgroups</a></p></li>
+<li><p><a class="reference internal" href="#method-5-python-slack-and-discord" id="id14">Method 5: Python Slack and Discord</a></p></li>
+<li><p><a class="reference internal" href="#method-6-live-chats-with-python-users-on-freenode" id="id15">Method 6: Live Chats With Python Users on Freenode</a></p></li>
+<li><p><a class="reference internal" href="#method-7-python-mailing-lists-and-newsgroups" id="id16">Method 7: Python Mailing Lists and Newsgroups</a></p></li>
 </ul>
 </li>
 </ul>
 </div>
 <section id="introduction">
-<h2><a class="toc-backref" href="#id2"><span class="section-number">1.1. </span>Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>Welcome to DS 6001: Practice and Application of Data Science! In this course, we will focus on the <strong>data pipeline</strong>.</p>
-<figure>
-  <img src="https://cdn.pixabay.com/photo/2016/03/09/15/16/wave-1246560_1280.jpg" width="600" alt="Image of a surfer">
- <figcaption>
-Source <a href="https://pixabay.com/photos/wave-surfer-sport-sea-surf-water-1246560">pixabay.com</a>
- </figcaption>
-</figure>
-<p>The pipeline refers to all of the steps needed to go from <strong>raw, messy, original data</strong> to data that is ready for any kind of analysis. In the real world, data is almost never ready to be analyzed without a great deal of work to prepare the data first. <a class="reference external" href="https://www.forbes.com/sites/gilpress/2016/03/23/data-preparation-most-time-consuming-least-enjoyable-data-science-task-survey-says/#3ebb8cd06f63">This article in Forbes</a> describes a survey of data scientists in which the respondents claim to spend nearly 80% of their time collecting and cleaning data.
-<img src="https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fblogs-images.forbes.com%2Fgilpress%2Ffiles%2F2016%2F03%2FTime-1200x511.jpg" alt="Apologies for the pie chart, it will be the last one we see in this course" width="600"/></p>
-<p>The goal of this course is to make this huge part of the job easier, faster, less frustrating, and more enjoyable for you. The techniques we will discuss are not the only ways to accomplish a task, but they represent fast and straightforward ways to do the work.</p>
-<p>This course is divided into three parts:</p>
+<h2><a class="toc-backref" href="#id2">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Modeling and analytics get the lion’s share of attention in the classroom in data science programs, but in the real world, data is almost never ready to be analyzed without a great deal of work to prepare the data first. <a class="reference external" href="https://www.forbes.com/sites/gilpress/2016/03/23/data-preparation-most-time-consuming-least-enjoyable-data-science-task-survey-says/#3ebb8cd06f63">This article in Forbes</a> describes a survey of data scientists in which the respondents claim to spend nearly 80% of their time collecting and cleaning data.</p>
+<center><img src="https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fblogs-images.forbes.com%2Fgilpress%2Ffiles%2F2016%2F03%2FTime-1200x511.jpg" alt="Apologies for the pie chart, it will be the last one we see in this course" width="600"/> 
+<p style="text-align: center;"><b>Source:</b>
+<a href="https://www.forbes.com/sites/gilpress/2016/03/23/data-preparation-most-time-consuming-least-enjoyable-data-science-task-survey-says/?sh=ee9be706f637">'Cleaning Big Data: Most Time-Consuming, Least Enjoyable Data Science Task, Survey Says' by Gil Press</a>
+</p></center>
+<p>In many classroom settings, a professor will give the students a cleaned dataset and will task the students with running a predictive model using the data. In practice, before this kind of modeling can be done, data scientists have to identify the data they need, get access to the data, and find a way for the data to be loaded into a Python environment. That might mean loading data from files or APIs, or extracting data from webpages, or accessing a database. Then data scientists have to manipulate the data so that it is exactly in the format an analytic model expects, and that often involves mastery of SQL and the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> package to manipulate rows and columns of a data matrix, merge and pivot data tables, handle missing data, recode and combine categorical values, along with a myriad of other tasks. And after using a final version of a model to get results, yet more work is needed to communicate the output in a clear way that allows that audience to draw fast and accurate conclusions using data visualizations and interactive dashboards.</p>
+<p>The phrase <strong>data pipeline</strong> refers to all of the steps needed to go from raw, messy, original data to data that are ready to explore and analyze to the products we share to communicate results to an external audience.</p>
+<p>The goal of this book is to make the steps in the data pipeline other than modeling - acquiring, wrangling, and communicating data - easier, faster, less frustrating, and more enjoyable for you. The techniques we will discuss are not the only ways to accomplish a task, but they represent fast and straightforward ways to do the work using Python.</p>
+<p>This book is divided into three parts beyond this introductory chapter:</p>
 <ol start="1">
     <li> <b>How do we acquire data?</b></li>
 </ol>
 <ul class="simple">
-<li><p>From external files with flat, tabular structure (Module 2)</p></li>
-<li><p>From JSONs, often from APIs (Modules 3 and 4)</p></li>
-<li><p>From web-scraping using <code class="docutils literal notranslate"><span class="pre">beautifulsoup</span></code> (Module 5)</p></li>
-<li><p>From remote access to an SQL database (Modules 6-7)</p></li>
+<li><p>From external files with flat, tabular structure (Chapter 2)</p></li>
+<li><p>From JSONs, often from APIs (Chapters 3 and 4)</p></li>
+<li><p>From web-scraping using <code class="docutils literal notranslate"><span class="pre">beautifulsoup</span></code> (Chapter 5)</p></li>
+<li><p>From local or remote access to an SQL or NoSQL database (Chapters 6-7)</p></li>
 </ul>
 <ol start="2">
-    <li> <b>How do we clean data?</b></li>
+    <li> <b>How do we clean/wrangle/manipulate data to prepare the data to be analyzed?</b></li>
 </ol>
 <ul class="simple">
-<li><p>With SQL queries (Modules 6-7)</p></li>
-<li><p>With <code class="docutils literal notranslate"><span class="pre">pandas</span></code> (Module 8)</p></li>
-<li><p>Including merging and reshaping dataframes (Module 9)</p></li>
+<li><p>With SQL queries (Chapter 7)</p></li>
+<li><p>With <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, including merging and reshaping dataframes (Chapters 8-9)</p></li>
 </ul>
 <ol start="3">
-    <li> <b>How do we perform simple analyses to understand our data?</b></li>
+    <li> <b>How do we explore data and communicate findings?</b></li>
 </ol>
 <ul class="simple">
-<li><p>With summary and descriptive statistics tables (Module 10)</p></li>
-<li><p>With static visualizations using <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> and <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> (Module 11)</p></li>
-<li><p>With interactive visualizations using <code class="docutils literal notranslate"><span class="pre">plotly</span></code> (Module 12)</p></li>
+<li><p>With summary and descriptive statistics tables (Chapter 10)</p></li>
+<li><p>With static visualizations using <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> and <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> (Chapter 11)</p></li>
+<li><p>With interactive visualizations using <code class="docutils literal notranslate"><span class="pre">plotly</span></code> (Chapter 12)</p></li>
 </ul>
-<p>However, prior to launching into the data pipeline, we have to talk about the single most important skill for a data scientist: <strong>how to get yourself unstuck</strong>. That is, how to find the help you need to solve the inevitable problems, errors, and anomalies that will occur as you code. Remember, being a great data scientist does NOT mean doing everything perfectly. Great data scientists make mistakes just as often as anyone else. What sets them apart is their skill in using help resources to get to the <strong>right answer, as quickly as possible</strong>. In this notebook, we will discuss the various methods and resources at your disposal for finding help, and the <em>order</em> in which you should employ each resource. If you practice these skills for getting yourself unstuck, you won’t have any trouble squashing all the bugs in your code.</p>
-<img src="http://phdcomics.com/comics/archive/phd011406s.gif" width="600"></section>
+<p>However, prior to launching into the data pipeline, we have to talk about the single most important skill for a data scientist: <strong>how to get yourself unstuck</strong>.</p>
+</section>
+<section id="being-a-data-scientist-means-knowing-how-to-get-yourself-unstuck">
+<h2><a class="toc-backref" href="#id3">Being a Data Scientist Means Knowing How to Get Yourself Unstuck</a><a class="headerlink" href="#being-a-data-scientist-means-knowing-how-to-get-yourself-unstuck" title="Permalink to this headline">¶</a></h2>
+<p>Most of you reading this book would describe yourselves as beginners with Python code and the practice of data science. Being a beginner is a wonderful thing. As a beginner, the rate at which you are learning new skills is faster than it will be at any other point in your career. And the feeling of accomplishment you will feel by writing working code can and should be profound. But one drawback of being a beginner is the feeling of being judged or viewed as insufficient in comparison to more experienced coders who have much more of this programming language memorized. <a class="reference external" href="https://en.wikipedia.org/wiki/Impostor_syndrome">Imposter syndrome</a>, a persistent feeling of doubt in one’s skills and the feeling of being a fraud, is especially common for students who are just starting out in a new field. And it’s only natural to look at people who type and execute code at furious speeds and to think of yourself as an imposter, especially when you keep getting errors when you try to execute your code.</p>
+<p>But here’s the secret: problems, errors, and anomalies in your code are inevitable. And that’s true whether you are a beginner or a programmer with decades of experience. It would be accurate to describe a workday of a data scientist as moving from one error to the next to the next. It is simply the nature of using a big programming language like Python that includes so many user-written and open source extensions. So you will feel at times like all you do is generate errors with your code. This feeling is natural, and it is a universal feeling that all data scientists share regardless of their experience level. What sets experienced data scientists apart is their skill in using help resources fix bugs and to to get to the right answer, <strong>as quickly as possible</strong>.</p>
+<p>As a student, you often have access to an instructor who can answer questions and help you work out the bugs in your code. But as a practitioner you might not have access to someone with the experience and time to help you with your code in a one-on-one way. Some proprietary software sells access to helplines and consulting, but open source projects like Python depend on the community of Python users to provide this support. The more popular an open source software package the bigger the community and the better the resources to help programmers solve problems. And it just so happens that <a class="reference external" href="https://linuxiac.com/python-the-most-popular-programming-language/">Python is the most popular programming language in the world</a>, and there are some incredible resources available to anyone working with Python. So the most important skill to master to become an advanced data programmer is participating in this community to quickly find answers to the problems that arise as you code.</p>
+<p>In this chapter, we will discuss the various methods and resources at your disposal for finding help. Some of the methods provide quick assistance but focus on smaller issues, some methods are slower but help you solve harder problems, and some methods are only useful for certain situations. In general, it is best practice to start with quicker methods and to only move to slower methods if you can’t find a solution with a quicker one; so there is an <em>order</em> in which you should employ each resource. If you practice using these help methods and memorize the order in which to try using each one, you won’t have any trouble squashing all the bugs in your code.</p>
+<center><img src="http://phdcomics.com/comics/archive/phd011406s.gif" width="600">
+<p style="text-align: center;"><b>Source:</b>
+<a href="https://phdcomics.com/comics/archive.php/archive/tellafriend.php?comicid=673">Ph.D. Comics, "Debugging", by Jorge Cham</a>
+</p></center></section>
 <section id="the-places-to-go-for-help-in-order">
-<h2><a class="toc-backref" href="#id3"><span class="section-number">1.2. </span>The Places to Go For Help, In Order</a><a class="headerlink" href="#the-places-to-go-for-help-in-order" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id4">The Places to Go For Help, In Order</a><a class="headerlink" href="#the-places-to-go-for-help-in-order" title="Permalink to this headline">¶</a></h2>
 <p>There are many resources available to you. I suggest using the following resources in a particular order:</p>
 <ol class="simple">
 <li><p>Reading and understanding Python errors</p></li>
 <li><p>Python documentation</p></li>
 <li><p>Google</p></li>
 <li><p>Stack Overflow</p></li>
-<li><p>PySlackers</p></li>
+<li><p>PySlackers and Python Discord</p></li>
 <li><p>Internet relay chat (IRC) rooms with other Python users</p></li>
 <li><p>Various Python mailing lists</p></li>
 </ol>
-<p>See <a class="reference external" href="https://www.python.org/community/">https://www.python.org/community/</a> for more information about these resources.</p>
+<p>Several of these resources are ones which are officially recognized and recommended by the Python Software Foundation, the nonprofit organization that maintains the official Python distribution. See  <a class="reference external" href="https://www.python.org/community/">https://www.python.org/community/</a> for more information about these resources.</p>
 <p>Please notice, many programmers use Google and Stack Overflow as their first options for getting help. I strongly suggest that you do <strong>not</strong> look to Google and Stack Overflow before trying to use the official Python built-in documentation. The documentation isn’t as intuitive and easy to access as Google, but the answers that the official documentation will provide are guaranteed to be correct and specific to the functions you are trying to use, if you know what those functions are. In contrast, for all of the strengths of Google and Stack Overflow, there is a lot of information out there that isn’t especially helpful and will slow you down a great deal.</p>
 </section>
 <section id="method-1-reading-and-understanding-python-errors">
-<h2><a class="toc-backref" href="#id4"><span class="section-number">1.3. </span>Method 1: Reading and Understanding Python Errors</a><a class="headerlink" href="#method-1-reading-and-understanding-python-errors" title="Permalink to this headline">¶</a></h2>
-<p>Usually, when you are stuck, it’s because you ran some code that resulted in an error. Reading and understanding the error is the single most important and useful way to get yourself unstuck. These errors are not aesthetically pleasing, and they are written in technical language, but the <em>intention</em> of these error messages is to tell you exactly what went wrong. Many Python users skip reading the errors entirely, which is a shame because the error might indicate exactly the fastest way to solve the problem.</p>
+<h2><a class="toc-backref" href="#id5">Method 1: Reading and Understanding Python Errors</a><a class="headerlink" href="#method-1-reading-and-understanding-python-errors" title="Permalink to this headline">¶</a></h2>
+<p>Usually, when you are stuck, it’s because you ran some code that resulted in an error. Reading and <em>understanding</em> the error is the single most important and useful way to get yourself unstuck. These errors are not aesthetically pleasing, and they are written in technical language, but the intention of these error messages is to tell you exactly what went wrong. Many new Python users skip reading the errors entirely, which is a shame because the error might indicate exactly the fastest way to solve the problem.</p>
 <p>There are two reasons why people skip over reading the errors:</p>
 <ol class="simple">
 <li><p>The error appears in a big pink box with pea green and cyan text inside of it. It’s pretty ugly.</p></li>
 <li><p>The first several lines of code are reserved for a function’s <strong>traceback</strong>. The traceback is an attempt to isolate the particular line of code within a larger function that causes the error. However, the traceback is often very technical and not especially useful. After reading the first few lines of the traceback, most people give up on the entire error message.</p></li>
 </ol>
-<p>But the useful part of the error message occurs <strong>at the bottom of the message</strong>. The traceback is useful when developing new functions and debugging original software. But for the vast majority of the time, whenever you are using pre-programmed functions, only the bottom of the error message matters.</p>
-<p>For example, in the next module we will discuss loading electonic data files. Many things can go wrong. One error we will contend with comes from the following code:</p>
+<p>But the useful part of the error message occurs <strong>at the bottom of the message</strong>. The traceback is useful when developing new functions and debugging original software. But the vast majority of the time, whenever you are using pre-programmed functions, only the bottom of the error message matters.</p>
+<p>For example, in chapter 2 we will discuss loading electonic data files. Many things can go wrong. One error we will contend with comes from the following code:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">read_csv</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/jkropko/DS-6001/master/localdata/anes_example_toplines.csv&quot;</span>
 <span class="n">anes</span> <span class="o">=</span> <span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>What this code is supposed to do is not important at the moment. It produces the following error output:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------------------</span>
-<span class="n">ParserError</span>                               <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">15</span><span class="o">-</span><span class="n">f4f15a0ffe03</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-      <span class="mi">1</span> <span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">read_csv</span>
-      <span class="mi">2</span> <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/jkropko/DS-6001/master/localdata/anes_example_toplines.csv&quot;</span>
-<span class="o">----&gt;</span> <span class="mi">3</span> <span class="n">anes</span> <span class="o">=</span> <span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-
-<span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.7</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">pandas</span><span class="o">/</span><span class="n">io</span><span class="o">/</span><span class="n">parsers</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="n">parser_f</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">sep</span><span class="p">,</span> <span class="n">delimiter</span><span class="p">,</span> <span class="n">header</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">index_col</span><span class="p">,</span> <span class="n">usecols</span><span class="p">,</span> <span class="n">squeeze</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">mangle_dupe_cols</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">converters</span><span class="p">,</span> <span class="n">true_values</span><span class="p">,</span> <span class="n">false_values</span><span class="p">,</span> <span class="n">skipinitialspace</span><span class="p">,</span> <span class="n">skiprows</span><span class="p">,</span> <span class="n">skipfooter</span><span class="p">,</span> <span class="n">nrows</span><span class="p">,</span> <span class="n">na_values</span><span class="p">,</span> <span class="n">keep_default_na</span><span class="p">,</span> <span class="n">na_filter</span><span class="p">,</span> <span class="n">verbose</span><span class="p">,</span> <span class="n">skip_blank_lines</span><span class="p">,</span> <span class="n">parse_dates</span><span class="p">,</span> <span class="n">infer_datetime_format</span><span class="p">,</span> <span class="n">keep_date_col</span><span class="p">,</span> <span class="n">date_parser</span><span class="p">,</span> <span class="n">dayfirst</span><span class="p">,</span> <span class="n">cache_dates</span><span class="p">,</span> <span class="n">iterator</span><span class="p">,</span> <span class="n">chunksize</span><span class="p">,</span> <span class="n">compression</span><span class="p">,</span> <span class="n">thousands</span><span class="p">,</span> <span class="n">decimal</span><span class="p">,</span> <span class="n">lineterminator</span><span class="p">,</span> <span class="n">quotechar</span><span class="p">,</span> <span class="n">quoting</span><span class="p">,</span> <span class="n">doublequote</span><span class="p">,</span> <span class="n">escapechar</span><span class="p">,</span> <span class="n">comment</span><span class="p">,</span> <span class="n">encoding</span><span class="p">,</span> <span class="n">dialect</span><span class="p">,</span> <span class="n">error_bad_lines</span><span class="p">,</span> <span class="n">warn_bad_lines</span><span class="p">,</span> <span class="n">delim_whitespace</span><span class="p">,</span> <span class="n">low_memory</span><span class="p">,</span> <span class="n">memory_map</span><span class="p">,</span> <span class="n">float_precision</span><span class="p">)</span>
-    <span class="mi">674</span>         <span class="p">)</span>
-    <span class="mi">675</span> 
-<span class="o">--&gt;</span> <span class="mi">676</span>         <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-    <span class="mi">677</span> 
-    <span class="mi">678</span>     <span class="n">parser_f</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="n">name</span>
-
-<span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.7</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">pandas</span><span class="o">/</span><span class="n">io</span><span class="o">/</span><span class="n">parsers</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-    <span class="mi">452</span> 
-    <span class="mi">453</span>     <span class="k">try</span><span class="p">:</span>
-<span class="o">--&gt;</span> <span class="mi">454</span>         <span class="n">data</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">nrows</span><span class="p">)</span>
-    <span class="mi">455</span>     <span class="k">finally</span><span class="p">:</span>
-    <span class="mi">456</span>         <span class="n">parser</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-<span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.7</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">pandas</span><span class="o">/</span><span class="n">io</span><span class="o">/</span><span class="n">parsers</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="n">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nrows</span><span class="p">)</span>
-   <span class="mi">1131</span>     <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-   <span class="mi">1132</span>         <span class="n">nrows</span> <span class="o">=</span> <span class="n">_validate_integer</span><span class="p">(</span><span class="s2">&quot;nrows&quot;</span><span class="p">,</span> <span class="n">nrows</span><span class="p">)</span>
-<span class="o">-&gt;</span> <span class="mi">1133</span>         <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">nrows</span><span class="p">)</span>
-   <span class="mi">1134</span> 
-   <span class="mi">1135</span>         <span class="c1"># May alter columns / col_dict</span>
-
-<span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.7</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">pandas</span><span class="o">/</span><span class="n">io</span><span class="o">/</span><span class="n">parsers</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="n">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nrows</span><span class="p">)</span>
-   <span class="mi">2035</span>     <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-   <span class="mi">2036</span>         <span class="k">try</span><span class="p">:</span>
-<span class="o">-&gt;</span> <span class="mi">2037</span>             <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">nrows</span><span class="p">)</span>
-   <span class="mi">2038</span>         <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
-   <span class="mi">2039</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_first_chunk</span><span class="p">:</span>
-
-<span class="n">pandas</span><span class="o">/</span><span class="n">_libs</span><span class="o">/</span><span class="n">parsers</span><span class="o">.</span><span class="n">pyx</span> <span class="ow">in</span> <span class="n">pandas</span><span class="o">.</span><span class="n">_libs</span><span class="o">.</span><span class="n">parsers</span><span class="o">.</span><span class="n">TextReader</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-
-<span class="n">pandas</span><span class="o">/</span><span class="n">_libs</span><span class="o">/</span><span class="n">parsers</span><span class="o">.</span><span class="n">pyx</span> <span class="ow">in</span> <span class="n">pandas</span><span class="o">.</span><span class="n">_libs</span><span class="o">.</span><span class="n">parsers</span><span class="o">.</span><span class="n">TextReader</span><span class="o">.</span><span class="n">_read_low_memory</span><span class="p">()</span>
-
-<span class="n">pandas</span><span class="o">/</span><span class="n">_libs</span><span class="o">/</span><span class="n">parsers</span><span class="o">.</span><span class="n">pyx</span> <span class="ow">in</span> <span class="n">pandas</span><span class="o">.</span><span class="n">_libs</span><span class="o">.</span><span class="n">parsers</span><span class="o">.</span><span class="n">TextReader</span><span class="o">.</span><span class="n">_read_rows</span><span class="p">()</span>
-
-<span class="n">pandas</span><span class="o">/</span><span class="n">_libs</span><span class="o">/</span><span class="n">parsers</span><span class="o">.</span><span class="n">pyx</span> <span class="ow">in</span> <span class="n">pandas</span><span class="o">.</span><span class="n">_libs</span><span class="o">.</span><span class="n">parsers</span><span class="o">.</span><span class="n">TextReader</span><span class="o">.</span><span class="n">_tokenize_rows</span><span class="p">()</span>
-
-<span class="n">pandas</span><span class="o">/</span><span class="n">_libs</span><span class="o">/</span><span class="n">parsers</span><span class="o">.</span><span class="n">pyx</span> <span class="ow">in</span> <span class="n">pandas</span><span class="o">.</span><span class="n">_libs</span><span class="o">.</span><span class="n">parsers</span><span class="o">.</span><span class="n">raise_parser_error</span><span class="p">()</span>
-
-<span class="n">ParserError</span><span class="p">:</span> <span class="n">Error</span> <span class="n">tokenizing</span> <span class="n">data</span><span class="o">.</span> <span class="n">C</span> <span class="n">error</span><span class="p">:</span> <span class="n">Expected</span> <span class="mi">1</span> <span class="n">fields</span> <span class="ow">in</span> <span class="n">line</span> <span class="mi">5</span><span class="p">,</span> <span class="n">saw</span> <span class="mi">168</span>
-</pre></div>
-</div>
-<p>None of this output helps me understand my mistake until I reach the final line that begins <code class="docutils literal notranslate"><span class="pre">ParserError</span></code>. With a little bit of experience, I can understand this error: it says that it expected the fifth row of the data file to have one column, but instead it found 168 columns. That’s useful, but I had to wade through dozens of lines of technicality to arrive at the useful error message.</p>
+<p>What this code is supposed to do is not important at the moment. It produces the following error output:
+<img alt="" src="_images/error.png" /></p>
+<p>None of this output helps me understand my mistake until I reach the final line that begins <code class="docutils literal notranslate"><span class="pre">ParserError</span></code>. With a little bit of experience, I can understand this error: it says that it expected the fifth row of the data file to have one column, but instead it found 168 columns. That’s useful - it tells me that the first four rows of the data file do not contain the data I need, probably because the data authors put text or citation information at the top of the file - but I had to wade through dozens of lines of technicality to arrive at the useful error message.</p>
 <p>I recommend turning off the traceback to make reading error messages easier. To do this, load the <code class="docutils literal notranslate"><span class="pre">sys</span></code> library and issue the following command:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -495,27 +487,8 @@ Source <a href="https://pixabay.com/photos/wave-surfer-sport-sea-surf-water-1246
 </div>
 </div>
 <p>Now, when I use the same code, I get a different error output:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ERROR</span><span class="p">:</span><span class="n">root</span><span class="p">:</span><span class="n">Internal</span> <span class="n">Python</span> <span class="n">error</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">inspect</span> <span class="n">module</span><span class="o">.</span>
-<span class="n">Below</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">traceback</span> <span class="kn">from</span> <span class="nn">this</span> <span class="n">internal</span> <span class="n">error</span><span class="o">.</span>
-
-<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-<span class="n">pandas</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">ParserError</span><span class="p">:</span> <span class="n">Error</span> <span class="n">tokenizing</span> <span class="n">data</span><span class="o">.</span> <span class="n">C</span> <span class="n">error</span><span class="p">:</span> <span class="n">Expected</span> <span class="mi">1</span> <span class="n">fields</span> <span class="ow">in</span> <span class="n">line</span> <span class="mi">5</span><span class="p">,</span> <span class="n">saw</span> <span class="mi">168</span>
-
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-<span class="ne">AttributeError</span><span class="p">:</span> <span class="s1">&#39;ParserError&#39;</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s1">&#39;_render_traceback_&#39;</span>
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-<span class="ne">AssertionError</span>
-
-<span class="o">---------------------------------------------------------------------------</span>
-</pre></div>
-</div>
-<p>I can’t say that this error output is pretty or intuitive in and of itself, but relative to the previous error message this output has some nice properties. First, it is shorter (and there’s less pink). Second, and most importantly, the useful part of the error message appears near the top of the output.</p>
+<p><img alt="" src="_images/error2.png" /></p>
+<p>I can’t say that this error output is pretty or intuitive in and of itself, but relative to the previous error message this output has some nice properties. First, it is shorter (and there’s less pink). Second, and most importantly, the useful part of the error message appears much closer to the top of the output, so there’s less scrolling involved and the error takes up less of your Jupyter notebook.</p>
 <p>To turn the traceback back on, simply type:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -526,24 +499,37 @@ Source <a href="https://pixabay.com/photos/wave-surfer-sport-sea-surf-water-1246
 </div>
 </section>
 <section id="method-2-using-the-built-in-python-documentation">
-<h2><a class="toc-backref" href="#id5"><span class="section-number">1.4. </span>Method 2: Using the Built-in Python Documentation</a><a class="headerlink" href="#method-2-using-the-built-in-python-documentation" title="Permalink to this headline">¶</a></h2>
-<p>Packages, modules, classes and functions in Python have built-in documentation that you can display directly in the console or in the output of a notebook. These built-in documentations are called <strong>docstrings</strong>.</p>
+<h2><a class="toc-backref" href="#id6">Method 2: Using the Built-in Python Documentation</a><a class="headerlink" href="#method-2-using-the-built-in-python-documentation" title="Permalink to this headline">¶</a></h2>
+<p>Packages, modules, classes and functions in Python have built-in documentation that you can display directly in the console or in the output of a notebook. These built-in documentations are called <strong>docstrings</strong>. The docstring, and not Google, should be the first place to look for help with specific, pre-built Python code as it conveys guidance directly from the code’s authors. In contrast, going to Google first often turns up blogs and posts in which another secondary user describes the code, and that will be more prone to misinterpretations and mistakes.</p>
 <section id="using-a-console-window-in-jupyterlab">
-<h3><a class="toc-backref" href="#id6"><span class="section-number">1.4.1. </span>Using a Console Window in JupyterLab</a><a class="headerlink" href="#using-a-console-window-in-jupyterlab" title="Permalink to this headline">¶</a></h3>
-<p>The docstring should be the first place to look for help with specific, pre-built Python code. The problem is, calling up a docstring is very annoying in a Jupyter notebook. Ideally, you should be working with two windows side by side: one for the notebook or script that contains your code, and one for calling docstrings and running commands to view saved objects.</p>
-<p>I strongly suggest using JupyterLab (not just Jupyter), which is available from  Anaconda Navigator: <a class="reference external" href="https://docs.anaconda.com/anaconda/navigator/">https://docs.anaconda.com/anaconda/navigator/</a>. Please take a moment to download and install Anaconda Navigator, launch JupyterLab, and open this notebook in JupyterLab (by clicking on the file folder icon in the upper left corner of the screen, navigating to this file, and clicking on it) if you haven’t already done so.</p>
-<p>Next, click <strong>File</strong>, then <strong>New</strong>, then <strong>Console</strong>. This will open a console window, in which you type commands one at a time into the bar at the bottom of the window, pressing SHIFT + ENTER/RETURN to execute the command. Find the tab at the top of the screen for the console, and click and drag it to the side of the screen. The notebook and console windows should now be side-by-side.</p>
-<p>Finally, click on the console window, then click on <strong>Kernel</strong> at the top of the screen, and <strong>Change Kernel…</strong>. That brings up a “Select Kernel” menu. In the drop-down menu, choose the name of this notebook. That loads all the packages and objects that have been stored in the notebook’s memory in the console.</p>
-<p>Now the console is very easy to use to call up docstrings or to run commands on the notebook’s objects.</p>
+<h3><a class="toc-backref" href="#id7">Using a Console Window in JupyterLab</a><a class="headerlink" href="#using-a-console-window-in-jupyterlab" title="Permalink to this headline">¶</a></h3>
+<p>In my experience working with new Python programmers, beginners are very reluctant to use the docstrings. That’s unfortunate because docstrings are fast and accurate ways to solve issues with using existing code.</p>
+<p>One reason for this reluctance is that calling up a docstring is annoying in a Jupyter notebook. Ideally, you should be working with two windows side by side: one for the notebook or script that contains your code, and one for viewing docstrings. Another reason new users don’t use docstrings is that the help documentation isn’t accessable until the packages that contain the relevant functions are loaded into the workspace.</p>
+<p>The following is a procedure you can use to make viewing docstrings easier with Jupyter notebooks. With a little practice it can become a good habit that saves you a great deal of time in the long-run:</p>
+<ol class="simple">
+<li><p>Use JupyterLab and open the notebook you are working on.</p></li>
+<li><p>Run the entire notebook (or at least everything up to an error you are trying to fix).</p></li>
+<li><p>Right click somewhere in the notebook and select “New Console for Notebook”.</p></li>
+<li><p>Click on the tab for the new console window and drag it to the right so that it occupies the left-side of the screen.</p></li>
+</ol>
+<p>I strongly suggest using JupyterLab (not just Jupyter Notebook), which is available from  Anaconda Navigator: <a class="reference external" href="https://docs.anaconda.com/anaconda/navigator/">https://docs.anaconda.com/anaconda/navigator/</a>. JupyterLab has a numnber of features to make it easier to use relative to the regular Jupyter Notebook interface. One of those features is the ability to open consoles with the same kernel as an open notebook, and another feature is the ability to move tabs so that they occupy a portion of the screen to the left or right, on the top or bottom.</p>
+<p>The procedure listed above gives you a visible and separate place to view docstrings. It also loads the same kernel as the notebook you are working on, so that if you’ve imported <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, for example, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> is also loaded into the console so that you can call the docstring for any <code class="docutils literal notranslate"><span class="pre">pandas</span></code> module or function. Keeping this console open will help you more easily integrate calling and reading docstrings into your workflow.</p>
 </section>
 <section id="how-to-call-up-and-read-a-docstring">
-<h3><a class="toc-backref" href="#id7"><span class="section-number">1.4.2. </span>How to Call Up and Read a Docstring</a><a class="headerlink" href="#how-to-call-up-and-read-a-docstring" title="Permalink to this headline">¶</a></h3>
-<p>There are a few ways to display the help documentation for a function or an object (replace <code class="docutils literal notranslate"><span class="pre">function</span></code> below with the function you want help with):</p>
+<h3><a class="toc-backref" href="#id8">How to Call Up and Read a Docstring</a><a class="headerlink" href="#how-to-call-up-and-read-a-docstring" title="Permalink to this headline">¶</a></h3>
+<p>There are many different kinds of code objects in Python that have attached docstrings:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">help(function)</span></code> – displays the docstring for the function in question.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">function?</span></code> or <code class="docutils literal notranslate"><span class="pre">?function</span></code> – displays an abbreviated docstring, as well as the
-signature (the complete function syntax, including all arguments and their default values)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">function??</span></code> or <code class="docutils literal notranslate"><span class="pre">??function</span></code> – the same as <code class="docutils literal notranslate"><span class="pre">?</span></code> but shows the internal code so long as the function is not written in C</p></li>
+<li><p>A package itself, such as <code class="docutils literal notranslate"><span class="pre">pandas</span></code> or <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>,</p></li>
+<li><p>A module: a named subset of the code within a package that focuses on a specific topic. One example is the <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> module which handles all of the functions to display the graphics constructed with other functions within the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> package for data visualization,</p></li>
+<li><p>A function, either within the base Python code such as <code class="docutils literal notranslate"><span class="pre">print()</span></code>, or within a package or module such as <code class="docutils literal notranslate"><span class="pre">pandas.read_csv()</span></code>,</p></li>
+<li><p>A Python variable that you, the user, has created. Some types of variables have associated <strong>attributes</strong> and <strong>methods</strong>. An attribute is another Python variable that can be extracted from the one you created. For example, if you create a data frame with the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> package and name it <code class="docutils literal notranslate"><span class="pre">mydataframe</span></code>, it has an attribute <code class="docutils literal notranslate"><span class="pre">mydataframe.columns</span></code> that is a list of the names of the columns of your data frame. A method is a function that operates on this data frame. For example, typing <code class="docutils literal notranslate"><span class="pre">mydataframe.corr()</span></code> calculates the correlation between all pairs of columns in the data. (One easy way to tell the difference between attributes and methods is that attributes do not use parentheses, and methods must always use parentheses.)</p></li>
+</ul>
+<p>To display the docstring, replace the word “helpme” with the name of the relevant package, module, function, or variable in one of the following:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">help(helpme)</span></code> displays the entire docstring for the package, module, function, or variable in question. If <code class="docutils literal notranslate"><span class="pre">helpme</span></code> is a user-defined variable, this method displays the attributes and methods available for the variable, if any.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">helpme?</span></code> or <code class="docutils literal notranslate"><span class="pre">?helpme</span></code> displays an abbreviated docstring, as well as the
+signature (the complete function syntax, including all arguments and their default values). However, if <code class="docutils literal notranslate"><span class="pre">helpme</span></code> is a user-defined variable, this method does not display the attributes and methods available for the variable.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">helpme??</span></code> or <code class="docutils literal notranslate"><span class="pre">??helpme</span></code> is the same as <code class="docutils literal notranslate"><span class="pre">help(helpme)</span></code> but shows the internal code for the function and methods if applicable and possible.</p></li>
 </ul>
 <p>For example, consider the docstring for the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function, which displays results to the notebook or console output. We can call:</p>
 <div class="cell docutils container">
@@ -584,22 +570,21 @@ print(...)
 </div>
 </div>
 </div>
-<p>In this case, <code class="docutils literal notranslate"><span class="pre">?print</span></code> and <code class="docutils literal notranslate"><span class="pre">??print</span></code> yield the same output because the internal code of <code class="docutils literal notranslate"><span class="pre">print</span></code> is C code.</p>
+<p>In this case, <code class="docutils literal notranslate"><span class="pre">?print</span></code> and <code class="docutils literal notranslate"><span class="pre">??print</span></code> yield the same output because the internal code of <code class="docutils literal notranslate"><span class="pre">print</span></code> is C code, which Python calls but does not display.</p>
 <p>Docstrings often have <strong>sections</strong> that convey particular information.</p>
 <ol class="simple">
 <li><p>The header (only appears with <code class="docutils literal notranslate"><span class="pre">help(print)</span></code>): tells us that the <code class="docutils literal notranslate"><span class="pre">print</span></code> function exists in the <code class="docutils literal notranslate"><span class="pre">builtins</span></code> module (the module that loads automatically when we launch Python)</p></li>
 <li><p>The signature: lists all of the parameters of a function. Each parameter in the signature is set equal to its default value. If the user doesn’t specify the parameter in the function all, it’s set to the default.</p></li>
-<li><p>The short description: A one-or-two sentence summary of what the function does. For the <code class="docutils literal notranslate"><span class="pre">print</span></code> function, this summary is “Prints the values to a stream, or to sys.stdout by default” which is technical-speak for prints to whatever the output medium happens to be.</p></li>
+<li><p>The short description: A one-or-two sentence summary of what the function does. For the <code class="docutils literal notranslate"><span class="pre">print</span></code> function, this summary is “Prints the values to a stream, or to sys.stdout by default” which is technical-speak for prints to whatever the output medium happens to be. In a Jupyter notebook that means printing just below a cell of executable code.</p></li>
 <li><p>The parameters: <strong>this section is the most useful for learning how to use a function</strong>. The parameters section lists the parameters, in the order in which they appear in the signature of the function, along with information about each parameter.
 Each parameter is described in a sentence or two to explain what the parameter does.
 Sometimes the parameters may be noted as either required or optional in a call to the function, and the docstring might also list the type of each parameter: in this case, the <code class="docutils literal notranslate"><span class="pre">sep</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span></code> parameters are denoted as strings.</p></li>
 </ol>
 <p>Other docstrings might include sections that describe:</p>
 <ol class="simple">
-<li><p>Returns: describes the output from a call to the function.</p></li>
-<li><p>Attributes: lists objects that can be pulled out of the object that contains the output. We’ll see a bunch of examples of attributes in the next few weeks. For example, a dataframe object has an attribute<code class="docutils literal notranslate"><span class="pre">.dtypes</span></code> that shows the data type of each column in the dataframe.</p></li>
-<li><p>Related methods: lists methods that can be applied to the output of the function. Methods are like attributes, only they work as functions rather than as objects, and these methods may have their own docstrings embedded inside the orginal docstring. We’ll see examples of these quite a lot too.</p></li>
-<li><p>See also: a list of related functions.</p></li>
+<li><p>Returns: describes what the output should look like and contain</p></li>
+<li><p>Attributes and methods for a user-defined Python variable</p></li>
+<li><p>See also: a list of related functions</p></li>
 <li><p>Examples: Examples are meant to be run, not just looked at.  Copy-and-paste
 the examples into your notebook or script, run the code.  Then see if you
 can do more things with the given objects than the examples do.</p></li>
@@ -607,20 +592,31 @@ can do more things with the given objects than the examples do.</p></li>
 </section>
 </section>
 <section id="method-3-using-google-and-other-search-engines">
-<h2><a class="toc-backref" href="#id8"><span class="section-number">1.5. </span>Method 3: Using Google and Other Search Engines</a><a class="headerlink" href="#method-3-using-google-and-other-search-engines" title="Permalink to this headline">¶</a></h2>
-<p>Many of us have a habit of going to Google first whenever we have a coding problem. Please make a concerted effort starting right now to break this habit. If you know the functions you need more information about, using the built-in docstrings the best habit.</p>
-<p>The reason why we shouldn’t rely on Google as the first option is that Google is slow as a method of getting help. With open-source environments such as Python, there are many ways to do the same thing, and there are way too many presentations on the internet of any one topic to sift through efficiently. Many of the resources you find this way come from a field or a point of view that differs from your own, leading you to have to work hard to translate the language that explains the method. And some of the information is out of date or simply wrong.</p>
+<h2><a class="toc-backref" href="#id9">Method 3: Using Google and Other Search Engines</a><a class="headerlink" href="#method-3-using-google-and-other-search-engines" title="Permalink to this headline">¶</a></h2>
+<p>Many of us have a habit of going to Google first whenever we have a coding problem. Please make a concerted effort starting right now to break this habit. If you know the functions you need more information about, using the built-in docstrings first the best habit. The docstrings are what the code’s authors provide to guide users. If you know where to look within a docstring, you can find the correct answers to your questions quickly.</p>
+<p>Google is a comparatively slow method for getting help. With open-source environments such as Python, there are many ways to do the same thing, and there are way too many presentations on the internet of any one topic to sift through efficiently. Many of the resources you find this way come from a field or a point of view that differs from your own, leading you to have to work hard to translate the language that explains the method. And some of the information is out of date or simply wrong.</p>
 <p>Use Google or another search engine if</p>
 <ul class="simple">
 <li><p>you don’t know the functions you need to do a task,</p></li>
 <li><p>you don’t have a textbook or set of notes that you trust for guidance,</p></li>
-<li><p>or if the built-in docsting doesn’t give you the information you need (not everyone who write Python modules writes comprehensive docstrings).</p></li>
+<li><p>or if the built-in docsting doesn’t give you the information you need.</p></li>
 </ul>
-<p>The best Google search is</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Python</span> <span class="p">(</span><span class="n">the</span> <span class="n">function</span> <span class="n">you</span> <span class="n">want</span> <span class="n">help</span> <span class="k">with</span><span class="p">)</span> <span class="p">(</span><span class="n">additional</span> <span class="n">details</span><span class="p">)</span>
+<p>The format for Google search terms that usually works best for me is</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="p">(</span><span class="n">the</span> <span class="n">function</span> <span class="n">you</span> <span class="n">want</span> <span class="n">help</span> <span class="k">with</span><span class="p">)</span> <span class="p">(</span><span class="n">additional</span> <span class="n">details</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Google will often take you to Stack Overflow (<a class="reference external" href="https://stackoverflow.com/">https://stackoverflow.com/</a>), but other useful and credible websites that can help are</p>
+<p>Starting the search with “python” usually narrows the search to Python-specific documentation, message-boards, and blogs. Typing the relevant function or task second narrows those results to more relevant posts. For example, suppose I try to solve the issue that led to the error above when using <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code>. I determined that the problem occurred because the first four rows of the data file are taken up by an unnecessary header placed there by the data authors. I would like to know how to skip these lines. If I turn to the docstring first by typing <code class="docutils literal notranslate"><span class="pre">?pd.read_csv</span></code>, I see that there is a parameter <code class="docutils literal notranslate"><span class="pre">skiprows</span></code> with this description:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">skiprows</span> <span class="p">:</span> <span class="nb">list</span><span class="o">-</span><span class="n">like</span><span class="p">,</span> <span class="nb">int</span> <span class="ow">or</span> <span class="n">callable</span><span class="p">,</span> <span class="n">optional</span>
+    <span class="n">Line</span> <span class="n">numbers</span> <span class="n">to</span> <span class="n">skip</span> <span class="p">(</span><span class="mi">0</span><span class="o">-</span><span class="n">indexed</span><span class="p">)</span> <span class="ow">or</span> <span class="n">number</span> <span class="n">of</span> <span class="n">lines</span> <span class="n">to</span> <span class="n">skip</span> <span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">at</span> <span class="n">the</span> <span class="n">start</span> <span class="n">of</span> <span class="n">the</span> <span class="n">file</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>So I can just include <code class="docutils literal notranslate"><span class="pre">skiprows=4</span></code> as a parameter within <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code>. But if I turn to Google, I can issue the following search:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="n">how</span> <span class="n">to</span> <span class="n">skip</span> <span class="n">rows</span> <span class="n">at</span> <span class="n">the</span> <span class="n">top</span>
+</pre></div>
+</div>
+<p>Google will often take you to Stack Overflow (<a class="reference external" href="https://stackoverflow.com/">https://stackoverflow.com/</a>) before other websites with coding information. In this case, the first hit is <a class="reference external" href="https://stackoverflow.com/questions/27325652/python-pandas-read-csv-skip-rows-but-keep-header">this Stack Overflow post</a> which shows me the <code class="docutils literal notranslate"><span class="pre">skiprows</span></code> parameter, but tailors the advice to this particular individual’s use case which requires keeping the first row and skipping rows 2 through 11, something not relevant to me in this case. I can get to the right answer this way, but it is slower than going directly to the docstring.</p>
+<p>Stack Overflow is by far the most widely used and informative repository of coding help and knowledge on the internet. But before we discuss Stack Overflow in more detail, there are other useful and credible websites that often appear when using a Google search to solve a coding problem:</p>
 <ul class="simple">
 <li><p>More detailed documentation for specific Python modules, such as:</p>
 <ul>
@@ -648,9 +644,9 @@ can do more things with the given objects than the examples do.</p></li>
 <p>There are also many, many more resources and new ones are created all the time. Find the resources you like best: going directly to the most credible links will save you a great deal of time in this effort to get yourself unstuck.</p>
 </section>
 <section id="how-to-avoid-toxicity-in-online-communities">
-<h2><a class="toc-backref" href="#id9"><span class="section-number">1.6. </span>How to Avoid Toxicity in Online Communities</a><a class="headerlink" href="#how-to-avoid-toxicity-in-online-communities" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">How to Avoid Toxicity in Online Communities</a><a class="headerlink" href="#how-to-avoid-toxicity-in-online-communities" title="Permalink to this headline">¶</a></h2>
 <p>The next options involve becoming a <strong>responsible, respectful</strong> member of the worldwide community of Python users. Open-source platforms like Python and R depend on a community of volunteers who develop and maintain the tools that we use. All of these people are doing volunteer work for the common good, and that’s a beautiful thing.</p>
-<p>In addition to Python itself, Stack Overflow, Slack, the Freenode IRC, and mailing lists are online communities for Python users. But, like any online community, there’s the potential for a toxic culture to destroy everything.</p>
+<p>In addition to Python itself, Stack Overflow, Slack, Discord, the Freenode IRC, and mailing lists are online communities for Python users. But, like any online community, there’s the potential for a toxic culture to destroy everything.</p>
 <p>What is a toxic culture? How do you know one when you see one?</p>
 <p>Toxic cultures are more likely when</p>
 <ul class="simple">
@@ -661,21 +657,26 @@ can do more things with the given objects than the examples do.</p></li>
 <p>Stack overflow, IRCs, and mailing lists are notorious for passive toxic behavior. Passive toxicity is a bigger problem for us than active toxicity because actively toxic behavior is usually explicitly banned by codes of conduct, and individuals are often unaware of when they are acting in a passively toxic way.</p>
 <p>Examples of passive toxic behavior:</p>
 <ul class="simple">
-<li><p><strong>Condescending language</strong>: often people who are trying to earnestly answer a question unthinkingly use language that makes someone feel dumb for asking the question. Avoid using words such as “obviously”, “clearly”, “actually”, “just”, “that should be easy”, “google it”, “read the manual” (or “RTFM”). Here’s an <a class="reference external" href="https://twitter.com/aprilwensel/status/974859164747931650">example</a>.</p></li>
-<li><p><strong>Shaming</strong>: attacking someone for asking a question by implying that the solution is easy and that someone is an idiot for not knowing it. Some examples: “Learn to debug your own code” and “If you don’t get this, you have no business being a data scientist.”</p></li>
+<li><p><strong>Condescending language</strong>: often people who are trying to earnestly answer a question unthinkingly use language that makes someone feel dumb for asking the question. If you are answering a question on an online programming forum, avoid using words such as “obviously”, “clearly”, “actually”, “just”, or “that should be easy”.</p></li>
+<li><p><strong>Shaming</strong>: making an implication, even a very slight one, on someone’s intelligence or work ethic instead of giving people the benefit of assuming they’ve tried other avenues before posting. Some subtle examples include saying “google it”, or “read the manual”, implying that the questioner must not have tried these methods first. Sometimes people shame others more aggressively on these forums by saying things like “Learn to debug your own code” and “If you don’t get this, you have no business being a data scientist”, but hopefully that’s becoming more rare.</p></li>
 <li><p><strong>Downvotes without explanation</strong>: this can be both confusing and very upsetting to anyone, especially to people with less experience.</p></li>
-<li><p><strong>Virtue signaling</strong>: implying that people are superior/inferior because of the language, software, or methods they use. For example: “Real programmers don’t use for loops”, “You still use SAS?”, and so many memes:
-<img src="https://external-preview.redd.it/fU0szLnA4FwuYk3sMNqdf6f21vM_lvC9O-VgjyT11ek.jpg?width=1024&auto=webp&s=7634d370c0a5a46b794e8426850137538eadb615" alt="" width="600"/></p></li>
+<li><p><strong>Virtue signaling</strong>: implying that people are superior/inferior because of the language, software, or methods they use. For example: “Real programmers don’t use for loops”, “You still use SAS?”, and so many memes:</p></li>
+</ul>
+<center><img src="https://external-preview.redd.it/fU0szLnA4FwuYk3sMNqdf6f21vM_lvC9O-VgjyT11ek.jpg?width=1024&auto=webp&s=7634d370c0a5a46b794e8426850137538eadb615" alt="" width="500"/>
+<p style="text-align: center;"><b>Source:</b>
+<a href="https://kieranhealy.org/blog/archives/2019/02/07/statswars/">'Statswars' by Kieran Healy</a>
+</p></center>
+<ul class="simple">
 <li><p><strong>Authoritarianism</strong>: Abusing people for failing to follow all of a community’s rules for asking questions. For example, a comment that entirely ignores the content of the question but comments “all questions must provide an example,” or editing a user’s post to remove where they wrote “Hi everyone” and “thanks.”</p></li>
 <li><p><strong>Overzealous curation</strong>: Being very quick to tag a question as a “duplicate” without checking to see nuanced ways in which the question comes from a new situation.</p></li>
 </ul>
-<p>The result of passive toxicity is that <strong>many potential community members choose not to participate in the community</strong> because their initial experiences made them feel ashamed, confused, or belittled. In addition, other potential new members observe these negative interactions involving other members, and choose to disengage.</p>
-<p><strong>Passive toxicity shrinks the community and makes it more homogeneous.</strong> Across society, small, homogeneous communities are much more likely to exclude or discriminate against people based on sex, race, class, language} and other factors. And that leads to many ethical problems.</p>
-<p><em>Under no circumstances are you to contribute to an active or passive toxic culture in any community, online or otherwise.</em></p>
-<p>Please keep the behaviors described here in mind when you engage in online communities, and avoid them. Don’t be afraid to call out other people who behave in these ways.</p>
+<p>The result of passive toxicity is that many potential community members choose not to participate in the community because their initial experiences made them feel ashamed, confused, or belittled. In addition, other potential new members observe these negative interactions involving other members, and choose to disengage.</p>
+<p>Passive toxicity shrinks the community and makes it more homogeneous. Across society, small, homogeneous communities are much more likely to exclude or discriminate against people based on sex, race, class, language and other factors. And that leads to many ethical problems.</p>
+<p>Remember, most of time when someone is exhibiting passively toxic behavior on a forum, they are well-intentioned but are not thinking about how their responses will be perceived. Very few people deliberately contribute to a toxic online culture, but many people do contribute by failing to empathize with the questioner and by not choosing words carefully.</p>
+<p>Please keep the behaviors described here in mind when you engage in online communities, and avoid them. Think about your words and place yourself in the position of the original poster before submitting a response, and make the edits that you think would lead to a better online interaction. Don’t be afraid to call out other people who behave in these ways. And if you are yourself the person who posts, be aware that these behaviors still happen much too frequently, but know that despite this, most people on these forums mean well.</p>
 </section>
 <section id="method-4-stack-overflow">
-<h2><a class="toc-backref" href="#id10"><span class="section-number">1.7. </span>Method 4: Stack Overflow</a><a class="headerlink" href="#method-4-stack-overflow" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id11">Method 4: Stack Overflow</a><a class="headerlink" href="#method-4-stack-overflow" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://stackoverflow.com">Stack Overflow</a> is the most popular and most useful website for help with programming of all kinds. Google searching a Python problem will usually lead to a Stack Overflow post on the same issue. Python is now the most frequent tag for posts on Stack Overflow, and shown in this video:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -697,7 +698,7 @@ can do more things with the given objects than the examples do.</p></li>
 </div>
 <p>Finding a Stack Overflow post that’s relevant to your problem can give you both the code and underlying intuition to solve your problem. Or maybe not! Small differences in the situation can make the solution irrelevant to you. Be cautious and don’t treat a Stack Overflow post as automatically a definitive answer.</p>
 <section id="how-stack-overflow-works">
-<h3><a class="toc-backref" href="#id11"><span class="section-number">1.7.1. </span>How Stack Overflow Works</a><a class="headerlink" href="#how-stack-overflow-works" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id12">How Stack Overflow Works</a><a class="headerlink" href="#how-stack-overflow-works" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>Someone asks a question</p></li>
 <li><p>Other people comment on and provide answers to the question</p></li>
@@ -708,9 +709,13 @@ can do more things with the given objects than the examples do.</p></li>
 <p>Going for reputation is an entirely optional activity. If you don’t want to worry about it, don’t.</p>
 </section>
 <section id="asking-a-question-on-stack-overflow">
-<h3><a class="toc-backref" href="#id12"><span class="section-number">1.7.2. </span>Asking a Question on Stack Overflow</a><a class="headerlink" href="#asking-a-question-on-stack-overflow" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id13">Asking a Question on Stack Overflow</a><a class="headerlink" href="#asking-a-question-on-stack-overflow" title="Permalink to this headline">¶</a></h3>
 <p>Okay, so you’re stuck. You’ve combed through the Python documentation, Google, and old Stack Overflow posts, but you haven’t found a solution. It’s time to consider writing a new question on Stack Overflow.</p>
-<img src="https://github.com/jkropko/DS-6001/raw/master/localimages/leia.png" alt="" width="400"/>
+<center><img src="https://github.com/jkropko/DS-6001/raw/master/localimages/leia.png" alt="" width="400"/>
+<p style="text-align: center;"><b>Source:</b>
+<a href="http://rachievee.com/10-ways-to-learn-wordpress-hooks/">'10 Ways to Learn WordPress Hooks',  RachieVee: Rachel's Blog.
+</a>
+</p></center>
 <p>This can be frightening. A lot of the time, people answering questions on Stack Overflow can be, well … huge assholes that cause <a class="reference external" href="https://medium.com/&#64;Aprilw/suffering-on-stack-overflow-c46414a34a52">real suffering</a>. You might choose to avoid posting to Stack Overflow, so as not to support a website that has harbored abuse. That’s completely fair. If you do post to Stack Overflow, you are likely to get some very useful responses if you follow some guidelines. There’s <a class="reference external" href="https://stackoverflow.com/help/how-to-ask">a strategy for getting good responses</a>. You are more likely to get a good response if you follow these steps:</p>
 <ol class="simple">
 <li><p><strong>Search Stack Overflow and Google to see if the question has already been answered.</strong> Commenters dislike if the same question is asked repeatedly. This <a class="reference external" href="https://stackoverflow.com/questions/27885020/find-all-possible-combinations-of-letters-in-a-string-in-python">poor guy</a> got roasted for posing a “duplicate” question. (An aside: <em>Why?</em> It’s not like Stack Overflow is running out of space on their website.  There’s an idea that Stack Overflow should be a central repository of knowledge. That means there should be one canonical answer to one question. But people often take this much too far. There are kinder ways to point to an existing answer.) So spend a significant amount of time digging through the internet. If there’s something similar, but not quite what you need, you can say so in your post.</p></li>
@@ -725,13 +730,13 @@ can do more things with the given objects than the examples do.</p></li>
 <li><p><strong>Start the post with a paragraph describing the problem in more detail.</strong> Some good things to include in this paragraph:</p></li>
 </ol>
 <ul class="simple">
-<li><p>The context of the problem – how did you come across the problem? Describe the overall goal, not the just the buggy step.</p></li>
+<li><p>The context of the problem: how did you come across the problem? Describe the overall goal, not the just the buggy step.</p></li>
 <li><p>What you’ve already tried to solve the problem, and what happened.</p></li>
 <li><p>What is the expected output? What do you see instead?</p></li>
-<li><p>You can write the version of Python you are using, the version of the modules, and the operating system on your computer, in case the problem turns out to be specific to one of those</p></li>
+<li><p>You can write the version of Python you are using, the version of the modules, and the operating system on your computer, in case the problem turns out to be specific to an old version of one of those things.</p></li>
 </ul>
 <ol class="simple">
-<li><p>If possible, <strong>include code that reproduces the problem.</strong> The code SHOULD NOT simply be the code in your script that isn’t working. It needs to be able to work on someone else’s computer. That means the code should not depend on any specific data files, and should not contain file addresses that refer to a location on your computer. Only use modules that are easy to get. If the code needs to run on data, can you use something pre-loaded in Python that everyone can access? (There are example datasets included with <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>, for example.) Make the code as short as possible, and use comments to help people understand the code more quickly.</p></li>
+<li><p>If possible, <strong>include code that reproduces the problem.</strong> The code should not simply be the code in your script that isn’t working. It needs to be able to work on someone else’s computer. That means the code should not depend on any specific data files, and should not contain file addresses that refer to a location on your computer. If possible, only use modules that are easy to get. If the code needs to run on data, can you use something pre-loaded in Python that everyone can access? (There are example datasets included with <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>, for example.) Make the code as short and stripped down as possible while still producing the behavior or error that needs to be fixed, and use comments to help people understand the code more quickly.</p></li>
 </ol>
 <p>A few additional things to keep in mind:</p>
 <ul class="simple">
@@ -743,13 +748,15 @@ can do more things with the given objects than the examples do.</p></li>
 </ul>
 </section>
 </section>
-<section id="method-5-python-slack">
-<h2><a class="toc-backref" href="#id13"><span class="section-number">1.8. </span>Method 5: Python Slack</a><a class="headerlink" href="#method-5-python-slack" title="Permalink to this headline">¶</a></h2>
+<section id="method-5-python-slack-and-discord">
+<h2><a class="toc-backref" href="#id14">Method 5: Python Slack and Discord</a><a class="headerlink" href="#method-5-python-slack-and-discord" title="Permalink to this headline">¶</a></h2>
+<p>Slack and Discord are both platforms for groups of people to chat with each other, post to shared message boards for specific topics, share files, and hold meetings.</p>
 <p>The main slack page for the global community of Python users is <strong>Pyslackers</strong>: <a class="reference external" href="https://pyslackers.com/web">https://pyslackers.com/web</a>. To join, just go to the URL and click “join the community”. The main discussion happens on #python_, but there are many other useful channels including #data_science and #job_advice. This method is especially worthwhile if you already are used to using slack for work or for personal networking.</p>
-<p>If you aren’t used to slack, we will practice slack together in this course. One thing that helped me use slack much more consistently is downloading the desktop app (<a class="reference external" href="https://slack.com/downloads">https://slack.com/downloads</a>), and always leaving the app open on my local computer.</p>
+<p><strong>Python Discord</strong> (<a class="reference external" href="https://www.pythondiscord.com/">https://www.pythondiscord.com/</a>) is similar to PySlackers but seems to be more focused on organizing shared Python projects and posting the code on GitHub. To join, click the “join us” link in the upper-right corner of their homepage.</p>
+<p>One thing that helped me use Slack and Discord much more consistently is downloading the desktop app for Slack (<a class="reference external" href="https://slack.com/downloads">https://slack.com/downloads</a>) and for Discord (<a class="reference external" href="https://discord.com/download">https://discord.com/download</a>), and always leaving the apps open on my local computer so that I see messages right away when they are sent to me.</p>
 </section>
 <section id="method-6-live-chats-with-python-users-on-freenode">
-<h2><a class="toc-backref" href="#id14"><span class="section-number">1.9. </span>Method 6: Live Chats With Python Users on Freenode</a><a class="headerlink" href="#method-6-live-chats-with-python-users-on-freenode" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id15">Method 6: Live Chats With Python Users on Freenode</a><a class="headerlink" href="#method-6-live-chats-with-python-users-on-freenode" title="Permalink to this headline">¶</a></h2>
 <p>The Python user community is world-wide, and for the most part, very supportive. There are active internet relay chat (IRC) networks where you can post a question to members who are also logged in, to possibly get an answer right away. The most active Python IRC is the #python channel on Freenode: <a class="reference external" href="https://webchat.freenode.net">https://webchat.freenode.net</a>. When I logged in while writing this notebook, there were 1,778 people logged on.</p>
 <p>Internet chatrooms can be rough places, but the #python channel claims to enforce this <a class="reference external" href="https://www.python.org/psf/codeofconduct/">Code of Conduct</a>. Getting started on Freenode can be tricky, but it’s easier if you follow these steps:</p>
 <ol class="simple">
@@ -787,7 +794,7 @@ can do more things with the given objects than the examples do.</p></li>
 </ol>
 </section>
 <section id="method-7-python-mailing-lists-and-newsgroups">
-<h2><a class="toc-backref" href="#id15"><span class="section-number">1.10. </span>Method 7: Python Mailing Lists and Newsgroups</a><a class="headerlink" href="#method-7-python-mailing-lists-and-newsgroups" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id16">Method 7: Python Mailing Lists and Newsgroups</a><a class="headerlink" href="#method-7-python-mailing-lists-and-newsgroups" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Usenet">Usenet</a> is a distributed discussion system (which means it has no central server). It was invented in 1979, and is still in use today. The Python Usenet message boards are at <a class="reference external" href="https://mail.python.org/archives/?sort=popular">https://mail.python.org/archives/?sort=popular</a>. The <code class="docutils literal notranslate"><span class="pre">comp.lang.python</span></code> board is for general discussions and questions about Python.</p>
 <p>The tutor mailing list (<a class="reference external" href="https://mail.python.org/mailman/listinfo/tutor">https://mail.python.org/mailman/listinfo/tutor</a>) is for users who want to ask questions about learning computer programming with Python.</p>
 <p>If you have a question for the Python core development team, send an email to <a class="reference external" href="mailto:help&#37;&#52;&#48;python&#46;org">help<span>&#64;</span>python<span>&#46;</span>org</a>. The team is pretty busy, so be sure to check other resources and lists for an answer first.</p>
@@ -820,7 +827,7 @@ can do more things with the given objects than the examples do.</p></li>
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="intro.html" title="previous page">Surfing the Data Pipeline with Python</a>
-    <a class='right-next' id="next-link" href="ch2.html" title="next page"><span class="section-number">2. </span>Loading Data from Electronic Data Files</a>
+    <a class='right-next' id="next-link" href="ch2.html" title="next page">Loading Data from Electronic Data Files</a>
 
         </div>
         

@@ -1,0 +1,56 @@
+services:
+  jupyterlab: 
+    image: jkropko/surfing
+    env_file: 
+      - .env
+    ports:
+      - "8888:8888"
+      - "8050:8050"
+    volumes:
+      - ./:/surfing
+      - ./settings.txt:/root/.jupyter/lab/user-settings/@jupyterlab/notebook-extension/tracker.jupyterlab-settings
+    networks:
+      - dbnetwork
+
+  postgres:
+    image: postgres:latest
+    env_file: 
+      - .env
+    ports: 
+      - "5432:5432"
+    volumes:
+      - postgresdata:/var/lib/postgresql/data
+    networks:
+      - dbnetwork
+  
+  mongo:
+    image: mongo:latest
+    env_file:
+      - .env
+    volumes: 
+      - mongodata:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - dbnetwork
+
+  mysql:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    env_file:
+      - .env
+    volumes: 
+      - mysqldata:/var/lib/mysql
+    ports:
+      - "8080:8080"
+    networks:
+      - dbnetwork
+
+volumes:
+  postgresdata:
+  mongodata:
+  mysqldata:
+
+networks:
+  dbnetwork:

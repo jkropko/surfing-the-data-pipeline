@@ -22,7 +22,7 @@ json.loads(r.text)
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mJSONDecodeError[0m                           Traceback (most recent call last)
-[0;32m/var/folders/8k/ps7r1m2x3_zcd4_dznr8ns1m0000gp/T/ipykernel_15455/2487026205.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/var/folders/8k/ps7r1m2x3_zcd4_dznr8ns1m0000gp/T/ipykernel_15794/2487026205.py[0m in [0;36m<module>[0;34m[0m
 [0;32m----> 1[0;31m [0mjson[0m[0;34m.[0m[0mloads[0m[0;34m([0m[0mr[0m[0;34m.[0m[0mtext[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m
 [0;32m/opt/anaconda3/lib/python3.7/json/__init__.py[0m in [0;36mloads[0;34m(s, encoding, cls, object_hook, parse_float, parse_int, parse_constant, object_pairs_hook, **kw)[0m

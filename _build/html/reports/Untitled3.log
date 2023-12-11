@@ -22,7 +22,7 @@ model.fit(X_train, y_train)
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mValueError[0m                                Traceback (most recent call last)
-[0;32m/var/folders/8k/ps7r1m2x3_zcd4_dznr8ns1m0000gp/T/ipykernel_15466/180087699.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/var/folders/8k/ps7r1m2x3_zcd4_dznr8ns1m0000gp/T/ipykernel_15808/180087699.py[0m in [0;36m<module>[0;34m[0m
 [0;32m----> 1[0;31m [0mmodel[0m[0;34m.[0m[0mfit[0m[0;34m([0m[0mX_train[0m[0;34m,[0m [0my_train[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m
 [0;32m/opt/anaconda3/lib/python3.7/site-packages/xgboost/core.py[0m in [0;36minner_f[0;34m(*args, **kwargs)[0m

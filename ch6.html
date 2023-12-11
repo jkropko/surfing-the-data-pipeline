@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Creating and Connecting to Databases &#8212; Surfing the Data Pipeline with Python</title>
+    <title>6. Creating and Connecting to Databases &#8212; Surfing the Data Pipeline with Python</title>
   
   
   
@@ -67,8 +67,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'ch6';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Database Queries" href="ch7.html" />
-    <link rel="prev" title="Web Scraping Using BeautifulSoup" href="ch5.html" />
+    <link rel="next" title="7. Database Queries" href="ch7.html" />
+    <link rel="prev" title="5. Web Scraping Using BeautifulSoup" href="ch5.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -172,27 +172,27 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Get Started</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ch1.html">Getting Yourself Unstuck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch1.html">1. Getting Yourself Unstuck</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Get Data</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ch2.html">Loading Data from Electronic Data Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch3.html">Loading, Converting, and Writing JSON Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch4.html">Acquiring Data from APIs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch5.html">Web Scraping Using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code></a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Creating and Connecting to Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch2.html">2. Loading Data from Electronic Data Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch3.html">3. Loading, Converting, and Writing JSON Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch4.html">4. Acquiring Data from APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch5.html">5. Web Scraping Using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">6. Creating and Connecting to Databases</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wrangle Data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ch7.html">Database Queries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch8.html">Data Wrangling with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch9.html">Reshaping and Merging Data and Working with Strings, Dates, and Times</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch7.html">7. Database Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch8.html">8. Data Wrangling with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch9.html">9. Reshaping and Merging Data and Working with Strings, Dates, and Times</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Explore and Communicate Data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ch10.html">Exploratory Data Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch11.html">Static Data Visualizations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch12.html">Interactive Data Visualizations and Dashboards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch10.html">10. Exploratory Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch11.html">11. Static Data Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch12.html">12. Interactive Data Visualizations and Dashboards</a></li>
 </ul>
 
     </div>
@@ -341,45 +341,45 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-what-is-a-database">Introduction: What is a Database?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#querying-a-database-vs-using-an-api">Querying a Database vs. Using an API</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atomicity-consistency-isolation-durability-acid">Atomicity, Consistency, Isolation, Durability (ACID)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-brief-history-of-databases">A Brief History of Databases</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-what-is-a-database">6.1. Introduction: What is a Database?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#querying-a-database-vs-using-an-api">6.1.1. Querying a Database vs. Using an API</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atomicity-consistency-isolation-durability-acid">6.1.2. Atomicity, Consistency, Isolation, Durability (ACID)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-brief-history-of-databases">6.1.3. A Brief History of Databases</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-databases">Types of Databases</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#navigational-databases">Navigational Databases</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-databases">Relational Databases</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-database-normalization">Relational Database Normalization</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#first-normal-form">First Normal Form</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#second-normal-form">Second Normal Form</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#third-normal-form">Third Normal Form</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-databases">6.2. Types of Databases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#navigational-databases">6.2.1. Navigational Databases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-databases">6.2.2. Relational Databases</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-database-normalization">6.2.2.1. Relational Database Normalization</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#first-normal-form">6.2.2.1.1. First Normal Form</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#second-normal-form">6.2.2.1.2. Second Normal Form</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#third-normal-form">6.2.2.1.3. Third Normal Form</a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#entity-relationship-diagrams">Entity-Relationship Diagrams</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#chen-s-notation">Chen’s Notation</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#information-engineering-ie-notation">Information Engineering (IE) Notation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#entity-relationship-diagrams">6.2.2.2. Entity-Relationship Diagrams</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#chen-s-notation">6.2.2.2.1. Chen’s Notation</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#information-engineering-ie-notation">6.2.2.2.2. Information Engineering (IE) Notation</a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-database-management-systems-rdbms">Relational Database Management Systems (RDBMS)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-database-management-systems-rdbms">6.2.2.3. Relational Database Management Systems (RDBMS)</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nosql-databases">NoSQL Databases</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-nosql-databases-to-relational-databases">Comparing NoSQL Databases to Relational Databases</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#key-value-stores">Key-Value Stores</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#document-stores">Document Stores</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#wide-column-stores">Wide-Column Stores</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-databases">Graph Databases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nosql-databases">6.2.3. NoSQL Databases</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-nosql-databases-to-relational-databases">6.2.3.1. Comparing NoSQL Databases to Relational Databases</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#key-value-stores">6.2.3.2. Key-Value Stores</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#document-stores">6.2.3.3. Document Stores</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#wide-column-stores">6.2.3.4. Wide-Column Stores</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-databases">6.2.3.5. Graph Databases</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-databases-in-python">Working With Databases in Python</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-sqlite">Using SQLite</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-mysql">Using MySQL</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-postgressql">Using PostgresSQL</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-mongodb">Using MongoDB</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-remote-databases-on-amazon-web-services-aws">Connecting to Remote Databases on Amazon Web Services (AWS)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-databases-in-python">6.3. Working With Databases in Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-sqlite">6.3.1. Using SQLite</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-mysql">6.3.2. Using MySQL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-postgressql">6.3.3. Using PostgresSQL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-mongodb">6.3.4. Using MongoDB</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-remote-databases-on-amazon-web-services-aws">6.3.5. Connecting to Remote Databases on Amazon Web Services (AWS)</a></li>
 </ul>
 </li>
 </ul>
@@ -394,7 +394,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="creating-and-connecting-to-databases">
-<h1><a class="toc-backref" href="#id1" role="doc-backlink">Creating and Connecting to Databases</a><a class="headerlink" href="#creating-and-connecting-to-databases" title="Permalink to this heading">#</a></h1>
+<h1><a class="toc-backref" href="#id1" role="doc-backlink"><span class="section-number">6. </span>Creating and Connecting to Databases</a><a class="headerlink" href="#creating-and-connecting-to-databases" title="Permalink to this heading">#</a></h1>
 <nav class="contents" id="table-of-contents">
 <p class="topic-title">Table of Contents</p>
 <ul class="simple">
@@ -442,17 +442,17 @@ document.write(`
 </ul>
 </nav>
 <section id="introduction-what-is-a-database">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Introduction: What is a Database?</a><a class="headerlink" href="#introduction-what-is-a-database" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">6.1. </span>Introduction: What is a Database?</a><a class="headerlink" href="#introduction-what-is-a-database" title="Permalink to this heading">#</a></h2>
 <img src="https://github.com/jkropko/DS-6001/raw/master/localimages/tidy.jpg" width="500" >
 <p>A database is an organized collection of many data records, whether those records are tables, JSON, or another format. If a single data record is a book, then a database is a library: the library contains many books, which are organized according to some system such as alphabetical order or the Dewey Decimal System. Databases, if they are carefully organized and well-maintained, allow big organizations to keep track of huge amounts data and access specific data quickly. Databases also make security easier: by storing all the data together inside a database, it is also easier to use encryption, credentials, and other security measures to control who has access to what data inside the database. Databases can exist locally, on your own computer’s hard drive for example, or on remote servers that anyone with an internet connection and the right credentials can access.</p>
 <section id="querying-a-database-vs-using-an-api">
-<h3><a class="toc-backref" href="#id3" role="doc-backlink">Querying a Database vs. Using an API</a><a class="headerlink" href="#querying-a-database-vs-using-an-api" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">6.1.1. </span>Querying a Database vs. Using an API</a><a class="headerlink" href="#querying-a-database-vs-using-an-api" title="Permalink to this heading">#</a></h3>
 <p>As a data scientist, you will frequently have to issue requests to remote databases to get the data you need. These requests are called <strong>queries</strong>. We’ve already discussed sending queries to a database in Module 4 through APIs, but here we will focus on situations in which no API is available. Remember that an API is code that takes a request as input, translates that request to language the database can understand, and returns the requested data subject to the API’s restrictions and security measures. A REST API requires client-server separation, and that allows database managers to make changes to a database without requiring front end users to change their code for issuing a query because the API does that translation on behalf of the user. So if a remote database has an API, the database managers intend for users to make queries through that API, and not to query the database directly.</p>
 <p>If there is no API, users will have to pay close attention to how the database is organized to query the database correctly. The specific way in which a database is organized is called the <strong>schema</strong>. If the database managers change the schema for any reason, users will need to change their queries to work with the new schema.</p>
 <p>Both APIs and direct queries can include security measures, but APIs allow more nuanced security. For example, an API can be used to keep track of how much data is being requested and how many calls have been issued and block users that exceed pre-set limits. A database without an API can require a username and password to grant or deny access to the data, but cannot in general place restrictions on the extent of use the way APIs can.</p>
 </section>
 <section id="atomicity-consistency-isolation-durability-acid">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink">Atomicity, Consistency, Isolation, Durability (ACID)</a><a class="headerlink" href="#atomicity-consistency-isolation-durability-acid" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">6.1.2. </span>Atomicity, Consistency, Isolation, Durability (ACID)</a><a class="headerlink" href="#atomicity-consistency-isolation-durability-acid" title="Permalink to this heading">#</a></h3>
 <p>The purpose of a database is to store data and make sure that data can always be transferred to approved applications. A transfer of data is called a <strong>transaction</strong>, and a transaction is considered valid if it meets four criteria - atomicity, consistency, isolation, and durability - that were first described by <a class="reference external" href="https://dl.acm.org/doi/10.1145/289.291">Theo Haerder and Andreas Reuter in 1983</a>:</p>
 <ul>
 <li><p>Atomicity: one transaction might require many actions to be run in sequence. For example, making a credit card purchase involves five steps:</p>
@@ -472,7 +472,7 @@ document.write(`
 <p>The ACID criteria are standards that well-maintained databases need to achieve, regardless of how the data are organized, stored, and used.</p>
 </section>
 <section id="a-brief-history-of-databases">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink">A Brief History of Databases</a><a class="headerlink" href="#a-brief-history-of-databases" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">6.1.3. </span>A Brief History of Databases</a><a class="headerlink" href="#a-brief-history-of-databases" title="Permalink to this heading">#</a></h3>
 <p>According to <a class="reference external" href="https://doi.org/10.19030/ijmis.v17i1.7587">Kristi L. Berg, Tom Seymour, and Richa Goel (2013, p. 29)</a>:</p>
 <blockquote>
 <div><p>The origins of the database go back to libraries, governmental, business and medical records before the computers were invented… . Once people realized they needed to have the means to store data and maintain the data files for later retrieval, they were trying to find ways to store, index, and retrieve data. With the emergence of computers, the world of the database changed rapidly, making it an easy, cost effective, and less space-consuming task to collect and maintain the database.</p>
@@ -528,7 +528,7 @@ document.write(`
 </section>
 </section>
 <section id="types-of-databases">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">Types of Databases</a><a class="headerlink" href="#types-of-databases" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">6.2. </span>Types of Databases</a><a class="headerlink" href="#types-of-databases" title="Permalink to this heading">#</a></h2>
 <p>As described in the previous section, electronic databases have evolved a great deal since the 1960s to increase the functionality of working with data, to handle new kinds of data, and manage bigger and bigger amounts of data. If you intend to create a database, the first decision you need to make is what type of database are you going to create. If you are going to work with an existing database, knowing what type of database you are working with will guide you to the correct methods for issuing queries to this database.</p>
 <p>To illustrate the differences between types of database, consider the following (fake) data, based on data on books checked out from the Jefferson-Madison Regional Library (<a class="reference external" href="https://www.jmrl.org/">https://www.jmrl.org/</a>), a network of public libraries that serves Charlottesville and the surrounding region. In this data table, rows represent individual books checked out by particular patrons, every library patron has a unique library card number, every book has a title and at least one author, the checkout dates are recorded but the return dates are <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if the book is still checked out, and the librarian who conducted the transaction is included along with library branch where they work:</p>
 <table class="table">
@@ -595,7 +595,7 @@ document.write(`
 </table>
 <p>This table contains all of the data. However, this representation of the data is not the way any of the commonly used database schemas organize the data.</p>
 <section id="navigational-databases">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">Navigational Databases</a><a class="headerlink" href="#navigational-databases" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">6.2.1. </span>Navigational Databases</a><a class="headerlink" href="#navigational-databases" title="Permalink to this heading">#</a></h3>
 <p>Early databases treated records as equivalent units, stored in sequential order, like pages in a book. Patient records at a hospital, for example, could all be stored in a database, and an individual patient’s data could be extracted by flipping through the records until the patient’s data appears. Navigational databases also allow records to link to other records based on common features, such as patients who see the same doctor.</p>
 <p>If the library data is stored in a navigational database, one record might appear on a librarian’s computer screen like this:</p>
 <img src="https://github.com/jkropko/DS-6001/raw/master/localimages/navigational.png" width="600">
@@ -603,7 +603,7 @@ document.write(`
 <p>The major drawback of navigational database systems is that there is no way to perform a search other than moving through the links, which is time consumming and computationally inefficient. Navigational databases cannot filter data based on the content of a record, so there’s no way to see all the times a book by Gabriel Garcia Marquez was checked out, for example. While the early history of databases was dominated by navigational types, and while this type of database still gets used in some applications, most databases no longer use this structure.</p>
 </section>
 <section id="relational-databases">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink">Relational Databases</a><a class="headerlink" href="#relational-databases" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">6.2.2. </span>Relational Databases</a><a class="headerlink" href="#relational-databases" title="Permalink to this heading">#</a></h3>
 <p>The relational database structure was first proposed by <a class="reference external" href="https://www.seas.upenn.edu/~zives/03f/cis550/codd.pdf">E. F. Codd in 1970</a>. He describes the motivation for a relational database model as follows (p. 377):</p>
 <blockquote>
 <div><p>The relational view (or model) of data … appears to be superior in several respects to the [navigational] model presently in vogue for non-inferential systems. It provides a means of describing data with its natural structure only - that is, without superimposing any additional structure for machine representation purposes. Accordingly, it provides a basis for a high level data language which will yield maximal independence between programs on the one hand and machine representation and organization of data on the other.</p>
@@ -616,10 +616,10 @@ document.write(`
 <li><p>Consistency refers to the possibility of contradictions within the data. If someone updates the data one record at a time, then it is possible for the person entering the data to make a mistake. For example, I could create another row in the library data that lists Antony Yusif with the Crozet branch, which is a mistake because Antony Yusif works at the Charlottesville branch. Either someone needs to catch and fix this mistake, or else the data now contain contradictory information. The relational database, however, lists librarians with their branches in another table, so there’s no opportunity for me to mistakenly input the wrong branch: instead the correct branch is automatically drawn from this second table.</p></li>
 </ul>
 <section id="relational-database-normalization">
-<h4><a class="toc-backref" href="#id9" role="doc-backlink">Relational Database Normalization</a><a class="headerlink" href="#relational-database-normalization" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">6.2.2.1. </span>Relational Database Normalization</a><a class="headerlink" href="#relational-database-normalization" title="Permalink to this heading">#</a></h4>
 <p>In order for a relational database to provide derivability, redundancy, and consistency, it must be in <strong>normal form</strong>. Database normalization is a series of rules that a collection of data tables within a relational database must follow in order to solve the problems that Codd identified. There are many, progressive versions of normal forms: each version adds more stringent rules, but solves more problems. Here we will discuss three different organization standards called first, second, and third normal form.</p>
 <section id="first-normal-form">
-<h5>First Normal Form<a class="headerlink" href="#first-normal-form" title="Permalink to this heading">#</a></h5>
+<h5><span class="section-number">6.2.2.1.1. </span>First Normal Form<a class="headerlink" href="#first-normal-form" title="Permalink to this heading">#</a></h5>
 <p>To be in first normal form (1NF), data must meet three criteria:</p>
 <ol class="arabic simple">
 <li><p>Every table must have a <strong>primary key</strong>.</p></li>
@@ -849,7 +849,7 @@ document.write(`
 <p>In the TRANSACTIONS entity, <code class="docutils literal notranslate"><span class="pre">CardNum</span></code>, <code class="docutils literal notranslate"><span class="pre">BookID</span></code>, and <code class="docutils literal notranslate"><span class="pre">Checkout</span></code> together comprise is the primary key, and <code class="docutils literal notranslate"><span class="pre">BookID</span></code> is also a foreign key. In the AUTHORSHIP entity, <code class="docutils literal notranslate"><span class="pre">BookID</span></code> and <code class="docutils literal notranslate"><span class="pre">AuthorID</span></code> together comprise the primary key and are individually both foreign keys.</p>
 </section>
 <section id="second-normal-form">
-<h5>Second Normal Form<a class="headerlink" href="#second-normal-form" title="Permalink to this heading">#</a></h5>
+<h5><span class="section-number">6.2.2.1.2. </span>Second Normal Form<a class="headerlink" href="#second-normal-form" title="Permalink to this heading">#</a></h5>
 <p>Second normal form (2NF) solves more of the problems of Codd identified. When data are organized in second normal form, it helps enforce data consistency by making it harder for new data to be entered that contradicts existing data.</p>
 <p>For data to qualify as being 2NF, it must meet the following criteria:</p>
 <ol class="arabic simple">
@@ -938,7 +938,7 @@ document.write(`
 <p>Now all of <code class="docutils literal notranslate"><span class="pre">CardNum</span></code>, <code class="docutils literal notranslate"><span class="pre">BookID</span></code>, <code class="docutils literal notranslate"><span class="pre">Checkout</span></code>, <code class="docutils literal notranslate"><span class="pre">Patron</span></code>, <code class="docutils literal notranslate"><span class="pre">Return</span></code>, <code class="docutils literal notranslate"><span class="pre">Librarian</span></code>, and <code class="docutils literal notranslate"><span class="pre">Branch</span></code> are non-prime attributes, and a change in any of them would imply a new transaction with a new transaction ID, so this entity now conforms to 2NF. Because the other three entities also conform to 2NF, the database is in 2NF.</p>
 </section>
 <section id="third-normal-form">
-<h5>Third Normal Form<a class="headerlink" href="#third-normal-form" title="Permalink to this heading">#</a></h5>
+<h5><span class="section-number">6.2.2.1.3. </span>Third Normal Form<a class="headerlink" href="#third-normal-form" title="Permalink to this heading">#</a></h5>
 <p>After creating <code class="docutils literal notranslate"><span class="pre">TransactionID</span></code>, changing any non-prime attribute will result in changing <code class="docutils literal notranslate"><span class="pre">TransactionID</span></code>. But if we change some non-prime attributes, it should imply that other non-prime attributes need to change as well. If we change the patron’s name we are considering a different person, so it should imply a new library card number. In other words, this situation arises because of functional dependence between non-prime attributes. The purpose of third normal form (3NF) is to eliminate the possibility of accidentally invalidating the data by changing some non-prime attributes without also changing the non-prime attributes they are functionally dependent on.</p>
 <p>The criteria for a database to qualify as being in 3NF are:</p>
 <ol class="arabic simple">
@@ -1168,7 +1168,7 @@ document.write(`
 </section>
 </section>
 <section id="entity-relationship-diagrams">
-<h4><a class="toc-backref" href="#id10" role="doc-backlink">Entity-Relationship Diagrams</a><a class="headerlink" href="#entity-relationship-diagrams" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">6.2.2.2. </span>Entity-Relationship Diagrams</a><a class="headerlink" href="#entity-relationship-diagrams" title="Permalink to this heading">#</a></h4>
 <p>The process of normalizating a relational database requires separating the data into different tables. While normalization has a number of benefits, the logic of piecing together data as it exists across many different tables can be hard to follow. The best way to communicate the organizational structure (the schema) of a database is through a visualization called <strong>entity-relationship (ER) diagram</strong>.  ER diagrams show how the different tables (entities) in your database are connected to each other through primary and foreign keys, they explain how different tables relate to one another, and they illustrate where every feature in the data is stored.</p>
 <p>There are three types of ER diagram: the <strong>conceptual model</strong>, the <strong>logical model</strong>, and the <strong>physical model</strong>. These models differ only in the amount of information each one includes in the ER diagram. The conceptual model contains the least amount of information, and generally just shows the entities and the connections between them. The logical model includes the information from the conceptual model, adds the attributes within each entity, and denotes the primary and foreign keys in each entity. The physical model includes all of the information contained in the logical model and adds information about how the data will exist on a computer system, such as the data type for each attribute.</p>
 <p>The problem with ER diagrams, however, is that there are many competing standards for constructing one and there is a great deal of confused language and contradictory terminology surrounding them. The first standard, now usually called <strong>Chen’s notation</strong>, was first described by <a class="reference external" href="https://dl.acm.org/doi/10.1145/320434.320440">Peter Pin-Shan Chen in 1976</a>, and uses a flow-chart like system that includes rectangles, ovals, diamonds, and connecting lines to illustrate a database. Today the most commonly used standard, however, is to use <strong>information engineering (IE) notation</strong>, also called <strong>crow’s feet notation</strong>. IE notation was first described by <a class="reference external" href="https://www.researchgate.net/publication/291448084_BASIC_DATA_STRUCTURE_MODELS_EXPLAINED_WITH_A_COMMON_EXAMPLE">Gordon C. Everest in 1976</a>, and represents entities as rectangles that contain lists of the attributes inside the entity, with lines connecting the rectangles to show the relationships between entities. Other standard notations for ER diagrams include <a class="reference external" href="https://www.vertabelo.com/blog/uml-notation/">Unified Modeling Language (UML) notation</a>, <a class="reference external" href="https://www.vertabelo.com/blog/barkers-erd-notation/">Barker’s notation</a> for Oracle systems, <a class="reference external" href="https://www.vertabelo.com/blog/arrow-notation/">Arrow notation</a>, and <a class="reference external" href="https://www.vertabelo.com/blog/idef1x-notation/">Integration DEFinition for Information Modeling (IDEF1X) notation</a>.</p>
@@ -1194,7 +1194,7 @@ document.write(`
 </li>
 </ul>
 <section id="chen-s-notation">
-<h5>Chen’s Notation<a class="headerlink" href="#chen-s-notation" title="Permalink to this heading">#</a></h5>
+<h5><span class="section-number">6.2.2.2.1. </span>Chen’s Notation<a class="headerlink" href="#chen-s-notation" title="Permalink to this heading">#</a></h5>
 <p>Chen’s notation uses rectangles, ovals, diamonds, and lines to represent the database. The following tables and images come from <a class="reference external" href="https://medium.com/&#64;ericgcc/dont-get-wrong-explained-guide-to-choosing-a-database-design-notation-for-erd-in-a-while-7747925a7531">Eric Gcc’s</a> and <a class="reference external" href="https://www.vertabelo.com/blog/chen-erd-notation/">Patrycja Dybka’s</a> excellent blogs on this subject.</p>
 <table class="table">
 <thead>
@@ -1226,7 +1226,7 @@ document.write(`
 <p>A physical ER includes information to assist the reader in building and maintaining physical storage for the database. One helpful piece of information in this regard is the data type and size of each attribute. Typically, <code class="docutils literal notranslate"><span class="pre">int(n)</span></code> refers to interger values with up to <code class="docutils literal notranslate"><span class="pre">n</span></code> digits, <code class="docutils literal notranslate"><span class="pre">date</span></code> refers to dates, and <code class="docutils literal notranslate"><span class="pre">varchar(m)</span></code> refers to string values with up to <code class="docutils literal notranslate"><span class="pre">m</span></code> characters. This information should be placed close to each attribute so that the data types are clear. My physical ER is:</p>
 <img src="https://github.com/jkropko/DS-6001/raw/master/localimages/er3.png" width="900"></section>
 <section id="information-engineering-ie-notation">
-<h5>Information Engineering (IE) Notation<a class="headerlink" href="#information-engineering-ie-notation" title="Permalink to this heading">#</a></h5>
+<h5><span class="section-number">6.2.2.2.2. </span>Information Engineering (IE) Notation<a class="headerlink" href="#information-engineering-ie-notation" title="Permalink to this heading">#</a></h5>
 <p>Chen’s notation can very quickly become unwieldy as the number of entities and attributes increases. IE notation is more space efficient, and for that reason, IE notation is the most common notational standard for ER diagrams. The symbols for IE notation are shown in the following tables from <a class="reference external" href="https://medium.com/&#64;ericgcc/dont-get-wrong-explained-guide-to-choosing-a-database-design-notation-for-erd-in-a-while-7747925a7531">Eric Gcc’s blog</a>:</p>
 <table class="table">
 <thead>
@@ -1249,7 +1249,7 @@ document.write(`
 <img src="https://github.com/jkropko/DS-6001/raw/master/localimages/er6_2.png" width="600"></section>
 </section>
 <section id="relational-database-management-systems-rdbms">
-<h4><a class="toc-backref" href="#id11" role="doc-backlink">Relational Database Management Systems (RDBMS)</a><a class="headerlink" href="#relational-database-management-systems-rdbms" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">6.2.2.3. </span>Relational Database Management Systems (RDBMS)</a><a class="headerlink" href="#relational-database-management-systems-rdbms" title="Permalink to this heading">#</a></h4>
 <p>Once a database is up and running, it’s time to choose software to handle the four CRUD operations: creating, reading, updating, and deleting records in the database. Issuing a query to the database is the same thing as performing a CRUD operation in which a selection of records is read and arranged in a table that is output by the operation. The software to perform CRUD operations on a relational database is called a relational database management system (RDBMS).</p>
 <p>If your purpose is to access data stored in an existing database maintained by someone else, an RDBMS has already been chosen to manage how the data can be accessed. All you need to do in that case is learn which RDBMS has been implemented and use an interface for that DBMS to access the data. In general, one database can only work with one DBMS, although some DBMSs like PostgreSQL have built-in <a class="reference external" href="https://wiki.postgresql.org/wiki/Foreign_data_wrappers#mysql_fdw">foreign wrappers</a> to access data from databases connected to other DBMSs.</p>
 <p>If, however, you are building a new database, the choice of RDBMS is up to you, and this choice can be very confusing. Wikipedia lists <a class="reference external" href="https://en.wikipedia.org/wiki/Comparison_of_relational_database_management_systems">62 distinct DBMSs</a> for relational databases, and the these RDBMSs mostly overlap in their functionality. For example, all of them implement queries using a coding protocol called the <strong>structured query language</strong> (SQL), which is pronounced either by saying the letters “S-Q-L” or by saying “sequel”. SQL is such a universal standard for working with relational databases that the phrases “relational database” and “SQL database” are synonymous, and non-relational databases are commonly called “NoSQL”. SQL is a programming langauge that is separate from Python, R, or another environment, but modern RDMBSs make it easy to embed SQL code into standard Python, R, or another coding language’s syntax. Although the vast majority of RDBMSs use SQL, many RDBMSs use their own implementations of SQL which can vary in small but important ways from RDBMS to RDBMS. Learning the basics of SQL code is an important topic in and of itself, and it is the focus of Module 7.</p>
@@ -1328,11 +1328,11 @@ document.write(`
 </section>
 </section>
 <section id="nosql-databases">
-<h3><a class="toc-backref" href="#id12" role="doc-backlink">NoSQL Databases</a><a class="headerlink" href="#nosql-databases" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">6.2.3. </span>NoSQL Databases</a><a class="headerlink" href="#nosql-databases" title="Permalink to this heading">#</a></h3>
 <p>The term “NoSQL” refers to a database that is not organized according to a relational schema, and therefore cannot use any DBMS that uses SQL. A better name for these schema is “non-relational”. NoSQL databases are a recent innovation that have gotten a lot of hype over the last ten years, and it is described in various places as “<a class="reference external" href="https://aws.amazon.com/nosql/">modern</a>” and “<a class="reference external" href="https://www.academia.edu/40346447/Next_Generation_Databases_NoSQL_NewSQL_and_Big_Data_-_What_every_professional_needs_to_know_about_the_future_of_databases_in_a_world_of_NoSQL_and_Big_Data_-_Guy_Harrison">next generation</a>”. Although the language surrounding NoSQL has only existed since the 2000s, the concept of non-relational databases is as old as databases themselves, as the original navigational schema are be considered versions of NoSQL today.</p>
 <p>In addition to the key-value store, document store, wide-column store, and graph versions of NoSQL databases described below, there are specialized NoSQL DBMSs for time series data (<a class="reference external" href="https://github.com/influxdata/influxdb">influxDB</a>), object oriented data stores (<a class="reference external" href="https://www.intersystems.com/products/cache/">InterSystems Caché</a>), search engines (<a class="reference external" href="https://www.elastic.co/elasticsearch/">Elasticsearch</a>), Triplestores, Resource Description Framework (RDF), or XML Stores (<a class="reference external" href="https://www.marklogic.com/">MarkLogic</a>), Multivalue Systems (<a class="reference external" href="https://www.softwareag.com/corporate/products/adabas_natural/adabas/default.html">Adabas</a>), Event Stores (<a class="reference external" href="https://eventstore.com/">Event Store</a>), and Content Stores (<a class="reference external" href="http://jackrabbit.apache.org/jcr/index.html">Apache Jackrabbit</a>).</p>
 <section id="comparing-nosql-databases-to-relational-databases">
-<h4><a class="toc-backref" href="#id13" role="doc-backlink">Comparing NoSQL Databases to Relational Databases</a><a class="headerlink" href="#comparing-nosql-databases-to-relational-databases" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">6.2.3.1. </span>Comparing NoSQL Databases to Relational Databases</a><a class="headerlink" href="#comparing-nosql-databases-to-relational-databases" title="Permalink to this heading">#</a></h4>
 <p>Some people argue that NoSQL is a replacement for relational databases, but the reality is that NoSQL and relational databases are well-suited for different purposes and both are likely to remain in the standard toolkit of professionals who work with data for a long time.</p>
 <p>NoSQL differs from relational databases in three ways:</p>
 <ol class="arabic simple">
@@ -1373,7 +1373,7 @@ document.write(`
 <p>NoSQL databases often follow the BASE standards, and not ACID, because BASE makes more sense in a distributed system. When a database is sharded, it might exist across hundreds or thousands of servers, and updating data across all of those servers can take a significant amount of time. Waiting to achieve total data consistency before using the data to do something can take a prohibitive amount of time. The BASE standards are much more forgiving for applications that need to work faster than the speed at which data updates.</p>
 </section>
 <section id="key-value-stores">
-<h4><a class="toc-backref" href="#id14" role="doc-backlink">Key-Value Stores</a><a class="headerlink" href="#key-value-stores" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">6.2.3.2. </span>Key-Value Stores</a><a class="headerlink" href="#key-value-stores" title="Permalink to this heading">#</a></h4>
 <p>The three most common types of NoSQL database are <strong>key-value stores</strong> (or key-value databases), <strong>document stores</strong> (or document-oriented databases), and <strong>wide-column stores</strong> (or column-based stores or column-oriented databases). Each format involves three types of data:</p>
 <ol class="arabic simple">
 <li><p>A key that uniquely identifies each record and is queryable,</p></li>
@@ -1411,7 +1411,7 @@ document.write(`
 <p>In the key-value NoSQL structure, the key is <strong>visible</strong> to the DBMS, which means that we can perform searches or queries for particular keys, but the rest of the data are <strong>opaque</strong>, which means that they are only recognized by the DBMS as a single sting, and we cannot query or search for values of these attributes. Because the DBMS is agnostic about the content of the string, it is possible to put any kind of formatting into the Value field: it can organize the data in a list or array, in a JSON dictionary, or in another structure. It can contain column names, or not. The key-value DBMS can only import this string into another environment, like Python, and it is up to code in the import environment to parse the formatting. That can be extremely tricky because each Value field can contain different attributes and data types. In this example the 4th record is lacking a return date, and the 5th record has two authors: when we read the data, we need to use our knowledge of the data to catch and account for these discrepancies. The advantage of a key-value database is the speed with which it processes queries about a specific key, but the disadvantage is that is cannot query data beyond the key, and the data it returns might be in need of a lot of cleaning. As of April 2020, the <a class="reference external" href="https://db-engines.com/en/ranking/key-value+store">most popular key-value store DBMS</a> is <a class="reference external" href="https://redis.io/">Redis</a>, which is open source.</p>
 </section>
 <section id="document-stores">
-<h4><a class="toc-backref" href="#id15" role="doc-backlink">Document Stores</a><a class="headerlink" href="#document-stores" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">6.2.3.3. </span>Document Stores</a><a class="headerlink" href="#document-stores" title="Permalink to this heading">#</a></h4>
 <p>A document store is similar to a key-value store, with two important differences:</p>
 <ol class="arabic simple">
 <li><p>The Value field in a document store must be formatted as JSON (or as XML for an XML-oriented database),</p></li>
@@ -1433,7 +1433,7 @@ document.write(`
 <p>The <a class="reference external" href="https://db-engines.com/en/ranking/document+store">most popular document store as of April 2020</a> is <a class="reference external" href="https://www.mongodb.com/">MongoDB</a>, which is also the most popular DBMS among all NoSQL options, and the 5th most popular DBMS overall.</p>
 </section>
 <section id="wide-column-stores">
-<h4><a class="toc-backref" href="#id16" role="doc-backlink">Wide-Column Stores</a><a class="headerlink" href="#wide-column-stores" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">6.2.3.4. </span>Wide-Column Stores</a><a class="headerlink" href="#wide-column-stores" title="Permalink to this heading">#</a></h4>
 <p>A wide column store, like a relational database, contains tables. However unlike a relational database, every table has only one row, and each of these tables might have different columns.</p>
 <p>Two of the records in the library data look like this in wide-column format:</p>
 <div class="math notranslate nohighlight">
@@ -1492,7 +1492,7 @@ document.write(`
 <p>Generally speaking wide-column stores offer the same functionality as document stores, but operate on tables instead of on JSON records. The <a class="reference external" href="https://db-engines.com/en/ranking/wide+column+store">most popular column-oriented DBMS as of April 2020</a> is <a class="reference external" href="https://cassandra.apache.org/">Cassandra</a>.</p>
 </section>
 <section id="graph-databases">
-<h4><a class="toc-backref" href="#id17" role="doc-backlink">Graph Databases</a><a class="headerlink" href="#graph-databases" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">6.2.3.5. </span>Graph Databases</a><a class="headerlink" href="#graph-databases" title="Permalink to this heading">#</a></h4>
 <p><strong>Graph databases</strong> describe an entirely different paradigm of data models. The key-value, document, and wide-column stores work with <em>independent</em> records. For these systems to work, no record should contain attributes that point to other records in the data. That way, it’s not a problem to treat records separately and store them on different servers. Relational databases on the other hand contain dependencies because the different entities in the data are related to one another. However these relationships exist between columns stored in different tables, not between the records themselves.</p>
 <p>If the records in a database are directly related to each other, a graph database provides a way to store specific data about these relationships. The <a class="reference external" href="https://neo4j.com/docs/getting-started/current/graphdb-concepts/">graph database schema</a> combines a relational and wide-column framework. First, each record is stored in a table with one row, as would be the case in a wide-column store. Next the tables are broken into separate entities, as we would do in a relational schema. That is, attributes that would continue to exist in the same entity in a relational database also exist in the same entity in a graph database.</p>
 <p>Every entity for every record in a graph database is called a <strong>node</strong>. Every node has at least one <strong>label</strong>, the name of the entity, attached to it. In the library data, we have nodes for transaction, patron, librarian, book, and author. The attributes within one node are called <strong>properties</strong>. Nodes are connected to other nodes through <strong>relationships</strong>, which are represented by an arrow that is directed from one node to another. The node the arrow starts from is called the <strong>source node</strong>, and the relationship for this node is called an <strong>outgoing relationship</strong>; the node the arrow points to is called the <strong>target node</strong>, and the relationship for this node is called an <strong>incoming relationship</strong>. Every arrow is labeled with text describing the <strong>relationship type</strong>.</p>
@@ -1509,7 +1509,7 @@ document.write(`
 </section>
 </section>
 <section id="working-with-databases-in-python">
-<h2><a class="toc-backref" href="#id18" role="doc-backlink">Working With Databases in Python</a><a class="headerlink" href="#working-with-databases-in-python" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id18" role="doc-backlink"><span class="section-number">6.3. </span>Working With Databases in Python</a><a class="headerlink" href="#working-with-databases-in-python" title="Permalink to this heading">#</a></h2>
 <p>Now that we’ve covered so much of the background of the art and science of databases, it’s time to work with databases in a Python environment. You will need to know how to create a database stored locally using SQLite, how to port that database onto cloud storage, and how to access databases on the cloud especially when those databases require credentials.</p>
 <p>The following discussion does not get into how to clean data properly so that the various tables in the database conform to an organizational schema. If you need to convert a single dataframe into several tables that together abide by database normalization rules, then <code class="docutils literal notranslate"><span class="pre">pandas</span></code> is an excellent tool for cleaning data in this way. After first creating the tables, we will place them into a database using the code shown below. <code class="docutils literal notranslate"><span class="pre">pandas</span></code> is discussed in detail in modules 8 and 9. This discussion also does not cover SQL for issuing advanced queries: SQL is the focus of module 7.</p>
 <p>To demonstrate how to work with a database in Python, we will use Kaggle data on over 100,000 <a class="reference external" href="https://www.kaggle.com/zynicide/wine-reviews">wine reviews that appeared in Wine Enthusiast Magazine</a>, which were compiled as a web scraping project by Zack Thoutt.</p>
@@ -1768,7 +1768,7 @@ document.write(`
 </div>
 <p>Once you create a database with a particular DBMS, the easiest workflow is to continue to use that DBMS as implemented in Python, and not to switch DBMSs. SQLite, MySQL, and PostgreSQL all have specific strengths for working with relational databases and MongoDB is a popular choice for document stores, but there are always other DBMS options. Use the DBMS that you like best, or the DBMS that matches the preferences of other people in your organization.</p>
 <section id="using-sqlite">
-<h3><a class="toc-backref" href="#id19" role="doc-backlink">Using SQLite</a><a class="headerlink" href="#using-sqlite" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id19" role="doc-backlink"><span class="section-number">6.3.1. </span>Using SQLite</a><a class="headerlink" href="#using-sqlite" title="Permalink to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">sqlite3</span></code> library is the best tool for creating a local relational database with the SQlite DBMS in Python. SQLite is fast, offers a high degree of functionality, and works very well with <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. If you haven’t yet done so, install this library by typing <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">sqlite3</span></code> in a terminal or console window. Then we start by importing this library:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2388,7 +2388,7 @@ document.write(`
 <p>SQlite works very well with locally-stored databases. However, it does not have the ability to operate over networked connections. For working with databases remotely, we can use MySQL or PostgreSQL.</p>
 </section>
 <section id="using-mysql">
-<h3><a class="toc-backref" href="#id20" role="doc-backlink">Using MySQL</a><a class="headerlink" href="#using-mysql" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id20" role="doc-backlink"><span class="section-number">6.3.2. </span>Using MySQL</a><a class="headerlink" href="#using-mysql" title="Permalink to this heading">#</a></h3>
 <p>Unlike SQlite, MySQL requires external software on your machine in addition to Python libraries in order to run in your Python environment. To get started, follow these steps.</p>
 <ol class="arabic simple">
 <li><p>Download and install MySQL: <a class="reference external" href="https://dev.mysql.com/downloads/mysql/">https://dev.mysql.com/downloads/mysql/</a>. You will be taken to a screen that encourages you to sign up for Oracle services - don’t bother with that, just select “No thanks, just start my download.”</p></li>
@@ -2917,7 +2917,7 @@ document.write(`
 <p>You now have a self-contained database file for the wine database.</p>
 </section>
 <section id="using-postgressql">
-<h3><a class="toc-backref" href="#id21" role="doc-backlink">Using PostgresSQL</a><a class="headerlink" href="#using-postgressql" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id21" role="doc-backlink"><span class="section-number">6.3.3. </span>Using PostgresSQL</a><a class="headerlink" href="#using-postgressql" title="Permalink to this heading">#</a></h3>
 <p>To use PostgreSQL, you must first download and install PostgreSQL. On Windows, the easiest way to do this is to download the PostgreSQL Core Distribution here: <a class="reference external" href="https://www.enterprisedb.com/downloads/postgres-postgresql-downloads">https://www.enterprisedb.com/downloads/postgres-postgresql-downloads</a>. In the installation wizard, leave the boxes checked for PostgreSQL server, pgAdmin 4, Stack Builder, and Command Line Tools. Choose a password, and use the default port number and locale. Stack Builder is useful for downloading and installing extensions to PostgreSQL, but no need to run Stack Builder at this time.</p>
 <p>On Mac, the easiest way to get PostgreSQL is to use homebrew, a package manager for Mac systems. If you’ve never used homebrew before, follow the instructions for installing homebrew here: <a class="reference external" href="https://brew.sh/">https://brew.sh/</a>. Once you’ve installed homebrew, type <code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">postgres</span></code> into the <a class="reference external" href="https://www.businessinsider.com/how-to-open-terminal-on-mac">Mac terminal</a> to install PostgreSQL. Then, to launch the local PostgreSQL server, type <code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">services</span> <span class="pre">start</span> <span class="pre">postgresql</span></code>. To issue commands to the PostgreSQL server type <code class="docutils literal notranslate"><span class="pre">psql</span></code>. You should see something that looks like the following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>psql (12.3)
@@ -3449,7 +3449,7 @@ myusername=#
 <p>The database will now exist as a single file in the folder you specified.</p>
 </section>
 <section id="using-mongodb">
-<h3><a class="toc-backref" href="#id22" role="doc-backlink">Using MongoDB</a><a class="headerlink" href="#using-mongodb" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id22" role="doc-backlink"><span class="section-number">6.3.4. </span>Using MongoDB</a><a class="headerlink" href="#using-mongodb" title="Permalink to this heading">#</a></h3>
 <p>MongoDB works with document stores, a type of NoSQL database that stores records as documents, often in JSON format. As with MySQL and PostgreSQL, the first step is to install the external MondoDB software on to your computer. The version we will use is the Community Edition, which is open source. Please follow the instructions listed here to install MongoDB on your own system: <a class="reference external" href="https://docs.mongodb.com/manual/installation/">https://docs.mongodb.com/manual/installation/</a>. For example, I was able to install MongoDB on my Macbook by following these instructions:</p>
 <ol class="arabic simple">
 <li><p>Download the Apple Command Line Tools: <a class="reference external" href="https://apps.apple.com/us/app/xcode/id497799835?mt=12">https://apps.apple.com/us/app/xcode/id497799835?mt=12</a></p></li>
@@ -4582,7 +4582,7 @@ AssertionError
 <p>If this command is successful you will see a folder named “dump” within the directory you specified. Inside this folder are folders for each database that currently exists on your MongoDB server, and within the “winedb” folder there are two files: a <code class="docutils literal notranslate"><span class="pre">.bson</span></code> file containing the data and a <code class="docutils literal notranslate"><span class="pre">.json</span></code> file containing metadata like collections.</p>
 </section>
 <section id="connecting-to-remote-databases-on-amazon-web-services-aws">
-<h3><a class="toc-backref" href="#id23" role="doc-backlink">Connecting to Remote Databases on Amazon Web Services (AWS)</a><a class="headerlink" href="#connecting-to-remote-databases-on-amazon-web-services-aws" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id23" role="doc-backlink"><span class="section-number">6.3.5. </span>Connecting to Remote Databases on Amazon Web Services (AWS)</a><a class="headerlink" href="#connecting-to-remote-databases-on-amazon-web-services-aws" title="Permalink to this heading">#</a></h3>
 <p>All of the previous examples work with a database that is hosted on your own computer. But in most cases, you will be connecting to a database that is stored elsewhere, accessing it remotely. At the University of Virginia, we have a high performance cluster of computers called <a class="reference external" href="https://www.rc.virginia.edu/userinfo/rivanna/overview/">Rivanna</a>, and many of the research projects that require large amounts of data store these databases on Rivanna. But in industry, the most popular cloud computing service is <a class="reference external" href="https://aws.amazon.com/">Amazon Web Services (AWS)</a>. AWS is so widely used that it accounted for <a class="reference external" href="https://www.cnbc.com/2019/04/25/aws-earnings-q1-2019.html">$2.2 billion in revenue in the first quarter of 2019, and accounted for 50% of Amazon’s overall operating income.</a></p>
 <p>AWS provides many services, but the two most important services are <strong>S3 buckets</strong> and <strong>EC2 instances</strong>. An S3 bucket is physical storage - an actual storage device located at one of Amazon’s many <a class="reference external" href="https://aws.amazon.com/compliance/data-center/data-centers/">data centers</a>. Industrial application with massive data storage requirements can put all of their data onto an S3 bucket, which has benefits for keeping the data secure and accessible, for a fee. An EC2 instance is a virtual computer, where users can perform tasks and run code. There are many different <a class="reference external" href="https://aws.amazon.com/ec2/instance-types/">types of EC2 instances</a> which have different price points and which allocate different numbers of CPUs and amounts of memory. Tech companies that use machine learning for predictive modeling can store the training, test, and validation sets on S3 buckets and import the data to an EC2 instance to run a model. Depending on the amount of data and on the performance requirements of the virtual machine, these businesses can end up owing AWS an incredible amount of money.</p>
 <p>Another use of virtual computing on AWS is running database servers. Relational databases are stored and run on AWS’s <a class="reference external" href="https://console.aws.amazon.com/rds/home?region=us-east-1">Relational Database Service (RDS)</a>, and document store NoSQL databases are stored and run on AWS’s <a class="reference external" href="https://console.aws.amazon.com/docdb/home?region=us-east-1#clusters">DocumentDB</a> service.</p>
@@ -4652,7 +4652,7 @@ AssertionError
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Web Scraping Using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code></p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Web Scraping Using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code></p>
       </div>
     </a>
     <a class="right-next"
@@ -4660,7 +4660,7 @@ AssertionError
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Database Queries</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Database Queries</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -4679,45 +4679,45 @@ AssertionError
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-what-is-a-database">Introduction: What is a Database?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#querying-a-database-vs-using-an-api">Querying a Database vs. Using an API</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atomicity-consistency-isolation-durability-acid">Atomicity, Consistency, Isolation, Durability (ACID)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-brief-history-of-databases">A Brief History of Databases</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-what-is-a-database">6.1. Introduction: What is a Database?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#querying-a-database-vs-using-an-api">6.1.1. Querying a Database vs. Using an API</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atomicity-consistency-isolation-durability-acid">6.1.2. Atomicity, Consistency, Isolation, Durability (ACID)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-brief-history-of-databases">6.1.3. A Brief History of Databases</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-databases">Types of Databases</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#navigational-databases">Navigational Databases</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-databases">Relational Databases</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-database-normalization">Relational Database Normalization</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#first-normal-form">First Normal Form</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#second-normal-form">Second Normal Form</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#third-normal-form">Third Normal Form</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-databases">6.2. Types of Databases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#navigational-databases">6.2.1. Navigational Databases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-databases">6.2.2. Relational Databases</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-database-normalization">6.2.2.1. Relational Database Normalization</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#first-normal-form">6.2.2.1.1. First Normal Form</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#second-normal-form">6.2.2.1.2. Second Normal Form</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#third-normal-form">6.2.2.1.3. Third Normal Form</a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#entity-relationship-diagrams">Entity-Relationship Diagrams</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#chen-s-notation">Chen’s Notation</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#information-engineering-ie-notation">Information Engineering (IE) Notation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#entity-relationship-diagrams">6.2.2.2. Entity-Relationship Diagrams</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#chen-s-notation">6.2.2.2.1. Chen’s Notation</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#information-engineering-ie-notation">6.2.2.2.2. Information Engineering (IE) Notation</a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-database-management-systems-rdbms">Relational Database Management Systems (RDBMS)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-database-management-systems-rdbms">6.2.2.3. Relational Database Management Systems (RDBMS)</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nosql-databases">NoSQL Databases</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-nosql-databases-to-relational-databases">Comparing NoSQL Databases to Relational Databases</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#key-value-stores">Key-Value Stores</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#document-stores">Document Stores</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#wide-column-stores">Wide-Column Stores</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-databases">Graph Databases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nosql-databases">6.2.3. NoSQL Databases</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-nosql-databases-to-relational-databases">6.2.3.1. Comparing NoSQL Databases to Relational Databases</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#key-value-stores">6.2.3.2. Key-Value Stores</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#document-stores">6.2.3.3. Document Stores</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#wide-column-stores">6.2.3.4. Wide-Column Stores</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-databases">6.2.3.5. Graph Databases</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-databases-in-python">Working With Databases in Python</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-sqlite">Using SQLite</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-mysql">Using MySQL</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-postgressql">Using PostgresSQL</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-mongodb">Using MongoDB</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-remote-databases-on-amazon-web-services-aws">Connecting to Remote Databases on Amazon Web Services (AWS)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-databases-in-python">6.3. Working With Databases in Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-sqlite">6.3.1. Using SQLite</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-mysql">6.3.2. Using MySQL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-postgressql">6.3.3. Using PostgresSQL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-mongodb">6.3.4. Using MongoDB</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-remote-databases-on-amazon-web-services-aws">6.3.5. Connecting to Remote Databases on Amazon Web Services (AWS)</a></li>
 </ul>
 </li>
 </ul>

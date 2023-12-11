@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Web Scraping Using BeautifulSoup &#8212; Surfing the Data Pipeline with Python</title>
+    <title>5. Web Scraping Using BeautifulSoup &#8212; Surfing the Data Pipeline with Python</title>
   
   
   
@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'ch5';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Creating and Connecting to Databases" href="ch6.html" />
-    <link rel="prev" title="Acquiring Data from APIs" href="ch4.html" />
+    <link rel="next" title="6. Creating and Connecting to Databases" href="ch6.html" />
+    <link rel="prev" title="4. Acquiring Data from APIs" href="ch4.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -170,27 +170,27 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Get Started</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ch1.html">Getting Yourself Unstuck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch1.html">1. Getting Yourself Unstuck</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Get Data</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ch2.html">Loading Data from Electronic Data Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch3.html">Loading, Converting, and Writing JSON Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch4.html">Acquiring Data from APIs</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Web Scraping Using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch6.html">Creating and Connecting to Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch2.html">2. Loading Data from Electronic Data Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch3.html">3. Loading, Converting, and Writing JSON Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch4.html">4. Acquiring Data from APIs</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Web Scraping Using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch6.html">6. Creating and Connecting to Databases</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Wrangle Data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ch7.html">Database Queries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch8.html">Data Wrangling with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch9.html">Reshaping and Merging Data and Working with Strings, Dates, and Times</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch7.html">7. Database Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch8.html">8. Data Wrangling with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch9.html">9. Reshaping and Merging Data and Working with Strings, Dates, and Times</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Explore and Communicate Data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ch10.html">Exploratory Data Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch11.html">Static Data Visualizations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch12.html">Interactive Data Visualizations and Dashboards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch10.html">10. Exploratory Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch11.html">11. Static Data Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch12.html">12. Interactive Data Visualizations and Dashboards</a></li>
 </ul>
 
     </div>
@@ -339,17 +339,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-is-web-scraping-legal">Introduction: Is Web Scraping Legal?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-websites-prevent-you-from-scraping">How Websites Prevent You From Scraping</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-requests-with-a-user-agent-header">Using <code class="docutils literal notranslate"><span class="pre">requests</span></code> with a User Agent Header</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-beautifulsoup-example-wnrn-charlottesville-s-legendary-radio-station">Using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup()</span></code> (Example: WNRN, Charlottesville’s Legendary Radio Station)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-and-understanding-raw-html">Downloading and Understanding Raw HTML</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parsing-raw-html-using-beautifulsoup">Parsing Raw HTML Using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#searching-for-html-tags-and-extracting-data">Searching for HTML Tags and Extracting Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constructing-a-data-frame-from-html-data">Constructing a Data Frame from HTML Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-is-web-scraping-legal">5.1. Introduction: Is Web Scraping Legal?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-websites-prevent-you-from-scraping">5.2. How Websites Prevent You From Scraping</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-requests-with-a-user-agent-header">5.3. Using <code class="docutils literal notranslate"><span class="pre">requests</span></code> with a User Agent Header</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-beautifulsoup-example-wnrn-charlottesville-s-legendary-radio-station">5.4. Using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup()</span></code> (Example: WNRN, Charlottesville’s Legendary Radio Station)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-and-understanding-raw-html">5.4.1. Downloading and Understanding Raw HTML</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parsing-raw-html-using-beautifulsoup">5.4.2. Parsing Raw HTML Using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#searching-for-html-tags-and-extracting-data">5.4.3. Searching for HTML Tags and Extracting Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constructing-a-data-frame-from-html-data">5.4.4. Constructing a Data Frame from HTML Data</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-a-spider">Building a Spider</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-a-spider">5.5. Building a Spider</a></li>
 </ul>
             </nav>
         </div>
@@ -362,7 +362,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="web-scraping-using-beautifulsoup">
-<h1><a class="toc-backref" href="#id1" role="doc-backlink">Web Scraping Using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code></a><a class="headerlink" href="#web-scraping-using-beautifulsoup" title="Permalink to this heading">#</a></h1>
+<h1><a class="toc-backref" href="#id1" role="doc-backlink"><span class="section-number">5. </span>Web Scraping Using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code></a><a class="headerlink" href="#web-scraping-using-beautifulsoup" title="Permalink to this heading">#</a></h1>
 <nav class="contents" id="table-of-contents">
 <p class="topic-title">Table of Contents</p>
 <ul class="simple">
@@ -385,7 +385,7 @@ document.write(`
 </ul>
 </nav>
 <section id="introduction-is-web-scraping-legal">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Introduction: Is Web Scraping Legal?</a><a class="headerlink" href="#introduction-is-web-scraping-legal" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">5.1. </span>Introduction: Is Web Scraping Legal?</a><a class="headerlink" href="#introduction-is-web-scraping-legal" title="Permalink to this heading">#</a></h2>
 <p>Web scraping is the practice of downloading the raw HTML code that generates a website, and instead of parsing the code to display it like we do with a web browser whenever we navigate to a page, we dig through the code for data.</p>
 <p>There are <strong>significant legal and ethical questions</strong> regarding web scraping. Right now, there is a court case - <a class="reference external" href="https://en.wikipedia.org/wiki/HiQ_Labs_v._LinkedIn">HiQ Labs vs. LinkedIn</a> - that will establish whether and under what conditions web scraping is legal.</p>
 <img src="https://crowdjustice.imgix.net/pictures/courtroom5-gray_uI7BCRV.png?auto=enhance%2Cformat&crop=faces&fit=crop&q=80&w=1200" width="600" height="600">
@@ -415,7 +415,7 @@ document.write(`
 <p>In general, while scraping appears to exist in a legal and ethical grey area, there is a lot of litigation and many arguments that suggest that once information is posted publically on a website, that there is no longer an expectation of privacy, and the data is open for anyone to use. But be careful when you use web scraping! If there IS an expectation of privacy, such as for any website with a password or other restrictions on access, then the legality and ethics of web scraping are much more dubious. If an API is available, it’s available for a reason, and it’s the correct ethical decision to use the API instead of scraping. Use care and judgment.</p>
 </section>
 <section id="how-websites-prevent-you-from-scraping">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">How Websites Prevent You From Scraping</a><a class="headerlink" href="#how-websites-prevent-you-from-scraping" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">5.2. </span>How Websites Prevent You From Scraping</a><a class="headerlink" href="#how-websites-prevent-you-from-scraping" title="Permalink to this heading">#</a></h2>
 <p>This discussion follows the excellent overview by a Stack Overflow and GitHub contributor with the username JonasCz (I wish I knew this user’s real name!) on <a class="reference external" href="https://github.com/JonasCz/How-To-Prevent-Scraping/blob/master/README.md">how to prevent web scraping</a>.</p>
 <p>To understand the restrictions and challenges you will encounter when scraping data, put yourself in the position of a website’s owner:</p>
 <p>If you own and maintain a website, there are many reasons why you might want to prevent web scraping bots from accessing the data on your website. Maybe the bots will overload the traffic to your site and make it impossible for your website to work as you intend. You might be running a business through this website and sharing the data in mass transfers would undercut your business. For whatever reason, you are now faced with a challenge: how to you prevent automated scraping of the data on your webpage while still allowing individual customers to view your website?</p>
@@ -433,7 +433,7 @@ document.write(`
 <p>The <code class="docutils literal notranslate"><span class="pre">User-agent:</span> <span class="pre">*</span></code> line tells us that the next two lines apply to all user agent strings. <code class="docutils literal notranslate"><span class="pre">Crawl-delay:</span> <span class="pre">10</span></code> places a limit on the frequency with which our scraper can make a request from this website. In this case, individual requests must be made 10 second apart. <code class="docutils literal notranslate"><span class="pre">Request-rate:</span> <span class="pre">1/10</span></code> tells us that our scraper is only allowed to access one page every 10 seconds, and that we are not allowed to make requests from more than one page at the same time.</p>
 </section>
 <section id="using-requests-with-a-user-agent-header">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">Using <code class="docutils literal notranslate"><span class="pre">requests</span></code> with a User Agent Header</a><a class="headerlink" href="#using-requests-with-a-user-agent-header" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">5.3. </span>Using <code class="docutils literal notranslate"><span class="pre">requests</span></code> with a User Agent Header</a><a class="headerlink" href="#using-requests-with-a-user-agent-header" title="Permalink to this heading">#</a></h2>
 <p>As the articles by James Densmore and JonasCz described, requests are much more likely to get blocked by websites if the request does not specify a header that contains a user agent. An HTTP header is a parameter that gets sent along with the HTTP request that contains metadata about the request. A user agent header contains contact and identification information about the person making the request. If there is any issue with your web scraper, you want to give the website owner a chance to contact you directly about that problem. If you do not feel comfortable being contacted by the website’s owner, you should reconsider whether you should be scraping that website.</p>
 <p>Fortunately, it is straightforward to include headers in a GET request using <code class="docutils literal notranslate"><span class="pre">requests</span></code>: just use the <code class="docutils literal notranslate"><span class="pre">headers</span></code> argument. First, we import the relevant libraries:</p>
 <div class="cell docutils container">
@@ -492,7 +492,7 @@ document.write(`
 <p>Including a user agent is not hard, and it goes a long way towards alleviating the anxieties that website owners have about dealing with your web scraping code. It is a good practice to cultivate into a habit.</p>
 </section>
 <section id="using-beautifulsoup-example-wnrn-charlottesville-s-legendary-radio-station">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">Using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup()</span></code> (Example: WNRN, Charlottesville’s Legendary Radio Station)</a><a class="headerlink" href="#using-beautifulsoup-example-wnrn-charlottesville-s-legendary-radio-station" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">5.4. </span>Using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup()</span></code> (Example: WNRN, Charlottesville’s Legendary Radio Station)</a><a class="headerlink" href="#using-beautifulsoup-example-wnrn-charlottesville-s-legendary-radio-station" title="Permalink to this heading">#</a></h2>
 <p>WNRN is a legendary radio station, and it’s based right here in Charlottesville at 91.9 FM (and streaming online at <a class="reference external" href="http://www.wnrn.org">www.wnrn.org</a>). It’s commercial-free, with only a few interruptions for local nonprofits to tell you about cool things happening in town. They play a mix of new and classic alternative rock and R&amp;B. They emphasize music for bands coming to play at local venues. And they play the Grateful Dead on Saturday mornings. You should be listening to WNRN!</p>
 <center><img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0e/WNRN-FM_2014.PNG/200px-WNRN-FM_2014.PNG" width="300" height="300" class="center"></img></center>
 <p>The playlist of the songs that WNRN has played in the last few hours is here: <a class="reference external" href="https://spinitron.com/WNRN/">https://spinitron.com/WNRN/</a>. I want to scrape the data off this website. I also want to scrape the data off of the additional playlists that this website links to, to collect as much data as possible. Our goal in this example is to create a dataframe of each song WNRN has played, the artist, the album, and the time each song was played.</p>
@@ -504,7 +504,7 @@ document.write(`
 <li><p>Place the data into a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> data frame.</p></li>
 </ol>
 <section id="downloading-and-understanding-raw-html">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink">Downloading and Understanding Raw HTML</a><a class="headerlink" href="#downloading-and-understanding-raw-html" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">5.4.1. </span>Downloading and Understanding Raw HTML</a><a class="headerlink" href="#downloading-and-understanding-raw-html" title="Permalink to this heading">#</a></h3>
 <p>For this example, I first download the HTML that exists on <a class="reference external" href="https://spinitron.com/WNRN">https://spinitron.com/WNRN</a> using the <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code> function. To be ethical and to help this website’s owners know that I am not a malicious actor, I also specify a user agent string.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -565,7 +565,7 @@ document.write(`
 <p>Some tags have <strong>attributes</strong>, which are arguments listed inside an opening tag to modify the behavior of that tag or to attach relevant data to the tag. The first <code class="docutils literal notranslate"><span class="pre">&lt;html&gt;</span></code> tag listed above contains an attribute <code class="docutils literal notranslate"><span class="pre">lang</span></code> with a value <code class="docutils literal notranslate"><span class="pre">&quot;en&quot;</span></code> that specifies that this document contains HTML code in English.</p>
 </section>
 <section id="parsing-raw-html-using-beautifulsoup">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">Parsing Raw HTML Using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup()</span></code></a><a class="headerlink" href="#parsing-raw-html-using-beautifulsoup" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">5.4.2. </span>Parsing Raw HTML Using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup()</span></code></a><a class="headerlink" href="#parsing-raw-html-using-beautifulsoup" title="Permalink to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code> function only downloads the raw text of the HTML code, but it does not yet understand the logic and organization of the HTML code. Getting Python to register text as a particular coding standard is called <strong>parsing</strong> the code. We’ve parsed code into Python before with JSON data. We used <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code> to download the JSON formatted data, but we needed <code class="docutils literal notranslate"><span class="pre">json.loads()</span></code> to parse the data in order to be able to navigate the branches of the JSON tree.</p>
 <p>There are two widely used Python libraries for parsing HTML data: <code class="docutils literal notranslate"><span class="pre">bs4</span></code> which contains the <code class="docutils literal notranslate"><span class="pre">BeautifulSoup()</span></code> function, and <code class="docutils literal notranslate"><span class="pre">selenium</span></code>. <code class="docutils literal notranslate"><span class="pre">BeautifulSoup()</span></code> works with raw text, but cannot access websites themselves (we use <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code> for that). In order to access the data on a website, the data needs to be visible in the raw HTML that <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code> returns. If there are measures taken by a website to hide that data, possibly by calling server-side Javascript to populate data fields, or by saving data as image files, then we won’t be able to access the data with an HTML parser. <code class="docutils literal notranslate"><span class="pre">selenium</span></code> has more features to extract more complicated data and circumvent anti-scraping measures, such as taking a screenshot of the webpage in a browser and using optical character recognition (OCR) to pull data directly from the image. However, <code class="docutils literal notranslate"><span class="pre">selenium</span></code> requires each request to be loaded in a web browser, so it can be quite a bit slower than <code class="docutils literal notranslate"><span class="pre">BeautifulSoup()</span></code>. If you are interested in learning how to use <code class="docutils literal notranslate"><span class="pre">selenium</span></code>, see this guide: <a class="reference external" href="https://selenium-python.readthedocs.io/">https://selenium-python.readthedocs.io/</a>. Here we will be using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup()</span></code>.</p>
 <p>First I import the <code class="docutils literal notranslate"><span class="pre">BeautifulSoup()</span></code> function:</p>
@@ -587,7 +587,7 @@ document.write(`
 <p>Now that the <a class="reference external" href="https://spinitron.com/WNRN">https://spinitron.com/WNRN</a> source code is registered as HTML code in Python, we can begin executing commands to navigate the organizational structure of the code and extract data.</p>
 </section>
 <section id="searching-for-html-tags-and-extracting-data">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink">Searching for HTML Tags and Extracting Data</a><a class="headerlink" href="#searching-for-html-tags-and-extracting-data" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">5.4.3. </span>Searching for HTML Tags and Extracting Data</a><a class="headerlink" href="#searching-for-html-tags-and-extracting-data" title="Permalink to this heading">#</a></h3>
 <p>While HTML is a coding language, it does not force coders to follow very strict templates. There’s a lot of flexibility and creativity possible for HTML programmers, and as such, there is no one universal method for extracting data from HTML. The best approach is to open a browser window, navigate to the webpage you want to scrape, and “view page source”. (Different web browsers have different ways to do that. On Mozilla Firefox, right click somewhere on the page other than an active link, and “view page source” should be an option.) The source will display the raw HTML code that generates the page. You will need to search through this code to find examples of the data points you intend to collect, possibly using control+F to search for specific values. Once you find the data you need, make note of the tags that surround the data and use the tools we will describe next to extract the data.</p>
 <p>The parsable HTML <code class="docutils literal notranslate"><span class="pre">BeautifulSoup()</span></code> output, <code class="docutils literal notranslate"><span class="pre">wnrn</span></code>, has important methods and attributes that we will use to extract the data we want. First, we can use the name of a tag as an attribute to extract the first occurrence of that tag. Here we extract the first <code class="docutils literal notranslate"><span class="pre">&lt;meta&gt;</span></code> tag:</p>
 <div class="cell docutils container">
@@ -1716,7 +1716,7 @@ document.write(`
 </div>
 </section>
 <section id="constructing-a-data-frame-from-html-data">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink">Constructing a Data Frame from HTML Data</a><a class="headerlink" href="#constructing-a-data-frame-from-html-data" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">5.4.4. </span>Constructing a Data Frame from HTML Data</a><a class="headerlink" href="#constructing-a-data-frame-from-html-data" title="Permalink to this heading">#</a></h3>
 <p>Next we need to place these data into a clean data frame. For that, we will need to keep the valid data while dropping the HTML tags. We stored the tags with the artists, songs, albums, and times in separate lists. Every name is stored as a navigable string in the HTML tags, so to extract these names we need to loop across the elements of the list. The simplest loop for this task is called a <strong>list comprehension</strong>, which has the following syntax:</p>
 <p><em>newlist</em> <code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">[</span></code> <em>expression</em> <code class="docutils literal notranslate"><span class="pre">for</span></code> <em>item</em> <code class="docutils literal notranslate"><span class="pre">in</span></code> <em>oldlist</em> <code class="docutils literal notranslate"><span class="pre">if</span></code> <em>condition</em> <code class="docutils literal notranslate"><span class="pre">]</span></code></p>
 <p>In this syntax, we are creating a new list by iteratively performing operations on the elements of an existing list (<em>oldlist</em>). <em>item</em> is a token that we will use to represent one item of the existing list. <em>expression</em> is the same Python code we would use on a single element of the existing list, except we replace the name of the element with the token defined with <em>item</em>. Finally <em>condition</em> is an optional part of this code which sets a filter by which only certain elements of the old list are transformed and placed into the new list (there’s an example of conditioning in a comprehension loop in the section on <span class="xref myst">spiders</span>).</p>
@@ -2002,7 +2002,7 @@ document.write(`
 </section>
 </section>
 <section id="building-a-spider">
-<h2><a class="toc-backref" href="#id10" role="doc-backlink">Building a Spider</a><a class="headerlink" href="#building-a-spider" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">5.5. </span>Building a Spider</a><a class="headerlink" href="#building-a-spider" title="Permalink to this heading">#</a></h2>
 <p>At the bottom of the WNRN playlist on <a class="reference external" href="https://spinitron.com/WNRN/">https://spinitron.com/WNRN/</a> there are links to older song playlists. Let’s extend our example by building a <strong>spider</strong> to capture the data that exists on these links as well. A spider is a web scraper that follows links on a page automatically and scrapes from those links as well.</p>
 <p>I look at the page source for these links, and find that they are contained in a <code class="docutils literal notranslate"><span class="pre">&lt;div</span> <span class="pre">class=&quot;recent-playlists&quot;&gt;</span></code> tag. I start by finding this tag. As there’s only one occurrence, I can use <code class="docutils literal notranslate"><span class="pre">.find()</span></code> instead of <code class="docutils literal notranslate"><span class="pre">.find_all()</span></code>:</p>
 <div class="cell docutils container">
@@ -2447,7 +2447,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Acquiring Data from APIs</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Acquiring Data from APIs</p>
       </div>
     </a>
     <a class="right-next"
@@ -2455,7 +2455,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Creating and Connecting to Databases</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Creating and Connecting to Databases</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -2474,17 +2474,17 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-is-web-scraping-legal">Introduction: Is Web Scraping Legal?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-websites-prevent-you-from-scraping">How Websites Prevent You From Scraping</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-requests-with-a-user-agent-header">Using <code class="docutils literal notranslate"><span class="pre">requests</span></code> with a User Agent Header</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-beautifulsoup-example-wnrn-charlottesville-s-legendary-radio-station">Using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup()</span></code> (Example: WNRN, Charlottesville’s Legendary Radio Station)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-and-understanding-raw-html">Downloading and Understanding Raw HTML</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parsing-raw-html-using-beautifulsoup">Parsing Raw HTML Using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#searching-for-html-tags-and-extracting-data">Searching for HTML Tags and Extracting Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constructing-a-data-frame-from-html-data">Constructing a Data Frame from HTML Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-is-web-scraping-legal">5.1. Introduction: Is Web Scraping Legal?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-websites-prevent-you-from-scraping">5.2. How Websites Prevent You From Scraping</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-requests-with-a-user-agent-header">5.3. Using <code class="docutils literal notranslate"><span class="pre">requests</span></code> with a User Agent Header</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-beautifulsoup-example-wnrn-charlottesville-s-legendary-radio-station">5.4. Using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup()</span></code> (Example: WNRN, Charlottesville’s Legendary Radio Station)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-and-understanding-raw-html">5.4.1. Downloading and Understanding Raw HTML</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parsing-raw-html-using-beautifulsoup">5.4.2. Parsing Raw HTML Using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#searching-for-html-tags-and-extracting-data">5.4.3. Searching for HTML Tags and Extracting Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constructing-a-data-frame-from-html-data">5.4.4. Constructing a Data Frame from HTML Data</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-a-spider">Building a Spider</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-a-spider">5.5. Building a Spider</a></li>
 </ul>
   </nav></div>
 

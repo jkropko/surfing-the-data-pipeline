@@ -1,373 +1,377 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Getting Yourself Unstuck &#8212; Surfing the Data Pipeline with Python</title>
-    
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+    <title>1. Getting Yourself Unstuck &#8212; Surfing the Data Pipeline with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch1';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Loading Data from Electronic Data Files" href="ch2.html" />
+    <link rel="next" title="2. Loading Data from Electronic Data Files" href="ch2.html" />
     <link rel="prev" title="Surfing the Data Pipeline with Python" href="intro.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      <img src="_static/surf.jpg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Surfing the Data Pipeline with Python</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
-   Surfing the Data Pipeline with Python
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Get Started
- </span>
-</p>
+    
+    
+    <img src="_static/surf.jpg" class="logo__image only-light" alt="Surfing the Data Pipeline with Python - Home"/>
+    <script>document.write(`<img src="_static/surf.jpg" class="logo__image only-dark" alt="Surfing the Data Pipeline with Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Surfing the Data Pipeline with Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Get Started</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Getting Yourself Unstuck
-  </a>
- </li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Getting Yourself Unstuck</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Get Data
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Get Data</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="ch2.html">
-   Loading Data from Electronic Data Files
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ch3.html">
-   Loading, Converting, and Writing JSON Files
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ch4.html">
-   Acquiring Data from APIs
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ch5.html">
-   Web Scraping Using
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     BeautifulSoup
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ch6.html">
-   Creating and Connecting to Databases
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="ch2.html">2. Loading Data from Electronic Data Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch3.html">3. Loading, Converting, and Writing JSON Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch4.html">4. Acquiring Data from APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch5.html">5. Web Scraping Using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch6.html">6. Creating and Connecting to Databases</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Wrangle Data
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wrangle Data</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="ch7.html">
-   Database Queries
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ch8.html">
-   Data Wrangling with
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     pandas
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ch9.html">
-   Reshaping and Merging Data and Working with Strings, Dates, and Times
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="ch7.html">7. Database Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch8.html">8. Data Wrangling with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch9.html">9. Reshaping and Merging Data and Working with Strings, Dates, and Times</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Explore and Communicate Data
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Explore and Communicate Data</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="ch10.html">
-   Exploratory Data Analysis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ch11.html">
-   Static Data Visualizations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ch12.html">
-   Interactive Data Visualizations and Dashboards
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="ch10.html">10. Exploratory Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch11.html">11. Static Data Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch12.html">12. Interactive Data Visualizations and Dashboards</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/ch1.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/ch1.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main">
         
         
-        
-        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ch1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
-        </div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Getting Yourself Unstuck</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction">
-   Introduction
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#being-a-data-scientist-means-knowing-how-to-get-yourself-unstuck">
-   Being a Data Scientist Means Knowing How to Get Yourself Unstuck
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-places-to-go-for-help-in-order">
-   The Places to Go For Help, In Order
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#method-1-reading-and-understanding-python-errors">
-   Method 1: Reading and Understanding Python Errors
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#method-2-using-the-built-in-python-documentation">
-   Method 2: Using the Built-in Python Documentation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#using-a-console-window-in-jupyterlab">
-     Using a Console Window in JupyterLab
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#how-to-call-up-and-read-a-docstring">
-     How to Call Up and Read a Docstring
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#method-3-using-google-and-other-search-engines">
-   Method 3: Using Google and Other Search Engines
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#how-to-avoid-toxicity-in-online-communities">
-   How to Avoid Toxicity in Online Communities
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#method-4-stack-overflow">
-   Method 4: Stack Overflow
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#how-stack-overflow-works">
-     How Stack Overflow Works
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#asking-a-question-on-stack-overflow">
-     Asking a Question on Stack Overflow
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#method-5-python-slack-and-discord">
-   Method 5: Python Slack and Discord
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#method-6-live-chats-with-python-users-on-freenode">
-   Method 6: Live Chats With Python Users on Freenode
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#method-7-python-mailing-lists-and-newsgroups">
-   Method 7: Python Mailing Lists and Newsgroups
-  </a>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">1.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#being-a-data-scientist-means-knowing-how-to-get-yourself-unstuck">1.2. Being a Data Scientist Means Knowing How to Get Yourself Unstuck</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-places-to-go-for-help-in-order">1.3. The Places to Go For Help, In Order</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-1-reading-and-understanding-python-errors">1.4. Method 1: Reading and Understanding Python Errors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-2-using-the-built-in-python-documentation">1.5. Method 2: Using the Built-in Python Documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-a-console-window-in-jupyterlab">1.5.1. Using a Console Window in JupyterLab</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-call-up-and-read-a-docstring">1.5.2. How to Call Up and Read a Docstring</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-3-using-google-and-other-search-engines">1.6. Method 3: Using Google and Other Search Engines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-avoid-toxicity-in-online-communities">1.7. How to Avoid Toxicity in Online Communities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-4-stack-overflow">1.8. Method 4: Stack Overflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-stack-overflow-works">1.8.1. How Stack Overflow Works</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asking-a-question-on-stack-overflow">1.8.2. Asking a Question on Stack Overflow</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-5-python-slack-and-discord">1.9. Method 5: Python Slack and Discord</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-6-live-chats-with-python-users-on-freenode">1.10. Method 6: Live Chats With Python Users on Freenode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-7-python-mailing-lists-and-newsgroups">1.11. Method 7: Python Mailing Lists and Newsgroups</a></li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <section id="getting-yourself-unstuck">
-<h1><a class="toc-backref" href="#id1">Getting Yourself Unstuck</a><a class="headerlink" href="#getting-yourself-unstuck" title="Permalink to this headline">¶</a></h1>
-<div class="contents topic" id="table-of-contents">
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="getting-yourself-unstuck">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink"><span class="section-number">1. </span>Getting Yourself Unstuck</a><a class="headerlink" href="#getting-yourself-unstuck" title="Permalink to this heading">#</a></h1>
+<nav class="contents" id="table-of-contents">
 <p class="topic-title">Table of Contents</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#getting-yourself-unstuck" id="id1">Getting Yourself Unstuck</a></p>
@@ -396,9 +400,9 @@
 </ul>
 </li>
 </ul>
-</div>
+</nav>
 <section id="introduction">
-<h2><a class="toc-backref" href="#id2">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">1.1. </span>Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
 <p>Modeling and analytics get the lion’s share of attention in the classroom in data science programs, but in the real world, data is almost never ready to be analyzed without a great deal of work to prepare the data first. <a class="reference external" href="https://www.forbes.com/sites/gilpress/2016/03/23/data-preparation-most-time-consuming-least-enjoyable-data-science-task-survey-says/#3ebb8cd06f63">This article in Forbes</a> describes a survey of data scientists in which the respondents claim to spend nearly 80% of their time collecting and cleaning data.</p>
 <center><img src="https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fblogs-images.forbes.com%2Fgilpress%2Ffiles%2F2016%2F03%2FTime-1200x511.jpg" alt="Apologies for the pie chart, it will be the last one we see in this course" width="600"/> 
 <p style="text-align: center;"><b>Source:</b>
@@ -435,7 +439,7 @@
 <p>However, prior to launching into the data pipeline, we have to talk about the single most important skill for a data scientist: <strong>how to get yourself unstuck</strong>.</p>
 </section>
 <section id="being-a-data-scientist-means-knowing-how-to-get-yourself-unstuck">
-<h2><a class="toc-backref" href="#id3">Being a Data Scientist Means Knowing How to Get Yourself Unstuck</a><a class="headerlink" href="#being-a-data-scientist-means-knowing-how-to-get-yourself-unstuck" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">1.2. </span>Being a Data Scientist Means Knowing How to Get Yourself Unstuck</a><a class="headerlink" href="#being-a-data-scientist-means-knowing-how-to-get-yourself-unstuck" title="Permalink to this heading">#</a></h2>
 <p>Most of you reading this book would describe yourselves as beginners with Python code and the practice of data science. Being a beginner is a wonderful thing. As a beginner, the rate at which you are learning new skills is faster than it will be at any other point in your career. And the feeling of accomplishment you will feel by writing working code can and should be profound. But one drawback of being a beginner is the feeling of being judged or viewed as insufficient in comparison to more experienced coders who have much more of this programming language memorized. <a class="reference external" href="https://en.wikipedia.org/wiki/Impostor_syndrome">Imposter syndrome</a>, a persistent feeling of doubt in one’s skills and the feeling of being a fraud, is especially common for students who are just starting out in a new field. And it’s only natural to look at people who type and execute code at furious speeds and to think of yourself as an imposter, especially when you keep getting errors when you try to execute your code.</p>
 <p>But here’s the secret: problems, errors, and anomalies in your code are inevitable. And that’s true whether you are a beginner or a programmer with decades of experience. It would be accurate to describe a workday of a data scientist as moving from one error to the next to the next. It is simply the nature of using a big programming language like Python that includes so many user-written and open source extensions. So you will feel at times like all you do is generate errors with your code. This feeling is natural, and it is a universal feeling that all data scientists share regardless of their experience level. What sets experienced data scientists apart is their skill in using help resources fix bugs and to to get to the right answer, <strong>as quickly as possible</strong>.</p>
 <p>As a student, you often have access to an instructor who can answer questions and help you work out the bugs in your code. But as a practitioner you might not have access to someone with the experience and time to help you with your code in a one-on-one way. Some proprietary software sells access to helplines and consulting, but open source projects like Python depend on the community of Python users to provide this support. The more popular an open source software package the bigger the community and the better the resources to help programmers solve problems. And it just so happens that <a class="reference external" href="https://linuxiac.com/python-the-most-popular-programming-language/">Python is the most popular programming language in the world</a>, and there are some incredible resources available to anyone working with Python. So the most important skill to master to become an advanced data programmer is participating in this community to quickly find answers to the problems that arise as you code.</p>
@@ -445,9 +449,9 @@
 <a href="https://phdcomics.com/comics/archive.php/archive/tellafriend.php?comicid=673">Ph.D. Comics, "Debugging", by Jorge Cham</a>
 </p></center></section>
 <section id="the-places-to-go-for-help-in-order">
-<h2><a class="toc-backref" href="#id4">The Places to Go For Help, In Order</a><a class="headerlink" href="#the-places-to-go-for-help-in-order" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">1.3. </span>The Places to Go For Help, In Order</a><a class="headerlink" href="#the-places-to-go-for-help-in-order" title="Permalink to this heading">#</a></h2>
 <p>There are many resources available to you. I suggest using the following resources in a particular order:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Reading and understanding Python errors</p></li>
 <li><p>Python documentation</p></li>
 <li><p>Google</p></li>
@@ -460,10 +464,10 @@
 <p>Please notice, many programmers use Google and Stack Overflow as their first options for getting help. I strongly suggest that you do <strong>not</strong> look to Google and Stack Overflow before trying to use the official Python built-in documentation. The documentation isn’t as intuitive and easy to access as Google, but the answers that the official documentation will provide are guaranteed to be correct and specific to the functions you are trying to use, if you know what those functions are. In contrast, for all of the strengths of Google and Stack Overflow, there is a lot of information out there that isn’t especially helpful and will slow you down a great deal.</p>
 </section>
 <section id="method-1-reading-and-understanding-python-errors">
-<h2><a class="toc-backref" href="#id5">Method 1: Reading and Understanding Python Errors</a><a class="headerlink" href="#method-1-reading-and-understanding-python-errors" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">1.4. </span>Method 1: Reading and Understanding Python Errors</a><a class="headerlink" href="#method-1-reading-and-understanding-python-errors" title="Permalink to this heading">#</a></h2>
 <p>Usually, when you are stuck, it’s because you ran some code that resulted in an error. Reading and <em>understanding</em> the error is the single most important and useful way to get yourself unstuck. These errors are not aesthetically pleasing, and they are written in technical language, but the intention of these error messages is to tell you exactly what went wrong. Many new Python users skip reading the errors entirely, which is a shame because the error might indicate exactly the fastest way to solve the problem.</p>
 <p>There are two reasons why people skip over reading the errors:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>The error appears in a big pink box with pea green and cyan text inside of it. It’s pretty ugly.</p></li>
 <li><p>The first several lines of code are reserved for a function’s <strong>traceback</strong>. The traceback is an attempt to isolate the particular line of code within a larger function that causes the error. However, the traceback is often very technical and not especially useful. After reading the first few lines of the traceback, most people give up on the entire error message.</p></li>
 </ol>
@@ -499,14 +503,14 @@
 </div>
 </section>
 <section id="method-2-using-the-built-in-python-documentation">
-<h2><a class="toc-backref" href="#id6">Method 2: Using the Built-in Python Documentation</a><a class="headerlink" href="#method-2-using-the-built-in-python-documentation" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">1.5. </span>Method 2: Using the Built-in Python Documentation</a><a class="headerlink" href="#method-2-using-the-built-in-python-documentation" title="Permalink to this heading">#</a></h2>
 <p>Packages, modules, classes and functions in Python have built-in documentation that you can display directly in the console or in the output of a notebook. These built-in documentations are called <strong>docstrings</strong>. The docstring, and not Google, should be the first place to look for help with specific, pre-built Python code as it conveys guidance directly from the code’s authors. In contrast, going to Google first often turns up blogs and posts in which another secondary user describes the code, and that will be more prone to misinterpretations and mistakes.</p>
 <section id="using-a-console-window-in-jupyterlab">
-<h3><a class="toc-backref" href="#id7">Using a Console Window in JupyterLab</a><a class="headerlink" href="#using-a-console-window-in-jupyterlab" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">1.5.1. </span>Using a Console Window in JupyterLab</a><a class="headerlink" href="#using-a-console-window-in-jupyterlab" title="Permalink to this heading">#</a></h3>
 <p>In my experience working with new Python programmers, beginners are very reluctant to use the docstrings. That’s unfortunate because docstrings are fast and accurate ways to solve issues with using existing code.</p>
 <p>One reason for this reluctance is that calling up a docstring is annoying in a Jupyter notebook. Ideally, you should be working with two windows side by side: one for the notebook or script that contains your code, and one for viewing docstrings. Another reason new users don’t use docstrings is that the help documentation isn’t accessable until the packages that contain the relevant functions are loaded into the workspace.</p>
 <p>The following is a procedure you can use to make viewing docstrings easier with Jupyter notebooks. With a little practice it can become a good habit that saves you a great deal of time in the long-run:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Use JupyterLab and open the notebook you are working on.</p></li>
 <li><p>Run the entire notebook (or at least everything up to an error you are trying to fix).</p></li>
 <li><p>Right click somewhere in the notebook and select “New Console for Notebook”.</p></li>
@@ -516,7 +520,7 @@
 <p>The procedure listed above gives you a visible and separate place to view docstrings. It also loads the same kernel as the notebook you are working on, so that if you’ve imported <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, for example, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> is also loaded into the console so that you can call the docstring for any <code class="docutils literal notranslate"><span class="pre">pandas</span></code> module or function. Keeping this console open will help you more easily integrate calling and reading docstrings into your workflow.</p>
 </section>
 <section id="how-to-call-up-and-read-a-docstring">
-<h3><a class="toc-backref" href="#id8">How to Call Up and Read a Docstring</a><a class="headerlink" href="#how-to-call-up-and-read-a-docstring" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">1.5.2. </span>How to Call Up and Read a Docstring</a><a class="headerlink" href="#how-to-call-up-and-read-a-docstring" title="Permalink to this heading">#</a></h3>
 <p>There are many different kinds of code objects in Python that have attached docstrings:</p>
 <ul class="simple">
 <li><p>A package itself, such as <code class="docutils literal notranslate"><span class="pre">pandas</span></code> or <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>,</p></li>
@@ -541,15 +545,17 @@ signature (the complete function syntax, including all arguments and their defau
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on built-in function print in module builtins:
 
-print(...)
-    print(value, ..., sep=&#39; &#39;, end=&#39;\n&#39;, file=sys.stdout, flush=False)
-    
+print(*args, sep=&#39; &#39;, end=&#39;\n&#39;, file=None, flush=False)
     Prints the values to a stream, or to sys.stdout by default.
-    Optional keyword arguments:
-    file:  a file-like object (stream); defaults to the current sys.stdout.
-    sep:   string inserted between values, default a space.
-    end:   string appended after the last value, default a newline.
-    flush: whether to forcibly flush the stream.
+    
+    sep
+      string inserted between values, default a space.
+    end
+      string appended after the last value, default a newline.
+    file
+      a file-like object (stream); defaults to the current sys.stdout.
+    flush
+      whether to forcibly flush the stream.
 </pre></div>
 </div>
 </div>
@@ -572,7 +578,7 @@ print(...)
 </div>
 <p>In this case, <code class="docutils literal notranslate"><span class="pre">?print</span></code> and <code class="docutils literal notranslate"><span class="pre">??print</span></code> yield the same output because the internal code of <code class="docutils literal notranslate"><span class="pre">print</span></code> is C code, which Python calls but does not display.</p>
 <p>Docstrings often have <strong>sections</strong> that convey particular information.</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>The header (only appears with <code class="docutils literal notranslate"><span class="pre">help(print)</span></code>): tells us that the <code class="docutils literal notranslate"><span class="pre">print</span></code> function exists in the <code class="docutils literal notranslate"><span class="pre">builtins</span></code> module (the module that loads automatically when we launch Python)</p></li>
 <li><p>The signature: lists all of the parameters of a function. Each parameter in the signature is set equal to its default value. If the user doesn’t specify the parameter in the function all, it’s set to the default.</p></li>
 <li><p>The short description: A one-or-two sentence summary of what the function does. For the <code class="docutils literal notranslate"><span class="pre">print</span></code> function, this summary is “Prints the values to a stream, or to sys.stdout by default” which is technical-speak for prints to whatever the output medium happens to be. In a Jupyter notebook that means printing just below a cell of executable code.</p></li>
@@ -581,7 +587,7 @@ Each parameter is described in a sentence or two to explain what the parameter d
 Sometimes the parameters may be noted as either required or optional in a call to the function, and the docstring might also list the type of each parameter: in this case, the <code class="docutils literal notranslate"><span class="pre">sep</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span></code> parameters are denoted as strings.</p></li>
 </ol>
 <p>Other docstrings might include sections that describe:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Returns: describes what the output should look like and contain</p></li>
 <li><p>Attributes and methods for a user-defined Python variable</p></li>
 <li><p>See also: a list of related functions</p></li>
@@ -592,7 +598,7 @@ can do more things with the given objects than the examples do.</p></li>
 </section>
 </section>
 <section id="method-3-using-google-and-other-search-engines">
-<h2><a class="toc-backref" href="#id9">Method 3: Using Google and Other Search Engines</a><a class="headerlink" href="#method-3-using-google-and-other-search-engines" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">1.6. </span>Method 3: Using Google and Other Search Engines</a><a class="headerlink" href="#method-3-using-google-and-other-search-engines" title="Permalink to this heading">#</a></h2>
 <p>Many of us have a habit of going to Google first whenever we have a coding problem. Please make a concerted effort starting right now to break this habit. If you know the functions you need more information about, using the built-in docstrings first the best habit. The docstrings are what the code’s authors provide to guide users. If you know where to look within a docstring, you can find the correct answers to your questions quickly.</p>
 <p>Google is a comparatively slow method for getting help. With open-source environments such as Python, there are many ways to do the same thing, and there are way too many presentations on the internet of any one topic to sift through efficiently. Many of the resources you find this way come from a field or a point of view that differs from your own, leading you to have to work hard to translate the language that explains the method. And some of the information is out of date or simply wrong.</p>
 <p>Use Google or another search engine if</p>
@@ -606,7 +612,7 @@ can do more things with the given objects than the examples do.</p></li>
 </pre></div>
 </div>
 <p>Starting the search with “python” usually narrows the search to Python-specific documentation, message-boards, and blogs. Typing the relevant function or task second narrows those results to more relevant posts. For example, suppose I try to solve the issue that led to the error above when using <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code>. I determined that the problem occurred because the first four rows of the data file are taken up by an unnecessary header placed there by the data authors. I would like to know how to skip these lines. If I turn to the docstring first by typing <code class="docutils literal notranslate"><span class="pre">?pd.read_csv</span></code>, I see that there is a parameter <code class="docutils literal notranslate"><span class="pre">skiprows</span></code> with this description:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">skiprows</span> <span class="p">:</span> <span class="nb">list</span><span class="o">-</span><span class="n">like</span><span class="p">,</span> <span class="nb">int</span> <span class="ow">or</span> <span class="n">callable</span><span class="p">,</span> <span class="n">optional</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">skiprows</span> <span class="p">:</span> <span class="nb">list</span><span class="o">-</span><span class="n">like</span><span class="p">,</span> <span class="nb">int</span> <span class="ow">or</span> <span class="nb">callable</span><span class="p">,</span> <span class="n">optional</span>
     <span class="n">Line</span> <span class="n">numbers</span> <span class="n">to</span> <span class="n">skip</span> <span class="p">(</span><span class="mi">0</span><span class="o">-</span><span class="n">indexed</span><span class="p">)</span> <span class="ow">or</span> <span class="n">number</span> <span class="n">of</span> <span class="n">lines</span> <span class="n">to</span> <span class="n">skip</span> <span class="p">(</span><span class="nb">int</span><span class="p">)</span>
     <span class="n">at</span> <span class="n">the</span> <span class="n">start</span> <span class="n">of</span> <span class="n">the</span> <span class="n">file</span><span class="o">.</span>
 </pre></div>
@@ -644,7 +650,7 @@ can do more things with the given objects than the examples do.</p></li>
 <p>There are also many, many more resources and new ones are created all the time. Find the resources you like best: going directly to the most credible links will save you a great deal of time in this effort to get yourself unstuck.</p>
 </section>
 <section id="how-to-avoid-toxicity-in-online-communities">
-<h2><a class="toc-backref" href="#id10">How to Avoid Toxicity in Online Communities</a><a class="headerlink" href="#how-to-avoid-toxicity-in-online-communities" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">1.7. </span>How to Avoid Toxicity in Online Communities</a><a class="headerlink" href="#how-to-avoid-toxicity-in-online-communities" title="Permalink to this heading">#</a></h2>
 <p>The next options involve becoming a <strong>responsible, respectful</strong> member of the worldwide community of Python users. Open-source platforms like Python and R depend on a community of volunteers who develop and maintain the tools that we use. All of these people are doing volunteer work for the common good, and that’s a beautiful thing.</p>
 <p>In addition to Python itself, Stack Overflow, Slack, Discord, the Freenode IRC, and mailing lists are online communities for Python users. But, like any online community, there’s the potential for a toxic culture to destroy everything.</p>
 <p>What is a toxic culture? How do you know one when you see one?</p>
@@ -676,7 +682,7 @@ can do more things with the given objects than the examples do.</p></li>
 <p>Please keep the behaviors described here in mind when you engage in online communities, and avoid them. Think about your words and place yourself in the position of the original poster before submitting a response, and make the edits that you think would lead to a better online interaction. Don’t be afraid to call out other people who behave in these ways. And if you are yourself the person who posts, be aware that these behaviors still happen much too frequently, but know that despite this, most people on these forums mean well.</p>
 </section>
 <section id="method-4-stack-overflow">
-<h2><a class="toc-backref" href="#id11">Method 4: Stack Overflow</a><a class="headerlink" href="#method-4-stack-overflow" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">1.8. </span>Method 4: Stack Overflow</a><a class="headerlink" href="#method-4-stack-overflow" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://stackoverflow.com">Stack Overflow</a> is the most popular and most useful website for help with programming of all kinds. Google searching a Python problem will usually lead to a Stack Overflow post on the same issue. Python is now the most frequent tag for posts on Stack Overflow, and shown in this video:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -687,19 +693,20 @@ can do more things with the given objects than the examples do.</p></li>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<iframe
-    width="560"
-    height="315"
-    src="https://www.youtube.com/embed/cKzP61Gjf00"
-    frameborder="0"
-    allowfullscreen
-></iframe>
-</div></div>
+        <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/cKzP61Gjf00"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
 </div>
 <p>Finding a Stack Overflow post that’s relevant to your problem can give you both the code and underlying intuition to solve your problem. Or maybe not! Small differences in the situation can make the solution irrelevant to you. Be cautious and don’t treat a Stack Overflow post as automatically a definitive answer.</p>
 <section id="how-stack-overflow-works">
-<h3><a class="toc-backref" href="#id12">How Stack Overflow Works</a><a class="headerlink" href="#how-stack-overflow-works" title="Permalink to this headline">¶</a></h3>
-<ol class="simple">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">1.8.1. </span>How Stack Overflow Works</a><a class="headerlink" href="#how-stack-overflow-works" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
 <li><p>Someone asks a question</p></li>
 <li><p>Other people comment on and provide answers to the question</p></li>
 <li><p>The person who asked the question replies to the comments, and can choose an answer to mark as “accepted”.</p></li>
@@ -709,7 +716,7 @@ can do more things with the given objects than the examples do.</p></li>
 <p>Going for reputation is an entirely optional activity. If you don’t want to worry about it, don’t.</p>
 </section>
 <section id="asking-a-question-on-stack-overflow">
-<h3><a class="toc-backref" href="#id13">Asking a Question on Stack Overflow</a><a class="headerlink" href="#asking-a-question-on-stack-overflow" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">1.8.2. </span>Asking a Question on Stack Overflow</a><a class="headerlink" href="#asking-a-question-on-stack-overflow" title="Permalink to this heading">#</a></h3>
 <p>Okay, so you’re stuck. You’ve combed through the Python documentation, Google, and old Stack Overflow posts, but you haven’t found a solution. It’s time to consider writing a new question on Stack Overflow.</p>
 <center><img src="https://github.com/jkropko/DS-6001/raw/master/localimages/leia.png" alt="" width="400"/>
 <p style="text-align: center;"><b>Source:</b>
@@ -717,7 +724,7 @@ can do more things with the given objects than the examples do.</p></li>
 </a>
 </p></center>
 <p>This can be frightening. A lot of the time, people answering questions on Stack Overflow can be, well … huge assholes that cause <a class="reference external" href="https://medium.com/&#64;Aprilw/suffering-on-stack-overflow-c46414a34a52">real suffering</a>. You might choose to avoid posting to Stack Overflow, so as not to support a website that has harbored abuse. That’s completely fair. If you do post to Stack Overflow, you are likely to get some very useful responses if you follow some guidelines. There’s <a class="reference external" href="https://stackoverflow.com/help/how-to-ask">a strategy for getting good responses</a>. You are more likely to get a good response if you follow these steps:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><strong>Search Stack Overflow and Google to see if the question has already been answered.</strong> Commenters dislike if the same question is asked repeatedly. This <a class="reference external" href="https://stackoverflow.com/questions/27885020/find-all-possible-combinations-of-letters-in-a-string-in-python">poor guy</a> got roasted for posing a “duplicate” question. (An aside: <em>Why?</em> It’s not like Stack Overflow is running out of space on their website.  There’s an idea that Stack Overflow should be a central repository of knowledge. That means there should be one canonical answer to one question. But people often take this much too far. There are kinder ways to point to an existing answer.) So spend a significant amount of time digging through the internet. If there’s something similar, but not quite what you need, you can say so in your post.</p></li>
 <li><p><strong>Write a good title for your post.</strong> A good title is specific about the problem, and also succinct:</p></li>
 </ol>
@@ -726,7 +733,7 @@ can do more things with the given objects than the examples do.</p></li>
 <li><p>Also Bad: How do I place the labels of cars in a scatterplot of the weight and miles per gallon of cars onto the points in the scatterplot using matplotlob 3.3.1 on Python 3.7.4 on Mac OSX 10.14.5? (not succinct)</p></li>
 <li><p>Good: How to place labels on top of points in a matplotlib scatterplot?</p></li>
 </ul>
-<ol class="simple">
+<ol class="arabic simple" start="3">
 <li><p><strong>Start the post with a paragraph describing the problem in more detail.</strong> Some good things to include in this paragraph:</p></li>
 </ol>
 <ul class="simple">
@@ -735,7 +742,7 @@ can do more things with the given objects than the examples do.</p></li>
 <li><p>What is the expected output? What do you see instead?</p></li>
 <li><p>You can write the version of Python you are using, the version of the modules, and the operating system on your computer, in case the problem turns out to be specific to an old version of one of those things.</p></li>
 </ul>
-<ol class="simple">
+<ol class="arabic simple" start="4">
 <li><p>If possible, <strong>include code that reproduces the problem.</strong> The code should not simply be the code in your script that isn’t working. It needs to be able to work on someone else’s computer. That means the code should not depend on any specific data files, and should not contain file addresses that refer to a location on your computer. If possible, only use modules that are easy to get. If the code needs to run on data, can you use something pre-loaded in Python that everyone can access? (There are example datasets included with <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>, for example.) Make the code as short and stripped down as possible while still producing the behavior or error that needs to be fixed, and use comments to help people understand the code more quickly.</p></li>
 </ol>
 <p>A few additional things to keep in mind:</p>
@@ -749,17 +756,17 @@ can do more things with the given objects than the examples do.</p></li>
 </section>
 </section>
 <section id="method-5-python-slack-and-discord">
-<h2><a class="toc-backref" href="#id14">Method 5: Python Slack and Discord</a><a class="headerlink" href="#method-5-python-slack-and-discord" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">1.9. </span>Method 5: Python Slack and Discord</a><a class="headerlink" href="#method-5-python-slack-and-discord" title="Permalink to this heading">#</a></h2>
 <p>Slack and Discord are both platforms for groups of people to chat with each other, post to shared message boards for specific topics, share files, and hold meetings.</p>
 <p>The main slack page for the global community of Python users is <strong>Pyslackers</strong>: <a class="reference external" href="https://pyslackers.com/web">https://pyslackers.com/web</a>. To join, just go to the URL and click “join the community”. The main discussion happens on #python_, but there are many other useful channels including #data_science and #job_advice. This method is especially worthwhile if you already are used to using slack for work or for personal networking.</p>
 <p><strong>Python Discord</strong> (<a class="reference external" href="https://www.pythondiscord.com/">https://www.pythondiscord.com/</a>) is similar to PySlackers but seems to be more focused on organizing shared Python projects and posting the code on GitHub. To join, click the “join us” link in the upper-right corner of their homepage.</p>
 <p>One thing that helped me use Slack and Discord much more consistently is downloading the desktop app for Slack (<a class="reference external" href="https://slack.com/downloads">https://slack.com/downloads</a>) and for Discord (<a class="reference external" href="https://discord.com/download">https://discord.com/download</a>), and always leaving the apps open on my local computer so that I see messages right away when they are sent to me.</p>
 </section>
 <section id="method-6-live-chats-with-python-users-on-freenode">
-<h2><a class="toc-backref" href="#id15">Method 6: Live Chats With Python Users on Freenode</a><a class="headerlink" href="#method-6-live-chats-with-python-users-on-freenode" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">1.10. </span>Method 6: Live Chats With Python Users on Freenode</a><a class="headerlink" href="#method-6-live-chats-with-python-users-on-freenode" title="Permalink to this heading">#</a></h2>
 <p>The Python user community is world-wide, and for the most part, very supportive. There are active internet relay chat (IRC) networks where you can post a question to members who are also logged in, to possibly get an answer right away. The most active Python IRC is the #python channel on Freenode: <a class="reference external" href="https://webchat.freenode.net">https://webchat.freenode.net</a>. When I logged in while writing this notebook, there were 1,778 people logged on.</p>
 <p>Internet chatrooms can be rough places, but the #python channel claims to enforce this <a class="reference external" href="https://www.python.org/psf/codeofconduct/">Code of Conduct</a>. Getting started on Freenode can be tricky, but it’s easier if you follow these steps:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Go to <a class="reference external" href="https://webchat.freenode.net/">https://webchat.freenode.net/</a>. Choose a nickname, and make it professional (you’re a UVA student after all!) and unique.</p></li>
 <li><p>Don’t write anything under channel. Prove you are not a robot by selecting pictures of motorcycles or something. Then, once your humanity has been established, click “Start”.</p></li>
 <li><p>To use the #python channel, you need to register your nickname. To check if your nickname is unique, click on the “freenode” tab on the left-hand sidebar. A text box will appear on the bottom of the screen. Type:</p></li>
@@ -767,7 +774,7 @@ can do more things with the given objects than the examples do.</p></li>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">msg</span> <span class="n">NickServ</span> <span class="n">info</span>
 </pre></div>
 </div>
-<ol class="simple">
+<ol class="arabic simple" start="4">
 <li><p>Step 3 will open a new tab. Switch to that tab. If no one else already has your nickname, you will see</p></li>
 </ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NickServ</span><span class="p">:</span> <span class="p">(</span><span class="n">notice</span><span class="p">)</span> <span class="o">&lt;</span><span class="n">nickname</span><span class="o">&gt;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">registered</span><span class="o">.</span>
@@ -775,26 +782,26 @@ can do more things with the given objects than the examples do.</p></li>
 </div>
 <p>If you see something else, it means someone already has your nickname. You can change your nickname right here by typing <code class="docutils literal notranslate"><span class="pre">/nick</span></code> followed by another nickname. Then type <code class="docutils literal notranslate"><span class="pre">/msg</span> <span class="pre">NickServ</span> <span class="pre">info</span></code> again. Repeat until you see the message listed above.</p>
 <p><strong>Important note</strong>: DON’T use a password here that you use for important things like email, bank accounts, etc. We shouldn’t have the same faith in the security of Freenode’s servers as we can have in Google’s. Also, this is the kind of platform that tends to attract hackers. And for people used to a graphical user interface, it might be easy to mistype in a way that accidentally displays your password in the chat. Use a unique, throwaway password!</p>
-<ol class="simple">
+<ol class="arabic simple" start="5">
 <li><p>To register this nickname, type</p></li>
 </ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">msg</span> <span class="n">NickServ</span> <span class="n">register</span> <span class="o">&lt;</span><span class="n">password</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">email</span><span class="o">-</span><span class="n">address</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">&lt;password&gt;</span></code> is a password you will use in the future, and <code class="docutils literal notranslate"><span class="pre">&lt;email</span> <span class="pre">address&gt;</span></code> is the email you want associated with this account.</p>
-<ol class="simple">
+<ol class="arabic simple" start="6">
 <li><p>Check your email for a confirmation code. Be patient, it can take up to 20 minutes for the email to go through.</p></li>
 <li><p>Once you have the code, paste it and your nickname into this code, and submit it:</p></li>
 </ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">msg</span> <span class="n">NickServ</span> <span class="n">VERIFY</span> <span class="n">REGISTER</span> <span class="o">&lt;</span><span class="n">nickname</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">secret</span><span class="o">-</span><span class="n">code</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<ol class="simple">
+<ol class="arabic simple" start="8">
 <li><p>You are now registered! Return to <a class="reference external" href="https://webchat.freenode.net/">https://webchat.freenode.net/</a> and log-in with your nickname and password. Type #python under channel. You are free to chat away. Pay attention to the guidelines that appear as links on the top of the screen.</p></li>
 </ol>
 </section>
 <section id="method-7-python-mailing-lists-and-newsgroups">
-<h2><a class="toc-backref" href="#id16">Method 7: Python Mailing Lists and Newsgroups</a><a class="headerlink" href="#method-7-python-mailing-lists-and-newsgroups" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">1.11. </span>Method 7: Python Mailing Lists and Newsgroups</a><a class="headerlink" href="#method-7-python-mailing-lists-and-newsgroups" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Usenet">Usenet</a> is a distributed discussion system (which means it has no central server). It was invented in 1979, and is still in use today. The Python Usenet message boards are at <a class="reference external" href="https://mail.python.org/archives/?sort=popular">https://mail.python.org/archives/?sort=popular</a>. The <code class="docutils literal notranslate"><span class="pre">comp.lang.python</span></code> board is for general discussions and questions about Python.</p>
 <p>The tutor mailing list (<a class="reference external" href="https://mail.python.org/mailman/listinfo/tutor">https://mail.python.org/mailman/listinfo/tutor</a>) is for users who want to ask questions about learning computer programming with Python.</p>
 <p>If you have a question for the Python core development team, send an email to <a class="reference external" href="mailto:help&#37;&#52;&#48;python&#46;org">help<span>&#64;</span>python<span>&#46;</span>org</a>. The team is pretty busy, so be sure to check other resources and lists for an answer first.</p>
@@ -813,7 +820,7 @@ can do more things with the given objects than the examples do.</p></li>
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -821,36 +828,120 @@ can do more things with the given objects than the examples do.</p></li>
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-        <div class='prev-next-bottom'>
-            
-    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">Surfing the Data Pipeline with Python</a>
-    <a class='right-next' id="next-link" href="ch2.html" title="next page">Loading Data from Electronic Data Files</a>
 
-        </div>
-        
-        </div>
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Jonathan Kropko (jkropko@virginia.edu)<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Surfing the Data Pipeline with Python</p>
       </div>
-    </div>
-  
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+    </a>
+    <a class="right-next"
+       href="ch2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Loading Data from Electronic Data Files</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">1.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#being-a-data-scientist-means-knowing-how-to-get-yourself-unstuck">1.2. Being a Data Scientist Means Knowing How to Get Yourself Unstuck</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-places-to-go-for-help-in-order">1.3. The Places to Go For Help, In Order</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-1-reading-and-understanding-python-errors">1.4. Method 1: Reading and Understanding Python Errors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-2-using-the-built-in-python-documentation">1.5. Method 2: Using the Built-in Python Documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-a-console-window-in-jupyterlab">1.5.1. Using a Console Window in JupyterLab</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-call-up-and-read-a-docstring">1.5.2. How to Call Up and Read a Docstring</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-3-using-google-and-other-search-engines">1.6. Method 3: Using Google and Other Search Engines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-avoid-toxicity-in-online-communities">1.7. How to Avoid Toxicity in Online Communities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-4-stack-overflow">1.8. Method 4: Stack Overflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-stack-overflow-works">1.8.1. How Stack Overflow Works</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asking-a-question-on-stack-overflow">1.8.2. Asking a Question on Stack Overflow</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-5-python-slack-and-discord">1.9. Method 5: Python Slack and Discord</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-6-live-chats-with-python-users-on-freenode">1.10. Method 6: Live Chats With Python Users on Freenode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-7-python-mailing-lists-and-newsgroups">1.11. Method 7: Python Mailing Lists and Newsgroups</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jonathan Kropko (jkropko@virginia.edu)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

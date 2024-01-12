@@ -5,7 +5,7 @@ Surfing the Data Pipeline with Python
 **School of Data Science**  
 **University of Virginia**
 
-Version 0.1.0
+Version 0.1.2
 
 The pipeline refers to all of the steps needed to go from **raw, messy, original data** to data that is ready for any kind of analysis. In the real world, data is almost never ready to be analyzed without a great deal of work to prepare the data first. The goal of this book is to make this huge part of the job easier, faster, less frustrating, and more enjoyable for you. The techniques we will discuss are not the only ways to accomplish a task, but they represent fast and straightforward ways to do the work.
 

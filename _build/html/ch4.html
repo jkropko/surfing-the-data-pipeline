@@ -1,384 +1,380 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Acquiring Data from APIs &#8212; Surfing the Data Pipeline with Python</title>
-    
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+    <title>4. Acquiring Data from APIs &#8212; Surfing the Data Pipeline with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch4';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Web Scraping Using BeautifulSoup" href="ch5.html" />
-    <link rel="prev" title="Loading, Converting, and Writing JSON Files" href="ch3.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-    
+    <link rel="next" title="5. Web Scraping Using BeautifulSoup" href="ch5.html" />
+    <link rel="prev" title="3. Loading, Converting, and Writing JSON Files" href="ch3.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      <img src="_static/surf.jpg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Surfing the Data Pipeline with Python</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
-   Surfing the Data Pipeline with Python
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Get Started
- </span>
-</p>
+    
+    
+    <img src="_static/surf.jpg" class="logo__image only-light" alt="Surfing the Data Pipeline with Python - Home"/>
+    <script>document.write(`<img src="_static/surf.jpg" class="logo__image only-dark" alt="Surfing the Data Pipeline with Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Surfing the Data Pipeline with Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Get Started</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="ch1.html">
-   Getting Yourself Unstuck
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="ch1.html">1. Getting Yourself Unstuck</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Get Data
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Get Data</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="ch2.html">
-   Loading Data from Electronic Data Files
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ch3.html">
-   Loading, Converting, and Writing JSON Files
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Acquiring Data from APIs
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ch5.html">
-   Web Scraping Using
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     BeautifulSoup
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ch6.html">
-   Creating and Connecting to Databases
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="ch2.html">2. Loading Data from Electronic Data Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch3.html">3. Loading, Converting, and Writing JSON Files</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Acquiring Data from APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch5.html">5. Web Scraping Using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch6.html">6. Creating and Connecting to Databases</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Wrangle Data
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wrangle Data</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="ch7.html">
-   Database Queries
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ch8.html">
-   Data Wrangling with
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     pandas
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ch9.html">
-   Reshaping and Merging Data and Working with Strings, Dates, and Times
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="ch7.html">7. Database Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch8.html">8. Data Wrangling with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch9.html">9. Reshaping and Merging Data and Working with Strings, Dates, and Times</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Explore and Communicate Data
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Explore and Communicate Data</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="ch10.html">
-   Exploratory Data Analysis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ch11.html">
-   Static Data Visualizations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ch12.html">
-   Interactive Data Visualizations and Dashboards
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="ch10.html">10. Exploratory Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch11.html">11. Static Data Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch12.html">12. Interactive Data Visualizations and Dashboards</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/ch4.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/ch4.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main">
         
         
-        
-        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ch4.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
-        </div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Acquiring Data from APIs</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction-what-is-an-api">
-   Introduction: What is an API?
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#transfering-data-over-the-internet">
-     Transfering Data Over the Internet
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#dealing-with-api-jargon">
-     Dealing with API Jargon
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#reading-api-documentation-example-the-nasa-image-and-video-library">
-     Reading API Documentation (Example: the NASA Image and Video Library)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#using-the-requests-library-example-wikipedia">
-   Using the
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     requests
-    </span>
-   </code>
-   Library (Example: Wikipedia)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#obtaining-and-handling-api-keys-example-the-u-s-census-bureau">
-   Obtaining and Handling API Keys (Example: the U.S. Census Bureau)
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#how-to-keep-your-access-key-secret">
-     How to Keep Your Access Key Secret
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#step-1-creating-a-environmental-variables-file">
-       Step 1: Creating a Environmental Variables File
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#step-2-putting-access-keys-into-the-env-file">
-       Step 2: Putting Access Keys Into the
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         .env
-        </span>
-       </code>
-       File
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#step-3-loading-the-environmental-variables-into-python">
-       Step 3: Loading the Environmental Variables into Python
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#step-4-using-the-access-key">
-       Step 4: Using the Access Key
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#using-python-libraries-that-directly-interface-with-a-particular-api">
-   Using Python Libraries that Directly Interface With a Particular API
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#using-an-api-with-credentialling-and-limits-example-twitter">
-     Using an API with Credentialling and Limits (Example: Twitter)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#using-an-api-that-requires-a-user-to-send-data-to-the-api-first-example-google-maps">
-     Using an API that Requires a User to Send Data to the API First (Example: Google Maps)
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-what-is-an-api">4.1. Introduction: What is an API?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transfering-data-over-the-internet">4.1.1. Transfering Data Over the Internet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dealing-with-api-jargon">4.1.2. Dealing with API Jargon</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-api-documentation-example-the-nasa-image-and-video-library">4.1.3. Reading API Documentation (Example: the NASA Image and Video Library)</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-requests-library-example-wikipedia">4.2. Using the <code class="docutils literal notranslate"><span class="pre">requests</span></code> Library (Example: Wikipedia)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#obtaining-and-handling-api-keys-example-the-u-s-census-bureau">4.3. Obtaining and Handling API Keys (Example: the U.S. Census Bureau)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-keep-your-access-key-secret">4.3.1. How to Keep Your Access Key Secret</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-creating-a-environmental-variables-file">4.3.1.1. Step 1: Creating a Environmental Variables File</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-putting-access-keys-into-the-env-file">4.3.1.2. Step 2: Putting Access Keys Into the <code class="docutils literal notranslate"><span class="pre">.env</span></code> File</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-loading-the-environmental-variables-into-python">4.3.1.3. Step 3: Loading the Environmental Variables into Python</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-using-the-access-key">4.3.1.4. Step 4: Using the Access Key</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-python-libraries-that-directly-interface-with-a-particular-api">4.4. Using Python Libraries that Directly Interface With a Particular API</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-an-api-with-credentialling-and-limits-example-twitter">4.4.1. Using an API with Credentialling and Limits (Example: Twitter)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-an-api-that-requires-a-user-to-send-data-to-the-api-first-example-google-maps">4.4.2. Using an API that Requires a User to Send Data to the API First (Example: Google Maps)</a></li>
+</ul>
+</li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <section id="acquiring-data-from-apis">
-<h1><a class="toc-backref" href="#id1">Acquiring Data from APIs</a><a class="headerlink" href="#acquiring-data-from-apis" title="Permalink to this headline">¶</a></h1>
-<div class="contents topic" id="table-of-contents">
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="acquiring-data-from-apis">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink"><span class="section-number">4. </span>Acquiring Data from APIs</a><a class="headerlink" href="#acquiring-data-from-apis" title="Permalink to this heading">#</a></h1>
+<nav class="contents" id="table-of-contents">
 <p class="topic-title">Table of Contents</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#acquiring-data-from-apis" id="id1">Acquiring Data from APIs</a></p>
@@ -412,11 +408,11 @@
 </ul>
 </li>
 </ul>
-</div>
+</nav>
 <section id="introduction-what-is-an-api">
-<h2><a class="toc-backref" href="#id2">Introduction: What is an API?</a><a class="headerlink" href="#introduction-what-is-an-api" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">4.1. </span>Introduction: What is an API?</a><a class="headerlink" href="#introduction-what-is-an-api" title="Permalink to this heading">#</a></h2>
 <section id="transfering-data-over-the-internet">
-<h3><a class="toc-backref" href="#id3">Transfering Data Over the Internet</a><a class="headerlink" href="#transfering-data-over-the-internet" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">4.1.1. </span>Transfering Data Over the Internet</a><a class="headerlink" href="#transfering-data-over-the-internet" title="Permalink to this heading">#</a></h3>
 <p>Where do we get our data? That depends on who is providing the data. In the simplest of cases, the data provider gives us a single file in CSV or JSON format. But some of the most important data providers are extremely big operations: social media companies, search engines, governments, finance firms, etc. Getting data from these organizations is more complicated than asking for a data file, but it is very possible to do using the application programming interfaces (APIs) that these organizations have set-up and made available online.</p>
 <p>It’s not feasible for these organizations to interact personally with every individual who requests data because every request may be unique, asking for different records, features, timeframes, locations, and formatting. In addition, to fulfill a request, the data provider might need information from the data requester first: for example, if I want Google Maps to give me the latitudinal and longitudinal coordinates of my house, I first need to tell Google Maps my address. In short, there are too many requests for humans to handle given that each request requires a conversation between the person providing the data and the person requesting the data.</p>
 <p>Organizations instead store and share their data electronically through automated <strong>web applications</strong>. A web application has three parts: the user interface (the frontend), the data storage and organization system (the backend), and an API that connects the frontend and backend. Many authors, including <a class="reference external" href="https://www.oreilly.com/library/view/python-api-development/9781838983994/">Huang, Chung, and Chan</a>, use the analogy of a restaurant to describe an API. Customers place orders for the chefs to prepare, and waiters take the orders to the chefs, and return the food to the customers. In this analogy, customers are the frontend, issuing data requests; chefs are the backend, organizing and disseminating data; and waiters are the API, conducting the communication between the frontend and backend. Another analogy is the way our brains receive and react to sensory information. In this case, our senses comprise the API that connects the outside world to the internal workings of our brains.</p>
@@ -429,14 +425,14 @@
 <p>So when using an API, it’s a good idea to think about what data are being shared, and what data are not being shared, why, and what that means for the analysis you are working on.</p>
 </section>
 <section id="dealing-with-api-jargon">
-<h3><a class="toc-backref" href="#id4">Dealing with API Jargon</a><a class="headerlink" href="#dealing-with-api-jargon" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">4.1.2. </span>Dealing with API Jargon</a><a class="headerlink" href="#dealing-with-api-jargon" title="Permalink to this heading">#</a></h3>
 <p>Getting started with APIs can be confusing because of all the technical jargon that API documentation uses. But once you are familiar with this language, it gets a lot easier to use APIs.</p>
 <p>Regardless of the analogy that helps us understand what an API does, an essential characteristic of systems that APIs serve is “client-server separation”. That is, the system that interacts with the users and the system that interacts with the data must be separate and independent of each other. That way problems in one system do not cause problems in the other system, and either system can be replaced. Twitter’s data server can interact with many different third-party user clients through its API.</p>
 <p>Client-server separation is one property an API needs to satisfy in order to meet the <strong>Representational State Transfer (REST)</strong> standards. An API that meets these standards is called a REST API (or “RESTful”). In addition to client-server separation, a REST API is stateless, which means that every request is independent of all other requests. That is, a request should produce the same output from the API regardless of whatever other requests have already been made. A REST API is also cacheable, which means that responses can be stored and retrieved when needed. If a new request exactly duplicates an old request, the API can use its stored cache from the old request to provide an instant response to the new request. A REST API should include a uniform user interface, so that all users see the same interface and interact with the API in the same way, and a REST API should include layers, so that distinct tasks are handled by many distinct sub-systems.</p>
 <p>APIs are designed to handle all transfers of data from the backend to the frontend, and vice versa. For that, there are basic functions (also called “verbs”) that an API can execute. The two most common functions are GET, which pulls data from the backend, and POST, which stores new data in the backend. We can use the <code class="docutils literal notranslate"><span class="pre">requests</span></code> library in Python to issue both GET and POST commands. In addition, we can use PUT to replace a record in the backend with a new version, PATCH to make changes to an existing record, or DELETE to remove a record. These five verbs are part of the standard method for transfering information from servers to browsers over the internet, called the <strong>hypertext transfer protocol (HTTP)</strong>, and responses from a REST API include <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">HTTP numeric status codes</a>: 200 indicates a successful request, for example, and 404 means that the resource could not be found (maybe because there’s a typo in the web address we entered). More generally, these functions are also called CRUD (create, read, update, and delete) operations.</p>
 </section>
 <section id="reading-api-documentation-example-the-nasa-image-and-video-library">
-<h3><a class="toc-backref" href="#id5">Reading API Documentation (Example: the NASA Image and Video Library)</a><a class="headerlink" href="#reading-api-documentation-example-the-nasa-image-and-video-library" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">4.1.3. </span>Reading API Documentation (Example: the NASA Image and Video Library)</a><a class="headerlink" href="#reading-api-documentation-example-the-nasa-image-and-video-library" title="Permalink to this heading">#</a></h3>
 <p>Most web-applications with an API include documentation to guide people who want to use the API. Knowing <em>how</em> to read the documentation, that is, knowing the jargon, is the most important skill for using an API. First, please note that like other kinds of documentation, some software authors take more care to produce good documentation than others. Still, all API documentation should share some universal characteristics:</p>
 <ul class="simple">
 <li><p>The most important piece of information to find in the documentation is the <strong>root</strong> and <strong>endpoint</strong>. The API root is a web-address for all resources that exist and are accessable through the API. The endpoint is a subdirectory where records of a specific type are stored.</p></li>
@@ -447,7 +443,7 @@
 <p><em>root</em> <strong>/</strong> <em>endpoint</em> <strong>?</strong> <em>parameters=value</em> <strong>&amp;</strong> <em>key=value</em></p>
 <p>Let’s use as an example the API to access <a class="reference external" href="https://images.nasa.gov/">NASA’s Image and Video Library</a>. The documentation for this API is available at <a class="reference external" href="https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf">https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf</a>. This API does not require authentication, so we only need to find the root, endpoint, and parameters. Let’s say that I want to find a photo of the moon. According to the documentation, the root is <a class="reference external" href="https://images-api.nasa.gov">https://images-api.nasa.gov</a>, and there are several endpoints including one dedicated to searches (<code class="docutils literal notranslate"><span class="pre">/search</span></code>).</p>
 <p>I scroll down to the section devoted to this endpoint and look at the parameters to see which ones will allow me to search for a photo of the moon. I can use the <code class="docutils literal notranslate"><span class="pre">q</span></code> parameter to enter free text as a search term, and the <code class="docutils literal notranslate"><span class="pre">media_type</span></code> parameter set equal to <code class="docutils literal notranslate"><span class="pre">image</span></code> to find a photo.</p>
-<p>Therefore the complete URL for this API GET request is: <a class="reference external" href="https://images-api.nasa.gov/search?q=moon&amp;media_type=image">https://images-api.nasa.gov/search?q=moon&amp;media_type=image</a>. Go ahead and click on this link. You will see a JSON file in which the metadata tells me there are 8626 hits in this search. Under the <code class="docutils literal notranslate"><span class="pre">data</span></code> header, the first result is an image entitled “Nearside of the Moon”, which has a NASA ID code PIA12235.</p>
+<p>Therefore the complete URL for this API GET request is: <a class="reference external" href="https://images-api.nasa.gov/search?q=moon&amp;amp;media_type=image">https://images-api.nasa.gov/search?q=moon&amp;media_type=image</a>. Go ahead and click on this link. You will see a JSON file in which the metadata tells me there are 8626 hits in this search. Under the <code class="docutils literal notranslate"><span class="pre">data</span></code> header, the first result is an image entitled “Nearside of the Moon”, which has a NASA ID code PIA12235.</p>
 <p>Next I want to GET the URL for the JSON data related to this specific image. The endpoint to find a specific image is <code class="docutils literal notranslate"><span class="pre">/asset</span></code>. There’s only one parameter, the NASA ID. Notice that the documentation lists this path as <code class="docutils literal notranslate"><span class="pre">asset/{nasa_id}</span></code> and NOT as <code class="docutils literal notranslate"><span class="pre">asset</span> <span class="pre">?</span> <span class="pre">nasa_id</span> <span class="pre">=</span> <span class="pre">{nasa_id}</span></code>. That means that for this particular endpoint we simply enter a slash and the ID after the endpoint. So to see the JSON data stored for this image, the URL is <a class="reference external" href="https://images-api.nasa.gov/asset/PIA12235">https://images-api.nasa.gov/asset/PIA12235</a>. This JSON contains the links to various image files. I can link to one of them to display it in this document:</p>
 <img src="https://images-assets.nasa.gov/image/PIA12235/PIA12235~small.jpg">
 <p>Some documentation also contain API schematics that visualize the endpoints and the interaction between the frontend and backend via the API. As an example, here’s a schematic of an API for a project we are working on with <a class="reference external" href="https://codeforcharlottesville.org">Code for Charlottesville</a>, a local chapter of <a class="reference external" href="https://codeforamerica.org">Code for America</a> that I help to run. Our project involves building software for the agenices in town that help people with housing insecurity find a place to live. Our web application will allow people at different agencies share their data about available rental properties and landlords who are willing to rent to people with vouchers and who might have other complicated situations. Here’s our API’s schematic:
@@ -456,7 +452,7 @@
 </section>
 </section>
 <section id="using-the-requests-library-example-wikipedia">
-<h2><a class="toc-backref" href="#id6">Using the <code class="docutils literal notranslate"><span class="pre">requests</span></code> Library (Example: Wikipedia)</a><a class="headerlink" href="#using-the-requests-library-example-wikipedia" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">4.2. </span>Using the <code class="docutils literal notranslate"><span class="pre">requests</span></code> Library (Example: Wikipedia)</a><a class="headerlink" href="#using-the-requests-library-example-wikipedia" title="Permalink to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">requests</span></code> library in Python is one of the most widely used and one of the most important extensions to Python. If you need to install or update the <code class="docutils literal notranslate"><span class="pre">requests</span></code> library, type <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">requests</span></code> in a console window. Then load the library. As we will be working with JSON data, it will be necessary to load the <code class="docutils literal notranslate"><span class="pre">json</span></code> library as well. It’s also a good habit to always load <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -498,7 +494,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">formatversion=2</span></code></p></li>
 </ul>
 <p>We also add <code class="docutils literal notranslate"><span class="pre">format=json</span></code> to get JSON formatted output. We could either use these parameters to construct the following URL:
-<a class="reference external" href="https://en.wikipedia.org/w/api.php?action=query&amp;prop=revisions&amp;titles=University_of_Virginia&amp;rvslots=*&amp;rvprop=content&amp;formatversion=2&amp;format=json">https://en.wikipedia.org/w/api.php?action=query&amp;prop=revisions&amp;titles=University_of_Virginia&amp;rvslots=*&amp;rvprop=content&amp;formatversion=2&amp;format=json</a></p>
+<a class="reference external" href="https://en.wikipedia.org/w/api.php?action=query&amp;amp;prop=revisions&amp;amp;titles=University_of_Virginia&amp;amp;rvslots=*&amp;amp;rvprop=content&amp;amp;formatversion=2&amp;amp;format=json">https://en.wikipedia.org/w/api.php?action=query&amp;prop=revisions&amp;titles=University_of_Virginia&amp;rvslots=*&amp;rvprop=content&amp;formatversion=2&amp;format=json</a></p>
 <p>Or we can organize these parameters in a dictionary and pass them to the <code class="docutils literal notranslate"><span class="pre">params</span></code> argument of <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -537,26 +533,34 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p://trends.collegeboard.org/college-pricing/figures-tables/2014-15-tuition-fees-flagship-universities-time |title = Tuition and Fees at Flagship Universities over Time – Trends in Higher Education – The College Board |website = Trends.collegeboard.org |access-date = February 1, 2016 |url-status=live |archive-url = https://web.archive.org/web/20151019085556/http://trends.collegeboard.org/college-pricing/figures-tables/2014-15-tuition-fees-flagship-universities-time |archive-date = October 19, 2015 }}&lt;/ref&gt;&lt;ref name=&quot;WHS&quot;&gt;{{cite web |url = https://whc.unesco.org/en/list/442 |title = Monticello and the University of Virginia in Charlottesville |website = UNESCO World Heritage Centre |access-date = March 3, 2020}}&lt;/ref&gt;
-
-The original governing Board of Visitors included Jefferson, [[James Madison]], and [[James Monroe]]. Monroe was the sitting President of the United States at the time of its foundation, and earlier presidents Jefferson and Madison were UVA&#39;s first two [[Rector (academia)#
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>alier Daily]]&#39;&#39;
+ | colors                 = Orange and blue&lt;ref name= &quot;colors&quot;&gt;{{cite book |title = Colors &amp;#124; University of Virginia |url = https://brand.virginia.edu/brand-essentials/colors |date = October 17, 2017 |access-date = November 14, 2017 |archive-date = June 22, 2022 |archive-url = https://web.archive.org/web/20220622182621/https://brand.virginia.edu/brand-essentials/colors |url-status = live }}&lt;/ref&gt;&lt;br&gt;{{color box|#E57200}} {{color box|#232D4B}}
+ | nickname               = {{hlist|[[Virginia Cavaliers|Cavaliers]]|[[Wahoos]]}}
+ | mascot                 = [[Cavalier]]
+ | sporting_affiliations  = [[NCAA Division I FBS]] – [[Atlantic Coast Conference|ACC]]
+ | website                = {{URL|https://www.virginia.edu|virginia.edu}}
+ | embedded               = {{designation list | embed = yes
+   | designation1 = WHS
+   | designation1_offname = [[Monticello]] and the &#39;&#39;&#39;University of Virginia&#39;&#39;&#39; in Charlottesville
+   | designation1_type = Cultural
+   | designation1_criteria = i
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="obtaining-and-handling-api-keys-example-the-u-s-census-bureau">
-<h2><a class="toc-backref" href="#id7">Obtaining and Handling API Keys (Example: the U.S. Census Bureau)</a><a class="headerlink" href="#obtaining-and-handling-api-keys-example-the-u-s-census-bureau" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">4.3. </span>Obtaining and Handling API Keys (Example: the U.S. Census Bureau)</a><a class="headerlink" href="#obtaining-and-handling-api-keys-example-the-u-s-census-bureau" title="Permalink to this heading">#</a></h2>
 <p>APIs like the NASA Image and Video Library and Wikipedia are entirely open. Anyone can access these APIs without registration and without having to supply credentials. But many APIs do make users first go through an authentication process to access the data. There are many reasons why a data provider might want to control access in this way. The data provider might just want information about who is using the API and for what purposes. Additionally, many APIs place restructions to limit how much one account can use the API. <strong>Rate limits</strong> set maximum numbers of total calls one account can make to the API in a specified period of time, possibly to protect the backend from crashing. Some APIs charge for access, or set tiers of accessibility at different price points. For whatever reason, if the data provider has a reason to keep track of who is using the API and how much they use it, the API will require an <strong>access key</strong>.</p>
 <p>To obtain an access key, find the documentation for the API online. There should be clear instructions in the documentation about how to register and get an access key. Every data provider is different in terms of what information they ask for in exchange for the access key, so there’s no general methodology beyond carefully following the instructions in the API documentation.</p>
-<p><strong>Important:</strong> Once you have an access key, keep it SECRET. Treat it like a password. Do not share it, and if you are writing a script or notebook that involves calling an API with an access key, take steps (<a class="reference external" href="#secret">described below</a>) to hide your access key.</p>
+<p><strong>Important:</strong> Once you have an access key, keep it SECRET. Treat it like a password. Do not share it, and if you are writing a script or notebook that involves calling an API with an access key, take steps (<span class="xref myst">described below</span>) to hide your access key.</p>
 <p>Let’s take the U.S. Census Bureau’s API as an example. To access this API we start with the <a class="reference external" href="https://www.census.gov/developers/">Developers</a> page on the Census Bureau’s website. In the bottom-left corner of the screen there’s a large button labeled “Request a Key” that links to this URL: <a class="reference external" href="https://api.census.gov/data/key_signup.html">https://api.census.gov/data/key_signup.html</a>. In order to obtain a key, you will have to tell the Census your organization and email address, and you will have to agree to the Census’s terms of service. After supplying that information, click on “Submit Key Request”. You will receive an email after a few minutes containing your access key.</p>
 <p>According to the Census’s (huge) <a class="reference external" href="https://www.census.gov/content/dam/Census/data/developers/api-user-guide/api-guide.pdf">API documentation</a>, the purpose of making users register for access keys is to limit the amount of use:</p>
 <blockquote>
 <div><p>You can include up to 50 variables in a single API query and can make up to 500 queries per IP address per day. More than 500 queries per IP address per day requires that you register for a Census key. That key will be part of your data request URL string (9).</p>
 </div></blockquote>
 <section id="how-to-keep-your-access-key-secret">
-<h3><a class="toc-backref" href="#id8">How to Keep Your Access Key Secret</a><a class="headerlink" href="#how-to-keep-your-access-key-secret" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">4.3.1. </span>How to Keep Your Access Key Secret</a><a class="headerlink" href="#how-to-keep-your-access-key-secret" title="Permalink to this heading">#</a></h3>
 <p>People who are new to Python and APIs often make the mistake of explicitly writing a line of code that displays an access key, like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -568,16 +572,16 @@ The original governing Board of Visitors included Jefferson, [[James Madison]], 
 <p>Putting the access key explicitly into a notebook or script will work for the purposes of getting the data from the API. But it will be a problem if you intend to share your code in any way. Declaring the key in this way is like announcing your password.</p>
 <p>Instead, we will follow the protocol laid out by Jonathan Soma on his <a class="reference external" href="http://jonathansoma.com/lede/foundations-2019/classes/apis/keeping-api-keys-secret/">excellent blog</a> for writing scripts and notebooks that access APIs while keeping your keys secret.</p>
 <section id="step-1-creating-a-environmental-variables-file">
-<h4><a class="toc-backref" href="#id9">Step 1: Creating a Environmental Variables File</a><a class="headerlink" href="#step-1-creating-a-environmental-variables-file" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">4.3.1.1. </span>Step 1: Creating a Environmental Variables File</a><a class="headerlink" href="#step-1-creating-a-environmental-variables-file" title="Permalink to this heading">#</a></h4>
 <p>The first step is to create a plain text file named <code class="docutils literal notranslate"><span class="pre">.env</span></code> in the same folder as your notebook or script. This file contains “environmental variables”, which are variables that exist in your server environment without being part of your code - they are loaded into Python’s memory in the background. Using environmental variables will allow you to share your code without having to share the sensitive information contained in the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file. To create a <code class="docutils literal notranslate"><span class="pre">.env</span></code> file using Jupyter Labs:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Right click on your notebook and select “New Console for Notebook”. That launches a new console with the complete environment of your notebook loaded into it.</p></li>
 <li><p>Type <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">os</span></code> and <code class="docutils literal notranslate"><span class="pre">os.getcwd()</span></code> into the console to confirm that the current working directory is the same folder where you have saved your notebook.</p></li>
 <li><p>Type <code class="docutils literal notranslate"><span class="pre">!touch</span> <span class="pre">.env</span></code> into the console. This command creates a blank text file in this folder named <code class="docutils literal notranslate"><span class="pre">.env</span></code>.</p></li>
 </ol>
 </section>
 <section id="step-2-putting-access-keys-into-the-env-file">
-<h4><a class="toc-backref" href="#id10">Step 2: Putting Access Keys Into the <code class="docutils literal notranslate"><span class="pre">.env</span></code> File</a><a class="headerlink" href="#step-2-putting-access-keys-into-the-env-file" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">4.3.1.2. </span>Step 2: Putting Access Keys Into the <code class="docutils literal notranslate"><span class="pre">.env</span></code> File</a><a class="headerlink" href="#step-2-putting-access-keys-into-the-env-file" title="Permalink to this heading">#</a></h4>
 <p>Navigate to the folder where you created the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file and open it. If you do not see the file, it might be considered a hidden file by your operating system. On a Mac, open the folder using Finder and press the <strong>Shift, Command, and Period</strong> keys together. Then the hidden files will display. On Windows, follow these <a class="reference external" href="https://support.microsoft.com/en-us/help/14201/windows-show-hidden-files">instructions</a> to show the hidden files.</p>
 <p>Once you’ve opened the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file, you will see a text editor with no text. Type your access keys into the text editor in the following format:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CensusKey</span><span class="o">=</span><span class="n">abcdefghijklmnopqrstuvwxyz</span>
@@ -586,7 +590,7 @@ The original governing Board of Visitors included Jefferson, [[James Madison]], 
 <p>Don’t put spaces or quotes in what you type. If you want to save more than one key, that’s fine, just put each key on a new line. Finally, save the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file.</p>
 </section>
 <section id="step-3-loading-the-environmental-variables-into-python">
-<h4><a class="toc-backref" href="#id11">Step 3: Loading the Environmental Variables into Python</a><a class="headerlink" href="#step-3-loading-the-environmental-variables-into-python" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">4.3.1.3. </span>Step 3: Loading the Environmental Variables into Python</a><a class="headerlink" href="#step-3-loading-the-environmental-variables-into-python" title="Permalink to this heading">#</a></h4>
 <p>The easiest way to bring your keys into Python is to use the <code class="docutils literal notranslate"><span class="pre">dotenv</span></code> and <code class="docutils literal notranslate"><span class="pre">os</span></code> libraries Type <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">dotenv</span></code> in the console if you haven’t yet installed this library (or <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">python-dotenv</span></code> into a terminal session if you run into an error with the standard pip install). Then type the following code:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -602,7 +606,7 @@ The original governing Board of Visitors included Jefferson, [[James Madison]], 
 <p>Now <code class="docutils literal notranslate"><span class="pre">CensusKey</span></code> is a Python variable that contains your secret access key. You will be able to pass this variable to <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code> to make calls to the Census API, and the key itself is never displayed on in the notebook. (You can type <code class="docutils literal notranslate"><span class="pre">CensusKey</span></code> in a cell to confirm that this worked, but be sure to delete that cell before sharing the notebook.) Better still, if you share the notebook or script with others who have also set up <code class="docutils literal notranslate"><span class="pre">.env</span></code> files on their own, then they can run the same calls using their own keys with no alterations to the code.</p>
 </section>
 <section id="step-4-using-the-access-key">
-<h4><a class="toc-backref" href="#id12">Step 4: Using the Access Key</a><a class="headerlink" href="#step-4-using-the-access-key" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">4.3.1.4. </span>Step 4: Using the Access Key</a><a class="headerlink" href="#step-4-using-the-access-key" title="Permalink to this heading">#</a></h4>
 <p>Now that we have the access key stored in a Python variable we can pass it directly to the <code class="docutils literal notranslate"><span class="pre">params</span></code> parameter of <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code> in a dictionary along with all of the other API parameters we specify.</p>
 <p>For example, suppose I want to download the population of every U.S. state by accessing the Census API through Python and then organize these data in a data frame. First I find and read the Census <a class="reference external" href="https://www.census.gov/content/dam/Census/data/developers/api-user-guide/api-guide.pdf">API documentation</a>. The endpoint for population data is <a class="reference external" href="https://api.census.gov/data/2019/pep/charagegroups">https://api.census.gov/data/2019/pep/charagegroups</a>. I look at the documentation for this specific endpoint and find the list of parameters. There are three parameters I need to specify:</p>
 <ul class="simple">
@@ -1001,12 +1005,12 @@ The original governing Board of Visitors included Jefferson, [[James Madison]], 
 </section>
 </section>
 <section id="using-python-libraries-that-directly-interface-with-a-particular-api">
-<h2><a class="toc-backref" href="#id13">Using Python Libraries that Directly Interface With a Particular API</a><a class="headerlink" href="#using-python-libraries-that-directly-interface-with-a-particular-api" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">4.4. </span>Using Python Libraries that Directly Interface With a Particular API</a><a class="headerlink" href="#using-python-libraries-that-directly-interface-with-a-particular-api" title="Permalink to this heading">#</a></h2>
 <p>Many APIs now have their own specialized libraries for Python that wrap around the <code class="docutils literal notranslate"><span class="pre">requests</span></code> library so that you don’t need any calls to <code class="docutils literal notranslate"><span class="pre">requests</span></code>. These libraries (mostly) try to make the process of working with a complicated API much easier and more user friendly. We’ll discuss two examples here. The main library for working with the Twitter API in Python is <code class="docutils literal notranslate"><span class="pre">tweepy</span></code>, and the library for working with the Google Maps API is <code class="docutils literal notranslate"><span class="pre">googlemaps</span></code>. If you haven’t yet done so, please install these two libraries.</p>
 <section id="using-an-api-with-credentialling-and-limits-example-twitter">
-<h3><a class="toc-backref" href="#id14">Using an API with Credentialling and Limits (Example: Twitter)</a><a class="headerlink" href="#using-an-api-with-credentialling-and-limits-example-twitter" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">4.4.1. </span>Using an API with Credentialling and Limits (Example: Twitter)</a><a class="headerlink" href="#using-an-api-with-credentialling-and-limits-example-twitter" title="Permalink to this heading">#</a></h3>
 <p>Twitter limits the use of its API to people who apply for and are granted a special “Twitter developer” account. To apply for a developer account, follow these steps:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Go to <a class="reference external" href="https://dev.twitter.com/apps/new">https://dev.twitter.com/apps/new</a> and log in to with your Twitter username and password (get a regular Twitter account first if you don’t yet have one).</p></li>
 <li><p>Click on “Create an app”.</p></li>
 <li><p>You will be prompted to apply for a developer account if you haven’t yet done so (if you already have an account, sign in and skip to step 4). Click “apply”, then:</p></li>
@@ -1016,13 +1020,13 @@ The original governing Board of Visitors included Jefferson, [[James Madison]], 
 <p>c. Under “Describe in your own words what you are building” I typed the following: “(1) I’m using Twitter’s APIs to teach myself how to download and analyze Twitter data (2) I plan to analyze Tweets to understand how APIs and natural language processing work (3) No, I will not be Tweeting content (4) Tweets will not be displayed to any users” You should probably adapt the language to suit your own purposes and because we shouldn’t send dozens of identical applications to Twitter.</p>
 <p>d. Agree to the terms-of-service, click through, and check your email for a confirmation link to click</p>
 <p>e. Once you’ve confirmed your email address, proceed to <a class="reference external" href="https://developer.twitter.com/en/account/get-started">https://developer.twitter.com/en/account/get-started</a> and click on “Create an app”. Then click on the blue “Create an app” button in the upper-right corner.</p>
-<ol class="simple">
+<ol class="arabic simple" start="4">
 <li><p>Enter your Application Name (something like “Jon’s twitter app” is fine), Description (“An app for Jon to use as he learns how to download data from Twitter” worked for me), and your website URL (I used <a class="reference external" href="http://www.virginia.edu">www.virginia.edu</a>). Under “Tell us how this app will be used” I wrote “I’m using this app to learn how to download data from Twitter into Python for the purpose of studying how to use APIs.” You can leave the other parts of the form empty.</p></li>
 <li><p>Submit the form by clicking the Create your Twitter Application. This takes you to a page for your app. Click on “Keys and tokens” along the top.</p></li>
 <li><p>Click on “Generate” under “Access token &amp; access token secret.”</p></li>
 <li><p>You should now see <strong>four strings of random letters and numbers</strong>. The first the consumer API key. The second the the API secret key. The third is the access token, and the fourth is the access token secret.  <strong>Keep these numbers secret!</strong>  Keep this page open so you can copy and paste into your <code class="docutils literal notranslate"><span class="pre">.env</span></code> file.</p></li>
 </ol>
-<p>Once you have your consumer key, consumer secret, access token, and access token secret, paste the four strings into a <code class="docutils literal notranslate"><span class="pre">.env</span></code> for your project, as <a class="reference external" href="#secret">described above</a>. I bring these keys from the envirnomental variables to working variables in the Python environment by typing:</p>
+<p>Once you have your consumer key, consumer secret, access token, and access token secret, paste the four strings into a <code class="docutils literal notranslate"><span class="pre">.env</span></code> for your project, as <span class="xref myst">described above</span>. I bring these keys from the envirnomental variables to working variables in the Python environment by typing:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ConsumerKey</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;ConsumerKey&#39;</span><span class="p">)</span>
@@ -1038,6 +1042,16 @@ The original governing Board of Visitors included Jefferson, [[James Madison]], 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tweepy</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">tweepy</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;tweepy&#39;
 </pre></div>
 </div>
 </div>
@@ -1078,214 +1092,217 @@ The original governing Board of Visitors included Jefferson, [[James Madison]], 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/tweepy/binder.py</span> in <span class="ni">execute</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">188</span>                                                 <span class="n">auth</span><span class="o">=</span><span class="n">auth</span><span class="p">,</span>
-<span class="ne">--&gt; </span><span class="mi">189</span>                                                 <span class="n">proxies</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">proxy</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">190</span>                 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/requests/sessions.py</span> in <span class="ni">request</span><span class="nt">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
-<span class="g g-Whitespace">    </span><span class="mi">518</span>         <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">519</span>         <span class="n">prep</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prepare_request</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">520</span> 
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/requests/sessions.py</span> in <span class="ni">prepare_request</span><span class="nt">(self, request)</span>
-<span class="g g-Whitespace">    </span><span class="mi">461</span>             <span class="n">cookies</span><span class="o">=</span><span class="n">merged_cookies</span><span class="p">,</span>
-<span class="ne">--&gt; </span><span class="mi">462</span>             <span class="n">hooks</span><span class="o">=</span><span class="n">merge_hooks</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">hooks</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hooks</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">463</span>         <span class="p">)</span>
-
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/requests/models.py</span> in <span class="ni">prepare</span><span class="nt">(self, method, url, headers, files, data, params, auth, cookies, hooks, json)</span>
-<span class="g g-Whitespace">    </span><span class="mi">316</span>         <span class="bp">self</span><span class="o">.</span><span class="n">prepare_body</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">files</span><span class="p">,</span> <span class="n">json</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">317</span>         <span class="bp">self</span><span class="o">.</span><span class="n">prepare_auth</span><span class="p">(</span><span class="n">auth</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">318</span> 
-
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/requests/models.py</span> in <span class="ni">prepare_auth</span><span class="nt">(self, auth, url)</span>
-<span class="g g-Whitespace">    </span><span class="mi">547</span>             <span class="c1"># Allow auth to make its changes.</span>
-<span class="ne">--&gt; </span><span class="mi">548</span>             <span class="n">r</span> <span class="o">=</span> <span class="n">auth</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">549</span> 
-
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/requests_oauthlib/oauth1_auth.py</span> in <span class="ni">__call__</span><span class="nt">(self, r)</span>
-<span class="g g-Whitespace">    </span><span class="mi">108</span>             <span class="n">r</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span>
-<span class="ne">--&gt; </span><span class="mi">109</span>                 <span class="n">unicode</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">url</span><span class="p">),</span> <span class="n">unicode</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">method</span><span class="p">),</span> <span class="kc">None</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">headers</span>
-<span class="g g-Whitespace">    </span><span class="mi">110</span>             <span class="p">)</span>
-
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/oauthlib/oauth1/rfc5849/__init__.py</span> in <span class="ni">sign</span><span class="nt">(self, uri, http_method, body, headers, realm)</span>
-<span class="g g-Whitespace">    </span><span class="mi">312</span>         <span class="n">request</span><span class="o">.</span><span class="n">oauth_params</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-<span class="ne">--&gt; </span><span class="mi">313</span>             <span class="p">(</span><span class="s1">&#39;oauth_signature&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_oauth_signature</span><span class="p">(</span><span class="n">request</span><span class="p">)))</span>
-<span class="g g-Whitespace">    </span><span class="mi">314</span> 
-
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/oauthlib/oauth1/rfc5849/__init__.py</span> in <span class="ni">get_oauth_signature</span><span class="nt">(self, request)</span>
-<span class="g g-Whitespace">    </span><span class="mi">126</span> 
-<span class="ne">--&gt; </span><span class="mi">127</span>         <span class="n">uri</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">body</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_render</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">128</span> 
-
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/oauthlib/oauth1/rfc5849/__init__.py</span> in <span class="ni">_render</span><span class="nt">(self, request, formencode, realm)</span>
-<span class="g g-Whitespace">    </span><span class="mi">209</span>             <span class="n">headers</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="n">prepare_headers</span><span class="p">(</span>
-<span class="ne">--&gt; </span><span class="mi">210</span>                 <span class="n">request</span><span class="o">.</span><span class="n">oauth_params</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="p">,</span> <span class="n">realm</span><span class="o">=</span><span class="n">realm</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">211</span>         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">signature_type</span> <span class="o">==</span> <span class="n">SIGNATURE_TYPE_BODY</span> <span class="ow">and</span> <span class="n">request</span><span class="o">.</span><span class="n">decoded_body</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/oauthlib/oauth1/rfc5849/utils.py</span> in <span class="ni">wrapper</span><span class="nt">(params, *args, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">31</span>         <span class="n">params</span> <span class="o">=</span> <span class="n">filter_oauth_params</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">32</span>         <span class="k">return</span> <span class="n">target</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">33</span> 
-
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/oauthlib/oauth1/rfc5849/parameters.py</span> in <span class="ni">prepare_headers</span><span class="nt">(oauth_params, headers, realm)</span>
-<span class="g g-Whitespace">     </span><span class="mi">58</span>         <span class="n">escaped_name</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">oauth_parameter_name</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">59</span>         <span class="n">escaped_value</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">60</span> 
-
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/oauthlib/oauth1/rfc5849/utils.py</span> in <span class="ni">escape</span><span class="nt">(u)</span>
-<span class="g g-Whitespace">     </span><span class="mi">56</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Only unicode objects are escapable. &#39;</span> <span class="o">+</span>
-<span class="ne">---&gt; </span><span class="mi">57</span>                          <span class="s1">&#39;Got </span><span class="si">%r</span><span class="s1"> of type </span><span class="si">%s</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">u</span><span class="p">)))</span>
-<span class="g g-Whitespace">     </span><span class="mi">58</span>     <span class="c1"># Letters, digits, and the characters &#39;_.-&#39; are already treated as safe</span>
-
-<span class="ne">ValueError</span>: Only unicode objects are escapable. Got None of type &lt;class &#39;NoneType&#39;&gt;.
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">TweepError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">8</span><span class="n">k</span><span class="o">/</span><span class="n">ps7r1m2x3_zcd4_dznr8ns1m0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_15949</span><span class="o">/</span><span class="mf">263323542.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">msg</span> <span class="o">=</span><span class="p">[]</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">Cursor</span><span class="p">(</span><span class="n">api</span><span class="o">.</span><span class="n">search</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="s1">&#39;#uva&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="mi">30</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">msg</span> <span class="o">=</span> <span class="p">[</span><span class="n">tweet</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">tweet</span><span class="o">.</span><span class="n">created_at</span><span class="p">,</span> <span class="n">tweet</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">screen_name</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">msg</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/tweepy/cursor.py</span> in <span class="ni">__next__</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">     </span><span class="mi">45</span> 
-<span class="g g-Whitespace">     </span><span class="mi">46</span>     <span class="k">def</span> <span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">47</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">48</span> 
-<span class="g g-Whitespace">     </span><span class="mi">49</span>     <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/tweepy/cursor.py</span> in <span class="ni">next</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">193</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_page</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">page_index</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_page</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">194</span>             <span class="c1"># Reached end of current page, get the next page...</span>
-<span class="ne">--&gt; </span><span class="mi">195</span>             <span class="bp">self</span><span class="o">.</span><span class="n">current_page</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">page_iterator</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">196</span>             <span class="bp">self</span><span class="o">.</span><span class="n">page_index</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-<span class="g g-Whitespace">    </span><span class="mi">197</span>         <span class="bp">self</span><span class="o">.</span><span class="n">page_index</span> <span class="o">+=</span> <span class="mi">1</span>
-
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/tweepy/cursor.py</span> in <span class="ni">next</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">104</span> 
-<span class="g g-Whitespace">    </span><span class="mi">105</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">106</span>             <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="p">(</span><span class="n">max_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_id</span><span class="p">,</span> <span class="n">parser</span><span class="o">=</span><span class="n">RawParser</span><span class="p">(),</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">kargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">107</span> 
-<span class="g g-Whitespace">    </span><span class="mi">108</span>             <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="p">,</span> <span class="s1">&#39;__self__&#39;</span><span class="p">):</span>
-
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/tweepy/binder.py</span> in <span class="ni">_call</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">248</span>                 <span class="k">return</span> <span class="n">method</span>
-<span class="g g-Whitespace">    </span><span class="mi">249</span>             <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">250</span>                 <span class="k">return</span> <span class="n">method</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">251</span>         <span class="k">finally</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">252</span>             <span class="n">method</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/tweepy/binder.py</span> in <span class="ni">execute</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">189</span>                                                 <span class="n">proxies</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">proxy</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">190</span>                 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">191</span>                     <span class="n">six</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">TweepError</span><span class="p">,</span> <span class="n">TweepError</span><span class="p">(</span><span class="s1">&#39;Failed to send request: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">e</span><span class="p">),</span> <span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">2</span><span class="p">])</span>
-<span class="g g-Whitespace">    </span><span class="mi">192</span> 
-<span class="g g-Whitespace">    </span><span class="mi">193</span>                 <span class="n">rem_calls</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;x-rate-limit-remaining&#39;</span><span class="p">)</span>
-
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/six.py</span> in <span class="ni">reraise</span><span class="nt">(tp, value, tb)</span>
-<span class="g g-Whitespace">    </span><span class="mi">690</span>                 <span class="n">value</span> <span class="o">=</span> <span class="n">tp</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">691</span>             <span class="k">if</span> <span class="n">value</span><span class="o">.</span><span class="n">__traceback__</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">tb</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">692</span>                 <span class="k">raise</span> <span class="n">value</span><span class="o">.</span><span class="n">with_traceback</span><span class="p">(</span><span class="n">tb</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">693</span>             <span class="k">raise</span> <span class="n">value</span>
-<span class="g g-Whitespace">    </span><span class="mi">694</span>         <span class="k">finally</span><span class="p">:</span>
-
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/tweepy/binder.py</span> in <span class="ni">execute</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">187</span>                                                 <span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">timeout</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">188</span>                                                 <span class="n">auth</span><span class="o">=</span><span class="n">auth</span><span class="p">,</span>
-<span class="ne">--&gt; </span><span class="mi">189</span>                                                 <span class="n">proxies</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">proxy</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">190</span>                 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">191</span>                     <span class="n">six</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">TweepError</span><span class="p">,</span> <span class="n">TweepError</span><span class="p">(</span><span class="s1">&#39;Failed to send request: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">e</span><span class="p">),</span> <span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">2</span><span class="p">])</span>
-
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/requests/sessions.py</span> in <span class="ni">request</span><span class="nt">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
-<span class="g g-Whitespace">    </span><span class="mi">517</span>             <span class="n">hooks</span><span class="o">=</span><span class="n">hooks</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">518</span>         <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">519</span>         <span class="n">prep</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prepare_request</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">520</span> 
-<span class="g g-Whitespace">    </span><span class="mi">521</span>         <span class="n">proxies</span> <span class="o">=</span> <span class="n">proxies</span> <span class="ow">or</span> <span class="p">{}</span>
-
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/requests/sessions.py</span> in <span class="ni">prepare_request</span><span class="nt">(self, request)</span>
-<span class="g g-Whitespace">    </span><span class="mi">460</span>             <span class="n">auth</span><span class="o">=</span><span class="n">merge_setting</span><span class="p">(</span><span class="n">auth</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">461</span>             <span class="n">cookies</span><span class="o">=</span><span class="n">merged_cookies</span><span class="p">,</span>
-<span class="ne">--&gt; </span><span class="mi">462</span>             <span class="n">hooks</span><span class="o">=</span><span class="n">merge_hooks</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">hooks</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hooks</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">463</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">464</span>         <span class="k">return</span> <span class="n">p</span>
-
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/requests/models.py</span> in <span class="ni">prepare</span><span class="nt">(self, method, url, headers, files, data, params, auth, cookies, hooks, json)</span>
-<span class="g g-Whitespace">    </span><span class="mi">315</span>         <span class="bp">self</span><span class="o">.</span><span class="n">prepare_cookies</span><span class="p">(</span><span class="n">cookies</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">316</span>         <span class="bp">self</span><span class="o">.</span><span class="n">prepare_body</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">files</span><span class="p">,</span> <span class="n">json</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">317</span>         <span class="bp">self</span><span class="o">.</span><span class="n">prepare_auth</span><span class="p">(</span><span class="n">auth</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">318</span> 
-<span class="g g-Whitespace">    </span><span class="mi">319</span>         <span class="c1"># Note that prepare_auth must be last to enable authentication schemes</span>
-
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/requests/models.py</span> in <span class="ni">prepare_auth</span><span class="nt">(self, auth, url)</span>
-<span class="g g-Whitespace">    </span><span class="mi">546</span> 
-<span class="g g-Whitespace">    </span><span class="mi">547</span>             <span class="c1"># Allow auth to make its changes.</span>
-<span class="ne">--&gt; </span><span class="mi">548</span>             <span class="n">r</span> <span class="o">=</span> <span class="n">auth</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">549</span> 
-<span class="g g-Whitespace">    </span><span class="mi">550</span>             <span class="c1"># Update self to reflect the auth changes.</span>
-
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/requests_oauthlib/oauth1_auth.py</span> in <span class="ni">__call__</span><span class="nt">(self, r)</span>
-<span class="g g-Whitespace">    </span><span class="mi">107</span>             <span class="c1"># Omit body data in the signing of non form-encoded requests</span>
-<span class="g g-Whitespace">    </span><span class="mi">108</span>             <span class="n">r</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span>
-<span class="ne">--&gt; </span><span class="mi">109</span>                 <span class="n">unicode</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">url</span><span class="p">),</span> <span class="n">unicode</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">method</span><span class="p">),</span> <span class="kc">None</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">headers</span>
-<span class="g g-Whitespace">    </span><span class="mi">110</span>             <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">111</span> 
-
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/oauthlib/oauth1/rfc5849/__init__.py</span> in <span class="ni">sign</span><span class="nt">(self, uri, http_method, body, headers, realm)</span>
-<span class="g g-Whitespace">    </span><span class="mi">311</span>         <span class="c1"># generate the signature</span>
-<span class="g g-Whitespace">    </span><span class="mi">312</span>         <span class="n">request</span><span class="o">.</span><span class="n">oauth_params</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-<span class="ne">--&gt; </span><span class="mi">313</span>             <span class="p">(</span><span class="s1">&#39;oauth_signature&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_oauth_signature</span><span class="p">(</span><span class="n">request</span><span class="p">)))</span>
-<span class="g g-Whitespace">    </span><span class="mi">314</span> 
-<span class="g g-Whitespace">    </span><span class="mi">315</span>         <span class="c1"># render the signed request and return it</span>
-
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/oauthlib/oauth1/rfc5849/__init__.py</span> in <span class="ni">get_oauth_signature</span><span class="nt">(self, request)</span>
-<span class="g g-Whitespace">    </span><span class="mi">125</span>                                             <span class="bp">self</span><span class="o">.</span><span class="n">resource_owner_secret</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">126</span> 
-<span class="ne">--&gt; </span><span class="mi">127</span>         <span class="n">uri</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">body</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_render</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">128</span> 
-<span class="g g-Whitespace">    </span><span class="mi">129</span>         <span class="n">collected_params</span> <span class="o">=</span> <span class="n">signature</span><span class="o">.</span><span class="n">collect_parameters</span><span class="p">(</span>
-
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/oauthlib/oauth1/rfc5849/__init__.py</span> in <span class="ni">_render</span><span class="nt">(self, request, formencode, realm)</span>
-<span class="g g-Whitespace">    </span><span class="mi">208</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">signature_type</span> <span class="o">==</span> <span class="n">SIGNATURE_TYPE_AUTH_HEADER</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">209</span>             <span class="n">headers</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="n">prepare_headers</span><span class="p">(</span>
-<span class="ne">--&gt; </span><span class="mi">210</span>                 <span class="n">request</span><span class="o">.</span><span class="n">oauth_params</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="p">,</span> <span class="n">realm</span><span class="o">=</span><span class="n">realm</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">211</span>         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">signature_type</span> <span class="o">==</span> <span class="n">SIGNATURE_TYPE_BODY</span> <span class="ow">and</span> <span class="n">request</span><span class="o">.</span><span class="n">decoded_body</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">212</span>             <span class="n">body</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="n">prepare_form_encoded_body</span><span class="p">(</span>
-
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/oauthlib/oauth1/rfc5849/utils.py</span> in <span class="ni">wrapper</span><span class="nt">(params, *args, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">30</span>     <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">31</span>         <span class="n">params</span> <span class="o">=</span> <span class="n">filter_oauth_params</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">32</span>         <span class="k">return</span> <span class="n">target</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">33</span> 
-<span class="g g-Whitespace">     </span><span class="mi">34</span>     <span class="n">wrapper</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span>
-
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/oauthlib/oauth1/rfc5849/parameters.py</span> in <span class="ni">prepare_headers</span><span class="nt">(oauth_params, headers, realm)</span>
-<span class="g g-Whitespace">     </span><span class="mi">57</span>         <span class="c1"># .. _`Section 3.6`: https://tools.ietf.org/html/rfc5849#section-3.6</span>
-<span class="g g-Whitespace">     </span><span class="mi">58</span>         <span class="n">escaped_name</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">oauth_parameter_name</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">59</span>         <span class="n">escaped_value</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">60</span> 
-<span class="g g-Whitespace">     </span><span class="mi">61</span>         <span class="c1"># 2.  Each parameter&#39;s name is immediately followed by an &quot;=&quot; character</span>
-
-<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/oauthlib/oauth1/rfc5849/utils.py</span> in <span class="ni">escape</span><span class="nt">(u)</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span>     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">unicode_type</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">56</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Only unicode objects are escapable. &#39;</span> <span class="o">+</span>
-<span class="ne">---&gt; </span><span class="mi">57</span>                          <span class="s1">&#39;Got </span><span class="si">%r</span><span class="s1"> of type </span><span class="si">%s</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">u</span><span class="p">)))</span>
-<span class="g g-Whitespace">     </span><span class="mi">58</span>     <span class="c1"># Letters, digits, and the characters &#39;_.-&#39; are already treated as safe</span>
-<span class="g g-Whitespace">     </span><span class="mi">59</span>     <span class="c1"># by urllib.quote(). We need to add &#39;~&#39; to fully support rfc5849.</span>
-
-<span class="ne">TweepError</span>: Failed to send request: Only unicode objects are escapable. Got None of type &lt;class &#39;NoneType&#39;&gt;.
-</pre></div>
-</div>
-</div>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>text</th>
+      <th>created_at</th>
+      <th>user</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Our @STL_UVA swag box came this weekend! Sippi...</td>
+      <td>2020-08-03 18:34:08</td>
+      <td>The_Superhoo</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Los deudores #UVA adelantan que irán a la #Jus...</td>
+      <td>2020-08-03 18:16:35</td>
+      <td>eperezfernandez</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>RT @JamieOakes247: Texas tight end Jack Witmer...</td>
+      <td>2020-08-03 17:55:05</td>
+      <td>nickchrest1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>RT @LuisContigiani: En estos días se habla de ...</td>
+      <td>2020-08-03 17:54:58</td>
+      <td>CarolinaSa80</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>RT @LuisContigiani: En estos días se habla de ...</td>
+      <td>2020-08-03 17:54:01</td>
+      <td>DProficio</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>RT @LuisContigiani: En estos días se habla de ...</td>
+      <td>2020-08-03 17:46:54</td>
+      <td>cicicaba</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>RT @JamieOakes247: Texas tight end Jack Witmer...</td>
+      <td>2020-08-03 17:35:13</td>
+      <td>ThatcherMilton</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>RT @cavalierinsider: "A lot of work has gone i...</td>
+      <td>2020-08-03 17:22:55</td>
+      <td>John_Shifflett</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>RT @LuisContigiani: En estos días se habla de ...</td>
+      <td>2020-08-03 17:22:49</td>
+      <td>SuyaiDifusiones</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>"A lot of work has gone into him maturing his ...</td>
+      <td>2020-08-03 17:22:09</td>
+      <td>cavalierinsider</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>In this University of Virginia essay guide, Bu...</td>
+      <td>2020-08-03 17:19:43</td>
+      <td>joinbullseye</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>RT @LuisContigiani: En estos días se habla de ...</td>
+      <td>2020-08-03 17:17:27</td>
+      <td>priscil78229307</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>RT @LuisContigiani: En estos días se habla de ...</td>
+      <td>2020-08-03 17:07:05</td>
+      <td>LeoGonz94028151</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Experience protection and comfort designed for...</td>
+      <td>2020-08-03 17:03:39</td>
+      <td>RayWearCC</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>RT @LuisContigiani: En estos días se habla de ...</td>
+      <td>2020-08-03 16:59:00</td>
+      <td>Academico2019</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>RT @LuisContigiani: En estos días se habla de ...</td>
+      <td>2020-08-03 16:58:54</td>
+      <td>Favio34641397</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>RT @LuisContigiani: En estos días se habla de ...</td>
+      <td>2020-08-03 16:56:03</td>
+      <td>hipotecadosuva</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>#sunblock #facial #skinjourney #skinexpert #he...</td>
+      <td>2020-08-03 16:42:40</td>
+      <td>ClearEssence</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>#covid19\n#UERJ #UFF #UFRJ #UFF #PUC #ITA #IMA...</td>
+      <td>2020-08-03 16:27:40</td>
+      <td>DicasContas</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>@rmj_equals_hero @cwdarney Hopefully #UVA fina...</td>
+      <td>2020-08-03 16:23:08</td>
+      <td>The_Superhoo</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>RT @LuisContigiani: En estos días se habla de ...</td>
+      <td>2020-08-03 16:21:59</td>
+      <td>dramariacristin</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Notre Dame is Partly Responsible for Arkansas ...</td>
+      <td>2020-08-03 16:07:01</td>
+      <td>hoosdaily</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>RT @aaronmcfarling: Agree with this. It should...</td>
+      <td>2020-08-03 16:04:07</td>
+      <td>dawnbvaughan</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>RT @aaronmcfarling: Agree with this. It should...</td>
+      <td>2020-08-03 16:03:52</td>
+      <td>FastLaneEdLane</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>RT @aaronmcfarling: Agree with this. It should...</td>
+      <td>2020-08-03 16:02:41</td>
+      <td>jsmith_1692</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>RT @aaronmcfarling: Agree with this. It should...</td>
+      <td>2020-08-03 15:59:14</td>
+      <td>BermanRoanoke</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>RT @aaronmcfarling: Agree with this. It should...</td>
+      <td>2020-08-03 15:55:08</td>
+      <td>HokiESQ</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Agree with this. It shouldn't be that hard for...</td>
+      <td>2020-08-03 15:53:05</td>
+      <td>aaronmcfarling</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>RT @samspiegs: Some video of 2023 Baton Rouge ...</td>
+      <td>2020-08-03 15:17:22</td>
+      <td>Julie_Boudwin</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>Washington football team hosts wide receiver D...</td>
+      <td>2020-08-03 14:48:32</td>
+      <td>hoosdaily</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </section>
 <section id="using-an-api-that-requires-a-user-to-send-data-to-the-api-first-example-google-maps">
-<h3><a class="toc-backref" href="#id15">Using an API that Requires a User to Send Data to the API First (Example: Google Maps)</a><a class="headerlink" href="#using-an-api-that-requires-a-user-to-send-data-to-the-api-first-example-google-maps" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">4.4.2. </span>Using an API that Requires a User to Send Data to the API First (Example: Google Maps)</a><a class="headerlink" href="#using-an-api-that-requires-a-user-to-send-data-to-the-api-first-example-google-maps" title="Permalink to this heading">#</a></h3>
 <p>APIs are a two-way system of data transfer. Not only can we pull data from APIs (a GET request), we can send data to remote servers using APIs (a POST request). For some applicaitons of APIs, we need to provide data to the server so that the server knows what data to send back to us. One example of this interchange is using the Google Maps API to get the latitude-longitude coordinates for an address, so that we can plot addresses on a map. The goal in this example is to get the coordinates for the address for “60 Bonnycastle Dr Charlottesville, VA 22904”, otherwise known as the Dell, where the offices for the UVA School of Data Science are located.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1294,7 +1311,7 @@ The original governing Board of Visitors included Jefferson, [[James Madison]], 
 </div>
 </div>
 </div>
-<p>As with Twitter, the Google Maps API is a credentialed system. To obtain the proper keys, go to <a class="reference external" href="https://console.cloud.google.com/projectselector2/apis/credentials?pli=1&amp;supportedpurview=project">https://console.cloud.google.com/projectselector2/apis/credentials?pli=1&amp;supportedpurview=project</a> and sign in to your Google account. Choose your country and agree to the terms of service. Click on “create”, and choose a project name, organization name, and location (a website) for your organization. It doesn’t really matter what these are. That will bring you back to the main page, where after a minute a page for your project will appear. If you click on the project main page, along the left-hand side there’s a link for “APIs and Services”: click on “Credentials”, then click on the “Create credentials” button, and “API Key”. The API key will appear. Copy and paste it into your <code class="docutils literal notranslate"><span class="pre">.env</span></code> file.</p>
+<p>As with Twitter, the Google Maps API is a credentialed system. To obtain the proper keys, go to <a class="reference external" href="https://console.cloud.google.com/projectselector2/apis/credentials?pli=1&amp;amp;supportedpurview=project">https://console.cloud.google.com/projectselector2/apis/credentials?pli=1&amp;supportedpurview=project</a> and sign in to your Google account. Choose your country and agree to the terms of service. Click on “create”, and choose a project name, organization name, and location (a website) for your organization. It doesn’t really matter what these are. That will bring you back to the main page, where after a minute a page for your project will appear. If you click on the project main page, along the left-hand side there’s a link for “APIs and Services”: click on “Credentials”, then click on the “Create credentials” button, and “API Key”. The API key will appear. Copy and paste it into your <code class="docutils literal notranslate"><span class="pre">.env</span></code> file.</p>
 <p>I load the key into Python’s environment:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1394,7 +1411,7 @@ The original governing Board of Visitors included Jefferson, [[James Madison]], 
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -1402,36 +1419,123 @@ The original governing Board of Visitors included Jefferson, [[James Madison]], 
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-        <div class='prev-next-bottom'>
-            
-    <a class='left-prev' id="prev-link" href="ch3.html" title="previous page">Loading, Converting, and Writing JSON Files</a>
-    <a class='right-next' id="next-link" href="ch5.html" title="next page">Web Scraping Using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code></a>
 
-        </div>
-        
-        </div>
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Jonathan Kropko (jkropko@virginia.edu)<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ch3.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Loading, Converting, and Writing JSON Files</p>
       </div>
-    </div>
-  
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+    </a>
+    <a class="right-next"
+       href="ch5.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Web Scraping Using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-what-is-an-api">4.1. Introduction: What is an API?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transfering-data-over-the-internet">4.1.1. Transfering Data Over the Internet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dealing-with-api-jargon">4.1.2. Dealing with API Jargon</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-api-documentation-example-the-nasa-image-and-video-library">4.1.3. Reading API Documentation (Example: the NASA Image and Video Library)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-requests-library-example-wikipedia">4.2. Using the <code class="docutils literal notranslate"><span class="pre">requests</span></code> Library (Example: Wikipedia)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#obtaining-and-handling-api-keys-example-the-u-s-census-bureau">4.3. Obtaining and Handling API Keys (Example: the U.S. Census Bureau)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-keep-your-access-key-secret">4.3.1. How to Keep Your Access Key Secret</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-creating-a-environmental-variables-file">4.3.1.1. Step 1: Creating a Environmental Variables File</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-putting-access-keys-into-the-env-file">4.3.1.2. Step 2: Putting Access Keys Into the <code class="docutils literal notranslate"><span class="pre">.env</span></code> File</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-loading-the-environmental-variables-into-python">4.3.1.3. Step 3: Loading the Environmental Variables into Python</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-using-the-access-key">4.3.1.4. Step 4: Using the Access Key</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-python-libraries-that-directly-interface-with-a-particular-api">4.4. Using Python Libraries that Directly Interface With a Particular API</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-an-api-with-credentialling-and-limits-example-twitter">4.4.1. Using an API with Credentialling and Limits (Example: Twitter)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-an-api-that-requires-a-user-to-send-data-to-the-api-first-example-google-maps">4.4.2. Using an API that Requires a User to Send Data to the API First (Example: Google Maps)</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jonathan Kropko (jkropko@virginia.edu)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

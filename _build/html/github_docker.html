@@ -1,0 +1,510 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Version Control, Virtual Environments, and Containers &#8212; Surfing the Data Pipeline with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'github_docker';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/surf.jpg" class="logo__image only-light" alt="Surfing the Data Pipeline with Python - Home"/>
+    <script>document.write(`<img src="_static/surf.jpg" class="logo__image only-dark" alt="Surfing the Data Pipeline with Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Surfing the Data Pipeline with Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ch1.html">Getting Yourself Unstuck</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Get Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ch2.html">Loading Data from Electronic Data Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch3.html">Loading, Converting, and Writing JSON Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch4.html">Acquiring Data from APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch5.html">Web Scraping Using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch6.html">Creating and Connecting to Databases</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wrangle Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ch7.html">Database Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch8.html">Data Wrangling with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch9.html">Reshaping and Merging Data and Working with Strings, Dates, and Times</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Explore and Communicate Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ch10.html">Exploratory Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch11.html">Static Data Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch12.html">Interactive Data Visualizations and Dashboards</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/github_docker.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Version Control, Virtual Environments, and Containers</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-and-github">Git and GitHub</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="version-control-virtual-environments-and-containers">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Version Control, Virtual Environments, and Containers</a><a class="headerlink" href="#version-control-virtual-environments-and-containers" title="Permalink to this heading">#</a></h1>
+<nav class="contents" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#version-control-virtual-environments-and-containers" id="id1">Version Control, Virtual Environments, and Containers</a></p>
+<ul>
+<li><p><a class="reference internal" href="#introduction" id="id2">Introduction</a></p></li>
+<li><p><a class="reference internal" href="#git-and-github" id="id3">Git and GitHub</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="introduction">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<p>make code independent of system</p>
+</section>
+<section id="git-and-github">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Git and GitHub</a><a class="headerlink" href="#git-and-github" title="Permalink to this heading">#</a></h2>
+<p>Git is the most widely used system for version control.</p>
+<p>share</p>
+<ol class="arabic simple">
+<li><p>Create a GitHub repository for your project (you only need to do this once)</p></li>
+</ol>
+<p>Go to <a class="github reference external" href="https://github.com/"></a> and sign up for an account if you haven’t already done so, otherwise sign in. On your home page click the green button labeled New next to Recent Repositories. Then fill out the form in the following way:</p>
+<ul class="simple">
+<li><p>Don’t select a template.</p></li>
+<li><p>Choose a repository name carefully. It must be unique from any other repository you create. But it is also the public facing name of your software. Make it short but memorable, the ways packages like pandas and numpy have been named.</p></li>
+<li><p>Add a description if you want. It will help other people to understand what they are looking at, and it will be an essential step for you if you want this GitHub repo to be part of your professional portfolio. If not now, you can always add one later.</p></li>
+<li><p>Make the repository public. In general, make your repos public, even if they are under development. The only time you want to make the repository private is if you are working on proprietary software or on code that requires extra steps to ensure privacy (such as work with student or patient data).</p></li>
+<li><p>Initialize the repository with a <a class="reference external" href="http://README.md">README.md</a> file. The README will provide the user-facing text that appears on the front page of the repository. We will develop the README file together later this semester.</p></li>
+<li><p>Licenses tell users what rights they have when using your software. By default, they have no rights to use your software as you hold the copywrite automatically. But we are in an open source world and we want users, so it’s a good idea to choose a license. It can be very confusing to know which license to choose, so use a tool like <a class="reference external" href="https://choosealicense.com/">https://choosealicense.com/</a> to make a selection.</p></li>
+<li><p>Then click Create Repository.</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>Choose a location on your local computer for the files associated with the project, and use git clone (you only need to do this once)</p></li>
+</ol>
+<p>Do not create a specific project folder. Instead, use a terminal to navigate to the location on your computer where you would like the project folder to exist. Then type
+git clone <a class="github reference external" href="https://github.com/jkropko/contrans">jkropko/contrans</a></p>
+<p>Change the username and repository name to your GitHub and repo names. This command does two things. First, it downloads the entire GitHub repository to your computer in an automatically generated project folder with the same name as your repo. Second it creates a connection between this folder on your local machine and your repository on GitHub that you can activate with the git pull and git push commands (we’ll talk about that below).</p>
+<p>You only need to do this once. After using git clone to create a folder, then anytime you use git commands to conduct version control, the folder is still connected to the GitHub repo even after closing your programs or restarting your computer.</p>
+<ol class="arabic simple" start="3">
+<li><p>Use git pull to download the latest version of the files in the repository</p></li>
+</ol>
+<p>After creating the repository and cloning it to a local folder, a standard data science workflow begins by using the terminal to navigate to the project folder, then typing
+cd contrans
+git pull origin main</p>
+<p>First, navigate inside the folder that the git clone command previously created. The word “origin” within git pull refers to your GitHub repository (or wherever the git clone command was instructed to originally told to download the code from). The word “main” refers to your local project folder. A couple side notes about “main”:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>An advanced use of GitHub uses something called branches in which you can create a copy of the code to build out a specific extension before merging it back in with the main code. In this case, you would supply the name of the branch here instead of main. Branching is important when working collaboratively as part of a software development team, but we won&#39;t cover that practice here.
+Until very recently, the default name for the main branch of a git repository was &quot;master&quot;. The tech community collectively decided to switch this word to &quot;main&quot; due to the connotations to slavery. It&#39;s part of a larger effort to strike the words &quot;master&quot; and &quot;slave&quot; from tech jargon. So you might see the word &quot;master&quot; in documentation and in older code examples. You can read more about this change here: https://www.wired.com/story/tech-confronts-use-labels-master-slave/
+</pre></div>
+</div>
+<p>If you are working by yourself on one computer, then using the git pull command will probably simply show you a message that your local repository is up to date with the GitHub repository. Still, it is best practice to habitually start by using the git pull command. If you are working on multiple devices or as part of a team, git pull brings the most current code into your local installation.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-and-github">Git and GitHub</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jonathan Kropko (jkropko@virginia.edu)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

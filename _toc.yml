@@ -4,9 +4,11 @@ options:
   numbered: true
 parts:
     - caption: Get Started
+      numbered: true
       chapters:
       - file: ch1
     - caption: Get Data
+      numbered: true
       chapters:
       - file: ch2
       - file: ch3
@@ -14,11 +16,13 @@ parts:
       - file: ch5
       - file: ch6
     - caption: Wrangle Data
+      numbered: true
       chapters:
       - file: ch7
       - file: ch8
       - file: ch9
     - caption: Explore and Communicate Data
+      numbered: true
       chapters:
       - file: ch10
       - file: ch11

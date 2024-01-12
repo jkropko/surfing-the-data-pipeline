@@ -1,449 +1,395 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Static Data Visualizations &#8212; Surfing the Data Pipeline with Python</title>
-    
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+    <title>11. Static Data Visualizations &#8212; Surfing the Data Pipeline with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch11';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Interactive Data Visualizations and Dashboards" href="ch12.html" />
-    <link rel="prev" title="Exploratory Data Analysis" href="ch10.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-    
+    <link rel="next" title="12. Interactive Data Visualizations and Dashboards" href="ch12.html" />
+    <link rel="prev" title="10. Exploratory Data Analysis" href="ch10.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      <img src="_static/surf.jpg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Surfing the Data Pipeline with Python</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
-   Surfing the Data Pipeline with Python
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Get Started
- </span>
-</p>
+    
+    
+    <img src="_static/surf.jpg" class="logo__image only-light" alt="Surfing the Data Pipeline with Python - Home"/>
+    <script>document.write(`<img src="_static/surf.jpg" class="logo__image only-dark" alt="Surfing the Data Pipeline with Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Surfing the Data Pipeline with Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Get Started</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="ch1.html">
-   Getting Yourself Unstuck
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="ch1.html">1. Getting Yourself Unstuck</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Get Data
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Get Data</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="ch2.html">
-   Loading Data from Electronic Data Files
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ch3.html">
-   Loading, Converting, and Writing JSON Files
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ch4.html">
-   Acquiring Data from APIs
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ch5.html">
-   Web Scraping Using
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     BeautifulSoup
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ch6.html">
-   Creating and Connecting to Databases
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="ch2.html">2. Loading Data from Electronic Data Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch3.html">3. Loading, Converting, and Writing JSON Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch4.html">4. Acquiring Data from APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch5.html">5. Web Scraping Using <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch6.html">6. Creating and Connecting to Databases</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Wrangle Data
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Wrangle Data</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="ch7.html">
-   Database Queries
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ch8.html">
-   Data Wrangling with
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     pandas
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ch9.html">
-   Reshaping and Merging Data and Working with Strings, Dates, and Times
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="ch7.html">7. Database Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch8.html">8. Data Wrangling with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch9.html">9. Reshaping and Merging Data and Working with Strings, Dates, and Times</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Explore and Communicate Data
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Explore and Communicate Data</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="ch10.html">
-   Exploratory Data Analysis
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Static Data Visualizations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ch12.html">
-   Interactive Data Visualizations and Dashboards
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="ch10.html">10. Exploratory Data Analysis</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Static Data Visualizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch12.html">12. Interactive Data Visualizations and Dashboards</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/ch11.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/ch11.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main">
         
         
-        
-        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ch11.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
-        </div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Static Data Visualizations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction-what-makes-for-a-good-data-visualization">
-   Introduction: What Makes For a Good Data Visualization?
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#aesthetics-data-and-scales">
-     Aesthetics, Data, and Scales
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#edward-tufte-s-fundamental-principles-of-analytical-design">
-     Edward Tufte’s “Fundamental Principles of Analytical Design”
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#claus-o-wilke-s-guide-to-telling-a-story-and-making-a-point">
-     Claus O. Wilke’s Guide to Telling a Story and Making a Point
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#how-not-to-lie-with-statistics">
-     How (not) to Lie with Statistics
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#why-not-pie-charts">
-     Why Not Pie Charts?
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#creating-data-visualizations-in-python">
-   Creating Data Visualizations in Python
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#barplots-and-how-to-use-matplotlib-seaborn-and-the-dataframe-plot-method">
-     Barplots and How to Use
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       matplotlib
-      </span>
-     </code>
-     ,
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       seaborn
-      </span>
-     </code>
-     , and the Dataframe
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       .plot()
-      </span>
-     </code>
-     Method
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#vertical-and-horizontal-barplots-figure-size-labels-titles-and-colors">
-       Vertical and Horizontal Barplots, Figure Size, Labels, Titles, and Colors
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#barplots-for-statistics-other-than-frequencies">
-       Barplots for Statistics Other Than Frequencies
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#annotating-bars-with-values">
-       Annotating Bars with Values
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#grouped-and-stacked-bars">
-       Grouped and Stacked Bars
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#placing-graphs-within-grids">
-       Placing Graphs Within Grids
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#saving-a-figure-as-a-local-file">
-       Saving a Figure as a Local File
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#scatterplots">
-     Scatterplots
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#using-colors-shapes-and-transparency-to-annotate-scatterplots">
-       Using Colors, Shapes, and Transparency to Annotate Scatterplots
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#including-lines-of-best-fit">
-       Including Lines of Best Fit
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#scatterplot-grids-and-matrices">
-       Scatterplot Grids and Matrices
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#line-plots">
-     Line Plots
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#distributional-graphs">
-     Distributional Graphs
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#histograms">
-       Histograms
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#density-plots">
-       Density Plots
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#violin-plots">
-       Violin Plots
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#boxplots">
-       Boxplots
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#heatmaps">
-     Heatmaps
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-what-makes-for-a-good-data-visualization">11.1. Introduction: What Makes For a Good Data Visualization?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aesthetics-data-and-scales">11.1.1. Aesthetics, Data, and Scales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#edward-tufte-s-fundamental-principles-of-analytical-design">11.1.2. Edward Tufte’s “Fundamental Principles of Analytical Design”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claus-o-wilke-s-guide-to-telling-a-story-and-making-a-point">11.1.3. Claus O. Wilke’s Guide to Telling a Story and Making a Point</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-not-to-lie-with-statistics">11.1.4. How (not) to Lie with Statistics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-not-pie-charts">11.1.5. Why Not Pie Charts?</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-data-visualizations-in-python">11.2. Creating Data Visualizations in Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#barplots-and-how-to-use-matplotlib-seaborn-and-the-dataframe-plot-method">11.2.1. Barplots and How to Use <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>, and the Dataframe <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> Method</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vertical-and-horizontal-barplots-figure-size-labels-titles-and-colors">11.2.1.1. Vertical and Horizontal Barplots, Figure Size, Labels, Titles, and Colors</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#barplots-for-statistics-other-than-frequencies">11.2.1.2. Barplots for Statistics Other Than Frequencies</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#annotating-bars-with-values">11.2.1.3. Annotating Bars with Values</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#grouped-and-stacked-bars">11.2.1.4. Grouped and Stacked Bars</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#placing-graphs-within-grids">11.2.1.5. Placing Graphs Within Grids</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-a-figure-as-a-local-file">11.2.1.6. Saving a Figure as a Local File</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scatterplots">11.2.2. Scatterplots</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-colors-shapes-and-transparency-to-annotate-scatterplots">11.2.2.1. Using Colors, Shapes, and Transparency to Annotate Scatterplots</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#including-lines-of-best-fit">11.2.2.2. Including Lines of Best Fit</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#scatterplot-grids-and-matrices">11.2.2.3. Scatterplot Grids and Matrices</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#line-plots">11.2.3. Line Plots</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distributional-graphs">11.2.4. Distributional Graphs</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#histograms">11.2.4.1. Histograms</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#density-plots">11.2.4.2. Density Plots</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#violin-plots">11.2.4.3. Violin Plots</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#boxplots">11.2.4.4. Boxplots</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heatmaps">11.2.5. Heatmaps</a></li>
+</ul>
+</li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <section id="static-data-visualizations">
-<h1><a class="toc-backref" href="#id1">Static Data Visualizations</a><a class="headerlink" href="#static-data-visualizations" title="Permalink to this headline">¶</a></h1>
-<div class="contents topic" id="table-of-contents">
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="static-data-visualizations">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink"><span class="section-number">11. </span>Static Data Visualizations</a><a class="headerlink" href="#static-data-visualizations" title="Permalink to this heading">#</a></h1>
+<nav class="contents" id="table-of-contents">
 <p class="topic-title">Table of Contents</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#static-data-visualizations" id="id1">Static Data Visualizations</a></p>
@@ -491,16 +437,16 @@
 </ul>
 </li>
 </ul>
-</div>
+</nav>
 <section id="introduction-what-makes-for-a-good-data-visualization">
-<h2><a class="toc-backref" href="#id2">Introduction: What Makes For a Good Data Visualization?</a><a class="headerlink" href="#introduction-what-makes-for-a-good-data-visualization" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">11.1. </span>Introduction: What Makes For a Good Data Visualization?</a><a class="headerlink" href="#introduction-what-makes-for-a-good-data-visualization" title="Permalink to this heading">#</a></h2>
 <p>Data visualizations are graphical representations of distributions and relationships in the data. They are essential tools for exploratory data analysis (EDA), and they are important ways to communicate the results of statistical and machine learning models. In <a class="reference external" href="https://www.google.com/books/edition/_/TpYOvgEACAAJ?hl=en&amp;sa=X&amp;ved=2ahUKEwjFz6afxbbqAhVdoHIEHdCjDXgQ7_IDMBB6BAgNEAI">Exploratory Data Analysis</a>, John W. Tukey argues that visualizations help us to see not only problems in the data, but also can reveal patterns that theory alone never would have led us to examine.</p>
 <p>Visualizations are among the best tools we have for communication. Data and statistics can be technical and dependent on terminology and jargon that are inaccessable without a great deal of training. If we need to show our data and our results to a manager, to a client, to the public, or to another audience, we can use visualizations to quickly and clearly tell the stories that the evidence in our data supports. Pictures are also efficient: even if someone can understand a technical discussion, a good picture can convey the information more quickly than a table, and more accurately as well because we can better express the context surrounding a result with a visualization.</p>
 <p>But like any mode of communication, there are more effective and less effective ways to visualize data. Some visualizations are confusing. Other visualizations are misleading. Our goal is to create  graphics that tell a clear story that a general audience can quickly understand while taking steps to ensure that the data are presented accurately and in a way that does not mislead.</p>
 <p>There are degrees of completion when designing a visualization. For the purposes of EDA, we ourselves might be the audience, so we can spend less time on writing descriptive labels and choosing the most aesthetically pleasing colors, shapes, and sizes for graphical elements. We can stick to defaults more often even if the defaults are ugly, or when they might be misunderstood by someone else. These exploratory graphics can accomplish Tukey’s goals for EDA: finding anomolies and problems in the data and revealing unexpected patterns. If our purpose is to use the graphic to communicate with an audience, however, then we will take steps to improve the labels and aesthetic elements of the visualization.</p>
 <p>There are many words for a data visualization. In the following discussion, we will use the words visualization, graphic, graph, plot, and figure interchangably.</p>
 <section id="aesthetics-data-and-scales">
-<h3><a class="toc-backref" href="#id3">Aesthetics, Data, and Scales</a><a class="headerlink" href="#aesthetics-data-and-scales" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">11.1.1. </span>Aesthetics, Data, and Scales</a><a class="headerlink" href="#aesthetics-data-and-scales" title="Permalink to this heading">#</a></h3>
 <p>In chapter 2 of <a class="reference external" href="https://serialmentor.com/dataviz/">Fundamentals of Data Visualization</a>, Claus O. Wilke explains that a data visualization has three parts: aesthetics, data, and scales. Aesthetics are the visual elements of graphic: the axes, the plot area, the shapes and colors of different sizes that appear in the plot area, and the labels. Scales are functions that map the data we are trying to describe to aesthetics. For example, in a <strong>scatterplot</strong>, we illustrate the relationship between two continuous-valued features by setting the values of each feature to be the x and y coordinates of a point to be plotted on a Cartesian plane.</p>
 <figure class="image">
 <center>
@@ -513,7 +459,7 @@
 <p>When constructing a visualization, the part of the graph we select first is the data. We have to acquire the data we need and manipulate the data so that we can perform EDA. Second, we choose the scale. The scales are generally set by the type of graph we choose. Every scatterplot, for example, sets the two features as the coordinates of each point, and every barplot sets the height of the bars equal to the calculated frequency (or a different descriptive statistic) for each category. Once we choose a graph, we won’t be able to change the way data is mapped to aesthetics. Finally, once we’ve set the data and the scales of the graph, we can choose the aesthetics. Most of the guidance that exists regarding how to create an effective visualization focuses on the choice of graph type, which implies the scales, and on the aesthetics.</p>
 </section>
 <section id="edward-tufte-s-fundamental-principles-of-analytical-design">
-<h3><a class="toc-backref" href="#id4">Edward Tufte’s “Fundamental Principles of Analytical Design”</a><a class="headerlink" href="#edward-tufte-s-fundamental-principles-of-analytical-design" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">11.1.2. </span>Edward Tufte’s “Fundamental Principles of Analytical Design”</a><a class="headerlink" href="#edward-tufte-s-fundamental-principles-of-analytical-design" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Edward_Tufte">Edward Tufte</a> is a statistician, computer scientist, and political scientist who became well known for writing guiding principles for data visualization, beginning with his book <a class="reference external" href="https://www.edwardtufte.com/tufte/books_vdqi">The Visual Display of Quantitative Information</a>. Today he travels the country, teaching one-day (expensive) <a class="reference external" href="https://www.edwardtufte.com/tufte/courses">short courses</a> on the topic of data visualization. He is a notorious <a class="reference external" href="https://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=0001yB&amp;topic_id=1">critic of Microsoft Powerpoint</a>, and he coined the term <a class="reference external" href="https://en.wikipedia.org/wiki/Chartjunk">chartjunk</a> to refer to “all visual elements in charts and graphs that are not necessary to comprehend the information represented on the graph, or that distract the viewer from this information.”</p>
 <p>In <a class="reference external" href="https://www.edwardtufte.com/tufte/books_be">Beautiful Evidence</a>, Tufte presents six “Fundamental Principles of Analytical Design” (p. 122) which guide the choices visualization designers should make when choosing graph types and aesthetics. First, graphics must show “comparisons, contrasts, [or] differences” in the data (p. 127). A scatterplot shows differences between each of the rows in the data on the features that comprise the coordinates. A barplot compares one category of a feature to another on some dimension.</p>
 <p>Second, graphs must show “causality, mechanism, explanation, [or] systemic structure” (p. 128). If the goal is to describe the relationship between two features, then an accurate portrayal of that relationship might be considered causal or an explanation if we take additional steps to account for confounding factors and if we are careful to correctly state which feature is the cause and which is the effect. If we cannot rise to the level of making a causal statement, then showing a relationship is still an illustration of the mechanism or systemic structure in the covariance of the features. Regardless of the reason for a correlation, a correlation exists and can be visualized.</p>
@@ -527,7 +473,7 @@
 <p>(p. 136). In other words, all of the work we’ve done to acquire and manipulate data is necessary for effective visualizations to be possible. If we have not collected high quality data, or if we have not properly cleaned the data, then no amount of attention paid to a figure’s aesthetics will make the figure into a worthwhile tool for communicating distributions and relationships in the data.</p>
 </section>
 <section id="claus-o-wilke-s-guide-to-telling-a-story-and-making-a-point">
-<h3><a class="toc-backref" href="#id5">Claus O. Wilke’s Guide to Telling a Story and Making a Point</a><a class="headerlink" href="#claus-o-wilke-s-guide-to-telling-a-story-and-making-a-point" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">11.1.3. </span>Claus O. Wilke’s Guide to Telling a Story and Making a Point</a><a class="headerlink" href="#claus-o-wilke-s-guide-to-telling-a-story-and-making-a-point" title="Permalink to this heading">#</a></h3>
 <p>We can use data visualizations to communicate findings within a dataframe to an outside audience. But we want the information contained within a visualization to be understood and remembered, and people in general do not process highly abstract information quickly, and they do not tend to remember it.</p>
 <p>In chapter 29 of <a class="reference external" href="https://serialmentor.com/dataviz/">Fundamentals of Data Visualization</a>, Claus O. Wilke recommends thinking about a crafting a narrative when constructing a data visualization.
 People understand and remember stories. Using a story to motivate and explain a visualization does not mean that we misrepresent the findings, but rather that we use the frame of a story to describe the findings, why they are important, and what the larger take-away points should be.</p>
@@ -546,21 +492,22 @@ People understand and remember stories. Using a story to motivate and explain a 
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<iframe
-    width="560"
-    height="315"
-    src="https://www.youtube.com/embed/oP3c1h8v2ZQ"
-    frameborder="0"
-    allowfullscreen
-></iframe>
-</div></div>
+        <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/oP3c1h8v2ZQ"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
 </div>
 <p>Regardless of the specific model used to describe a story, stories should have a beginning, middle, and an end, and should set up a conflict (a research question) and resolve that conflict (with our findings). If we keep this structure in mind, we can prepare an audience to see our findings with other visualizations that help people understand the problem, and we can use visualizations to convey both our findings and their elaborations and implications.</p>
 <p>If we think about visualizations as a means to tell a story, Wilke recommends that that we take steps to make the visualizations understandable and memorable. Although Tufte encourages us to include more than one or two features in a single figure, each additional feature makes it harder to understand the stories that other features describe. Wilke suggests that we think about the main take-home points we want our audience to understand, and to reduce the features in a single visualization to only those that speak directly to this story. He writes: “Never assume your audience can rapidly process complex visual displays.” That’s true both of general audiences and of audiences of people with specific technical training: complicated figures cause everyone to tune out.</p>
 <p>Suppose that we create ten barplots with exactly the same formatting. Even if each of the ten plots are perfectly understandable and clear the points that each one makes may be lost in the noise of repeated, similar images. Wilke notes that it is important to make the figures more memorable by making them more distinct. First we can use color to highlight specific elements of a figure to emphasize points that are more important to the story. If one category among the bars is of special interest to us, we can use one color for that bar and a different color for all the others. If elements of the plot represent units with well-known images, we can use these images on the graph the way Randall Munroe uses pictures of fruits instead of points. These extra visual elements will make each figure stand out and be more memorable.</p>
 </section>
 <section id="how-not-to-lie-with-statistics">
-<h3><a class="toc-backref" href="#id6">How (not) to Lie with Statistics</a><a class="headerlink" href="#how-not-to-lie-with-statistics" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">11.1.4. </span>How (not) to Lie with Statistics</a><a class="headerlink" href="#how-not-to-lie-with-statistics" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://books.google.com/books/about/How_to_Lie_with_Statistics.html?id=5oSU5PepogEC">How to Lie with Statistics</a> by Darrell Huff is a short, funny, and classic book that describes many ways that statistics can be used to mislead an audience. The book was written in 1954, and has been reprinted many times since then.</p>
 <figure class="image">
 <center>
@@ -591,7 +538,7 @@ People understand and remember stories. Using a story to motivate and explain a 
 <p>When creating data visualizations, it is important to represent the data accurately by using a reasonable scale for the y-axis (generally by including 0 in this scale), and by using rectangular area to ensure that the principle of proportional ink is not violated.</p>
 </section>
 <section id="why-not-pie-charts">
-<h3><a class="toc-backref" href="#id7">Why Not Pie Charts?</a><a class="headerlink" href="#why-not-pie-charts" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">11.1.5. </span>Why Not Pie Charts?</a><a class="headerlink" href="#why-not-pie-charts" title="Permalink to this heading">#</a></h3>
 <p>We will not be discussing the methodology to create pie charts. In general pie charts are considered poor ways to represent data, and many statisticians and data scientists bemoan the prevalence of pie charts in government and business. Walt Hickey, writing for <a class="reference external" href="https://www.businessinsider.com/pie-charts-are-the-worst-2013-6?op=1">Business Insider in 2013</a>, phrases his opinion of pie charts in no uncertain terms:</p>
 <blockquote>
 <div><p>The pie chart is easily the worst way to convey information ever developed in the history of data visualization.</p>
@@ -628,7 +575,7 @@ However, a common variant is a 3D piechart, as in the following example:</p>
 </section>
 </section>
 <section id="creating-data-visualizations-in-python">
-<h2><a class="toc-backref" href="#id8">Creating Data Visualizations in Python</a><a class="headerlink" href="#creating-data-visualizations-in-python" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">11.2. </span>Creating Data Visualizations in Python</a><a class="headerlink" href="#creating-data-visualizations-in-python" title="Permalink to this heading">#</a></h2>
 <p>There are many distinct styles of data visualization that are well-suited for different kinds of data. Within these styles, there are many adaptions with different aesthetics. Each style involves fixing the scale - the function that maps data to aesthetics - of the visualization, so if we choose a barplot, for example, the height of the bars (or the length of the bars if the bars are oriented horizontally) are determined by the data we are trying to plot.</p>
 <p>The five most important types of data visualization are <strong>barplots, scatterplots, line plots, distributional plots, and heatmaps</strong>. There are many examples of each type later in this chapter.</p>
 <p>These visualizations can also be combined. For example, a scatterplot might attach histograms to the edges of the plot area that are opposite the x and y-axes to show the histograms for each of the two features in the scatterplot. There are other kinds of data visualizations as well, such as network plots to show the connections between nodes in a network. However, in this chapter we will only focus on the visualizations described above.</p>
@@ -674,11 +621,11 @@ However, a common variant is a 3D piechart, as in the following example:</p>
 </div>
 </div>
 <section id="barplots-and-how-to-use-matplotlib-seaborn-and-the-dataframe-plot-method">
-<h3><a class="toc-backref" href="#id9">Barplots and How to Use <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>, and the Dataframe <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> Method</a><a class="headerlink" href="#barplots-and-how-to-use-matplotlib-seaborn-and-the-dataframe-plot-method" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">11.2.1. </span>Barplots and How to Use <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>, and the Dataframe <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> Method</a><a class="headerlink" href="#barplots-and-how-to-use-matplotlib-seaborn-and-the-dataframe-plot-method" title="Permalink to this heading">#</a></h3>
 <p>Barplots are appropriate for describing the frequencies of a categorical feature. Each category gets a bar. The bars can be oriented vertically or horizontally, and the height or length each bar represents the data. Most often we plot the frequencies of categories this way, but we can also plot other conditional descriptive statistics such as the within-category mean of a continuous feature. We can overlay more than one feature with the same categories by stacking the bars on top of one another or by placing them side by side.</p>
 <p>We can create a barplot using <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>, or the <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> method for a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> dataframe. We can use any of these options to create a visualization. The options differ in that some tasks easier or harder when using a particular package, and specific options might produce graphics that look better or worse.</p>
 <section id="vertical-and-horizontal-barplots-figure-size-labels-titles-and-colors">
-<h4><a class="toc-backref" href="#id10">Vertical and Horizontal Barplots, Figure Size, Labels, Titles, and Colors</a><a class="headerlink" href="#vertical-and-horizontal-barplots-figure-size-labels-titles-and-colors" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">11.2.1.1. </span>Vertical and Horizontal Barplots, Figure Size, Labels, Titles, and Colors</a><a class="headerlink" href="#vertical-and-horizontal-barplots-figure-size-labels-titles-and-colors" title="Permalink to this heading">#</a></h4>
 <p>To generate a barplot using <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, we start by creating a series that contains only the numbers we intend to plot. For example, we can count the values of each category of <code class="docutils literal notranslate"><span class="pre">confecon</span></code>, how worried a person is about the state of the economy, using the <code class="docutils literal notranslate"><span class="pre">.value_counts()</span></code> method. The barplot we create with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> will order the bars in the same way they appear with <code class="docutils literal notranslate"><span class="pre">.value_counts()</span></code>, so we can first rearrange the categories in the order we want, then we can use the <code class="docutils literal notranslate"><span class="pre">.sort_index()</span></code> method to make sure that the categories appear in this order:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -694,12 +641,13 @@ However, a common variant is a 3D piechart, as in the following example:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Not at all worried    764
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>confecon
+Not at all worried    764
 A little worried      847
 Moderately worried    871
 Very worried          431
 Extremely worried     252
-Name: confecon, dtype: int64
+Name: count, dtype: int64
 </pre></div>
 </div>
 </div>
@@ -715,7 +663,7 @@ Name: confecon, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;BarContainer object of 5 artists&gt;
 </pre></div>
 </div>
-<img alt="_images/ch11_17_1.png" src="_images/ch11_17_1.png" />
+<img alt="_images/726f89ef24b7086bfa2324e749847171ab2b0998e385d8ba755cf014f8418808.png" src="_images/726f89ef24b7086bfa2324e749847171ab2b0998e385d8ba755cf014f8418808.png" />
 </div>
 </div>
 <p>This plot leaves a lot of be desired. First, the category labels run into each other. To solve this problem, we can increase the size of the figure. We can change the size by typing</p>
@@ -734,7 +682,7 @@ Name: confecon, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;BarContainer object of 5 artists&gt;
 </pre></div>
 </div>
-<img alt="_images/ch11_19_1.png" src="_images/ch11_19_1.png" />
+<img alt="_images/cc3b46a0921d74a2b5f1aa90195e57c81e9b2e113751381e3972a7dc358f4e64.png" src="_images/cc3b46a0921d74a2b5f1aa90195e57c81e9b2e113751381e3972a7dc358f4e64.png" />
 </div>
 </div>
 <p>Now we can clearly see the individual bar labels. Another way to accomodate longer bar labels is to orient the bars horizontally, leaving plenty of room for the labels on the left. To generate horizontal bars, First we use <code class="docutils literal notranslate"><span class="pre">plt.barh()</span></code> instead of <code class="docutils literal notranslate"><span class="pre">plt.bar()</span></code>:</p>
@@ -746,7 +694,7 @@ Name: confecon, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ch11_21_0.png" src="_images/ch11_21_0.png" />
+<img alt="_images/9b34c03e326d76a41dc25d850f98fa128bd8c3afc1254fd44951453a01a58e6c.png" src="_images/9b34c03e326d76a41dc25d850f98fa128bd8c3afc1254fd44951453a01a58e6c.png" />
 </div>
 </div>
 <p>There are many ways that we can make this figure more understandable. First, we can add axis labels. To add a label to the x and y axes, we type</p>
@@ -773,7 +721,7 @@ Name: confecon, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Amount of Worry About the Current State of the Economy&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_23_1.png" src="_images/ch11_23_1.png" />
+<img alt="_images/7fed8457ebf974eb894c58cb3e66c267f270b3bee3cdfff8b7baa7216b4172fa.png" src="_images/7fed8457ebf974eb894c58cb3e66c267f270b3bee3cdfff8b7baa7216b4172fa.png" />
 </div>
 </div>
 <p>To change the color of the bars, use the <code class="docutils literal notranslate"><span class="pre">color</span></code> argument inside the plotting function. We can set the color of the bars to red, or to <a class="reference external" href="https://matplotlib.org/3.1.0/gallery/color/named_colors.html">many other colors</a>:</p>
@@ -791,7 +739,7 @@ Name: confecon, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Amount of Worry About the Current State of the Economy&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_25_1.png" src="_images/ch11_25_1.png" />
+<img alt="_images/28859189cb1ce0c917e682c9196e44eeda8b37025349b9dae1900356ac4bcf11.png" src="_images/28859189cb1ce0c917e682c9196e44eeda8b37025349b9dae1900356ac4bcf11.png" />
 </div>
 </div>
 <p>To set different colors for every bar, we can pass a list of colors. That’s useful if we want to emphasize particular bars, such as the ones for “very worried” and “extremely worried”:</p>
@@ -810,7 +758,7 @@ Name: confecon, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Amount of Worry About the Current State of the Economy&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_27_1.png" src="_images/ch11_27_1.png" />
+<img alt="_images/4f84010216cc29d0e326906fd44a770a563dc221b95760768e4df97ea4f993b3.png" src="_images/4f84010216cc29d0e326906fd44a770a563dc221b95760768e4df97ea4f993b3.png" />
 </div>
 </div>
 <p>To create a barplot with <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>, we use the <code class="docutils literal notranslate"><span class="pre">sns.barplot()</span></code> function. There are two ways to use this function. We can pass a series directly to the <code class="docutils literal notranslate"><span class="pre">x</span></code> argument to define the categories and another series to the <code class="docutils literal notranslate"><span class="pre">y</span></code> argument to define the values:</p>
@@ -822,10 +770,10 @@ Name: confecon, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;confecon&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/ch11_29_1.png" src="_images/ch11_29_1.png" />
+<img alt="_images/15cc1829b7aaf2904a4880d03c44c52c7729be2a231bc96e83519c152527694a.png" src="_images/15cc1829b7aaf2904a4880d03c44c52c7729be2a231bc96e83519c152527694a.png" />
 </div>
 </div>
 <p>Alternatively, if the data exists in a dataframe, we can pass the x and y columns to the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> arguments, and the dataframe to the <code class="docutils literal notranslate"><span class="pre">data</span></code> argument:</p>
@@ -855,8 +803,8 @@ Name: confecon, dtype: int64
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>index</th>
       <th>confecon</th>
+      <th>count</th>
     </tr>
   </thead>
   <tbody>
@@ -897,10 +845,48 @@ Name: confecon, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;index&#39;, ylabel=&#39;confecon&#39;&gt;
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;confecon&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">mybars_df</span><span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.4/lib/python3.11/site-packages/seaborn/categorical.py:2755,</span> in <span class="ni">barplot</span><span class="nt">(data, x, y, hue, order, hue_order, estimator, errorbar, n_boot, units, seed, orient, color, palette, saturation, width, errcolor, errwidth, capsize, dodge, ci, ax, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2752</span> <span class="k">if</span> <span class="n">estimator</span> <span class="ow">is</span> <span class="nb">len</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2753</span>     <span class="n">estimator</span> <span class="o">=</span> <span class="s2">&quot;size&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">2755</span> <span class="n">plotter</span> <span class="o">=</span> <span class="n">_BarPlotter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">hue</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">hue_order</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2756</span>                       <span class="n">estimator</span><span class="p">,</span> <span class="n">errorbar</span><span class="p">,</span> <span class="n">n_boot</span><span class="p">,</span> <span class="n">units</span><span class="p">,</span> <span class="n">seed</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2757</span>                       <span class="n">orient</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">palette</span><span class="p">,</span> <span class="n">saturation</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2758</span>                       <span class="n">width</span><span class="p">,</span> <span class="n">errcolor</span><span class="p">,</span> <span class="n">errwidth</span><span class="p">,</span> <span class="n">capsize</span><span class="p">,</span> <span class="n">dodge</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2760</span> <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2761</span>     <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.4/lib/python3.11/site-packages/seaborn/categorical.py:1530,</span> in <span class="ni">_BarPlotter.__init__</span><span class="nt">(self, x, y, hue, data, order, hue_order, estimator, errorbar, n_boot, units, seed, orient, color, palette, saturation, width, errcolor, errwidth, capsize, dodge)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1525</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">hue</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">hue_order</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1526</span>              <span class="n">estimator</span><span class="p">,</span> <span class="n">errorbar</span><span class="p">,</span> <span class="n">n_boot</span><span class="p">,</span> <span class="n">units</span><span class="p">,</span> <span class="n">seed</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1527</span>              <span class="n">orient</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">palette</span><span class="p">,</span> <span class="n">saturation</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1528</span>              <span class="n">errcolor</span><span class="p">,</span> <span class="n">errwidth</span><span class="p">,</span> <span class="n">capsize</span><span class="p">,</span> <span class="n">dodge</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1529</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Initialize the plotter.&quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1530</span>     <span class="bp">self</span><span class="o">.</span><span class="n">establish_variables</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">hue</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">orient</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1531</span>                              <span class="n">order</span><span class="p">,</span> <span class="n">hue_order</span><span class="p">,</span> <span class="n">units</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1532</span>     <span class="bp">self</span><span class="o">.</span><span class="n">establish_colors</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">palette</span><span class="p">,</span> <span class="n">saturation</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1533</span>     <span class="bp">self</span><span class="o">.</span><span class="n">estimate_statistic</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">errorbar</span><span class="p">,</span> <span class="n">n_boot</span><span class="p">,</span> <span class="n">seed</span><span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.11.4/lib/python3.11/site-packages/seaborn/categorical.py:541,</span> in <span class="ni">_CategoricalPlotter.establish_variables</span><span class="nt">(self, x, y, hue, data, orient, order, hue_order, units)</span>
+<span class="g g-Whitespace">    </span><span class="mi">539</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">540</span>         <span class="n">err</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Could not interpret input &#39;</span><span class="si">{</span><span class="n">var</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">541</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">543</span> <span class="c1"># Figure out the plotting orientation</span>
+<span class="g g-Whitespace">    </span><span class="mi">544</span> <span class="n">orient</span> <span class="o">=</span> <span class="n">infer_orient</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">545</span>     <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">orient</span><span class="p">,</span> <span class="n">require_numeric</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">require_numeric</span>
+<span class="g g-Whitespace">    </span><span class="mi">546</span> <span class="p">)</span>
+
+<span class="ne">ValueError</span>: Could not interpret input &#39;index&#39;
 </pre></div>
 </div>
-<img alt="_images/ch11_32_1.png" src="_images/ch11_32_1.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1000x600 with 0 Axes&gt;
+</pre></div>
+</div>
 </div>
 </div>
 <p>To orient a <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> barplot horizontally, simply interchange the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> features:</p>
@@ -912,10 +898,10 @@ Name: confecon, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;confecon&#39;, ylabel=&#39;index&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a23d39d10&gt;
 </pre></div>
 </div>
-<img alt="_images/ch11_34_1.png" src="_images/ch11_34_1.png" />
+<img alt="_images/0e24c3038e100765fe70892c0ed58af21328ade5961a1e26623d5eedb57e905d.png" src="_images/0e24c3038e100765fe70892c0ed58af21328ade5961a1e26623d5eedb57e905d.png" />
 </div>
 </div>
 <p>Notice that in the barplots above the axes are mislabeled. <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> graphics use the same functions as <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> to change the title and axes:</p>
@@ -933,7 +919,7 @@ Name: confecon, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Amount of Worry About the Current State of the Economy&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_36_1.png" src="_images/ch11_36_1.png" />
+<img alt="_images/0d4a9892d1a58ca4cef394e1ddf0948e2a7142ce25803822d0370974092dd6ac.png" src="_images/0d4a9892d1a58ca4cef394e1ddf0948e2a7142ce25803822d0370974092dd6ac.png" />
 </div>
 </div>
 <p>Unlike <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> uses different colors for each bar as a default simply because it is prettier. Edward Tufte would call this aesthetic choice “chartjunk”, however, because the colors do not map to any additional feature or have any meaning other than being nicer to look at. Different colors are fine, but to change them, use the <code class="docutils literal notranslate"><span class="pre">palette</span></code> argument as follows:</p>
@@ -952,7 +938,7 @@ Name: confecon, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Amount of Worry About the Current State of the Economy&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_38_1.png" src="_images/ch11_38_1.png" />
+<img alt="_images/a69668671e30c482ca4e68193e1c6a55917924d9b3b49c1c888c302e98a2e348.png" src="_images/a69668671e30c482ca4e68193e1c6a55917924d9b3b49c1c888c302e98a2e348.png" />
 </div>
 </div>
 <p>To create a barplot using the <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> method in <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, first save the values as a dataframe as we do with <code class="docutils literal notranslate"><span class="pre">mybars_df</span></code> above, then apply <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> to this dataframe. <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> has an argument <code class="docutils literal notranslate"><span class="pre">kind</span></code> that let’s us specify the graph type. For a barplot, we write <code class="docutils literal notranslate"><span class="pre">kind='bar'</span></code> and we specify the x and y features the same way we did with <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>:</p>
@@ -963,10 +949,10 @@ Name: confecon, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;index&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a24398910&gt;
 </pre></div>
 </div>
-<img alt="_images/ch11_40_1.png" src="_images/ch11_40_1.png" />
+<img alt="_images/ad815ed975a08ab9819e0279ab6b9569da91f311241c4d25b942ff58f044fff2.png" src="_images/ad815ed975a08ab9819e0279ab6b9569da91f311241c4d25b942ff58f044fff2.png" />
 </div>
 </div>
 <p>Although <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> uses <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> to generate its visualizations, it uses some different defaults. Note, for example, that the category labels are oriented vertically instead of horizontally to avoid overlapping labels.</p>
@@ -979,10 +965,10 @@ Name: confecon, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;index&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a24571a90&gt;
 </pre></div>
 </div>
-<img alt="_images/ch11_42_1.png" src="_images/ch11_42_1.png" />
+<img alt="_images/45fd654fe2cd61a3e8510cdcf88493bb1e820c65729d992b00e36be5686ef1cc.png" src="_images/45fd654fe2cd61a3e8510cdcf88493bb1e820c65729d992b00e36be5686ef1cc.png" />
 </div>
 </div>
 <p>To create a horizontal bar plot, use <code class="docutils literal notranslate"><span class="pre">kind='barh'</span></code> instead of <code class="docutils literal notranslate"><span class="pre">kind='bar'</span></code>:</p>
@@ -994,10 +980,10 @@ Name: confecon, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;index&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a24675850&gt;
 </pre></div>
 </div>
-<img alt="_images/ch11_44_1.png" src="_images/ch11_44_1.png" />
+<img alt="_images/c9e627d130d65cd948d3004153c2755a00679a3a63704c41edacec4ebbe25ac7.png" src="_images/c9e627d130d65cd948d3004153c2755a00679a3a63704c41edacec4ebbe25ac7.png" />
 </div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> method also uses the same <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> functions for setting the axis labels and title:</p>
@@ -1015,7 +1001,7 @@ Name: confecon, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Amount of Worry About the Current State of the Economy&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_46_1.png" src="_images/ch11_46_1.png" />
+<img alt="_images/2162fa31e534aafbd107a6679469eeb08308de8f93a7e97ceefb066ddc92c68d.png" src="_images/2162fa31e534aafbd107a6679469eeb08308de8f93a7e97ceefb066ddc92c68d.png" />
 </div>
 </div>
 <p>To change the colors of the bars, use the <code class="docutils literal notranslate"><span class="pre">color</span></code> argument:</p>
@@ -1034,7 +1020,7 @@ Name: confecon, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Amount of Worry About the Current State of the Economy&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_48_1.png" src="_images/ch11_48_1.png" />
+<img alt="_images/432c393526192318bcb115cbf921f2edf64406fbe6c843207b6f0f077ff84508.png" src="_images/432c393526192318bcb115cbf921f2edf64406fbe6c843207b6f0f077ff84508.png" />
 </div>
 </div>
 <p>Notice that there is a legend included by default. The legend will be important when we use the <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> method to handle situations in which we stack bars or align them side-by-side for different groups. But in this case the legend is unnecessary. To turn off the legend, type <code class="docutils literal notranslate"><span class="pre">legend=False</span></code>:</p>
@@ -1054,12 +1040,12 @@ Name: confecon, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Amount of Worry About the Current State of the Economy&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_50_1.png" src="_images/ch11_50_1.png" />
+<img alt="_images/3eee6d33adb598a3c7fc0e4c4826dc573dca41f90100228b9518e10f7c344e6d.png" src="_images/3eee6d33adb598a3c7fc0e4c4826dc573dca41f90100228b9518e10f7c344e6d.png" />
 </div>
 </div>
 </section>
 <section id="barplots-for-statistics-other-than-frequencies">
-<h4><a class="toc-backref" href="#id11">Barplots for Statistics Other Than Frequencies</a><a class="headerlink" href="#barplots-for-statistics-other-than-frequencies" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">11.2.1.2. </span>Barplots for Statistics Other Than Frequencies</a><a class="headerlink" href="#barplots-for-statistics-other-than-frequencies" title="Permalink to this heading">#</a></h4>
 <p>A barplot does not have to simply illustrate frequencies. We can show any descriptive statistic in a barplot that can be calculated within each category. For example, we can show the average age of the people who responded with each level of economic worry. First we need to create a conditional means table and convert it to a dataframe with the <code class="docutils literal notranslate"><span class="pre">.reset_index()</span></code> method:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1137,7 +1123,7 @@ Name: confecon, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Amount of Worry About the Current State of the Economy&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_54_1.png" src="_images/ch11_54_1.png" />
+<img alt="_images/2768edcd82f6b2a35c2ab7b66753efa2f2b694dda4730bc760b2a32e4a7d64c7.png" src="_images/2768edcd82f6b2a35c2ab7b66753efa2f2b694dda4730bc760b2a32e4a7d64c7.png" />
 </div>
 </div>
 <p>Here is a <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> barplot:</p>
@@ -1156,7 +1142,7 @@ Name: confecon, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Amount of Worry About the Current State of the Economy&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_56_1.png" src="_images/ch11_56_1.png" />
+<img alt="_images/35c69c3b8c243819a5e2997ccd025a0dea4161691fe899212cefd38b71c0e0b7.png" src="_images/35c69c3b8c243819a5e2997ccd025a0dea4161691fe899212cefd38b71c0e0b7.png" />
 </div>
 </div>
 <p>And here is the barplot using <code class="docutils literal notranslate"><span class="pre">.plot()</span></code>:</p>
@@ -1176,12 +1162,12 @@ Name: confecon, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Amount of Worry About the Current State of the Economy&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_58_1.png" src="_images/ch11_58_1.png" />
+<img alt="_images/a6b7fde444c8996f133fd74023800510b6fae855fe20f0b41b1b4c31f0790c4e.png" src="_images/a6b7fde444c8996f133fd74023800510b6fae855fe20f0b41b1b4c31f0790c4e.png" />
 </div>
 </div>
 </section>
 <section id="annotating-bars-with-values">
-<h4><a class="toc-backref" href="#id12">Annotating Bars with Values</a><a class="headerlink" href="#annotating-bars-with-values" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">11.2.1.3. </span>Annotating Bars with Values</a><a class="headerlink" href="#annotating-bars-with-values" title="Permalink to this heading">#</a></h4>
 <p>We can annotate barplots with the heights of the bars, regardless of whether those bars are frequencies, means, or another descriptive statistic. Annotating barplots with values is tricky whether we use <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>, or <code class="docutils literal notranslate"><span class="pre">.plot()</span></code>, but fortunately the same method will work for all three plotting tools.</p>
 <p>First, we can use <code class="docutils literal notranslate"><span class="pre">plt.text()</span></code> to place text onto a figure. This function takes six arguments: the x and y coordinates where the text should be placed, the text, and <code class="docutils literal notranslate"><span class="pre">horizontalalignment='center'</span></code> and <code class="docutils literal notranslate"><span class="pre">verticalalignment='center'</span></code> to place the text box at the center of the specified (x,y) point (we can also specify left or right, or top or bottom), and <code class="docutils literal notranslate"><span class="pre">fontsize</span></code>. To place “Hello, world!” into the last figure, we can type:</p>
 <div class="cell docutils container">
@@ -1202,7 +1188,7 @@ Name: confecon, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(400, 3, &#39;Hello, world!&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_60_1.png" src="_images/ch11_60_1.png" />
+<img alt="_images/bf630b1191625569cfa7a8582396adef7ce4f9628fac7a2cdb97efad4289bf82.png" src="_images/bf630b1191625569cfa7a8582396adef7ce4f9628fac7a2cdb97efad4289bf82.png" />
 </div>
 </div>
 <p>We are going to use <code class="docutils literal notranslate"><span class="pre">plt.text()</span></code> to place values onto the bars, but we need to know the exact x and y-coordinates of the top or end of each bar. It is a mistake to try to find these coordinates through guessing and checking. Instead, rather than calling <code class="docutils literal notranslate"><span class="pre">plt.bar()</span></code> or another plotting function directly, we save it as a separate variable. The image will still display automatically in a Jupyter notebook, or after typing <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code>. The variable has an attribute called <code class="docutils literal notranslate"><span class="pre">.patches</span></code>:</p>
@@ -1214,14 +1200,14 @@ Name: confecon, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.patches.Rectangle at 0x1286bd690&gt;,
- &lt;matplotlib.patches.Rectangle at 0x128692450&gt;,
- &lt;matplotlib.patches.Rectangle at 0x12864c150&gt;,
- &lt;matplotlib.patches.Rectangle at 0x1286bdcd0&gt;,
- &lt;matplotlib.patches.Rectangle at 0x1286bded0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.patches.Rectangle at 0x1a24021a90&gt;,
+ &lt;matplotlib.patches.Rectangle at 0x1a23a3cc10&gt;,
+ &lt;matplotlib.patches.Rectangle at 0x1a2452a310&gt;,
+ &lt;matplotlib.patches.Rectangle at 0x1a24571ed0&gt;,
+ &lt;matplotlib.patches.Rectangle at 0x1a2458cad0&gt;]
 </pre></div>
 </div>
-<img alt="_images/ch11_62_1.png" src="_images/ch11_62_1.png" />
+<img alt="_images/e4f30e8500b5b46169853e5e8fb5fe73dd5eb3a73cf56d47b481c34c96d297d7.png" src="_images/e4f30e8500b5b46169853e5e8fb5fe73dd5eb3a73cf56d47b481c34c96d297d7.png" />
 </div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">.patches</span></code> attribute contains a list in which each item in the list looks like:</p>
@@ -1272,7 +1258,7 @@ Name: confecon, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ch11_66_0.png" src="_images/ch11_66_0.png" />
+<img alt="_images/f2fc7faf3c0d98983ec0c7786d72391139ebd7e4c4e7967723783102236174bb.png" src="_images/f2fc7faf3c0d98983ec0c7786d72391139ebd7e4c4e7967723783102236174bb.png" />
 </div>
 </div>
 <p>To add labels to horizontal barplots, we use the same method, but we switch the x and y coordinates in <code class="docutils literal notranslate"><span class="pre">plt.text()</span></code> and we switch <code class="docutils literal notranslate"><span class="pre">.get_width()</span></code> and <code class="docutils literal notranslate"><span class="pre">.get_height()</span></code> to account for the new orientation:</p>
@@ -1294,7 +1280,7 @@ Name: confecon, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ch11_68_0.png" src="_images/ch11_68_0.png" />
+<img alt="_images/19550a419d46069390d6ebc18ae938317085a780c87453921834543bbc8c5a1d.png" src="_images/19550a419d46069390d6ebc18ae938317085a780c87453921834543bbc8c5a1d.png" />
 </div>
 </div>
 <p>This method can also be used to annotate the barplot with other descriptive statistics like the percent. We can calculate the percents inside the loop and use these in the text argument of <code class="docutils literal notranslate"><span class="pre">plt.text()</span></code>:</p>
@@ -1317,7 +1303,7 @@ Name: confecon, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ch11_70_0.png" src="_images/ch11_70_0.png" />
+<img alt="_images/ebee000b8dd00f0baea6847e882182c10f3eb5bf539a5e765f8df555662910e0.png" src="_images/ebee000b8dd00f0baea6847e882182c10f3eb5bf539a5e765f8df555662910e0.png" />
 </div>
 </div>
 <p>The same code works to label a <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> barplot,</p>
@@ -1339,7 +1325,7 @@ Name: confecon, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ch11_72_0.png" src="_images/ch11_72_0.png" />
+<img alt="_images/d9a2357512722c3098ef0190ef96db0f9d22606201d823f5f9dde1d4f472282a.png" src="_images/d9a2357512722c3098ef0190ef96db0f9d22606201d823f5f9dde1d4f472282a.png" />
 </div>
 </div>
 <p>and a horizontal <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> barplot:</p>
@@ -1361,7 +1347,7 @@ Name: confecon, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ch11_74_0.png" src="_images/ch11_74_0.png" />
+<img alt="_images/c67844c9c476cd78f8e13d32a72946558b2db3d048a2f8a5a97ff49b8caec485.png" src="_images/c67844c9c476cd78f8e13d32a72946558b2db3d048a2f8a5a97ff49b8caec485.png" />
 </div>
 </div>
 <p>The same methods also work for barplots generated with the <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> method,</p>
@@ -1384,7 +1370,7 @@ Name: confecon, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ch11_76_0.png" src="_images/ch11_76_0.png" />
+<img alt="_images/76f6a11221b675e1582304c3c25d7624be8d9ff9f5ea9894f558a1fcb393f045.png" src="_images/76f6a11221b675e1582304c3c25d7624be8d9ff9f5ea9894f558a1fcb393f045.png" />
 </div>
 </div>
 <p>and for horizontal barplots generated with <code class="docutils literal notranslate"><span class="pre">.plot()</span></code>:</p>
@@ -1407,12 +1393,12 @@ Name: confecon, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ch11_78_0.png" src="_images/ch11_78_0.png" />
+<img alt="_images/908bfda58b3e2f89225068fd4dcfbac76f450e7ab6f0a9c51ec27b90c00ceb23.png" src="_images/908bfda58b3e2f89225068fd4dcfbac76f450e7ab6f0a9c51ec27b90c00ceb23.png" />
 </div>
 </div>
 </section>
 <section id="grouped-and-stacked-bars">
-<h4><a class="toc-backref" href="#id13">Grouped and Stacked Bars</a><a class="headerlink" href="#grouped-and-stacked-bars" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">11.2.1.4. </span>Grouped and Stacked Bars</a><a class="headerlink" href="#grouped-and-stacked-bars" title="Permalink to this heading">#</a></h4>
 <p>We can group data according to more than one feature. For example, we can create the counts within every combination of economic worry-level and party affiliation:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1551,10 +1537,10 @@ Name: confecon, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;confecon&#39;, ylabel=&#39;count&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a25c9ff10&gt;
 </pre></div>
 </div>
-<img alt="_images/ch11_82_1.png" src="_images/ch11_82_1.png" />
+<img alt="_images/084cf7acd352df38e4a458ee9b4cb96e0c983f1ebb90ca806a3dc027b8432b04.png" src="_images/084cf7acd352df38e4a458ee9b4cb96e0c983f1ebb90ca806a3dc027b8432b04.png" />
 </div>
 </div>
 <p>This figure can be annotated in all the ways we described above, with a title, axis labels, and numeric labels on each bar:</p>
@@ -1576,7 +1562,7 @@ Name: confecon, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ch11_84_0.png" src="_images/ch11_84_0.png" />
+<img alt="_images/8b39c593e555cbeed8aac61d006718e1d2ab5bf6a538f6e12a666b0d97777bc2.png" src="_images/8b39c593e555cbeed8aac61d006718e1d2ab5bf6a538f6e12a666b0d97777bc2.png" />
 </div>
 </div>
 <p>The same method works in <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> when the bars are oriented horizontally:</p>
@@ -1602,7 +1588,7 @@ Name: confecon, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ch11_86_0.png" src="_images/ch11_86_0.png" />
+<img alt="_images/30bb7a38588b4e800b1aadc4e533db447e29f878dab23e332e1f6e81efee1fd3.png" src="_images/30bb7a38588b4e800b1aadc4e533db447e29f878dab23e332e1f6e81efee1fd3.png" />
 </div>
 </div>
 <p>To generate grouped bars using the <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> method, we have to arrange the data so that one categorical feature comprises the rows and the other comprises the columns. We can either reshape the data or generate a cross-tab:</p>
@@ -1696,7 +1682,7 @@ Name: confecon, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ch11_90_0.png" src="_images/ch11_90_0.png" />
+<img alt="_images/4ab98665c44f227d3692b17f81af155cf6714432e352c6bf491f148f9692c6cf.png" src="_images/4ab98665c44f227d3692b17f81af155cf6714432e352c6bf491f148f9692c6cf.png" />
 </div>
 </div>
 <p>We can swap the feature represented on the x-axis and the feature represented in the legend by switching the position of the two features in the cross tab:</p>
@@ -1718,7 +1704,7 @@ Name: confecon, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ch11_92_0.png" src="_images/ch11_92_0.png" />
+<img alt="_images/39c977e74567f0d4a57afd79352f68a795ae697cb3d11a017fb2da699b9cf55d.png" src="_images/39c977e74567f0d4a57afd79352f68a795ae697cb3d11a017fb2da699b9cf55d.png" />
 </div>
 </div>
 <p>The code also works for horizontal barplots:</p>
@@ -1740,7 +1726,7 @@ Name: confecon, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ch11_94_0.png" src="_images/ch11_94_0.png" />
+<img alt="_images/6d1c733a55e0f079ecc0b598b24f51b825e44085bedc42b9ebc44c299797ce5a.png" src="_images/6d1c733a55e0f079ecc0b598b24f51b825e44085bedc42b9ebc44c299797ce5a.png" />
 </div>
 </div>
 <p>To stack the bars on top of one another rather than placing them side-by-side, use the <code class="docutils literal notranslate"><span class="pre">stacked=True</span></code> argument:</p>
@@ -1758,12 +1744,12 @@ Name: confecon, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Amount of Worry About the Current State of the Economy&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_96_1.png" src="_images/ch11_96_1.png" />
+<img alt="_images/68113f7636953cb188bc67094b6b6e7b39bdcb2a0552947276a14da58f34688e.png" src="_images/68113f7636953cb188bc67094b6b6e7b39bdcb2a0552947276a14da58f34688e.png" />
 </div>
 </div>
 </section>
 <section id="placing-graphs-within-grids">
-<h4><a class="toc-backref" href="#id14">Placing Graphs Within Grids</a><a class="headerlink" href="#placing-graphs-within-grids" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">11.2.1.5. </span>Placing Graphs Within Grids</a><a class="headerlink" href="#placing-graphs-within-grids" title="Permalink to this heading">#</a></h4>
 <p>Instead of grouping many bars in one plot, it can be cleaner and more effective to place multiple corresponding graphs in different cells inside a grid, one for each category of another feature. The easiest method for creating a grid of visualizations is to use the <code class="docutils literal notranslate"><span class="pre">sns.FacetGrid()</span></code> function and the <code class="docutils literal notranslate"><span class="pre">map()</span></code> method.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">sns.FacetGrid()</span></code> function takes a dataframe as its first argument, then we can specify the features whose categories comprise the rows and columns of this grid with the <code class="docutils literal notranslate"><span class="pre">row</span></code> and <code class="docutils literal notranslate"><span class="pre">col</span></code> arguments. Optionally, we can also change the color of the bars from cell to cell by setting <code class="docutils literal notranslate"><span class="pre">hue</span></code> equal to the row feature or the column feature. The <code class="docutils literal notranslate"><span class="pre">.map()</span></code> method operates on the output of <code class="docutils literal notranslate"><span class="pre">sns.FacetGrid()</span></code> and defines what the graph inside each cell should be.</p>
 <p>For example, we can create six barplots, one for each combination of party affiliation and sex. We can set the rows to represent men and women and we can set the columns to represent Democrats, independents, and Republicans with the following code:</p>
@@ -1778,10 +1764,10 @@ Name: confecon, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x12880e490&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x1a26035790&gt;
 </pre></div>
 </div>
-<img alt="_images/ch11_98_1.png" src="_images/ch11_98_1.png" />
+<img alt="_images/71c355df239beac997d36db0e6598a2e2f174aa198bcfbbb0ac97dc9eff074f2.png" src="_images/71c355df239beac997d36db0e6598a2e2f174aa198bcfbbb0ac97dc9eff074f2.png" />
 </div>
 </div>
 <p>To change the size of a grid, use the <code class="docutils literal notranslate"><span class="pre">height</span></code> argument to specify the height of each graph inside the grid, and use <code class="docutils literal notranslate"><span class="pre">aspect</span></code> to control how much bigger or smaller the width should be relative to the height. <code class="docutils literal notranslate"><span class="pre">aspect=1</span></code> gives us a square within each cell, and <code class="docutils literal notranslate"><span class="pre">height=2,</span> <span class="pre">aspect=1.5</span></code> sets the widths to be 3:</p>
@@ -1794,10 +1780,10 @@ Name: confecon, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x12a597b10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x1a26057a10&gt;
 </pre></div>
 </div>
-<img alt="_images/ch11_100_1.png" src="_images/ch11_100_1.png" />
+<img alt="_images/801d91aa3686f6f3116bcf67b80d26196d338a75c158271f765f7416244f06a6.png" src="_images/801d91aa3686f6f3116bcf67b80d26196d338a75c158271f765f7416244f06a6.png" />
 </div>
 </div>
 <p>The individual cells are given labels like “sex = Male|partyID = Democrat”. To give these cells better labels, we can write</p>
@@ -1833,7 +1819,7 @@ Name: confecon, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Amount of Worry About the Current State of the Economy, by Party&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_102_1.png" src="_images/ch11_102_1.png" />
+<img alt="_images/8af5d5157dd64dd3acfbdf9812ae53dad5bb61b95c7862d91208562d9d0ce956.png" src="_images/8af5d5157dd64dd3acfbdf9812ae53dad5bb61b95c7862d91208562d9d0ce956.png" />
 </div>
 </div>
 <p>If we have only one grouping column, we can use only the <code class="docutils literal notranslate"><span class="pre">row</span></code> argument without <code class="docutils literal notranslate"><span class="pre">col</span></code> if we want all three graphs to be on top of one another in separate rows in the same column, as in the following example:</p>
@@ -1856,7 +1842,7 @@ Name: confecon, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Amount of Worry About the Current State of the Economy, by Party&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_104_1.png" src="_images/ch11_104_1.png" />
+<img alt="_images/f9145aa6edd70ec79ffcc79d674b972012cac9b55fa5ebbf92c2eb85d429117f.png" src="_images/f9145aa6edd70ec79ffcc79d674b972012cac9b55fa5ebbf92c2eb85d429117f.png" />
 </div>
 </div>
 <p>Or we can use only the <code class="docutils literal notranslate"><span class="pre">col</span></code> argument without <code class="docutils literal notranslate"><span class="pre">row</span></code> if we want all three graphs to be side-by-side in one row:</p>
@@ -1876,7 +1862,7 @@ Name: confecon, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Amount of Worry About the Current State of the Economy, by Party&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_106_1.png" src="_images/ch11_106_1.png" />
+<img alt="_images/ffed08b849658fcfa9d907d0cdfa95fbdac0817cf50670aca46062092af48f77.png" src="_images/ffed08b849658fcfa9d907d0cdfa95fbdac0817cf50670aca46062092af48f77.png" />
 </div>
 </div>
 <p>If we have many categories, we can use the <code class="docutils literal notranslate"><span class="pre">col_wrap</span></code> argument to specify how many plots will be listed in each row before moving on to the next row. For example, we can list the economic anxiety by age group, creating nine age groups, and placing these graphs in a 3x3 grid:</p>
@@ -1897,19 +1883,15 @@ Name: confecon, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/seaborn/axisgrid.py:643: UserWarning: Using the barplot function without specifying `order` is likely to produce an incorrect plot.
-  warnings.warn(warning)
-</pre></div>
-</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Amount of Worry About the Current State of the Economy, by Age Group&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_108_2.png" src="_images/ch11_108_2.png" />
+<img alt="_images/9fc9f66daaec1e910760e9c36590e84d09e55d7be95df9435b534e052158e936.png" src="_images/9fc9f66daaec1e910760e9c36590e84d09e55d7be95df9435b534e052158e936.png" />
 </div>
 </div>
 </section>
 <section id="saving-a-figure-as-a-local-file">
-<h4><a class="toc-backref" href="#id15">Saving a Figure as a Local File</a><a class="headerlink" href="#saving-a-figure-as-a-local-file" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">11.2.1.6. </span>Saving a Figure as a Local File</a><a class="headerlink" href="#saving-a-figure-as-a-local-file" title="Permalink to this heading">#</a></h4>
 <p>To save a visualization that appears in your notebook as a local file, use the <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> function immediately after the code that generates and displays the figure. To save as a JPG, PNG, and PDF file, write a filename that ends with a “.jpg”, “.png”, or “.pdf” extension respectively inside of <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code>. The file will save in your current working directory, which you can see by importing the <code class="docutils literal notranslate"><span class="pre">os</span></code> package and typing <code class="docutils literal notranslate"><span class="pre">os.getcwd()</span></code> and change with the <code class="docutils literal notranslate"><span class="pre">os.chdir()</span></code> function.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> function works with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>, and <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> figures.</p>
 <p>For example, we can save the following <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> figure to disk as a JPG file:</p>
@@ -1932,7 +1914,7 @@ Name: confecon, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ch11_110_0.png" src="_images/ch11_110_0.png" />
+<img alt="_images/19550a419d46069390d6ebc18ae938317085a780c87453921834543bbc8c5a1d.png" src="_images/19550a419d46069390d6ebc18ae938317085a780c87453921834543bbc8c5a1d.png" />
 </div>
 </div>
 <p>We can save the following <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> figure as a PNG file:</p>
@@ -1949,7 +1931,7 @@ Name: confecon, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ch11_112_0.png" src="_images/ch11_112_0.png" />
+<img alt="_images/2921d5cafd0981fa0f6f3a165eabb5229f4edb4b0c5a43d5c9bf61d07ce00cbe.png" src="_images/2921d5cafd0981fa0f6f3a165eabb5229f4edb4b0c5a43d5c9bf61d07ce00cbe.png" />
 </div>
 </div>
 <p>And we can save the following <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> figure as a PDF:</p>
@@ -1964,13 +1946,13 @@ Name: confecon, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ch11_114_0.png" src="_images/ch11_114_0.png" />
+<img alt="_images/68113f7636953cb188bc67094b6b6e7b39bdcb2a0552947276a14da58f34688e.png" src="_images/68113f7636953cb188bc67094b6b6e7b39bdcb2a0552947276a14da58f34688e.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="scatterplots">
-<h3><a class="toc-backref" href="#id16">Scatterplots</a><a class="headerlink" href="#scatterplots" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">11.2.2. </span>Scatterplots</a><a class="headerlink" href="#scatterplots" title="Permalink to this heading">#</a></h3>
 <p>In the preceding section on barplots, we discussed how to generate visualizations using <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>, and the <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> method for a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> dataframe. In this section and the following ones, we will focus on <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> as this package usually creates visually appealing graphics with simpler code. We will use <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> and <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> only in situations in which a specific kind of visualization is easier to build with one of these packages.</p>
 <p>Scatterplots are used to illustrate the correlational relationship between two continous features. One feature’s values are used as x-coordinates and the other feature’s values are used as y-coordinates, and these coordinates define points that are plotted on a Cartesian coordinate plane. We can annotate a scatterplot in a few ways. First we can use an aesthethic like color-coding or shapes to denote the value of a third categorical feature from point to point. For example, if the points represent individual people, we can use red points for the women and blue points for the men, or squares for people from Virginia and triangles for people from Maryland. We can also add a <strong>line of best fit</strong> to a scatterplot, which is derived from a simple linear regression model, to show the overall relationship between the features: a positive slope indicates a positive correlation and a relationship in which the features tend to increase or decrease together; a negative slope indicates a negative correlation and a relationship in which one feature tends to increase as the other decreases.</p>
 <p>We can also change the background of <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> graphs. For scatterplots, it can be useful to display gridlines in the background to better match points to values on the x and y axies. To see this grid, type:</p>
@@ -1982,7 +1964,7 @@ Name: confecon, dtype: int64
 </div>
 </div>
 <section id="using-colors-shapes-and-transparency-to-annotate-scatterplots">
-<h4><a class="toc-backref" href="#id17">Using Colors, Shapes, and Transparency to Annotate Scatterplots</a><a class="headerlink" href="#using-colors-shapes-and-transparency-to-annotate-scatterplots" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">11.2.2.1. </span>Using Colors, Shapes, and Transparency to Annotate Scatterplots</a><a class="headerlink" href="#using-colors-shapes-and-transparency-to-annotate-scatterplots" title="Permalink to this heading">#</a></h4>
 <p>To generate a scatterplot from <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>, use the <code class="docutils literal notranslate"><span class="pre">sns.scatterplot()</span></code> function. Like the <code class="docutils literal notranslate"><span class="pre">sns.barplot()</span></code> function, we specify features for the x and y axes and the dataframe where these features are stored. For example, we can plot people’s thermometer rating of Donald Trump against their thermometer rating of Joe Biden. For the sake of clarity, I only include the first 200 rows of <code class="docutils literal notranslate"><span class="pre">anes</span></code> for now:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1991,10 +1973,10 @@ Name: confecon, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;ftbiden&#39;, ylabel=&#39;fttrump&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a27ac3450&gt;
 </pre></div>
 </div>
-<img alt="_images/ch11_118_1.png" src="_images/ch11_118_1.png" />
+<img alt="_images/2a006830c08cba9966c2ad8fdee0449ba810be48edc59100f66da95b1b5e8381.png" src="_images/2a006830c08cba9966c2ad8fdee0449ba810be48edc59100f66da95b1b5e8381.png" />
 </div>
 </div>
 <p>We can change the size of the scatterplot in the notebook with the <code class="docutils literal notranslate"><span class="pre">plt.figure()</span></code> function, and we can label the axes and add a title as follows:</p>
@@ -2012,7 +1994,7 @@ Name: confecon, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Evaluations of Biden vs. Trump&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_120_1.png" src="_images/ch11_120_1.png" />
+<img alt="_images/17a38b1641259f57626ae1198dd2f9a4e77e9b67f3350f07f4019afe9549aa27.png" src="_images/17a38b1641259f57626ae1198dd2f9a4e77e9b67f3350f07f4019afe9549aa27.png" />
 </div>
 </div>
 <p>There are many ways to use aesthetics to include additional features in a scatterplot. First we can color-code points to represent categories of a different feature using the <code class="docutils literal notranslate"><span class="pre">hue</span></code> argument. We can represent party affiliation this way:</p>
@@ -2031,7 +2013,7 @@ Name: confecon, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Evaluations of Biden vs. Trump&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_122_1.png" src="_images/ch11_122_1.png" />
+<img alt="_images/54f3923d611dd0ad6c7bedbbaf4f486eb5d969f7b664384c888828b1e6b69c38.png" src="_images/54f3923d611dd0ad6c7bedbbaf4f486eb5d969f7b664384c888828b1e6b69c38.png" />
 </div>
 </div>
 <p>As expected, Republicans cluster in the top-left corner with high ratings for Trump and low ratings for Biden, and Democrats cluster in the bottom-right corner with high ratings for Biden and low ratings for Trump. Independents are spread out and are more common in the middle. No one rates both Trump and Biden both over 80.</p>
@@ -2052,7 +2034,7 @@ Name: confecon, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Evaluations of Biden vs. Trump&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_124_1.png" src="_images/ch11_124_1.png" />
+<img alt="_images/e1ad642d7f8ab3f153f56e59ef196f1c6687883e7b1d2ba7bcade1a99fa443d9.png" src="_images/e1ad642d7f8ab3f153f56e59ef196f1c6687883e7b1d2ba7bcade1a99fa443d9.png" />
 </div>
 </div>
 <p>My personal opinion, however, is that shapes do not tend to convey information very well without color-coding points as well. If all of the points are blue, it can be hard to tell the dots from the Xs.</p>
@@ -2072,7 +2054,7 @@ Name: confecon, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Evaluations of Biden vs. Trump&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_126_1.png" src="_images/ch11_126_1.png" />
+<img alt="_images/9d694a03a93cf1d24a72652c3b1b4b5a06d2318703550f134708bc85d225a945.png" src="_images/9d694a03a93cf1d24a72652c3b1b4b5a06d2318703550f134708bc85d225a945.png" />
 </div>
 </div>
 <p>We can set colors to represent one feature while shapes represent another. In this case, both aesthetic mappings are listed in the legend. Here is a scatterplot that uses color for <code class="docutils literal notranslate"><span class="pre">partyID</span></code> and shapes for <code class="docutils literal notranslate"><span class="pre">sex</span></code>:</p>
@@ -2091,7 +2073,7 @@ Name: confecon, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Evaluations of Biden vs. Trump&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_128_1.png" src="_images/ch11_128_1.png" />
+<img alt="_images/3a6e7ba489bc008132ff7b8b6e9b01b90e452718063eaafabfd2c988e7439462.png" src="_images/3a6e7ba489bc008132ff7b8b6e9b01b90e452718063eaafabfd2c988e7439462.png" />
 </div>
 </div>
 <p>We can control the transparency of the points with the <code class="docutils literal notranslate"><span class="pre">alpha</span></code> argument. <code class="docutils literal notranslate"><span class="pre">alpha</span></code> ranges between 0 and 1, where 0 means perfectly transparent, 1 means perfectly solid, and values between 0 and 1 represent degrees of transparency. When points are partially transparent, areas with many points become darker, so the main purpose of transparency is to illustrate the areas in the scatterplot with higher densities of data. Below I list two scatterplots, each with the points set to black instead of the default blue, and each with all of the rows in <code class="docutils literal notranslate"><span class="pre">anes</span></code>. The first scatterplot uses solid dots and the second uses <code class="docutils literal notranslate"><span class="pre">alpha=.1</span></code> to make the dots mostly transparent. Notice how the clusters emerge in the second scatterplot:</p>
@@ -2117,8 +2099,8 @@ Name: confecon, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Transparency (alpha=.1) Shows Where the Data Cluster&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_130_1.png" src="_images/ch11_130_1.png" />
-<img alt="_images/ch11_130_2.png" src="_images/ch11_130_2.png" />
+<img alt="_images/da8a3df2517a19008e18a7a7e6a30514b78829b2759b1256747d09f430cf8797.png" src="_images/da8a3df2517a19008e18a7a7e6a30514b78829b2759b1256747d09f430cf8797.png" />
+<img alt="_images/0483c893691aee9bde94c315bc6c27d7dc698bf1ef2896a5401d835ee947150c.png" src="_images/0483c893691aee9bde94c315bc6c27d7dc698bf1ef2896a5401d835ee947150c.png" />
 </div>
 </div>
 <p>The darkest parts of the graph are the areas with the most common ratings of (Trump, Biden). These are (100, 0), (0, 100), (0, 50), (50, 50), and (0,0). Areas along the axes, rating one candidate at 0, are more common than other areas on the graph.</p>
@@ -2139,13 +2121,13 @@ Name: confecon, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Evaluations of Biden vs. Trump&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_132_1.png" src="_images/ch11_132_1.png" />
+<img alt="_images/840b5e34dde8e42f55d4e9ba16eb771b5f1d22f26047e1107cec9cebcc1ad625.png" src="_images/840b5e34dde8e42f55d4e9ba16eb771b5f1d22f26047e1107cec9cebcc1ad625.png" />
 </div>
 </div>
 <p>I don’t recommend using size to represent data, however, as larger points tend to obscure smaller points.</p>
 </section>
 <section id="including-lines-of-best-fit">
-<h4><a class="toc-backref" href="#id18">Including Lines of Best Fit</a><a class="headerlink" href="#including-lines-of-best-fit" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id18" role="doc-backlink"><span class="section-number">11.2.2.2. </span>Including Lines of Best Fit</a><a class="headerlink" href="#including-lines-of-best-fit" title="Permalink to this heading">#</a></h4>
 <p>Scatterplots are designed to illustrate the relationship between two features, but it can be hard to see this relationship when there are lot of datapoints or when the data have a lot of variance.  We can include a line of best fit on a scatterplot to explictly show the relationship by using the <code class="docutils literal notranslate"><span class="pre">sns.regplot()</span></code> function instead of <code class="docutils literal notranslate"><span class="pre">sns.scatterplot()</span></code>. <code class="docutils literal notranslate"><span class="pre">sns.regplot()</span></code> sometimes expands the range of the x and y axes beyond the data to better show the complete line of best fit.</p>
 <p>The Trump vs. Biden scatterplot with a linear fit is as follows:</p>
 <div class="cell docutils container">
@@ -2162,7 +2144,7 @@ Name: confecon, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Evaluations of Biden vs. Trump&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_135_1.png" src="_images/ch11_135_1.png" />
+<img alt="_images/5be3041a268127a4e53d0598076186684b769762461a9c1596b2cbfc1559d0dc.png" src="_images/5be3041a268127a4e53d0598076186684b769762461a9c1596b2cbfc1559d0dc.png" />
 </div>
 </div>
 <p>This line represents the predicted values of the Trump thermometer given a value of the Biden thermometer, as derived from a simple regression model in which the Trump thermometer is regressed on the Biden thermometer and a intercept is included. There are a few ways to understand the line:</p>
@@ -2187,7 +2169,7 @@ Name: confecon, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Evaluations of Biden vs. Trump&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_137_1.png" src="_images/ch11_137_1.png" />
+<img alt="_images/2466ddbad2bbfa541b4f997d1c1020c327345e6b5205db7f652fc329bb2004fe.png" src="_images/2466ddbad2bbfa541b4f997d1c1020c327345e6b5205db7f652fc329bb2004fe.png" />
 </div>
 </div>
 <p>We can also use <code class="docutils literal notranslate"><span class="pre">lowess=True</span></code>. LOWESS stands for <a class="reference external" href="https://en.wikipedia.org/wiki/Local_regression">locally weighted scatterplot smoothing</a>, and it estimates the relationship between the features in local regions on the scatterplot, connecting the polynomials to form one curved line through the data. The result is a visualization of a nonlinear relationship that can bend in ways not possible with a polynomial. The LOWESS fit for the Trump vs Biden scatterplot is:</p>
@@ -2206,12 +2188,12 @@ Name: confecon, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Evaluations of Biden vs. Trump&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_139_1.png" src="_images/ch11_139_1.png" />
+<img alt="_images/cf489263922b78a8001dc7a8374695f2d63b7db138403367765cf1614b1986ea.png" src="_images/cf489263922b78a8001dc7a8374695f2d63b7db138403367765cf1614b1986ea.png" />
 </div>
 </div>
 </section>
 <section id="scatterplot-grids-and-matrices">
-<h4><a class="toc-backref" href="#id19">Scatterplot Grids and Matrices</a><a class="headerlink" href="#scatterplot-grids-and-matrices" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id19" role="doc-backlink"><span class="section-number">11.2.2.3. </span>Scatterplot Grids and Matrices</a><a class="headerlink" href="#scatterplot-grids-and-matrices" title="Permalink to this heading">#</a></h4>
 <p>It can be useful to see related scatterplots side by side or in a grid. We can use the <code class="docutils literal notranslate"><span class="pre">sns.FacetGrid()</span></code> function to divide the rows into subsets according to a categorical feature, then to generate different versions of the same scatterplot for each subset. <code class="docutils literal notranslate"><span class="pre">sns.FacetGrid()</span></code> allows us to place these scatterplots side-by-side.</p>
 <p>For example, here is the code to create three scatterplots of the Trump and Biden thermometers. It largely follows the same syntax that we used to generate a facet grid of barplots, but I pass the <code class="docutils literal notranslate"><span class="pre">sns.scatterplot()</span></code> function to <code class="docutils literal notranslate"><span class="pre">.map()</span></code> method along with aesthetic parameters I want to apply to each graph: <code class="docutils literal notranslate"><span class="pre">alpha=.1</span></code> and <code class="docutils literal notranslate"><span class="pre">color='black'</span></code> to help reveal the clustering in each scatterplot:</p>
 <div class="cell docutils container">
@@ -2229,7 +2211,7 @@ Name: confecon, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Evaluations of Biden vs. Trump, by Party&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_141_1.png" src="_images/ch11_141_1.png" />
+<img alt="_images/588e68cd88433e36fb2a4ab072f952d16f37598e3dfde08cd147399e249d89c6.png" src="_images/588e68cd88433e36fb2a4ab072f952d16f37598e3dfde08cd147399e249d89c6.png" />
 </div>
 </div>
 <p>Now that we’ve separated the Democrats, Republicans, and independents, we can more clearly see how each group clusters in terms of their ratings of Trump and Biden. Democrats are mostly united in rating Trump very low, but the spread along the x-axis indicates a wide range of mixed feelings towards Biden. Republicans in contrast are more clustered around higher ratings for Trump.</p>
@@ -2250,14 +2232,14 @@ Name: confecon, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ch11_143_0.png" src="_images/ch11_143_0.png" />
+<img alt="_images/cbacf0c2788386cf0e771feb50f67752a5010303f1d8c4f171dc04c3e89132d7.png" src="_images/cbacf0c2788386cf0e771feb50f67752a5010303f1d8c4f171dc04c3e89132d7.png" />
 </div>
 </div>
 <p>My personal preference however is to avoid scatterplot matrices because these figures can be very complicated, and although they contain a lot of informaation, they are not very efficient at conveying a cohesive story.</p>
 </section>
 </section>
 <section id="line-plots">
-<h3><a class="toc-backref" href="#id20">Line Plots</a><a class="headerlink" href="#line-plots" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id20" role="doc-backlink"><span class="section-number">11.2.3. </span>Line Plots</a><a class="headerlink" href="#line-plots" title="Permalink to this heading">#</a></h3>
 <p>Line plots are used to illustrate the relationship between a continuous feature and an index. An index is a continuous feature in which the order of the rows has meaning, and the most common index is time, ordered from earlier to later time points. If multiple continuous features have similar scales, they can be plotted with overlaid lines against the same index. In that case, we can use different line colors to distinguish between the lines, or different line types (solid, dashed, dotted, etc.). If the features have very different scales, then it is possible to use two different y-axes in one line plot, with the values for one axis listed on the left and the values for the other axis listed on the right, as in the following example:</p>
 <figure class="image">
 <center>
@@ -2376,7 +2358,7 @@ correlates with the number of people who died by becoming tangled in their bedsh
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Feeling Thermometer Ratings By Age Group&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_148_1.png" src="_images/ch11_148_1.png" />
+<img alt="_images/44791815d5cdbef9de71e29d00e15e1c2c33203ee8c2a426821196b9ee0fafbe.png" src="_images/44791815d5cdbef9de71e29d00e15e1c2c33203ee8c2a426821196b9ee0fafbe.png" />
 </div>
 </div>
 <p>Notice that the y-axis, by default, is set to a range slightly larger than the range of the data. That can misrepresent the degree to which the data change. A more honest presentation expands the y-axis to the full range of possible values for a feeling thermometer, from 0 to 100. We can expand the range by typing <code class="docutils literal notranslate"><span class="pre">plt.ylim(0,100)</span></code>:</p>
@@ -2395,7 +2377,7 @@ correlates with the number of people who died by becoming tangled in their bedsh
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.0, 100.0)
 </pre></div>
 </div>
-<img alt="_images/ch11_150_1.png" src="_images/ch11_150_1.png" />
+<img alt="_images/cfdd16885f39745cd4b0cc0b17ee2fd9cde7e80a7062f6205f4be341b6408ece.png" src="_images/cfdd16885f39745cd4b0cc0b17ee2fd9cde7e80a7062f6205f4be341b6408ece.png" />
 </div>
 </div>
 <p>To plot multiple features against the same index, create a dataframe that is reshaped to long format. In this case, we can use techniques we discussed in chapters 8 and 9 to create a dataframe  with three columns: age, candidate (the subject of each feeling thermometer), and the values of the thermometers. We place the thermometers for Biden, Trump, Barack Obama, and Bernie Sanders in this dataframe:</p>
@@ -2530,7 +2512,7 @@ correlates with the number of people who died by becoming tangled in their bedsh
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.0, 100.0)
 </pre></div>
 </div>
-<img alt="_images/ch11_154_1.png" src="_images/ch11_154_1.png" />
+<img alt="_images/d474f941b6fe2d7c4de5ed1e2eff52bc832056b288e896b9f5b65eec26b768ba.png" src="_images/d474f941b6fe2d7c4de5ed1e2eff52bc832056b288e896b9f5b65eec26b768ba.png" />
 </div>
 </div>
 <p>This graph indicates that Biden is more popular than Trump among younger voters and Trump is more popular than Biden among older voters.</p>
@@ -2552,7 +2534,7 @@ correlates with the number of people who died by becoming tangled in their bedsh
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.0, 100.0)
 </pre></div>
 </div>
-<img alt="_images/ch11_156_1.png" src="_images/ch11_156_1.png" />
+<img alt="_images/391848fe0a55343bcbc494ba60496a92477fcd1ba23f43f7fe2513515674e71e.png" src="_images/391848fe0a55343bcbc494ba60496a92477fcd1ba23f43f7fe2513515674e71e.png" />
 </div>
 </div>
 <p>To include four lines with four different colors and line types, we use the same code without subsetting the data:</p>
@@ -2573,7 +2555,7 @@ correlates with the number of people who died by becoming tangled in their bedsh
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.0, 100.0)
 </pre></div>
 </div>
-<img alt="_images/ch11_158_1.png" src="_images/ch11_158_1.png" />
+<img alt="_images/315e63547b625bea256c41138be0d996f81bd5b9ddad4cf2b3c366dafc687fa8.png" src="_images/315e63547b625bea256c41138be0d996f81bd5b9ddad4cf2b3c366dafc687fa8.png" />
 </div>
 </div>
 <p>Four lines on one graph can be confusing, however. We can convey this information more clearly by using <code class="docutils literal notranslate"><span class="pre">sns.FacetGrid()</span></code> with <code class="docutils literal notranslate"><span class="pre">col</span> <span class="pre">=</span> <span class="pre">'candidate'</span></code> to create different graphs for each politician, and <code class="docutils literal notranslate"><span class="pre">col_wrap=2</span></code> to align these graphs in a 2x2 grid. To color-code the lines, write <code class="docutils literal notranslate"><span class="pre">hue='candidate'</span></code> in the <code class="docutils literal notranslate"><span class="pre">sns.FacetGrid()</span></code> function:</p>
@@ -2594,15 +2576,15 @@ correlates with the number of people who died by becoming tangled in their bedsh
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Feeling Thermometer Ratings By Age&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_160_1.png" src="_images/ch11_160_1.png" />
+<img alt="_images/d20cfac14bfda9b635b7783477b5dd334241e0ac2952ead258cb06d9f1f1a90e.png" src="_images/d20cfac14bfda9b635b7783477b5dd334241e0ac2952ead258cb06d9f1f1a90e.png" />
 </div>
 </div>
 </section>
 <section id="distributional-graphs">
-<h3><a class="toc-backref" href="#id21">Distributional Graphs</a><a class="headerlink" href="#distributional-graphs" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id21" role="doc-backlink"><span class="section-number">11.2.4. </span>Distributional Graphs</a><a class="headerlink" href="#distributional-graphs" title="Permalink to this heading">#</a></h3>
 <p>Distributional plots include <strong>histograms, density plots, violin plots, and box plots</strong>. Each of these kinds of graphs show the overall distribution of a continuous feature, not just a measure of location like the mean or median. In other words, distributions show the entirety of a feature while descriptive statistics only show a small amount of information about a feature. Suppose we have two candidates that individuals are asked to rate on a scale from 0 to 100. If half the individuals rate the first candidate 0, and half the individuals rate the first candidate 100, then this candidate’s average rating is 50. If all the individuals rate the second candidate 50, then this candidate’s average rating is also 50. Although the means are equal, the distributions are very different, and it would be a mistake to draw conclusions about these two candidates without taking into consideration the whole distribution of each candidates’ ratings.</p>
 <section id="histograms">
-<h4><a class="toc-backref" href="#id22">Histograms</a><a class="headerlink" href="#histograms" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id22" role="doc-backlink"><span class="section-number">11.2.4.1. </span>Histograms</a><a class="headerlink" href="#histograms" title="Permalink to this heading">#</a></h4>
 <p>Histograms are similar to barplots, except that the bars are generally drawn without spaces in between. Histograms first use a function like <code class="docutils literal notranslate"><span class="pre">pd.cut()</span></code> to place the continuous values into bins, then it calculates the frequency of each bin. The number of bins defines the number of bars in a histogram, and the frequencies provide the height of each bar.</p>
 <p>Histograms in <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> are generated with the <code class="docutils literal notranslate"><span class="pre">sns.distplot()</span></code> function. Unlike other <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> functions, where we had to specify an x and y feature, here we pass only the feature whose distribution we are trying to visualize. By default, <code class="docutils literal notranslate"><span class="pre">sns.distplot()</span></code> will draw a curve on top of the histogram showing the estimated density function, but it tends to clutter the figure, so we can turn it off with <code class="docutils literal notranslate"><span class="pre">kde=False</span></code>. Here is the histogram of the Biden thermometer ratings:</p>
 <div class="cell docutils container">
@@ -2616,14 +2598,10 @@ correlates with the number of people who died by becoming tangled in their bedsh
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/seaborn/distributions.py:2557: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
-  warnings.warn(msg, FutureWarning)
-</pre></div>
-</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Distribution of Joe Biden Thermometer Ratings&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_163_2.png" src="_images/ch11_163_2.png" />
+<img alt="_images/d714f2e27bddc70f50f18884ec65ed9855fba66adc2b727164b3ab19b97581be.png" src="_images/d714f2e27bddc70f50f18884ec65ed9855fba66adc2b727164b3ab19b97581be.png" />
 </div>
 </div>
 <p>We can change the color of the bars with the <code class="docutils literal notranslate"><span class="pre">color</span></code> argument, and we can turn off the default transparency of the color with <code class="docutils literal notranslate"><span class="pre">hist_kws=dict(alpha=1)</span></code>:</p>
@@ -2642,7 +2620,7 @@ correlates with the number of people who died by becoming tangled in their bedsh
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Distribution of Joe Biden Thermometer Ratings&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_165_1.png" src="_images/ch11_165_1.png" />
+<img alt="_images/83a7b178fdbbfe091c567997d885e9ababcd1b28e55536eb792491f028a9e117.png" src="_images/83a7b178fdbbfe091c567997d885e9ababcd1b28e55536eb792491f028a9e117.png" />
 </div>
 </div>
 <p>We can generate a histogram turned 90 degrees with <code class="docutils literal notranslate"><span class="pre">vertical=True</span></code>. Be sure to switch the labels for the x and y axes:</p>
@@ -2662,7 +2640,7 @@ correlates with the number of people who died by becoming tangled in their bedsh
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Distribution of Joe Biden Thermometer Ratings&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_167_1.png" src="_images/ch11_167_1.png" />
+<img alt="_images/8c74e7432a18ff6d38db000fac5c76fd5d1a434c53411a6ec4c161e8d564a248.png" src="_images/8c74e7432a18ff6d38db000fac5c76fd5d1a434c53411a6ec4c161e8d564a248.png" />
 </div>
 </div>
 <p>A key decision with histograms is the number of bins: because the feature is continuous, we must first place the values into equally spaced ranges that divide the total range of the feature, then we count the number of values in each range, and we set the heights of the bars equal to these frequencies. By default, <code class="docutils literal notranslate"><span class="pre">sns.distplot()</span></code> uses the number of bins that is recommended by the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.histogram_bin_edges.html#numpy.histogram_bin_edges"><code class="docutils literal notranslate"><span class="pre">numpy.histogram_bin_edges()</span></code></a> function. This function calculates the number of bins to use with the <a class="reference external" href="https://en.wikipedia.org/wiki/Freedman%E2%80%93Diaconis_rule">Freedman-Diaconis rule</a> and with <a class="reference external" href="https://en.wikipedia.org/wiki/Histogram#Number_of_bins_and_width">Sturges’ Formula</a> and take the higher of these two numbers. We can change this default with the <code class="docutils literal notranslate"><span class="pre">bins</span></code> argument.</p>
@@ -2681,7 +2659,7 @@ correlates with the number of people who died by becoming tangled in their bedsh
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Distribution of Joe Biden Thermometer Ratings&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_169_1.png" src="_images/ch11_169_1.png" />
+<img alt="_images/14fff53ef52f71e3e8afae2d860ad04d36b150eabb0ba8ed8feb2bb22b92b8f4.png" src="_images/14fff53ef52f71e3e8afae2d860ad04d36b150eabb0ba8ed8feb2bb22b92b8f4.png" />
 </div>
 </div>
 <p>But if we set the number of bins too high, we won’t have enough observations to get good estimates of the frequencies, leaving us with a figure like this:</p>
@@ -2700,7 +2678,7 @@ correlates with the number of people who died by becoming tangled in their bedsh
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Distribution of Joe Biden Thermometer Ratings&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_171_1.png" src="_images/ch11_171_1.png" />
+<img alt="_images/e12ca99e45e2f7cb319cb94b78e480405065ca1fb0a11a3e66659e63596fe0c8.png" src="_images/e12ca99e45e2f7cb319cb94b78e480405065ca1fb0a11a3e66659e63596fe0c8.png" />
 </div>
 </div>
 <p>To show multiple features’ distributions in one figure, we can overlay two histograms with two calls to <code class="docutils literal notranslate"><span class="pre">sns.distplot()</span></code>, one for each feature. The two histograms will appear in the same figure but with different colors. The default transparency of the colors allows us to see three shades, one for each of the features and one for where the features overlap. It is important to include a legend to tell which color refers to which feature. For a legend, include the <code class="docutils literal notranslate"><span class="pre">label</span></code> argument in each call to <code class="docutils literal notranslate"><span class="pre">sns.displot()</span></code>: these labels define the text that will appear in the legend. Then use the <code class="docutils literal notranslate"><span class="pre">plt.legend()</span></code> function along with the other attributes. A figure that plots the Trump and Biden histograms together is:</p>
@@ -2717,10 +2695,10 @@ correlates with the number of people who died by becoming tangled in their bedsh
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x12b5e2ad0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1a25fe8d50&gt;
 </pre></div>
 </div>
-<img alt="_images/ch11_173_1.png" src="_images/ch11_173_1.png" />
+<img alt="_images/ea14b826b275816b1f3290bd23c62580c85978b889f41fe1ff81bd5a01ea2e97.png" src="_images/ea14b826b275816b1f3290bd23c62580c85978b889f41fe1ff81bd5a01ea2e97.png" />
 </div>
 </div>
 <p>The conclusion we can draw here is that more people have extreme opinions of Trump, with ratings of 0 or 100, and more people have mediocre options of Biden.</p>
@@ -2851,19 +2829,15 @@ correlates with the number of people who died by becoming tangled in their bedsh
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/seaborn/distributions.py:2557: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
-  warnings.warn(msg, FutureWarning)
-</pre></div>
-</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Feeling Thermometer Distributions&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_177_2.png" src="_images/ch11_177_2.png" />
+<img alt="_images/e431bd7a5d8ed3f87aeff7c588934ccdebfb5281f105c1a8a1a7b8d26e3edc6c.png" src="_images/e431bd7a5d8ed3f87aeff7c588934ccdebfb5281f105c1a8a1a7b8d26e3edc6c.png" />
 </div>
 </div>
 </section>
 <section id="density-plots">
-<h4><a class="toc-backref" href="#id23">Density Plots</a><a class="headerlink" href="#density-plots" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id23" role="doc-backlink"><span class="section-number">11.2.4.2. </span>Density Plots</a><a class="headerlink" href="#density-plots" title="Permalink to this heading">#</a></h4>
 <p>Density plots, or kernel density plots, are derived from histograms. Given a histogram, it is possible to draw a continuous curve that follows the heights of the bars. This curve is an estimate of the probability density function of a continous feature, and the higher the curve in a range, the more frequently we observe values in the range.</p>
 <p>One way to see the density curve is to use the <code class="docutils literal notranslate"><span class="pre">sns.distplot()</span></code> function with the <code class="docutils literal notranslate"><span class="pre">kde</span></code> argument set to <code class="docutils literal notranslate"><span class="pre">True</span></code> and the <code class="docutils literal notranslate"><span class="pre">hist</span></code> argument set to <code class="docutils literal notranslate"><span class="pre">False</span></code>:</p>
 <div class="cell docutils container">
@@ -2877,14 +2851,10 @@ correlates with the number of people who died by becoming tangled in their bedsh
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/seaborn/distributions.py:2557: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `kdeplot` (an axes-level function for kernel density plots).
-  warnings.warn(msg, FutureWarning)
-</pre></div>
-</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Distribution of Joe Biden Thermometer Ratings&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_179_2.png" src="_images/ch11_179_2.png" />
+<img alt="_images/198a4f42a4eae6e2bcdb77dd2ce65cda37bdbcbc7fd214a2f2b455f545e60a8b.png" src="_images/198a4f42a4eae6e2bcdb77dd2ce65cda37bdbcbc7fd214a2f2b455f545e60a8b.png" />
 </div>
 </div>
 <p>A nicer-looking version of this plot comes from the <code class="docutils literal notranslate"><span class="pre">sns.kdeplot()</span></code> function, which allows shading underneath the curve with <code class="docutils literal notranslate"><span class="pre">shade=True</span></code>:</p>
@@ -2902,7 +2872,7 @@ correlates with the number of people who died by becoming tangled in their bedsh
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Distribution of Joe Biden Thermometer Ratings&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_181_1.png" src="_images/ch11_181_1.png" />
+<img alt="_images/fc275135ebc82750a96c0db9f4bf1c7e49d545a14395faf0dbcd006a5508040a.png" src="_images/fc275135ebc82750a96c0db9f4bf1c7e49d545a14395faf0dbcd006a5508040a.png" />
 </div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">sns.kdeplot()</span></code> function includes a legend by default, which makes it much easier to plot multiple densities on top of one another. Here is the density plot for for Biden and Trump:</p>
@@ -2919,10 +2889,10 @@ correlates with the number of people who died by becoming tangled in their bedsh
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x12edbaed0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1a276c0910&gt;
 </pre></div>
 </div>
-<img alt="_images/ch11_183_1.png" src="_images/ch11_183_1.png" />
+<img alt="_images/03ba2c8a2029a1af406b0c1779e70ced34a32170880e3a572b9b1718c1b5bf2f.png" src="_images/03ba2c8a2029a1af406b0c1779e70ced34a32170880e3a572b9b1718c1b5bf2f.png" />
 </div>
 </div>
 <p>I do not recommend including more than two features on a density plot as it will be difficult to tell the difference between more than two shaded areas. However, a facet grid is an effective alternative:</p>
@@ -2943,7 +2913,7 @@ correlates with the number of people who died by becoming tangled in their bedsh
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Feeling Thermometer Distributions&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_185_1.png" src="_images/ch11_185_1.png" />
+<img alt="_images/559032fa4c13563f4c5ad0b46fefe0daff3816825cf504c7b1322467733a5c19.png" src="_images/559032fa4c13563f4c5ad0b46fefe0daff3816825cf504c7b1322467733a5c19.png" />
 </div>
 </div>
 <p>Density plots are effective ways to estimate and illustrate a single feature’s distribution. But a pair of features together have a joint distribution. A joint distribution of two features is a three-dimensional graph, which is trickier to visualize. The higher the joint distribution, the more those ordered pairs of the two features will appear in the data. One way to visualize a joint distribution is to use a level plot, which looks at a joint distribution from a vantage point directly above the curve. The level plot uses shading to represent points that have the same height, and the darkest areas are the peaks of the curves. These areas are the most frequent combinations of the two features.</p>
@@ -2956,10 +2926,10 @@ correlates with the number of people who died by becoming tangled in their bedsh
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x12af6f9d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x1a27211810&gt;
 </pre></div>
 </div>
-<img alt="_images/ch11_187_1.png" src="_images/ch11_187_1.png" />
+<img alt="_images/ffe07ffb7397e8be89fa08a7da3aa21e89e9349a95d6bf25096da743190ac848.png" src="_images/ffe07ffb7397e8be89fa08a7da3aa21e89e9349a95d6bf25096da743190ac848.png" />
 </div>
 </div>
 <p>Use <code class="docutils literal notranslate"><span class="pre">kind='kde'</span></code> to display a level plot and densities:</p>
@@ -2970,10 +2940,10 @@ correlates with the number of people who died by becoming tangled in their bedsh
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x12ed1cf90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x1a29244850&gt;
 </pre></div>
 </div>
-<img alt="_images/ch11_189_1.png" src="_images/ch11_189_1.png" />
+<img alt="_images/55c0752a2418782fafc5c8aa4fbda20c9158cc5a28c9decad5a5733802a56f80.png" src="_images/55c0752a2418782fafc5c8aa4fbda20c9158cc5a28c9decad5a5733802a56f80.png" />
 </div>
 </div>
 <p>And use <code class="docutils literal notranslate"><span class="pre">kind='hex'</span></code> to display a hex plot and histograms:</p>
@@ -2984,16 +2954,16 @@ correlates with the number of people who died by becoming tangled in their bedsh
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x12b127450&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.JointGrid at 0x1a2a54b3d0&gt;
 </pre></div>
 </div>
-<img alt="_images/ch11_191_1.png" src="_images/ch11_191_1.png" />
+<img alt="_images/2d8eff52e1fd2efbe985c49ee655e189f5bd5ab031a62da3e7b5453d897486fe.png" src="_images/2d8eff52e1fd2efbe985c49ee655e189f5bd5ab031a62da3e7b5453d897486fe.png" />
 </div>
 </div>
 <p>These plots, especially with the level plot and hex plot, show more observations clustered around 100 for Trump and 0 for Biden, and around 0 for Trump and values greater than 50 for Biden.</p>
 </section>
 <section id="violin-plots">
-<h4><a class="toc-backref" href="#id24">Violin Plots</a><a class="headerlink" href="#violin-plots" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id24" role="doc-backlink"><span class="section-number">11.2.4.3. </span>Violin Plots</a><a class="headerlink" href="#violin-plots" title="Permalink to this heading">#</a></h4>
 <p>A violin plot has two aesthetic components. First, each violin plot has a line with three parts: the longest, thinnest line represents the range of the feature, the thicker line represents the interquartile range (the 25th percentile through the 75th percentile), and a dot in the middle of the thick line represents the median. Second, these plots show the density plot on both sides of the line. Violin plots are symmetric and often end up looking like violins, hence the name.</p>
 <p>To generate a violin plot, use the <code class="docutils literal notranslate"><span class="pre">sns.violinplot()</span></code> function. To illustrate the distribution of one feature, pass that feature to the function:</p>
 <div class="cell docutils container">
@@ -3007,14 +2977,10 @@ correlates with the number of people who died by becoming tangled in their bedsh
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/seaborn/_decorators.py:43: FutureWarning: Pass the following variable as a keyword arg: x. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
-  FutureWarning
-</pre></div>
-</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Distributions of Ratings for Joe Biden&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_194_2.png" src="_images/ch11_194_2.png" />
+<img alt="_images/f95315b57c034899fdad81fd900a023ccb8433d109f4fd12dea60b3ed51808c6.png" src="_images/f95315b57c034899fdad81fd900a023ccb8433d109f4fd12dea60b3ed51808c6.png" />
 </div>
 </div>
 <p>Violin plots are very useful for showing different violins for different features side-by-side. If the data are in a long format, as with <code class="docutils literal notranslate"><span class="pre">anes_hist</span></code>,</p>
@@ -3135,7 +3101,7 @@ correlates with the number of people who died by becoming tangled in their bedsh
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Distributions of Ratings for Political Figures&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_198_1.png" src="_images/ch11_198_1.png" />
+<img alt="_images/9c2824c88c0ffbb184b7e3b7bc74c22c4a8ae3a858087474ad7ded9a084bc1fe.png" src="_images/9c2824c88c0ffbb184b7e3b7bc74c22c4a8ae3a858087474ad7ded9a084bc1fe.png" />
 </div>
 </div>
 <p>If there is more than one categorical grouping feature, then we can use an aesthetic like <code class="docutils literal notranslate"><span class="pre">hue</span></code> to represent that feature. In this example, I reshape the <code class="docutils literal notranslate"><span class="pre">anes</span></code> to long format including <code class="docutils literal notranslate"><span class="pre">sex</span></code>:</p>
@@ -3278,12 +3244,12 @@ correlates with the number of people who died by becoming tangled in their bedsh
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Distributions of Ratings for Political Figures&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_202_1.png" src="_images/ch11_202_1.png" />
+<img alt="_images/1bcda87e419aa236deb7f12745b9ee6ab14d73e881f661dffb59221b5197e1f3.png" src="_images/1bcda87e419aa236deb7f12745b9ee6ab14d73e881f661dffb59221b5197e1f3.png" />
 </div>
 </div>
 </section>
 <section id="boxplots">
-<h4><a class="toc-backref" href="#id25">Boxplots</a><a class="headerlink" href="#boxplots" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id25" role="doc-backlink"><span class="section-number">11.2.4.4. </span>Boxplots</a><a class="headerlink" href="#boxplots" title="Permalink to this heading">#</a></h4>
 <p>Instead of illustrating the entire distribution of a feature, box plots only show some descriptive statistics: the median, 25th and 75th percentiles, the minimum and maximum after removing outliers, and dots for the outliers. To generate a box plot with <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>, use the <code class="docutils literal notranslate"><span class="pre">sns.boxplot()</span></code> function, passing the feature we want to visualize:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3295,14 +3261,10 @@ correlates with the number of people who died by becoming tangled in their bedsh
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/seaborn/_decorators.py:43: FutureWarning: Pass the following variable as a keyword arg: x. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
-  FutureWarning
-</pre></div>
-</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Distributions of Ratings for Joe Biden&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_204_2.png" src="_images/ch11_204_2.png" />
+<img alt="_images/e2e76d10327dcfb0d4e4322fd717c7970967ef21d8d539b2a1af6e4ca0fb9056.png" src="_images/e2e76d10327dcfb0d4e4322fd717c7970967ef21d8d539b2a1af6e4ca0fb9056.png" />
 </div>
 </div>
 <p>Box plots can be confusing because the aesthetic components that map to descriptive statistics are not as intuitive as bars or density curves. There is no meaning to the width of the box, and the lines and edges in a box plot have specific definitions that are necessary to remember in order to interpret a box plot correctly. The middle line represents the median, and the edges of the box are the 25th and 75th percentile. The whiskers that extend from the short side of the box extend to the minimum and maximum values, after removing outliers. An outlier is defined by default as a value that is 1.5 times the interquartile range, either below the 25th percentile or above the 75th percentile, and outliers are illustrated with dots beyond the minimum and maximum values. Here is the same boxplot as the one above with these elements annotated:</p>
@@ -3330,14 +3292,10 @@ correlates with the number of people who died by becoming tangled in their bedsh
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/seaborn/_decorators.py:43: FutureWarning: Pass the following variable as a keyword arg: x. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
-  FutureWarning
-</pre></div>
-</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(70.0, 0.25, &#39;75th percentile&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_206_2.png" src="_images/ch11_206_2.png" />
+<img alt="_images/ca5f64f609f77736a253cb293d504620383575d72a2a47207faad0496ad40870.png" src="_images/ca5f64f609f77736a253cb293d504620383575d72a2a47207faad0496ad40870.png" />
 </div>
 </div>
 <p>In short, to read a box plot accurately, there’s a lot to remember. Many statisticians and data scientists prefer violin plots to box plots because violin plots are more intuitive, which makes them easier to use for communicating with a general audience. On the other hand, box plots make it easier to see the interquartile range of a feature.</p>
@@ -3459,13 +3417,13 @@ correlates with the number of people who died by becoming tangled in their bedsh
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Distributions of Ratings for Political Figures&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_210_1.png" src="_images/ch11_210_1.png" />
+<img alt="_images/a2218f525cf02ce0185a9a91d72316dd5b44e34e7ca8c8ec3bb61c9b16ed3b1f.png" src="_images/a2218f525cf02ce0185a9a91d72316dd5b44e34e7ca8c8ec3bb61c9b16ed3b1f.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="heatmaps">
-<h3><a class="toc-backref" href="#id26">Heatmaps</a><a class="headerlink" href="#heatmaps" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id26" role="doc-backlink"><span class="section-number">11.2.5. </span>Heatmaps</a><a class="headerlink" href="#heatmaps" title="Permalink to this heading">#</a></h3>
 <p>Heat maps are used to visualize a matrix in which all datapoints within the matrix are on comparable scales, such as a correlation matrix. Heat maps often use colors that range from black to white, moving through shades of blue and red, where black and blue indicate smaller values and red and white indicate larger values. The shading allows us to illustrate a range of values with a direct mapping to a specific shade.</p>
 <p>First I generate a correlation matrix between many feeling thermometers:</p>
 <div class="cell docutils container">
@@ -3910,7 +3868,7 @@ correlates with the number of people who died by becoming tangled in their bedsh
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Correlation Between Feeling Thermometers&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_214_1.png" src="_images/ch11_214_1.png" />
+<img alt="_images/17280a32cfe0e807e484b45a60362a232b79d86a28f38ef7d7b19994fdf88ae2.png" src="_images/17280a32cfe0e807e484b45a60362a232b79d86a28f38ef7d7b19994fdf88ae2.png" />
 </div>
 </div>
 <p>The color scale, by default, ranges from black to white. But we might want to change the colors to emphasize that zero is explicitly in the middle of the scale. For that we can specify <code class="docutils literal notranslate"><span class="pre">center=0</span></code>:</p>
@@ -3926,7 +3884,7 @@ correlates with the number of people who died by becoming tangled in their bedsh
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Correlation Between Feeling Thermometers&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_216_1.png" src="_images/ch11_216_1.png" />
+<img alt="_images/c88786e67e83dee99d6c72bacbb000cfe327ee78043e6a6597041ab046c042f4.png" src="_images/c88786e67e83dee99d6c72bacbb000cfe327ee78043e6a6597041ab046c042f4.png" />
 </div>
 </div>
 <p>The scale now ranges from light blue to light red, with black in the middle. There are many other options for color scales, listed on the <a class="reference external" href="https://seaborn.pydata.org/tutorial/color_palettes.html">Choosing Color Palettes</a> tutorial in the <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> user guide. We can specify a color scale that ranges from yellow, to green, to blue by specifying <code class="docutils literal notranslate"><span class="pre">cmap='YlGnBu'</span></code>:</p>
@@ -3942,7 +3900,7 @@ correlates with the number of people who died by becoming tangled in their bedsh
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Correlation Between Feeling Thermometers&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_218_1.png" src="_images/ch11_218_1.png" />
+<img alt="_images/95b6eef3dd17a9f760867fe0117fe2cbb811a4eb12c13a87f32f64cb494a970e.png" src="_images/95b6eef3dd17a9f760867fe0117fe2cbb811a4eb12c13a87f32f64cb494a970e.png" />
 </div>
 </div>
 <p>Finally, we can annotate the heatmap with the values that each color in each cell represents by typing <code class="docutils literal notranslate"><span class="pre">annot=True</span></code>:</p>
@@ -3958,7 +3916,7 @@ correlates with the number of people who died by becoming tangled in their bedsh
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Correlation Between Feeling Thermometers&#39;)
 </pre></div>
 </div>
-<img alt="_images/ch11_220_1.png" src="_images/ch11_220_1.png" />
+<img alt="_images/dacba0c09ae9e5afe8b8c486028816e1cd65cc3731f9c93deaab587b552b81dd.png" src="_images/dacba0c09ae9e5afe8b8c486028816e1cd65cc3731f9c93deaab587b552b81dd.png" />
 </div>
 </div>
 </section>
@@ -3977,7 +3935,7 @@ correlates with the number of people who died by becoming tangled in their bedsh
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -3985,36 +3943,136 @@ correlates with the number of people who died by becoming tangled in their bedsh
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-        <div class='prev-next-bottom'>
-            
-    <a class='left-prev' id="prev-link" href="ch10.html" title="previous page">Exploratory Data Analysis</a>
-    <a class='right-next' id="next-link" href="ch12.html" title="next page">Interactive Data Visualizations and Dashboards</a>
 
-        </div>
-        
-        </div>
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Jonathan Kropko (jkropko@virginia.edu)<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ch10.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Exploratory Data Analysis</p>
       </div>
-    </div>
-  
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+    </a>
+    <a class="right-next"
+       href="ch12.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Interactive Data Visualizations and Dashboards</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-what-makes-for-a-good-data-visualization">11.1. Introduction: What Makes For a Good Data Visualization?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aesthetics-data-and-scales">11.1.1. Aesthetics, Data, and Scales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#edward-tufte-s-fundamental-principles-of-analytical-design">11.1.2. Edward Tufte’s “Fundamental Principles of Analytical Design”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claus-o-wilke-s-guide-to-telling-a-story-and-making-a-point">11.1.3. Claus O. Wilke’s Guide to Telling a Story and Making a Point</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-not-to-lie-with-statistics">11.1.4. How (not) to Lie with Statistics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-not-pie-charts">11.1.5. Why Not Pie Charts?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-data-visualizations-in-python">11.2. Creating Data Visualizations in Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#barplots-and-how-to-use-matplotlib-seaborn-and-the-dataframe-plot-method">11.2.1. Barplots and How to Use <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>, and the Dataframe <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> Method</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vertical-and-horizontal-barplots-figure-size-labels-titles-and-colors">11.2.1.1. Vertical and Horizontal Barplots, Figure Size, Labels, Titles, and Colors</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#barplots-for-statistics-other-than-frequencies">11.2.1.2. Barplots for Statistics Other Than Frequencies</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#annotating-bars-with-values">11.2.1.3. Annotating Bars with Values</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#grouped-and-stacked-bars">11.2.1.4. Grouped and Stacked Bars</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#placing-graphs-within-grids">11.2.1.5. Placing Graphs Within Grids</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-a-figure-as-a-local-file">11.2.1.6. Saving a Figure as a Local File</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scatterplots">11.2.2. Scatterplots</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-colors-shapes-and-transparency-to-annotate-scatterplots">11.2.2.1. Using Colors, Shapes, and Transparency to Annotate Scatterplots</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#including-lines-of-best-fit">11.2.2.2. Including Lines of Best Fit</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#scatterplot-grids-and-matrices">11.2.2.3. Scatterplot Grids and Matrices</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#line-plots">11.2.3. Line Plots</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distributional-graphs">11.2.4. Distributional Graphs</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#histograms">11.2.4.1. Histograms</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#density-plots">11.2.4.2. Density Plots</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#violin-plots">11.2.4.3. Violin Plots</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#boxplots">11.2.4.4. Boxplots</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heatmaps">11.2.5. Heatmaps</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jonathan Kropko (jkropko@virginia.edu)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

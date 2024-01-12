@@ -19,3 +19,5 @@ prince
 wquantiles
 scipy
 ydata_profiling
+openai
+jupyterlab-spellchecker

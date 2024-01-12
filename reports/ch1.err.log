@@ -1,0 +1,62 @@
+Traceback (most recent call last):
+  File "/Users/jk8sd/.pyenv/versions/3.11.4/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/jk8sd/.pyenv/versions/3.11.4/lib/python3.11/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jk8sd/.pyenv/versions/3.11.4/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 166, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jk8sd/.pyenv/versions/3.11.4/lib/python3.11/asyncio/base_events.py", line 653, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/jk8sd/.pyenv/versions/3.11.4/lib/python3.11/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/Users/jk8sd/.pyenv/versions/3.11.4/lib/python3.11/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/jk8sd/.pyenv/versions/3.11.4/lib/python3.11/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+Certainly! You can use the `replace` function to replace all occurrences of ".." with missing values (NaN) before melting or pivoting the DataFrame. Here's the revised code:
+
+```python
+import pandas as pd
+from io import StringIO
+
+# Input CSV data
+csv_data = """
+Country Name,Country Code,Series Name,Series Code,2012 [YR2012],2013 [YR2013],2014 [YR2014],2015 [YR2015],2016 [YR2016],2017 [YR2017],2018 [YR2018],2019 [YR2019],2020 [YR2020],2021 [YR2021],2022 [YR2022]
+Afghanistan,AFG,CO2 emissions (kt),EN.ATM.CO2E.KT,10208.13,9402.05,9281.34,10057.59,9294.93,10022.78,10972.38,11238.83,8709.47,..,..
+Afghanistan,AFG,GDP per capita (constant 2015 US$),NY.GDP.PCAP.KD,570.676064337005,582.103978902877,576.487820334782,566.881132665072,564.920843553397,563.488239421983,553.973308908649,559.140956898688,529.144912477888,407.616507361737,..
+Afghanistan,AFG,"Population, total",SP.POP.TOTL,30466479,31541209,32716210,33753499,34636207,35643418,36686784,37769499,38972230,40099462,41128771
+Albania,ALB,CO2 emissions (kt),EN.ATM.CO2E.KT,4541.8,4795.4,5188,4797,4573.2,5403.7,5316.1,4993.3,4383.2,..,..
+Albania,ALB,GDP per capita (constant 2015 US$),NY.GDP.PCAP.KD,3736.34007957648,3780.69919254096,3855.76074409659,3952.80357364813,4090.37272829183,4249.8200493985,4431.55559506989,4543.38771048312,4418.66087378292,4857.11194201819,5155.29085964151
+"""
+
+# Read CSV data into a pandas DataFrame
+df = pd.read_csv(StringIO(csv_data))
+
+# Replace all occurrences of ".." with NaN
+df.replace("..", pd.NA, inplace=True)
+
+# Melt the DataFrame to transform year columns as rows
+df_melted = pd.melt(df, id_vars=['Country Name', 'Country Code', 'Series Name'], var_name='Year', value_name='Value')
+
+# Pivot the DataFrame to represent Series Name as columns
+df_pivoted = df_melted.pivot_table(index=['Country Name', 'Country Code', 'Year'], columns='Series Name', values='Value').reset_index()
+
+# Display the result
+print(df_pivoted)
+```
+
+This code first replaces all occurrences of ".." with NaN using the `replace` function before performing the melting and pivoting operations.
+------------------
+
+
+[0;36m  Cell [0;32mIn[9], line 1[0;36m[0m
+[0;31m    Certainly! You can use the `replace` function to replace all occurrences of ".." with missing values (NaN) before melting or pivoting the DataFrame. Here's the revised code:[0m
+[0m                                                                                                                                                             ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m unterminated string literal (detected at line 1)
+
+

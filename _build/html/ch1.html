@@ -355,9 +355,19 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asking-a-question-on-stack-overflow">1.8.2. Asking a Question on Stack Overflow</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-5-python-slack-and-discord">1.9. Method 5: Python Slack and Discord</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-6-live-chats-with-python-users-on-freenode">1.10. Method 6: Live Chats With Python Users on Freenode</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-7-python-mailing-lists-and-newsgroups">1.11. Method 7: Python Mailing Lists and Newsgroups</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-5-using-a-large-language-model-a-chatbot-to-generate-and-debug-code">1.9. Method 5: Using a Large-Language Model (a ChatBot) to Generate and Debug Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-access-a-chatbot-for-coding">1.9.1. How to Access a ChatBot for Coding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prompt-engineering-for-generating-new-code">1.9.2. Prompt Engineering for Generating New Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-data-from-the-world-bank">1.9.3. Example: Data from the World Bank</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prompt-engineering-for-debugging-or-explaining-existing-code">1.9.4. Prompt Engineering for Debugging or Explaining Existing Code</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-6-interacting-with-the-global-community-of-python-users">1.10. Method 6: Interacting with the Global Community of Python Users</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-slack-and-discord">1.10.1. Python Slack and Discord</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#live-chats-with-python-users-on-freenode">1.10.2. Live Chats With Python Users on Freenode</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-mailing-lists-and-newsgroups">1.10.3. Python Mailing Lists and Newsgroups</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -394,9 +404,21 @@ document.write(`
 <li><p><a class="reference internal" href="#asking-a-question-on-stack-overflow" id="id13">Asking a Question on Stack Overflow</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#method-5-python-slack-and-discord" id="id14">Method 5: Python Slack and Discord</a></p></li>
-<li><p><a class="reference internal" href="#method-6-live-chats-with-python-users-on-freenode" id="id15">Method 6: Live Chats With Python Users on Freenode</a></p></li>
-<li><p><a class="reference internal" href="#method-7-python-mailing-lists-and-newsgroups" id="id16">Method 7: Python Mailing Lists and Newsgroups</a></p></li>
+<li><p><a class="reference internal" href="#method-5-using-a-large-language-model-a-chatbot-to-generate-and-debug-code" id="id14">Method 5: Using a Large-Language Model (a ChatBot) to Generate and Debug Code</a></p>
+<ul>
+<li><p><a class="reference internal" href="#how-to-access-a-chatbot-for-coding" id="id15">How to Access a ChatBot for Coding</a></p></li>
+<li><p><a class="reference internal" href="#prompt-engineering-for-generating-new-code" id="id16">Prompt Engineering for Generating New Code</a></p></li>
+<li><p><a class="reference internal" href="#example-data-from-the-world-bank" id="id17">Example: Data from the World Bank</a></p></li>
+<li><p><a class="reference internal" href="#prompt-engineering-for-debugging-or-explaining-existing-code" id="id18">Prompt Engineering for Debugging or Explaining Existing Code</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#method-6-interacting-with-the-global-community-of-python-users" id="id19">Method 6: Interacting with the Global Community of Python Users</a></p>
+<ul>
+<li><p><a class="reference internal" href="#python-slack-and-discord" id="id20">Python Slack and Discord</a></p></li>
+<li><p><a class="reference internal" href="#live-chats-with-python-users-on-freenode" id="id21">Live Chats With Python Users on Freenode</a></p></li>
+<li><p><a class="reference internal" href="#python-mailing-lists-and-newsgroups" id="id22">Python Mailing Lists and Newsgroups</a></p></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -408,7 +430,9 @@ document.write(`
 <p style="text-align: center;"><b>Source:</b>
 <a href="https://www.forbes.com/sites/gilpress/2016/03/23/data-preparation-most-time-consuming-least-enjoyable-data-science-task-survey-says/?sh=ee9be706f637">'Cleaning Big Data: Most Time-Consuming, Least Enjoyable Data Science Task, Survey Says' by Gil Press</a>
 </p></center>
-<p>In many classroom settings, a professor will give the students a cleaned dataset and will task the students with running a predictive model using the data. In practice, before this kind of modeling can be done, data scientists have to identify the data they need, get access to the data, and find a way for the data to be loaded into a Python environment. That might mean loading data from files or APIs, or extracting data from webpages, or accessing a database. Then data scientists have to manipulate the data so that it is exactly in the format an analytic model expects, and that often involves mastery of SQL and the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> package to manipulate rows and columns of a data matrix, merge and pivot data tables, handle missing data, recode and combine categorical values, along with a myriad of other tasks. And after using a final version of a model to get results, yet more work is needed to communicate the output in a clear way that allows that audience to draw fast and accurate conclusions using data visualizations and interactive dashboards.</p>
+<p>The <a class="reference external" href="https://www.anaconda.com/resources/whitepapers/state-of-data-science-report-2022">Anaconda State of Data Science</a> report in 2022 finds that data scientists “spend about 37.75% of their time on data preparation and cleansing. Beyond preparing and cleaning data, interpreting results remains critical. Data visualization (12.99%) and demonstrating data’s value through reporting and presentation (16.20%) are essential steps toward making data actionable and providing answers to critical questions. Working with models through selection, training, and deployment takes about 26.44% of respondents’ time.”</p>
+<p>Whatever the exact numbers, the fact remains that as a data scientist you will be spending a great deal of time collecting and preparing data in advance of an analysis, and a lot of time interpreting and communicating findings. The modeling itself will be a comparatively small part of your work.</p>
+<p>And that’s why traditional academic training for data science can lead students to be underprepared. In many classroom settings, a professor will give the students a cleaned dataset and will task the students with running a predictive model using the data. But working with data that is ready for analysis from the outset is rare; in practice, before this kind of modeling can be done, data scientists have to identify the data they need, get access to the data, and find a way for the data to be loaded into a Python environment. That might mean loading data from files or APIs, or extracting data from webpages, or accessing a database. Then data scientists have to manipulate the data so that it is exactly in the format an analytic model expects, and that often involves mastery of SQL and the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> package to manipulate rows and columns of a data matrix, merge and pivot data tables, handle missing data, recode and combine categorical values, along with a myriad of other tasks. And after finally getting results, yet more work is needed to communicate the output in a clear way that allows that audience to draw fast and accurate conclusions using data visualizations and interactive dashboards.</p>
 <p>The phrase <strong>data pipeline</strong> refers to all of the steps needed to go from raw, messy, original data to data that are ready to explore and analyze to the products we share to communicate results to an external audience.</p>
 <p>The goal of this book is to make the steps in the data pipeline other than modeling - acquiring, wrangling, and communicating data - easier, faster, less frustrating, and more enjoyable for you. The techniques we will discuss are not the only ways to accomplish a task, but they represent fast and straightforward ways to do the work using Python.</p>
 <p>This book is divided into three parts beyond this introductory chapter:</p>
@@ -440,7 +464,7 @@ document.write(`
 </section>
 <section id="being-a-data-scientist-means-knowing-how-to-get-yourself-unstuck">
 <h2><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">1.2. </span>Being a Data Scientist Means Knowing How to Get Yourself Unstuck</a><a class="headerlink" href="#being-a-data-scientist-means-knowing-how-to-get-yourself-unstuck" title="Permalink to this heading">#</a></h2>
-<p>Most of you reading this book would describe yourselves as beginners with Python code and the practice of data science. Being a beginner is a wonderful thing. As a beginner, the rate at which you are learning new skills is faster than it will be at any other point in your career. And the feeling of accomplishment you will feel by writing working code can and should be profound. But one drawback of being a beginner is the feeling of being judged or viewed as insufficient in comparison to more experienced coders who have much more of this programming language memorized. <a class="reference external" href="https://en.wikipedia.org/wiki/Impostor_syndrome">Imposter syndrome</a>, a persistent feeling of doubt in one’s skills and the feeling of being a fraud, is especially common for students who are just starting out in a new field. And it’s only natural to look at people who type and execute code at furious speeds and to think of yourself as an imposter, especially when you keep getting errors when you try to execute your code.</p>
+<p>Most of you reading this book would describe yourselves as beginners with Python code and the practice of data science. Being a beginner is a wonderful thing. As a beginner, the rate at which you learn new skills is faster than it will be at any other point in your career. And the feeling of accomplishment you will feel by writing working code can and should be profound. But one drawback of being a beginner is the feeling of being judged or viewed as insufficient in comparison to more experienced coders who have much more of this programming language memorized. <a class="reference external" href="https://en.wikipedia.org/wiki/Impostor_syndrome">Imposter syndrome</a>, a persistent feeling of doubt in one’s skills and the feeling of being a fraud, is especially common for students who are just starting out in a new field. And it’s only natural to look at people who type and execute code at furious speeds and to think of yourself as an imposter, especially when you keep getting errors when you try to execute your code.</p>
 <p>But here’s the secret: problems, errors, and anomalies in your code are inevitable. And that’s true whether you are a beginner or a programmer with decades of experience. It would be accurate to describe a workday of a data scientist as moving from one error to the next to the next. It is simply the nature of using a big programming language like Python that includes so many user-written and open source extensions. So you will feel at times like all you do is generate errors with your code. This feeling is natural, and it is a universal feeling that all data scientists share regardless of their experience level. What sets experienced data scientists apart is their skill in using help resources fix bugs and to to get to the right answer, <strong>as quickly as possible</strong>.</p>
 <p>As a student, you often have access to an instructor who can answer questions and help you work out the bugs in your code. But as a practitioner you might not have access to someone with the experience and time to help you with your code in a one-on-one way. Some proprietary software sells access to helplines and consulting, but open source projects like Python depend on the community of Python users to provide this support. The more popular an open source software package the bigger the community and the better the resources to help programmers solve problems. And it just so happens that <a class="reference external" href="https://linuxiac.com/python-the-most-popular-programming-language/">Python is the most popular programming language in the world</a>, and there are some incredible resources available to anyone working with Python. So the most important skill to master to become an advanced data programmer is participating in this community to quickly find answers to the problems that arise as you code.</p>
 <p>In this chapter, we will discuss the various methods and resources at your disposal for finding help. Some of the methods provide quick assistance but focus on smaller issues, some methods are slower but help you solve harder problems, and some methods are only useful for certain situations. In general, it is best practice to start with quicker methods and to only move to slower methods if you can’t find a solution with a quicker one; so there is an <em>order</em> in which you should employ each resource. If you practice using these help methods and memorize the order in which to try using each one, you won’t have any trouble squashing all the bugs in your code.</p>
@@ -456,12 +480,11 @@ document.write(`
 <li><p>Python documentation</p></li>
 <li><p>Google</p></li>
 <li><p>Stack Overflow</p></li>
-<li><p>PySlackers and Python Discord</p></li>
-<li><p>Internet relay chat (IRC) rooms with other Python users</p></li>
-<li><p>Various Python mailing lists</p></li>
+<li><p>Large language models such as <a class="reference external" href="https://chat.openai.com/">ChatGPT</a></p></li>
+<li><p>Places to connect with the larger worldwide community of Python programmers, such as PySlackers and Python Discord, internet relay chat (IRC) rooms, and various Python mailing lists</p></li>
 </ol>
 <p>Several of these resources are ones which are officially recognized and recommended by the Python Software Foundation, the nonprofit organization that maintains the official Python distribution. See  <a class="reference external" href="https://www.python.org/community/">https://www.python.org/community/</a> for more information about these resources.</p>
-<p>Please notice, many programmers use Google and Stack Overflow as their first options for getting help. I strongly suggest that you do <strong>not</strong> look to Google and Stack Overflow before trying to use the official Python built-in documentation. The documentation isn’t as intuitive and easy to access as Google, but the answers that the official documentation will provide are guaranteed to be correct and specific to the functions you are trying to use, if you know what those functions are. In contrast, for all of the strengths of Google and Stack Overflow, there is a lot of information out there that isn’t especially helpful and will slow you down a great deal.</p>
+<p>Many new programmers use Google and Stack Overflow as their first options for getting help, and recently many people feel the pull to consult a ChatBot right away. I strongly suggest that you do <strong>not</strong> look to Google, Stack Overflow, or a ChatBot before trying to use the official Python built-in documentation or try to understand an error message you receive. The documentation and error messages aren’t as intuitive and easy to access as Google or ChatGPT, but the answers that the official documentation will provide are guaranteed to be correct and specific to the functions you are trying to use, if you know what those functions are. In contrast, for all of the strengths of Google, Stack Overflow, and ChatBots, they can be wrong or misleading because there is a lot of information out there that isn’t especially helpful. Defaulting to these resources as a first recourse will slow you down a great deal.</p>
 </section>
 <section id="method-1-reading-and-understanding-python-errors">
 <h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">1.4. </span>Method 1: Reading and Understanding Python Errors</a><a class="headerlink" href="#method-1-reading-and-understanding-python-errors" title="Permalink to this heading">#</a></h2>
@@ -469,9 +492,9 @@ document.write(`
 <p>There are two reasons why people skip over reading the errors:</p>
 <ol class="arabic simple">
 <li><p>The error appears in a big pink box with pea green and cyan text inside of it. It’s pretty ugly.</p></li>
-<li><p>The first several lines of code are reserved for a function’s <strong>traceback</strong>. The traceback is an attempt to isolate the particular line of code within a larger function that causes the error. However, the traceback is often very technical and not especially useful. After reading the first few lines of the traceback, most people give up on the entire error message.</p></li>
+<li><p>The first several lines of code are reserved for a function’s <strong>traceback</strong>. The traceback is an attempt to isolate the particular line of code within a larger function that causes the error. However, the traceback is often very technical and not especially useful. After reading the first few lines of the traceback, many people give up on the entire error message.</p></li>
 </ol>
-<p>But the useful part of the error message occurs <strong>at the bottom of the message</strong>. The traceback is useful when developing new functions and debugging original software. But the vast majority of the time, whenever you are using pre-programmed functions, only the bottom of the error message matters.</p>
+<p>But the useful part of the error message occurs <strong>at the bottom of the message</strong>. The traceback is useful when developing new functions and debugging original software. But the vast majority of the time, whenever you are using pre-programmed methods and functions, only the bottom of the error message matters.</p>
 <p>For example, in chapter 2 we will discuss loading electonic data files. Many things can go wrong. One error we will contend with comes from the following code:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">read_csv</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/jkropko/DS-6001/master/localdata/anes_example_toplines.csv&quot;</span>
@@ -480,8 +503,8 @@ document.write(`
 </div>
 <p>What this code is supposed to do is not important at the moment. It produces the following error output:
 <img alt="" src="_images/error.png" /></p>
-<p>None of this output helps me understand my mistake until I reach the final line that begins <code class="docutils literal notranslate"><span class="pre">ParserError</span></code>. With a little bit of experience, I can understand this error: it says that it expected the fifth row of the data file to have one column, but instead it found 168 columns. That’s useful - it tells me that the first four rows of the data file do not contain the data I need, probably because the data authors put text or citation information at the top of the file - but I had to wade through dozens of lines of technicality to arrive at the useful error message.</p>
-<p>I recommend turning off the traceback to make reading error messages easier. To do this, load the <code class="docutils literal notranslate"><span class="pre">sys</span></code> library and issue the following command:</p>
+<p>None of this output helps me understand my mistake until I reach the final line that begins <code class="docutils literal notranslate"><span class="pre">ParserError</span></code>. With a little bit of experience, I can understand this error: it says that it expected the fifth row of the data file (“line 5”) to have one column (“Expected 1 field”), but instead it found 168 columns (“saw 168”). That’s useful - it tells me that the first four rows of the data file do not contain the data I need, probably because the data authors put text or citation information at the top of the file - but I had to wade through dozens of lines of technicality to arrive at the useful error message.</p>
+<p>One way to make reading error messages easier is to turn off the traceback by loading the <code class="docutils literal notranslate"><span class="pre">sys</span></code> library and issuing the following command:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
@@ -492,7 +515,7 @@ document.write(`
 </div>
 <p>Now, when I use the same code, I get a different error output:</p>
 <p><img alt="" src="_images/error2.png" /></p>
-<p>I can’t say that this error output is pretty or intuitive in and of itself, but relative to the previous error message this output has some nice properties. First, it is shorter (and there’s less pink). Second, and most importantly, the useful part of the error message appears much closer to the top of the output, so there’s less scrolling involved and the error takes up less of your Jupyter notebook.</p>
+<p>I can’t say that this error output is pretty or intuitive in and of itself, but relative to the previous error message this output has some nice properties. First, it is shorter (and there’s less pink). Second, and most importantly, the useful part of the error message appears much closer to the top of the output, so there’s less scrolling involved and the error takes up less space.</p>
 <p>To turn the traceback back on, simply type:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -504,7 +527,7 @@ document.write(`
 </section>
 <section id="method-2-using-the-built-in-python-documentation">
 <h2><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">1.5. </span>Method 2: Using the Built-in Python Documentation</a><a class="headerlink" href="#method-2-using-the-built-in-python-documentation" title="Permalink to this heading">#</a></h2>
-<p>Packages, modules, classes and functions in Python have built-in documentation that you can display directly in the console or in the output of a notebook. These built-in documentations are called <strong>docstrings</strong>. The docstring, and not Google, should be the first place to look for help with specific, pre-built Python code as it conveys guidance directly from the code’s authors. In contrast, going to Google first often turns up blogs and posts in which another secondary user describes the code, and that will be more prone to misinterpretations and mistakes.</p>
+<p>Packages, modules, classes and functions in Python have built-in documentation that you can display directly in the console or in the output of a notebook. These built-in documentations are called <strong>docstrings</strong>. The docstring, and not Google, should be the first place to look for help with specific, pre-built Python code as it conveys guidance directly from the code’s authors. In contrast, going to Google first often turns up blogs and posts in which another secondary user describes the code. ChatBots like ChatGPT are built in large part from scraping these secondary uses from various webpages. Either way, these approaches are more prone to misinterpretations and mistakes.</p>
 <section id="using-a-console-window-in-jupyterlab">
 <h3><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">1.5.1. </span>Using a Console Window in JupyterLab</a><a class="headerlink" href="#using-a-console-window-in-jupyterlab" title="Permalink to this heading">#</a></h3>
 <p>In my experience working with new Python programmers, beginners are very reluctant to use the docstrings. That’s unfortunate because docstrings are fast and accurate ways to solve issues with using existing code.</p>
@@ -516,7 +539,7 @@ document.write(`
 <li><p>Right click somewhere in the notebook and select “New Console for Notebook”.</p></li>
 <li><p>Click on the tab for the new console window and drag it to the right so that it occupies the left-side of the screen.</p></li>
 </ol>
-<p>I strongly suggest using JupyterLab (not just Jupyter Notebook), which is available from  Anaconda Navigator: <a class="reference external" href="https://docs.anaconda.com/anaconda/navigator/">https://docs.anaconda.com/anaconda/navigator/</a>. JupyterLab has a numnber of features to make it easier to use relative to the regular Jupyter Notebook interface. One of those features is the ability to open consoles with the same kernel as an open notebook, and another feature is the ability to move tabs so that they occupy a portion of the screen to the left or right, on the top or bottom.</p>
+<p>I strongly suggest using JupyterLab (not just Jupyter Notebook), which is available as part of <a class="reference external" href="https://docs.anaconda.com/anaconda/navigator/">Anaconda Navigator</a> or as a stand-alone package that can be installed with <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">jupyterlab</span></code>. JupyterLab has a number of features to make it easier to use relative to the regular Jupyter Notebook interface. One of those features is the ability to open consoles with the same kernel as an open notebook, and another feature is the ability to move tabs so that they occupy a portion of the screen to the left or right, on the top or bottom.</p>
 <p>The procedure listed above gives you a visible and separate place to view docstrings. It also loads the same kernel as the notebook you are working on, so that if you’ve imported <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, for example, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> is also loaded into the console so that you can call the docstring for any <code class="docutils literal notranslate"><span class="pre">pandas</span></code> module or function. Keeping this console open will help you more easily integrate calling and reading docstrings into your workflow.</p>
 </section>
 <section id="how-to-call-up-and-read-a-docstring">
@@ -531,8 +554,7 @@ document.write(`
 <p>To display the docstring, replace the word “helpme” with the name of the relevant package, module, function, or variable in one of the following:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">help(helpme)</span></code> displays the entire docstring for the package, module, function, or variable in question. If <code class="docutils literal notranslate"><span class="pre">helpme</span></code> is a user-defined variable, this method displays the attributes and methods available for the variable, if any.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">helpme?</span></code> or <code class="docutils literal notranslate"><span class="pre">?helpme</span></code> displays an abbreviated docstring, as well as the
-signature (the complete function syntax, including all arguments and their default values). However, if <code class="docutils literal notranslate"><span class="pre">helpme</span></code> is a user-defined variable, this method does not display the attributes and methods available for the variable.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">helpme?</span></code> or <code class="docutils literal notranslate"><span class="pre">?helpme</span></code> displays an abbreviated docstring, as well as the signature (the complete function syntax, including all arguments and their default values). However, if <code class="docutils literal notranslate"><span class="pre">helpme</span></code> is a user-defined variable, this method does not display the attributes and methods available for the variable.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">helpme??</span></code> or <code class="docutils literal notranslate"><span class="pre">??helpme</span></code> is the same as <code class="docutils literal notranslate"><span class="pre">help(helpme)</span></code> but shows the internal code for the function and methods if applicable and possible.</p></li>
 </ul>
 <p>For example, consider the docstring for the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function, which displays results to the notebook or console output. We can call:</p>
@@ -608,10 +630,10 @@ can do more things with the given objects than the examples do.</p></li>
 <li><p>or if the built-in docsting doesn’t give you the information you need.</p></li>
 </ul>
 <p>The format for Google search terms that usually works best for me is</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="p">(</span><span class="n">the</span> <span class="n">function</span> <span class="n">you</span> <span class="n">want</span> <span class="n">help</span> <span class="k">with</span><span class="p">)</span> <span class="p">(</span><span class="n">additional</span> <span class="n">details</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="p">(</span><span class="n">a</span> <span class="n">specific</span> <span class="n">package</span> <span class="k">if</span> <span class="n">you</span> <span class="n">know</span> <span class="n">which</span> <span class="n">one</span> <span class="n">to</span> <span class="n">use</span><span class="p">)</span> <span class="p">(</span><span class="n">the</span> <span class="n">function</span><span class="o">/</span><span class="n">method</span> <span class="n">you</span> <span class="n">want</span> <span class="n">help</span> <span class="k">with</span><span class="p">)</span> <span class="p">(</span><span class="n">additional</span> <span class="n">details</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Starting the search with “python” usually narrows the search to Python-specific documentation, message-boards, and blogs. Typing the relevant function or task second narrows those results to more relevant posts. For example, suppose I try to solve the issue that led to the error above when using <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code>. I determined that the problem occurred because the first four rows of the data file are taken up by an unnecessary header placed there by the data authors. I would like to know how to skip these lines. If I turn to the docstring first by typing <code class="docutils literal notranslate"><span class="pre">?pd.read_csv</span></code>, I see that there is a parameter <code class="docutils literal notranslate"><span class="pre">skiprows</span></code> with this description:</p>
+<p>Starting the search with “python” usually narrows the search to Python-specific documentation, message-boards, and blogs. Specifying the package is important when multiple packages can do some version of the same task: for example, if you are trying to use <code class="docutils literal notranslate"><span class="pre">plotly</span></code> to create a bar plot, you will have to sift through results that use alternative packages <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> and <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> unless you state <code class="docutils literal notranslate"><span class="pre">plotly</span></code> directly. Typing the relevant function or task third narrows those results to more relevant posts. For example, suppose I try to solve the issue that led to the error above when using <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code>. I determined that the problem occurred because the first four rows of the data file are taken up by an unnecessary header placed there by the data authors. I would like to know how to skip these lines. If I turn to the docstring first by typing <code class="docutils literal notranslate"><span class="pre">?pd.read_csv</span></code>, I see that there is a parameter <code class="docutils literal notranslate"><span class="pre">skiprows</span></code> with this description:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">skiprows</span> <span class="p">:</span> <span class="nb">list</span><span class="o">-</span><span class="n">like</span><span class="p">,</span> <span class="nb">int</span> <span class="ow">or</span> <span class="nb">callable</span><span class="p">,</span> <span class="n">optional</span>
     <span class="n">Line</span> <span class="n">numbers</span> <span class="n">to</span> <span class="n">skip</span> <span class="p">(</span><span class="mi">0</span><span class="o">-</span><span class="n">indexed</span><span class="p">)</span> <span class="ow">or</span> <span class="n">number</span> <span class="n">of</span> <span class="n">lines</span> <span class="n">to</span> <span class="n">skip</span> <span class="p">(</span><span class="nb">int</span><span class="p">)</span>
     <span class="n">at</span> <span class="n">the</span> <span class="n">start</span> <span class="n">of</span> <span class="n">the</span> <span class="n">file</span><span class="o">.</span>
@@ -755,15 +777,1344 @@ can do more things with the given objects than the examples do.</p></li>
 </ul>
 </section>
 </section>
-<section id="method-5-python-slack-and-discord">
-<h2><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">1.9. </span>Method 5: Python Slack and Discord</a><a class="headerlink" href="#method-5-python-slack-and-discord" title="Permalink to this heading">#</a></h2>
+<section id="method-5-using-a-large-language-model-a-chatbot-to-generate-and-debug-code">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">1.9. </span>Method 5: Using a Large-Language Model (a ChatBot) to Generate and Debug Code</a><a class="headerlink" href="#method-5-using-a-large-language-model-a-chatbot-to-generate-and-debug-code" title="Permalink to this heading">#</a></h2>
+<p>Since the release of Open AI’s <a class="reference external" href="https://chat.openai.com/">ChatGPT</a> in March 2023, generative AI and especially chatbots have occupied a great deal of the attention of data scientists in industry and academia. There is far too much to describe about these chatbots in terms of their construction, use, and ethics to fit as a concise discussion in a text like this one. But the main idea you should keep in mind about chatbots is that they are both a necessary part of a data scientist’s toolkit, and that they are not any more intelligent than what can be found with a careful search on Google or Stack Overflow. Chatbots are trained on massive amounts of data, largely scrapped from the internet, and with respect to coding the major sources of data are Stack Overflow and GitHub. It’s useful to think of a chatbot as a more efficient way to sift through the information that already exists on those websites.</p>
+<p>Schools are grappling with the question of whether using a chatbot constitutes cheating. But professional software engineering and data science has largely adopted the view that chatbots are fair to use. That said, there is an approach to using chatbots for coding effectively, and knowing the right way to prompt a chatbot to solve coding problems is itself an important skill. So if you are going to use a chatbot, use it correctly. The following discussion outlines some ways to access a chatbot as part of your own workflow and some strategies for writing prompts that can generate the code you need or debug code.</p>
+<section id="how-to-access-a-chatbot-for-coding">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">1.9.1. </span>How to Access a ChatBot for Coding</a><a class="headerlink" href="#how-to-access-a-chatbot-for-coding" title="Permalink to this heading">#</a></h3>
+<p>The most common way that people are interacting with a chatbot currently is the OpenAI website for chatting with ChatGPT: <a class="reference external" href="https://chat.openai.com/">https://chat.openai.com/</a>. This platform is also free. But there are alternative methods, some of which cost money, that are better suited for an efficient data science workflow. One of the most popular chatbot interfaces in industry is <a class="reference external" href="https://github.com/features/copilot">GitHub Copilot</a>, which integrates with Visual Studio Code. A primary advantage of GitHub Copilot is that it can access your kernel to see and work with the objects you’ve already created, and it can read the code you’ve already written. So for example, if you load a dataset into your environment as a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> dataframe and call it <code class="docutils literal notranslate"><span class="pre">mydata</span></code>, GitHub Copilot will already know what <code class="docutils literal notranslate"><span class="pre">mydata</span></code> contains without having to specify it within your prompt. It can save time once you are comfortable using it. There is a cost to use GitHub Copilot, however, and depending on your use case the cost may or may not be worth it.</p>
+<p>One important point about using chatbots to help you code: it is not a fast method. Generally, getting a useful result from a chatbot requires having a “conversation” with the chatbot to narrow in on the desired product. That also involves taking time to study and run the code that the chatbot produces to see what is correct and what is still lacking. The time needed to build to a final output and assess it step by step increases with the amount of work you ask the chatbot to do. As a result, we should not think of a chatbot as a shortcut, and it is still much faster to simply learn how to collect, wrangle, and prepare data, using the chatbot only for particular tasks that slow or stop the progress you can make on your own.</p>
+<p>Chatbots respond to user-supplied prompts, which can be anything from “write me a description of different types of fungi in the style of a Jay-Z song” to specific tasks related to coding and data science. As part of a data science workflow, you might use a chatbot to help you write original code to accomplish a specific task, or to help you debug code you’ve already written that is generating an error or an unexpected behavior.</p>
+</section>
+<section id="prompt-engineering-for-generating-new-code">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">1.9.2. </span>Prompt Engineering for Generating New Code</a><a class="headerlink" href="#prompt-engineering-for-generating-new-code" title="Permalink to this heading">#</a></h3>
+<p>The dream is that we will be able offload the heavy-lift of data wrangling entirely, so that if we simply prompt the chatbot with “please clean this data” it will instantaneously generate code that gives us the clean data we want. But that’s not how chatbots work at present.</p>
+<p>We can use a chatbot to do all the work prior to analysis, but it tends to be a slow process, involving a long conversation with a chatbot to flush out the details of what “clean data” means for your specific application. Think of this process as similar to supervising a hard-working but inexperienced intern at work. You must provide clear enough instructions to enable the intern to give you what you want and you need to check the intern’s work through every iteration of the project. That’s not a fast method! So please think of chatbots as a tool, not a cheat-code, and specifically as a tool that is slower and more difficult to use than knowing the code yourself, reading documentation and error messages, and using Google and Stack Overflow.</p>
+<p>The quickest and most effective method for using a chatbot for data wrangling is to engineer a prompt using these general principles: <strong>Data, Packages, Chunking, Streamline, Knowledge</strong> (or to remember, “Don’t play chess with <a class="reference external" href="https://stephenking.com">Stephen King</a>”).</p>
+<ul class="simple">
+<li><p><strong>Data</strong>: Provide “just enough” data within the prompt to get the chatbot to write code that is more specific to the data at hand. That often means copy-and-pasting just a few rows in CSV or JSON format, and including it in the prompt while directly writing how you are providing data.</p></li>
+<li><p><strong>Packages</strong>: Directly ask for specific coding languages and packages if you know the right ones to use.</p></li>
+<li><p><strong>Chunking</strong>: Ask for elaboration and chunk the task. Chatbots like ChatGPT work in reference to previous queries, so it is appropriate to issue a second prompt that references the first to add complexity to the task.</p></li>
+<li><p><strong>Streamline</strong>: Chatbots are not guaranteed to generate efficient code in terms of length, even if the code works. Sometimes one line of code using a method in a package like <code class="docutils literal notranslate"><span class="pre">pandas</span></code> accomplishes what 50 lines of code can do in base python. Using the complicated version of the code makes your work harder for you and your collaborators to understand. You can issue a follow-up prompt to a chatbot to ask for code that accomplishes the same task with in a more streamlined way: “Provide code that works the same as the previous response but uses fewer lines.”</p></li>
+<li><p><strong>Knowledge</strong>: The main challenge, however, is knowing what to ask for and understanding whether or not the provided code genuinely accomplishes the task. If you aren’t specific with how you ask the question and don’t supply data, the chatbot will usually provide code that looks sort-of right but can’t be run to confirm whether it works as needed, and if you aren’t sure what the output ought to look like it will be impossible to know whether the code is correct or not.</p></li>
+</ul>
+</section>
+<section id="example-data-from-the-world-bank">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">1.9.3. </span>Example: Data from the World Bank</a><a class="headerlink" href="#example-data-from-the-world-bank" title="Permalink to this heading">#</a></h3>
+<p>Let’s take as an example the task of wrangling data from the <a class="reference external" href="https://databank.worldbank.org/source/world-development-indicators">World Bank’s World Development Indicators (WDI)</a>. The following data contain information from every country tracked by the World Bank on CO2 emissions, gross domestic product per capita, and population for every year from 2012 through 2022.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">worldbank</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;worldbank_data.csv&#39;</span><span class="p">)</span>
+<span class="n">worldbank</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Country Name</th>
+      <th>Country Code</th>
+      <th>Series Name</th>
+      <th>Series Code</th>
+      <th>2012 [YR2012]</th>
+      <th>2013 [YR2013]</th>
+      <th>2014 [YR2014]</th>
+      <th>2015 [YR2015]</th>
+      <th>2016 [YR2016]</th>
+      <th>2017 [YR2017]</th>
+      <th>2018 [YR2018]</th>
+      <th>2019 [YR2019]</th>
+      <th>2020 [YR2020]</th>
+      <th>2021 [YR2021]</th>
+      <th>2022 [YR2022]</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>CO2 emissions (kt)</td>
+      <td>EN.ATM.CO2E.KT</td>
+      <td>10208.13</td>
+      <td>9402.05</td>
+      <td>9281.34</td>
+      <td>10057.59</td>
+      <td>9294.93</td>
+      <td>10022.78</td>
+      <td>10972.38</td>
+      <td>11238.83</td>
+      <td>8709.47</td>
+      <td>..</td>
+      <td>..</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>GDP per capita (constant 2015 US$)</td>
+      <td>NY.GDP.PCAP.KD</td>
+      <td>570.676064337005</td>
+      <td>582.103978902877</td>
+      <td>576.487820334782</td>
+      <td>566.881132665072</td>
+      <td>564.920843553397</td>
+      <td>563.488239421983</td>
+      <td>553.973308908649</td>
+      <td>559.140956898688</td>
+      <td>529.144912477888</td>
+      <td>407.616507361737</td>
+      <td>..</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>Population, total</td>
+      <td>SP.POP.TOTL</td>
+      <td>30466479</td>
+      <td>31541209</td>
+      <td>32716210</td>
+      <td>33753499</td>
+      <td>34636207</td>
+      <td>35643418</td>
+      <td>36686784</td>
+      <td>37769499</td>
+      <td>38972230</td>
+      <td>40099462</td>
+      <td>41128771</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>CO2 emissions (kt)</td>
+      <td>EN.ATM.CO2E.KT</td>
+      <td>4541.8</td>
+      <td>4795.4</td>
+      <td>5188</td>
+      <td>4797</td>
+      <td>4573.2</td>
+      <td>5403.7</td>
+      <td>5316.1</td>
+      <td>4993.3</td>
+      <td>4383.2</td>
+      <td>..</td>
+      <td>..</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>GDP per capita (constant 2015 US$)</td>
+      <td>NY.GDP.PCAP.KD</td>
+      <td>3736.34007957648</td>
+      <td>3780.69919254096</td>
+      <td>3855.76074409659</td>
+      <td>3952.80357364813</td>
+      <td>4090.37272829183</td>
+      <td>4249.8200493985</td>
+      <td>4431.55559506989</td>
+      <td>4543.38771048312</td>
+      <td>4418.66087378292</td>
+      <td>4857.11194201819</td>
+      <td>5155.29085964151</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>Population, total</td>
+      <td>SP.POP.TOTL</td>
+      <td>2900401</td>
+      <td>2895092</td>
+      <td>2889104</td>
+      <td>2880703</td>
+      <td>2876101</td>
+      <td>2873457</td>
+      <td>2866376</td>
+      <td>2854191</td>
+      <td>2837849</td>
+      <td>2811666</td>
+      <td>2777689</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Algeria</td>
+      <td>DZA</td>
+      <td>CO2 emissions (kt)</td>
+      <td>EN.ATM.CO2E.KT</td>
+      <td>134934.2</td>
+      <td>139024.1</td>
+      <td>147735.2</td>
+      <td>156273</td>
+      <td>154654.3</td>
+      <td>157704.4</td>
+      <td>164534.1</td>
+      <td>170582.4</td>
+      <td>161563</td>
+      <td>..</td>
+      <td>..</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Algeria</td>
+      <td>DZA</td>
+      <td>GDP per capita (constant 2015 US$)</td>
+      <td>NY.GDP.PCAP.KD</td>
+      <td>4025.64148367191</td>
+      <td>4057.76480695524</td>
+      <td>4129.42254868204</td>
+      <td>4197.41998491398</td>
+      <td>4246.24217385308</td>
+      <td>4218.0823188856</td>
+      <td>4188.22038483483</td>
+      <td>4153.00345481624</td>
+      <td>3873.50874565769</td>
+      <td>3939.36086434716</td>
+      <td>3999.75769667754</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Algeria</td>
+      <td>DZA</td>
+      <td>Population, total</td>
+      <td>SP.POP.TOTL</td>
+      <td>37260563</td>
+      <td>38000626</td>
+      <td>38760168</td>
+      <td>39543154</td>
+      <td>40339329</td>
+      <td>41136546</td>
+      <td>41927007</td>
+      <td>42705368</td>
+      <td>43451666</td>
+      <td>44177969</td>
+      <td>44903225</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>American Samoa</td>
+      <td>ASM</td>
+      <td>CO2 emissions (kt)</td>
+      <td>EN.ATM.CO2E.KT</td>
+      <td>..</td>
+      <td>..</td>
+      <td>..</td>
+      <td>..</td>
+      <td>..</td>
+      <td>..</td>
+      <td>..</td>
+      <td>..</td>
+      <td>..</td>
+      <td>..</td>
+      <td>..</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The particular way in which this dataset has been formatted by the World Bank places the three features in separate rows, and the years in separate columns. In order to conduct an analysis (regressing C02 emissions on GDP per capita and population, for example), I need years in the rows and the features in the columns. I also want to drop Series Code, to give the features in Series Name better code-friendly column names without parentheses or dollar signs, and I want to remove the bracketted labels such as [YR 2012] from the years. These tasks are just a few of the steps necessary to create “clean data” for a statistical model.</p>
+<p>I can use the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> package to do this quickly. But for this example, I will use chatbot prompt engineering exclusively to try to accomplish the same result. I use the free ChatGPT website.</p>
+<p>First, I need to supply data. ChatGPT limits prompts to <a class="reference external" href="https://www.howtogeek.com/895929/what-is-the-character-limit-for-chatgpt/">4096 characters</a>, and that includes data included within the prompt. So the best practice is to narrow the data down to a small size that still illustrates the format of the data. Usually the first 5 rows of a dataframe, obtained with the <code class="docutils literal notranslate"><span class="pre">df.head()</span></code> method, is sufficient. The data still need to be pasted into the prompt in some text-based way, and comma-separated values (CSV) works well. A <code class="docutils literal notranslate"><span class="pre">pandas</span></code> dataframe can be converted to CSV-style text with the <code class="docutils literal notranslate"><span class="pre">df.to_csv(index=False)</span></code> method. To get a CSV version of the first 5 rows of the World Bank data, we can type</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">worldbank</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Country Name,Country Code,Series Name,Series Code,2012 [YR2012],2013 [YR2013],2014 [YR2014],2015 [YR2015],2016 [YR2016],2017 [YR2017],2018 [YR2018],2019 [YR2019],2020 [YR2020],2021 [YR2021],2022 [YR2022]\nAfghanistan,AFG,CO2 emissions (kt),EN.ATM.CO2E.KT,10208.13,9402.05,9281.34,10057.59,9294.93,10022.78,10972.38,11238.83,8709.47,..,..\nAfghanistan,AFG,GDP per capita (constant 2015 US$),NY.GDP.PCAP.KD,570.676064337005,582.103978902877,576.487820334782,566.881132665072,564.920843553397,563.488239421983,553.973308908649,559.140956898688,529.144912477888,407.616507361737,..\nAfghanistan,AFG,&quot;Population, total&quot;,SP.POP.TOTL,30466479,31541209,32716210,33753499,34636207,35643418,36686784,37769499,38972230,40099462,41128771\nAlbania,ALB,CO2 emissions (kt),EN.ATM.CO2E.KT,4541.8,4795.4,5188,4797,4573.2,5403.7,5316.1,4993.3,4383.2,..,..\nAlbania,ALB,GDP per capita (constant 2015 US$),NY.GDP.PCAP.KD,3736.34007957648,3780.69919254096,3855.76074409659,3952.80357364813,4090.37272829183,4249.8200493985,4431.55559506989,4543.38771048312,4418.66087378292,4857.11194201819,5155.29085964151\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We copy the data and use it in the following prompt:</p>
+<p><strong>Prompt:</strong></p>
+<hr class="docutils" />
+<p>Using the following data in CSV format:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Country Name,Country Code,Series Name,Series Code,2012 [YR2012],2013 [YR2013],2014 [YR2014],2015 [YR2015],2016 [YR2016],2017 [YR2017],2018 [YR2018],2019 [YR2019],2020 [YR2020],2021 [YR2021],2022 [YR2022]\nAfghanistan,AFG,CO2 emissions (kt),EN.ATM.CO2E.KT,10208.13,9402.05,9281.34,10057.59,9294.93,10022.78,10972.38,11238.83,8709.47,..,..\nAfghanistan,AFG,GDP per capita (constant 2015 US$),NY.GDP.PCAP.KD,570.676064337005,582.103978902877,576.487820334782,566.881132665072,564.920843553397,563.488239421983,553.973308908649,559.140956898688,529.144912477888,407.616507361737,..\nAfghanistan,AFG,&quot;Population, total&quot;,SP.POP.TOTL,30466479,31541209,32716210,33753499,34636207,35643418,36686784,37769499,38972230,40099462,41128771\nAlbania,ALB,CO2 emissions (kt),EN.ATM.CO2E.KT,4541.8,4795.4,5188,4797,4573.2,5403.7,5316.1,4993.3,4383.2,..,..\nAlbania,ALB,GDP per capita (constant 2015 US$),NY.GDP.PCAP.KD,3736.34007957648,3780.69919254096,3855.76074409659,3952.80357364813,4090.37272829183,4249.8200493985,4431.55559506989,4543.38771048312,4418.66087378292,4857.11194201819,5155.29085964151\n
+</pre></div>
+</div>
+<p>Write code using python and pandas that represents the year columns as rows, represents the values of “Series Name” as columns, and drops “Series Code”.</p>
+<hr class="docutils" />
+<p><strong>Response:</strong></p>
+<hr class="docutils" />
+<p>Certainly! You can achieve this transformation using the pandas library in Python. Here’s an example code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span>
+
+<span class="c1"># Input CSV data</span>
+<span class="n">csv_data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Country Name,Country Code,Series Name,Series Code,2012 [YR2012],2013 [YR2013],2014 [YR2014],2015 [YR2015],2016 [YR2016],2017 [YR2017],2018 [YR2018],2019 [YR2019],2020 [YR2020],2021 [YR2021],2022 [YR2022]</span>
+<span class="s2">Afghanistan,AFG,CO2 emissions (kt),EN.ATM.CO2E.KT,10208.13,9402.05,9281.34,10057.59,9294.93,10022.78,10972.38,11238.83,8709.47,..,..</span>
+<span class="s2">Afghanistan,AFG,GDP per capita (constant 2015 US$),NY.GDP.PCAP.KD,570.676064337005,582.103978902877,576.487820334782,566.881132665072,564.920843553397,563.488239421983,553.973308908649,559.140956898688,529.144912477888,407.616507361737,..</span>
+<span class="s2">Afghanistan,AFG,&quot;Population, total&quot;,SP.POP.TOTL,30466479,31541209,32716210,33753499,34636207,35643418,36686784,37769499,38972230,40099462,41128771</span>
+<span class="s2">Albania,ALB,CO2 emissions (kt),EN.ATM.CO2E.KT,4541.8,4795.4,5188,4797,4573.2,5403.7,5316.1,4993.3,4383.2,..,..</span>
+<span class="s2">Albania,ALB,GDP per capita (constant 2015 US$),NY.GDP.PCAP.KD,3736.34007957648,3780.69919254096,3855.76074409659,3952.80357364813,4090.37272829183,4249.8200493985,4431.55559506989,4543.38771048312,4418.66087378292,4857.11194201819,5155.29085964151</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="c1"># Read CSV data into a pandas DataFrame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">StringIO</span><span class="p">(</span><span class="n">csv_data</span><span class="p">))</span>
+
+<span class="c1"># Melt the DataFrame to transform year columns as rows</span>
+<span class="n">df_melted</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Country Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Country Code&#39;</span><span class="p">,</span> <span class="s1">&#39;Series Name&#39;</span><span class="p">],</span> <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span>
+
+<span class="c1"># Pivot the DataFrame to represent Series Name as columns</span>
+<span class="n">df_pivoted</span> <span class="o">=</span> <span class="n">df_melted</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Country Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Country Code&#39;</span><span class="p">,</span> <span class="s1">&#39;Year&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Series Name&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="c1"># Drop the &#39;Series Code&#39; column</span>
+<span class="n">df_pivoted</span> <span class="o">=</span> <span class="n">df_pivoted</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Series Code&#39;</span><span class="p">)</span>
+
+<span class="c1"># Display the result</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_pivoted</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This code reads the CSV data, melts the DataFrame to transform the year columns as rows, pivots the DataFrame to represent “Series Name” as columns, and finally drops the “Series Code” column.</p>
+<hr class="docutils" />
+<p>Although the code supplied by the chatbot looks like it should work, I ran the code and it fails with an error that reads: “TypeError: Could not convert string ‘..’ to numeric”. Here I have to use my knowledge of the data. Further down the rows, some values use “..” as a missing value. The error indicates that these symbols are not recognized by python as a missing value and cause problems when converting columns to rows. So I issue a new prompt.</p>
+<p><strong>Prompt:</strong></p>
+<hr class="docutils" />
+<p>Revise the previous code to replace all occurrences of “..” with missing values prior to melting or pivoting the dataframe.</p>
+<hr class="docutils" />
+<p><strong>Response:</strong></p>
+<hr class="docutils" />
+<p>Certainly! You can use the <code class="docutils literal notranslate"><span class="pre">replace</span></code> function to replace all occurrences of “..” with missing values (NaN) before melting or pivoting the DataFrame. Here’s the revised code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span>
+
+<span class="c1"># Input CSV data</span>
+<span class="n">csv_data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Country Name,Country Code,Series Name,Series Code,2012 [YR2012],2013 [YR2013],2014 [YR2014],2015 [YR2015],2016 [YR2016],2017 [YR2017],2018 [YR2018],2019 [YR2019],2020 [YR2020],2021 [YR2021],2022 [YR2022]</span>
+<span class="s2">Afghanistan,AFG,CO2 emissions (kt),EN.ATM.CO2E.KT,10208.13,9402.05,9281.34,10057.59,9294.93,10022.78,10972.38,11238.83,8709.47,..,..</span>
+<span class="s2">Afghanistan,AFG,GDP per capita (constant 2015 US$),NY.GDP.PCAP.KD,570.676064337005,582.103978902877,576.487820334782,566.881132665072,564.920843553397,563.488239421983,553.973308908649,559.140956898688,529.144912477888,407.616507361737,..</span>
+<span class="s2">Afghanistan,AFG,&quot;Population, total&quot;,SP.POP.TOTL,30466479,31541209,32716210,33753499,34636207,35643418,36686784,37769499,38972230,40099462,41128771</span>
+<span class="s2">Albania,ALB,CO2 emissions (kt),EN.ATM.CO2E.KT,4541.8,4795.4,5188,4797,4573.2,5403.7,5316.1,4993.3,4383.2,..,..</span>
+<span class="s2">Albania,ALB,GDP per capita (constant 2015 US$),NY.GDP.PCAP.KD,3736.34007957648,3780.69919254096,3855.76074409659,3952.80357364813,4090.37272829183,4249.8200493985,4431.55559506989,4543.38771048312,4418.66087378292,4857.11194201819,5155.29085964151</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="c1"># Read CSV data into a pandas DataFrame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">StringIO</span><span class="p">(</span><span class="n">csv_data</span><span class="p">))</span>
+
+<span class="c1"># Replace all occurrences of &quot;..&quot; with NaN</span>
+<span class="n">df</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">NA</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Melt the DataFrame to transform year columns as rows</span>
+<span class="n">df_melted</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Country Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Country Code&#39;</span><span class="p">,</span> <span class="s1">&#39;Series Name&#39;</span><span class="p">],</span> <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span>
+
+<span class="c1"># Pivot the DataFrame to represent Series Name as columns</span>
+<span class="n">df_pivoted</span> <span class="o">=</span> <span class="n">df_melted</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Country Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Country Code&#39;</span><span class="p">,</span> <span class="s1">&#39;Year&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Series Name&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="c1"># Display the result</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_pivoted</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This code first replaces all occurrences of “..” with NaN using the <code class="docutils literal notranslate"><span class="pre">replace</span></code> function before performing the melting and pivoting operations.</p>
+<hr class="docutils" />
+<p>This code still produces an error that some values in the data cannot be converted to numeric format. So I try again by asking ChatGPT to convert all the columns that begin with a year to numeric after replacing the missing values.</p>
+<p><strong>Prompt:</strong></p>
+<hr class="docutils" />
+<p>Revise the previous code to convert all columns that begin with “20” to numeric prior to melting or pivoting the dataframe.</p>
+<hr class="docutils" />
+<p><strong>Response:</strong></p>
+<hr class="docutils" />
+<p>Certainly! You can convert all columns that begin with “20” to numeric before melting or pivoting the DataFrame. Here’s the revised code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span>
+
+<span class="c1"># Input CSV data</span>
+<span class="n">csv_data</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">Country Name,Country Code,Series Name,Series Code,2012 [YR2012],2013 [YR2013],2014 [YR2014],2015 [YR2015],2016 [YR2016],2017 [YR2017],2018 [YR2018],2019 [YR2019],2020 [YR2020],2021 [YR2021],2022 [YR2022]</span>
+<span class="s1">Afghanistan,AFG,CO2 emissions (kt),EN.ATM.CO2E.KT,10208.13,9402.05,9281.34,10057.59,9294.93,10022.78,10972.38,11238.83,8709.47,..,..</span>
+<span class="s1">Afghanistan,AFG,GDP per capita (constant 2015 US$),NY.GDP.PCAP.KD,570.676064337005,582.103978902877,576.487820334782,566.881132665072,564.920843553397,563.488239421983,553.973308908649,559.140956898688,529.144912477888,407.616507361737,..</span>
+<span class="s1">Afghanistan,AFG,&quot;Population, total&quot;,SP.POP.TOTL,30466479,31541209,32716210,33753499,34636207,35643418,36686784,37769499,38972230,40099462,41128771</span>
+<span class="s1">Albania,ALB,CO2 emissions (kt),EN.ATM.CO2E.KT,4541.8,4795.4,5188,4797,4573.2,5403.7,5316.1,4993.3,4383.2,..,..</span>
+<span class="s1">Albania,ALB,GDP per capita (constant 2015 US$),NY.GDP.PCAP.KD,3736.34007957648,3780.69919254096,3855.76074409659,3952.80357364813,4090.37272829183,4249.8200493985,4431.55559506989,4543.38771048312,4418.66087378292,4857.11194201819,5155.29085964151</span>
+<span class="s1">&#39;&#39;&#39;</span>
+
+<span class="c1"># Read CSV data into a DataFrame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">StringIO</span><span class="p">(</span><span class="n">csv_data</span><span class="p">))</span>
+
+<span class="c1"># Replace &quot;..&quot; with missing values</span>
+<span class="n">df</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">NA</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Convert columns that begin with &quot;20&quot; to numeric</span>
+<span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">:]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">:]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+
+<span class="c1"># Pivot the DataFrame</span>
+<span class="n">df_pivoted</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Country Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Country Code&#39;</span><span class="p">,</span> <span class="s1">&#39;Series Name&#39;</span><span class="p">],</span> <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span>
+
+<span class="c1"># Drop &#39;Series Code&#39; column</span>
+<span class="n">df_pivoted</span> <span class="o">=</span> <span class="n">df_pivoted</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Series Name&#39;</span><span class="p">])</span>
+
+<span class="c1"># Display the result</span>
+<span class="n">df_pivoted</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Country Name</th>
+      <th>Country Code</th>
+      <th>Year</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>Series Code</td>
+      <td>EN.ATM.CO2E.KT</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>Series Code</td>
+      <td>NY.GDP.PCAP.KD</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>Series Code</td>
+      <td>SP.POP.TOTL</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>Series Code</td>
+      <td>EN.ATM.CO2E.KT</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>Series Code</td>
+      <td>NY.GDP.PCAP.KD</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2012 [YR2012]</td>
+      <td>10208.13</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2012 [YR2012]</td>
+      <td>570.676064</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2012 [YR2012]</td>
+      <td>30466479.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2012 [YR2012]</td>
+      <td>4541.8</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2012 [YR2012]</td>
+      <td>3736.34008</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2013 [YR2013]</td>
+      <td>9402.05</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2013 [YR2013]</td>
+      <td>582.103979</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2013 [YR2013]</td>
+      <td>31541209.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2013 [YR2013]</td>
+      <td>4795.4</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2013 [YR2013]</td>
+      <td>3780.699193</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2014 [YR2014]</td>
+      <td>9281.34</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2014 [YR2014]</td>
+      <td>576.48782</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2014 [YR2014]</td>
+      <td>32716210.0</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2014 [YR2014]</td>
+      <td>5188.0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2014 [YR2014]</td>
+      <td>3855.760744</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2015 [YR2015]</td>
+      <td>10057.59</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2015 [YR2015]</td>
+      <td>566.881133</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2015 [YR2015]</td>
+      <td>33753499.0</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2015 [YR2015]</td>
+      <td>4797.0</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2015 [YR2015]</td>
+      <td>3952.803574</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2016 [YR2016]</td>
+      <td>9294.93</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2016 [YR2016]</td>
+      <td>564.920844</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2016 [YR2016]</td>
+      <td>34636207.0</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2016 [YR2016]</td>
+      <td>4573.2</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2016 [YR2016]</td>
+      <td>4090.372728</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2017 [YR2017]</td>
+      <td>10022.78</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2017 [YR2017]</td>
+      <td>563.488239</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2017 [YR2017]</td>
+      <td>35643418.0</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2017 [YR2017]</td>
+      <td>5403.7</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2017 [YR2017]</td>
+      <td>4249.820049</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2018 [YR2018]</td>
+      <td>10972.38</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2018 [YR2018]</td>
+      <td>553.973309</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2018 [YR2018]</td>
+      <td>36686784.0</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2018 [YR2018]</td>
+      <td>5316.1</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2018 [YR2018]</td>
+      <td>4431.555595</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2019 [YR2019]</td>
+      <td>11238.83</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2019 [YR2019]</td>
+      <td>559.140957</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2019 [YR2019]</td>
+      <td>37769499.0</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2019 [YR2019]</td>
+      <td>4993.3</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2019 [YR2019]</td>
+      <td>4543.38771</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2020 [YR2020]</td>
+      <td>8709.47</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2020 [YR2020]</td>
+      <td>529.144912</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2020 [YR2020]</td>
+      <td>38972230.0</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2020 [YR2020]</td>
+      <td>4383.2</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2020 [YR2020]</td>
+      <td>4418.660874</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2021 [YR2021]</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2021 [YR2021]</td>
+      <td>407.616507</td>
+    </tr>
+    <tr>
+      <th>52</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2021 [YR2021]</td>
+      <td>40099462.0</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2021 [YR2021]</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>54</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2021 [YR2021]</td>
+      <td>4857.111942</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2022 [YR2022]</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2022 [YR2022]</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>57</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2022 [YR2022]</td>
+      <td>41128771.0</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2022 [YR2022]</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2022 [YR2022]</td>
+      <td>5155.29086</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>This code includes a line to convert all columns that begin with “20” to numeric using <code class="docutils literal notranslate"><span class="pre">df.iloc[:,</span> <span class="pre">4:]</span> <span class="pre">=</span> <span class="pre">df.iloc[:,</span> <span class="pre">4:].apply(pd.to_numeric,</span> <span class="pre">errors='coerce')</span></code> before pivoting the DataFrame.</p>
+<hr class="docutils" />
+<p>The previous code runs without error, but it does not generate the correct data. It drops “Series Name” instead of “Series Code”, and it did not place the different values of “Series Name” in new columns. Let’s see if we can get ChatGPT to fix these mistakes.</p>
+<p><strong>Prompt:</strong></p>
+<hr class="docutils" />
+<p>Alter the previous code by dropping “Series Code” instead of “Series Name”, and by representing the values of “Series Name” in separate columns.</p>
+<hr class="docutils" />
+<p><strong>Response:</strong></p>
+<hr class="docutils" />
+<p>Certainly! Here’s the revised code to drop “Series Code” instead of “Series Name” and represent the values of “Series Name” in separate columns:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span>
+
+<span class="c1"># Input CSV data</span>
+<span class="n">csv_data</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">Country Name,Country Code,Series Name,Series Code,2012 [YR2012],2013 [YR2013],2014 [YR2014],2015 [YR2015],2016 [YR2016],2017 [YR2017],2018 [YR2018],2019 [YR2019],2020 [YR2020],2021 [YR2021],2022 [YR2022]</span>
+<span class="s1">Afghanistan,AFG,CO2 emissions (kt),EN.ATM.CO2E.KT,10208.13,9402.05,9281.34,10057.59,9294.93,10022.78,10972.38,11238.83,8709.47,..,..</span>
+<span class="s1">Afghanistan,AFG,GDP per capita (constant 2015 US$),NY.GDP.PCAP.KD,570.676064337005,582.103978902877,576.487820334782,566.881132665072,564.920843553397,563.488239421983,553.973308908649,559.140956898688,529.144912477888,407.616507361737,..</span>
+<span class="s1">Afghanistan,AFG,&quot;Population, total&quot;,SP.POP.TOTL,30466479,31541209,32716210,33753499,34636207,35643418,36686784,37769499,38972230,40099462,41128771</span>
+<span class="s1">Albania,ALB,CO2 emissions (kt),EN.ATM.CO2E.KT,4541.8,4795.4,5188,4797,4573.2,5403.7,5316.1,4993.3,4383.2,..,..</span>
+<span class="s1">Albania,ALB,GDP per capita (constant 2015 US$),NY.GDP.PCAP.KD,3736.34007957648,3780.69919254096,3855.76074409659,3952.80357364813,4090.37272829183,4249.8200493985,4431.55559506989,4543.38771048312,4418.66087378292,4857.11194201819,5155.29085964151</span>
+<span class="s1">&#39;&#39;&#39;</span>
+
+<span class="c1"># Read CSV data into a DataFrame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">StringIO</span><span class="p">(</span><span class="n">csv_data</span><span class="p">))</span>
+
+<span class="c1"># Replace &quot;..&quot; with missing values</span>
+<span class="n">df</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">NA</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Convert columns that begin with &quot;20&quot; to numeric</span>
+<span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">:]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">:]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+
+<span class="c1"># Pivot the DataFrame</span>
+<span class="n">df_pivoted</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Country Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Country Code&#39;</span><span class="p">,</span> <span class="s1">&#39;Series Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Series Code&#39;</span><span class="p">],</span> <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span>
+
+<span class="c1"># Drop &#39;Series Code&#39; column</span>
+<span class="n">df_pivoted</span> <span class="o">=</span> <span class="n">df_pivoted</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Series Code&#39;</span><span class="p">])</span>
+
+<span class="c1"># Pivot the DataFrame again to have separate columns for each &#39;Series Name&#39;</span>
+<span class="n">df_pivoted</span> <span class="o">=</span> <span class="n">df_pivoted</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Country Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Country Code&#39;</span><span class="p">,</span> <span class="s1">&#39;Year&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Series Name&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="c1"># Display the result</span>
+<span class="n">df_pivoted</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Series Name</th>
+      <th>Country Name</th>
+      <th>Country Code</th>
+      <th>Year</th>
+      <th>CO2 emissions (kt)</th>
+      <th>GDP per capita (constant 2015 US$)</th>
+      <th>Population, total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2012 [YR2012]</td>
+      <td>10208.13</td>
+      <td>570.676064</td>
+      <td>30466479.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2013 [YR2013]</td>
+      <td>9402.05</td>
+      <td>582.103979</td>
+      <td>31541209.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2014 [YR2014]</td>
+      <td>9281.34</td>
+      <td>576.48782</td>
+      <td>32716210.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2015 [YR2015]</td>
+      <td>10057.59</td>
+      <td>566.881133</td>
+      <td>33753499.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2016 [YR2016]</td>
+      <td>9294.93</td>
+      <td>564.920844</td>
+      <td>34636207.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2017 [YR2017]</td>
+      <td>10022.78</td>
+      <td>563.488239</td>
+      <td>35643418.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2018 [YR2018]</td>
+      <td>10972.38</td>
+      <td>553.973309</td>
+      <td>36686784.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2019 [YR2019]</td>
+      <td>11238.83</td>
+      <td>559.140957</td>
+      <td>37769499.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2020 [YR2020]</td>
+      <td>8709.47</td>
+      <td>529.144912</td>
+      <td>38972230.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2021 [YR2021]</td>
+      <td>NaN</td>
+      <td>407.616507</td>
+      <td>40099462.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>2022 [YR2022]</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>41128771.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2012 [YR2012]</td>
+      <td>4541.8</td>
+      <td>3736.34008</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2013 [YR2013]</td>
+      <td>4795.4</td>
+      <td>3780.699193</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2014 [YR2014]</td>
+      <td>5188.0</td>
+      <td>3855.760744</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2015 [YR2015]</td>
+      <td>4797.0</td>
+      <td>3952.803574</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2016 [YR2016]</td>
+      <td>4573.2</td>
+      <td>4090.372728</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2017 [YR2017]</td>
+      <td>5403.7</td>
+      <td>4249.820049</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2018 [YR2018]</td>
+      <td>5316.1</td>
+      <td>4431.555595</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2019 [YR2019]</td>
+      <td>4993.3</td>
+      <td>4543.38771</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2020 [YR2020]</td>
+      <td>4383.2</td>
+      <td>4418.660874</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2021 [YR2021]</td>
+      <td>NaN</td>
+      <td>4857.111942</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2022 [YR2022]</td>
+      <td>NaN</td>
+      <td>5155.29086</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>This code first melts the DataFrame and then pivots it again to have separate columns for each ‘Series Name’. The ‘Series Code’ column is dropped before melting.</p>
+<hr class="docutils" />
+<p>Now the data look very close to what we need. There are just a few more details to polish: I want to drop the labels like [YR 2012] next to each year, and I want to rename the columns. If I try to get ChatGPT to include these tasks in the prior code, it tends to forget to preserve the structure of the data we tried hard to build. A better approach would be to reset the conversation by passing a CSV-formatted string from the new data to ChatGPT.</p>
+<p>In short, the process of using the chatbot exclusively for data wrangling is slow and prone to error. But chatbots will improve in their coding ability in the future. Effective prompting is a useful skill worth practicing.</p>
+</section>
+<section id="prompt-engineering-for-debugging-or-explaining-existing-code">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink"><span class="section-number">1.9.4. </span>Prompt Engineering for Debugging or Explaining Existing Code</a><a class="headerlink" href="#prompt-engineering-for-debugging-or-explaining-existing-code" title="Permalink to this heading">#</a></h3>
+<p>Another use for chatbots in a data wrangling workflow is to debug or explain code. For debugging, the key is to isolate the code that generates the error and to supply the error message. That said, the chatbot’s interpretation may be right or wrong for your specific case, the same as any post on Stack Overflow. The purpose of using a chatbot to work through errors is not to fix the code, exactly, but rather to shed some light on what is causing the error so that you can fix it yourself.</p>
+<p>For example, the chatbot’s response to the first prompt we issued in the previous section yielded an error. I can pass the code and the important line in the error message to see what the chatbot says.</p>
+<p><strong>Prompt:</strong></p>
+<hr class="docutils" />
+<p>The following python code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span>
+
+<span class="c1"># Input CSV data</span>
+<span class="n">csv_data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Country Name,Country Code,Series Name,Series Code,2012 [YR2012],2013 [YR2013],2014 [YR2014],2015 [YR2015],2016 [YR2016],2017 [YR2017],2018 [YR2018],2019 [YR2019],2020 [YR2020],2021 [YR2021],2022 [YR2022]</span>
+<span class="s2">Afghanistan,AFG,CO2 emissions (kt),EN.ATM.CO2E.KT,10208.13,9402.05,9281.34,10057.59,9294.93,10022.78,10972.38,11238.83,8709.47,..,..</span>
+<span class="s2">Afghanistan,AFG,GDP per capita (constant 2015 US$),NY.GDP.PCAP.KD,570.676064337005,582.103978902877,576.487820334782,566.881132665072,564.920843553397,563.488239421983,553.973308908649,559.140956898688,529.144912477888,407.616507361737,..</span>
+<span class="s2">Afghanistan,AFG,&quot;Population, total&quot;,SP.POP.TOTL,30466479,31541209,32716210,33753499,34636207,35643418,36686784,37769499,38972230,40099462,41128771</span>
+<span class="s2">Albania,ALB,CO2 emissions (kt),EN.ATM.CO2E.KT,4541.8,4795.4,5188,4797,4573.2,5403.7,5316.1,4993.3,4383.2,..,..</span>
+<span class="s2">Albania,ALB,GDP per capita (constant 2015 US$),NY.GDP.PCAP.KD,3736.34007957648,3780.69919254096,3855.76074409659,3952.80357364813,4090.37272829183,4249.8200493985,4431.55559506989,4543.38771048312,4418.66087378292,4857.11194201819,5155.29085964151</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="c1"># Read CSV data into a pandas DataFrame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">StringIO</span><span class="p">(</span><span class="n">csv_data</span><span class="p">))</span>
+
+<span class="c1"># Melt the DataFrame to transform year columns as rows</span>
+<span class="n">df_melted</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Country Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Country Code&#39;</span><span class="p">,</span> <span class="s1">&#39;Series Name&#39;</span><span class="p">],</span> <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span>
+
+<span class="c1"># Pivot the DataFrame to represent Series Name as columns</span>
+<span class="n">df_pivoted</span> <span class="o">=</span> <span class="n">df_melted</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Country Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Country Code&#39;</span><span class="p">,</span> <span class="s1">&#39;Year&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Series Name&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="c1"># Drop the &#39;Series Code&#39; column</span>
+<span class="n">df_pivoted</span> <span class="o">=</span> <span class="n">df_pivoted</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Series Code&#39;</span><span class="p">)</span>
+
+<span class="c1"># Display the result</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_pivoted</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>yields an error “TypeError: Could not convert string ‘..’ to numeric”. What is the problem and how do we fix it?</p>
+<hr class="docutils" />
+<p><strong>Response:</strong></p>
+<hr class="docutils" />
+<p>The error you are encountering is due to the presence of ‘..’ in your CSV data, which represents missing or incomplete data. When attempting to convert the data to numeric values, these ‘..’ values cause a TypeError.</p>
+<p>To fix this issue, you can replace the ‘..’ values with a suitable representation for missing data, such as <code class="docutils literal notranslate"><span class="pre">NaN</span></code> (Not a Number). You can modify the code to handle this during the reading of the CSV data by specifying the <code class="docutils literal notranslate"><span class="pre">na_values</span></code> parameter in the <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span>
+
+<span class="c1"># Input CSV data</span>
+<span class="n">csv_data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Country Name,Country Code,Series Name,Series Code,2012 [YR2012],2013 [YR2013],2014 [YR2014],2015 [YR2015],2016 [YR2016],2017 [YR2017],2018 [YR2018],2019 [YR2019],2020 [YR2020],2021 [YR2021],2022 [YR2022]</span>
+<span class="s2">Afghanistan,AFG,CO2 emissions (kt),EN.ATM.CO2E.KT,10208.13,9402.05,9281.34,10057.59,9294.93,10022.78,10972.38,11238.83,8709.47,..,..</span>
+<span class="s2">Afghanistan,AFG,GDP per capita (constant 2015 US$),NY.GDP.PCAP.KD,570.676064337005,582.103978902877,576.487820334782,566.881132665072,564.920843553397,563.488239421983,553.973308908649,559.140956898688,529.144912477888,407.616507361737,..</span>
+<span class="s2">Afghanistan,AFG,&quot;Population, total&quot;,SP.POP.TOTL,30466479,31541209,32716210,33753499,34636207,35643418,36686784,37769499,38972230,40099462,41128771</span>
+<span class="s2">Albania,ALB,CO2 emissions (kt),EN.ATM.CO2E.KT,4541.8,4795.4,5188,4797,4573.2,5403.7,5316.1,4993.3,4383.2,..,..</span>
+<span class="s2">Albania,ALB,GDP per capita (constant 2015 US$),NY.GDP.PCAP.KD,3736.34007957648,3780.69919254096,3855.76074409659,3952.80357364813,4090.37272829183,4249.8200493985,4431.55559506989,4543.38771048312,4418.66087378292,4857.11194201819,5155.29085964151</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="c1"># Read CSV data into a pandas DataFrame and replace &#39;..&#39; with NaN</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">StringIO</span><span class="p">(</span><span class="n">csv_data</span><span class="p">),</span> <span class="n">na_values</span><span class="o">=</span><span class="s1">&#39;..&#39;</span><span class="p">)</span>
+
+<span class="c1"># Melt the DataFrame to transform year columns as rows</span>
+<span class="n">df_melted</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Country Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Country Code&#39;</span><span class="p">,</span> <span class="s1">&#39;Series Name&#39;</span><span class="p">],</span> <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span>
+
+<span class="c1"># Pivot the DataFrame to represent Series Name as columns</span>
+<span class="n">df_pivoted</span> <span class="o">=</span> <span class="n">df_melted</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Country Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Country Code&#39;</span><span class="p">,</span> <span class="s1">&#39;Year&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Series Name&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="c1"># Drop the &#39;Series Code&#39; column</span>
+<span class="n">df_pivoted</span> <span class="o">=</span> <span class="n">df_pivoted</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Series Code&#39;</span><span class="p">)</span>
+
+<span class="c1"># Display the result</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_pivoted</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This modification should resolve the TypeError by treating the ‘..’ values as NaN during the conversion process.</p>
+<hr class="docutils" />
+<p>Here ChatGPT identified the issue and suggested some code that could fix it. It so happens that the code ChatGPT supplies still results in a (different) error, but at least one hurdle has been cleared.</p>
+<p>A second use for a chatbot is to provide an explanation for what happens line-by-line within a chunk of code. This ability is especially useful for a coder who already knows what they are doing, but needs some help tracing what someone else’s code is doing. It can be a great way to learn new coding skills. For example, I can ask ChatGPT to explain the code that resulted in the best version of the data in the previous section.</p>
+<p><strong>Prompt:</strong></p>
+<hr class="docutils" />
+<p>Please explain the following Python code line by line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span>
+
+<span class="c1"># Input CSV data</span>
+<span class="n">csv_data</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">Country Name,Country Code,Series Name,Series Code,2012 [YR2012],2013 [YR2013],2014 [YR2014],2015 [YR2015],2016 [YR2016],2017 [YR2017],2018 [YR2018],2019 [YR2019],2020 [YR2020],2021 [YR2021],2022 [YR2022]</span>
+<span class="s1">Afghanistan,AFG,CO2 emissions (kt),EN.ATM.CO2E.KT,10208.13,9402.05,9281.34,10057.59,9294.93,10022.78,10972.38,11238.83,8709.47,..,..</span>
+<span class="s1">Afghanistan,AFG,GDP per capita (constant 2015 US$),NY.GDP.PCAP.KD,570.676064337005,582.103978902877,576.487820334782,566.881132665072,564.920843553397,563.488239421983,553.973308908649,559.140956898688,529.144912477888,407.616507361737,..</span>
+<span class="s1">Afghanistan,AFG,&quot;Population, total&quot;,SP.POP.TOTL,30466479,31541209,32716210,33753499,34636207,35643418,36686784,37769499,38972230,40099462,41128771</span>
+<span class="s1">Albania,ALB,CO2 emissions (kt),EN.ATM.CO2E.KT,4541.8,4795.4,5188,4797,4573.2,5403.7,5316.1,4993.3,4383.2,..,..</span>
+<span class="s1">Albania,ALB,GDP per capita (constant 2015 US$),NY.GDP.PCAP.KD,3736.34007957648,3780.69919254096,3855.76074409659,3952.80357364813,4090.37272829183,4249.8200493985,4431.55559506989,4543.38771048312,4418.66087378292,4857.11194201819,5155.29085964151</span>
+<span class="s1">&#39;&#39;&#39;</span>
+
+<span class="c1"># Read CSV data into a DataFrame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">StringIO</span><span class="p">(</span><span class="n">csv_data</span><span class="p">))</span>
+
+<span class="c1"># Replace &quot;..&quot; with missing values</span>
+<span class="n">df</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">NA</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Convert columns that begin with &quot;20&quot; to numeric</span>
+<span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">:]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">:]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+
+<span class="c1"># Pivot the DataFrame</span>
+<span class="n">df_pivoted</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Country Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Country Code&#39;</span><span class="p">,</span> <span class="s1">&#39;Series Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Series Code&#39;</span><span class="p">],</span> <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span>
+
+<span class="c1"># Drop &#39;Series Code&#39; column</span>
+<span class="n">df_pivoted</span> <span class="o">=</span> <span class="n">df_pivoted</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Series Code&#39;</span><span class="p">])</span>
+
+<span class="c1"># Pivot the DataFrame again to have separate columns for each &#39;Series Name&#39;</span>
+<span class="n">df_pivoted</span> <span class="o">=</span> <span class="n">df_pivoted</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Country Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Country Code&#39;</span><span class="p">,</span> <span class="s1">&#39;Year&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Series Name&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="c1"># Display the result</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_pivoted</span><span class="p">)</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p><strong>Response:</strong></p>
+<hr class="docutils" />
+<p>Certainly! This Python code is using the pandas library to manipulate and transform a CSV-like dataset. Let’s go through it line by line:</p>
+<ol class="arabic">
+<li><p><strong>Import necessary libraries:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> is a powerful data manipulation library.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">StringIO</span></code> from the <code class="docutils literal notranslate"><span class="pre">io</span></code> module is used to create an in-memory file-like object from a string.</p></li>
+</ul>
+</li>
+<li><p><strong>Define CSV data as a string:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">csv_data</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">... (data here)</span>
+<span class="s1">&#39;&#39;&#39;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The CSV data is a multiline string containing information about CO2 emissions, GDP per capita, and population for different countries over several years.</p></li>
+</ul>
+</li>
+<li><p><strong>Read CSV data into a DataFrame:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">StringIO</span><span class="p">(</span><span class="n">csv_data</span><span class="p">))</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code> reads the CSV data from the provided string using <code class="docutils literal notranslate"><span class="pre">StringIO</span></code> and creates a DataFrame (<code class="docutils literal notranslate"><span class="pre">df</span></code>) from it.</p></li>
+</ul>
+</li>
+<li><p><strong>Replace “..” with missing values:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">NA</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Replaces occurrences of “..” in the DataFrame with pandas’ <code class="docutils literal notranslate"><span class="pre">pd.NA</span></code> (a representation of missing values) in-place.</p></li>
+</ul>
+</li>
+<li><p><strong>Convert columns starting with “20” to numeric:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">:]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">:]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Converts columns starting from the 5th column (index 4) to numeric values. The <code class="docutils literal notranslate"><span class="pre">errors='coerce'</span></code> parameter converts any non-numeric values to NaN.</p></li>
+</ul>
+</li>
+<li><p><strong>Pivot the DataFrame:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_pivoted</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Country Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Country Code&#39;</span><span class="p">,</span> <span class="s1">&#39;Series Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Series Code&#39;</span><span class="p">],</span> <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Melts the DataFrame to have a ‘Country Name’, ‘Country Code’, ‘Series Name’, ‘Series Code’, ‘Year’, and ‘Value’ columns. This is a common step for reshaping data.</p></li>
+</ul>
+</li>
+<li><p><strong>Drop ‘Series Code’ column:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_pivoted</span> <span class="o">=</span> <span class="n">df_pivoted</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Series Code&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Drops the ‘Series Code’ column as it’s no longer needed.</p></li>
+</ul>
+</li>
+<li><p><strong>Pivot the DataFrame again:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_pivoted</span> <span class="o">=</span> <span class="n">df_pivoted</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Country Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Country Code&#39;</span><span class="p">,</span> <span class="s1">&#39;Year&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Series Name&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Pivots the DataFrame again to have separate columns for each ‘Series Name’, creating a more structured format.</p></li>
+</ul>
+</li>
+<li><p><strong>Display the result:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df_pivoted</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Prints the final pivoted DataFrame.</p></li>
+</ul>
+</li>
+</ol>
+<p>In summary, the code takes raw CSV-like data, cleans it, transforms it, and finally presents it in a more structured and readable format using pandas operations.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="method-6-interacting-with-the-global-community-of-python-users">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink"><span class="section-number">1.10. </span>Method 6: Interacting with the Global Community of Python Users</a><a class="headerlink" href="#method-6-interacting-with-the-global-community-of-python-users" title="Permalink to this heading">#</a></h2>
+<section id="python-slack-and-discord">
+<h3><a class="toc-backref" href="#id20" role="doc-backlink"><span class="section-number">1.10.1. </span>Python Slack and Discord</a><a class="headerlink" href="#python-slack-and-discord" title="Permalink to this heading">#</a></h3>
 <p>Slack and Discord are both platforms for groups of people to chat with each other, post to shared message boards for specific topics, share files, and hold meetings.</p>
 <p>The main slack page for the global community of Python users is <strong>Pyslackers</strong>: <a class="reference external" href="https://pyslackers.com/web">https://pyslackers.com/web</a>. To join, just go to the URL and click “join the community”. The main discussion happens on #python_, but there are many other useful channels including #data_science and #job_advice. This method is especially worthwhile if you already are used to using slack for work or for personal networking.</p>
 <p><strong>Python Discord</strong> (<a class="reference external" href="https://www.pythondiscord.com/">https://www.pythondiscord.com/</a>) is similar to PySlackers but seems to be more focused on organizing shared Python projects and posting the code on GitHub. To join, click the “join us” link in the upper-right corner of their homepage.</p>
 <p>One thing that helped me use Slack and Discord much more consistently is downloading the desktop app for Slack (<a class="reference external" href="https://slack.com/downloads">https://slack.com/downloads</a>) and for Discord (<a class="reference external" href="https://discord.com/download">https://discord.com/download</a>), and always leaving the apps open on my local computer so that I see messages right away when they are sent to me.</p>
 </section>
-<section id="method-6-live-chats-with-python-users-on-freenode">
-<h2><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">1.10. </span>Method 6: Live Chats With Python Users on Freenode</a><a class="headerlink" href="#method-6-live-chats-with-python-users-on-freenode" title="Permalink to this heading">#</a></h2>
+<section id="live-chats-with-python-users-on-freenode">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink"><span class="section-number">1.10.2. </span>Live Chats With Python Users on Freenode</a><a class="headerlink" href="#live-chats-with-python-users-on-freenode" title="Permalink to this heading">#</a></h3>
 <p>The Python user community is world-wide, and for the most part, very supportive. There are active internet relay chat (IRC) networks where you can post a question to members who are also logged in, to possibly get an answer right away. The most active Python IRC is the #python channel on Freenode: <a class="reference external" href="https://webchat.freenode.net">https://webchat.freenode.net</a>. When I logged in while writing this notebook, there were 1,778 people logged on.</p>
 <p>Internet chatrooms can be rough places, but the #python channel claims to enforce this <a class="reference external" href="https://www.python.org/psf/codeofconduct/">Code of Conduct</a>. Getting started on Freenode can be tricky, but it’s easier if you follow these steps:</p>
 <ol class="arabic simple">
@@ -800,11 +2151,12 @@ can do more things with the given objects than the examples do.</p></li>
 <li><p>You are now registered! Return to <a class="reference external" href="https://webchat.freenode.net/">https://webchat.freenode.net/</a> and log-in with your nickname and password. Type #python under channel. You are free to chat away. Pay attention to the guidelines that appear as links on the top of the screen.</p></li>
 </ol>
 </section>
-<section id="method-7-python-mailing-lists-and-newsgroups">
-<h2><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">1.11. </span>Method 7: Python Mailing Lists and Newsgroups</a><a class="headerlink" href="#method-7-python-mailing-lists-and-newsgroups" title="Permalink to this heading">#</a></h2>
+<section id="python-mailing-lists-and-newsgroups">
+<h3><a class="toc-backref" href="#id22" role="doc-backlink"><span class="section-number">1.10.3. </span>Python Mailing Lists and Newsgroups</a><a class="headerlink" href="#python-mailing-lists-and-newsgroups" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Usenet">Usenet</a> is a distributed discussion system (which means it has no central server). It was invented in 1979, and is still in use today. The Python Usenet message boards are at <a class="reference external" href="https://mail.python.org/archives/?sort=popular">https://mail.python.org/archives/?sort=popular</a>. The <code class="docutils literal notranslate"><span class="pre">comp.lang.python</span></code> board is for general discussions and questions about Python.</p>
 <p>The tutor mailing list (<a class="reference external" href="https://mail.python.org/mailman/listinfo/tutor">https://mail.python.org/mailman/listinfo/tutor</a>) is for users who want to ask questions about learning computer programming with Python.</p>
 <p>If you have a question for the Python core development team, send an email to <a class="reference external" href="mailto:help&#37;&#52;&#48;python&#46;org">help<span>&#64;</span>python<span>&#46;</span>org</a>. The team is pretty busy, so be sure to check other resources and lists for an answer first.</p>
+</section>
 </section>
 </section>
 
@@ -887,9 +2239,19 @@ can do more things with the given objects than the examples do.</p></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asking-a-question-on-stack-overflow">1.8.2. Asking a Question on Stack Overflow</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-5-python-slack-and-discord">1.9. Method 5: Python Slack and Discord</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-6-live-chats-with-python-users-on-freenode">1.10. Method 6: Live Chats With Python Users on Freenode</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-7-python-mailing-lists-and-newsgroups">1.11. Method 7: Python Mailing Lists and Newsgroups</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-5-using-a-large-language-model-a-chatbot-to-generate-and-debug-code">1.9. Method 5: Using a Large-Language Model (a ChatBot) to Generate and Debug Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-access-a-chatbot-for-coding">1.9.1. How to Access a ChatBot for Coding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prompt-engineering-for-generating-new-code">1.9.2. Prompt Engineering for Generating New Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-data-from-the-world-bank">1.9.3. Example: Data from the World Bank</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prompt-engineering-for-debugging-or-explaining-existing-code">1.9.4. Prompt Engineering for Debugging or Explaining Existing Code</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-6-interacting-with-the-global-community-of-python-users">1.10. Method 6: Interacting with the Global Community of Python Users</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-slack-and-discord">1.10.1. Python Slack and Discord</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#live-chats-with-python-users-on-freenode">1.10.2. Live Chats With Python Users on Freenode</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-mailing-lists-and-newsgroups">1.10.3. Python Mailing Lists and Newsgroups</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
@@ -914,7 +2276,7 @@ By Jonathan Kropko (jkropko@virginia.edu)
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2024.
       <br/>
     
   </p>

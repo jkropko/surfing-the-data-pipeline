@@ -2,7 +2,7 @@ numpy
 pandas
 jupyterlab
 requests
-psycopg2-binary
+psycopg[binary]
 sqlalchemy
 matplotlib
 seaborn
@@ -21,3 +21,4 @@ scipy
 ydata_profiling
 openai
 jupyterlab-spellchecker
+wget

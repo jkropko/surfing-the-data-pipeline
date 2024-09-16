@@ -12,7 +12,7 @@ scikit-learn
 python-dotenv
 googlemaps
 bs4
-mysql-connector
+mysql-connector-python
 pymongo
 sidetable
 prince

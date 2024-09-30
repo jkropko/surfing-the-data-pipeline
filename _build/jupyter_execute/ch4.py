@@ -167,7 +167,7 @@ CensusKey = "abcdefghijklmnopqrstuvwxyz"
 # Instead, we will follow the protocol laid out by Jonathan Soma on his [excellent blog](http://jonathansoma.com/lede/foundations-2019/classes/apis/keeping-api-keys-secret/) for writing scripts and notebooks that access APIs while keeping your keys secret. 
 # 
 # #### Step 1: Creating a Environmental Variables File
-# The first step is to create a plain text file named `.env` in the same folder as your notebook or script. This file contains "environmental variables", which are variables that exist in your server environment without being part of your code - they are loaded into Python's memory in the background. Using environmental variables will allow you to share your code without having to share the sensitive information contained in the `.env` file. To create a `.env` file using Jupyter Labs:
+# The first step is to create a plain text file named `.env` in the same folder as your notebook or script. This file contains "environmental variables", which are variables that exist in your server environment without being part of your code - they are loaded into Python's memory in the background. Using environmental variables will allow you to share your code without having to share the sensitive information contained in the `.env` file. To create a `.env` file using JupyterLabs:
 # 
 # 1. Right click on your notebook and select "New Console for Notebook". That launches a new console with the complete environment of your notebook loaded into it.
 # 

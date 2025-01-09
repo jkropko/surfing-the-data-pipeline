@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>1. Getting Yourself Unstuck &#8212; Surfing the Data Pipeline with Python</title>
   
@@ -15,53 +14,52 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ch1';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -69,6 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="Surfing the Data Pipeline with Python" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -76,32 +75,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -109,7 +92,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -117,16 +99,25 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -141,6 +132,8 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="intro.html">
   
@@ -154,11 +147,18 @@ const thebe_selector_output = ".output, .cell_output"
     
     
     <img src="_static/surf.jpg" class="logo__image only-light" alt="Surfing the Data Pipeline with Python - Home"/>
-    <script>document.write(`<img src="_static/surf.jpg" class="logo__image only-dark" alt="Surfing the Data Pipeline with Python - Home"/>`);</script>
+    <img src="_static/surf.jpg" class="logo__image only-dark pst-js-only" alt="Surfing the Data Pipeline with Python - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -192,6 +192,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="ch11.html">11. Static Data Visualizations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch12.html">12. Interactive Data Visualizations and Dashboards</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Virtual Environments and Containers</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -199,14 +203,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -215,14 +224,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -298,27 +307,19 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -377,10 +378,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="getting-yourself-unstuck">
-<h1><a class="toc-backref" href="#id1" role="doc-backlink"><span class="section-number">1. </span>Getting Yourself Unstuck</a><a class="headerlink" href="#getting-yourself-unstuck" title="Permalink to this heading">#</a></h1>
+<h1><a class="toc-backref" href="#id1" role="doc-backlink"><span class="section-number">1. </span>Getting Yourself Unstuck</a><a class="headerlink" href="#getting-yourself-unstuck" title="Link to this heading">#</a></h1>
 <nav class="contents" id="table-of-contents">
 <p class="topic-title">Table of Contents</p>
 <ul class="simple">
@@ -424,7 +425,7 @@ document.write(`
 </ul>
 </nav>
 <section id="introduction">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">1.1. </span>Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">1.1. </span>Introduction</a><a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p>Modeling and analytics get the lion’s share of attention in the classroom in data science programs, but in the real world, data is almost never ready to be analyzed without a great deal of work to prepare the data first. <a class="reference external" href="https://www.forbes.com/sites/gilpress/2016/03/23/data-preparation-most-time-consuming-least-enjoyable-data-science-task-survey-says/#3ebb8cd06f63">This article in Forbes</a> describes a survey of data scientists in which the respondents claim to spend nearly 80% of their time collecting and cleaning data.</p>
 <center><img src="https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fblogs-images.forbes.com%2Fgilpress%2Ffiles%2F2016%2F03%2FTime-1200x511.jpg" alt="Apologies for the pie chart, it will be the last one we see in this course" width="600"/> 
 <p style="text-align: center;"><b>Source:</b>
@@ -463,7 +464,7 @@ document.write(`
 <p>However, prior to launching into the data pipeline, we have to talk about the single most important skill for a data scientist: <strong>how to get yourself unstuck</strong>.</p>
 </section>
 <section id="being-a-data-scientist-means-knowing-how-to-get-yourself-unstuck">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">1.2. </span>Being a Data Scientist Means Knowing How to Get Yourself Unstuck</a><a class="headerlink" href="#being-a-data-scientist-means-knowing-how-to-get-yourself-unstuck" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">1.2. </span>Being a Data Scientist Means Knowing How to Get Yourself Unstuck</a><a class="headerlink" href="#being-a-data-scientist-means-knowing-how-to-get-yourself-unstuck" title="Link to this heading">#</a></h2>
 <p>Most of you reading this book would describe yourselves as beginners with Python code and the practice of data science. Being a beginner is a wonderful thing. As a beginner, the rate at which you learn new skills is faster than it will be at any other point in your career. And the feeling of accomplishment you will feel by writing working code can and should be profound. But one drawback of being a beginner is the feeling of being judged or viewed as insufficient in comparison to more experienced coders who have much more of this programming language memorized. <a class="reference external" href="https://en.wikipedia.org/wiki/Impostor_syndrome">Imposter syndrome</a>, a persistent feeling of doubt in one’s skills and the feeling of being a fraud, is especially common for students who are just starting out in a new field. And it’s only natural to look at people who type and execute code at furious speeds and to think of yourself as an imposter, especially when you keep getting errors when you try to execute your code.</p>
 <p>But here’s the secret: problems, errors, and anomalies in your code are inevitable. And that’s true whether you are a beginner or a programmer with decades of experience. It would be accurate to describe a workday of a data scientist as moving from one error to the next to the next. It is simply the nature of using a big programming language like Python that includes so many user-written and open source extensions. So you will feel at times like all you do is generate errors with your code. This feeling is natural, and it is a universal feeling that all data scientists share regardless of their experience level. What sets experienced data scientists apart is their skill in using help resources fix bugs and to to get to the right answer, <strong>as quickly as possible</strong>.</p>
 <p>As a student, you often have access to an instructor who can answer questions and help you work out the bugs in your code. But as a practitioner you might not have access to someone with the experience and time to help you with your code in a one-on-one way. Some proprietary software sells access to helplines and consulting, but open source projects like Python depend on the community of Python users to provide this support. The more popular an open source software package the bigger the community and the better the resources to help programmers solve problems. And it just so happens that <a class="reference external" href="https://linuxiac.com/python-the-most-popular-programming-language/">Python is the most popular programming language in the world</a>, and there are some incredible resources available to anyone working with Python. So the most important skill to master to become an advanced data programmer is participating in this community to quickly find answers to the problems that arise as you code.</p>
@@ -473,7 +474,7 @@ document.write(`
 <a href="https://phdcomics.com/comics/archive.php/archive/tellafriend.php?comicid=673">Ph.D. Comics, "Debugging", by Jorge Cham</a>
 </p></center></section>
 <section id="the-places-to-go-for-help-in-order">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">1.3. </span>The Places to Go For Help, In Order</a><a class="headerlink" href="#the-places-to-go-for-help-in-order" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">1.3. </span>The Places to Go For Help, In Order</a><a class="headerlink" href="#the-places-to-go-for-help-in-order" title="Link to this heading">#</a></h2>
 <p>There are many resources available to you. I suggest using the following resources in a particular order:</p>
 <ol class="arabic simple">
 <li><p>Reading and understanding Python errors</p></li>
@@ -487,7 +488,7 @@ document.write(`
 <p>Many new programmers use Google and Stack Overflow as their first options for getting help, and recently many people feel the pull to consult a ChatBot right away. I strongly suggest that you do <strong>not</strong> look to Google, Stack Overflow, or a ChatBot before trying to use the official Python built-in documentation or try to understand an error message you receive. The documentation and error messages aren’t as intuitive and easy to access as Google or ChatGPT, but the answers that the official documentation will provide are guaranteed to be correct and specific to the functions you are trying to use, if you know what those functions are. In contrast, for all of the strengths of Google, Stack Overflow, and ChatBots, they can be wrong or misleading because there is a lot of information out there that isn’t especially helpful. Defaulting to these resources as a first recourse will slow you down a great deal.</p>
 </section>
 <section id="method-1-reading-and-understanding-python-errors">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">1.4. </span>Method 1: Reading and Understanding Python Errors</a><a class="headerlink" href="#method-1-reading-and-understanding-python-errors" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">1.4. </span>Method 1: Reading and Understanding Python Errors</a><a class="headerlink" href="#method-1-reading-and-understanding-python-errors" title="Link to this heading">#</a></h2>
 <p>Usually, when you are stuck, it’s because you ran some code that resulted in an error. Reading and <em>understanding</em> the error is the single most important and useful way to get yourself unstuck. These errors are not aesthetically pleasing, and they are written in technical language, but the intention of these error messages is to tell you exactly what went wrong. Many new Python users skip reading the errors entirely, which is a shame because the error might indicate exactly the fastest way to solve the problem.</p>
 <p>There are two reasons why people skip over reading the errors:</p>
 <ol class="arabic simple">
@@ -526,10 +527,10 @@ document.write(`
 </div>
 </section>
 <section id="method-2-using-the-built-in-python-documentation">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">1.5. </span>Method 2: Using the Built-in Python Documentation</a><a class="headerlink" href="#method-2-using-the-built-in-python-documentation" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">1.5. </span>Method 2: Using the Built-in Python Documentation</a><a class="headerlink" href="#method-2-using-the-built-in-python-documentation" title="Link to this heading">#</a></h2>
 <p>Packages, modules, classes and functions in Python have built-in documentation that you can display directly in the console or in the output of a notebook. These built-in documentations are called <strong>docstrings</strong>. The docstring, and not Google, should be the first place to look for help with specific, pre-built Python code as it conveys guidance directly from the code’s authors. In contrast, going to Google first often turns up blogs and posts in which another secondary user describes the code. ChatBots like ChatGPT are built in large part from scraping these secondary uses from various webpages. Either way, these approaches are more prone to misinterpretations and mistakes.</p>
 <section id="using-a-console-window-in-jupyterlab">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">1.5.1. </span>Using a Console Window in JupyterLab</a><a class="headerlink" href="#using-a-console-window-in-jupyterlab" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">1.5.1. </span>Using a Console Window in JupyterLab</a><a class="headerlink" href="#using-a-console-window-in-jupyterlab" title="Link to this heading">#</a></h3>
 <p>In my experience working with new Python programmers, beginners are very reluctant to use the docstrings. That’s unfortunate because docstrings are fast and accurate ways to solve issues with using existing code.</p>
 <p>One reason for this reluctance is that calling up a docstring is annoying in a Jupyter notebook. Ideally, you should be working with two windows side by side: one for the notebook or script that contains your code, and one for viewing docstrings. Another reason new users don’t use docstrings is that the help documentation isn’t accessable until the packages that contain the relevant functions are loaded into the workspace.</p>
 <p>The following is a procedure you can use to make viewing docstrings easier with Jupyter notebooks. With a little practice it can become a good habit that saves you a great deal of time in the long-run:</p>
@@ -543,7 +544,7 @@ document.write(`
 <p>The procedure listed above gives you a visible and separate place to view docstrings. It also loads the same kernel as the notebook you are working on, so that if you’ve imported <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, for example, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> is also loaded into the console so that you can call the docstring for any <code class="docutils literal notranslate"><span class="pre">pandas</span></code> module or function. Keeping this console open will help you more easily integrate calling and reading docstrings into your workflow.</p>
 </section>
 <section id="how-to-call-up-and-read-a-docstring">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">1.5.2. </span>How to Call Up and Read a Docstring</a><a class="headerlink" href="#how-to-call-up-and-read-a-docstring" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">1.5.2. </span>How to Call Up and Read a Docstring</a><a class="headerlink" href="#how-to-call-up-and-read-a-docstring" title="Link to this heading">#</a></h3>
 <p>There are many different kinds of code objects in Python that have attached docstrings:</p>
 <ul class="simple">
 <li><p>A package itself, such as <code class="docutils literal notranslate"><span class="pre">pandas</span></code> or <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>,</p></li>
@@ -569,7 +570,7 @@ document.write(`
 
 print(*args, sep=&#39; &#39;, end=&#39;\n&#39;, file=None, flush=False)
     Prints the values to a stream, or to sys.stdout by default.
-    
+
     sep
       string inserted between values, default a space.
     end
@@ -620,7 +621,7 @@ can do more things with the given objects than the examples do.</p></li>
 </section>
 </section>
 <section id="method-3-using-google-and-other-search-engines">
-<h2><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">1.6. </span>Method 3: Using Google and Other Search Engines</a><a class="headerlink" href="#method-3-using-google-and-other-search-engines" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">1.6. </span>Method 3: Using Google and Other Search Engines</a><a class="headerlink" href="#method-3-using-google-and-other-search-engines" title="Link to this heading">#</a></h2>
 <p>Many of us have a habit of going to Google first whenever we have a coding problem. Please make a concerted effort starting right now to break this habit. If you know the functions you need more information about, using the built-in docstrings first the best habit. The docstrings are what the code’s authors provide to guide users. If you know where to look within a docstring, you can find the correct answers to your questions quickly.</p>
 <p>Google is a comparatively slow method for getting help. With open-source environments such as Python, there are many ways to do the same thing, and there are way too many presentations on the internet of any one topic to sift through efficiently. Many of the resources you find this way come from a field or a point of view that differs from your own, leading you to have to work hard to translate the language that explains the method. And some of the information is out of date or simply wrong.</p>
 <p>Use Google or another search engine if</p>
@@ -672,7 +673,7 @@ can do more things with the given objects than the examples do.</p></li>
 <p>There are also many, many more resources and new ones are created all the time. Find the resources you like best: going directly to the most credible links will save you a great deal of time in this effort to get yourself unstuck.</p>
 </section>
 <section id="how-to-avoid-toxicity-in-online-communities">
-<h2><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">1.7. </span>How to Avoid Toxicity in Online Communities</a><a class="headerlink" href="#how-to-avoid-toxicity-in-online-communities" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">1.7. </span>How to Avoid Toxicity in Online Communities</a><a class="headerlink" href="#how-to-avoid-toxicity-in-online-communities" title="Link to this heading">#</a></h2>
 <p>The next options involve becoming a <strong>responsible, respectful</strong> member of the worldwide community of Python users. Open-source platforms like Python and R depend on a community of volunteers who develop and maintain the tools that we use. All of these people are doing volunteer work for the common good, and that’s a beautiful thing.</p>
 <p>In addition to Python itself, Stack Overflow, Slack, Discord, the Freenode IRC, and mailing lists are online communities for Python users. But, like any online community, there’s the potential for a toxic culture to destroy everything.</p>
 <p>What is a toxic culture? How do you know one when you see one?</p>
@@ -704,7 +705,7 @@ can do more things with the given objects than the examples do.</p></li>
 <p>Please keep the behaviors described here in mind when you engage in online communities, and avoid them. Think about your words and place yourself in the position of the original poster before submitting a response, and make the edits that you think would lead to a better online interaction. Don’t be afraid to call out other people who behave in these ways. And if you are yourself the person who posts, be aware that these behaviors still happen much too frequently, but know that despite this, most people on these forums mean well.</p>
 </section>
 <section id="method-4-stack-overflow">
-<h2><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">1.8. </span>Method 4: Stack Overflow</a><a class="headerlink" href="#method-4-stack-overflow" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">1.8. </span>Method 4: Stack Overflow</a><a class="headerlink" href="#method-4-stack-overflow" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://stackoverflow.com">Stack Overflow</a> is the most popular and most useful website for help with programming of all kinds. Google searching a Python problem will usually lead to a Stack Overflow post on the same issue. Python is now the most frequent tag for posts on Stack Overflow, and shown in this video:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -727,7 +728,7 @@ can do more things with the given objects than the examples do.</p></li>
 </div>
 <p>Finding a Stack Overflow post that’s relevant to your problem can give you both the code and underlying intuition to solve your problem. Or maybe not! Small differences in the situation can make the solution irrelevant to you. Be cautious and don’t treat a Stack Overflow post as automatically a definitive answer.</p>
 <section id="how-stack-overflow-works">
-<h3><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">1.8.1. </span>How Stack Overflow Works</a><a class="headerlink" href="#how-stack-overflow-works" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">1.8.1. </span>How Stack Overflow Works</a><a class="headerlink" href="#how-stack-overflow-works" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Someone asks a question</p></li>
 <li><p>Other people comment on and provide answers to the question</p></li>
@@ -738,7 +739,7 @@ can do more things with the given objects than the examples do.</p></li>
 <p>Going for reputation is an entirely optional activity. If you don’t want to worry about it, don’t.</p>
 </section>
 <section id="asking-a-question-on-stack-overflow">
-<h3><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">1.8.2. </span>Asking a Question on Stack Overflow</a><a class="headerlink" href="#asking-a-question-on-stack-overflow" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">1.8.2. </span>Asking a Question on Stack Overflow</a><a class="headerlink" href="#asking-a-question-on-stack-overflow" title="Link to this heading">#</a></h3>
 <p>Okay, so you’re stuck. You’ve combed through the Python documentation, Google, and old Stack Overflow posts, but you haven’t found a solution. It’s time to consider writing a new question on Stack Overflow.</p>
 <center><img src="https://github.com/jkropko/DS-6001/raw/master/localimages/leia.png" alt="" width="400"/>
 <p style="text-align: center;"><b>Source:</b>
@@ -778,17 +779,17 @@ can do more things with the given objects than the examples do.</p></li>
 </section>
 </section>
 <section id="method-5-using-a-large-language-model-a-chatbot-to-generate-and-debug-code">
-<h2><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">1.9. </span>Method 5: Using a Large-Language Model (a ChatBot) to Generate and Debug Code</a><a class="headerlink" href="#method-5-using-a-large-language-model-a-chatbot-to-generate-and-debug-code" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">1.9. </span>Method 5: Using a Large-Language Model (a ChatBot) to Generate and Debug Code</a><a class="headerlink" href="#method-5-using-a-large-language-model-a-chatbot-to-generate-and-debug-code" title="Link to this heading">#</a></h2>
 <p>Since the release of Open AI’s <a class="reference external" href="https://chat.openai.com/">ChatGPT</a> in March 2023, generative AI and especially chatbots have occupied a great deal of the attention of data scientists in industry and academia. There is far too much to describe about these chatbots in terms of their construction, use, and ethics to fit as a concise discussion in a text like this one. But the main idea you should keep in mind about chatbots is that they are both a necessary part of a data scientist’s toolkit, and that they are not any more intelligent than what can be found with a careful search on Google or Stack Overflow. Chatbots are trained on massive amounts of data, largely scrapped from the internet, and with respect to coding the major sources of data are Stack Overflow and GitHub. It’s useful to think of a chatbot as a more efficient way to sift through the information that already exists on those websites.</p>
 <p>Schools are grappling with the question of whether using a chatbot constitutes cheating. But professional software engineering and data science has largely adopted the view that chatbots are fair to use. That said, there is an approach to using chatbots for coding effectively, and knowing the right way to prompt a chatbot to solve coding problems is itself an important skill. So if you are going to use a chatbot, use it correctly. The following discussion outlines some ways to access a chatbot as part of your own workflow and some strategies for writing prompts that can generate the code you need or debug code.</p>
 <section id="how-to-access-a-chatbot-for-coding">
-<h3><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">1.9.1. </span>How to Access a ChatBot for Coding</a><a class="headerlink" href="#how-to-access-a-chatbot-for-coding" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">1.9.1. </span>How to Access a ChatBot for Coding</a><a class="headerlink" href="#how-to-access-a-chatbot-for-coding" title="Link to this heading">#</a></h3>
 <p>The most common way that people are interacting with a chatbot currently is the OpenAI website for chatting with ChatGPT: <a class="reference external" href="https://chat.openai.com/">https://chat.openai.com/</a>. This platform is also free. But there are alternative methods, some of which cost money, that are better suited for an efficient data science workflow. One of the most popular chatbot interfaces in industry is <a class="reference external" href="https://github.com/features/copilot">GitHub Copilot</a>, which integrates with Visual Studio Code. A primary advantage of GitHub Copilot is that it can access your kernel to see and work with the objects you’ve already created, and it can read the code you’ve already written. So for example, if you load a dataset into your environment as a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> dataframe and call it <code class="docutils literal notranslate"><span class="pre">mydata</span></code>, GitHub Copilot will already know what <code class="docutils literal notranslate"><span class="pre">mydata</span></code> contains without having to specify it within your prompt. It can save time once you are comfortable using it. There is a cost to use GitHub Copilot, however, and depending on your use case the cost may or may not be worth it.</p>
 <p>One important point about using chatbots to help you code: it is not a fast method. Generally, getting a useful result from a chatbot requires having a “conversation” with the chatbot to narrow in on the desired product. That also involves taking time to study and run the code that the chatbot produces to see what is correct and what is still lacking. The time needed to build to a final output and assess it step by step increases with the amount of work you ask the chatbot to do. As a result, we should not think of a chatbot as a shortcut, and it is still much faster to simply learn how to collect, wrangle, and prepare data, using the chatbot only for particular tasks that slow or stop the progress you can make on your own.</p>
 <p>Chatbots respond to user-supplied prompts, which can be anything from “write me a description of different types of fungi in the style of a Jay-Z song” to specific tasks related to coding and data science. As part of a data science workflow, you might use a chatbot to help you write original code to accomplish a specific task, or to help you debug code you’ve already written that is generating an error or an unexpected behavior.</p>
 </section>
 <section id="prompt-engineering-for-generating-new-code">
-<h3><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">1.9.2. </span>Prompt Engineering for Generating New Code</a><a class="headerlink" href="#prompt-engineering-for-generating-new-code" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">1.9.2. </span>Prompt Engineering for Generating New Code</a><a class="headerlink" href="#prompt-engineering-for-generating-new-code" title="Link to this heading">#</a></h3>
 <p>The dream is that we will be able offload the heavy-lift of data wrangling entirely, so that if we simply prompt the chatbot with “please clean this data” it will instantaneously generate code that gives us the clean data we want. But that’s not how chatbots work at present.</p>
 <p>We can use a chatbot to do all the work prior to analysis, but it tends to be a slow process, involving a long conversation with a chatbot to flush out the details of what “clean data” means for your specific application. Think of this process as similar to supervising a hard-working but inexperienced intern at work. You must provide clear enough instructions to enable the intern to give you what you want and you need to check the intern’s work through every iteration of the project. That’s not a fast method! So please think of chatbots as a tool, not a cheat-code, and specifically as a tool that is slower and more difficult to use than knowing the code yourself, reading documentation and error messages, and using Google and Stack Overflow.</p>
 <p>The quickest and most effective method for using a chatbot for data wrangling is to engineer a prompt using these general principles: <strong>Data, Packages, Chunking, Streamline, Knowledge</strong> (or to remember, “Don’t play chess with <a class="reference external" href="https://stephenking.com">Stephen King</a>”).</p>
@@ -801,7 +802,7 @@ can do more things with the given objects than the examples do.</p></li>
 </ul>
 </section>
 <section id="example-data-from-the-world-bank">
-<h3><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">1.9.3. </span>Example: Data from the World Bank</a><a class="headerlink" href="#example-data-from-the-world-bank" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">1.9.3. </span>Example: Data from the World Bank</a><a class="headerlink" href="#example-data-from-the-world-bank" title="Link to this heading">#</a></h3>
 <p>Let’s take as an example the task of wrangling data from the <a class="reference external" href="https://databank.worldbank.org/source/world-development-indicators">World Bank’s World Development Indicators (WDI)</a>. The following data contain information from every country tracked by the World Bank on CO2 emissions, gross domestic product per capita, and population for every year from 2012 through 2022.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -812,225 +813,72 @@ can do more things with the given objects than the examples do.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">worldbank</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;worldbank_data.csv&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">worldbank</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
+<span class="nn">File ~/.pyenv/versions/3.12.5/lib/python3.12/site-packages/pandas/io/parsers/readers.py:1026,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1013</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1014</span>     <span class="n">dialect</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1015</span>     <span class="n">delimiter</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1022</span>     <span class="n">dtype_backend</span><span class="o">=</span><span class="n">dtype_backend</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1023</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1024</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1026</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
 
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Country Name</th>
-      <th>Country Code</th>
-      <th>Series Name</th>
-      <th>Series Code</th>
-      <th>2012 [YR2012]</th>
-      <th>2013 [YR2013]</th>
-      <th>2014 [YR2014]</th>
-      <th>2015 [YR2015]</th>
-      <th>2016 [YR2016]</th>
-      <th>2017 [YR2017]</th>
-      <th>2018 [YR2018]</th>
-      <th>2019 [YR2019]</th>
-      <th>2020 [YR2020]</th>
-      <th>2021 [YR2021]</th>
-      <th>2022 [YR2022]</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>CO2 emissions (kt)</td>
-      <td>EN.ATM.CO2E.KT</td>
-      <td>10208.13</td>
-      <td>9402.05</td>
-      <td>9281.34</td>
-      <td>10057.59</td>
-      <td>9294.93</td>
-      <td>10022.78</td>
-      <td>10972.38</td>
-      <td>11238.83</td>
-      <td>8709.47</td>
-      <td>..</td>
-      <td>..</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>GDP per capita (constant 2015 US$)</td>
-      <td>NY.GDP.PCAP.KD</td>
-      <td>570.676064337005</td>
-      <td>582.103978902877</td>
-      <td>576.487820334782</td>
-      <td>566.881132665072</td>
-      <td>564.920843553397</td>
-      <td>563.488239421983</td>
-      <td>553.973308908649</td>
-      <td>559.140956898688</td>
-      <td>529.144912477888</td>
-      <td>407.616507361737</td>
-      <td>..</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>Population, total</td>
-      <td>SP.POP.TOTL</td>
-      <td>30466479</td>
-      <td>31541209</td>
-      <td>32716210</td>
-      <td>33753499</td>
-      <td>34636207</td>
-      <td>35643418</td>
-      <td>36686784</td>
-      <td>37769499</td>
-      <td>38972230</td>
-      <td>40099462</td>
-      <td>41128771</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>CO2 emissions (kt)</td>
-      <td>EN.ATM.CO2E.KT</td>
-      <td>4541.8</td>
-      <td>4795.4</td>
-      <td>5188</td>
-      <td>4797</td>
-      <td>4573.2</td>
-      <td>5403.7</td>
-      <td>5316.1</td>
-      <td>4993.3</td>
-      <td>4383.2</td>
-      <td>..</td>
-      <td>..</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>GDP per capita (constant 2015 US$)</td>
-      <td>NY.GDP.PCAP.KD</td>
-      <td>3736.34007957648</td>
-      <td>3780.69919254096</td>
-      <td>3855.76074409659</td>
-      <td>3952.80357364813</td>
-      <td>4090.37272829183</td>
-      <td>4249.8200493985</td>
-      <td>4431.55559506989</td>
-      <td>4543.38771048312</td>
-      <td>4418.66087378292</td>
-      <td>4857.11194201819</td>
-      <td>5155.29085964151</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>Population, total</td>
-      <td>SP.POP.TOTL</td>
-      <td>2900401</td>
-      <td>2895092</td>
-      <td>2889104</td>
-      <td>2880703</td>
-      <td>2876101</td>
-      <td>2873457</td>
-      <td>2866376</td>
-      <td>2854191</td>
-      <td>2837849</td>
-      <td>2811666</td>
-      <td>2777689</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>Algeria</td>
-      <td>DZA</td>
-      <td>CO2 emissions (kt)</td>
-      <td>EN.ATM.CO2E.KT</td>
-      <td>134934.2</td>
-      <td>139024.1</td>
-      <td>147735.2</td>
-      <td>156273</td>
-      <td>154654.3</td>
-      <td>157704.4</td>
-      <td>164534.1</td>
-      <td>170582.4</td>
-      <td>161563</td>
-      <td>..</td>
-      <td>..</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Algeria</td>
-      <td>DZA</td>
-      <td>GDP per capita (constant 2015 US$)</td>
-      <td>NY.GDP.PCAP.KD</td>
-      <td>4025.64148367191</td>
-      <td>4057.76480695524</td>
-      <td>4129.42254868204</td>
-      <td>4197.41998491398</td>
-      <td>4246.24217385308</td>
-      <td>4218.0823188856</td>
-      <td>4188.22038483483</td>
-      <td>4153.00345481624</td>
-      <td>3873.50874565769</td>
-      <td>3939.36086434716</td>
-      <td>3999.75769667754</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>Algeria</td>
-      <td>DZA</td>
-      <td>Population, total</td>
-      <td>SP.POP.TOTL</td>
-      <td>37260563</td>
-      <td>38000626</td>
-      <td>38760168</td>
-      <td>39543154</td>
-      <td>40339329</td>
-      <td>41136546</td>
-      <td>41927007</td>
-      <td>42705368</td>
-      <td>43451666</td>
-      <td>44177969</td>
-      <td>44903225</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>American Samoa</td>
-      <td>ASM</td>
-      <td>CO2 emissions (kt)</td>
-      <td>EN.ATM.CO2E.KT</td>
-      <td>..</td>
-      <td>..</td>
-      <td>..</td>
-      <td>..</td>
-      <td>..</td>
-      <td>..</td>
-      <td>..</td>
-      <td>..</td>
-      <td>..</td>
-      <td>..</td>
-      <td>..</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+<span class="nn">File ~/.pyenv/versions/3.12.5/lib/python3.12/site-packages/pandas/io/parsers/readers.py:620,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">617</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">619</span> <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">620</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">622</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">623</span>     <span class="k">return</span> <span class="n">parser</span>
+
+<span class="nn">File ~/.pyenv/versions/3.12.5/lib/python3.12/site-packages/pandas/io/parsers/readers.py:1620,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1617</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1619</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">-&gt; </span><span class="mi">1620</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.12.5/lib/python3.12/site-packages/pandas/io/parsers/readers.py:1880,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, f, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1878</span>     <span class="k">if</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1879</span>         <span class="n">mode</span> <span class="o">+=</span> <span class="s2">&quot;b&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1880</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1881</span>     <span class="n">f</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1882</span>     <span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1883</span>     <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1884</span>     <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1885</span>     <span class="n">memory_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1886</span>     <span class="n">is_text</span><span class="o">=</span><span class="n">is_text</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1887</span>     <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1888</span>     <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1889</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1890</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">1891</span> <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="o">.</span><span class="n">handle</span>
+
+<span class="nn">File ~/.pyenv/versions/3.12.5/lib/python3.12/site-packages/pandas/io/common.py:873,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">868</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">869</span>     <span class="c1"># Check whether the filename is to be opened in binary mode.</span>
+<span class="g g-Whitespace">    </span><span class="mi">870</span>     <span class="c1"># Binary mode does not support &#39;encoding&#39; and &#39;newline&#39;.</span>
+<span class="g g-Whitespace">    </span><span class="mi">871</span>     <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">872</span>         <span class="c1"># Encoding</span>
+<span class="ne">--&gt; </span><span class="mi">873</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">874</span>             <span class="n">handle</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">875</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">876</span>             <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">877</span>             <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">878</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">879</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">880</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">881</span>         <span class="c1"># Binary mode</span>
+<span class="g g-Whitespace">    </span><span class="mi">882</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;worldbank_data.csv&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <p>The particular way in which this dataset has been formatted by the World Bank places the three features in separate rows, and the years in separate columns. In order to conduct an analysis (regressing C02 emissions on GDP per capita and population, for example), I need years in the rows and the features in the columns. I also want to drop Series Code, to give the features in Series Name better code-friendly column names without parentheses or dollar signs, and I want to remove the bracketted labels such as [YR 2012] from the years. These tasks are just a few of the steps necessary to create “clean data” for a statistical model.</p>
 <p>I can use the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> package to do this quickly. But for this example, I will use chatbot prompt engineering exclusively to try to accomplish the same result. I use the free ChatGPT website.</p>
@@ -1172,455 +1020,6 @@ can do more things with the given objects than the examples do.</p></li>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Country Name</th>
-      <th>Country Code</th>
-      <th>Year</th>
-      <th>Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>Series Code</td>
-      <td>EN.ATM.CO2E.KT</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>Series Code</td>
-      <td>NY.GDP.PCAP.KD</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>Series Code</td>
-      <td>SP.POP.TOTL</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>Series Code</td>
-      <td>EN.ATM.CO2E.KT</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>Series Code</td>
-      <td>NY.GDP.PCAP.KD</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2012 [YR2012]</td>
-      <td>10208.13</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2012 [YR2012]</td>
-      <td>570.676064</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2012 [YR2012]</td>
-      <td>30466479.0</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2012 [YR2012]</td>
-      <td>4541.8</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2012 [YR2012]</td>
-      <td>3736.34008</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2013 [YR2013]</td>
-      <td>9402.05</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2013 [YR2013]</td>
-      <td>582.103979</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2013 [YR2013]</td>
-      <td>31541209.0</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2013 [YR2013]</td>
-      <td>4795.4</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2013 [YR2013]</td>
-      <td>3780.699193</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2014 [YR2014]</td>
-      <td>9281.34</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2014 [YR2014]</td>
-      <td>576.48782</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2014 [YR2014]</td>
-      <td>32716210.0</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2014 [YR2014]</td>
-      <td>5188.0</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2014 [YR2014]</td>
-      <td>3855.760744</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2015 [YR2015]</td>
-      <td>10057.59</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2015 [YR2015]</td>
-      <td>566.881133</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2015 [YR2015]</td>
-      <td>33753499.0</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2015 [YR2015]</td>
-      <td>4797.0</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2015 [YR2015]</td>
-      <td>3952.803574</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2016 [YR2016]</td>
-      <td>9294.93</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2016 [YR2016]</td>
-      <td>564.920844</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2016 [YR2016]</td>
-      <td>34636207.0</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2016 [YR2016]</td>
-      <td>4573.2</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2016 [YR2016]</td>
-      <td>4090.372728</td>
-    </tr>
-    <tr>
-      <th>30</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2017 [YR2017]</td>
-      <td>10022.78</td>
-    </tr>
-    <tr>
-      <th>31</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2017 [YR2017]</td>
-      <td>563.488239</td>
-    </tr>
-    <tr>
-      <th>32</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2017 [YR2017]</td>
-      <td>35643418.0</td>
-    </tr>
-    <tr>
-      <th>33</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2017 [YR2017]</td>
-      <td>5403.7</td>
-    </tr>
-    <tr>
-      <th>34</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2017 [YR2017]</td>
-      <td>4249.820049</td>
-    </tr>
-    <tr>
-      <th>35</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2018 [YR2018]</td>
-      <td>10972.38</td>
-    </tr>
-    <tr>
-      <th>36</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2018 [YR2018]</td>
-      <td>553.973309</td>
-    </tr>
-    <tr>
-      <th>37</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2018 [YR2018]</td>
-      <td>36686784.0</td>
-    </tr>
-    <tr>
-      <th>38</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2018 [YR2018]</td>
-      <td>5316.1</td>
-    </tr>
-    <tr>
-      <th>39</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2018 [YR2018]</td>
-      <td>4431.555595</td>
-    </tr>
-    <tr>
-      <th>40</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2019 [YR2019]</td>
-      <td>11238.83</td>
-    </tr>
-    <tr>
-      <th>41</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2019 [YR2019]</td>
-      <td>559.140957</td>
-    </tr>
-    <tr>
-      <th>42</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2019 [YR2019]</td>
-      <td>37769499.0</td>
-    </tr>
-    <tr>
-      <th>43</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2019 [YR2019]</td>
-      <td>4993.3</td>
-    </tr>
-    <tr>
-      <th>44</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2019 [YR2019]</td>
-      <td>4543.38771</td>
-    </tr>
-    <tr>
-      <th>45</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2020 [YR2020]</td>
-      <td>8709.47</td>
-    </tr>
-    <tr>
-      <th>46</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2020 [YR2020]</td>
-      <td>529.144912</td>
-    </tr>
-    <tr>
-      <th>47</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2020 [YR2020]</td>
-      <td>38972230.0</td>
-    </tr>
-    <tr>
-      <th>48</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2020 [YR2020]</td>
-      <td>4383.2</td>
-    </tr>
-    <tr>
-      <th>49</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2020 [YR2020]</td>
-      <td>4418.660874</td>
-    </tr>
-    <tr>
-      <th>50</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2021 [YR2021]</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>51</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2021 [YR2021]</td>
-      <td>407.616507</td>
-    </tr>
-    <tr>
-      <th>52</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2021 [YR2021]</td>
-      <td>40099462.0</td>
-    </tr>
-    <tr>
-      <th>53</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2021 [YR2021]</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>54</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2021 [YR2021]</td>
-      <td>4857.111942</td>
-    </tr>
-    <tr>
-      <th>55</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2022 [YR2022]</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>56</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2022 [YR2022]</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>57</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2022 [YR2022]</td>
-      <td>41128771.0</td>
-    </tr>
-    <tr>
-      <th>58</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2022 [YR2022]</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>59</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2022 [YR2022]</td>
-      <td>5155.29086</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>This code includes a line to convert all columns that begin with “20” to numeric using <code class="docutils literal notranslate"><span class="pre">df.iloc[:,</span> <span class="pre">4:]</span> <span class="pre">=</span> <span class="pre">df.iloc[:,</span> <span class="pre">4:].apply(pd.to_numeric,</span> <span class="pre">errors='coerce')</span></code> before pivoting the DataFrame.</p>
 <hr class="docutils" />
@@ -1670,235 +1069,6 @@ can do more things with the given objects than the examples do.</p></li>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>Series Name</th>
-      <th>Country Name</th>
-      <th>Country Code</th>
-      <th>Year</th>
-      <th>CO2 emissions (kt)</th>
-      <th>GDP per capita (constant 2015 US$)</th>
-      <th>Population, total</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2012 [YR2012]</td>
-      <td>10208.13</td>
-      <td>570.676064</td>
-      <td>30466479.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2013 [YR2013]</td>
-      <td>9402.05</td>
-      <td>582.103979</td>
-      <td>31541209.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2014 [YR2014]</td>
-      <td>9281.34</td>
-      <td>576.48782</td>
-      <td>32716210.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2015 [YR2015]</td>
-      <td>10057.59</td>
-      <td>566.881133</td>
-      <td>33753499.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2016 [YR2016]</td>
-      <td>9294.93</td>
-      <td>564.920844</td>
-      <td>34636207.0</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2017 [YR2017]</td>
-      <td>10022.78</td>
-      <td>563.488239</td>
-      <td>35643418.0</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2018 [YR2018]</td>
-      <td>10972.38</td>
-      <td>553.973309</td>
-      <td>36686784.0</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2019 [YR2019]</td>
-      <td>11238.83</td>
-      <td>559.140957</td>
-      <td>37769499.0</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2020 [YR2020]</td>
-      <td>8709.47</td>
-      <td>529.144912</td>
-      <td>38972230.0</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2021 [YR2021]</td>
-      <td>NaN</td>
-      <td>407.616507</td>
-      <td>40099462.0</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>Afghanistan</td>
-      <td>AFG</td>
-      <td>2022 [YR2022]</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>41128771.0</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2012 [YR2012]</td>
-      <td>4541.8</td>
-      <td>3736.34008</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2013 [YR2013]</td>
-      <td>4795.4</td>
-      <td>3780.699193</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2014 [YR2014]</td>
-      <td>5188.0</td>
-      <td>3855.760744</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2015 [YR2015]</td>
-      <td>4797.0</td>
-      <td>3952.803574</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2016 [YR2016]</td>
-      <td>4573.2</td>
-      <td>4090.372728</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2017 [YR2017]</td>
-      <td>5403.7</td>
-      <td>4249.820049</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2018 [YR2018]</td>
-      <td>5316.1</td>
-      <td>4431.555595</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2019 [YR2019]</td>
-      <td>4993.3</td>
-      <td>4543.38771</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2020 [YR2020]</td>
-      <td>4383.2</td>
-      <td>4418.660874</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2021 [YR2021]</td>
-      <td>NaN</td>
-      <td>4857.111942</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2022 [YR2022]</td>
-      <td>NaN</td>
-      <td>5155.29086</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>This code first melts the DataFrame and then pivots it again to have separate columns for each ‘Series Name’. The ‘Series Code’ column is dropped before melting.</p>
 <hr class="docutils" />
@@ -1906,7 +1076,7 @@ can do more things with the given objects than the examples do.</p></li>
 <p>In short, the process of using the chatbot exclusively for data wrangling is slow and prone to error. But chatbots will improve in their coding ability in the future. Effective prompting is a useful skill worth practicing.</p>
 </section>
 <section id="prompt-engineering-for-debugging-or-explaining-existing-code">
-<h3><a class="toc-backref" href="#id18" role="doc-backlink"><span class="section-number">1.9.4. </span>Prompt Engineering for Debugging or Explaining Existing Code</a><a class="headerlink" href="#prompt-engineering-for-debugging-or-explaining-existing-code" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id18" role="doc-backlink"><span class="section-number">1.9.4. </span>Prompt Engineering for Debugging or Explaining Existing Code</a><a class="headerlink" href="#prompt-engineering-for-debugging-or-explaining-existing-code" title="Link to this heading">#</a></h3>
 <p>Another use for chatbots in a data wrangling workflow is to debug or explain code. For debugging, the key is to isolate the code that generates the error and to supply the error message. That said, the chatbot’s interpretation may be right or wrong for your specific case, the same as any post on Stack Overflow. The purpose of using a chatbot to work through errors is not to fix the code, exactly, but rather to shed some light on what is causing the error so that you can fix it yourself.</p>
 <p>For example, the chatbot’s response to the first prompt we issued in the previous section yielded an error. I can pass the code and the important line in the error message to see what the chatbot says.</p>
 <p><strong>Prompt:</strong></p>
@@ -2105,16 +1275,16 @@ can do more things with the given objects than the examples do.</p></li>
 </section>
 <hr class="docutils" />
 <section id="method-6-interacting-with-the-global-community-of-python-users">
-<h2><a class="toc-backref" href="#id19" role="doc-backlink"><span class="section-number">1.10. </span>Method 6: Interacting with the Global Community of Python Users</a><a class="headerlink" href="#method-6-interacting-with-the-global-community-of-python-users" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id19" role="doc-backlink"><span class="section-number">1.10. </span>Method 6: Interacting with the Global Community of Python Users</a><a class="headerlink" href="#method-6-interacting-with-the-global-community-of-python-users" title="Link to this heading">#</a></h2>
 <section id="python-slack-and-discord">
-<h3><a class="toc-backref" href="#id20" role="doc-backlink"><span class="section-number">1.10.1. </span>Python Slack and Discord</a><a class="headerlink" href="#python-slack-and-discord" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id20" role="doc-backlink"><span class="section-number">1.10.1. </span>Python Slack and Discord</a><a class="headerlink" href="#python-slack-and-discord" title="Link to this heading">#</a></h3>
 <p>Slack and Discord are both platforms for groups of people to chat with each other, post to shared message boards for specific topics, share files, and hold meetings.</p>
 <p>The main slack page for the global community of Python users is <strong>Pyslackers</strong>: <a class="reference external" href="https://pyslackers.com/web">https://pyslackers.com/web</a>. To join, just go to the URL and click “join the community”. The main discussion happens on #python_, but there are many other useful channels including #data_science and #job_advice. This method is especially worthwhile if you already are used to using slack for work or for personal networking.</p>
 <p><strong>Python Discord</strong> (<a class="reference external" href="https://www.pythondiscord.com/">https://www.pythondiscord.com/</a>) is similar to PySlackers but seems to be more focused on organizing shared Python projects and posting the code on GitHub. To join, click the “join us” link in the upper-right corner of their homepage.</p>
 <p>One thing that helped me use Slack and Discord much more consistently is downloading the desktop app for Slack (<a class="reference external" href="https://slack.com/downloads">https://slack.com/downloads</a>) and for Discord (<a class="reference external" href="https://discord.com/download">https://discord.com/download</a>), and always leaving the apps open on my local computer so that I see messages right away when they are sent to me.</p>
 </section>
 <section id="live-chats-with-python-users-on-freenode">
-<h3><a class="toc-backref" href="#id21" role="doc-backlink"><span class="section-number">1.10.2. </span>Live Chats With Python Users on Freenode</a><a class="headerlink" href="#live-chats-with-python-users-on-freenode" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id21" role="doc-backlink"><span class="section-number">1.10.2. </span>Live Chats With Python Users on Freenode</a><a class="headerlink" href="#live-chats-with-python-users-on-freenode" title="Link to this heading">#</a></h3>
 <p>The Python user community is world-wide, and for the most part, very supportive. There are active internet relay chat (IRC) networks where you can post a question to members who are also logged in, to possibly get an answer right away. The most active Python IRC is the #python channel on Freenode: <a class="reference external" href="https://webchat.freenode.net">https://webchat.freenode.net</a>. When I logged in while writing this notebook, there were 1,778 people logged on.</p>
 <p>Internet chatrooms can be rough places, but the #python channel claims to enforce this <a class="reference external" href="https://www.python.org/psf/codeofconduct/">Code of Conduct</a>. Getting started on Freenode can be tricky, but it’s easier if you follow these steps:</p>
 <ol class="arabic simple">
@@ -2152,7 +1322,7 @@ can do more things with the given objects than the examples do.</p></li>
 </ol>
 </section>
 <section id="python-mailing-lists-and-newsgroups">
-<h3><a class="toc-backref" href="#id22" role="doc-backlink"><span class="section-number">1.10.3. </span>Python Mailing Lists and Newsgroups</a><a class="headerlink" href="#python-mailing-lists-and-newsgroups" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id22" role="doc-backlink"><span class="section-number">1.10.3. </span>Python Mailing Lists and Newsgroups</a><a class="headerlink" href="#python-mailing-lists-and-newsgroups" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Usenet">Usenet</a> is a distributed discussion system (which means it has no central server). It was invented in 1979, and is still in use today. The Python Usenet message boards are at <a class="reference external" href="https://mail.python.org/archives/?sort=popular">https://mail.python.org/archives/?sort=popular</a>. The <code class="docutils literal notranslate"><span class="pre">comp.lang.python</span></code> board is for general discussions and questions about Python.</p>
 <p>The tutor mailing list (<a class="reference external" href="https://mail.python.org/mailman/listinfo/tutor">https://mail.python.org/mailman/listinfo/tutor</a>) is for users who want to ask questions about learning computer programming with Python.</p>
 <p>If you have a question for the Python core development team, send an email to <a class="reference external" href="mailto:help&#37;&#52;&#48;python&#46;org">help<span>&#64;</span>python<span>&#46;</span>org</a>. The team is pretty busy, so be sure to check other resources and lists for an answer first.</p>
@@ -2187,7 +1357,7 @@ can do more things with the given objects than the examples do.</p></li>
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -2215,7 +1385,9 @@ can do more things with the given objects than the examples do.</p></li>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -2300,8 +1472,8 @@ By Jonathan Kropko (jkropko@virginia.edu)
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

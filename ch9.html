@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>9. Reshaping and Merging Data and Working with Strings, Dates, and Times &#8212; Surfing the Data Pipeline with Python</title>
   
@@ -15,53 +14,52 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ch9';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -69,6 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="8. Data Wrangling with pandas" href="ch8.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -76,32 +75,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -109,7 +92,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -117,16 +99,25 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -141,6 +132,8 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="intro.html">
   
@@ -154,11 +147,18 @@ const thebe_selector_output = ".output, .cell_output"
     
     
     <img src="_static/surf.jpg" class="logo__image only-light" alt="Surfing the Data Pipeline with Python - Home"/>
-    <script>document.write(`<img src="_static/surf.jpg" class="logo__image only-dark" alt="Surfing the Data Pipeline with Python - Home"/>`);</script>
+    <img src="_static/surf.jpg" class="logo__image only-dark pst-js-only" alt="Surfing the Data Pipeline with Python - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -192,6 +192,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="ch11.html">11. Static Data Visualizations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch12.html">12. Interactive Data Visualizations and Dashboards</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Virtual Environments and Containers</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -199,14 +203,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -215,14 +224,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -298,27 +307,19 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -371,10 +372,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="reshaping-and-merging-data-and-working-with-strings-dates-and-times">
-<h1><a class="toc-backref" href="#id1" role="doc-backlink"><span class="section-number">9. </span>Reshaping and Merging Data and Working with Strings, Dates, and Times</a><a class="headerlink" href="#reshaping-and-merging-data-and-working-with-strings-dates-and-times" title="Permalink to this heading">#</a></h1>
+<h1><a class="toc-backref" href="#id1" role="doc-backlink"><span class="section-number">9. </span>Reshaping and Merging Data and Working with Strings, Dates, and Times</a><a class="headerlink" href="#reshaping-and-merging-data-and-working-with-strings-dates-and-times" title="Link to this heading">#</a></h1>
 <nav class="contents" id="table-of-contents">
 <p class="topic-title">Table of Contents</p>
 <ul class="simple">
@@ -414,7 +415,7 @@ document.write(`
 <a href="https://xkcd.com/1409/"><img src="https://i.imgflip.com/45ymyw.jpg" width="300"></a>
 </div>
 <section id="introduction-pandas-or-sql">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">9.1. </span>Introduction: <code class="docutils literal notranslate"><span class="pre">pandas</span></code> or SQL?</a><a class="headerlink" href="#introduction-pandas-or-sql" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">9.1. </span>Introduction: <code class="docutils literal notranslate"><span class="pre">pandas</span></code> or SQL?</a><a class="headerlink" href="#introduction-pandas-or-sql" title="Link to this heading">#</a></h2>
 <p>As we saw in module 7, read operations in SQL not only extract data from a database, but they can select and rename columns, filter and sort rows, join tables, and aggregate data. With <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, we can also select and rename columns, filter and sort rows, join tables, and aggregate data. So the question is, should we be using SQL or <code class="docutils literal notranslate"><span class="pre">pandas</span></code> to perform all these data manipulation steps?</p>
 <p>SQL is sometimes referred to as <strong>server-side</strong> data manipulation, because databases are often stored on remote servers and SQL queries are processed on the server instead on on a local machine. Data manipulation that is conducted using <code class="docutils literal notranslate"><span class="pre">pandas</span></code> on a local Python installation is called <strong>client-side</strong> data manipulation.</p>
 <p>The question of SQL vs. <code class="docutils literal notranslate"><span class="pre">pandas</span></code> (or SQL vs. the tidyverse in R) is the subject of a lot of debate among professionals who use data. The question <a class="reference external" href="https://www.quora.com/In-what-situations-should-you-use-SQL-instead-of-Pandas-as-a-data-scientist">comes up</a> <a class="reference external" href="https://towardsdatascience.com/sql-and-pandas-268f634a4f5d">frequently</a> on <a class="reference external" href="https://www.reddit.com/r/Python/comments/1tqjt4/why_do_you_use_pandas_instead_of_sql/">various</a> <a class="reference external" href="https://datascience.stackexchange.com/questions/34357/why-do-people-prefer-pandas-to-sql">coding forums</a>. Some <a class="reference external" href="https://blog.thedataincubator.com/2018/05/sqlite-vs-pandas-performance-benchmarks/">blog posts</a> have tried to compare SQL and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> in terms of the <a class="reference external" href="https://wesmckinney.com/blog/high-performance-database-joins-with-pandas-dataframe-more-benchmarks/">speed</a> with which they complete equivalent operations, with differing results. <a class="reference external" href="https://medium.com/carwow-product-engineering/sql-vs-pandas-how-to-balance-tasks-between-server-and-client-side-9e2f6c95677">Tina Wenzel and Kavya Gupta</a> note that many factors influence the relative speed of SQL and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> operations, including the configuration of a PostgreSQL database and the bandwidth available in a network connection. They take the mixed evidence into account and conclude that</p>
@@ -430,7 +431,7 @@ document.write(`
 <p>For now, we need to practice both <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and SQL and get comfortable with these tools, and we need to be flexible in the future as different situations will call for SQL or <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
 </section>
 <section id="joining-dataframes">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">9.2. </span>Joining Dataframes</a><a class="headerlink" href="#joining-dataframes" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">9.2. </span>Joining Dataframes</a><a class="headerlink" href="#joining-dataframes" title="Link to this heading">#</a></h2>
 <p>Joining dataframes is also called merging dataframes, and I will use the words “join” and “merge” interchangeably below. Every kind of merge that is possible in SQL is possible in <code class="docutils literal notranslate"><span class="pre">pandas</span></code>: inner, outer, left, right, natural, cross, and anti-joins. One important difference between joining in SQL and merging in <code class="docutils literal notranslate"><span class="pre">pandas</span></code> is that dataframes might not be as carefully curated as data tables in a relational database, and we should not assume that the join worked properly even if there is no error. Primary keys might not uniquely identify rows in general, and joins might turn into cross joins. Some of values of keys that should match might not match due to differences in coding and spelling. And if we attempt a natural join, the wrong columns might be automatically selected as the keys.</p>
 <p>Too many discussions of merging data provide clean examples. Here I will show you how merging works when the data contain some common problems that may invalidate the merge. In the following discussion, we will discuss how to perform merges in <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, and also how to check that the merge worked in the way we want to.</p>
 <p>First, for the following examples, we load these packages:</p>
@@ -443,7 +444,7 @@ document.write(`
 </div>
 </div>
 <section id="example-merging-data-on-u-s-state-election-results-income-economies-and-area">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">9.2.1. </span>Example: Merging Data on U.S. State Election Results, Income, Economies, and Area</a><a class="headerlink" href="#example-merging-data-on-u-s-state-election-results-income-economies-and-area" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">9.2.1. </span>Example: Merging Data on U.S. State Election Results, Income, Economies, and Area</a><a class="headerlink" href="#example-merging-data-on-u-s-state-election-results-income-economies-and-area" title="Link to this heading">#</a></h3>
 <p>The “state_elections.csv” file contains information about the result of presidential elections by state for every presidential election between 1964 and 2004. In this dataset, the primary keys are <code class="docutils literal notranslate"><span class="pre">State</span></code> and <code class="docutils literal notranslate"><span class="pre">year</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1060,7 +1061,7 @@ document.write(`
 <p>Our goal is to merge all five of these datasets together.</p>
 </section>
 <section id="using-the-pd-merge-function">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">9.2.2. </span>Using the <code class="docutils literal notranslate"><span class="pre">pd.merge()</span></code> Function</a><a class="headerlink" href="#using-the-pd-merge-function" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">9.2.2. </span>Using the <code class="docutils literal notranslate"><span class="pre">pd.merge()</span></code> Function</a><a class="headerlink" href="#using-the-pd-merge-function" title="Link to this heading">#</a></h3>
 <p>When using a crosswalk to merge dataframes together, the first step is to merge a dataframe with the crosswalk. Here we start by joining the <code class="docutils literal notranslate"><span class="pre">elect</span></code> and <code class="docutils literal notranslate"><span class="pre">crosswalk</span></code> dataframes together. To join dataframes, we use the <code class="docutils literal notranslate"><span class="pre">pd.merge()</span></code> function. The following code works:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1467,7 +1468,7 @@ document.write(`
 </div>
 </section>
 <section id="checking-for-problems-that-can-occur-without-errors">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">9.2.3. </span>Checking for Problems That Can Occur Without Errors</a><a class="headerlink" href="#checking-for-problems-that-can-occur-without-errors" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">9.2.3. </span>Checking for Problems That Can Occur Without Errors</a><a class="headerlink" href="#checking-for-problems-that-can-occur-without-errors" title="Link to this heading">#</a></h3>
 <p>Whenever we apply <code class="docutils literal notranslate"><span class="pre">pd.merge()</span></code>, there’s a great risk that the merge was incorrect even if the function runs without error. There are two ways that a merge can fail.</p>
 <p><strong>Problem 1:</strong> what we <em>thought</em> was a unique ID was not a unique ID.</p>
 <p>If we merge two dataframes on a column (or set of columns) that fail to uniquely identify the rows in either dataframe, then <code class="docutils literal notranslate"><span class="pre">pd.merge()</span></code> returns all pairwise combinations of rows with matching IDs. To see this, consider the following two example dataframes:</p>
@@ -1943,7 +1944,7 @@ document.write(`
 </div>
 </section>
 <section id="merging-all-of-the-dataframes-together-while-checking-for-problems">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">9.2.4. </span>Merging all of the Dataframes Together While Checking for Problems</a><a class="headerlink" href="#merging-all-of-the-dataframes-together-while-checking-for-problems" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">9.2.4. </span>Merging all of the Dataframes Together While Checking for Problems</a><a class="headerlink" href="#merging-all-of-the-dataframes-together-while-checking-for-problems" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">merged_data</span></code> and <code class="docutils literal notranslate"><span class="pre">income</span></code> dataframes share keys named <code class="docutils literal notranslate"><span class="pre">stcode</span></code> and <code class="docutils literal notranslate"><span class="pre">year</span></code>. Joining these two dataframes should be a one-to-one merge because there should be only one occurrence of the same state and year in each dataframe. We use <code class="docutils literal notranslate"><span class="pre">how='outer'</span></code> and <code class="docutils literal notranslate"><span class="pre">indicator='matched'</span></code> (since we deleted the previous <code class="docutils literal notranslate"><span class="pre">matched</span></code> column) to enable us to filter the result to the unmatched rows, and we use <code class="docutils literal notranslate"><span class="pre">validate='one_to_one'</span></code> to catch anomolies that violate our expectation that this is a one-to-one merge:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2052,122 +2053,122 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>Alabama</td>
+      <td>Alaska</td>
       <td>1964</td>
-      <td>210732</td>
-      <td>479085</td>
+      <td>44329</td>
+      <td>22930</td>
       <td>0</td>
-      <td>30.54897</td>
-      <td>69.45103</td>
-      <td>1919000</td>
-      <td>1</td>
-      <td>AL</td>
+      <td>65.90791</td>
+      <td>34.09209</td>
+      <td>153000</td>
+      <td>2</td>
+      <td>AK</td>
       <td>...</td>
-      <td>11400.0</td>
-      <td>58.139530</td>
-      <td>72674.42</td>
-      <td>1796.89</td>
-      <td>29.53152</td>
-      <td>0.473738</td>
-      <td>175.0</td>
-      <td>418494.1</td>
-      <td>76.68081</td>
+      <td>27625.7</td>
+      <td>1441.860000</td>
+      <td>68668.60</td>
+      <td>3005.62</td>
+      <td>25.21898</td>
+      <td>0.370267</td>
+      <td>18.0</td>
+      <td>47161.85</td>
+      <td>219.84590</td>
       <td>both</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Alabama</td>
+      <td>Alaska</td>
       <td>1968</td>
-      <td>196579</td>
-      <td>146923</td>
-      <td>691425</td>
-      <td>18.99448</td>
-      <td>81.00552</td>
-      <td>1993000</td>
-      <td>1</td>
-      <td>AL</td>
+      <td>35411</td>
+      <td>37600</td>
+      <td>10024</td>
+      <td>42.64587</td>
+      <td>57.35413</td>
+      <td>166000</td>
+      <td>2</td>
+      <td>AK</td>
       <td>...</td>
-      <td>12005.3</td>
+      <td>21146.5</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>1968.78</td>
-      <td>27.40979</td>
-      <td>0.485090</td>
+      <td>2543.43</td>
+      <td>33.65396</td>
+      <td>0.451380</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>80.72643</td>
+      <td>153.35230</td>
       <td>both</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Alabama</td>
+      <td>Alaska</td>
       <td>1972</td>
-      <td>256923</td>
-      <td>728701</td>
+      <td>32967</td>
+      <td>55349</td>
       <td>0</td>
-      <td>26.06704</td>
-      <td>73.93296</td>
-      <td>3540080</td>
-      <td>1</td>
-      <td>AL</td>
+      <td>37.32846</td>
+      <td>62.67154</td>
+      <td>326494</td>
+      <td>2</td>
+      <td>AK</td>
       <td>...</td>
-      <td>14667.9</td>
+      <td>24690.5</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>8604.25</td>
-      <td>17.83577</td>
-      <td>0.457932</td>
+      <td>12575.30</td>
+      <td>21.90015</td>
+      <td>0.456007</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>82.27975</td>
+      <td>139.77930</td>
       <td>both</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Alabama</td>
+      <td>Alaska</td>
       <td>1976</td>
-      <td>659170</td>
-      <td>504070</td>
+      <td>44058</td>
+      <td>71555</td>
       <td>0</td>
-      <td>56.66673</td>
-      <td>43.33327</td>
-      <td>3737204</td>
-      <td>1</td>
-      <td>AL</td>
+      <td>38.10817</td>
+      <td>61.89183</td>
+      <td>393115</td>
+      <td>2</td>
+      <td>AK</td>
       <td>...</td>
-      <td>15362.5</td>
+      <td>24273.8</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>12842.20</td>
-      <td>15.77765</td>
-      <td>0.454074</td>
+      <td>14821.10</td>
+      <td>22.49940</td>
+      <td>0.471481</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>60.07215</td>
+      <td>101.17590</td>
       <td>both</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Alabama</td>
+      <td>Alaska</td>
       <td>1980</td>
-      <td>636730</td>
-      <td>654192</td>
+      <td>41842</td>
+      <td>86112</td>
       <td>0</td>
-      <td>49.32366</td>
-      <td>50.67634</td>
-      <td>3894025</td>
-      <td>1</td>
-      <td>AL</td>
+      <td>32.70081</td>
+      <td>67.29919</td>
+      <td>401851</td>
+      <td>2</td>
+      <td>AK</td>
       <td>...</td>
-      <td>14804.2</td>
-      <td>28.384280</td>
-      <td>120196.50</td>
-      <td>5944.71</td>
-      <td>14.52640</td>
-      <td>0.436961</td>
-      <td>543.0</td>
-      <td>711278.2</td>
-      <td>41.72882</td>
+      <td>22100.6</td>
+      <td>43.668120</td>
+      <td>109347.20</td>
+      <td>9263.80</td>
+      <td>25.48564</td>
+      <td>0.497012</td>
+      <td>522.0</td>
+      <td>93897.68</td>
+      <td>68.85219</td>
       <td>both</td>
     </tr>
     <tr>
@@ -2214,7 +2215,7 @@ document.write(`
       <td>23.54822</td>
       <td>0.478940</td>
       <td>318.0</td>
-      <td>110956.1</td>
+      <td>110956.10</td>
       <td>36.63389</td>
       <td>both</td>
     </tr>
@@ -2238,7 +2239,7 @@ document.write(`
       <td>21.14388</td>
       <td>0.469024</td>
       <td>360.0</td>
-      <td>117688.6</td>
+      <td>117688.60</td>
       <td>30.10564</td>
       <td>both</td>
     </tr>
@@ -2262,7 +2263,7 @@ document.write(`
       <td>22.74368</td>
       <td>0.461693</td>
       <td>413.0</td>
-      <td>125222.3</td>
+      <td>125222.30</td>
       <td>26.93395</td>
       <td>both</td>
     </tr>
@@ -2286,7 +2287,7 @@ document.write(`
       <td>15.30497</td>
       <td>0.447124</td>
       <td>440.0</td>
-      <td>128753.9</td>
+      <td>128753.90</td>
       <td>26.05026</td>
       <td>both</td>
     </tr>
@@ -2310,7 +2311,7 @@ document.write(`
       <td>11.33138</td>
       <td>0.432011</td>
       <td>692.0</td>
-      <td>123164.1</td>
+      <td>123164.10</td>
       <td>24.74094</td>
       <td>both</td>
     </tr>
@@ -2749,128 +2750,128 @@ document.write(`
   </thead>
   <tbody>
     <tr>
-      <th>77</th>
-      <td>D. C.</td>
-      <td>NaN</td>
-      <td>1964.0</td>
-      <td>left_only</td>
-    </tr>
-    <tr>
-      <th>78</th>
-      <td>D. C.</td>
-      <td>NaN</td>
-      <td>1968.0</td>
-      <td>left_only</td>
-    </tr>
-    <tr>
-      <th>79</th>
-      <td>D. C.</td>
-      <td>NaN</td>
-      <td>1972.0</td>
-      <td>left_only</td>
-    </tr>
-    <tr>
-      <th>80</th>
-      <td>D. C.</td>
-      <td>NaN</td>
-      <td>1976.0</td>
-      <td>left_only</td>
-    </tr>
-    <tr>
-      <th>81</th>
-      <td>D. C.</td>
-      <td>NaN</td>
-      <td>1980.0</td>
-      <td>left_only</td>
-    </tr>
-    <tr>
-      <th>82</th>
-      <td>D. C.</td>
-      <td>NaN</td>
-      <td>1984.0</td>
-      <td>left_only</td>
-    </tr>
-    <tr>
-      <th>83</th>
-      <td>D. C.</td>
-      <td>NaN</td>
-      <td>1988.0</td>
-      <td>left_only</td>
-    </tr>
-    <tr>
-      <th>84</th>
-      <td>D. C.</td>
-      <td>NaN</td>
-      <td>1992.0</td>
-      <td>left_only</td>
-    </tr>
-    <tr>
-      <th>85</th>
-      <td>D. C.</td>
-      <td>NaN</td>
-      <td>1996.0</td>
-      <td>left_only</td>
-    </tr>
-    <tr>
-      <th>86</th>
-      <td>D. C.</td>
-      <td>NaN</td>
-      <td>2000.0</td>
-      <td>left_only</td>
-    </tr>
-    <tr>
-      <th>87</th>
-      <td>D. C.</td>
-      <td>NaN</td>
-      <td>2004.0</td>
-      <td>left_only</td>
-    </tr>
-    <tr>
-      <th>561</th>
-      <td>NaN</td>
-      <td>District of Columbia</td>
-      <td>NaN</td>
-      <td>right_only</td>
-    </tr>
-    <tr>
-      <th>562</th>
-      <td>NaN</td>
-      <td>Puerto Rico</td>
-      <td>NaN</td>
-      <td>right_only</td>
-    </tr>
-    <tr>
-      <th>563</th>
-      <td>NaN</td>
-      <td>Northern Mariana Islands</td>
-      <td>NaN</td>
-      <td>right_only</td>
-    </tr>
-    <tr>
-      <th>564</th>
-      <td>NaN</td>
-      <td>United States Virgin Islands</td>
-      <td>NaN</td>
-      <td>right_only</td>
-    </tr>
-    <tr>
-      <th>565</th>
+      <th>22</th>
       <td>NaN</td>
       <td>American Samoa</td>
       <td>NaN</td>
       <td>right_only</td>
     </tr>
     <tr>
-      <th>566</th>
+      <th>78</th>
+      <td>D. C.</td>
+      <td>NaN</td>
+      <td>1964.0</td>
+      <td>left_only</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>D. C.</td>
+      <td>NaN</td>
+      <td>1968.0</td>
+      <td>left_only</td>
+    </tr>
+    <tr>
+      <th>80</th>
+      <td>D. C.</td>
+      <td>NaN</td>
+      <td>1972.0</td>
+      <td>left_only</td>
+    </tr>
+    <tr>
+      <th>81</th>
+      <td>D. C.</td>
+      <td>NaN</td>
+      <td>1976.0</td>
+      <td>left_only</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>D. C.</td>
+      <td>NaN</td>
+      <td>1980.0</td>
+      <td>left_only</td>
+    </tr>
+    <tr>
+      <th>83</th>
+      <td>D. C.</td>
+      <td>NaN</td>
+      <td>1984.0</td>
+      <td>left_only</td>
+    </tr>
+    <tr>
+      <th>84</th>
+      <td>D. C.</td>
+      <td>NaN</td>
+      <td>1988.0</td>
+      <td>left_only</td>
+    </tr>
+    <tr>
+      <th>85</th>
+      <td>D. C.</td>
+      <td>NaN</td>
+      <td>1992.0</td>
+      <td>left_only</td>
+    </tr>
+    <tr>
+      <th>86</th>
+      <td>D. C.</td>
+      <td>NaN</td>
+      <td>1996.0</td>
+      <td>left_only</td>
+    </tr>
+    <tr>
+      <th>87</th>
+      <td>D. C.</td>
+      <td>NaN</td>
+      <td>2000.0</td>
+      <td>left_only</td>
+    </tr>
+    <tr>
+      <th>88</th>
+      <td>D. C.</td>
+      <td>NaN</td>
+      <td>2004.0</td>
+      <td>left_only</td>
+    </tr>
+    <tr>
+      <th>100</th>
+      <td>NaN</td>
+      <td>District of Columbia</td>
+      <td>NaN</td>
+      <td>right_only</td>
+    </tr>
+    <tr>
+      <th>123</th>
       <td>NaN</td>
       <td>Guam</td>
       <td>NaN</td>
       <td>right_only</td>
     </tr>
     <tr>
-      <th>567</th>
+      <th>388</th>
+      <td>NaN</td>
+      <td>Northern Mariana Islands</td>
+      <td>NaN</td>
+      <td>right_only</td>
+    </tr>
+    <tr>
+      <th>433</th>
+      <td>NaN</td>
+      <td>Puerto Rico</td>
+      <td>NaN</td>
+      <td>right_only</td>
+    </tr>
+    <tr>
+      <th>489</th>
       <td>NaN</td>
       <td>United States Minor Outlying Islands</td>
+      <td>NaN</td>
+      <td>right_only</td>
+    </tr>
+    <tr>
+      <th>490</th>
+      <td>NaN</td>
+      <td>United States Virgin Islands</td>
       <td>NaN</td>
       <td>right_only</td>
     </tr>
@@ -2921,44 +2922,44 @@ document.write(`
   </thead>
   <tbody>
     <tr>
-      <th>561</th>
-      <td>NaN</td>
-      <td>Puerto Rico</td>
-      <td>NaN</td>
-      <td>right_only</td>
-    </tr>
-    <tr>
-      <th>562</th>
-      <td>NaN</td>
-      <td>Northern Mariana Islands</td>
-      <td>NaN</td>
-      <td>right_only</td>
-    </tr>
-    <tr>
-      <th>563</th>
-      <td>NaN</td>
-      <td>United States Virgin Islands</td>
-      <td>NaN</td>
-      <td>right_only</td>
-    </tr>
-    <tr>
-      <th>564</th>
+      <th>22</th>
       <td>NaN</td>
       <td>American Samoa</td>
       <td>NaN</td>
       <td>right_only</td>
     </tr>
     <tr>
-      <th>565</th>
+      <th>122</th>
       <td>NaN</td>
       <td>Guam</td>
       <td>NaN</td>
       <td>right_only</td>
     </tr>
     <tr>
-      <th>566</th>
+      <th>387</th>
+      <td>NaN</td>
+      <td>Northern Mariana Islands</td>
+      <td>NaN</td>
+      <td>right_only</td>
+    </tr>
+    <tr>
+      <th>432</th>
+      <td>NaN</td>
+      <td>Puerto Rico</td>
+      <td>NaN</td>
+      <td>right_only</td>
+    </tr>
+    <tr>
+      <th>488</th>
       <td>NaN</td>
       <td>United States Minor Outlying Islands</td>
+      <td>NaN</td>
+      <td>right_only</td>
+    </tr>
+    <tr>
+      <th>489</th>
+      <td>NaN</td>
+      <td>United States Virgin Islands</td>
       <td>NaN</td>
       <td>right_only</td>
     </tr>
@@ -3169,7 +3170,7 @@ document.write(`
       <td>...</td>
     </tr>
     <tr>
-      <th>556</th>
+      <th>562</th>
       <td>Wyoming</td>
       <td>1988.0</td>
       <td>67113.0</td>
@@ -3193,7 +3194,7 @@ document.write(`
       <td>0.73</td>
     </tr>
     <tr>
-      <th>557</th>
+      <th>563</th>
       <td>Wyoming</td>
       <td>1992.0</td>
       <td>68160.0</td>
@@ -3217,7 +3218,7 @@ document.write(`
       <td>0.73</td>
     </tr>
     <tr>
-      <th>558</th>
+      <th>564</th>
       <td>Wyoming</td>
       <td>1996.0</td>
       <td>77934.0</td>
@@ -3241,7 +3242,7 @@ document.write(`
       <td>0.73</td>
     </tr>
     <tr>
-      <th>559</th>
+      <th>565</th>
       <td>Wyoming</td>
       <td>2000.0</td>
       <td>60481.0</td>
@@ -3265,7 +3266,7 @@ document.write(`
       <td>0.73</td>
     </tr>
     <tr>
-      <th>560</th>
+      <th>566</th>
       <td>Wyoming</td>
       <td>2004.0</td>
       <td>70776.0</td>
@@ -3296,10 +3297,10 @@ document.write(`
 </section>
 </section>
 <section id="reshaping-data">
-<h2><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">9.3. </span>Reshaping Data</a><a class="headerlink" href="#reshaping-data" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">9.3. </span>Reshaping Data</a><a class="headerlink" href="#reshaping-data" title="Link to this heading">#</a></h2>
 <p><strong>Reshaping</strong> a dataframe refers to turning the rows of a dataframe into columns (also known as a long-to-wide reshape), or turning columns into rows (also known as a wide-to-long reshape), in a way that cannot be accomplished by simply transposing the data matrix. It is also called <strong>pivoting</strong> for a long-to-wide reshape, <strong>melting</strong> for a wide-to-long reshape. It’s a notoriously tricky skill to master, and it helps a lot to understand every part of the function we need, so that we’re not blindly trying every combination of parameters hoping one of these combinations works.</p>
 <section id="example-gross-domestic-product-by-state-1997-2015">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">9.3.1. </span>Example: Gross domestic product by state, 1997-2015</a><a class="headerlink" href="#example-gross-domestic-product-by-state-1997-2015" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">9.3.1. </span>Example: Gross domestic product by state, 1997-2015</a><a class="headerlink" href="#example-gross-domestic-product-by-state-1997-2015" title="Link to this heading">#</a></h3>
 <p>To demonstrate the method for pivoting a dataframe, we use example data from the U.S. Bureau of Economic Affairs (<a class="reference external" href="http://www.bea.gov">www.bea.gov</a>) on economic output for the American states. We load the data, skipping the last four rows as these rows contain attribution information and notes, and are not part of the data. We also use the <code class="docutils literal notranslate"><span class="pre">.str.strip()</span></code> method to remove all the leading and trailing whitespace in the <code class="docutils literal notranslate"><span class="pre">Description</span></code> column:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3310,7 +3311,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/4w/k9sqqcbx4dxgpjtwgv_1m29h0000gq/T/ipykernel_83160/793934051.py:1: ParserWarning: Falling back to the &#39;python&#39; engine because the &#39;c&#39; engine does not support skipfooter; you can avoid this warning by specifying engine=&#39;python&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/q2/fzs0c2rx5pxgnlwzh2p7qmw00000gs/T/ipykernel_81924/793934051.py:1: ParserWarning: Falling back to the &#39;python&#39; engine because the &#39;c&#39; engine does not support skipfooter; you can avoid this warning by specifying engine=&#39;python&#39;.
   gsp = pd.read_csv(&quot;https://github.com/jkropko/DS-6001/raw/master/localdata/gsp_naics_all.csv&quot;, skipfooter=4)
 </pre></div>
 </div>
@@ -4302,7 +4303,7 @@ document.write(`
 </div>
 </section>
 <section id="melting-turning-columns-to-rows">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">9.3.2. </span>Melting: Turning Columns to Rows</a><a class="headerlink" href="#melting-turning-columns-to-rows" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">9.3.2. </span>Melting: Turning Columns to Rows</a><a class="headerlink" href="#melting-turning-columns-to-rows" title="Link to this heading">#</a></h3>
 <p>Notice that many of the columns refer to particular years. We want to move these columns to the rows, so that each state has one row for each year covered in the data. The best function to use when we need to turn columns into rows is <code class="docutils literal notranslate"><span class="pre">pd.melt()</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">id_vars</span><span class="p">,</span> <span class="n">value_vars</span><span class="p">)</span>
 </pre></div>
@@ -4625,7 +4626,7 @@ document.write(`
 </div>
 </section>
 <section id="pivoting-turning-rows-to-columns">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">9.3.3. </span>Pivoting: Turning Rows to Columns</a><a class="headerlink" href="#pivoting-turning-rows-to-columns" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">9.3.3. </span>Pivoting: Turning Rows to Columns</a><a class="headerlink" href="#pivoting-turning-rows-to-columns" title="Link to this heading">#</a></h3>
 <p>The rows contain features that we want to move to the columns. Specifically, we need separate columns for the different combinations of <code class="docutils literal notranslate"><span class="pre">ComponentName</span></code> and <code class="docutils literal notranslate"><span class="pre">Description</span></code> since the feature names are contained in two columns, so we can combine these two columns by concatenating them together and creating a new column called “feature”. Then we can drop <code class="docutils literal notranslate"><span class="pre">ComponentName</span></code> and <code class="docutils literal notranslate"><span class="pre">Description</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4870,33 +4871,33 @@ dtype: object
       <th rowspan="5" valign="top">01000</th>
       <th rowspan="5" valign="top">5</th>
       <th>1997</th>
-      <td>104218</td>
-      <td>87014</td>
-      <td>31398</td>
+      <td>104218.0</td>
+      <td>87014.0</td>
+      <td>31398.0</td>
     </tr>
     <tr>
       <th>1998</th>
-      <td>109414</td>
-      <td>91506</td>
-      <td>32164</td>
+      <td>109414.0</td>
+      <td>91506.0</td>
+      <td>32164.0</td>
     </tr>
     <tr>
       <th>1999</th>
-      <td>115015</td>
-      <td>96284</td>
-      <td>33106</td>
+      <td>115015.0</td>
+      <td>96284.0</td>
+      <td>33106.0</td>
     </tr>
     <tr>
       <th>2000</th>
-      <td>119020</td>
-      <td>99665</td>
-      <td>33284</td>
+      <td>119020.0</td>
+      <td>99665.0</td>
+      <td>33284.0</td>
     </tr>
     <tr>
       <th>2001</th>
-      <td>122822</td>
-      <td>102978</td>
-      <td>33312</td>
+      <td>122822.0</td>
+      <td>102978.0</td>
+      <td>33312.0</td>
     </tr>
     <tr>
       <th>...</th>
@@ -4912,33 +4913,33 @@ dtype: object
       <th rowspan="5" valign="top">56000</th>
       <th rowspan="5" valign="top">7</th>
       <th>2010</th>
-      <td>39103</td>
-      <td>33832</td>
-      <td>64602</td>
+      <td>39103.0</td>
+      <td>33832.0</td>
+      <td>64602.0</td>
     </tr>
     <tr>
       <th>2011</th>
-      <td>41499</td>
-      <td>36164</td>
-      <td>63981</td>
+      <td>41499.0</td>
+      <td>36164.0</td>
+      <td>63981.0</td>
     </tr>
     <tr>
       <th>2012</th>
-      <td>40201</td>
-      <td>34604</td>
-      <td>60744</td>
+      <td>40201.0</td>
+      <td>34604.0</td>
+      <td>60744.0</td>
     </tr>
     <tr>
       <th>2013</th>
-      <td>40979</td>
-      <td>35096</td>
-      <td>60743</td>
+      <td>40979.0</td>
+      <td>35096.0</td>
+      <td>60743.0</td>
     </tr>
     <tr>
       <th>2014</th>
-      <td>42021</td>
-      <td>35947</td>
-      <td>61639</td>
+      <td>42021.0</td>
+      <td>35947.0</td>
+      <td>61639.0</td>
     </tr>
   </tbody>
 </table>
@@ -4995,9 +4996,9 @@ dtype: object
       <td>01000</td>
       <td>5</td>
       <td>1997</td>
-      <td>104218</td>
-      <td>87014</td>
-      <td>31398</td>
+      <td>104218.0</td>
+      <td>87014.0</td>
+      <td>31398.0</td>
     </tr>
     <tr>
       <th>1</th>
@@ -5005,9 +5006,9 @@ dtype: object
       <td>01000</td>
       <td>5</td>
       <td>1998</td>
-      <td>109414</td>
-      <td>91506</td>
-      <td>32164</td>
+      <td>109414.0</td>
+      <td>91506.0</td>
+      <td>32164.0</td>
     </tr>
     <tr>
       <th>2</th>
@@ -5015,9 +5016,9 @@ dtype: object
       <td>01000</td>
       <td>5</td>
       <td>1999</td>
-      <td>115015</td>
-      <td>96284</td>
-      <td>33106</td>
+      <td>115015.0</td>
+      <td>96284.0</td>
+      <td>33106.0</td>
     </tr>
     <tr>
       <th>3</th>
@@ -5025,9 +5026,9 @@ dtype: object
       <td>01000</td>
       <td>5</td>
       <td>2000</td>
-      <td>119020</td>
-      <td>99665</td>
-      <td>33284</td>
+      <td>119020.0</td>
+      <td>99665.0</td>
+      <td>33284.0</td>
     </tr>
     <tr>
       <th>4</th>
@@ -5035,9 +5036,9 @@ dtype: object
       <td>01000</td>
       <td>5</td>
       <td>2001</td>
-      <td>122822</td>
-      <td>102978</td>
-      <td>33312</td>
+      <td>122822.0</td>
+      <td>102978.0</td>
+      <td>33312.0</td>
     </tr>
     <tr>
       <th>...</th>
@@ -5055,9 +5056,9 @@ dtype: object
       <td>56000</td>
       <td>7</td>
       <td>2010</td>
-      <td>39103</td>
-      <td>33832</td>
-      <td>64602</td>
+      <td>39103.0</td>
+      <td>33832.0</td>
+      <td>64602.0</td>
     </tr>
     <tr>
       <th>896</th>
@@ -5065,9 +5066,9 @@ dtype: object
       <td>56000</td>
       <td>7</td>
       <td>2011</td>
-      <td>41499</td>
-      <td>36164</td>
-      <td>63981</td>
+      <td>41499.0</td>
+      <td>36164.0</td>
+      <td>63981.0</td>
     </tr>
     <tr>
       <th>897</th>
@@ -5075,9 +5076,9 @@ dtype: object
       <td>56000</td>
       <td>7</td>
       <td>2012</td>
-      <td>40201</td>
-      <td>34604</td>
-      <td>60744</td>
+      <td>40201.0</td>
+      <td>34604.0</td>
+      <td>60744.0</td>
     </tr>
     <tr>
       <th>898</th>
@@ -5085,9 +5086,9 @@ dtype: object
       <td>56000</td>
       <td>7</td>
       <td>2013</td>
-      <td>40979</td>
-      <td>35096</td>
-      <td>60743</td>
+      <td>40979.0</td>
+      <td>35096.0</td>
+      <td>60743.0</td>
     </tr>
     <tr>
       <th>899</th>
@@ -5095,9 +5096,9 @@ dtype: object
       <td>56000</td>
       <td>7</td>
       <td>2014</td>
-      <td>42021</td>
-      <td>35947</td>
-      <td>61639</td>
+      <td>42021.0</td>
+      <td>35947.0</td>
+      <td>61639.0</td>
     </tr>
   </tbody>
 </table>
@@ -5152,9 +5153,9 @@ dtype: object
       <td>01000</td>
       <td>5</td>
       <td>1997</td>
-      <td>104218</td>
-      <td>87014</td>
-      <td>31398</td>
+      <td>104218.0</td>
+      <td>87014.0</td>
+      <td>31398.0</td>
       <td>83.492295</td>
     </tr>
     <tr>
@@ -5163,9 +5164,9 @@ dtype: object
       <td>01000</td>
       <td>5</td>
       <td>1998</td>
-      <td>109414</td>
-      <td>91506</td>
-      <td>32164</td>
+      <td>109414.0</td>
+      <td>91506.0</td>
+      <td>32164.0</td>
       <td>83.632808</td>
     </tr>
     <tr>
@@ -5174,9 +5175,9 @@ dtype: object
       <td>01000</td>
       <td>5</td>
       <td>1999</td>
-      <td>115015</td>
-      <td>96284</td>
-      <td>33106</td>
+      <td>115015.0</td>
+      <td>96284.0</td>
+      <td>33106.0</td>
       <td>83.714298</td>
     </tr>
     <tr>
@@ -5185,9 +5186,9 @@ dtype: object
       <td>01000</td>
       <td>5</td>
       <td>2000</td>
-      <td>119020</td>
-      <td>99665</td>
-      <td>33284</td>
+      <td>119020.0</td>
+      <td>99665.0</td>
+      <td>33284.0</td>
       <td>83.738027</td>
     </tr>
     <tr>
@@ -5196,9 +5197,9 @@ dtype: object
       <td>01000</td>
       <td>5</td>
       <td>2001</td>
-      <td>122822</td>
-      <td>102978</td>
-      <td>33312</td>
+      <td>122822.0</td>
+      <td>102978.0</td>
+      <td>33312.0</td>
       <td>83.843285</td>
     </tr>
     <tr>
@@ -5218,9 +5219,9 @@ dtype: object
       <td>56000</td>
       <td>7</td>
       <td>2010</td>
-      <td>39103</td>
-      <td>33832</td>
-      <td>64602</td>
+      <td>39103.0</td>
+      <td>33832.0</td>
+      <td>64602.0</td>
       <td>86.520216</td>
     </tr>
     <tr>
@@ -5229,9 +5230,9 @@ dtype: object
       <td>56000</td>
       <td>7</td>
       <td>2011</td>
-      <td>41499</td>
-      <td>36164</td>
-      <td>63981</td>
+      <td>41499.0</td>
+      <td>36164.0</td>
+      <td>63981.0</td>
       <td>87.144269</td>
     </tr>
     <tr>
@@ -5240,9 +5241,9 @@ dtype: object
       <td>56000</td>
       <td>7</td>
       <td>2012</td>
-      <td>40201</td>
-      <td>34604</td>
-      <td>60744</td>
+      <td>40201.0</td>
+      <td>34604.0</td>
+      <td>60744.0</td>
       <td>86.077461</td>
     </tr>
     <tr>
@@ -5251,9 +5252,9 @@ dtype: object
       <td>56000</td>
       <td>7</td>
       <td>2013</td>
-      <td>40979</td>
-      <td>35096</td>
-      <td>60743</td>
+      <td>40979.0</td>
+      <td>35096.0</td>
+      <td>60743.0</td>
       <td>85.643866</td>
     </tr>
     <tr>
@@ -5262,9 +5263,9 @@ dtype: object
       <td>56000</td>
       <td>7</td>
       <td>2014</td>
-      <td>42021</td>
-      <td>35947</td>
-      <td>61639</td>
+      <td>42021.0</td>
+      <td>35947.0</td>
+      <td>61639.0</td>
       <td>85.545323</td>
     </tr>
   </tbody>
@@ -5275,7 +5276,7 @@ dtype: object
 </section>
 </section>
 <section id="working-with-strings-example-the-2019-anes-pilot-study">
-<h2><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">9.4. </span>Working with Strings (Example: the 2019 ANES Pilot Study)</a><a class="headerlink" href="#working-with-strings-example-the-2019-anes-pilot-study" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">9.4. </span>Working with Strings (Example: the 2019 ANES Pilot Study)</a><a class="headerlink" href="#working-with-strings-example-the-2019-anes-pilot-study" title="Link to this heading">#</a></h2>
 <p>In module 8, we worked with the 2019 American National Election Study pilot survey and saved the cleaned data in a separate CSV file:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -6387,7 +6388,7 @@ Name: most_important_issue, Length: 3165, dtype: object
 </div>
 </section>
 <section id="working-with-dates-and-times-example-twitter">
-<h2><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">9.5. </span>Working with Dates and Times (Example: Twitter)</a><a class="headerlink" href="#working-with-dates-and-times-example-twitter" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">9.5. </span>Working with Dates and Times (Example: Twitter)</a><a class="headerlink" href="#working-with-dates-and-times-example-twitter" title="Link to this heading">#</a></h2>
 <p>In module 4 we discussed Twitter as an example of how to use an API in Python. We save the four credentials we need to access the API (the consumer key, the consumer secret, the access token, and the access token secret) in a .env file, and we load those keys into Python without displaying them in our notebooks by using the <code class="docutils literal notranslate"><span class="pre">dotenv</span></code> package:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -6539,7 +6540,7 @@ Name: most_important_issue, Length: 3165, dtype: object
 </div></div></div>
 </div>
 <section id="extracting-year-month-day-and-time-from-a-timestamp-column">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">9.5.1. </span>Extracting Year, Month, Day, and Time from a Timestamp Column</a><a class="headerlink" href="#extracting-year-month-day-and-time-from-a-timestamp-column" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">9.5.1. </span>Extracting Year, Month, Day, and Time from a Timestamp Column</a><a class="headerlink" href="#extracting-year-month-day-and-time-from-a-timestamp-column" title="Link to this heading">#</a></h3>
 <p>Note that the data contain timestamps that include the date and time, to the second, of each tweet. The <code class="docutils literal notranslate"><span class="pre">created_at</span></code> column has a <code class="docutils literal notranslate"><span class="pre">datetime64</span></code> data type:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -6754,7 +6755,7 @@ dtype: object
 </div>
 </section>
 <section id="generating-timestamps-from-separate-month-day-and-year-columns">
-<h3><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">9.5.2. </span>Generating Timestamps from Separate Month, Day, and Year Columns</a><a class="headerlink" href="#generating-timestamps-from-separate-month-day-and-year-columns" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">9.5.2. </span>Generating Timestamps from Separate Month, Day, and Year Columns</a><a class="headerlink" href="#generating-timestamps-from-separate-month-day-and-year-columns" title="Link to this heading">#</a></h3>
 <p>Sometimes raw data will come to us with these time elements already placed in separate columns, so that we have a <code class="docutils literal notranslate"><span class="pre">month</span></code>, <code class="docutils literal notranslate"><span class="pre">day</span></code>, and <code class="docutils literal notranslate"><span class="pre">year</span></code> column but no <code class="docutils literal notranslate"><span class="pre">date</span></code> column. There are important advantages to placing all this information in one column in values that Python understands as timestamps: timestamps are easier to filter, manipulate, index, and plot. To create one timestamp from separate columns that contain the month, day, and year (and optionally the hour, minute, and second), use the <code class="docutils literal notranslate"><span class="pre">pd.to_datatime</span></code> function:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
@@ -6973,7 +6974,7 @@ dtype: object
 </div>
 </section>
 <section id="converting-string-columns-to-timestamps">
-<h3><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">9.5.3. </span>Converting String Columns to Timestamps</a><a class="headerlink" href="#converting-string-columns-to-timestamps" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">9.5.3. </span>Converting String Columns to Timestamps</a><a class="headerlink" href="#converting-string-columns-to-timestamps" title="Link to this heading">#</a></h3>
 <p>Sometimes information about the date and time of an event in the data will be coded as a string. In that case, to use the time series functionality on the dates in a dataframe, a string column that contains the dates and times will need to be converted to the <code class="docutils literal notranslate"><span class="pre">datetime64</span></code> data type. The best way to do that is to use the <code class="docutils literal notranslate"><span class="pre">pd.to_datetime()</span></code> function once again. This time, we pass the column that contains the dates in string format to the <code class="docutils literal notranslate"><span class="pre">pd.to_datetime()</span></code> function. This function can identify the year, month, day, hour, minute, and second from many different formats.</p>
 <p>For example, we can write the date Sunday, June 19, 2016 at 8:00 PM (the date and time of game 7 of the 2016 NBA finals, the greatest moment in sports history) in many different ways such as:</p>
 <ul class="simple">
@@ -7095,7 +7096,7 @@ dtype: object
 </div>
 </section>
 <section id="filtering-rows-based-on-date-ranges">
-<h3><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">9.5.4. </span>Filtering Rows Based on Date Ranges</a><a class="headerlink" href="#filtering-rows-based-on-date-ranges" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">9.5.4. </span>Filtering Rows Based on Date Ranges</a><a class="headerlink" href="#filtering-rows-based-on-date-ranges" title="Link to this heading">#</a></h3>
 <p>If every row in the data has a unique timestamp, then one convenient way to use the times to filter the data is to set the <strong>index</strong> (the row labels) to be equal to the timestamps:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -7717,7 +7718,7 @@ dtype: object
 </div>
 </section>
 <section id="leads-and-lags">
-<h3><a class="toc-backref" href="#id18" role="doc-backlink"><span class="section-number">9.5.5. </span>Leads and Lags</a><a class="headerlink" href="#leads-and-lags" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id18" role="doc-backlink"><span class="section-number">9.5.5. </span>Leads and Lags</a><a class="headerlink" href="#leads-and-lags" title="Link to this heading">#</a></h3>
 <p>In time series data in which the rows represent particular points in time in descending chronological order, a <strong>lag</strong> is a column that contains the values of another column shifted up one cell. That is, if the rows represent days, and a column represents today’s high temperature, the lag represents yesterday’s high temperature. A <strong>lead</strong> is a existing column with its values shifted one row down: tomorrow’s high temperature.</p>
 <p>To create a lead or a lag, apply the <code class="docutils literal notranslate"><span class="pre">.shift()</span></code> method to a dataframe. The argument of <code class="docutils literal notranslate"><span class="pre">.shift()</span></code> is an integer: positive integers shift values down, creating leads, and negative values shift values up, creating lags. Whenever we shift values up or down, we create new missing values at the top or bottom of the dataframe for the lead or lagged column.</p>
 <p>For example, in the <code class="docutils literal notranslate"><span class="pre">tweets</span></code> dataframe we can create two new columns, <code class="docutils literal notranslate"><span class="pre">previous_tweet</span></code> and <code class="docutils literal notranslate"><span class="pre">next_tweet</span></code> to compare with <code class="docutils literal notranslate"><span class="pre">text</span></code> by using <code class="docutils literal notranslate"><span class="pre">.shift(-1)</span></code> and <code class="docutils literal notranslate"><span class="pre">.shift(1)</span></code>:</p>
@@ -7862,7 +7863,7 @@ dtype: object
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -7890,7 +7891,9 @@ dtype: object
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -7969,8 +7972,8 @@ By Jonathan Kropko (jkropko@virginia.edu)
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

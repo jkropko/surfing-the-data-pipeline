@@ -1198,7 +1198,7 @@
     <tr>
       <th>18</th>
       <td>Washington</td>
-      <td>Washington Skins</td>
+      <td>Washington Commanders</td>
     </tr>
     <tr>
       <th>19</th>
@@ -1427,7 +1427,7 @@
     <tr>
       <th>10</th>
       <td>Washington</td>
-      <td>Washington Skins</td>
+      <td>Washington Commanders</td>
       <td>Washington</td>
       <td>Washington Wizards</td>
     </tr>
@@ -1602,7 +1602,7 @@
     <tr>
       <th>10</th>
       <td>Washington</td>
-      <td>Washington Skins</td>
+      <td>Washington Commanders</td>
       <td>Washington</td>
       <td>Washington Wizards</td>
     </tr>
@@ -1858,7 +1858,7 @@
     <tr>
       <th>18</th>
       <td>Washington</td>
-      <td>Washington Skins</td>
+      <td>Washington Commanders</td>
       <td>Washington</td>
       <td>Washington Wizards</td>
     </tr>
@@ -2062,7 +2062,7 @@
     <tr>
       <th>11</th>
       <td>Washington</td>
-      <td>Washington Skins</td>
+      <td>Washington Commanders</td>
       <td>Washington</td>
       <td>Washington Wizards</td>
     </tr>
@@ -2368,7 +2368,7 @@
     <tr>
       <th>18</th>
       <td>Washington</td>
-      <td>Washington Skins</td>
+      <td>Washington Commanders</td>
       <td>Washington</td>
       <td>Washington Wizards</td>
     </tr>
@@ -2763,7 +2763,7 @@
     <tr>
       <th>10</th>
       <td>Washington</td>
-      <td>Washington Skins</td>
+      <td>Washington Commanders</td>
       <td>Washington Wizards</td>
     </tr>
     <tr>
@@ -2829,6 +2829,11 @@
 <span class="n">nba2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s2">&quot;SELECT city, basketballteam as team FROM nba;&quot;</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
 <span class="n">nfl2</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s1">&#39;nfl2&#39;</span><span class="p">,</span> <span class="n">con</span> <span class="o">=</span> <span class="n">engine</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">if_exists</span> <span class="o">=</span> <span class="s1">&#39;replace&#39;</span><span class="p">)</span>
 <span class="n">nba2</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s1">&#39;nba2&#39;</span><span class="p">,</span> <span class="n">con</span> <span class="o">=</span> <span class="n">engine</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">if_exists</span> <span class="o">=</span> <span class="s1">&#39;replace&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1
 </pre></div>
 </div>
 </div>
@@ -2984,7 +2989,7 @@
     <tr>
       <th>10</th>
       <td>Washington</td>
-      <td>Washington Skins</td>
+      <td>Washington Commanders</td>
       <td>Washington</td>
       <td>Washington Wizards</td>
     </tr>
@@ -3210,6 +3215,11 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1
+</pre></div>
+</div>
+</div>
 </div>
 <p>We can first inner join the NFL and NBA data tables to keep only the cities with both an NFL and an NBA team, then we can inner join the result with the MLB data to keep only the cities with teams in all three sports:</p>
 <div class="cell docutils container">
@@ -3287,7 +3297,7 @@
       <td>Cleveland</td>
       <td>Cleveland Cavaliers</td>
       <td>Cleveland</td>
-      <td>Cleveland Indians</td>
+      <td>Cleveland Guardians</td>
     </tr>
     <tr>
       <th>4</th>
@@ -3391,7 +3401,7 @@
     <tr>
       <th>15</th>
       <td>Washington</td>
-      <td>Washington Skins</td>
+      <td>Washington Commanders</td>
       <td>Washington</td>
       <td>Washington Wizards</td>
       <td>Washington</td>
@@ -3487,7 +3497,7 @@
       <td>Cleveland</td>
       <td>Cleveland Cavaliers</td>
       <td>Cleveland</td>
-      <td>Cleveland Indians</td>
+      <td>Cleveland Guardians</td>
     </tr>
     <tr>
       <th>5</th>
@@ -3609,7 +3619,7 @@
     <tr>
       <th>18</th>
       <td>Washington</td>
-      <td>Washington Skins</td>
+      <td>Washington Commanders</td>
       <td>Washington</td>
       <td>Washington Wizards</td>
       <td>Washington</td>
@@ -3722,17 +3732,23 @@
 <span class="s2">INSERT INTO nba (city, basketballteam)</span>
 <span class="s2">    VALUES (&#39;Seattle&#39;, &#39;Seattle Supersonics&#39;);</span>
 <span class="s2">&quot;&quot;&quot;</span>
-<span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">myquery</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sqlalchemy.engine.result.ResultProxy at 0x1153b5390&gt;
 </pre></div>
 </div>
 </div>
 </div>
-<p>Here the <code class="docutils literal notranslate"><span class="pre">engine</span></code> variable is the <code class="docutils literal notranslate"><span class="pre">sqlaclchemy</span></code> connection we previously established for the teams database. We can use the <code class="docutils literal notranslate"><span class="pre">execute()</span></code> method to pass SQL queries to the database, just as we can with a cursor. Now, when we look at the data, we see the Seattle Supersonics included along with all the other NBA teams:</p>
+<p>One tricky thing about the latest version of <code class="docutils literal notranslate"><span class="pre">sqlalchemy</span></code> is that create, update, and delete operations must be executed in the following way:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">text</span>
+
+<span class="k">with</span> <span class="n">engine</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">text</span><span class="p">(</span><span class="n">myquery</span><span class="p">))</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here the <code class="docutils literal notranslate"><span class="pre">engine</span></code> variable is the <code class="docutils literal notranslate"><span class="pre">sqlalchemy</span></code> engine we previously established for the teams database. We establish a connection to this database with the <code class="docutils literal notranslate"><span class="pre">.connect()</span></code> method, then apply the <code class="docutils literal notranslate"><span class="pre">.execute()</span></code> method to the connection, using <code class="docutils literal notranslate"><span class="pre">sqlalchemy</span></code>’s <code class="docutils literal notranslate"><span class="pre">text</span></code> parser for the SQL code. Finally we use <code class="docutils literal notranslate"><span class="pre">.commit()</span></code> on the changes to save them for future read operations. Now, when we look at the data, we see the Seattle Supersonics included along with all the other NBA teams:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM nba&quot;</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
@@ -3935,12 +3951,9 @@
 <span class="s2">    SET basketballteam = &#39;Charlotte Bobcats&#39;</span>
 <span class="s2">    WHERE city = &#39;Charlotte&#39;;</span>
 <span class="s2">&quot;&quot;&quot;</span>
-<span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">myquery</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sqlalchemy.engine.result.ResultProxy at 0x115432c88&gt;
+<span class="k">with</span> <span class="n">engine</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">text</span><span class="p">(</span><span class="n">myquery</span><span class="p">))</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span> 
 </pre></div>
 </div>
 </div>
@@ -4148,12 +4161,9 @@
 <span class="s2">FROM nfl </span>
 <span class="s2">WHERE city = &#39;Baltimore&#39;; </span>
 <span class="s2">&quot;&quot;&quot;</span>
-<span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">myquery</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sqlalchemy.engine.result.ResultProxy at 0x115445a58&gt;
+<span class="k">with</span> <span class="n">engine</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">text</span><span class="p">(</span><span class="n">myquery</span><span class="p">))</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span> 
 </pre></div>
 </div>
 </div>
@@ -4281,7 +4291,7 @@
     <tr>
       <th>17</th>
       <td>Washington</td>
-      <td>Washington Skins</td>
+      <td>Washington Commanders</td>
     </tr>
     <tr>
       <th>18</th>
@@ -4436,48 +4446,48 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>Olivier Leflaive 2006 Les Pucelles Premier Cru...</td>
-      <td>Chardonnay</td>
-      <td>NaN</td>
-      <td>93</td>
-      <td>France</td>
-      <td>Roger Voss</td>
+      <td>Giesen 2011 Clayvin Single Vineyard Selection ...</td>
+      <td>Pinot Noir</td>
+      <td>90.0</td>
+      <td>89</td>
+      <td>New Zealand</td>
+      <td>Joe Czerwinski</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>The Foundry 2004 Syrah (Coastal Region)</td>
-      <td>Syrah</td>
-      <td>35.0</td>
-      <td>87</td>
+      <td>Groot Constantia 2012 Pinotage (Constantia)</td>
+      <td>Pinotage</td>
+      <td>20.0</td>
+      <td>89</td>
       <td>South Africa</td>
-      <td>Susan Kostrzewa</td>
+      <td>Lauren Buzzeo</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Guilbaud Frères 2007 Le Soleil Nantais  (Musca...</td>
-      <td>Melon</td>
-      <td>11.0</td>
-      <td>87</td>
-      <td>France</td>
-      <td>Roger Voss</td>
+      <td>Gualdo del Re 2010 Amansio Passito Aleatico (V...</td>
+      <td>Aleatico</td>
+      <td>55.0</td>
+      <td>89</td>
+      <td>Italy</td>
+      <td>Kerin O’Keefe</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Domaine du Clos du Fief 2007 Cuvée Tradition  ...</td>
-      <td>Gamay</td>
+      <td>Cambridge Road 2011 Pinot Noir (Martinborough)</td>
+      <td>Pinot Noir</td>
       <td>NaN</td>
-      <td>86</td>
-      <td>France</td>
-      <td>Roger Voss</td>
+      <td>89</td>
+      <td>New Zealand</td>
+      <td>Joe Czerwinski</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Domaine Philippe Delesvaux 2005 La Montée de l...</td>
-      <td>Cabernet Sauvignon</td>
-      <td>NaN</td>
-      <td>86</td>
-      <td>France</td>
-      <td>Roger Voss</td>
+      <td>Cappella Sant'Andrea 2013  Vernaccia di San Gi...</td>
+      <td>Vernaccia</td>
+      <td>17.0</td>
+      <td>89</td>
+      <td>Italy</td>
+      <td>Kerin O’Keefe</td>
     </tr>
     <tr>
       <th>...</th>
@@ -4490,48 +4500,48 @@
     </tr>
     <tr>
       <th>103722</th>
-      <td>Sheridan Vineyard 2005 Reserve Cabernet Sauvig...</td>
-      <td>Cabernet Sauvignon</td>
-      <td>75.0</td>
-      <td>94</td>
-      <td>US</td>
-      <td>Paul Gregutt</td>
+      <td>Barba 2011 I Vasari Old Vines  (Montepulciano ...</td>
+      <td>Montepulciano</td>
+      <td>25.0</td>
+      <td>89</td>
+      <td>Italy</td>
+      <td>Kerin O’Keefe</td>
     </tr>
     <tr>
       <th>103723</th>
-      <td>Woodward Canyon 2006 Old Vines Dedication Seri...</td>
-      <td>Cabernet Sauvignon</td>
-      <td>84.0</td>
-      <td>94</td>
+      <td>Flying Dreams 2011 Reserve Tempranillo (Columb...</td>
+      <td>Tempranillo</td>
+      <td>45.0</td>
+      <td>89</td>
       <td>US</td>
-      <td>Paul Gregutt</td>
+      <td>Sean P. Sullivan</td>
     </tr>
     <tr>
       <th>103724</th>
-      <td>Chanson Père et Fils 2005 Champs Gains Premier...</td>
-      <td>Chardonnay</td>
-      <td>115.0</td>
-      <td>93</td>
-      <td>France</td>
-      <td>Roger Voss</td>
+      <td>Greenhough 2011 Hope Pinot Noir (Nelson)</td>
+      <td>Pinot Noir</td>
+      <td>NaN</td>
+      <td>89</td>
+      <td>New Zealand</td>
+      <td>Joe Czerwinski</td>
     </tr>
     <tr>
       <th>103725</th>
-      <td>Mark Ryan 2006 Chardonnay (Columbia Valley (WA))</td>
+      <td>Hazlitt 1852 Vineyards 2013 Unoaked Chardonnay...</td>
       <td>Chardonnay</td>
-      <td>NaN</td>
-      <td>93</td>
+      <td>16.0</td>
+      <td>89</td>
       <td>US</td>
-      <td>Paul Gregutt</td>
+      <td>Anna Lee C. Iijima</td>
     </tr>
     <tr>
       <th>103726</th>
-      <td>Joseph Drouhin 2007  Grands-Echezeaux</td>
-      <td>Pinot Noir</td>
-      <td>285.0</td>
-      <td>94</td>
-      <td>France</td>
-      <td>Roger Voss</td>
+      <td>Hollen Family Vineyards 2007 Cabernet Sauvigno...</td>
+      <td>Cabernet Sauvignon</td>
+      <td>15.0</td>
+      <td>89</td>
+      <td>Argentina</td>
+      <td>Michael Schachner</td>
     </tr>
   </tbody>
 </table>
@@ -4584,7 +4594,8 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myquery</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">SELECT r.title, r.variety, r.price FROM reviews r</span>
+<span class="s2">SELECT r.title, r.variety, r.price </span>
+<span class="s2">FROM reviews r</span>
 <span class="s2">INNER JOIN locations l</span>
 <span class="s2">    ON r.location_id = l.location_id</span>
 <span class="s2">INNER JOIN tasters t</span>
@@ -4680,7 +4691,8 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myquery</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">SELECT r.title, r.variety, r.price, r.points, l.country, l.province FROM reviews r</span>
+<span class="s2">SELECT r.title, r.variety, r.price, r.points, l.country, l.province </span>
+<span class="s2">FROM reviews r</span>
 <span class="s2">INNER JOIN locations l</span>
 <span class="s2">    ON r.location_id = l.location_id</span>
 <span class="s2">WHERE r.points &gt;= 90 AND (r.price BETWEEN 5 AND 10 OR l.province = &#39;Virginia&#39;);</span>
@@ -4719,6 +4731,15 @@
   <tbody>
     <tr>
       <th>0</th>
+      <td>Aveleda 2016 Quinta da Aveleda White (Vinho Ve...</td>
+      <td>Portuguese White</td>
+      <td>10.0</td>
+      <td>90</td>
+      <td>Portugal</td>
+      <td>Vinho Verde</td>
+    </tr>
+    <tr>
+      <th>1</th>
       <td>Château Vircoulon 2016  Bordeaux Blanc</td>
       <td>Bordeaux-style White Blend</td>
       <td>10.0</td>
@@ -4727,7 +4748,7 @@
       <td>Bordeaux</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>2</th>
       <td>Mano A Mano 2011 Tempranillo (Vino de la Tierr...</td>
       <td>Tempranillo</td>
       <td>9.0</td>
@@ -4736,7 +4757,7 @@
       <td>Central Spain</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>3</th>
       <td>Aveleda 2014 Quinta da Aveleda Estate Bottled ...</td>
       <td>Portuguese White</td>
       <td>9.0</td>
@@ -4745,22 +4766,13 @@
       <td>Vinho Verde</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>4</th>
       <td>Chateau Ste. Michelle 2011 Riesling (Columbia ...</td>
       <td>Riesling</td>
       <td>9.0</td>
       <td>91</td>
       <td>US</td>
       <td>Washington</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Quinta do Portal 2007 Mural Reserva Red (Douro)</td>
-      <td>Portuguese Red</td>
-      <td>10.0</td>
-      <td>91</td>
-      <td>Portugal</td>
-      <td>Douro</td>
     </tr>
     <tr>
       <th>...</th>
@@ -4773,6 +4785,15 @@
     </tr>
     <tr>
       <th>76</th>
+      <td>CrossKeys 2013 Touriga (Virginia)</td>
+      <td>Touriga</td>
+      <td>46.0</td>
+      <td>90</td>
+      <td>US</td>
+      <td>Virginia</td>
+    </tr>
+    <tr>
+      <th>77</th>
       <td>Casaleiro 2012 Reserva Touriga Nacional-Castel...</td>
       <td>Portuguese Red</td>
       <td>9.0</td>
@@ -4781,7 +4802,7 @@
       <td>Tejo</td>
     </tr>
     <tr>
-      <th>77</th>
+      <th>78</th>
       <td>Aveleda 2015 Quinta da Aveleda White (Vinho Ve...</td>
       <td>Portuguese White</td>
       <td>9.0</td>
@@ -4790,7 +4811,7 @@
       <td>Vinho Verde</td>
     </tr>
     <tr>
-      <th>78</th>
+      <th>79</th>
       <td>Cookies &amp; Cream 2010 Merlot (California)</td>
       <td>Merlot</td>
       <td>10.0</td>
@@ -4799,22 +4820,13 @@
       <td>California</td>
     </tr>
     <tr>
-      <th>79</th>
+      <th>80</th>
       <td>Lovingston 2012 Josie's Knoll Merlot (Monticello)</td>
       <td>Merlot</td>
       <td>20.0</td>
       <td>91</td>
       <td>US</td>
       <td>Virginia</td>
-    </tr>
-    <tr>
-      <th>80</th>
-      <td>Aveleda 2016 Quinta da Aveleda White (Vinho Ve...</td>
-      <td>Portuguese White</td>
-      <td>10.0</td>
-      <td>90</td>
-      <td>Portugal</td>
-      <td>Vinho Verde</td>
     </tr>
   </tbody>
 </table>
@@ -4833,7 +4845,8 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myquery</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">SELECT r.title, r.variety, r.price, r.points, l.country, l.province FROM reviews r</span>
+<span class="s2">SELECT r.title, r.variety, r.price, r.points, l.country, l.province </span>
+<span class="s2">FROM reviews r</span>
 <span class="s2">INNER JOIN locations l</span>
 <span class="s2">    ON r.location_id = l.location_id</span>
 <span class="s2">WHERE r.points &gt;= 90 AND r.price BETWEEN 5 AND 10 OR l.province = &#39;Virginia&#39;;</span>
@@ -4872,45 +4885,45 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>Veramar 2016 JB Winemaker Series Cabernet Fran...</td>
+      <td>Annefield Vineyards 2009 Cabernet Franc (Virgi...</td>
       <td>Cabernet Franc</td>
-      <td>34.0</td>
-      <td>86</td>
+      <td>29.0</td>
+      <td>88</td>
       <td>US</td>
       <td>Virginia</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Château Vircoulon 2016  Bordeaux Blanc</td>
-      <td>Bordeaux-style White Blend</td>
+      <td>Aveleda 2016 Quinta da Aveleda White (Vinho Ve...</td>
+      <td>Portuguese White</td>
       <td>10.0</td>
       <td>90</td>
-      <td>France</td>
-      <td>Bordeaux</td>
+      <td>Portugal</td>
+      <td>Vinho Verde</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Mano A Mano 2011 Tempranillo (Vino de la Tierr...</td>
-      <td>Tempranillo</td>
-      <td>9.0</td>
-      <td>90</td>
-      <td>Spain</td>
-      <td>Central Spain</td>
+      <td>Tarara 2013 Cabernet Franc (Virginia)</td>
+      <td>Cabernet Franc</td>
+      <td>25.0</td>
+      <td>85</td>
+      <td>US</td>
+      <td>Virginia</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Trump 2014 Rosé (Monticello)</td>
+      <td>Paradise Springs 2014 Nana's Rosé (Virginia)</td>
       <td>Rosé</td>
-      <td>14.0</td>
+      <td>22.0</td>
       <td>86</td>
       <td>US</td>
       <td>Virginia</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>The Boneyard 2014 Chardonnay (Virginia)</td>
-      <td>Chardonnay</td>
-      <td>15.0</td>
+      <td>Veramar 2016 JB Winemaker Series Cabernet Fran...</td>
+      <td>Cabernet Franc</td>
+      <td>34.0</td>
       <td>86</td>
       <td>US</td>
       <td>Virginia</td>
@@ -4926,46 +4939,46 @@
     </tr>
     <tr>
       <th>444</th>
-      <td>Annefield Vineyards 2009 Cabernet Franc (Virgi...</td>
-      <td>Cabernet Franc</td>
-      <td>29.0</td>
-      <td>88</td>
-      <td>US</td>
-      <td>Virginia</td>
-    </tr>
-    <tr>
-      <th>445</th>
-      <td>Lovingston 2012 Josie's Knoll Merlot (Monticello)</td>
-      <td>Merlot</td>
-      <td>20.0</td>
-      <td>91</td>
-      <td>US</td>
-      <td>Virginia</td>
-    </tr>
-    <tr>
-      <th>446</th>
-      <td>Aveleda 2016 Quinta da Aveleda White (Vinho Ve...</td>
-      <td>Portuguese White</td>
-      <td>10.0</td>
-      <td>90</td>
-      <td>Portugal</td>
-      <td>Vinho Verde</td>
-    </tr>
-    <tr>
-      <th>447</th>
-      <td>Tarara 2013 Cabernet Franc (Virginia)</td>
-      <td>Cabernet Franc</td>
-      <td>25.0</td>
+      <td>Casanel 2014 Estate Petit Verdot (Middleburg)</td>
+      <td>Petit Verdot</td>
+      <td>36.0</td>
       <td>85</td>
       <td>US</td>
       <td>Virginia</td>
     </tr>
     <tr>
-      <th>448</th>
-      <td>Paradise Springs 2014 Nana's Rosé (Virginia)</td>
-      <td>Rosé</td>
+      <th>445</th>
+      <td>Stinson 2013 Tannat (Monticello)</td>
+      <td>Tannat</td>
+      <td>36.0</td>
+      <td>85</td>
+      <td>US</td>
+      <td>Virginia</td>
+    </tr>
+    <tr>
+      <th>446</th>
+      <td>Blue Valley 2016 Muskat Ottonel (Middleburg)</td>
+      <td>Muskat Ottonel</td>
       <td>22.0</td>
-      <td>86</td>
+      <td>85</td>
+      <td>US</td>
+      <td>Virginia</td>
+    </tr>
+    <tr>
+      <th>447</th>
+      <td>Chatham 2012 Church Creek Oak Chardonnay (Virg...</td>
+      <td>Chardonnay</td>
+      <td>18.0</td>
+      <td>84</td>
+      <td>US</td>
+      <td>Virginia</td>
+    </tr>
+    <tr>
+      <th>448</th>
+      <td>Lovingston 2005 Josie's Knoll Merlot (Monticello)</td>
+      <td>Merlot</td>
+      <td>18.0</td>
+      <td>85</td>
       <td>US</td>
       <td>Virginia</td>
     </tr>
@@ -4978,7 +4991,8 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myquery</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">SELECT r.title, r.variety, r.price, l.country FROM reviews r</span>
+<span class="s2">SELECT r.title, r.variety, r.price, l.country </span>
+<span class="s2">FROM reviews r</span>
 <span class="s2">INNER JOIN locations l</span>
 <span class="s2">    ON r.location_id = l.location_id</span>
 <span class="s2">WHERE country &lt;&gt; &#39;US&#39; AND variety NOT IN (&#39;Pinot Noir&#39;, &#39;Pinot Gris&#39;, &#39;Chardonnay&#39;);</span>
@@ -5015,38 +5029,38 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>The Foundry 2004 Syrah (Coastal Region)</td>
-      <td>Syrah</td>
-      <td>35.0</td>
+      <td>Groot Constantia 2012 Pinotage (Constantia)</td>
+      <td>Pinotage</td>
+      <td>20.0</td>
       <td>South Africa</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Guilbaud Frères 2007 Le Soleil Nantais  (Musca...</td>
-      <td>Melon</td>
-      <td>11.0</td>
-      <td>France</td>
+      <td>Gualdo del Re 2010 Amansio Passito Aleatico (V...</td>
+      <td>Aleatico</td>
+      <td>55.0</td>
+      <td>Italy</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Domaine du Clos du Fief 2007 Cuvée Tradition  ...</td>
-      <td>Gamay</td>
-      <td>NaN</td>
-      <td>France</td>
+      <td>Cappella Sant'Andrea 2013  Vernaccia di San Gi...</td>
+      <td>Vernaccia</td>
+      <td>17.0</td>
+      <td>Italy</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Domaine Philippe Delesvaux 2005 La Montée de l...</td>
-      <td>Cabernet Sauvignon</td>
-      <td>NaN</td>
-      <td>France</td>
+      <td>Castello della Sala 2014 San Giovanni  (Orviet...</td>
+      <td>White Blend</td>
+      <td>25.0</td>
+      <td>Italy</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Georges Duboeuf 2007  Beaujolais-Villages</td>
-      <td>Gamay</td>
-      <td>NaN</td>
-      <td>France</td>
+      <td>Castello di Gabbiano 2011 Bellezza Gran Selezi...</td>
+      <td>Sangiovese</td>
+      <td>38.0</td>
+      <td>Italy</td>
     </tr>
     <tr>
       <th>...</th>
@@ -5057,38 +5071,38 @@
     </tr>
     <tr>
       <th>57429</th>
-      <td>Indomita NV Rosé Sparkling (Casablanca Valley)</td>
-      <td>Sparkling Blend</td>
-      <td>18.0</td>
-      <td>Chile</td>
+      <td>Salomon-Undhof 2014 Franciscus Messwein Grüner...</td>
+      <td>Grüner Veltliner</td>
+      <td>21.0</td>
+      <td>Austria</td>
     </tr>
     <tr>
       <th>57430</th>
-      <td>Intipalka 2013 Valle del Sol Tannat (Ica)</td>
-      <td>Tannat</td>
-      <td>14.0</td>
-      <td>Peru</td>
+      <td>Umathum 2013 Zweigelt (Burgenland)</td>
+      <td>Zweigelt</td>
+      <td>24.0</td>
+      <td>Austria</td>
     </tr>
     <tr>
       <th>57431</th>
-      <td>Lobster Reef 2014 Sauvignon Blanc (Marlborough)</td>
-      <td>Sauvignon Blanc</td>
-      <td>12.0</td>
-      <td>New Zealand</td>
+      <td>Allram 2014 Strassertaler Grüner Veltliner (Ka...</td>
+      <td>Grüner Veltliner</td>
+      <td>15.0</td>
+      <td>Austria</td>
     </tr>
     <tr>
       <th>57432</th>
-      <td>Millaman 2014 Estate Reserve Sauvignon Blanc (...</td>
-      <td>Sauvignon Blanc</td>
-      <td>10.0</td>
-      <td>Chile</td>
+      <td>Barba 2011 I Vasari Old Vines  (Montepulciano ...</td>
+      <td>Montepulciano</td>
+      <td>25.0</td>
+      <td>Italy</td>
     </tr>
     <tr>
       <th>57433</th>
-      <td>Royal Tokaji 1999 Mézes Mály Aszú 6 Puttonyos ...</td>
-      <td>Tokaji</td>
-      <td>175.0</td>
-      <td>Hungary</td>
+      <td>Hollen Family Vineyards 2007 Cabernet Sauvigno...</td>
+      <td>Cabernet Sauvignon</td>
+      <td>15.0</td>
+      <td>Argentina</td>
     </tr>
   </tbody>
 </table>
@@ -5099,7 +5113,8 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myquery</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">SELECT * FROM reviews </span>
+<span class="s2">SELECT * </span>
+<span class="s2">FROM reviews </span>
 <span class="s2">WHERE LOWER(description) LIKE &#39;</span><span class="si">%%</span><span class="s2">smoke</span><span class="si">%%</span><span class="s2">&#39; AND LOWER(description) LIKE &#39;</span><span class="si">%%</span><span class="s2">chocolate</span><span class="si">%%</span><span class="s2">&#39;;</span>
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">myquery</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
@@ -5151,30 +5166,6 @@
     </tr>
     <tr>
       <th>1</th>
-      <td>7812</td>
-      <td>Hightower 2006 Cabernet Sauvignon (Columbia Va...</td>
-      <td>Cabernet Sauvignon</td>
-      <td>Sourced largely from Red Mountain fruit, this ...</td>
-      <td>87</td>
-      <td>35.0</td>
-      <td>3</td>
-      <td>7629</td>
-      <td>1474</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>7866</td>
-      <td>Viña Cobos 2012 Bramare Marchiori Vineyard Mal...</td>
-      <td>Malbec</td>
-      <td>Toasty woodsmoke aromas are matched by wild be...</td>
-      <td>94</td>
-      <td>90.0</td>
-      <td>5</td>
-      <td>13962</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>3</th>
       <td>8110</td>
       <td>Mendel 2013 Unus Red (Mendoza)</td>
       <td>Bordeaux-style Red Blend</td>
@@ -5186,7 +5177,7 @@
       <td>7</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>2</th>
       <td>9262</td>
       <td>Freakshow 2014 Cabernet Sauvignon (Lodi)</td>
       <td>Cabernet Sauvignon</td>
@@ -5196,6 +5187,30 @@
       <td>10</td>
       <td>6893</td>
       <td>1304</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>10476</td>
+      <td>Eberle 2012 Eberle Estate Vineyard Cabernet Sa...</td>
+      <td>Cabernet Sauvignon</td>
+      <td>Coming from Gary Eberle's pioneering, 31-year-...</td>
+      <td>90</td>
+      <td>40.0</td>
+      <td>8</td>
+      <td>6127</td>
+      <td>1337</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10727</td>
+      <td>Painted Rock 2010 Estate Grown Syrah (Okanagan...</td>
+      <td>Syrah</td>
+      <td>Dark and silky, this bursts open with ripe plu...</td>
+      <td>92</td>
+      <td>65.0</td>
+      <td>3</td>
+      <td>10557</td>
+      <td>144</td>
     </tr>
     <tr>
       <th>...</th>
@@ -5211,63 +5226,63 @@
     </tr>
     <tr>
       <th>260</th>
-      <td>4862</td>
-      <td>Hearst Ranch 2013 Lone Tree Cabernet Franc (Pa...</td>
-      <td>Cabernet Franc</td>
-      <td>Made in a thick, oaky style, this shows burned...</td>
-      <td>87</td>
-      <td>35.0</td>
-      <td>8</td>
-      <td>7498</td>
-      <td>1337</td>
+      <td>115791</td>
+      <td>Pago de los Capellanes 2004 Parcela El Nogal  ...</td>
+      <td>Tempranillo Blend</td>
+      <td>After finding little to like about the blatant...</td>
+      <td>94</td>
+      <td>80.0</td>
+      <td>5</td>
+      <td>10542</td>
+      <td>1203</td>
     </tr>
     <tr>
       <th>261</th>
-      <td>4690</td>
-      <td>Pear Valley 2013 Distraction Red (Paso Robles)</td>
-      <td>Bordeaux-style Red Blend</td>
-      <td>The signature bottling from this winery, this ...</td>
-      <td>91</td>
-      <td>35.0</td>
-      <td>8</td>
-      <td>10762</td>
-      <td>1337</td>
+      <td>117971</td>
+      <td>Plungerhead 2014 Cabernet Sauvignon (Alexander...</td>
+      <td>Cabernet Sauvignon</td>
+      <td>This impressive value-driven wine, with small ...</td>
+      <td>90</td>
+      <td>20.0</td>
+      <td>7</td>
+      <td>11030</td>
+      <td>1250</td>
     </tr>
     <tr>
       <th>262</th>
-      <td>4794</td>
-      <td>Estate Constantin Gofas 2008 Agiorgitiko (Nemea)</td>
-      <td>Agiorgitiko</td>
-      <td>This wine has the plucky character typical of ...</td>
-      <td>85</td>
-      <td>18.0</td>
-      <td>16</td>
-      <td>6366</td>
-      <td>668</td>
+      <td>122213</td>
+      <td>Vinkara 2011 Reserve Kalecik Karasi (Ankara)</td>
+      <td>Kalecik Karasi</td>
+      <td>Dark cherry in color, this wine features a bou...</td>
+      <td>88</td>
+      <td>25.0</td>
+      <td>14</td>
+      <td>14080</td>
+      <td>1230</td>
     </tr>
     <tr>
       <th>263</th>
-      <td>6574</td>
-      <td>Fielding Hills 2006 RiverBend Vineyard Syrah (...</td>
-      <td>Syrah</td>
-      <td>Bold and forward, this estate-grown Syrah fair...</td>
-      <td>94</td>
-      <td>40.0</td>
-      <td>3</td>
-      <td>6619</td>
-      <td>1483</td>
+      <td>123735</td>
+      <td>Marqués de Vargas 2012 Reserva  (Rioja)</td>
+      <td>Tempranillo Blend</td>
+      <td>Lightly charred aromas of coffee, wood smoke a...</td>
+      <td>89</td>
+      <td>26.0</td>
+      <td>5</td>
+      <td>9521</td>
+      <td>1204</td>
     </tr>
     <tr>
       <th>264</th>
-      <td>5020</td>
-      <td>Corliss Estates 2007 Cabernet Sauvignon (Colum...</td>
-      <td>Cabernet Sauvignon</td>
-      <td>Concentrated and wonderfully aromatic, this ag...</td>
-      <td>94</td>
-      <td>75.0</td>
+      <td>129138</td>
+      <td>Lemelson 2006 Jerome Reserve Pinot Noir (Willa...</td>
+      <td>Pinot Noir</td>
+      <td>This complex wine lists no fewer than eight di...</td>
+      <td>92</td>
+      <td>58.0</td>
       <td>3</td>
-      <td>4677</td>
-      <td>1474</td>
+      <td>8848</td>
+      <td>1456</td>
     </tr>
   </tbody>
 </table>
@@ -5286,7 +5301,8 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myquery</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">SELECT * FROM reviews </span>
+<span class="s2">SELECT * </span>
+<span class="s2">FROM reviews </span>
 <span class="s2">WHERE LOWER(description) LIKE &#39;</span><span class="si">%%</span><span class="s2">smoke</span><span class="si">%%</span><span class="s2">&#39; AND LOWER(description) LIKE &#39;</span><span class="si">%%</span><span class="s2">chocolate</span><span class="si">%%</span><span class="s2">&#39;</span>
 <span class="s2">LIMIT 4 OFFSET 3;</span>
 <span class="s2">&quot;&quot;&quot;</span>
@@ -5327,18 +5343,42 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>8110</td>
-      <td>Mendel 2013 Unus Red (Mendoza)</td>
-      <td>Bordeaux-style Red Blend</td>
-      <td>Rich aromas of raisin, cassis and blackberry a...</td>
-      <td>93</td>
-      <td>50.0</td>
-      <td>5</td>
-      <td>9746</td>
-      <td>7</td>
+      <td>11278</td>
+      <td>Kramer 2012 Estate Pinot Noir</td>
+      <td>Pinot Noir</td>
+      <td>Scents of purple fruits and wood smoke lead in...</td>
+      <td>86</td>
+      <td>22.0</td>
+      <td>3</td>
+      <td>8352</td>
+      <td>1456</td>
     </tr>
     <tr>
       <th>1</th>
+      <td>12462</td>
+      <td>Wölffer 2006 Fatalis Fatum Red (The Hamptons, ...</td>
+      <td>Bordeaux-style Red Blend</td>
+      <td>Appealing aromas of tobacco, smoke and spice h...</td>
+      <td>84</td>
+      <td>40.0</td>
+      <td>16</td>
+      <td>14425</td>
+      <td>1435</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>6574</td>
+      <td>Fielding Hills 2006 RiverBend Vineyard Syrah (...</td>
+      <td>Syrah</td>
+      <td>Bold and forward, this estate-grown Syrah fair...</td>
+      <td>94</td>
+      <td>40.0</td>
+      <td>3</td>
+      <td>6619</td>
+      <td>1483</td>
+    </tr>
+    <tr>
+      <th>3</th>
       <td>9262</td>
       <td>Freakshow 2014 Cabernet Sauvignon (Lodi)</td>
       <td>Cabernet Sauvignon</td>
@@ -5348,30 +5388,6 @@
       <td>10</td>
       <td>6893</td>
       <td>1304</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>9746</td>
-      <td>Carmel 2013 Admon Vineyard Cabernet Sauvignon ...</td>
-      <td>Cabernet Sauvignon</td>
-      <td>This wine has offers aromas of dark plum and c...</td>
-      <td>89</td>
-      <td>35.0</td>
-      <td>14</td>
-      <td>1925</td>
-      <td>694</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>10326</td>
-      <td>De Martino 2009 Alto de Piedras Single Vineyar...</td>
-      <td>Carmenère</td>
-      <td>A big, earthy type of wine with a ton of ripen...</td>
-      <td>90</td>
-      <td>45.0</td>
-      <td>5</td>
-      <td>4973</td>
-      <td>182</td>
     </tr>
   </tbody>
 </table>
@@ -5503,7 +5519,11 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myquery</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">SELECT title AS name, variety AS type, points AS score FROM reviews;</span>
+<span class="s2">SELECT </span>
+<span class="s2">    title AS name, </span>
+<span class="s2">    variety AS type, </span>
+<span class="s2">    points AS score </span>
+<span class="s2">FROM reviews;</span>
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">myquery</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
 </pre></div>
@@ -5536,33 +5556,33 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>Casas del Bosque 2011 Reserva Sauvignon Blanc ...</td>
-      <td>Sauvignon Blanc</td>
-      <td>86</td>
+      <td>Kaesler 2006 Old Vine Shiraz (Barossa Valley)</td>
+      <td>Shiraz</td>
+      <td>95</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Marqués de Terán 2009 Selección Especial  (Rioja)</td>
-      <td>Tempranillo</td>
-      <td>86</td>
+      <td>Lustau NV Almacenista Palo Cortado de Jerez Sh...</td>
+      <td>Sherry</td>
+      <td>94</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Maurice Ecard 2009  Bourgogne</td>
-      <td>Chardonnay</td>
-      <td>86</td>
+      <td>Ignacio Marín 2012 Marín Old Vine Garnacha (Ca...</td>
+      <td>Garnacha</td>
+      <td>89</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>McGregor 2010 Semi-Dry Riesling (Finger Lakes)</td>
-      <td>Riesling</td>
-      <td>86</td>
+      <td>Quinta da Lixa 2016 Pouco Comum Alvarinho (Minho)</td>
+      <td>Alvarinho</td>
+      <td>89</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Jules Taylor 2009 Ballochdale Estate Pinot Noi...</td>
-      <td>Pinot Noir</td>
-      <td>86</td>
+      <td>Quinta da Raza 2016 Dom Diogo Alvarinho (Minho)</td>
+      <td>Alvarinho</td>
+      <td>89</td>
     </tr>
     <tr>
       <th>...</th>
@@ -5572,33 +5592,33 @@
     </tr>
     <tr>
       <th>103722</th>
-      <td>Glenora 2010 Gewürztraminer (Finger Lakes)</td>
-      <td>Gewürztraminer</td>
-      <td>86</td>
+      <td>Antico Colle 2012 Il Saggio Riserva  (Vino Nob...</td>
+      <td>Sangiovese</td>
+      <td>92</td>
     </tr>
     <tr>
       <th>103723</th>
-      <td>Hard Row To Hoe 2010 Marsanne (Yakima Valley)</td>
-      <td>Marsanne</td>
-      <td>86</td>
+      <td>Del Rio 2007 Pinot Noir (Rogue Valley)</td>
+      <td>Pinot Noir</td>
+      <td>80</td>
     </tr>
     <tr>
       <th>103724</th>
-      <td>Animale 2009 Dolcetto (Columbia Valley (WA))</td>
-      <td>Dolcetto</td>
-      <td>86</td>
+      <td>Namasté Vineyards 2006 Serenity Vineyard Chard...</td>
+      <td>Chardonnay</td>
+      <td>80</td>
     </tr>
     <tr>
       <th>103725</th>
-      <td>Beresan 2008 The Buzz Yellow Jacket Vineyard R...</td>
-      <td>Red Blend</td>
-      <td>86</td>
+      <td>Müller-Catoir 2007 Breumel in den Mauren Trock...</td>
+      <td>Riesling</td>
+      <td>97</td>
     </tr>
     <tr>
       <th>103726</th>
-      <td>Cabot Vineyards 2007 Syrah (Humboldt County)</td>
-      <td>Syrah</td>
-      <td>86</td>
+      <td>Geh. Rat Dr. von Bassermann-Jordan 2007 Rupper...</td>
+      <td>Riesling</td>
+      <td>95</td>
     </tr>
   </tbody>
 </table>
@@ -5624,7 +5644,12 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myquery</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">SELECT title, variety, price AS price_dollars, .91*price AS price_euros FROM reviews;</span>
+<span class="s2">SELECT </span>
+<span class="s2">    title, </span>
+<span class="s2">    variety, </span>
+<span class="s2">    price AS price_dollars, </span>
+<span class="s2">    .91*price AS price_euros </span>
+<span class="s2">FROM reviews;</span>
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">myquery</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
 </pre></div>
@@ -5658,38 +5683,38 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>Casas del Bosque 2011 Reserva Sauvignon Blanc ...</td>
-      <td>Sauvignon Blanc</td>
-      <td>12.0</td>
-      <td>10.92</td>
+      <td>Kaesler 2006 Old Vine Shiraz (Barossa Valley)</td>
+      <td>Shiraz</td>
+      <td>60.0</td>
+      <td>54.60</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Marqués de Terán 2009 Selección Especial  (Rioja)</td>
-      <td>Tempranillo</td>
-      <td>24.0</td>
-      <td>21.84</td>
+      <td>Lustau NV Almacenista Palo Cortado de Jerez Sh...</td>
+      <td>Sherry</td>
+      <td>42.0</td>
+      <td>38.22</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Maurice Ecard 2009  Bourgogne</td>
-      <td>Chardonnay</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>McGregor 2010 Semi-Dry Riesling (Finger Lakes)</td>
-      <td>Riesling</td>
+      <td>Ignacio Marín 2012 Marín Old Vine Garnacha (Ca...</td>
+      <td>Garnacha</td>
       <td>18.0</td>
       <td>16.38</td>
     </tr>
     <tr>
+      <th>3</th>
+      <td>Quinta da Lixa 2016 Pouco Comum Alvarinho (Minho)</td>
+      <td>Alvarinho</td>
+      <td>15.0</td>
+      <td>13.65</td>
+    </tr>
+    <tr>
       <th>4</th>
-      <td>Jules Taylor 2009 Ballochdale Estate Pinot Noi...</td>
-      <td>Pinot Noir</td>
-      <td>22.0</td>
-      <td>20.02</td>
+      <td>Quinta da Raza 2016 Dom Diogo Alvarinho (Minho)</td>
+      <td>Alvarinho</td>
+      <td>16.0</td>
+      <td>14.56</td>
     </tr>
     <tr>
       <th>...</th>
@@ -5700,38 +5725,38 @@
     </tr>
     <tr>
       <th>103722</th>
-      <td>Glenora 2010 Gewürztraminer (Finger Lakes)</td>
-      <td>Gewürztraminer</td>
+      <td>Antico Colle 2012 Il Saggio Riserva  (Vino Nob...</td>
+      <td>Sangiovese</td>
+      <td>50.0</td>
+      <td>45.50</td>
+    </tr>
+    <tr>
+      <th>103723</th>
+      <td>Del Rio 2007 Pinot Noir (Rogue Valley)</td>
+      <td>Pinot Noir</td>
+      <td>28.0</td>
+      <td>25.48</td>
+    </tr>
+    <tr>
+      <th>103724</th>
+      <td>Namasté Vineyards 2006 Serenity Vineyard Chard...</td>
+      <td>Chardonnay</td>
       <td>15.0</td>
       <td>13.65</td>
     </tr>
     <tr>
-      <th>103723</th>
-      <td>Hard Row To Hoe 2010 Marsanne (Yakima Valley)</td>
-      <td>Marsanne</td>
-      <td>18.0</td>
-      <td>16.38</td>
-    </tr>
-    <tr>
-      <th>103724</th>
-      <td>Animale 2009 Dolcetto (Columbia Valley (WA))</td>
-      <td>Dolcetto</td>
-      <td>24.0</td>
-      <td>21.84</td>
-    </tr>
-    <tr>
       <th>103725</th>
-      <td>Beresan 2008 The Buzz Yellow Jacket Vineyard R...</td>
-      <td>Red Blend</td>
-      <td>19.0</td>
-      <td>17.29</td>
+      <td>Müller-Catoir 2007 Breumel in den Mauren Trock...</td>
+      <td>Riesling</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>103726</th>
-      <td>Cabot Vineyards 2007 Syrah (Humboldt County)</td>
-      <td>Syrah</td>
-      <td>24.0</td>
-      <td>21.84</td>
+      <td>Geh. Rat Dr. von Bassermann-Jordan 2007 Rupper...</td>
+      <td>Riesling</td>
+      <td>333.0</td>
+      <td>303.03</td>
     </tr>
   </tbody>
 </table>
@@ -5790,42 +5815,30 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>12.0</td>
-      <td>1.012072</td>
-      <td>1.079181</td>
-      <td>1.079181</td>
+      <td>60.0</td>
+      <td>1.061837</td>
+      <td>1.778151</td>
+      <td>1.778151</td>
+      <td>2.0</td>
+      <td>7.745967</td>
+      <td>3600.0</td>
+      <td>216000.0</td>
       <td>1.0</td>
-      <td>3.464102</td>
-      <td>144.0</td>
-      <td>1728.0</td>
-      <td>-1.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>24.0</td>
-      <td>1.024290</td>
-      <td>1.380211</td>
-      <td>1.380211</td>
-      <td>1.0</td>
-      <td>4.898979</td>
-      <td>576.0</td>
-      <td>13824.0</td>
+      <td>42.0</td>
+      <td>1.042894</td>
+      <td>1.623249</td>
+      <td>1.623249</td>
+      <td>2.0</td>
+      <td>6.480741</td>
+      <td>1764.0</td>
+      <td>74088.0</td>
       <td>-1.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>3</th>
       <td>18.0</td>
       <td>1.018163</td>
       <td>1.255273</td>
@@ -5837,15 +5850,27 @@
       <td>-1.0</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>22.0</td>
-      <td>1.022244</td>
-      <td>1.342423</td>
-      <td>1.342423</td>
+      <th>3</th>
+      <td>15.0</td>
+      <td>1.015113</td>
+      <td>1.176091</td>
+      <td>1.176091</td>
       <td>1.0</td>
-      <td>4.690416</td>
-      <td>484.0</td>
-      <td>10648.0</td>
+      <td>3.872983</td>
+      <td>225.0</td>
+      <td>3375.0</td>
+      <td>-1.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>16.0</td>
+      <td>1.016129</td>
+      <td>1.204120</td>
+      <td>1.204120</td>
+      <td>1.0</td>
+      <td>4.000000</td>
+      <td>256.0</td>
+      <td>4096.0</td>
       <td>-1.0</td>
     </tr>
     <tr>
@@ -5862,6 +5887,30 @@
     </tr>
     <tr>
       <th>103722</th>
+      <td>50.0</td>
+      <td>1.051271</td>
+      <td>1.698970</td>
+      <td>1.698970</td>
+      <td>2.0</td>
+      <td>7.071068</td>
+      <td>2500.0</td>
+      <td>125000.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>103723</th>
+      <td>28.0</td>
+      <td>1.028396</td>
+      <td>1.447158</td>
+      <td>1.447158</td>
+      <td>1.0</td>
+      <td>5.291503</td>
+      <td>784.0</td>
+      <td>21952.0</td>
+      <td>-1.0</td>
+    </tr>
+    <tr>
+      <th>103724</th>
       <td>15.0</td>
       <td>1.015113</td>
       <td>1.176091</td>
@@ -5873,52 +5922,28 @@
       <td>-1.0</td>
     </tr>
     <tr>
-      <th>103723</th>
-      <td>18.0</td>
-      <td>1.018163</td>
-      <td>1.255273</td>
-      <td>1.255273</td>
-      <td>1.0</td>
-      <td>4.242641</td>
-      <td>324.0</td>
-      <td>5832.0</td>
-      <td>-1.0</td>
-    </tr>
-    <tr>
-      <th>103724</th>
-      <td>24.0</td>
-      <td>1.024290</td>
-      <td>1.380211</td>
-      <td>1.380211</td>
-      <td>1.0</td>
-      <td>4.898979</td>
-      <td>576.0</td>
-      <td>13824.0</td>
-      <td>-1.0</td>
-    </tr>
-    <tr>
       <th>103725</th>
-      <td>19.0</td>
-      <td>1.019182</td>
-      <td>1.278754</td>
-      <td>1.278754</td>
-      <td>1.0</td>
-      <td>4.358899</td>
-      <td>361.0</td>
-      <td>6859.0</td>
-      <td>-1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>103726</th>
-      <td>24.0</td>
-      <td>1.024290</td>
-      <td>1.380211</td>
-      <td>1.380211</td>
+      <td>333.0</td>
+      <td>1.395147</td>
+      <td>2.522444</td>
+      <td>2.522444</td>
+      <td>3.0</td>
+      <td>18.248288</td>
+      <td>110889.0</td>
+      <td>36926037.0</td>
       <td>1.0</td>
-      <td>4.898979</td>
-      <td>576.0</td>
-      <td>13824.0</td>
-      <td>-1.0</td>
     </tr>
   </tbody>
 </table>
@@ -5979,38 +6004,38 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>Casas del Bosque 2011 Reserva Sauvignon Blanc ...</td>
-      <td>Sauvignon Blanc</td>
-      <td>12.0</td>
-      <td>cheap</td>
+      <td>Kaesler 2006 Old Vine Shiraz (Barossa Valley)</td>
+      <td>Shiraz</td>
+      <td>60.0</td>
+      <td>expensive</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Marqués de Terán 2009 Selección Especial  (Rioja)</td>
-      <td>Tempranillo</td>
-      <td>24.0</td>
+      <td>Lustau NV Almacenista Palo Cortado de Jerez Sh...</td>
+      <td>Sherry</td>
+      <td>42.0</td>
       <td>moderately priced</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Maurice Ecard 2009  Bourgogne</td>
-      <td>Chardonnay</td>
-      <td>NaN</td>
-      <td>None</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>McGregor 2010 Semi-Dry Riesling (Finger Lakes)</td>
-      <td>Riesling</td>
+      <td>Ignacio Marín 2012 Marín Old Vine Garnacha (Ca...</td>
+      <td>Garnacha</td>
       <td>18.0</td>
       <td>cheap</td>
     </tr>
     <tr>
+      <th>3</th>
+      <td>Quinta da Lixa 2016 Pouco Comum Alvarinho (Minho)</td>
+      <td>Alvarinho</td>
+      <td>15.0</td>
+      <td>cheap</td>
+    </tr>
+    <tr>
       <th>4</th>
-      <td>Jules Taylor 2009 Ballochdale Estate Pinot Noi...</td>
-      <td>Pinot Noir</td>
-      <td>22.0</td>
-      <td>moderately priced</td>
+      <td>Quinta da Raza 2016 Dom Diogo Alvarinho (Minho)</td>
+      <td>Alvarinho</td>
+      <td>16.0</td>
+      <td>cheap</td>
     </tr>
     <tr>
       <th>...</th>
@@ -6021,38 +6046,38 @@
     </tr>
     <tr>
       <th>103722</th>
-      <td>Glenora 2010 Gewürztraminer (Finger Lakes)</td>
-      <td>Gewürztraminer</td>
+      <td>Antico Colle 2012 Il Saggio Riserva  (Vino Nob...</td>
+      <td>Sangiovese</td>
+      <td>50.0</td>
+      <td>moderately priced</td>
+    </tr>
+    <tr>
+      <th>103723</th>
+      <td>Del Rio 2007 Pinot Noir (Rogue Valley)</td>
+      <td>Pinot Noir</td>
+      <td>28.0</td>
+      <td>moderately priced</td>
+    </tr>
+    <tr>
+      <th>103724</th>
+      <td>Namasté Vineyards 2006 Serenity Vineyard Chard...</td>
+      <td>Chardonnay</td>
       <td>15.0</td>
       <td>cheap</td>
     </tr>
     <tr>
-      <th>103723</th>
-      <td>Hard Row To Hoe 2010 Marsanne (Yakima Valley)</td>
-      <td>Marsanne</td>
-      <td>18.0</td>
-      <td>cheap</td>
-    </tr>
-    <tr>
-      <th>103724</th>
-      <td>Animale 2009 Dolcetto (Columbia Valley (WA))</td>
-      <td>Dolcetto</td>
-      <td>24.0</td>
-      <td>moderately priced</td>
-    </tr>
-    <tr>
       <th>103725</th>
-      <td>Beresan 2008 The Buzz Yellow Jacket Vineyard R...</td>
-      <td>Red Blend</td>
-      <td>19.0</td>
-      <td>cheap</td>
+      <td>Müller-Catoir 2007 Breumel in den Mauren Trock...</td>
+      <td>Riesling</td>
+      <td>NaN</td>
+      <td>None</td>
     </tr>
     <tr>
       <th>103726</th>
-      <td>Cabot Vineyards 2007 Syrah (Humboldt County)</td>
-      <td>Syrah</td>
-      <td>24.0</td>
-      <td>moderately priced</td>
+      <td>Geh. Rat Dr. von Bassermann-Jordan 2007 Rupper...</td>
+      <td>Riesling</td>
+      <td>333.0</td>
+      <td>expensive</td>
     </tr>
   </tbody>
 </table>
@@ -6115,48 +6140,48 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>Casas del Bosque 2011 Reserva Sauvignon Blanc ...</td>
-      <td>Sauvignon Blanc</td>
-      <td>12.0</td>
-      <td>IT'S PRETTY EASY PEGGING THIS FOR CHILEAN SB; ...</td>
-      <td>it's pretty easy pegging this for chilean sb; ...</td>
-      <td>It'S Pretty Easy Pegging This For Chilean Sb; ...</td>
+      <td>Kaesler 2006 Old Vine Shiraz (Barossa Valley)</td>
+      <td>Shiraz</td>
+      <td>60.0</td>
+      <td>THIS WINE'S CONCENTRATED DARK FRUIT SHOWS IN T...</td>
+      <td>this wine's concentrated dark fruit shows in t...</td>
+      <td>This Wine'S Concentrated Dark Fruit Shows In T...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Marqués de Terán 2009 Selección Especial  (Rioja)</td>
-      <td>Tempranillo</td>
-      <td>24.0</td>
-      <td>OPAQUE IN COLOR, WITH BLACKBERRY AND LICORICE ...</td>
-      <td>opaque in color, with blackberry and licorice ...</td>
-      <td>Opaque In Color, With Blackberry And Licorice ...</td>
+      <td>Lustau NV Almacenista Palo Cortado de Jerez Sh...</td>
+      <td>Sherry</td>
+      <td>42.0</td>
+      <td>A BEAUTIFUL STYLE OF ELEVATED SHERRY THAT'S WO...</td>
+      <td>a beautiful style of elevated sherry that's wo...</td>
+      <td>A Beautiful Style Of Elevated Sherry That'S Wo...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Maurice Ecard 2009  Bourgogne</td>
-      <td>Chardonnay</td>
-      <td>NaN</td>
-      <td>ATTRACTIVE RIPE FRUITS GO WITH LIME AND TOAST ...</td>
-      <td>attractive ripe fruits go with lime and toast ...</td>
-      <td>Attractive Ripe Fruits Go With Lime And Toast ...</td>
+      <td>Ignacio Marín 2012 Marín Old Vine Garnacha (Ca...</td>
+      <td>Garnacha</td>
+      <td>18.0</td>
+      <td>RIPE RAISIN, VANILLA, TOBACCO AND CASSIS AROMA...</td>
+      <td>ripe raisin, vanilla, tobacco and cassis aroma...</td>
+      <td>Ripe Raisin, Vanilla, Tobacco And Cassis Aroma...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>McGregor 2010 Semi-Dry Riesling (Finger Lakes)</td>
-      <td>Riesling</td>
-      <td>18.0</td>
-      <td>SMOKY AND A BIT STARK WITH WHIFFS OF STRUCK FL...</td>
-      <td>smoky and a bit stark with whiffs of struck fl...</td>
-      <td>Smoky And A Bit Stark With Whiffs Of Struck Fl...</td>
+      <td>Quinta da Lixa 2016 Pouco Comum Alvarinho (Minho)</td>
+      <td>Alvarinho</td>
+      <td>15.0</td>
+      <td>BECAUSE THIS PRODUCER IS IN THE SOUTHERN MINHO...</td>
+      <td>because this producer is in the southern minho...</td>
+      <td>Because This Producer Is In The Southern Minho...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Jules Taylor 2009 Ballochdale Estate Pinot Noi...</td>
-      <td>Pinot Noir</td>
-      <td>22.0</td>
-      <td>SOURCED FROM A HIGH-ALTITUDE VINEYARD NEAR THE...</td>
-      <td>sourced from a high-altitude vineyard near the...</td>
-      <td>Sourced From A High-Altitude Vineyard Near The...</td>
+      <td>Quinta da Raza 2016 Dom Diogo Alvarinho (Minho)</td>
+      <td>Alvarinho</td>
+      <td>16.0</td>
+      <td>THE WINE IS RICH AND FULL OF RIPE WHITE AND CI...</td>
+      <td>the wine is rich and full of ripe white and ci...</td>
+      <td>The Wine Is Rich And Full Of Ripe White And Ci...</td>
     </tr>
     <tr>
       <th>...</th>
@@ -6169,48 +6194,48 @@
     </tr>
     <tr>
       <th>103722</th>
-      <td>Glenora 2010 Gewürztraminer (Finger Lakes)</td>
-      <td>Gewürztraminer</td>
-      <td>15.0</td>
-      <td>SWEET ON THE NOSE, WITH SCENTS OF PINK GRAPEFR...</td>
-      <td>sweet on the nose, with scents of pink grapefr...</td>
-      <td>Sweet On The Nose, With Scents Of Pink Grapefr...</td>
+      <td>Antico Colle 2012 Il Saggio Riserva  (Vino Nob...</td>
+      <td>Sangiovese</td>
+      <td>50.0</td>
+      <td>MATURE BERRY, BLACK PLUM, TRUFFLE AND DARK SPI...</td>
+      <td>mature berry, black plum, truffle and dark spi...</td>
+      <td>Mature Berry, Black Plum, Truffle And Dark Spi...</td>
     </tr>
     <tr>
       <th>103723</th>
-      <td>Hard Row To Hoe 2010 Marsanne (Yakima Valley)</td>
-      <td>Marsanne</td>
-      <td>18.0</td>
-      <td>WAXY FRUIT FLAVORS OF PEACH, MELON AND BANANA,...</td>
-      <td>waxy fruit flavors of peach, melon and banana,...</td>
-      <td>Waxy Fruit Flavors Of Peach, Melon And Banana,...</td>
+      <td>Del Rio 2007 Pinot Noir (Rogue Valley)</td>
+      <td>Pinot Noir</td>
+      <td>28.0</td>
+      <td>LIGHT, ALMOST EPHEMERAL, THIS PALE PINOT DOES ...</td>
+      <td>light, almost ephemeral, this pale pinot does ...</td>
+      <td>Light, Almost Ephemeral, This Pale Pinot Does ...</td>
     </tr>
     <tr>
       <th>103724</th>
-      <td>Animale 2009 Dolcetto (Columbia Valley (WA))</td>
-      <td>Dolcetto</td>
-      <td>24.0</td>
-      <td>THIS ALCOHOLIC WINE (15.9%, AND YOU CAN TASTE ...</td>
-      <td>this alcoholic wine (15.9%, and you can taste ...</td>
-      <td>This Alcoholic Wine (15.9%, And You Can Taste ...</td>
+      <td>Namasté Vineyards 2006 Serenity Vineyard Chard...</td>
+      <td>Chardonnay</td>
+      <td>15.0</td>
+      <td>OXIDIZED ALMOST TO THE POINT OF BEING TAWNY IN...</td>
+      <td>oxidized almost to the point of being tawny in...</td>
+      <td>Oxidized Almost To The Point Of Being Tawny In...</td>
     </tr>
     <tr>
       <th>103725</th>
-      <td>Beresan 2008 The Buzz Yellow Jacket Vineyard R...</td>
-      <td>Red Blend</td>
-      <td>19.0</td>
-      <td>LIGHT FRUIT FLAVORS RUN FROM MELON INTO PALE S...</td>
-      <td>light fruit flavors run from melon into pale s...</td>
-      <td>Light Fruit Flavors Run From Melon Into Pale S...</td>
+      <td>Müller-Catoir 2007 Breumel in den Mauren Trock...</td>
+      <td>Riesling</td>
+      <td>NaN</td>
+      <td>THE SMOKY, MINERALLY ASPECTS OF THE SITE SHOW ...</td>
+      <td>the smoky, minerally aspects of the site show ...</td>
+      <td>The Smoky, Minerally Aspects Of The Site Show ...</td>
     </tr>
     <tr>
       <th>103726</th>
-      <td>Cabot Vineyards 2007 Syrah (Humboldt County)</td>
-      <td>Syrah</td>
-      <td>24.0</td>
-      <td>FROM HUSBAND-AND-WIFE TEAM IN CALIFORNIA REDWO...</td>
-      <td>from husband-and-wife team in california redwo...</td>
-      <td>From Husband-And-Wife Team In California Redwo...</td>
+      <td>Geh. Rat Dr. von Bassermann-Jordan 2007 Rupper...</td>
+      <td>Riesling</td>
+      <td>333.0</td>
+      <td>THE NUMBERS ON THIS WINE ARE AMAZING (380 G/L ...</td>
+      <td>the numbers on this wine are amazing (380 g/l ...</td>
+      <td>The Numbers On This Wine Are Amazing (380 G/L ...</td>
     </tr>
   </tbody>
 </table>
@@ -6231,7 +6256,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Opaque in color, with blackberry and licorice aromas but also a distinct streak of brambly herbs and green. Later on, pine needle and tartness enter the fray. This is a commendable modern Rioja but it does have a few issues, namely a green herbal component.&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;This wine&#39;s concentrated dark fruit shows in the color—a vibrant dark garnet—and in the aromas of blueberry, vanilla and dried spices. The 16% alcohol is well concealed, manifesting only as wonderfully full, creamy density on the palate, magnifying the intense cola, earth and spice complexity. A pronounced peppery, black licorice note adds extra length to the finely textured finish. Drink now–2020.&quot;
 </pre></div>
 </div>
 </div>
@@ -6243,7 +6268,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;opaque in color, with blackberry and licorice good smells but also a distinct streak of brambly herbs and green. later on, pine needle and tartness enter the fray. this is a commendable modern rioja but it does have a few issues, namely a green herbal component.&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;this wine&#39;s concentrated dark fruit shows in the color—a vibrant dark garnet—and in the good smells of blueberry, vanilla and dried spices. the 16% alcohol is well concealed, manifesting only as wonderfully full, creamy density on the palate, magnifying the intense cola, earth and spice complexity. a pronounced peppery, black licorice note adds extra length to the finely textured finish. drink now–2020.&quot;
 </pre></div>
 </div>
 </div>
@@ -6289,43 +6314,43 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>Casas del Bosque 2011 Reserva Sauvignon Blanc ...</td>
-      <td>Sauvignon Blanc</td>
-      <td>12.0</td>
-      <td>It's pretty easy pegging this for Chilean SB; ...</td>
-      <td>pretty ea</td>
+      <td>Kaesler 2006 Old Vine Shiraz (Barossa Valley)</td>
+      <td>Shiraz</td>
+      <td>60.0</td>
+      <td>This wine's concentrated dark fruit shows in t...</td>
+      <td>wine's co</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Marqués de Terán 2009 Selección Especial  (Rioja)</td>
-      <td>Tempranillo</td>
-      <td>24.0</td>
-      <td>Opaque in color, with blackberry and licorice ...</td>
-      <td>ue in colo</td>
+      <td>Lustau NV Almacenista Palo Cortado de Jerez Sh...</td>
+      <td>Sherry</td>
+      <td>42.0</td>
+      <td>A beautiful style of elevated Sherry that's wo...</td>
+      <td>autiful st</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Maurice Ecard 2009  Bourgogne</td>
-      <td>Chardonnay</td>
-      <td>NaN</td>
-      <td>Attractive ripe fruits go with lime and toast ...</td>
-      <td>active rip</td>
+      <td>Ignacio Marín 2012 Marín Old Vine Garnacha (Ca...</td>
+      <td>Garnacha</td>
+      <td>18.0</td>
+      <td>Ripe raisin, vanilla, tobacco and cassis aroma...</td>
+      <td>raisin, v</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>McGregor 2010 Semi-Dry Riesling (Finger Lakes)</td>
-      <td>Riesling</td>
-      <td>18.0</td>
-      <td>Smoky and a bit stark with whiffs of struck fl...</td>
-      <td>y and a bi</td>
+      <td>Quinta da Lixa 2016 Pouco Comum Alvarinho (Minho)</td>
+      <td>Alvarinho</td>
+      <td>15.0</td>
+      <td>Because this producer is in the southern Minho...</td>
+      <td>use this p</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Jules Taylor 2009 Ballochdale Estate Pinot Noi...</td>
-      <td>Pinot Noir</td>
-      <td>22.0</td>
-      <td>Sourced from a high-altitude vineyard near the...</td>
-      <td>ced from a</td>
+      <td>Quinta da Raza 2016 Dom Diogo Alvarinho (Minho)</td>
+      <td>Alvarinho</td>
+      <td>16.0</td>
+      <td>The wine is rich and full of ripe white and ci...</td>
+      <td>wine is ri</td>
     </tr>
     <tr>
       <th>...</th>
@@ -6337,43 +6362,43 @@
     </tr>
     <tr>
       <th>103722</th>
-      <td>Glenora 2010 Gewürztraminer (Finger Lakes)</td>
-      <td>Gewürztraminer</td>
-      <td>15.0</td>
-      <td>Sweet on the nose, with scents of pink grapefr...</td>
-      <td>t on the n</td>
+      <td>Antico Colle 2012 Il Saggio Riserva  (Vino Nob...</td>
+      <td>Sangiovese</td>
+      <td>50.0</td>
+      <td>Mature berry, black plum, truffle and dark spi...</td>
+      <td>re berry,</td>
     </tr>
     <tr>
       <th>103723</th>
-      <td>Hard Row To Hoe 2010 Marsanne (Yakima Valley)</td>
-      <td>Marsanne</td>
-      <td>18.0</td>
-      <td>Waxy fruit flavors of peach, melon and banana,...</td>
-      <td>fruit fla</td>
+      <td>Del Rio 2007 Pinot Noir (Rogue Valley)</td>
+      <td>Pinot Noir</td>
+      <td>28.0</td>
+      <td>Light, almost ephemeral, this pale Pinot does ...</td>
+      <td>t, almost</td>
     </tr>
     <tr>
       <th>103724</th>
-      <td>Animale 2009 Dolcetto (Columbia Valley (WA))</td>
-      <td>Dolcetto</td>
-      <td>24.0</td>
-      <td>This alcoholic wine (15.9%, and you can taste ...</td>
-      <td>alcoholic</td>
+      <td>Namasté Vineyards 2006 Serenity Vineyard Chard...</td>
+      <td>Chardonnay</td>
+      <td>15.0</td>
+      <td>Oxidized almost to the point of being tawny in...</td>
+      <td>ized almos</td>
     </tr>
     <tr>
       <th>103725</th>
-      <td>Beresan 2008 The Buzz Yellow Jacket Vineyard R...</td>
-      <td>Red Blend</td>
-      <td>19.0</td>
-      <td>Light fruit flavors run from melon into pale s...</td>
-      <td>t fruit fl</td>
+      <td>Müller-Catoir 2007 Breumel in den Mauren Trock...</td>
+      <td>Riesling</td>
+      <td>NaN</td>
+      <td>The smoky, minerally aspects of the site show ...</td>
+      <td>smoky, min</td>
     </tr>
     <tr>
       <th>103726</th>
-      <td>Cabot Vineyards 2007 Syrah (Humboldt County)</td>
-      <td>Syrah</td>
-      <td>24.0</td>
-      <td>From husband-and-wife team in California redwo...</td>
-      <td>husband-a</td>
+      <td>Geh. Rat Dr. von Bassermann-Jordan 2007 Rupper...</td>
+      <td>Riesling</td>
+      <td>333.0</td>
+      <td>The numbers on this wine are amazing (380 g/l ...</td>
+      <td>numbers on</td>
     </tr>
   </tbody>
 </table>
@@ -6422,38 +6447,38 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>Casas del Bosque 2011 Reserva Sauvignon Blanc ...</td>
-      <td>Sauvignon Blanc</td>
-      <td>12.0</td>
-      <td>Casablanca Valley, Chile</td>
+      <td>Kaesler 2006 Old Vine Shiraz (Barossa Valley)</td>
+      <td>Shiraz</td>
+      <td>60.0</td>
+      <td>South Australia, Australia</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Marqués de Terán 2009 Selección Especial  (Rioja)</td>
-      <td>Tempranillo</td>
-      <td>24.0</td>
-      <td>Northern Spain, Spain</td>
+      <td>Lustau NV Almacenista Palo Cortado de Jerez Sh...</td>
+      <td>Sherry</td>
+      <td>42.0</td>
+      <td>Andalucia, Spain</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Maurice Ecard 2009  Bourgogne</td>
-      <td>Chardonnay</td>
-      <td>NaN</td>
-      <td>Burgundy, France</td>
+      <td>Ignacio Marín 2012 Marín Old Vine Garnacha (Ca...</td>
+      <td>Garnacha</td>
+      <td>18.0</td>
+      <td>Northern Spain, Spain</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>McGregor 2010 Semi-Dry Riesling (Finger Lakes)</td>
-      <td>Riesling</td>
-      <td>18.0</td>
-      <td>New York, US</td>
+      <td>Quinta da Lixa 2016 Pouco Comum Alvarinho (Minho)</td>
+      <td>Alvarinho</td>
+      <td>15.0</td>
+      <td>Minho, Portugal</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Jules Taylor 2009 Ballochdale Estate Pinot Noi...</td>
-      <td>Pinot Noir</td>
-      <td>22.0</td>
-      <td>Marlborough, New Zealand</td>
+      <td>Quinta da Raza 2016 Dom Diogo Alvarinho (Minho)</td>
+      <td>Alvarinho</td>
+      <td>16.0</td>
+      <td>Minho, Portugal</td>
     </tr>
     <tr>
       <th>...</th>
@@ -6464,38 +6489,38 @@
     </tr>
     <tr>
       <th>103722</th>
-      <td>Glenora 2010 Gewürztraminer (Finger Lakes)</td>
-      <td>Gewürztraminer</td>
-      <td>15.0</td>
-      <td>New York, US</td>
+      <td>Antico Colle 2012 Il Saggio Riserva  (Vino Nob...</td>
+      <td>Sangiovese</td>
+      <td>50.0</td>
+      <td>Tuscany, Italy</td>
     </tr>
     <tr>
       <th>103723</th>
-      <td>Hard Row To Hoe 2010 Marsanne (Yakima Valley)</td>
-      <td>Marsanne</td>
-      <td>18.0</td>
-      <td>Washington, US</td>
+      <td>Del Rio 2007 Pinot Noir (Rogue Valley)</td>
+      <td>Pinot Noir</td>
+      <td>28.0</td>
+      <td>Oregon, US</td>
     </tr>
     <tr>
       <th>103724</th>
-      <td>Animale 2009 Dolcetto (Columbia Valley (WA))</td>
-      <td>Dolcetto</td>
-      <td>24.0</td>
-      <td>Washington, US</td>
+      <td>Namasté Vineyards 2006 Serenity Vineyard Chard...</td>
+      <td>Chardonnay</td>
+      <td>15.0</td>
+      <td>Oregon, US</td>
     </tr>
     <tr>
       <th>103725</th>
-      <td>Beresan 2008 The Buzz Yellow Jacket Vineyard R...</td>
-      <td>Red Blend</td>
-      <td>19.0</td>
-      <td>Washington, US</td>
+      <td>Müller-Catoir 2007 Breumel in den Mauren Trock...</td>
+      <td>Riesling</td>
+      <td>NaN</td>
+      <td>Pfalz, Germany</td>
     </tr>
     <tr>
       <th>103726</th>
-      <td>Cabot Vineyards 2007 Syrah (Humboldt County)</td>
-      <td>Syrah</td>
-      <td>24.0</td>
-      <td>California, US</td>
+      <td>Geh. Rat Dr. von Bassermann-Jordan 2007 Rupper...</td>
+      <td>Riesling</td>
+      <td>333.0</td>
+      <td>Pfalz, Germany</td>
     </tr>
   </tbody>
 </table>
@@ -6576,10 +6601,10 @@
     </tr>
     <tr>
       <th>4</th>
-      <td>Mount Baker Vineyards 2006 Barrel Select Sangi...</td>
-      <td>82</td>
-      <td>16.0</td>
-      <td>Very light, could almost be a rosé.</td>
+      <td>Strait Jacket 2007 Sauvignon Blanc-Semillon (W...</td>
+      <td>87</td>
+      <td>20.0</td>
+      <td>Imported by Bluewater Wine Company.</td>
       <td>35</td>
     </tr>
     <tr>
@@ -6640,7 +6665,8 @@
 <h3><a class="toc-backref" href="#id29" role="doc-backlink"><span class="section-number">7.6.7. </span>Data Aggregation</a><a class="headerlink" href="#data-aggregation" title="Link to this heading">#</a></h3>
 <p>If there are columns in the data output that have repeated values, then each distinct value forms a group in the data. Data aggregation is the process of collapsing the data to one row for each group, while summarizing other columns by taking the within-group mean, sum, count, or another statistic.</p>
 <p>Aggregating data requires more attention to the ordering of the clauses in an SQL query than is necessary with other tasks. That is, certain clauses must be entered into the query in a particular order. An SQL query that aggregates data should follow this template:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">aggregationfunctions</span> <span class="n">FROM</span> <span class="n">table</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">aggregationfunctions</span> 
+<span class="n">FROM</span> <span class="n">table</span>
 <span class="p">(</span><span class="nb">any</span> <span class="n">joins</span> <span class="n">happen</span> <span class="n">here</span><span class="p">)</span>
 <span class="p">(</span><span class="n">filtering</span> <span class="n">rows</span> <span class="k">with</span> <span class="n">the</span> <span class="n">WHERE</span> <span class="n">clause</span> <span class="n">happens</span> <span class="n">here</span><span class="p">)</span>
 <span class="n">GROUP</span> <span class="n">BY</span> <span class="n">groupingcolumns</span>
@@ -6819,15 +6845,15 @@
     </tr>
     <tr>
       <th>17</th>
-      <td>South Africa</td>
-      <td>88.2</td>
-      <td>1328</td>
-    </tr>
-    <tr>
-      <th>18</th>
       <td>Portugal</td>
       <td>88.2</td>
       <td>5686</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>South Africa</td>
+      <td>88.2</td>
+      <td>1328</td>
     </tr>
     <tr>
       <th>19</th>
@@ -6897,15 +6923,15 @@
     </tr>
     <tr>
       <th>30</th>
-      <td>Croatia</td>
-      <td>87.2</td>
-      <td>73</td>
-    </tr>
-    <tr>
-      <th>31</th>
       <td>Cyprus</td>
       <td>87.2</td>
       <td>11</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>Croatia</td>
+      <td>87.2</td>
+      <td>73</td>
     </tr>
     <tr>
       <th>32</th>
@@ -6933,15 +6959,15 @@
     </tr>
     <tr>
       <th>36</th>
-      <td>Bosnia and Herzegovina</td>
-      <td>86.5</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>37</th>
       <td>Chile</td>
       <td>86.5</td>
       <td>4361</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>Bosnia and Herzegovina</td>
+      <td>86.5</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>38</th>
@@ -7413,8 +7439,10 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myquery</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">SELECT title, variety, points,</span>
-<span class="s2">(points - (SELECT AVG(points) FROM reviews))/(SELECT STDDEV(points) FROM reviews) as points_z </span>
+<span class="s2">SELECT title, </span>
+<span class="s2">    variety, </span>
+<span class="s2">    points,</span>
+<span class="s2">    (points - (SELECT AVG(points) FROM reviews))/(SELECT STDDEV(points) FROM reviews) as points_z </span>
 <span class="s2">FROM reviews;</span>
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">myquery</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
@@ -7449,38 +7477,38 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>Casas del Bosque 2011 Reserva Sauvignon Blanc ...</td>
-      <td>Sauvignon Blanc</td>
-      <td>86</td>
-      <td>-0.88395</td>
+      <td>Kaesler 2006 Old Vine Shiraz (Barossa Valley)</td>
+      <td>Shiraz</td>
+      <td>95</td>
+      <td>2.161695</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Marqués de Terán 2009 Selección Especial  (Rioja)</td>
-      <td>Tempranillo</td>
-      <td>86</td>
-      <td>-0.88395</td>
+      <td>Lustau NV Almacenista Palo Cortado de Jerez Sh...</td>
+      <td>Sherry</td>
+      <td>94</td>
+      <td>1.823290</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Maurice Ecard 2009  Bourgogne</td>
-      <td>Chardonnay</td>
-      <td>86</td>
-      <td>-0.88395</td>
+      <td>Ignacio Marín 2012 Marín Old Vine Garnacha (Ca...</td>
+      <td>Garnacha</td>
+      <td>89</td>
+      <td>0.131265</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>McGregor 2010 Semi-Dry Riesling (Finger Lakes)</td>
-      <td>Riesling</td>
-      <td>86</td>
-      <td>-0.88395</td>
+      <td>Quinta da Lixa 2016 Pouco Comum Alvarinho (Minho)</td>
+      <td>Alvarinho</td>
+      <td>89</td>
+      <td>0.131265</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Jules Taylor 2009 Ballochdale Estate Pinot Noi...</td>
-      <td>Pinot Noir</td>
-      <td>86</td>
-      <td>-0.88395</td>
+      <td>Quinta da Raza 2016 Dom Diogo Alvarinho (Minho)</td>
+      <td>Alvarinho</td>
+      <td>89</td>
+      <td>0.131265</td>
     </tr>
     <tr>
       <th>...</th>
@@ -7491,38 +7519,38 @@
     </tr>
     <tr>
       <th>103722</th>
-      <td>Glenora 2010 Gewürztraminer (Finger Lakes)</td>
-      <td>Gewürztraminer</td>
-      <td>86</td>
-      <td>-0.88395</td>
+      <td>Antico Colle 2012 Il Saggio Riserva  (Vino Nob...</td>
+      <td>Sangiovese</td>
+      <td>92</td>
+      <td>1.146480</td>
     </tr>
     <tr>
       <th>103723</th>
-      <td>Hard Row To Hoe 2010 Marsanne (Yakima Valley)</td>
-      <td>Marsanne</td>
-      <td>86</td>
-      <td>-0.88395</td>
+      <td>Del Rio 2007 Pinot Noir (Rogue Valley)</td>
+      <td>Pinot Noir</td>
+      <td>80</td>
+      <td>-2.914380</td>
     </tr>
     <tr>
       <th>103724</th>
-      <td>Animale 2009 Dolcetto (Columbia Valley (WA))</td>
-      <td>Dolcetto</td>
-      <td>86</td>
-      <td>-0.88395</td>
+      <td>Namasté Vineyards 2006 Serenity Vineyard Chard...</td>
+      <td>Chardonnay</td>
+      <td>80</td>
+      <td>-2.914380</td>
     </tr>
     <tr>
       <th>103725</th>
-      <td>Beresan 2008 The Buzz Yellow Jacket Vineyard R...</td>
-      <td>Red Blend</td>
-      <td>86</td>
-      <td>-0.88395</td>
+      <td>Müller-Catoir 2007 Breumel in den Mauren Trock...</td>
+      <td>Riesling</td>
+      <td>97</td>
+      <td>2.838505</td>
     </tr>
     <tr>
       <th>103726</th>
-      <td>Cabot Vineyards 2007 Syrah (Humboldt County)</td>
-      <td>Syrah</td>
-      <td>86</td>
-      <td>-0.88395</td>
+      <td>Geh. Rat Dr. von Bassermann-Jordan 2007 Rupper...</td>
+      <td>Riesling</td>
+      <td>95</td>
+      <td>2.161695</td>
     </tr>
   </tbody>
 </table>
@@ -7692,43 +7720,43 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>14401</td>
-      <td>Wines &amp; Winemakers 2012 Pegos Claros Colheita ...</td>
-      <td>Castelão</td>
-      <td>87</td>
-      <td>15.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>14401</td>
-      <td>Wines &amp; Winemakers 2013 Lua Cheia em Vinhas Ve...</td>
-      <td>Portuguese Red</td>
-      <td>87</td>
-      <td>18.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>14401</td>
-      <td>Wines &amp; Winemakers 2013 Lua Cheia em Vinhas Ve...</td>
-      <td>Portuguese Red</td>
-      <td>87</td>
-      <td>12.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>4124</td>
-      <td>Chateau Ste. Michelle 2008 Syrah (Columbia Val...</td>
-      <td>Syrah</td>
-      <td>87</td>
+      <td>9995</td>
+      <td>Montes 2015 Classic Series Sauvignon Blanc (Ac...</td>
+      <td>Sauvignon Blanc</td>
+      <td>86</td>
       <td>13.0</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>4586</td>
-      <td>Concha y Toro 2010 Gravas del Maipo Syrah (Mai...</td>
-      <td>Syrah</td>
+      <th>1</th>
+      <td>9995</td>
+      <td>Montes 2010 Alpha Carmenère (Colchagua Valley)</td>
+      <td>Carmenère</td>
       <td>91</td>
-      <td>200.0</td>
+      <td>25.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4124</td>
+      <td>Chateau Ste. Michelle 2015 Pinot Gris (Columbi...</td>
+      <td>Pinot Gris</td>
+      <td>88</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2007</td>
+      <td>Casa Santos Lima 2014 Lab Branco White (Lisboa)</td>
+      <td>Portuguese White</td>
+      <td>84</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2375</td>
+      <td>Chanson Père et Fils 2013  Viré-Clessé</td>
+      <td>Chardonnay</td>
+      <td>84</td>
+      <td>25.0</td>
     </tr>
     <tr>
       <th>...</th>
@@ -7740,43 +7768,43 @@
     </tr>
     <tr>
       <th>2742</th>
-      <td>13381</td>
-      <td>Trapiche 2016 Pure Malbec (Uco Valley)</td>
-      <td>Malbec</td>
+      <td>4257</td>
+      <td>Chehalem 2010 Corral Creek Vineyards Pinot Noi...</td>
+      <td>Pinot Noir</td>
       <td>88</td>
-      <td>15.0</td>
+      <td>48.0</td>
     </tr>
     <tr>
       <th>2743</th>
-      <td>9111</td>
-      <td>Louis Jadot 2005 La Dominode Premier Cru  (Sav...</td>
-      <td>Pinot Noir</td>
-      <td>90</td>
-      <td>37.0</td>
+      <td>4257</td>
+      <td>Chehalem 2011 INOX Chardonnay (Willamette Valley)</td>
+      <td>Chardonnay</td>
+      <td>88</td>
+      <td>19.0</td>
     </tr>
     <tr>
       <th>2744</th>
-      <td>9995</td>
-      <td>Montes 2009 Limited Selection Pinot Noir (Casa...</td>
-      <td>Pinot Noir</td>
-      <td>89</td>
-      <td>20.0</td>
+      <td>4257</td>
+      <td>Chehalem 2011 Three Vineyard Pinot Gris (Willa...</td>
+      <td>Pinot Gris</td>
+      <td>88</td>
+      <td>19.0</td>
     </tr>
     <tr>
       <th>2745</th>
-      <td>4124</td>
-      <td>Chateau Ste. Michelle 2012 Canoe Ridge Estate ...</td>
+      <td>4586</td>
+      <td>Concha y Toro 2011 Marques de Casa Concha Char...</td>
       <td>Chardonnay</td>
-      <td>89</td>
-      <td>22.0</td>
+      <td>86</td>
+      <td>18.0</td>
     </tr>
     <tr>
       <th>2746</th>
-      <td>14401</td>
-      <td>Wines &amp; Winemakers 2015 Nostalgia Alvarinho (V...</td>
-      <td>Alvarinho</td>
-      <td>88</td>
-      <td>23.0</td>
+      <td>7060</td>
+      <td>Georges Duboeuf 2012 Nouveau  (Beaujolais-Vill...</td>
+      <td>Gamay</td>
+      <td>86</td>
+      <td>13.0</td>
     </tr>
   </tbody>
 </table>
@@ -7930,38 +7958,38 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>Marqués de Terán 2009 Selección Especial  (Rioja)</td>
-      <td>Tempranillo</td>
-      <td>86</td>
-      <td>24.0</td>
+      <td>Kaesler 2006 Old Vine Shiraz (Barossa Valley)</td>
+      <td>Shiraz</td>
+      <td>95</td>
+      <td>60.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Alessandro Veglio 2011 Gattera  (Barolo)</td>
-      <td>Nebbiolo</td>
-      <td>87</td>
-      <td>NaN</td>
+      <td>Lustau NV Almacenista Palo Cortado de Jerez Sh...</td>
+      <td>Sherry</td>
+      <td>94</td>
+      <td>42.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Pingao 2013  Rioja</td>
-      <td>Tempranillo</td>
-      <td>87</td>
-      <td>13.0</td>
+      <td>Ignacio Marín 2012 Marín Old Vine Garnacha (Ca...</td>
+      <td>Garnacha</td>
+      <td>89</td>
+      <td>18.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Chateau Walla Walla 2008 Syrah (Walla Walla Va...</td>
-      <td>Syrah</td>
-      <td>87</td>
-      <td>40.0</td>
+      <td>Ribbon Cliff 2013 Estate Reserve Blend Red (Co...</td>
+      <td>Red Blend</td>
+      <td>89</td>
+      <td>30.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Sweet Valley 2008 Cabernet Sauvignon (Walla Wa...</td>
-      <td>Cabernet Sauvignon</td>
-      <td>87</td>
-      <td>35.0</td>
+      <td>Villa Yustina 2012 Monogram Mavrud and Rubin R...</td>
+      <td>Red Blend</td>
+      <td>89</td>
+      <td>26.0</td>
     </tr>
     <tr>
       <th>...</th>
@@ -7972,37 +8000,37 @@
     </tr>
     <tr>
       <th>20643</th>
-      <td>Kicker Cane 2014 Cabernet Sauvignon (Alexander...</td>
-      <td>Cabernet Sauvignon</td>
-      <td>88</td>
-      <td>20.0</td>
+      <td>Ron Rubin 2013 Cool Climate Syrah (Green Valley)</td>
+      <td>Syrah</td>
+      <td>92</td>
+      <td>32.0</td>
     </tr>
     <tr>
       <th>20644</th>
-      <td>Tenuta Grimani 2015 Farinaldo  (Soave)</td>
-      <td>Garganega</td>
-      <td>88</td>
-      <td>NaN</td>
+      <td>Salcheto 2013  Vino Nobile di Montepulciano</td>
+      <td>Sangiovese</td>
+      <td>92</td>
+      <td>28.0</td>
     </tr>
     <tr>
       <th>20645</th>
-      <td>Vin Vault NV Cabernet Sauvignon (California)</td>
-      <td>Cabernet Sauvignon</td>
-      <td>88</td>
-      <td>20.0</td>
+      <td>Graziano 2013 Coro Mendocino Red (Mendocino)</td>
+      <td>Red Blend</td>
+      <td>92</td>
+      <td>40.0</td>
     </tr>
     <tr>
       <th>20646</th>
-      <td>Dachshund NV Bubbles Sparkling (Germany)</td>
-      <td>Sparkling Blend</td>
-      <td>88</td>
-      <td>17.0</td>
+      <td>Namasté Vineyards 2006 Serenity Vineyard Chard...</td>
+      <td>Chardonnay</td>
+      <td>80</td>
+      <td>15.0</td>
     </tr>
     <tr>
       <th>20647</th>
-      <td>Domaine Guillot-Broux 2009 Beaumont  (Mâcon-Cr...</td>
-      <td>Pinot Noir</td>
-      <td>88</td>
+      <td>Müller-Catoir 2007 Breumel in den Mauren Trock...</td>
+      <td>Riesling</td>
+      <td>97</td>
       <td>NaN</td>
     </tr>
   </tbody>
@@ -8054,10 +8082,10 @@
 </section>
 <section id="mongodb-queries">
 <h2><a class="toc-backref" href="#id32" role="doc-backlink"><span class="section-number">7.8. </span>MongoDB Queries</a><a class="headerlink" href="#mongodb-queries" title="Link to this heading">#</a></h2>
-<p>SQL is a universal language for issuing queries to relational databases, whether the database is managed by SQLite, MySQL, PostgreSQL, or another RDBMS. For NoSQL databases, however, there is no universal query language. Every DBMS has its own query language, and will provide a guide for learning that language. Some of these guides include the ones for key-value stores in <a class="reference external" href="https://redis.io/commands">Redis</a> and wide column stores in <a class="reference external" href="https://cassandra.apache.org/doc/latest/cql/index.html">Cassandra</a>. Neo4j has developed a programming language called <a class="reference external" href="https://neo4j.com/developer/cypher-query-language/">Cypher</a> that is explicitly for issuing queries to graph databases. Of all of these query protocols, the language used by <a class="reference external" href="https://docs.mongodb.com/guides/server/read_queries/">MongoDB</a> for issuing queries to document stores is one of the most universal because it works entirely with JSONs: queries are written in JSON format and the output is organized in JSON format. All of these query languages include methods for all of the CRUD operations.</p>
+<p>SQL is a universal language for issuing queries to relational databases, whether the database is managed by SQLite, MySQL, PostgreSQL, or another RDBMS. For NoSQL databases, however, there is no universal query language. Every DBMS has its own query language, and will provide a guide for learning that language such as the ones for key-value stores in <a class="reference external" href="https://redis.io/commands">Redis</a> and wide column stores in <a class="reference external" href="https://cassandra.apache.org/doc/latest/cql/index.html">Cassandra</a>. Neo4j has developed a programming language called <a class="reference external" href="https://neo4j.com/developer/cypher-query-language/">Cypher</a> that is explicitly for issuing queries to graph databases. Of all of these query protocols, the language used by <a class="reference external" href="https://docs.mongodb.com/guides/server/read_queries/">MongoDB</a> for issuing queries to document stores is one of the most universal because it works entirely with JSONs: queries are written in JSON format and the output is organized in JSON format. All of these query languages include methods for all of the CRUD operations.</p>
 <p>The most important difference between relational and NoSQL databases is the rigidity of the schema that organizes the data. The advantage of the strict organization of a relational database, as illustrated in an ER diagram, is that the data that can be extracted from the database using an SQL query will be clean and mostly immediately ready to be analyzed. The disadvantage is that relational databases have schema that are hard to change once they’ve been created and populated with data. SQL also, despite the best intentions of the originators of SQL, can be very difficult for people use for some tasks. For extremely large datasets with many tables, it can be extremely difficult to keep track of what data exists in which table. In contrast, NoSQL databases generally have flexible schema that can be changed easily and can vary even from record to record. There are no rules, like the normalization rules, that require that the data be split into different tables, so there is no need for visual maps like ER diagrams. Also, because all of the data for one record exists in the same JSON dictionary, it is easy to use remote, distributed storage to store all of the records. The disadvantage of NoSQL databases is that the data are rarely ready for analysis after a query. It’s a buy-now-pay-later situation: the price we pay for the convenience of NoSQL storage and organization is that the output requires more work to use.</p>
 <p>Some concepts that are crucial to SQL are not relevant to NoSQL. There are <strong>no joins</strong> in a document store because all the data for a record exist in the same JSON code. As such, we don’t have to worry about accomplishing these tasks within a NoSQL query. NoSQL queries in general focus narrowly on the CRUD operations, although MongoDB provides some advanced functionality for searching for patterns within text and ranking documents based on their relevance to given search terms.</p>
-<p>For the following examples, I will use the document store database that we created in module 6, containing the same data on wine reviews that we practiced with above, only in JSON format. First I load the <code class="docutils literal notranslate"><span class="pre">pymongo</span></code> package and the <code class="docutils literal notranslate"><span class="pre">dumps()</span></code> and <code class="docutils literal notranslate"><span class="pre">loads()</span></code> functions from the <code class="docutils literal notranslate"><span class="pre">json_util</span></code> module of the <code class="docutils literal notranslate"><span class="pre">bson</span></code> package:</p>
+<p>For the following examples, I will use the document store database that we created in chapter 6, containing the same data on wine reviews that we practiced with above, only in JSON format. First I load the <code class="docutils literal notranslate"><span class="pre">pymongo</span></code> package and the <code class="docutils literal notranslate"><span class="pre">dumps()</span></code> and <code class="docutils literal notranslate"><span class="pre">loads()</span></code> functions from the <code class="docutils literal notranslate"><span class="pre">json_util</span></code> module of the <code class="docutils literal notranslate"><span class="pre">bson</span></code> package:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pymongo</span>
@@ -8069,7 +8097,12 @@
 <p>The wine reviews database is stored as a collection <code class="docutils literal notranslate"><span class="pre">winecollection</span></code> within the <code class="docutils literal notranslate"><span class="pre">winedb</span></code> database on my local machine. I load it with the following code:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myclient</span> <span class="o">=</span> <span class="n">pymongo</span><span class="o">.</span><span class="n">MongoClient</span><span class="p">(</span><span class="s2">&quot;mongodb://localhost/&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mongo_user</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;MONGO_INITDB_ROOT_USERNAME&#39;</span><span class="p">)</span>
+<span class="n">mongo_password</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;MONGO_INITDB_ROOT_PASSWORD&#39;</span><span class="p">)</span>
+<span class="n">host</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span>
+<span class="n">port</span> <span class="o">=</span> <span class="mi">27017</span>
+<span class="n">myclient</span> <span class="o">=</span> <span class="n">pymongo</span><span class="o">.</span><span class="n">MongoClient</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;mongodb://</span><span class="si">{</span><span class="n">mongo_user</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">mongo_password</span><span class="si">}</span><span class="s2">@</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">/&quot;</span><span class="p">)</span>
+
 <span class="n">winedb</span> <span class="o">=</span> <span class="n">myclient</span><span class="p">[</span><span class="s2">&quot;winedb&quot;</span><span class="p">]</span>
 <span class="n">winecollection</span> <span class="o">=</span> <span class="n">winedb</span><span class="p">[</span><span class="s2">&quot;winecollection&quot;</span><span class="p">]</span>
 </pre></div>
@@ -8087,7 +8120,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_id&#39;: ObjectId(&#39;5ed80dbca25fcf746119e3aa&#39;), &#39;wine_id&#39;: 0, &#39;country&#39;: &#39;Italy&#39;, &#39;description&#39;: &quot;Aromas include tropical fruit, broom, brimstone and dried herb. The palate isn&#39;t overly expressive, offering unripened apple, citrus and dried sage alongside brisk acidity.&quot;, &#39;points&#39;: 87, &#39;price&#39;: None, &#39;province&#39;: &#39;Sicily &amp; Sardinia&#39;, &#39;region&#39;: &#39;Etna&#39;, &#39;taster_name&#39;: &#39;Kerin O’Keefe&#39;, &#39;taster_twitter_handle&#39;: &#39;@kerinokeefe&#39;, &#39;title&#39;: &#39;Nicosia 2013 Vulkà Bianco  (Etna)&#39;, &#39;variety&#39;: &#39;White Blend&#39;, &#39;winery&#39;: &#39;Nicosia&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_id&#39;: ObjectId(&#39;673ca6e778ef897a253fb2c2&#39;), &#39;wine_id&#39;: 0, &#39;country&#39;: &#39;Italy&#39;, &#39;description&#39;: &quot;Aromas include tropical fruit, broom, brimstone and dried herb. The palate isn&#39;t overly expressive, offering unripened apple, citrus and dried sage alongside brisk acidity.&quot;, &#39;points&#39;: 87, &#39;price&#39;: None, &#39;province&#39;: &#39;Sicily &amp; Sardinia&#39;, &#39;region&#39;: &#39;Etna&#39;, &#39;taster_name&#39;: &#39;Kerin O’Keefe&#39;, &#39;taster_twitter_handle&#39;: &#39;@kerinokeefe&#39;, &#39;title&#39;: &#39;Nicosia 2013 Vulkà Bianco  (Etna)&#39;, &#39;variety&#39;: &#39;White Blend&#39;, &#39;winery&#39;: &#39;Nicosia&#39;}
 </pre></div>
 </div>
 </div>
@@ -8138,7 +8171,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pymongo.results.InsertOneResult at 0x12b264a48&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>InsertOneResult(ObjectId(&#39;677ed9a39c8cd2ce9205b653&#39;), acknowledged=True)
 </pre></div>
 </div>
 </div>
@@ -8154,13 +8187,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_id&#39;: ObjectId(&#39;5edd56e5b4e58ce3841e5dea&#39;), &#39;title&#39;: &#39;2016 Napa Valley Three By Wade Red Blend&#39;, &#39;description&#39;: &#39;This wine goes great with dinner just like Dwyane Wade goes great with LeBron James or Shaq.&#39;, &#39;taster_name&#39;: &#39;Jonathan Kropko&#39;, &#39;taster_twitter_handle&#39;: &#39;@jmk5131&#39;, &#39;price&#39;: &#39;35&#39;, &#39;variety&#39;: &#39;Red Blend&#39;, &#39;location&#39;: {&#39;region_1&#39;: &#39;Napa Valley&#39;, &#39;region_2&#39;: None, &#39;province&#39;: &#39;California&#39;, &#39;country&#39;: &#39;U.S.&#39;, &#39;winery&#39;: &#39;D Wade Cellars&#39;}}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_id&#39;: ObjectId(&#39;677ed9a39c8cd2ce9205b653&#39;), &#39;title&#39;: &#39;2016 Napa Valley Three By Wade Red Blend&#39;, &#39;description&#39;: &#39;This wine goes great with dinner just like Dwyane Wade goes great with LeBron James or Shaq.&#39;, &#39;taster_name&#39;: &#39;Jonathan Kropko&#39;, &#39;taster_twitter_handle&#39;: &#39;@jmk5131&#39;, &#39;price&#39;: &#39;35&#39;, &#39;variety&#39;: &#39;Red Blend&#39;, &#39;location&#39;: {&#39;region_1&#39;: &#39;Napa Valley&#39;, &#39;region_2&#39;: None, &#39;province&#39;: &#39;California&#39;, &#39;country&#39;: &#39;U.S.&#39;, &#39;winery&#39;: &#39;D Wade Cellars&#39;}}
 </pre></div>
 </div>
 </div>
 </div>
 <p>Note that MongoDB automatically generates a unique ID value for this document and includes it under the <code class="docutils literal notranslate"><span class="pre">_id</span></code> field in the JSON output.</p>
-<p>Wikipedia lists <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_celebrities_who_own_wineries_and_vineyards">93 other celebrities</a> other than Dwyane Wade who own wineries and vineyards, including <a class="reference external" href="https://www.decanter.com/wine-news/antonio-banderas-32255/">Antonio Banderas</a>, <a class="reference external" href="https://thewinesiren.com/drew-barrymore-vintner/">Drew Barrymore</a>, and <a class="reference external" href="http://www.today.com/id/23945035/ns/today-today_entertainment/t/rapper-lil-jon-starts-his-own-wine-label/#.XtV1BZp7l24">Lil Jon</a>. If we want to add more than one record to the wine collection database, we need to create a list of individual JSON dictionaries with code that looks like</p>
+<p>Wikipedia lists <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_celebrities_who_own_wineries_and_vineyards">93 other celebrities</a> other than Dwyane Wade who own wineries and vineyards, including <a class="reference external" href="https://www.decanter.com/wine-news/antonio-banderas-32255/">Antonio Banderas</a>, <a class="reference external" href="https://thewinesiren.com/drew-barrymore-vintner/">Drew Barrymore</a>, and <a class="reference external" href="https://packagingoftheworld.com/2012/03/little-jonathan-winery.html">Lil Jon</a>. If we want to add more than one record to the wine collection database, we need to create a list of individual JSON dictionaries with code that looks like</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">newrecords</span> <span class="o">=</span> <span class="p">[{</span><span class="n">JSON</span> <span class="n">dictionary</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{</span><span class="n">JSON</span> <span class="n">dictionary</span> <span class="mi">2</span><span class="p">},</span> <span class="p">{</span><span class="n">JSON</span> <span class="n">dictionary</span> <span class="mi">3</span><span class="p">}]</span>
 </pre></div>
 </div>
@@ -8180,7 +8213,7 @@
                  <span class="s1">&#39;country&#39;</span><span class="p">:</span> <span class="s1">&#39;Spain&#39;</span><span class="p">,</span> 
                  <span class="s1">&#39;winery&#39;</span><span class="p">:</span> <span class="s1">&#39;Anta Banderas&#39;</span><span class="p">}},</span>
            <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;Barrymore Rose 2013&#39;</span><span class="p">,</span> 
-             <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s2">&quot;Someone drank my entire bottle of wine!&quot;</span><span class="p">,</span> 
+             <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s2">&quot;Pairs well with three burgers, three French fries and three cherry pies.&quot;</span><span class="p">,</span> 
              <span class="s1">&#39;taster_name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jonathan Kropko&#39;</span><span class="p">,</span> 
              <span class="s1">&#39;taster_twitter_handle&#39;</span><span class="p">:</span> <span class="s1">&#39;@jmk5131&#39;</span><span class="p">,</span> 
              <span class="s1">&#39;price&#39;</span><span class="p">:</span> <span class="s1">&#39;14.99&#39;</span><span class="p">,</span> 
@@ -8217,7 +8250,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pymongo.results.InsertManyResult at 0x1268132c8&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>InsertManyResult([ObjectId(&#39;677ed9a39c8cd2ce9205b654&#39;), ObjectId(&#39;677ed9a39c8cd2ce9205b655&#39;), ObjectId(&#39;677ed9a39c8cd2ce9205b656&#39;)], acknowledged=True)
 </pre></div>
 </div>
 </div>
@@ -8241,7 +8274,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_id&#39;: ObjectId(&#39;5ed80dbca25fcf746119e3aa&#39;), &#39;wine_id&#39;: 0, &#39;country&#39;: &#39;Italy&#39;, &#39;description&#39;: &quot;Aromas include tropical fruit, broom, brimstone and dried herb. The palate isn&#39;t overly expressive, offering unripened apple, citrus and dried sage alongside brisk acidity.&quot;, &#39;points&#39;: 87, &#39;price&#39;: None, &#39;province&#39;: &#39;Sicily &amp; Sardinia&#39;, &#39;region&#39;: &#39;Etna&#39;, &#39;taster_name&#39;: &#39;Kerin O’Keefe&#39;, &#39;taster_twitter_handle&#39;: &#39;@kerinokeefe&#39;, &#39;title&#39;: &#39;Nicosia 2013 Vulkà Bianco  (Etna)&#39;, &#39;variety&#39;: &#39;White Blend&#39;, &#39;winery&#39;: &#39;Nicosia&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_id&#39;: ObjectId(&#39;673ca6e778ef897a253fb2c2&#39;), &#39;wine_id&#39;: 0, &#39;country&#39;: &#39;Italy&#39;, &#39;description&#39;: &quot;Aromas include tropical fruit, broom, brimstone and dried herb. The palate isn&#39;t overly expressive, offering unripened apple, citrus and dried sage alongside brisk acidity.&quot;, &#39;points&#39;: 87, &#39;price&#39;: None, &#39;province&#39;: &#39;Sicily &amp; Sardinia&#39;, &#39;region&#39;: &#39;Etna&#39;, &#39;taster_name&#39;: &#39;Kerin O’Keefe&#39;, &#39;taster_twitter_handle&#39;: &#39;@kerinokeefe&#39;, &#39;title&#39;: &#39;Nicosia 2013 Vulkà Bianco  (Etna)&#39;, &#39;variety&#39;: &#39;White Blend&#39;, &#39;winery&#39;: &#39;Nicosia&#39;}
 </pre></div>
 </div>
 </div>
@@ -8255,9 +8288,9 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_id&#39;: ObjectId(&#39;5ed80dbca25fcf746119e3aa&#39;), &#39;wine_id&#39;: 0, &#39;country&#39;: &#39;Italy&#39;, &#39;description&#39;: &quot;Aromas include tropical fruit, broom, brimstone and dried herb. The palate isn&#39;t overly expressive, offering unripened apple, citrus and dried sage alongside brisk acidity.&quot;, &#39;points&#39;: 87, &#39;price&#39;: None, &#39;province&#39;: &#39;Sicily &amp; Sardinia&#39;, &#39;region&#39;: &#39;Etna&#39;, &#39;taster_name&#39;: &#39;Kerin O’Keefe&#39;, &#39;taster_twitter_handle&#39;: &#39;@kerinokeefe&#39;, &#39;title&#39;: &#39;Nicosia 2013 Vulkà Bianco  (Etna)&#39;, &#39;variety&#39;: &#39;White Blend&#39;, &#39;winery&#39;: &#39;Nicosia&#39;}
-{&#39;_id&#39;: ObjectId(&#39;5ed80dcca25fcf746119e3ab&#39;), &#39;wine_id&#39;: 1, &#39;country&#39;: &#39;Portugal&#39;, &#39;description&#39;: &quot;This is ripe and fruity, a wine that is smooth while still structured. Firm tannins are filled out with juicy red berry fruits and freshened with acidity. It&#39;s  already drinkable, although it will certainly be better from 2016.&quot;, &#39;points&#39;: 87, &#39;price&#39;: 15.0, &#39;province&#39;: &#39;Douro&#39;, &#39;region&#39;: None, &#39;taster_name&#39;: &#39;Roger Voss&#39;, &#39;taster_twitter_handle&#39;: &#39;@vossroger&#39;, &#39;title&#39;: &#39;Quinta dos Avidagos 2011 Avidagos Red (Douro)&#39;, &#39;variety&#39;: &#39;Portuguese Red&#39;, &#39;winery&#39;: &#39;Quinta dos Avidagos&#39;}
-{&#39;_id&#39;: ObjectId(&#39;5ed80dcca25fcf746119e3ac&#39;), &#39;wine_id&#39;: 2, &#39;country&#39;: &#39;US&#39;, &#39;description&#39;: &#39;Tart and snappy, the flavors of lime flesh and rind dominate. Some green pineapple pokes through, with crisp acidity underscoring the flavors. The wine was all stainless-steel fermented.&#39;, &#39;points&#39;: 87, &#39;price&#39;: 14.0, &#39;province&#39;: &#39;Oregon&#39;, &#39;region&#39;: &#39;Willamette Valley&#39;, &#39;taster_name&#39;: &#39;Paul Gregutt&#39;, &#39;taster_twitter_handle&#39;: &#39;@paulgwine\xa0&#39;, &#39;title&#39;: &#39;Rainstorm 2013 Pinot Gris (Willamette Valley)&#39;, &#39;variety&#39;: &#39;Pinot Gris&#39;, &#39;winery&#39;: &#39;Rainstorm&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_id&#39;: ObjectId(&#39;673ca6e778ef897a253fb2c2&#39;), &#39;wine_id&#39;: 0, &#39;country&#39;: &#39;Italy&#39;, &#39;description&#39;: &quot;Aromas include tropical fruit, broom, brimstone and dried herb. The palate isn&#39;t overly expressive, offering unripened apple, citrus and dried sage alongside brisk acidity.&quot;, &#39;points&#39;: 87, &#39;price&#39;: None, &#39;province&#39;: &#39;Sicily &amp; Sardinia&#39;, &#39;region&#39;: &#39;Etna&#39;, &#39;taster_name&#39;: &#39;Kerin O’Keefe&#39;, &#39;taster_twitter_handle&#39;: &#39;@kerinokeefe&#39;, &#39;title&#39;: &#39;Nicosia 2013 Vulkà Bianco  (Etna)&#39;, &#39;variety&#39;: &#39;White Blend&#39;, &#39;winery&#39;: &#39;Nicosia&#39;}
+{&#39;_id&#39;: ObjectId(&#39;673ca6e778ef897a253fb2c3&#39;), &#39;wine_id&#39;: 1, &#39;country&#39;: &#39;Portugal&#39;, &#39;description&#39;: &quot;This is ripe and fruity, a wine that is smooth while still structured. Firm tannins are filled out with juicy red berry fruits and freshened with acidity. It&#39;s  already drinkable, although it will certainly be better from 2016.&quot;, &#39;points&#39;: 87, &#39;price&#39;: 15.0, &#39;province&#39;: &#39;Douro&#39;, &#39;region&#39;: None, &#39;taster_name&#39;: &#39;Roger Voss&#39;, &#39;taster_twitter_handle&#39;: &#39;@vossroger&#39;, &#39;title&#39;: &#39;Quinta dos Avidagos 2011 Avidagos Red (Douro)&#39;, &#39;variety&#39;: &#39;Portuguese Red&#39;, &#39;winery&#39;: &#39;Quinta dos Avidagos&#39;}
+{&#39;_id&#39;: ObjectId(&#39;673ca6e778ef897a253fb2c4&#39;), &#39;wine_id&#39;: 2, &#39;country&#39;: &#39;US&#39;, &#39;description&#39;: &#39;Tart and snappy, the flavors of lime flesh and rind dominate. Some green pineapple pokes through, with crisp acidity underscoring the flavors. The wine was all stainless-steel fermented.&#39;, &#39;points&#39;: 87, &#39;price&#39;: 14.0, &#39;province&#39;: &#39;Oregon&#39;, &#39;region&#39;: &#39;Willamette Valley&#39;, &#39;taster_name&#39;: &#39;Paul Gregutt&#39;, &#39;taster_twitter_handle&#39;: &#39;@paulgwine\xa0&#39;, &#39;title&#39;: &#39;Rainstorm 2013 Pinot Gris (Willamette Valley)&#39;, &#39;variety&#39;: &#39;Pinot Gris&#39;, &#39;winery&#39;: &#39;Rainstorm&#39;}
 </pre></div>
 </div>
 </div>
@@ -8311,7 +8344,7 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>5ed80dbca25fcf746119e3aa</td>
+      <td>673ca6e778ef897a253fb2c2</td>
       <td>0.0</td>
       <td>Italy</td>
       <td>Aromas include tropical fruit, broom, brimston...</td>
@@ -8328,12 +8361,12 @@
     </tr>
     <tr>
       <th>1</th>
-      <td>5ed80dcca25fcf746119e3ab</td>
+      <td>673ca6e778ef897a253fb2c3</td>
       <td>1.0</td>
       <td>Portugal</td>
       <td>This is ripe and fruity, a wine that is smooth...</td>
       <td>87.0</td>
-      <td>15</td>
+      <td>15.0</td>
       <td>Douro</td>
       <td>None</td>
       <td>Roger Voss</td>
@@ -8345,12 +8378,12 @@
     </tr>
     <tr>
       <th>2</th>
-      <td>5ed80dcca25fcf746119e3ac</td>
+      <td>673ca6e778ef897a253fb2c4</td>
       <td>2.0</td>
       <td>US</td>
       <td>Tart and snappy, the flavors of lime flesh and...</td>
       <td>87.0</td>
-      <td>14</td>
+      <td>14.0</td>
       <td>Oregon</td>
       <td>Willamette Valley</td>
       <td>Paul Gregutt</td>
@@ -8362,12 +8395,12 @@
     </tr>
     <tr>
       <th>3</th>
-      <td>5ed80dcca25fcf746119e3ad</td>
+      <td>673ca6e778ef897a253fb2c5</td>
       <td>3.0</td>
       <td>US</td>
       <td>Pineapple rind, lemon pith and orange blossom ...</td>
       <td>87.0</td>
-      <td>13</td>
+      <td>13.0</td>
       <td>Michigan</td>
       <td>Lake Michigan Shore</td>
       <td>Alexander Peartree</td>
@@ -8379,12 +8412,12 @@
     </tr>
     <tr>
       <th>4</th>
-      <td>5ed80dcca25fcf746119e3ae</td>
+      <td>673ca6e778ef897a253fb2c6</td>
       <td>4.0</td>
       <td>US</td>
       <td>Much like the regular bottling from 2012, this...</td>
       <td>87.0</td>
-      <td>65</td>
+      <td>65.0</td>
       <td>Oregon</td>
       <td>Willamette Valley</td>
       <td>Paul Gregutt</td>
@@ -8413,12 +8446,12 @@
     </tr>
     <tr>
       <th>103726</th>
-      <td>5ed80dcfa25fcf74611b78d8</td>
+      <td>673ca6e878ef897a254147f0</td>
       <td>129970.0</td>
       <td>France</td>
       <td>Big, rich and off-dry, this is powered by inte...</td>
       <td>90.0</td>
-      <td>21</td>
+      <td>21.0</td>
       <td>Alsace</td>
       <td>Alsace</td>
       <td>Roger Voss</td>
@@ -8430,7 +8463,7 @@
     </tr>
     <tr>
       <th>103727</th>
-      <td>5edd56e5b4e58ce3841e5dea</td>
+      <td>677ed9a39c8cd2ce9205b653</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>This wine goes great with dinner just like Dwy...</td>
@@ -8447,7 +8480,7 @@
     </tr>
     <tr>
       <th>103728</th>
-      <td>5edd56e6b4e58ce3841e5deb</td>
+      <td>677ed9a39c8cd2ce9205b654</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>This wine will make you speak differently. May...</td>
@@ -8464,10 +8497,10 @@
     </tr>
     <tr>
       <th>103729</th>
-      <td>5edd56e6b4e58ce3841e5dec</td>
+      <td>677ed9a39c8cd2ce9205b655</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>Someone drank my entire bottle of wine!</td>
+      <td>Pairs well with three burgers, three French fr...</td>
       <td>NaN</td>
       <td>14.99</td>
       <td>NaN</td>
@@ -8481,7 +8514,7 @@
     </tr>
     <tr>
       <th>103730</th>
-      <td>5edd56e6b4e58ce3841e5ded</td>
+      <td>677ed9a39c8cd2ce9205b656</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>This upscale crunk juice is OOOKAAAAAAY.</td>
@@ -8653,7 +8686,7 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>5ed80dcca25fcf746119e498</td>
+      <td>673ca6e778ef897a253fb3b0</td>
       <td>345</td>
       <td>Australia</td>
       <td>This wine contains some material over 100 year...</td>
@@ -8669,7 +8702,7 @@
     </tr>
     <tr>
       <th>1</th>
-      <td>5ed80dcea25fcf74611a5511</td>
+      <td>673ca6e778ef897a25402429</td>
       <td>36528</td>
       <td>France</td>
       <td>This is a fabulous wine from the greatest Cham...</td>
@@ -8685,7 +8718,7 @@
     </tr>
     <tr>
       <th>2</th>
-      <td>5ed80dcea25fcf74611a66df</td>
+      <td>673ca6e778ef897a254035f7</td>
       <td>42197</td>
       <td>Portugal</td>
       <td>This is the latest release of what has long be...</td>
@@ -8701,7 +8734,7 @@
     </tr>
     <tr>
       <th>3</th>
-      <td>5ed80dcea25fcf74611a7214</td>
+      <td>673ca6e778ef897a2540412c</td>
       <td>45781</td>
       <td>Italy</td>
       <td>This gorgeous, fragrant wine opens with classi...</td>
@@ -8717,7 +8750,7 @@
     </tr>
     <tr>
       <th>4</th>
-      <td>5ed80dcea25fcf74611a9877</td>
+      <td>673ca6e878ef897a2540678f</td>
       <td>58352</td>
       <td>France</td>
       <td>This is a magnificently solid wine, initially ...</td>
@@ -8733,7 +8766,7 @@
     </tr>
     <tr>
       <th>5</th>
-      <td>5ed80dcfa25fcf74611afacd</td>
+      <td>673ca6e878ef897a2540c9e5</td>
       <td>89728</td>
       <td>France</td>
       <td>This latest incarnation of the famous brand is...</td>
@@ -8749,7 +8782,7 @@
     </tr>
     <tr>
       <th>6</th>
-      <td>5ed80dcfa25fcf74611aface</td>
+      <td>673ca6e878ef897a2540c9e6</td>
       <td>89729</td>
       <td>France</td>
       <td>This new release from a great vintage for Char...</td>
@@ -8765,7 +8798,7 @@
     </tr>
     <tr>
       <th>7</th>
-      <td>5ed80dcfa25fcf74611b3fc4</td>
+      <td>673ca6e878ef897a25410edc</td>
       <td>111753</td>
       <td>France</td>
       <td>Almost black in color, this stunning wine is g...</td>
@@ -8781,7 +8814,7 @@
     </tr>
     <tr>
       <th>8</th>
-      <td>5ed80dcfa25fcf74611b3fc5</td>
+      <td>673ca6e878ef897a25410edd</td>
       <td>111755</td>
       <td>France</td>
       <td>This is the finest Cheval Blanc for many years...</td>
@@ -8797,7 +8830,7 @@
     </tr>
     <tr>
       <th>9</th>
-      <td>5ed80dcfa25fcf74611b3fc6</td>
+      <td>673ca6e878ef897a25410ede</td>
       <td>111756</td>
       <td>France</td>
       <td>A hugely powerful wine, full of dark, brooding...</td>
@@ -8813,7 +8846,7 @@
     </tr>
     <tr>
       <th>10</th>
-      <td>5ed80dcfa25fcf74611b4648</td>
+      <td>673ca6e878ef897a25411560</td>
       <td>113929</td>
       <td>US</td>
       <td>In 2005 Charles Smith introduced three high-en...</td>
@@ -8829,7 +8862,7 @@
     </tr>
     <tr>
       <th>11</th>
-      <td>5ed80dcfa25fcf74611b499d</td>
+      <td>673ca6e878ef897a254118b5</td>
       <td>114972</td>
       <td>Portugal</td>
       <td>A powerful and ripe wine, strongly influenced ...</td>
@@ -8845,7 +8878,7 @@
     </tr>
     <tr>
       <th>12</th>
-      <td>5ed80dcfa25fcf74611b6300</td>
+      <td>673ca6e878ef897a25413218</td>
       <td>122935</td>
       <td>France</td>
       <td>Full of ripe fruit, opulent and concentrated, ...</td>
@@ -8861,7 +8894,7 @@
     </tr>
     <tr>
       <th>13</th>
-      <td>5ed80dcfa25fcf74611b64d4</td>
+      <td>673ca6e878ef897a254133ec</td>
       <td>123545</td>
       <td>US</td>
       <td>Initially a rather subdued Frog; as if it has ...</td>
@@ -8924,7 +8957,7 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>5ed80dcfa25fcf74611b4648</td>
+      <td>673ca6e878ef897a25411560</td>
       <td>113929</td>
       <td>US</td>
       <td>In 2005 Charles Smith introduced three high-en...</td>
@@ -8940,7 +8973,7 @@
     </tr>
     <tr>
       <th>1</th>
-      <td>5ed80dcfa25fcf74611b64d4</td>
+      <td>673ca6e878ef897a254133ec</td>
       <td>123545</td>
       <td>US</td>
       <td>Initially a rather subdued Frog; as if it has ...</td>
@@ -9003,7 +9036,7 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>5ed80dcea25fcf74611a0d3f</td>
+      <td>673ca6e778ef897a253fdc57</td>
       <td>13402</td>
       <td>US</td>
       <td>Clove and pepper spice the dark red cherry aro...</td>
@@ -9019,7 +9052,7 @@
     </tr>
     <tr>
       <th>1</th>
-      <td>5ed80dcea25fcf74611a167b</td>
+      <td>673ca6e778ef897a253fe593</td>
       <td>16270</td>
       <td>US</td>
       <td>The nose shows an aroma of blackberry that is ...</td>
@@ -9035,7 +9068,7 @@
     </tr>
     <tr>
       <th>2</th>
-      <td>5ed80dcea25fcf74611a20a2</td>
+      <td>673ca6e778ef897a253fefba</td>
       <td>19566</td>
       <td>US</td>
       <td>Fruits, flowers and spice should lead the nose...</td>
@@ -9051,7 +9084,7 @@
     </tr>
     <tr>
       <th>3</th>
-      <td>5ed80dcea25fcf74611a23ee</td>
+      <td>673ca6e778ef897a253ff306</td>
       <td>20592</td>
       <td>US</td>
       <td>Stewed blackberries and muddled cherries perva...</td>
@@ -9067,7 +9100,7 @@
     </tr>
     <tr>
       <th>4</th>
-      <td>5ed80dcea25fcf74611a5fc4</td>
+      <td>673ca6e778ef897a25402edc</td>
       <td>39935</td>
       <td>US</td>
       <td>Friendly, appealing flavors fo pear, lychee, a...</td>
@@ -9083,7 +9116,7 @@
     </tr>
     <tr>
       <th>5</th>
-      <td>5ed80dcea25fcf74611a686c</td>
+      <td>673ca6e778ef897a25403784</td>
       <td>42692</td>
       <td>US</td>
       <td>Friendly, appealing flavors fo pear, lychee, a...</td>
@@ -9099,7 +9132,7 @@
     </tr>
     <tr>
       <th>6</th>
-      <td>5ed80dcea25fcf74611a7033</td>
+      <td>673ca6e778ef897a25403f4b</td>
       <td>45209</td>
       <td>US</td>
       <td>Freshly squeezed lemons, lime and pretty white...</td>
@@ -9115,7 +9148,7 @@
     </tr>
     <tr>
       <th>7</th>
-      <td>5ed80dcea25fcf74611a74db</td>
+      <td>673ca6e778ef897a254043f3</td>
       <td>46670</td>
       <td>US</td>
       <td>Black fruit aromas show over toasted vanilla a...</td>
@@ -9131,7 +9164,7 @@
     </tr>
     <tr>
       <th>8</th>
-      <td>5ed80dcea25fcf74611a7c95</td>
+      <td>673ca6e778ef897a25404bad</td>
       <td>49154</td>
       <td>US</td>
       <td>Lean and racy, with limes and tart green apple...</td>
@@ -9147,7 +9180,7 @@
     </tr>
     <tr>
       <th>9</th>
-      <td>5ed80dcea25fcf74611a8518</td>
+      <td>673ca6e778ef897a25405430</td>
       <td>52078</td>
       <td>US</td>
       <td>Charred oak, green herbs and vanilla spice not...</td>
@@ -9163,7 +9196,7 @@
     </tr>
     <tr>
       <th>10</th>
-      <td>5ed80dcea25fcf74611a8fe5</td>
+      <td>673ca6e778ef897a25405efd</td>
       <td>55687</td>
       <td>US</td>
       <td>Mostly Sangiovese with a small dose of Petit V...</td>
@@ -9179,7 +9212,7 @@
     </tr>
     <tr>
       <th>11</th>
-      <td>5ed80dcea25fcf74611a8fe9</td>
+      <td>673ca6e778ef897a25405f01</td>
       <td>55693</td>
       <td>US</td>
       <td>Aromas of toasted oak, green leaves, vanilla a...</td>
@@ -9195,7 +9228,7 @@
     </tr>
     <tr>
       <th>12</th>
-      <td>5ed80dcfa25fcf74611ac51f</td>
+      <td>673ca6e878ef897a25409437</td>
       <td>72535</td>
       <td>US</td>
       <td>Who knew Ohio made such tasty Chardonnay? Brig...</td>
@@ -9211,7 +9244,7 @@
     </tr>
     <tr>
       <th>13</th>
-      <td>5ed80dcfa25fcf74611ae168</td>
+      <td>673ca6e878ef897a2540b080</td>
       <td>81619</td>
       <td>US</td>
       <td>Strawberry and raspberry Kool-Aid aromas are s...</td>
@@ -9227,7 +9260,7 @@
     </tr>
     <tr>
       <th>14</th>
-      <td>5ed80dcfa25fcf74611af839</td>
+      <td>673ca6e878ef897a2540c751</td>
       <td>88841</td>
       <td>US</td>
       <td>This is a vibrant, energetic Chardonnay that s...</td>
@@ -9243,7 +9276,7 @@
     </tr>
     <tr>
       <th>15</th>
-      <td>5ed80dcfa25fcf74611b08bb</td>
+      <td>673ca6e878ef897a2540d7d3</td>
       <td>94267</td>
       <td>US</td>
       <td>Although the nose offers darker notes of petro...</td>
@@ -9259,7 +9292,7 @@
     </tr>
     <tr>
       <th>16</th>
-      <td>5ed80dcfa25fcf74611b08be</td>
+      <td>673ca6e878ef897a2540d7d6</td>
       <td>94275</td>
       <td>US</td>
       <td>The nose on this bright red blend from Sanders...</td>
@@ -9275,7 +9308,7 @@
     </tr>
     <tr>
       <th>17</th>
-      <td>5ed80dcfa25fcf74611b13ff</td>
+      <td>673ca6e878ef897a2540e317</td>
       <td>97836</td>
       <td>US</td>
       <td>Smoke wafts over pressed apple and lemon notes...</td>
@@ -9291,7 +9324,7 @@
     </tr>
     <tr>
       <th>18</th>
-      <td>5ed80dcfa25fcf74611b1c1f</td>
+      <td>673ca6e878ef897a2540eb37</td>
       <td>100445</td>
       <td>US</td>
       <td>Fresh minerality and dancing floral notes make...</td>
@@ -9307,7 +9340,7 @@
     </tr>
     <tr>
       <th>19</th>
-      <td>5ed80dcfa25fcf74611b1c23</td>
+      <td>673ca6e878ef897a2540eb3b</td>
       <td>100452</td>
       <td>US</td>
       <td>A slightly floral but lively nose is followed ...</td>
@@ -9323,7 +9356,7 @@
     </tr>
     <tr>
       <th>20</th>
-      <td>5ed80dcfa25fcf74611b29f1</td>
+      <td>673ca6e878ef897a2540f909</td>
       <td>104722</td>
       <td>US</td>
       <td>There are enticing hints of berries and cream ...</td>
@@ -9339,7 +9372,7 @@
     </tr>
     <tr>
       <th>21</th>
-      <td>5ed80dcfa25fcf74611b4fb6</td>
+      <td>673ca6e878ef897a25411ece</td>
       <td>116912</td>
       <td>US</td>
       <td>Black cherry aromas are dwarfed by notes of wi...</td>
@@ -9355,7 +9388,7 @@
     </tr>
     <tr>
       <th>22</th>
-      <td>5ed80dcfa25fcf74611b55ee</td>
+      <td>673ca6e878ef897a25412506</td>
       <td>118895</td>
       <td>US</td>
       <td>Bright red fruits achieve a decent amount of r...</td>
@@ -9418,7 +9451,7 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>5ed80dcca25fcf746119e3bd</td>
+      <td>673ca6e778ef897a253fb2d5</td>
       <td>19</td>
       <td>US</td>
       <td>Red fruit aromas pervade on the nose, with cig...</td>
@@ -9434,7 +9467,7 @@
     </tr>
     <tr>
       <th>1</th>
-      <td>5ed80dcca25fcf746119e3be</td>
+      <td>673ca6e778ef897a253fb2d6</td>
       <td>20</td>
       <td>US</td>
       <td>Ripe aromas of dark berries mingle with ample ...</td>
@@ -9450,7 +9483,7 @@
     </tr>
     <tr>
       <th>2</th>
-      <td>5ed80dcca25fcf746119e498</td>
+      <td>673ca6e778ef897a253fb3b0</td>
       <td>345</td>
       <td>Australia</td>
       <td>This wine contains some material over 100 year...</td>
@@ -9466,7 +9499,7 @@
     </tr>
     <tr>
       <th>3</th>
-      <td>5ed80dcea25fcf746119e8d0</td>
+      <td>673ca6e778ef897a253fb7e8</td>
       <td>1625</td>
       <td>US</td>
       <td>Popping with aromas of lychee, rose, geranium ...</td>
@@ -9482,7 +9515,7 @@
     </tr>
     <tr>
       <th>4</th>
-      <td>5ed80dcea25fcf746119e8d6</td>
+      <td>673ca6e778ef897a253fb7ee</td>
       <td>1631</td>
       <td>US</td>
       <td>Powerful aromas of lychee, mango and peach giv...</td>
@@ -9514,7 +9547,7 @@
     </tr>
     <tr>
       <th>388</th>
-      <td>5ed80dcfa25fcf74611b71b3</td>
+      <td>673ca6e878ef897a254140cb</td>
       <td>127736</td>
       <td>US</td>
       <td>Dense with alluring aromas, this wine is full ...</td>
@@ -9530,7 +9563,7 @@
     </tr>
     <tr>
       <th>389</th>
-      <td>5ed80dcfa25fcf74611b71bd</td>
+      <td>673ca6e878ef897a254140d5</td>
       <td>127746</td>
       <td>US</td>
       <td>A grape known in Uruguay and Madiran has prove...</td>
@@ -9546,7 +9579,7 @@
     </tr>
     <tr>
       <th>390</th>
-      <td>5ed80dcfa25fcf74611b7447</td>
+      <td>673ca6e878ef897a2541435f</td>
       <td>128576</td>
       <td>US</td>
       <td>Peach and steely lemon aromas carry to a citru...</td>
@@ -9562,7 +9595,7 @@
     </tr>
     <tr>
       <th>391</th>
-      <td>5ed80dcfa25fcf74611b7708</td>
+      <td>673ca6e878ef897a25414620</td>
       <td>129422</td>
       <td>US</td>
       <td>The nose of this wine is bursting with raspber...</td>
@@ -9578,7 +9611,7 @@
     </tr>
     <tr>
       <th>392</th>
-      <td>5ed80dcfa25fcf74611b772a</td>
+      <td>673ca6e878ef897a25414642</td>
       <td>129459</td>
       <td>US</td>
       <td>Somehow, winemaker Luca Paschina manages to ma...</td>
@@ -9643,12 +9676,12 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>5ed80dcca25fcf746119e3d4</td>
+      <td>673ca6e778ef897a253fb2ec</td>
       <td>60.0</td>
       <td>US</td>
       <td>Syrupy and dense, this wine is jammy in plum a...</td>
       <td>86.0</td>
-      <td>100</td>
+      <td>100.0</td>
       <td>California</td>
       <td>Napa Valley</td>
       <td>Virginie Boone</td>
@@ -9660,12 +9693,12 @@
     </tr>
     <tr>
       <th>1</th>
-      <td>5ed80dcca25fcf746119e42c</td>
+      <td>673ca6e778ef897a253fb344</td>
       <td>168.0</td>
       <td>US</td>
       <td>A fairly elegant expression of the variety, th...</td>
       <td>91.0</td>
-      <td>95</td>
+      <td>95.0</td>
       <td>California</td>
       <td>Napa Valley</td>
       <td>Virginie Boone</td>
@@ -9677,12 +9710,12 @@
     </tr>
     <tr>
       <th>2</th>
-      <td>5ed80dcca25fcf746119e476</td>
+      <td>673ca6e778ef897a253fb38e</td>
       <td>284.0</td>
       <td>Argentina</td>
       <td>This huge Malbec defines jammy and concentrate...</td>
       <td>92.0</td>
-      <td>215</td>
+      <td>215.0</td>
       <td>Mendoza Province</td>
       <td>Perdriel</td>
       <td>Michael Schachner</td>
@@ -9694,12 +9727,12 @@
     </tr>
     <tr>
       <th>3</th>
-      <td>5ed80dcca25fcf746119e498</td>
+      <td>673ca6e778ef897a253fb3b0</td>
       <td>345.0</td>
       <td>Australia</td>
       <td>This wine contains some material over 100 year...</td>
       <td>100.0</td>
-      <td>350</td>
+      <td>350.0</td>
       <td>Victoria</td>
       <td>Rutherglen</td>
       <td>Joe Czerwinski</td>
@@ -9711,12 +9744,12 @@
     </tr>
     <tr>
       <th>4</th>
-      <td>5ed80dcca25fcf746119e499</td>
+      <td>673ca6e778ef897a253fb3b1</td>
       <td>346.0</td>
       <td>Australia</td>
       <td>This deep brown wine smells like a damp, mossy...</td>
       <td>98.0</td>
-      <td>350</td>
+      <td>350.0</td>
       <td>Victoria</td>
       <td>Rutherglen</td>
       <td>Joe Czerwinski</td>
@@ -9745,12 +9778,12 @@
     </tr>
     <tr>
       <th>3697</th>
-      <td>5ed80dcfa25fcf74611b78a8</td>
+      <td>673ca6e878ef897a254147c0</td>
       <td>129919.0</td>
       <td>US</td>
       <td>This ripe, rich, almost decadently thick wine ...</td>
       <td>91.0</td>
-      <td>105</td>
+      <td>105.0</td>
       <td>Washington</td>
       <td>Walla Walla Valley (WA)</td>
       <td>Paul Gregutt</td>
@@ -9762,12 +9795,12 @@
     </tr>
     <tr>
       <th>3698</th>
-      <td>5ed80dcfa25fcf74611b78b2</td>
+      <td>673ca6e878ef897a254147ca</td>
       <td>129931.0</td>
       <td>France</td>
       <td>A powerful, chunky wine, packed with solid tan...</td>
       <td>91.0</td>
-      <td>107</td>
+      <td>107.0</td>
       <td>Burgundy</td>
       <td>Grands-Echezeaux</td>
       <td>Roger Voss</td>
@@ -9779,7 +9812,7 @@
     </tr>
     <tr>
       <th>3699</th>
-      <td>5edd56e5b4e58ce3841e5dea</td>
+      <td>677ed9a39c8cd2ce9205b653</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>This wine goes great with dinner just like Dwy...</td>
@@ -9796,7 +9829,7 @@
     </tr>
     <tr>
       <th>3700</th>
-      <td>5edd56e6b4e58ce3841e5deb</td>
+      <td>677ed9a39c8cd2ce9205b654</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>This wine will make you speak differently. May...</td>
@@ -9813,10 +9846,10 @@
     </tr>
     <tr>
       <th>3701</th>
-      <td>5edd56e6b4e58ce3841e5dec</td>
+      <td>677ed9a39c8cd2ce9205b655</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>Someone drank my entire bottle of wine!</td>
+      <td>Pairs well with three burgers, three French fr...</td>
       <td>NaN</td>
       <td>14.99</td>
       <td>NaN</td>
@@ -9852,7 +9885,7 @@
   &#39;province&#39;: &#39;California&#39;,
   &#39;country&#39;: &#39;U.S.&#39;,
   &#39;winery&#39;: &#39;D Wade Cellars&#39;},
- &#39;_id&#39;: ObjectId(&#39;5edd56e5b4e58ce3841e5dea&#39;)}
+ &#39;_id&#39;: ObjectId(&#39;677ed9a39c8cd2ce9205b653&#39;)}
 </pre></div>
 </div>
 </div>
@@ -9897,7 +9930,7 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>5edd56e5b4e58ce3841e5dea</td>
+      <td>677ed9a39c8cd2ce9205b653</td>
       <td>2016 Napa Valley Three By Wade Red Blend</td>
       <td>This wine goes great with dinner just like Dwy...</td>
       <td>Jonathan Kropko</td>
@@ -9955,27 +9988,27 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>5ed80dcca25fcf746119e3c1</td>
+      <td>673ca6e778ef897a253fb2d9</td>
       <td>Bianchi 2011 Signature Selection Merlot (Paso ...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>5ed80dcca25fcf746119e3cd</td>
+      <td>673ca6e778ef897a253fb2e5</td>
       <td>Sundance 2011 Merlot (Maule Valley)</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>5ed80dcca25fcf746119e3ef</td>
+      <td>673ca6e778ef897a253fb307</td>
       <td>Passaggio 2014 Blau Vineyards Merlot (Knights ...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>5ed80dcca25fcf746119e42c</td>
+      <td>673ca6e778ef897a253fb344</td>
       <td>Duckhorn 2012 Rector Creek Vineyard Merlot (Na...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>5ed80dcca25fcf746119e437</td>
+      <td>673ca6e778ef897a253fb34f</td>
       <td>Viña Bisquertt 2007 Casa La Joya Reserve Merlo...</td>
     </tr>
     <tr>
@@ -9985,27 +10018,27 @@
     </tr>
     <tr>
       <th>2094</th>
-      <td>5ed80dcfa25fcf74611b77f0</td>
+      <td>673ca6e878ef897a25414708</td>
       <td>Castillo de Monjardin 2009 Deyo Merlot (Navarra)</td>
     </tr>
     <tr>
       <th>2095</th>
-      <td>5ed80dcfa25fcf74611b7862</td>
+      <td>673ca6e878ef897a2541477a</td>
       <td>Bonair 2006 Chateau Puryear Vineyard Merlot (R...</td>
     </tr>
     <tr>
       <th>2096</th>
-      <td>5ed80dcfa25fcf74611b7865</td>
+      <td>673ca6e878ef897a2541477d</td>
       <td>Hyatt 2005 Merlot (Rattlesnake Hills)</td>
     </tr>
     <tr>
       <th>2097</th>
-      <td>5ed80dcfa25fcf74611b786b</td>
+      <td>673ca6e878ef897a25414783</td>
       <td>Ca' Momi 2013 Reserve Merlot (Carneros)</td>
     </tr>
     <tr>
       <th>2098</th>
-      <td>5ed80dcfa25fcf74611b7896</td>
+      <td>673ca6e878ef897a254147ae</td>
       <td>Psagot 2014 Merlot</td>
     </tr>
   </tbody>
@@ -10262,7 +10295,7 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>5edd56e5b4e58ce3841e5dea</td>
+      <td>677ed9a39c8cd2ce9205b653</td>
       <td>2016 Napa Valley Three By Wade Red Blend</td>
       <td>This wine goes great with dinner just like Dwy...</td>
       <td>Jonathan Kropko</td>
@@ -10317,7 +10350,7 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>5edd56e5b4e58ce3841e5dea</td>
+      <td>677ed9a39c8cd2ce9205b653</td>
       <td>2016 Napa Valley Three By Wade Red Blend</td>
       <td>This wine goes great with dinner just like Dwy...</td>
       <td>Jonathan Kropko</td>
@@ -10374,7 +10407,7 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>5edd56e5b4e58ce3841e5dea</td>
+      <td>677ed9a39c8cd2ce9205b653</td>
       <td>2016 Napa Valley Three By Wade Red Blend</td>
       <td>This wine goes great with dinner just like Dwy...</td>
       <td>Jonathan Kropko</td>
@@ -10450,7 +10483,7 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>5edd56e5b4e58ce3841e5dea</td>
+      <td>677ed9a39c8cd2ce9205b653</td>
       <td>2016 Napa Valley Three By Wade Red Blend</td>
       <td>This wine is very good. Not as great as me. Bu...</td>
       <td>LeBron James</td>
@@ -10512,12 +10545,12 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>5ed80dcca25fcf746119e3be</td>
+      <td>673ca6e778ef897a253fb2d6</td>
       <td>20.0</td>
       <td>US</td>
       <td>Ripe aromas of dark berries mingle with ample ...</td>
       <td>87.0</td>
-      <td>23</td>
+      <td>23.0</td>
       <td>Virginia</td>
       <td>Virginia</td>
       <td>Alexander Peartree</td>
@@ -10530,12 +10563,12 @@
     </tr>
     <tr>
       <th>1</th>
-      <td>5ed80dcca25fcf746119e3c6</td>
+      <td>673ca6e778ef897a253fb2de</td>
       <td>28.0</td>
       <td>Italy</td>
       <td>Aromas suggest mature berry, scorched earth, a...</td>
       <td>87.0</td>
-      <td>17</td>
+      <td>17.0</td>
       <td>Sicily &amp; Sardinia</td>
       <td>Cerasuolo di Vittoria</td>
       <td>Kerin O’Keefe</td>
@@ -10548,12 +10581,12 @@
     </tr>
     <tr>
       <th>2</th>
-      <td>5ed80dcca25fcf746119e3dc</td>
+      <td>673ca6e778ef897a253fb2f4</td>
       <td>68.0</td>
       <td>US</td>
       <td>Very deep in color and spicy-smoky in flavor, ...</td>
       <td>86.0</td>
-      <td>12</td>
+      <td>12.0</td>
       <td>California</td>
       <td>California</td>
       <td>Jim Gordon</td>
@@ -10566,12 +10599,12 @@
     </tr>
     <tr>
       <th>3</th>
-      <td>5ed80dcca25fcf746119e3f2</td>
+      <td>673ca6e778ef897a253fb30a</td>
       <td>90.0</td>
       <td>US</td>
       <td>This blend of Sangiovese, Malbec, Cabernet Sau...</td>
       <td>88.0</td>
-      <td>23</td>
+      <td>23.0</td>
       <td>California</td>
       <td>Sonoma County</td>
       <td>Virginie Boone</td>
@@ -10584,12 +10617,12 @@
     </tr>
     <tr>
       <th>4</th>
-      <td>5ed80dcca25fcf746119e400</td>
+      <td>673ca6e778ef897a253fb318</td>
       <td>104.0</td>
       <td>Italy</td>
       <td>Made with 65% Sangiovese, 20% Merlot and 15% C...</td>
       <td>87.0</td>
-      <td>16</td>
+      <td>16.0</td>
       <td>Tuscany</td>
       <td>Toscana</td>
       <td>Kerin O’Keefe</td>
@@ -10620,12 +10653,12 @@
     </tr>
     <tr>
       <th>7106</th>
-      <td>5ed80dcfa25fcf74611b78b3</td>
+      <td>673ca6e878ef897a254147cb</td>
       <td>129932.0</td>
       <td>Argentina</td>
       <td>Andeluna's top wines tend to be ripe and plump...</td>
       <td>91.0</td>
-      <td>55</td>
+      <td>55.0</td>
       <td>Mendoza Province</td>
       <td>Uco Valley</td>
       <td>Michael Schachner</td>
@@ -10638,12 +10671,12 @@
     </tr>
     <tr>
       <th>7107</th>
-      <td>5ed80dcfa25fcf74611b78bd</td>
+      <td>673ca6e878ef897a254147d5</td>
       <td>129943.0</td>
       <td>Italy</td>
       <td>A blend of Nero d'Avola and Syrah, this convey...</td>
       <td>90.0</td>
-      <td>29</td>
+      <td>29.0</td>
       <td>Sicily &amp; Sardinia</td>
       <td>Sicilia</td>
       <td>Kerin O’Keefe</td>
@@ -10656,12 +10689,12 @@
     </tr>
     <tr>
       <th>7108</th>
-      <td>5ed80dcfa25fcf74611b78c1</td>
+      <td>673ca6e878ef897a254147d9</td>
       <td>129947.0</td>
       <td>Italy</td>
       <td>A blend of 65% Cabernet Sauvignon, 30% Merlot ...</td>
       <td>90.0</td>
-      <td>20</td>
+      <td>20.0</td>
       <td>Sicily &amp; Sardinia</td>
       <td>Terre Siciliane</td>
       <td>Kerin O’Keefe</td>
@@ -10674,7 +10707,7 @@
     </tr>
     <tr>
       <th>7109</th>
-      <td>5edd56e5b4e58ce3841e5dea</td>
+      <td>677ed9a39c8cd2ce9205b653</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>This wine is very good. Not as great as me. Bu...</td>
@@ -10692,7 +10725,7 @@
     </tr>
     <tr>
       <th>7110</th>
-      <td>5edd56e6b4e58ce3841e5deb</td>
+      <td>677ed9a39c8cd2ce9205b654</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>This wine will make you speak differently. May...</td>
@@ -10833,7 +10866,7 @@ Name: description, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pymongo.cursor.Cursor at 0x1361d6438&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pymongo.cursor.Cursor at 0x342bc2ae0&gt;
 </pre></div>
 </div>
 </div>

@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>7. Database Queries &#8212; Surfing the Data Pipeline with Python</title>
   
@@ -15,53 +14,52 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ch7';</script>
@@ -71,6 +69,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="6. Creating and Connecting to Databases" href="ch6.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -78,32 +77,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -111,7 +94,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -119,16 +101,25 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -143,6 +134,8 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="intro.html">
   
@@ -156,11 +149,18 @@ const thebe_selector_output = ".output, .cell_output"
     
     
     <img src="_static/surf.jpg" class="logo__image only-light" alt="Surfing the Data Pipeline with Python - Home"/>
-    <script>document.write(`<img src="_static/surf.jpg" class="logo__image only-dark" alt="Surfing the Data Pipeline with Python - Home"/>`);</script>
+    <img src="_static/surf.jpg" class="logo__image only-dark pst-js-only" alt="Surfing the Data Pipeline with Python - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -194,6 +194,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="ch11.html">11. Static Data Visualizations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch12.html">12. Interactive Data Visualizations and Dashboards</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Virtual Environments and Containers</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -201,14 +205,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -217,14 +226,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -300,27 +309,19 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -396,10 +397,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="database-queries">
-<h1><a class="toc-backref" href="#id1" role="doc-backlink"><span class="section-number">7. </span>Database Queries</a><a class="headerlink" href="#database-queries" title="Permalink to this heading">#</a></h1>
+<h1><a class="toc-backref" href="#id1" role="doc-backlink"><span class="section-number">7. </span>Database Queries</a><a class="headerlink" href="#database-queries" title="Link to this heading">#</a></h1>
 <nav class="contents" id="table-of-contents">
 <p class="topic-title">Table of Contents</p>
 <ul class="simple">
@@ -461,7 +462,7 @@ document.write(`
 </ul>
 </nav>
 <section id="introduction-the-history-of-the-structured-query-language-sql">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">7.1. </span>Introduction: The History of the Structured Query Language (SQL)</a><a class="headerlink" href="#introduction-the-history-of-the-structured-query-language-sql" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">7.1. </span>Introduction: The History of the Structured Query Language (SQL)</a><a class="headerlink" href="#introduction-the-history-of-the-structured-query-language-sql" title="Link to this heading">#</a></h2>
 <div style= "float:right;position: relative; padding: 10px">
 <a href="https://xkcd.com/1409/"><img src="https://imgs.xkcd.com/comics/query.png" width="400"></a>
 </div>
@@ -486,22 +487,22 @@ document.write(`
 <p>In short, the idea behind SQL is to implement Codd’s abstract system of using logical statements with set theoretical notation to narrow down the specific records and features in a dataset that a user wishes to read or edit, but to phrase these operations in accessable, plain language. One of the best things about SQL is that once you are used to the language, it reads just like English. That said, Chamberlin admits that SQL “has not proved to be as accessible to untrained users as Ray and I originally hoped” (<a class="reference external" href="https://ieeexplore.ieee.org/document/6359709">p. 81</a>).</p>
 <p>Another benefit of SQL is that this language is one of the most universal programming languages in existence. It is designed to work with database management systems on any platform, and it works seamlessly within Python, R, C, Java, Javascript, and so on. While the standards for languages and platforms change, SQL has been in continuous use for relational database management since the 1980s and shows no sign of becoming antiquated or being replaced. The SQL syntax exists outside of any individual DBMS, and is maintained by the <a class="reference external" href="https://en.wikipedia.org/wiki/American_National_Standards_Institute">American National Standards Institute (ANSI)</a> and the <a class="reference external" href="https://en.wikipedia.org/wiki/International_Organization_for_Standardization">International Organization for Standardization (ISO)</a>, two non-profit organizations that facilitate the development of <a class="reference external" href="https://en.wikipedia.org/wiki/Standardization">voluntary consensus standards</a> for things like programming languages and hardware. Despite the universality of SQL, however, different DBMSs use slightly different versions of SQL, adding some unique functionality in some cases, and failing to implement the entire SQL standard in others. MySQL for example <a class="reference external" href="https://stackoverflow.com/questions/4796872/how-to-do-a-full-outer-join-in-mysql">lacks the ability to perform a full join</a>. PostgreSQL distinguishes itself from other RDBMSs by striving to implement as much of the global SQL standard as possible. While there some important differences in the version of SQL used by different DBMSs, the differences generally apply to very specific situations and all implementations of SQL use mostly the same syntax and can do mostly the same work.</p>
 <section id="declarative-and-procedural-languages">
-<h3><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">7.1.1. </span>Declarative and Procedural Languages</a><a class="headerlink" href="#declarative-and-procedural-languages" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">7.1.1. </span>Declarative and Procedural Languages</a><a class="headerlink" href="#declarative-and-procedural-languages" title="Link to this heading">#</a></h3>
 <p>SQL is considered to be a <a class="reference external" href="https://en.wikipedia.org/wiki/Declarative_programming">declarative language</a>, which means that it defines the broad task that a particular computer system must carry out, but it does not define the mechanism through which the system completes the task. For example, SQL can tell a system to access two tables and join them together, but that command must tell a DBMS to access additional code that tells the system how exactly to search and operate on the rows and columns of each data table. A language that provides specific instructions to a system on how to carry out a task - by changing the system state in some way, including how the data exist in the system - is a <a class="reference external" href="https://en.wikipedia.org/wiki/Procedural_programming">procedural language</a>. The code that a procedural language uses to make these changes on the system is called <a class="reference external" href="https://en.wikipedia.org/wiki/Imperative_programming">imperative code</a>. A DBMS can be thought of as a function that takes declarative SQL code as an input, finds and runs the imperative code that carries out the declarative task, and returns the output. MySQL, for example, <a class="reference external" href="https://dev.mysql.com/doc/refman/8.0/en/features.html">uses imperative C and C++ code</a> to carry out SQL queries.</p>
 </section>
 <section id="popularity-of-sql">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">7.1.2. </span>Popularity of SQL</a><a class="headerlink" href="#popularity-of-sql" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">7.1.2. </span>Popularity of SQL</a><a class="headerlink" href="#popularity-of-sql" title="Link to this heading">#</a></h3>
 <p>Common standards and the most popular programming languages and environments change all the time. It’s an eternal struggle for data scientists as well as programmers of all kinds, and a matter of consistent anxiety. Presently, Python is the most widely used tool for data science, but will we all have to drop Python soon and <a class="reference external" href="https://towardsdatascience.com/bye-bye-python-hello-julia-9230bff0df62">teach ourselves Julia</a>?</p>
-<p>In this context, it is stunning that SQL has been so widely used since the 1970s. According to a <a class="reference external" href="https://insights.stackoverflow.com/survey/2017">Stack Overflow survey</a>, SQL is the one of most widely used programming languages among the people who filled out the survey, second only to Javascript. Taking into account the high-tech biases in this specific sample, it is probably the case the SQL is more widely used than any other language mentioned in this survey. What accounts for this popularity?</p>
+<p>In this context, it is stunning that SQL has been so widely used since the 1970s. According to a <a class="reference external" href="https://survey.stackoverflow.co/2024/technology#2-programming-scripting-and-markup-languages">Stack Overflow survey</a>, SQL is the one of most widely used programming languages among the people who filled out the survey, behind only to Javascript and Python. Taking into account the high-tech biases in this specific sample, it is probably the case the SQL is more widely used than any other language mentioned in this survey. What accounts for this popularity?</p>
 <p>This <a class="reference external" href="https://blog.sqlizer.io/posts/sql-43/">blog post</a> argues that SQL achieved this level of longevity because it came to prominence during a time in which many of the baseline standards for the development of computer systems were being invented. As more and more systems were developed in a way that depends on SQL, it became harder to change this standard. But SQL is also simple and highly functional because it is a semantic language that expresses set-theoetical and logical operations. As long as relational databases are used, there’s not much functionality that can be added to a query language beyond these foundational mathematical operations, and whatever additional functionality is needed can be added to a version of SQL by a particular DBMS. There are also many different open source and proprietary DBMSs that all employ SQL, so different users can have a choice over many different DBMSs and platforms without having to learn a query language other than SQL.</p>
 <p>That said, there’s much less of a reason to use SQL when the database is not organized according to the relational model. NoSQL databases have much more flexible schema in general, and can store the data in one big table or in as many tables as there are records, or even datapoints, in the database. In fact, without a relational schema, the notion of a data table makes less sense in general. For example, a document store is a collection of individual records encoded using JSON or XML, and not as tables. These records can be sharded: stored in many corresponding servers in a distributed system to address challenges with the size of the database and the speed with which database transactions are conducted. Without tables, NoSQL DBMSs do not usually use SQL. MongoDB, for example, works with queries that are themselves in JSON format.</p>
 </section>
 </section>
 <section id="create-read-update-and-delete-crud-operations">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">7.2. </span>Create, Read, Update, and Delete (CRUD) Operations</a><a class="headerlink" href="#create-read-update-and-delete-crud-operations" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">7.2. </span>Create, Read, Update, and Delete (CRUD) Operations</a><a class="headerlink" href="#create-read-update-and-delete-crud-operations" title="Link to this heading">#</a></h2>
 <p><strong>Persistent storage</strong> refers to a system in which <a class="reference external" href="https://en.wikipedia.org/wiki/Persistence_(computer_science)">data outlives the process that created it</a>. When you work with software that allows you to save a file, the file is stored in persistent storage because it still exists even after you close the software application. Hard drives are examples of persistent storage, as are local and remote servers that store databases. Any persistent storage mechanism must have methods for creating, reading (or loading), updating (or editing), and deleting the data in that storage device. Create, Read, Update, and Delete are the CRUD Operations.</p>
 <p>We’ve previously employed CRUD operations using the <code class="docutils literal notranslate"><span class="pre">requests</span></code> library to use an API or to do web scraping. Like <code class="docutils literal notranslate"><span class="pre">requests</span></code>, SQL and other query languages have CRUD operations. The following table, adapted from a similar one that appears on the <a class="reference external" href="https://en.wikipedia.org/wiki/Create%2C_read%2C_update_and_delete">Wikipedia page for the CRUD operations</a>, shows these operations in the <code class="docutils literal notranslate"><span class="pre">requests</span></code> package, SQL, and the MongoDB query language:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-left"><p>Operation</p></th>
 <th class="head text-left"><p><code class="docutils literal notranslate"><span class="pre">requests</span></code> method</p></th>
@@ -532,13 +533,14 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 <p>As a data scientist, you will most often use read operations to obtain the data you need for your analysis. However, if you are collecting original data for your project, the create, update, and delete operations become much more important. We will discuss all four operations and their variants in the context of SQL and MongoDB below.</p>
 <p>We can work with SQL using <code class="docutils literal notranslate"><span class="pre">pandas</span></code> if we first create an engine that links to a specific DBMS, server, and database with <code class="docutils literal notranslate"><span class="pre">create_engine</span></code> from <code class="docutils literal notranslate"><span class="pre">sqlalchemy</span></code>. Once we do, the <code class="docutils literal notranslate"><span class="pre">pd.read_sql_query()</span></code> function makes read operations straightforward, and the <code class="docutils literal notranslate"><span class="pre">.execute()</span></code> method applied to the engine lets us easily issue create, update, and delete commands.</p>
 </section>
 <section id="sql-style-capitalization-quotes-new-lines-indentation">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">7.3. </span>SQL Style: Capitalization, Quotes, New Lines, Indentation</a><a class="headerlink" href="#sql-style-capitalization-quotes-new-lines-indentation" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">7.3. </span>SQL Style: Capitalization, Quotes, New Lines, Indentation</a><a class="headerlink" href="#sql-style-capitalization-quotes-new-lines-indentation" title="Link to this heading">#</a></h2>
 <p>There are many ways to write an SQL query, and when you look at someone else’s SQL code you will see a variety of styles. Mostly, with the exception of quotes in some cases, stylistic differences don’t change the behavior of the code, but they can have an impact on how easy the code is for other people to read and understand.</p>
-<p>One requirement for SQL code is that the query must end with a semi-colon, and that no semi-colons appear elsewhere in the query. As long as that requirement is met, other stylistic choices are possible.</p>
+<p>Some database systems (though not the SQL methods included with <code class="docutils literal notranslate"><span class="pre">pandas</span></code>) require that the SQL code for one query must end with a semi-colon, and that no semi-colons appear elsewhere in the query. As long as that requirement is met, other stylistic choices are possible.</p>
 <p>The least readable way to write an SQL query is to write the entire code on one line, with no capitalization or indentation. The following code is valid SQL code:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">select</span> <span class="n">t</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">column1</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">column2</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">column3</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">column4</span> <span class="kn">from</span> <span class="nn">table1</span> <span class="n">t</span> <span class="n">inner</span> <span class="n">join</span> <span class="n">table2</span> <span class="n">r</span> <span class="n">on</span> <span class="n">t</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">id</span> <span class="n">where</span> <span class="n">column1</span><span class="o">&gt;</span><span class="mi">100</span> <span class="n">order</span> <span class="n">by</span> <span class="n">column2</span> <span class="n">desc</span><span class="p">;</span>
 </pre></div>
@@ -548,8 +550,9 @@ document.write(`
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">t</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">column1</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">column2</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">column3</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">column4</span> <span class="n">FROM</span> <span class="n">table1</span> <span class="n">t</span> <span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">table2</span> <span class="n">r</span> <span class="n">ON</span> <span class="n">t</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">id</span> <span class="n">WHERE</span> <span class="n">column1</span><span class="o">&gt;</span><span class="mi">100</span> <span class="n">ORDER</span> <span class="n">BY</span> <span class="n">column2</span> <span class="n">DESC</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Another stylistic choice people make to present the code in a more reabable way is to put clauses that are considered distinct enough from other clauses on new lines. The one common exception is <code class="docutils literal notranslate"><span class="pre">FROM</span></code>, which is considered to be closely related to <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> and is often written on the same line as <code class="docutils literal notranslate"><span class="pre">SELECT</span></code>. If we put each clause other than <code class="docutils literal notranslate"><span class="pre">FROM</span></code> on a new line, the query looks like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">t</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">column1</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">column2</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">column3</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">column4</span> <span class="n">FROM</span> <span class="n">table1</span> <span class="n">t</span> 
+<p>Another stylistic choice people make to present the code in a more reabable way is to put clauses  on new lines (except for <code class="docutils literal notranslate"><span class="pre">DESC</span></code> which tells <code class="docutils literal notranslate"><span class="pre">ORDER</span> <span class="pre">BY</span></code> to sort rows in descending order, and is not considered to be a separate clause from <code class="docutils literal notranslate"><span class="pre">ORDER</span> <span class="pre">BY</span></code>), so that the query looks like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">t</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">column1</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">column2</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">column3</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">column4</span> 
+<span class="n">FROM</span> <span class="n">table1</span> <span class="n">t</span> 
 <span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">table2</span> <span class="n">r</span> 
 <span class="n">ON</span> <span class="n">t</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">id</span> 
 <span class="n">WHERE</span> <span class="n">column1</span><span class="o">&gt;</span><span class="mi">100</span> 
@@ -571,7 +574,7 @@ document.write(`
 </pre></div>
 </div>
 <p>I encourage you to develop good habits with how you write the SQL queries, both for other people to read your code, but more importantly, to make it easier for you yourself to read your code. You will be spending a lot of time developing and debugging SQL queries, and anything you do that cuts down the time to understand your own code will save you a lot of time and frustration in the long-run.</p>
-<p>Quotes are only used in SQL code when referring to values of a character feature in one of the data tables. When using quotes while working in Python, it is important to use single quotes, not double quotes, to ensure that the quote that is internal to SQL is not read as a termination of the Python variable that contains the SQL code. That is, it is fine to write a clause that looks like <code class="docutils literal notranslate"><span class="pre">WHERE</span> <span class="pre">column</span> <span class="pre">=</span> <span class="pre">'value'</span></code>, but not <code class="docutils literal notranslate"><span class="pre">WHERE</span> <span class="pre">column</span> <span class="pre">=</span> <span class="pre">&quot;value&quot;</span></code>.</p>
+<p>Quotes are only used in SQL code when referring to values of a character feature in one of the data tables. Single or double quotes are fine as long as they are not read as a termination of the Python variable that contains the SQL code.</p>
 <p>For all of the queries we will write in the following examples, we will store the query as a string variable in Python. We will use the triple-quote syntax, which allows us to write a string that exists on multiple lines. So our SQL query definitions will look like this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myquery</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">SELECT </span>
@@ -589,54 +592,26 @@ document.write(`
 </pre></div>
 </div>
 <p>We will then be able to pass the <code class="docutils literal notranslate"><span class="pre">myquery</span></code> variable to functions like <code class="docutils literal notranslate"><span class="pre">pd.read_sql_query()</span></code> to be evaluated.</p>
-</section>
-<section id="sql-joins">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">7.4. </span>SQL Joins</a><a class="headerlink" href="#sql-joins" title="Permalink to this heading">#</a></h2>
-<p>The simplest SQL commands for reading data from a database are <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> and <code class="docutils literal notranslate"><span class="pre">FROM</span></code>. In module 6, we issued the following query to read the entire “reviews” entity from the wine reviews database:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">reviews</span>
-</pre></div>
-</div>
-<p>But this query does not read data from the other entities in the database. It pulls all of the rows and columns from “reviews” and it does not manipulate the data within “reviews” in any way. That might not be the best way to create a dataframe to conduct analyses.</p>
-<p>SQL read operations get data, but they can also clean data at the same time. Cleaning data is an important challenge. Even when the data are stored in a well-organized database, that organization might not be the right format for the data given the analyses we intend to do. “<a class="reference external" href="https://www.jstatsoft.org/article/view/v059i10">Tidy Data</a>” by Hadley Wickham lays out a philosophy of what it means to clean a dataset. The goal is to put data into a format in which modeling and visualization is as easy as possible. There are two steps: first we create <strong>tidy data</strong> and then we manipulate the data to fit our specific needs. Tidy data is defined as follows:</p>
-<blockquote>
-<div><p>A dataset is messy or tidy depending on how rows, columns and tables are matched up with observations, [features] and types. In tidy data:</p>
-<ol class="arabic simple">
-<li><p>Each [feature] forms a column.</p></li>
-<li><p>Each observation forms a row.</p></li>
-<li><p>Each type of observational unit forms a table (p. 2).</p></li>
-</ol>
-</div></blockquote>
-<p>In other words, the dataset we will use in an analysis must exist in one table, the rows of the table must represent records (also called observations), the columns of the table must represent features, and the rows must represent comparable units. For example, if the data contain records from the 50 U.S. States, there should be a row for each state, and there should not be a row for regions or for the whole country as these units are not comparable to states. Data from a relational database are not generally in tidy format because the relevant data exists in multiple tables. The first step is to combine these tables into one dataset using <strong>join</strong> functions within SQL read operations. There are many different kinds of joins, and the easiest way to see the difference between these types is to see what they do to real data.</p>
-<p>Before we discuss specific examples of how to use SQL, we load the following libraries:</p>
+<p>Before we discuss specific examples of how to use SQL, we load the following packages:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">psycopg2</span>
+<span class="kn">import</span> <span class="nn">psycopg</span>
 <span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
 <span class="kn">import</span> <span class="nn">dotenv</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">sys</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">os</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">psycopg2</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">import</span> <span class="nn">dotenv</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;psycopg2&#39;
-</pre></div>
 </div>
-</div>
-</div>
+</section>
+<section id="sql-joins">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">7.4. </span>SQL Joins</a><a class="headerlink" href="#sql-joins" title="Link to this heading">#</a></h2>
+<p>There are many different kinds of joins, and the easiest way to see the difference between these types is to see what they do to real data.</p>
 <section id="example-database-nfl-and-nba-teams">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">7.4.1. </span>Example Database: NFL and NBA Teams</a><a class="headerlink" href="#example-database-nfl-and-nba-teams" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">7.4.1. </span>Example Database: NFL and NBA Teams</a><a class="headerlink" href="#example-database-nfl-and-nba-teams" title="Link to this heading">#</a></h3>
 <p>As an example, I create a PostgreSQL database that contains two tables: “nfl” contains the location and team name of all 32 NFL teams:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -651,7 +626,7 @@ document.write(`
                            <span class="s1">&#39;Las Vegas Raiders&#39;</span><span class="p">,[</span><span class="s1">&#39;L.A. Chargers&#39;</span><span class="p">,</span><span class="s1">&#39;L.A. Rams&#39;</span><span class="p">],</span><span class="s1">&#39;Denver Broncos&#39;</span><span class="p">,</span>
                           <span class="s1">&#39;Tennessee Titans&#39;</span><span class="p">,</span><span class="s1">&#39;Jacksonville Jaguars&#39;</span><span class="p">,</span><span class="s1">&#39;Houston Texans&#39;</span><span class="p">,</span>
                            <span class="s1">&#39;Indianapolis Colts&#39;</span><span class="p">,</span><span class="s1">&#39;Philadelphia Eagles&#39;</span><span class="p">,</span><span class="s1">&#39;Dallas Cowboys&#39;</span><span class="p">,</span>
-                           <span class="s1">&#39;Washington Skins&#39;</span><span class="p">,</span><span class="s1">&#39;Atlanta Falcons&#39;</span><span class="p">,</span><span class="s1">&#39;Carolina Panthers&#39;</span><span class="p">,</span>
+                           <span class="s1">&#39;Washington Commanders&#39;</span><span class="p">,</span><span class="s1">&#39;Atlanta Falcons&#39;</span><span class="p">,</span><span class="s1">&#39;Carolina Panthers&#39;</span><span class="p">,</span>
                            <span class="s1">&#39;Tampa Bay Buccaneers&#39;</span><span class="p">,</span><span class="s1">&#39;New Orleans Saints&#39;</span><span class="p">,</span> <span class="s1">&#39;San Francisco 49ers&#39;</span><span class="p">,</span>
                            <span class="s1">&#39;Arizona Cardinals&#39;</span><span class="p">,</span><span class="s1">&#39;Seattle Seahawks&#39;</span><span class="p">,</span><span class="s1">&#39;Chicago Bears&#39;</span><span class="p">,</span>
                            <span class="s1">&#39;Green Bay Packers&#39;</span><span class="p">,</span><span class="s1">&#39;Minnesota Vikings&#39;</span><span class="p">,</span><span class="s1">&#39;Detroit Lions&#39;</span><span class="p">]}</span>
@@ -777,7 +752,7 @@ document.write(`
     <tr>
       <th>18</th>
       <td>Washington</td>
-      <td>Washington Skins</td>
+      <td>Washington Commanders</td>
     </tr>
     <tr>
       <th>19</th>
@@ -1037,11 +1012,11 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-<p>To create a PostgreSQL database with entities for the NFL and NBA teams, I first connect to the PostgreSQL server running on my local computer (see module 6 for a more detailed discussion of how this works). First I bring my PostgreSQL password into the local environment:</p>
+<p>To create a PostgreSQL database with entities for the NFL and NBA teams, I first connect to the PostgreSQL server running on my local computer (see <a class="reference external" href="https://jkropko.github.io/surfing-the-data-pipeline/ch6.html">chapter 6</a> for a more detailed discussion of how this works). First I bring my PostgreSQL password into the local environment:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dotenv</span><span class="o">.</span><span class="n">load_dotenv</span><span class="p">()</span>
-<span class="n">pgpassword</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;pgpassword&quot;</span><span class="p">)</span>
+<span class="n">pgpassword</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;POSTGRES_PASSWORD&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1049,10 +1024,10 @@ document.write(`
 <p>Then I access the server and establish a cursor for the server:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dbserver</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
-    <span class="n">user</span><span class="o">=</span><span class="s1">&#39;jk8sd&#39;</span><span class="p">,</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dbserver</span> <span class="o">=</span> <span class="n">psycopg</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+    <span class="n">user</span><span class="o">=</span><span class="s1">&#39;postgres&#39;</span><span class="p">,</span> 
     <span class="n">password</span><span class="o">=</span><span class="n">pgpassword</span><span class="p">,</span> 
-    <span class="n">host</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span>
+    <span class="n">host</span><span class="o">=</span><span class="s1">&#39;localhost&#39;</span>
 <span class="p">)</span>
 <span class="n">dbserver</span><span class="o">.</span><span class="n">autocommit</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">cursor</span> <span class="o">=</span> <span class="n">dbserver</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
@@ -1075,8 +1050,8 @@ document.write(`
 <p>And I use the <code class="docutils literal notranslate"><span class="pre">create_engine()</span></code> function from <code class="docutils literal notranslate"><span class="pre">sqalchemy</span></code> to allow queries to the “teams” database:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s2">&quot;postgresql+psycopg2://</span><span class="si">{user}</span><span class="s2">:</span><span class="si">{pw}</span><span class="s2">@localhost/</span><span class="si">{db}</span><span class="s2">&quot;</span>
-                       <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="s2">&quot;jk8sd&quot;</span><span class="p">,</span> <span class="n">pw</span><span class="o">=</span><span class="n">pgpassword</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="s2">&quot;teams&quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s2">&quot;postgresql+psycopg://</span><span class="si">{user}</span><span class="s2">:</span><span class="si">{pw}</span><span class="s2">@localhost/</span><span class="si">{db}</span><span class="s2">&quot;</span>
+                       <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="s2">&quot;postgres&quot;</span><span class="p">,</span> <span class="n">pw</span><span class="o">=</span><span class="n">pgpassword</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="s2">&quot;teams&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1089,11 +1064,19 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1
+</pre></div>
+</div>
+</div>
 </div>
 <p>I can now issue queries to the database. To read all of the data in the NFL table, for example, I type:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myquery</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM nfl&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myquery</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">SELECT * </span>
+<span class="s1">FROM nfl</span>
+<span class="s1">&#39;&#39;&#39;</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">myquery</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1278,12 +1261,12 @@ document.write(`
 </div>
 </section>
 <section id="types-of-joins">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">7.4.2. </span>Types of Joins</a><a class="headerlink" href="#types-of-joins" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">7.4.2. </span>Types of Joins</a><a class="headerlink" href="#types-of-joins" title="Link to this heading">#</a></h3>
 <p>Joining data tables is the act of <em>adding columns</em> to an existing data table - that is, adding more features to existing records - by matching the rows in one table to the corresponding rows in another table. In a relational database, data tables can include a foreign key which serves as the primary key for another data table. Joins require matching a foreign key in one table to the corresponding primary key in another table. During the join, this foreign key and this primary key are both called <strong>indices</strong>. To perform a join with an SQL query, we specify the two tables in the database we want to join and the index in each table we will match on.</p>
 <p>In the teams database, <code class="docutils literal notranslate"><span class="pre">city</span></code> is a primary key in both the “nfl” and “nba” tables, which also makes it a foreign key in both tables. Joining the “nfl” and “nba” tables by matching on <code class="docutils literal notranslate"><span class="pre">city</span></code> creates one data table in which the rows still represent cities and the columns list both the NBA and NFL teams in each city.</p>
 <p>Not every city has both an NFL and an NBA team. Green Bay, for example, has a football team but no basketball team, and Sacramento has a basketball team but no football team. In a join, every row in a table either <strong>matches</strong> with one or more rows in the other table, or is <strong>unmatched</strong>. In this case, Cleveland in the NFL table is matched to a row in the NBA table because Cleveland has both a football and basketball team, but Oklahoma City in the NBA table is unmatched because there is no row for Oklahoma City in the NFL table.</p>
 <p>The main difference between types of joins in SQL is their treatment of unmatched records. The following table summarizes the types of joins:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Type of join</p></th>
 <th class="head"><p>Definition</p></th>
@@ -1294,16 +1277,16 @@ document.write(`
 <td><p>Only keep the records that exist in both tables</p></td>
 </tr>
 <tr class="row-odd"><td><p>Left join</p></td>
-<td><p>Keep all the records in the first table listed, and keep only the records in the second table listed that have matches in the first table</p></td>
+<td><p>Keep all the records in the first table listed (after <code class="docutils literal notranslate"><span class="pre">FROM</span></code>), and keep only the records in the second table listed (after <code class="docutils literal notranslate"><span class="pre">JOIN</span></code>) that have matches in the first table</p></td>
 </tr>
 <tr class="row-even"><td><p>Right join</p></td>
-<td><p>Keep all the records in the second table listed, and keep only the  records in the first table listed that have matches in the second table</p></td>
+<td><p>Keep all the records in the second table listed (after <code class="docutils literal notranslate"><span class="pre">JOIN</span></code>), and keep only the records in the first table listed (after <code class="docutils literal notranslate"><span class="pre">FROM</span></code>) that have matches in the second table</p></td>
 </tr>
 <tr class="row-odd"><td><p>Full join</p></td>
 <td><p>Keep all of the records in both tables whether they are matched or not</p></td>
 </tr>
 <tr class="row-even"><td><p>Anti join</p></td>
-<td><p>Keep only the records in the first table that are not matched in the second table</p></td>
+<td><p>Keep only the records in the first table (after <code class="docutils literal notranslate"><span class="pre">FROM</span></code>) that are not matched in the second table (after <code class="docutils literal notranslate"><span class="pre">JOIN</span></code>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>Natural join</p></td>
 <td><p>The same as any of the joins listed above, but no need to specify the indices as these are determined automatically by finding columns with the same name. If no columns share the same name, a natural join performs a cross join. If more than one pair of columns share names across the two data tables, natural joins assume that both are part of the index to match on. Use caution.</p></td>
@@ -1313,17 +1296,20 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="inner-joins">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">7.4.3. </span>Inner Joins</a><a class="headerlink" href="#inner-joins" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">7.4.3. </span>Inner Joins</a><a class="headerlink" href="#inner-joins" title="Link to this heading">#</a></h3>
 <p>The syntax for an inner join is</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">table1</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="o">*</span> 
+<span class="n">FROM</span> <span class="n">table1</span>
 <span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">table2</span>
     <span class="n">ON</span> <span class="n">table1</span><span class="o">.</span><span class="n">index_name</span> <span class="o">=</span> <span class="n">table2</span><span class="o">.</span><span class="n">index_name</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">table1</span></code> and <code class="docutils literal notranslate"><span class="pre">table2</span></code> are the data tables we are joining, and <code class="docutils literal notranslate"><span class="pre">table1.index_name</span></code> and <code class="docutils literal notranslate"><span class="pre">table2.index_name</span></code> are the columns that contain the indices for tables 1 and 2. Alternatively, inner join is the default type of join, so that this syntax</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">table1</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="o">*</span> 
+<span class="n">FROM</span> <span class="n">table1</span>
 <span class="n">JOIN</span> <span class="n">table2</span>
     <span class="n">ON</span> <span class="n">table1</span><span class="o">.</span><span class="n">index_name</span> <span class="o">=</span> <span class="n">table2</span><span class="o">.</span><span class="n">index_name</span><span class="p">;</span>
 </pre></div>
@@ -1333,7 +1319,8 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myquery</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">SELECT * FROM nfl</span>
+<span class="s2">SELECT * </span>
+<span class="s2">FROM nfl</span>
 <span class="s2">INNER JOIN nba</span>
 <span class="s2">    ON nfl.city = nba.city;</span>
 <span class="s2">&quot;&quot;&quot;</span>
@@ -1504,8 +1491,6 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-<p>The three quotations that come before and after the SQL code is Python syntax that allow for a string to be entered on multiple lines. With just one quote, Python would assume that the next line should be read as Python code, and will produce an error. Three quotes allows us to space out the components of the SQL query on separate lines to make the SQL code easier to read and understand.</p>
-<p>SQL queries can be written on multiple lines, but the last line (and only the last line) must conclude with a semicolon.</p>
 <p>Another way to write the inner join query is to use <strong>aliasing</strong>: specifying a smaller name or a single letter next to each data table in the query to simplify the syntax for <code class="docutils literal notranslate"><span class="pre">ON</span></code>. For example, I can alias the NFL data with <code class="docutils literal notranslate"><span class="pre">f</span></code> and the NBA data with <code class="docutils literal notranslate"><span class="pre">b</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1682,22 +1667,25 @@ document.write(`
 </div></div></div>
 </div>
 <p>The two indices we match on do not necessarily have to have the same name. Supposing that the “city” column in each data table was named “location” in the NFL table and “town” in the NBA table, the syntax for the inner join would have been:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">nfl</span> <span class="n">f</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="o">*</span> 
+<span class="n">FROM</span> <span class="n">nfl</span> <span class="n">f</span>
 <span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">nba</span> <span class="n">b</span>
     <span class="n">ON</span> <span class="n">f</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">town</span><span class="p">;</span>
 </pre></div>
 </div>
 </section>
 <section id="left-and-right-joins">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">7.4.4. </span>Left and Right Joins</a><a class="headerlink" href="#left-and-right-joins" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">7.4.4. </span>Left and Right Joins</a><a class="headerlink" href="#left-and-right-joins" title="Link to this heading">#</a></h3>
 <p>The syntax for a left join is</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">table1</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="o">*</span> 
+<span class="n">FROM</span> <span class="n">table1</span>
 <span class="n">LEFT</span> <span class="n">JOIN</span> <span class="n">table2</span>
     <span class="n">ON</span> <span class="n">table1</span><span class="o">.</span><span class="n">index_name</span> <span class="o">=</span> <span class="n">table2</span><span class="o">.</span><span class="n">index_name</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>and the syntax for a right join is</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">table1</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="o">*</span> 
+<span class="n">FROM</span> <span class="n">table1</span>
 <span class="n">RIGHT</span> <span class="n">JOIN</span> <span class="n">table2</span>
     <span class="n">ON</span> <span class="n">table1</span><span class="o">.</span><span class="n">index_name</span> <span class="o">=</span> <span class="n">table2</span><span class="o">.</span><span class="n">index_name</span><span class="p">;</span>
 </pre></div>
@@ -1706,7 +1694,8 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myquery</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">SELECT * FROM nfl f</span>
+<span class="s2">SELECT * </span>
+<span class="s2">FROM nfl f</span>
 <span class="s2">LEFT JOIN nba b</span>
 <span class="s2">    ON f.city = b.city;</span>
 <span class="s2">&quot;&quot;&quot;</span>
@@ -1958,7 +1947,8 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myquery</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">SELECT * FROM nfl f</span>
+<span class="s2">SELECT * </span>
+<span class="s2">FROM nfl f</span>
 <span class="s2">RIGHT JOIN nba b</span>
 <span class="s2">    ON f.city = b.city;</span>
 <span class="s2">&quot;&quot;&quot;</span>
@@ -2202,9 +2192,10 @@ document.write(`
 <p>For the left and right joins, changing which data table appears along with <code class="docutils literal notranslate"><span class="pre">FROM</span></code> and which data table appears along with <code class="docutils literal notranslate"><span class="pre">JOIN</span></code> accomplishes the same thing as changing a left join to a right join.</p>
 </section>
 <section id="full-outer-join">
-<h3><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">7.4.5. </span>Full (Outer) Join</a><a class="headerlink" href="#full-outer-join" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">7.4.5. </span>Full (Outer) Join</a><a class="headerlink" href="#full-outer-join" title="Link to this heading">#</a></h3>
 <p>A full join, also called an outer join, keeps all of the records that exist in both tables, whether or not they are matched. Full joins will return a data frame with at least as many rows as the larger of the two data tables in the join because it contains all records that appear in either data frame. Most tutorials on SQL offer a warning about full joins that these queries can result in massive amounts of data being returned, and full joins are not implemented for MySQL databases. For systems like PostgreSQL in which full joins are allowed, the syntax for a full join is</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">table1</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="o">*</span> 
+<span class="n">FROM</span> <span class="n">table1</span>
 <span class="n">FULL</span> <span class="n">JOIN</span> <span class="n">table2</span>
     <span class="n">ON</span> <span class="n">table1</span><span class="o">.</span><span class="n">index_name</span> <span class="o">=</span> <span class="n">table2</span><span class="o">.</span><span class="n">index_name</span><span class="p">;</span>
 </pre></div>
@@ -2213,7 +2204,8 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myquery</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">SELECT * FROM nfl f</span>
+<span class="s2">SELECT * </span>
+<span class="s2">FROM nfl f</span>
 <span class="s2">FULL JOIN nba b</span>
 <span class="s2">    ON f.city = b.city;</span>
 <span class="s2">&quot;&quot;&quot;</span>
@@ -2531,10 +2523,10 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-<p>Although there are 30 cities with at least one NFL team and 29 cities with at least one NBA team, there are 41 cities with at least one team from one of these two leagues.</p>
+<p>Although there are 30 cities with at least one NFL team and 29 cities with at least one NBA team, there are 40 cities with at least one team from one of these two leagues.</p>
 </section>
 <section id="anti-joins">
-<h3><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">7.4.6. </span>Anti-Joins</a><a class="headerlink" href="#anti-joins" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">7.4.6. </span>Anti-Joins</a><a class="headerlink" href="#anti-joins" title="Link to this heading">#</a></h3>
 <p>An anti-join leaves us with all of the records in the first data table that do not appear in the second table. There is no “ANTI JOIN” syntax in SQL, but the behavior of an anti-join can be generated by including the <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> clause along with <code class="docutils literal notranslate"><span class="pre">LEFT</span> <span class="pre">JOIN</span></code>. The syntax for an anti-join is</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">table1</span>
 <span class="n">LEFT</span> <span class="n">JOIN</span> <span class="n">table2</span>
@@ -2664,7 +2656,7 @@ document.write(`
 </div>
 </section>
 <section id="natural-joins">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">7.4.7. </span>Natural Joins</a><a class="headerlink" href="#natural-joins" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">7.4.7. </span>Natural Joins</a><a class="headerlink" href="#natural-joins" title="Link to this heading">#</a></h3>
 <p>One annoying thing about all of the joins shown above is that we end up with two columns that contain the same information. In the case of the team database, we have two <code class="docutils literal notranslate"><span class="pre">city</span></code> columns that are always either equal, or else one is missing. But when one of the <code class="docutils literal notranslate"><span class="pre">city</span></code> columns says “None”, the team from that table also says “None”, so the missingness in the <code class="docutils literal notranslate"><span class="pre">city</span></code> column does not provide additional information.</p>
 <p>It might make sense to use a different kind of join that understands that the two <code class="docutils literal notranslate"><span class="pre">city</span></code> columns contain the same information and includes only one of these columns. A natural join does two things differently from the other joins described here:</p>
 <ol class="arabic simple">
@@ -2830,7 +2822,7 @@ document.write(`
 <blockquote>
 <div><p>Collapsing columns in the output is the least-important aspect of a natural join. The things you need to know are (A) it automatically joins on fields of the same name and (B) it will f— up your s— when you least expect it. In my world, using a natural join is grounds for dismissal… . Say you have a natural join between <code class="docutils literal notranslate"><span class="pre">Customers</span></code> and <code class="docutils literal notranslate"><span class="pre">Employees</span></code>, joining on <code class="docutils literal notranslate"><span class="pre">EmployeeID</span></code>. Employees also has a <code class="docutils literal notranslate"><span class="pre">ManagerID</span></code> field. Everything’s fine. Then, some day, someone adds a <code class="docutils literal notranslate"><span class="pre">ManagerID</span></code> field to the <code class="docutils literal notranslate"><span class="pre">Customers</span></code> table. Your join will not break (that would be a mercy), instead it will now include a second field, and work incorrectly. Thus, a seemingly harmless change can break something only distantly related. VERY BAD. The only upside of a natural join is saving a little typing, and the downside is substantial.</p>
 </div></blockquote>
-<p>Personally, I disagree with this statement as I think natural joins can be elegant and convenient, especially when I want to match on multiple indices. But I agree that natural joins do make it easier to mess up a join, and more caution is needed. To demonstrate how a natural join can go wrong, suppose that in both the NFL and NBA tables the columns were named <code class="docutils literal notranslate"><span class="pre">city</span></code> and <code class="docutils literal notranslate"><span class="pre">team</span></code>. The following code creates versions of these tables with <code class="docutils literal notranslate"><span class="pre">footballteam</span></code> and <code class="docutils literal notranslate"><span class="pre">basketballteam</span></code> each renamed to <code class="docutils literal notranslate"><span class="pre">team</span></code> and stores these tables in the database as “nfl2” and “nba2”:</p>
+<p>To demonstrate how a natural join can go wrong, suppose that in both the NFL and NBA tables the columns were named <code class="docutils literal notranslate"><span class="pre">city</span></code> and <code class="docutils literal notranslate"><span class="pre">team</span></code>. The following code creates versions of these tables with <code class="docutils literal notranslate"><span class="pre">footballteam</span></code> and <code class="docutils literal notranslate"><span class="pre">basketballteam</span></code> each renamed to <code class="docutils literal notranslate"><span class="pre">team</span></code> and stores these tables in the database as “nfl2” and “nba2”:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nfl2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s2">&quot;SELECT city, footballteam as team FROM nfl;&quot;</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
@@ -3059,7 +3051,7 @@ document.write(`
 <p>To safely use natural joins, first make certain that the indices you intend to match on have the same name, and then make sure that no other columns in the two data tables share a name.</p>
 </section>
 <section id="cross-joins">
-<h3><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">7.4.8. </span>Cross Joins</a><a class="headerlink" href="#cross-joins" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">7.4.8. </span>Cross Joins</a><a class="headerlink" href="#cross-joins" title="Link to this heading">#</a></h3>
 <p>A <strong>round robin</strong> is a method of organizing a competitive tournament. In a round robin, every team or participant plays every other team or participant once. A cross join, also called a Cartesian product, is a round robin for matching values of the index in one data table to values of the index in the other data table. Every value of the index in the first data table is matched once to every distinct value of the index in the second data table. Cross joins are memory-intensive: if the first data table has <span class="math notranslate nohighlight">\(M\)</span> rows and the second data table has <span class="math notranslate nohighlight">\(N\)</span> rows, the cross join output is a data table with <span class="math notranslate nohighlight">\(M\times N\)</span> rows. In general cross joins are not good ways to combine data entities, and they fail to match strictly like units. But cross joins are useful for constructing data that contain all possible pairings, if that’s what a situation calls for.</p>
 <p>The syntax for generating a cross join is</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">table1</span>
@@ -3187,7 +3179,7 @@ document.write(`
 </div>
 </section>
 <section id="multiple-joins-in-one-query">
-<h3><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">7.4.9. </span>Multiple Joins in One Query</a><a class="headerlink" href="#multiple-joins-in-one-query" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">7.4.9. </span>Multiple Joins in One Query</a><a class="headerlink" href="#multiple-joins-in-one-query" title="Link to this heading">#</a></h3>
 <p>All of the examples above show a single join between two data tables, but many situations will require you to join multiple tables. it is possible to join many tables in one SQL query. The syntax to perform an inner join between two tables, then an inner join between the result and a third table is</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">table1</span>
 <span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">table2</span>
@@ -3206,7 +3198,7 @@ document.write(`
                      <span class="s1">&#39;Milwaukee&#39;</span><span class="p">,</span> <span class="s1">&#39;St. Louis&#39;</span><span class="p">,</span> <span class="s1">&#39;Pittsburgh&#39;</span><span class="p">,</span> <span class="s1">&#39;Los Angeles&#39;</span><span class="p">,</span> <span class="s1">&#39;San Francisco&#39;</span><span class="p">,</span>
                      <span class="s1">&#39;San Diego&#39;</span><span class="p">,</span> <span class="s1">&#39;Denver&#39;</span><span class="p">,</span> <span class="s1">&#39;Phoenix&#39;</span><span class="p">],</span>
            <span class="s1">&#39;baseballteam&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;New York Mets&#39;</span><span class="p">,</span> <span class="s1">&#39;New York Yankees&#39;</span><span class="p">],</span> <span class="s1">&#39;Boston Red Sox&#39;</span><span class="p">,</span> <span class="s1">&#39;Toronto Blue Jays&#39;</span><span class="p">,</span>
-                            <span class="s1">&#39;Baltimore Orioles&#39;</span><span class="p">,</span> <span class="s1">&#39;Tampa Bay Rays&#39;</span><span class="p">,</span> <span class="s1">&#39;Cleveland Indians&#39;</span><span class="p">,</span> 
+                            <span class="s1">&#39;Baltimore Orioles&#39;</span><span class="p">,</span> <span class="s1">&#39;Tampa Bay Rays&#39;</span><span class="p">,</span> <span class="s1">&#39;Cleveland Guardians&#39;</span><span class="p">,</span> 
                              <span class="p">[</span><span class="s1">&#39;Chicago White Sox&#39;</span><span class="p">,</span> <span class="s1">&#39;Chicago Cubs&#39;</span><span class="p">],</span> <span class="s1">&#39;Kansas City Royals&#39;</span><span class="p">,</span> <span class="s1">&#39;Minnesota Twins&#39;</span><span class="p">,</span>
                             <span class="s1">&#39;Detriot Tigers&#39;</span><span class="p">,</span> <span class="s1">&#39;Houston Astros&#39;</span><span class="p">,</span> <span class="s1">&#39;Anaheim Angels&#39;</span><span class="p">,</span> <span class="s1">&#39;Texas Rangers&#39;</span><span class="p">,</span> 
                             <span class="s1">&#39;Seattle Mariners&#39;</span><span class="p">,</span> <span class="s1">&#39;Oakland Athletics&#39;</span><span class="p">,</span> <span class="s1">&#39;Philadelphia Phillies&#39;</span><span class="p">,</span>
@@ -3694,7 +3686,7 @@ document.write(`
 </div>
 </section>
 <section id="joins-on-more-than-one-index">
-<h3><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">7.4.10. </span>Joins on More Than One Index</a><a class="headerlink" href="#joins-on-more-than-one-index" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">7.4.10. </span>Joins on More Than One Index</a><a class="headerlink" href="#joins-on-more-than-one-index" title="Link to this heading">#</a></h3>
 <p>Sometimes more than one column comprises the primary key for a table. The general syntax for joining two tables on more than one index adds the <code class="docutils literal notranslate"><span class="pre">AND</span></code> clause to the standard SQL join syntax:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">table1</span>
 <span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">table2</span>
@@ -3702,7 +3694,7 @@ document.write(`
         <span class="n">AND</span> <span class="n">table1</span><span class="o">.</span><span class="n">anotherindex1</span> <span class="o">=</span> <span class="n">table2</span><span class="o">.</span><span class="n">anotherindex2</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Suppose for example that the NBA table and MLB table also contained records for minor league teams in the NBA G-League or the MLB AAA system. Some cities have both major and minor league teams in the same sport. Washington, for example, has a major league NBA team, the Wizards, and a minor league basketball team, the Capital City Go-Gos. Suppose that both the NBA and MLB tables have a column <code class="docutils literal notranslate"><span class="pre">leaguetype</span></code> that marks each team as “major” or “minor”, and that we want to match on both city and league type. The syntax to do so is</p>
+<p>Suppose for example that the NBA table and MLB table also contained records for minor league teams in the NBA G-League or the MLB AAA system. Some cities have both major and minor league teams in the same sport. Washington, for example, has an NBA team, the Wizards, and a minor league basketball team, the Capital City Go-Gos. Suppose that both the NBA and MLB tables have a column <code class="docutils literal notranslate"><span class="pre">leaguetype</span></code> that marks each team as “major” or “minor”, and that we want to match on both city and league type. The syntax to do so is</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">nba</span> <span class="n">b</span>
 <span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">mlb</span> <span class="n">m</span>
     <span class="n">ON</span> <span class="n">b</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">city</span>
@@ -3712,10 +3704,10 @@ document.write(`
 </section>
 </section>
 <section id="sql-create-update-and-delete-operations">
-<h2><a class="toc-backref" href="#id18" role="doc-backlink"><span class="section-number">7.5. </span>SQL Create, Update, and Delete Operations</a><a class="headerlink" href="#sql-create-update-and-delete-operations" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id18" role="doc-backlink"><span class="section-number">7.5. </span>SQL Create, Update, and Delete Operations</a><a class="headerlink" href="#sql-create-update-and-delete-operations" title="Link to this heading">#</a></h2>
 <p>Once a database exists and is populated with data, most changes to the data will be small and incremental. We might add a few records, edit a couple, or delete one or two. There are straightforward SQL commands for creating, updating, and deleting records. To issue these queries, however, we cannot use the <code class="docutils literal notranslate"><span class="pre">pd.read_sql_query()</span></code> function as this function is only for read operations. Instead, we can use the <code class="docutils literal notranslate"><span class="pre">.execute()</span></code> method as applied to either the cursor for the database we are working with, or the <code class="docutils literal notranslate"><span class="pre">sqlalchemy</span></code> engine. Specific examples are shown below.</p>
 <section id="creating-new-records">
-<h3><a class="toc-backref" href="#id19" role="doc-backlink"><span class="section-number">7.5.1. </span>Creating New Records</a><a class="headerlink" href="#creating-new-records" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id19" role="doc-backlink"><span class="section-number">7.5.1. </span>Creating New Records</a><a class="headerlink" href="#creating-new-records" title="Link to this heading">#</a></h3>
 <p>An existing database has a schema, an overarching organizational blueprint for the database, that describes the different tables in the database, and within each table what the columns are and what kinds of data can be input into the columns. Creating new data generally works within an established schema. That means we enter new datapoints into existing columns, matching the data type that must exist in those columns.</p>
 <p>The SQL syntax to create new data is</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">table</span> <span class="p">(</span><span class="n">column1</span><span class="p">,</span> <span class="n">column2</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
@@ -3927,7 +3919,7 @@ document.write(`
 </div>
 </section>
 <section id="editing-existing-records">
-<h3><a class="toc-backref" href="#id20" role="doc-backlink"><span class="section-number">7.5.2. </span>Editing Existing Records</a><a class="headerlink" href="#editing-existing-records" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id20" role="doc-backlink"><span class="section-number">7.5.2. </span>Editing Existing Records</a><a class="headerlink" href="#editing-existing-records" title="Link to this heading">#</a></h3>
 <p>Instead of creating a new record, there are situations in which we want to edit an existing record. To revise a record, we use the following SQL syntax:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">UPDATE</span> <span class="n">table</span>
     <span class="n">SET</span> <span class="n">column2</span> <span class="o">=</span> <span class="n">newvalue</span>
@@ -4140,9 +4132,11 @@ document.write(`
 </div>
 </section>
 <section id="deleting-records">
-<h3><a class="toc-backref" href="#id21" role="doc-backlink"><span class="section-number">7.5.3. </span>Deleting Records</a><a class="headerlink" href="#deleting-records" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id21" role="doc-backlink"><span class="section-number">7.5.3. </span>Deleting Records</a><a class="headerlink" href="#deleting-records" title="Link to this heading">#</a></h3>
 <p>Sometimes you might need to delete records from a database. These situations should be rare. If a record is no longer relevant for a particular use, it is always better to leave the record in the database and use another column to denote new information that can be used to filter records later. If there are mistakes in data entry, it’s better to edit existing records than to delete those records outright. If you must delete a record, the syntax to do so is</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DELETE</span> <span class="n">FROM</span> <span class="n">table</span> <span class="n">WHERE</span> <span class="n">logicalcondition</span><span class="p">;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DELETE</span> 
+<span class="n">FROM</span> <span class="n">table</span> 
+<span class="n">WHERE</span> <span class="n">logicalcondition</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>First specify the table, then the logical condition that identifies the rows you intend to delete.</p>
@@ -4150,7 +4144,9 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myquery</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">DELETE FROM nfl WHERE city = &#39;Baltimore&#39;; </span>
+<span class="s2">DELETE </span>
+<span class="s2">FROM nfl </span>
+<span class="s2">WHERE city = &#39;Baltimore&#39;; </span>
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">myquery</span><span class="p">)</span>
 </pre></div>
@@ -4165,7 +4161,11 @@ document.write(`
 <p>In this case, <code class="docutils literal notranslate"><span class="pre">city</span> <span class="pre">=</span> <span class="pre">'Baltimore'</span></code> identifies the rows we want to delete in the NFL table. The NFL data now no longer contains a row for the Ravens:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM nfl&quot;</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myquery</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">SELECT * </span>
+<span class="s1">FROM nfl</span>
+<span class="s1">&#39;&#39;&#39;</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">myquery</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -4345,7 +4345,7 @@ document.write(`
 </section>
 </section>
 <section id="cleaning-and-manipulating-data-with-sql-read-operations">
-<h2><a class="toc-backref" href="#id22" role="doc-backlink"><span class="section-number">7.6. </span>Cleaning and Manipulating Data with SQL Read Operations</a><a class="headerlink" href="#cleaning-and-manipulating-data-with-sql-read-operations" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id22" role="doc-backlink"><span class="section-number">7.6. </span>Cleaning and Manipulating Data with SQL Read Operations</a><a class="headerlink" href="#cleaning-and-manipulating-data-with-sql-read-operations" title="Link to this heading">#</a></h2>
 <p>After using joins to combine data tables in the database, the data needs to be manipulated to make the data more convenient to use. That might involve narrowing down the data to a specific subset of interest, performing calculations on the data to generate new features, and changing the appearance of the data. In “<a class="reference external" href="https://www.jstatsoft.org/article/view/v059i10">Tidy Data</a>”, Hadley Wickham defines four essential “verbs” of data manipulation:</p>
 <blockquote>
 <div><ul class="simple">
@@ -4357,13 +4357,20 @@ document.write(`
 </div></blockquote>
 <p>In addition it may be necessary to pull only a selection of the columns into the output, or to change the names of the columns to more readable and useful ones. These operations can be performed within SQL read commands by using the <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> clause for filtering, mathematical operators to transform columns, the <code class="docutils literal notranslate"><span class="pre">GROUP</span> <span class="pre">BY</span></code> syntax for aggregation, the <code class="docutils literal notranslate"><span class="pre">ORDER</span> <span class="pre">BY</span></code>, <code class="docutils literal notranslate"><span class="pre">ASC</span></code>, or <code class="docutils literal notranslate"><span class="pre">DESC</span></code> clauses for sorting, and the <code class="docutils literal notranslate"><span class="pre">AS</span></code> keyword for renaming columns.</p>
 <section id="example-wine-reviews">
-<h3><a class="toc-backref" href="#id23" role="doc-backlink"><span class="section-number">7.6.1. </span>Example: Wine Reviews</a><a class="headerlink" href="#example-wine-reviews" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id23" role="doc-backlink"><span class="section-number">7.6.1. </span>Example: Wine Reviews</a><a class="headerlink" href="#example-wine-reviews" title="Link to this heading">#</a></h3>
 <p>To illustrate how to issue queries to read data while manipulating and cleaning the data, we will use the PostgreSQL version of the wine review database that we created in module 6. If you want to follow along with these example, follow the instructions in the “Using PostgreSQL” subsection of module 6 to get a local wine database running on your system.</p>
 <p>For read operations, we can use the <code class="docutils literal notranslate"><span class="pre">pd.read_sql_query()</span></code> function. For that, we first have to use <code class="docutils literal notranslate"><span class="pre">sqlalchemy</span></code> to set up an engine that connects <code class="docutils literal notranslate"><span class="pre">pandas</span></code> to the database:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s2">&quot;postgresql+psycopg2://</span><span class="si">{user}</span><span class="s2">:</span><span class="si">{pw}</span><span class="s2">@localhost/</span><span class="si">{db}</span><span class="s2">&quot;</span>
-                       <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="s2">&quot;jk8sd&quot;</span><span class="p">,</span> <span class="n">pw</span><span class="o">=</span><span class="n">pgpassword</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="s2">&quot;winedb&quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dbms</span> <span class="o">=</span> <span class="s1">&#39;postgresql&#39;</span>
+<span class="n">package</span> <span class="o">=</span> <span class="s1">&#39;psycopg&#39;</span>
+<span class="n">user</span> <span class="o">=</span> <span class="s1">&#39;postgres&#39;</span>
+<span class="n">password</span> <span class="o">=</span> <span class="n">pgpassword</span>
+<span class="n">host</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span>
+<span class="n">port</span> <span class="o">=</span> <span class="s1">&#39;5432&#39;</span>
+<span class="n">db</span> <span class="o">=</span> <span class="s1">&#39;winedb&#39;</span>
+
+<span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">dbms</span><span class="si">}</span><span class="s2">+</span><span class="si">{</span><span class="n">package</span><span class="si">}</span><span class="s2">://</span><span class="si">{</span><span class="n">user</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="s2">@</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">db</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -4371,22 +4378,25 @@ document.write(`
 <p>The logical ER diagram for the wine reviews database is</p>
 <img src="https://github.com/jkropko/DS-6001/raw/master/localimages/wine_er4.png" width="400"></section>
 <section id="selecting-columns">
-<h3><a class="toc-backref" href="#id24" role="doc-backlink"><span class="section-number">7.6.2. </span>Selecting Columns</a><a class="headerlink" href="#selecting-columns" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id24" role="doc-backlink"><span class="section-number">7.6.2. </span>Selecting Columns</a><a class="headerlink" href="#selecting-columns" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">SELECT</span></code> and <code class="docutils literal notranslate"><span class="pre">FROM</span></code> are the primary SQL verbs for reading data. In many of the examples up to this points, we’ve issued queries like</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">table</span><span class="p">;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="o">*</span> 
+<span class="n">FROM</span> <span class="n">table</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>that pull all of the rows and all of the columns from a single data table. The <code class="docutils literal notranslate"><span class="pre">*</span></code> character is called a <a class="reference external" href="https://en.wikipedia.org/wiki/Wildcard_character">wildcard character</a>. When typed by itself, the wildcard captures all of the columns in a table. But sometimes we are interested in only a selection of the columns. In that case, we replace the wildcard with the columns we want to include in the output. The following syntax includes three columns from a specified data table:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">col1</span><span class="p">,</span> <span class="n">col2</span><span class="p">,</span> <span class="n">col3</span> <span class="n">FROM</span> <span class="n">table</span><span class="p">;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">col1</span><span class="p">,</span> <span class="n">col2</span><span class="p">,</span> <span class="n">col3</span> 
+<span class="n">FROM</span> <span class="n">table</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Suppose that I want to know the title, variety, price, points, country, and reviewer for all of the wines in the data. Title, variety, price, and points are all in the reviews table, country is in the locations table, and the reviewer (<code class="docutils literal notranslate"><span class="pre">taster_name</span></code>) is in the tasters table. To produce the data I need to join these three tables while also using <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> to identify only the rows I am interested in. Inner joins are appropriate because every wine in the data has both a location and a reviewer.</p>
+<p>Suppose that I want to know the title, variety, price, points, country, and reviewer for all of the wines in the data. Title, variety, price, and points are all in the reviews table, country is in the locations table, and the reviewer (<code class="docutils literal notranslate"><span class="pre">taster_name</span></code>) is in the tasters table. To produce the data I need to join these three tables while also using <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> to identify only the columns I am interested in. Inner joins are appropriate because every wine in the data has both a location and a reviewer, so no rows should be unmatched.</p>
 <p>The best way to select columns across multiple tables is to use aliasing, the same way we did for joins. In this case, if we alias the reviews table as <code class="docutils literal notranslate"><span class="pre">r</span></code>, locations as <code class="docutils literal notranslate"><span class="pre">l</span></code>, and tasters as <code class="docutils literal notranslate"><span class="pre">t</span></code>, we can use these same aliases to inform SQL where to find each column in the <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> syntax.</p>
 <p>The code to return this dataframe is:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myquery</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">SELECT r.title, r.variety, r.price, r.points, l.country, t.taster_name FROM reviews r</span>
+<span class="s2">SELECT r.title, r.variety, r.price, r.points, l.country, t.taster_name </span>
+<span class="s2">FROM reviews r</span>
 <span class="s2">INNER JOIN locations l</span>
 <span class="s2">    ON r.location_id = l.location_id</span>
 <span class="s2">INNER JOIN tasters t</span>
@@ -4530,8 +4540,8 @@ document.write(`
 </div>
 </section>
 <section id="logical-statements">
-<h3><a class="toc-backref" href="#id25" role="doc-backlink"><span class="section-number">7.6.3. </span>Logical Statements</a><a class="headerlink" href="#logical-statements" title="Permalink to this heading">#</a></h3>
-<p>Most programming languages have the capacity to evaluate a statement as being either true or false, or true for some values and false for others. A logical statement uses <strong>logical operators</strong> that define how values should be compared. In SQL, logical statements are used in conjunction with the <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> statement to select the rows to include in the output.</p>
+<h3><a class="toc-backref" href="#id25" role="doc-backlink"><span class="section-number">7.6.3. </span>Logical Statements</a><a class="headerlink" href="#logical-statements" title="Link to this heading">#</a></h3>
+<p>Most programming languages have the capacity to evaluate a statement as being either true or false, or true for some values and false for others. A logical statement uses <strong>logical operators</strong> that define how values should be compared. In SQL, logical statements are used with the <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> statement to select the rows to include in the output.</p>
 <p>For SQL, logical statements either compare a column to another column, or compare a column to one or more reference values. The following logical operators are available:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">=</span></code> - is equal to?</p></li>
@@ -4547,17 +4557,17 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">OR</span></code> - links separate logical statements together such that the overall statement is true when any of the linked statements are true</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">LIKE</span> <span class="pre">pattern</span></code> - true if the string value matches the given pattern:</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">LIKE</span> <span class="pre">'%%text'</span></code> captures all rows in which a given column ends with ‘text’</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">LIKE</span> <span class="pre">'text%%'</span></code> captures all rows in which a given column begins with ‘text’</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">LIKE</span> <span class="pre">'%%text%%'</span></code> captures all rows in which a given column contains ‘text’ somewhere in its string value</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LIKE</span> <span class="pre">'%%text'</span></code> captures all rows in which a value in a given column ends with ‘text’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LIKE</span> <span class="pre">'text%%'</span></code> captures all rows in which a value in a given column begins with ‘text’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LIKE</span> <span class="pre">'%%text%%'</span></code> captures all rows in which a value in a given column contains ‘text’</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">()</span></code> - parts of the logical statement that are contained within parentheses are evaluated first</p></li>
 </ul>
-<p>I will show examples of how to use these logical statements for filtering rows, in the next section.</p>
+<p>I will show examples of how to use these logical statements for filtering rows in the next section.</p>
 </section>
 <section id="filtering-rows">
-<h3><a class="toc-backref" href="#id26" role="doc-backlink"><span class="section-number">7.6.4. </span>Filtering Rows</a><a class="headerlink" href="#filtering-rows" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id26" role="doc-backlink"><span class="section-number">7.6.4. </span>Filtering Rows</a><a class="headerlink" href="#filtering-rows" title="Link to this heading">#</a></h3>
 <p>Suppose we wanted to know the title, the variety, and the price of the French wines that Roger Voss scored as 100. It’s a simple semantic sentence, but it connects to a more complicated set of SQL functions. First consider all of the columns we need to use to process the sentence:</p>
 <ul class="simple">
 <li><p>title, from the reviews table</p></li>
@@ -5369,7 +5379,7 @@ document.write(`
 </div>
 </section>
 <section id="sorting-data">
-<h3><a class="toc-backref" href="#id27" role="doc-backlink"><span class="section-number">7.6.5. </span>Sorting Data</a><a class="headerlink" href="#sorting-data" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id27" role="doc-backlink"><span class="section-number">7.6.5. </span>Sorting Data</a><a class="headerlink" href="#sorting-data" title="Link to this heading">#</a></h3>
 <p>Sorting data refers to rearranging the rows of a dataframe. Sorting is a cosmetic thing to do to data because the order of the rows should not change the meaning of the data both in terms of storage (rearranging the rows should NOT change the meaning of each row), or for most analytical models (rearranging rows won’t change the parameter estimates from a linear regression, for example). But sorting is a way to visualize important characteristics about the data and to quickly see important records with maximum and minimum values of key features.</p>
 <p>To sort the output data, use the <code class="docutils literal notranslate"><span class="pre">ORDER</span> <span class="pre">BY</span></code> syntax within an SQL query. The general syntax for <code class="docutils literal notranslate"><span class="pre">ORDER</span> <span class="pre">BY</span></code> is</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ORDER</span> <span class="n">BY</span> <span class="n">column1</span><span class="p">,</span> <span class="n">column2</span><span class="p">,</span> <span class="n">column3</span>
@@ -5488,7 +5498,7 @@ document.write(`
 </div>
 </section>
 <section id="renaming-columns-and-transforming-data-values">
-<h3><a class="toc-backref" href="#id28" role="doc-backlink"><span class="section-number">7.6.6. </span>Renaming Columns and Transforming Data Values</a><a class="headerlink" href="#renaming-columns-and-transforming-data-values" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id28" role="doc-backlink"><span class="section-number">7.6.6. </span>Renaming Columns and Transforming Data Values</a><a class="headerlink" href="#renaming-columns-and-transforming-data-values" title="Link to this heading">#</a></h3>
 <p>Sometimes it is useful to rename the columns in the output data within a query. To rename a column, use the <code class="docutils literal notranslate"><span class="pre">AS</span></code> syntax while referencing the columns in <code class="docutils literal notranslate"><span class="pre">SELECT</span></code>. For example, we can load the title, variety, and points columns from the reviews table, but we can rename these columns name, type, and score respectively:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -6627,7 +6637,7 @@ document.write(`
 </div>
 </section>
 <section id="data-aggregation">
-<h3><a class="toc-backref" href="#id29" role="doc-backlink"><span class="section-number">7.6.7. </span>Data Aggregation</a><a class="headerlink" href="#data-aggregation" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id29" role="doc-backlink"><span class="section-number">7.6.7. </span>Data Aggregation</a><a class="headerlink" href="#data-aggregation" title="Link to this heading">#</a></h3>
 <p>If there are columns in the data output that have repeated values, then each distinct value forms a group in the data. Data aggregation is the process of collapsing the data to one row for each group, while summarizing other columns by taking the within-group mean, sum, count, or another statistic.</p>
 <p>Aggregating data requires more attention to the ordering of the clauses in an SQL query than is necessary with other tasks. That is, certain clauses must be entered into the query in a particular order. An SQL query that aggregates data should follow this template:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">aggregationfunctions</span> <span class="n">FROM</span> <span class="n">table</span>
@@ -7304,7 +7314,7 @@ document.write(`
 </div>
 </section>
 <section id="subqueries">
-<h3><a class="toc-backref" href="#id30" role="doc-backlink"><span class="section-number">7.6.8. </span>Subqueries</a><a class="headerlink" href="#subqueries" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id30" role="doc-backlink"><span class="section-number">7.6.8. </span>Subqueries</a><a class="headerlink" href="#subqueries" title="Link to this heading">#</a></h3>
 <p>There are situations in which it makes sense to use data aggregation techniques to generate new columns filled with group-level summary statistics, then to place these summary statistics into the original data table. To do this work, we can use <strong>subqueries</strong>. A subquery is a full SQL query that is used inside another SQL query. There are three types of subquery:</p>
 <ol class="arabic simple">
 <li><p>Subqueries, like the ones for the mean and standard deviation above, that yield a single datapoint. These subqueries can be used anywhere we might write a value in the query, such as when defining new columns in <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> or filtering rows with <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> or <code class="docutils literal notranslate"><span class="pre">HAVING</span></code>.</p></li>
@@ -8011,7 +8021,7 @@ document.write(`
 </section>
 </section>
 <section id="sql-security">
-<h2><a class="toc-backref" href="#id31" role="doc-backlink"><span class="section-number">7.7. </span>SQL Security</a><a class="headerlink" href="#sql-security" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id31" role="doc-backlink"><span class="section-number">7.7. </span>SQL Security</a><a class="headerlink" href="#sql-security" title="Link to this heading">#</a></h2>
 <p>One criticism of SQL is that it can be manipulated to give unauthorized and hostile users access to perform CRUD operations on the data. This kind of <a class="reference external" href="https://en.wikipedia.org/wiki/SQL_injection">attack</a> is called an <strong>SQL injection attack</strong>, and the best illustration of this attack comes from an <a class="reference external" href="https://xkcd.com">XKCD</a> web comic:</p>
 <p><a href="https://xkcd.com/327/"><img src="https://imgs.xkcd.com/comics/exploits_of_a_mom.png" width="500"></a></p>
 <p>The following discussion borrows heavily from <a class="reference external" href="https://explainxkcd.com/wiki/index.php/327:_Exploits_of_a_Mom">this blog’s</a> explaination of this XKCD comic.</p>
@@ -8043,7 +8053,7 @@ document.write(`
 <p>As a data scientist mostly issuing read operations, it is unethical for you to attack a database in this way. If you are testing whether a database is secured against SQL injection attacks, don’t try to issue any <code class="docutils literal notranslate"><span class="pre">DROP</span></code> commands as other commands like <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> will reveal the insecurity but won’t make changes in the database. If you are building a database that is connected to an interface for users to enter data, please be aware of the SQL injection vulnerability and use prepared statements to guard against it.</p>
 </section>
 <section id="mongodb-queries">
-<h2><a class="toc-backref" href="#id32" role="doc-backlink"><span class="section-number">7.8. </span>MongoDB Queries</a><a class="headerlink" href="#mongodb-queries" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id32" role="doc-backlink"><span class="section-number">7.8. </span>MongoDB Queries</a><a class="headerlink" href="#mongodb-queries" title="Link to this heading">#</a></h2>
 <p>SQL is a universal language for issuing queries to relational databases, whether the database is managed by SQLite, MySQL, PostgreSQL, or another RDBMS. For NoSQL databases, however, there is no universal query language. Every DBMS has its own query language, and will provide a guide for learning that language. Some of these guides include the ones for key-value stores in <a class="reference external" href="https://redis.io/commands">Redis</a> and wide column stores in <a class="reference external" href="https://cassandra.apache.org/doc/latest/cql/index.html">Cassandra</a>. Neo4j has developed a programming language called <a class="reference external" href="https://neo4j.com/developer/cypher-query-language/">Cypher</a> that is explicitly for issuing queries to graph databases. Of all of these query protocols, the language used by <a class="reference external" href="https://docs.mongodb.com/guides/server/read_queries/">MongoDB</a> for issuing queries to document stores is one of the most universal because it works entirely with JSONs: queries are written in JSON format and the output is organized in JSON format. All of these query languages include methods for all of the CRUD operations.</p>
 <p>The most important difference between relational and NoSQL databases is the rigidity of the schema that organizes the data. The advantage of the strict organization of a relational database, as illustrated in an ER diagram, is that the data that can be extracted from the database using an SQL query will be clean and mostly immediately ready to be analyzed. The disadvantage is that relational databases have schema that are hard to change once they’ve been created and populated with data. SQL also, despite the best intentions of the originators of SQL, can be very difficult for people use for some tasks. For extremely large datasets with many tables, it can be extremely difficult to keep track of what data exists in which table. In contrast, NoSQL databases generally have flexible schema that can be changed easily and can vary even from record to record. There are no rules, like the normalization rules, that require that the data be split into different tables, so there is no need for visual maps like ER diagrams. Also, because all of the data for one record exists in the same JSON dictionary, it is easy to use remote, distributed storage to store all of the records. The disadvantage of NoSQL databases is that the data are rarely ready for analysis after a query. It’s a buy-now-pay-later situation: the price we pay for the convenience of NoSQL storage and organization is that the output requires more work to use.</p>
 <p>Some concepts that are crucial to SQL are not relevant to NoSQL. There are <strong>no joins</strong> in a document store because all the data for a record exist in the same JSON code. As such, we don’t have to worry about accomplishing these tasks within a NoSQL query. NoSQL queries in general focus narrowly on the CRUD operations, although MongoDB provides some advanced functionality for searching for patterns within text and ranking documents based on their relevance to given search terms.</p>
@@ -8085,7 +8095,7 @@ document.write(`
 <p>Notice that all of the data for this wine exists in this JSON dictionary, including data from the reviews, locations, wineries, and tasters tables in the PostgreSQL database. When we created this MongoDB database, the DBMS automatically created a unique ID for each record designated with the key <code class="docutils literal notranslate"><span class="pre">_id</span></code>.</p>
 <p>We can now use the methods in <code class="docutils literal notranslate"><span class="pre">pymongo</span></code> for creating, reading, updating, and deleting records and we will apply these methods to the <code class="docutils literal notranslate"><span class="pre">winecollection</span></code> variable that accesses the data.</p>
 <section id="creating-and-deleting-records">
-<h3><a class="toc-backref" href="#id33" role="doc-backlink"><span class="section-number">7.8.1. </span>Creating and Deleting Records</a><a class="headerlink" href="#creating-and-deleting-records" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id33" role="doc-backlink"><span class="section-number">7.8.1. </span>Creating and Deleting Records</a><a class="headerlink" href="#creating-and-deleting-records" title="Link to this heading">#</a></h3>
 <p>Did you know that former NBA all-star Dwyane Wade has a winery? It’s called <a class="reference external" href="https://dwadecellars.com/">D Wade Cellars</a> and it is based in the Napa Valley in California. Let’s add the <a class="reference external" href="https://dwadecellars.vinespring.com/purchase/detail?item=2016-napa-valley-three-by-wade-red-blend">2016 Napa Valley Three By Wade Red Blend</a> into the database. The first step is to express all of the data we want to associate with a new record in JSON format:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -8214,7 +8224,7 @@ document.write(`
 </div>
 </section>
 <section id="reading-data-and-selecting-records">
-<h3><a class="toc-backref" href="#id34" role="doc-backlink"><span class="section-number">7.8.2. </span>Reading Data and Selecting Records</a><a class="headerlink" href="#reading-data-and-selecting-records" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id34" role="doc-backlink"><span class="section-number">7.8.2. </span>Reading Data and Selecting Records</a><a class="headerlink" href="#reading-data-and-selecting-records" title="Link to this heading">#</a></h3>
 <p>To read all of the records in a MongoDB collection, use the <code class="docutils literal notranslate"><span class="pre">.find()</span></code> method and pass an empty JSON dictionary to this method. For the wine reviews collection, we can query the entire collection by typing</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -8514,7 +8524,7 @@ document.write(`
 </pre></div>
 </div>
 <p>The operators are listed in the following table:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Operator</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -8585,6 +8595,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 <p>To quickly see the data that is output by queries that use these operators, I write a function that takes a JSON dictionary as an input, and outputs a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> dataframe:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -9901,7 +9912,7 @@ document.write(`
 </div>
 </section>
 <section id="selecting-features">
-<h3><a class="toc-backref" href="#id35" role="doc-backlink"><span class="section-number">7.8.3. </span>Selecting Features</a><a class="headerlink" href="#selecting-features" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id35" role="doc-backlink"><span class="section-number">7.8.3. </span>Selecting Features</a><a class="headerlink" href="#selecting-features" title="Link to this heading">#</a></h3>
 <p>A read query in MongoDB will return the entire JSON dictionary for every record that matches the query. Sometimes, however, the entirety of the data for one record will be more information than we can feasibly work with. In some situations there might be an unmanagable number of features contained within each dictionary, and we only want to use a couple of these features. In other situations a feature might contain values that are so large that we want to avoid dealing with this feature if possible.</p>
 <p>To extract only a selection of the features, add a second JSON clause to the <code class="docutils literal notranslate"><span class="pre">.find()</span></code> method. The general syntax for selecting features is</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">collection</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="n">query</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;feature&#39;</span><span class="o">=</span><span class="mi">1</span><span class="p">}}</span>
@@ -10209,7 +10220,7 @@ document.write(`
 </div>
 </section>
 <section id="updating-records">
-<h3><a class="toc-backref" href="#id36" role="doc-backlink"><span class="section-number">7.8.4. </span>Updating Records</a><a class="headerlink" href="#updating-records" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id36" role="doc-backlink"><span class="section-number">7.8.4. </span>Updating Records</a><a class="headerlink" href="#updating-records" title="Link to this heading">#</a></h3>
 <p>Updating records in MongoDB is similar to selecting records in that we use the same logical conditions we use for selecting records for identifying the records we want to edit. The <code class="docutils literal notranslate"><span class="pre">.update_one()</span></code> method, applied to a collection, has two arguments. First we specify a logical condition that identifies the records we want to edit. Then we use the <code class="docutils literal notranslate"><span class="pre">$set</span></code> operator to choose specific fields within the existing JSON record to change. If we want, we can even write an entire replacement dictionary for this record, and write it along with <code class="docutils literal notranslate"><span class="pre">$set</span></code>. For example, to identify the record of the wine from Dwyane Wade’s winery, we can query <code class="docutils literal notranslate"><span class="pre">{'location.winery':</span> <span class="pre">'D</span> <span class="pre">Wade</span> <span class="pre">Cellars'}</span></code> as we did in the previous section. Suppose that we want to edit this record so that the price increases to \$45. We can do so with the following code:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -10704,7 +10715,7 @@ document.write(`
 </div>
 </section>
 <section id="performing-text-searches">
-<h3><a class="toc-backref" href="#id37" role="doc-backlink"><span class="section-number">7.8.5. </span>Performing Text Searches</a><a class="headerlink" href="#performing-text-searches" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id37" role="doc-backlink"><span class="section-number">7.8.5. </span>Performing Text Searches</a><a class="headerlink" href="#performing-text-searches" title="Link to this heading">#</a></h3>
 <p>One of the great advantages of a document store database is the ability to search through the text within the documents and extract records that match a certain pattern. A text search in MongoDB involves two steps:</p>
 <ul class="simple">
 <li><p>First, we will create a <strong>text index</strong>: a particular field in the records that contains the text we want MongoDB to search within.</p></li>
@@ -10889,7 +10900,7 @@ Name: description, dtype: object
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -10917,7 +10928,9 @@ Name: description, dtype: object
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -10995,7 +11008,7 @@ By Jonathan Kropko (jkropko@virginia.edu)
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2025.
       <br/>
     
   </p>
@@ -11019,8 +11032,8 @@ By Jonathan Kropko (jkropko@virginia.edu)
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>12. Interactive Data Visualizations and Dashboards &#8212; Surfing the Data Pipeline with Python</title>
   
@@ -15,59 +14,60 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ch12';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Virtual Environments and Containers" href="docker.html" />
     <link rel="prev" title="11. Static Data Visualizations" href="ch11.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -75,32 +75,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -108,7 +92,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -116,16 +99,25 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -140,6 +132,8 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="intro.html">
   
@@ -153,11 +147,18 @@ const thebe_selector_output = ".output, .cell_output"
     
     
     <img src="_static/surf.jpg" class="logo__image only-light" alt="Surfing the Data Pipeline with Python - Home"/>
-    <script>document.write(`<img src="_static/surf.jpg" class="logo__image only-dark" alt="Surfing the Data Pipeline with Python - Home"/>`);</script>
+    <img src="_static/surf.jpg" class="logo__image only-dark pst-js-only" alt="Surfing the Data Pipeline with Python - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -191,6 +192,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="ch11.html">11. Static Data Visualizations</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">12. Interactive Data Visualizations and Dashboards</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Virtual Environments and Containers</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -198,14 +203,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -214,14 +224,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -297,27 +307,19 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -370,10 +372,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="interactive-data-visualizations-and-dashboards">
-<h1><a class="toc-backref" href="#id1" role="doc-backlink"><span class="section-number">12. </span>Interactive Data Visualizations and Dashboards</a><a class="headerlink" href="#interactive-data-visualizations-and-dashboards" title="Permalink to this heading">#</a></h1>
+<h1><a class="toc-backref" href="#id1" role="doc-backlink"><span class="section-number">12. </span>Interactive Data Visualizations and Dashboards</a><a class="headerlink" href="#interactive-data-visualizations-and-dashboards" title="Link to this heading">#</a></h1>
 <nav class="contents" id="table-of-contents">
 <p class="topic-title">Table of Contents</p>
 <ul class="simple">
@@ -410,7 +412,7 @@ document.write(`
 </ul>
 </nav>
 <section id="introduction-why-make-visualizations-interactive">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">12.1. </span>Introduction: Why Make Visualizations Interactive?</a><a class="headerlink" href="#introduction-why-make-visualizations-interactive" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">12.1. </span>Introduction: Why Make Visualizations Interactive?</a><a class="headerlink" href="#introduction-why-make-visualizations-interactive" title="Link to this heading">#</a></h2>
 <p>There’s a great moment in <em>Jurassic Park</em> when Dr. Ian Malcomb is speaking to John Hammond, proprietor of Jurassic Park and owner of the company that clones dinosaurs.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -449,7 +451,7 @@ document.write(`
 <p>One interactive visualization we will NOT discuss is a 3D visualization. In chapter 26 of <a class="reference external" href="https://serialmentor.com/dataviz/">Fundamentals of Data Visualization</a>, Claus O. Wilke demonstrates that “the projection of 3D objects into two dimensions for printing or display on a monitor distorts the data.” Because the orientation of the camera in a 3D image is arbitrary, objects like bars can appear larger or smaller than they actually are depending on the perspective in the image, and objects can appear to be higher or lower along a meaningful axis than they should be. 3D images can almost always be more accurately and simply visualized with a grid of 2D images.</p>
 </section>
 <section id="creating-interactive-data-visualizations-with-plotly">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">12.2. </span>Creating Interactive Data Visualizations with <code class="docutils literal notranslate"><span class="pre">plotly</span></code></a><a class="headerlink" href="#creating-interactive-data-visualizations-with-plotly" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">12.2. </span>Creating Interactive Data Visualizations with <code class="docutils literal notranslate"><span class="pre">plotly</span></code></a><a class="headerlink" href="#creating-interactive-data-visualizations-with-plotly" title="Link to this heading">#</a></h2>
 <p>The most widely used package for creating interactive data visualizations in both R and Python is <code class="docutils literal notranslate"><span class="pre">plotly</span></code>. In Python, there are several versions of <code class="docutils literal notranslate"><span class="pre">plotly</span></code>, contained in different modules of the <code class="docutils literal notranslate"><span class="pre">plotly</span></code> package. We will be primarily using the <code class="docutils literal notranslate"><span class="pre">plotly.express</span></code> module, which we will alias <code class="docutils literal notranslate"><span class="pre">px</span></code>, but other graphics use the <code class="docutils literal notranslate"><span class="pre">plotly.graph_objects</span></code> module aliased as <code class="docutils literal notranslate"><span class="pre">go</span></code>. Here we load both modules along with <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and <code class="docutils literal notranslate"><span class="pre">numpy</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -459,21 +461,6 @@ document.write(`
 <span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
 <span class="c1">#import plotly.offline as pyo </span>
 <span class="c1">#pyo.init_notebook_mode() ## ensures that the plotly graphics convert to HTML</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">#import plotly.offline as pyo </span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1">#pyo.init_notebook_mode() ## ensures that the plotly graphics convert to HTML</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;plotly&#39;
 </pre></div>
 </div>
 </div>
@@ -559,7 +546,7 @@ document.write(`
 </div>
 </div>
 <section id="barplots-and-how-to-use-plotly-graphics">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">12.2.1. </span>Barplots and How to Use <code class="docutils literal notranslate"><span class="pre">plotly</span></code> Graphics</a><a class="headerlink" href="#barplots-and-how-to-use-plotly-graphics" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">12.2.1. </span>Barplots and How to Use <code class="docutils literal notranslate"><span class="pre">plotly</span></code> Graphics</a><a class="headerlink" href="#barplots-and-how-to-use-plotly-graphics" title="Link to this heading">#</a></h3>
 <p>As with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> method, and <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>, to create a barplot we must first generate a dataframe that contains the categories and the values we intend to plot. The following code gives us a small dataframe with the vote choices of the people in the ANES as of December 2019, and the frequency of each choice:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -587,8 +574,8 @@ document.write(`
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>index</th>
       <th>vote</th>
+      <th>count</th>
     </tr>
   </thead>
   <tbody>
@@ -624,42 +611,64 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/IPython/utils/traitlets.py:5: UserWarning:
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">anes_bar</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;vote&#39;</span><span class="p">)</span>
 
-IPython.utils.traitlets has moved to a top-level traitlets package.
+<span class="nn">File ~/.pyenv/versions/3.12.5/lib/python3.12/site-packages/plotly/express/_chart_types.py:373,</span> in <span class="ni">bar</span><span class="nt">(data_frame, x, y, color, pattern_shape, facet_row, facet_col, facet_col_wrap, facet_row_spacing, facet_col_spacing, hover_name, hover_data, custom_data, text, base, error_x, error_x_minus, error_y, error_y_minus, animation_frame, animation_group, category_orders, labels, color_discrete_sequence, color_discrete_map, color_continuous_scale, pattern_shape_sequence, pattern_shape_map, range_color, color_continuous_midpoint, opacity, orientation, barmode, log_x, log_y, range_x, range_y, text_auto, title, template, width, height)</span>
+<span class="g g-Whitespace">    </span><span class="mi">325</span> <span class="k">def</span> <span class="nf">bar</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">326</span>     <span class="n">data_frame</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">327</span>     <span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">367</span>     <span class="n">height</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">368</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">369</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">370</span><span class="sd">     In a bar plot, each row of `data_frame` is represented as a rectangular</span>
+<span class="g g-Whitespace">    </span><span class="mi">371</span><span class="sd">     mark.</span>
+<span class="g g-Whitespace">    </span><span class="mi">372</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">373</span>     <span class="k">return</span> <span class="n">make_figure</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">374</span>         <span class="n">args</span><span class="o">=</span><span class="nb">locals</span><span class="p">(),</span>
+<span class="g g-Whitespace">    </span><span class="mi">375</span>         <span class="n">constructor</span><span class="o">=</span><span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">376</span>         <span class="n">trace_patch</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">textposition</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">377</span>         <span class="n">layout_patch</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">barmode</span><span class="o">=</span><span class="n">barmode</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">378</span>     <span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.12.5/lib/python3.12/site-packages/plotly/express/_core.py:2117,</span> in <span class="ni">make_figure</span><span class="nt">(args, constructor, trace_patch, layout_patch)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2114</span> <span class="n">layout_patch</span> <span class="o">=</span> <span class="n">layout_patch</span> <span class="ow">or</span> <span class="p">{}</span>
+<span class="g g-Whitespace">   </span><span class="mi">2115</span> <span class="n">apply_default_cascade</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">2117</span> <span class="n">args</span> <span class="o">=</span> <span class="n">build_dataframe</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">constructor</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2118</span> <span class="k">if</span> <span class="n">constructor</span> <span class="ow">in</span> <span class="p">[</span><span class="n">go</span><span class="o">.</span><span class="n">Treemap</span><span class="p">,</span> <span class="n">go</span><span class="o">.</span><span class="n">Sunburst</span><span class="p">,</span> <span class="n">go</span><span class="o">.</span><span class="n">Icicle</span><span class="p">]</span> <span class="ow">and</span> <span class="n">args</span><span class="p">[</span><span class="s2">&quot;path&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2119</span>     <span class="n">args</span> <span class="o">=</span> <span class="n">process_dataframe_hierarchy</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+
+<span class="nn">File ~/.pyenv/versions/3.12.5/lib/python3.12/site-packages/plotly/express/_core.py:1513,</span> in <span class="ni">build_dataframe</span><span class="nt">(args, constructor)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1510</span>     <span class="n">args</span><span class="p">[</span><span class="s2">&quot;color&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">1511</span> <span class="c1"># now that things have been prepped, we do the systematic rewriting of `args`</span>
+<span class="ne">-&gt; </span><span class="mi">1513</span> <span class="n">df_output</span><span class="p">,</span> <span class="n">wide_id_vars</span> <span class="o">=</span> <span class="n">process_args_into_dataframe</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1514</span>     <span class="n">args</span><span class="p">,</span> <span class="n">wide_mode</span><span class="p">,</span> <span class="n">var_name</span><span class="p">,</span> <span class="n">value_name</span>
+<span class="g g-Whitespace">   </span><span class="mi">1515</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1517</span> <span class="c1"># now that `df_output` exists and `args` contains only references, we complete</span>
+<span class="g g-Whitespace">   </span><span class="mi">1518</span> <span class="c1"># the special-case and wide-mode handling by further rewriting args and/or mutating</span>
+<span class="g g-Whitespace">   </span><span class="mi">1519</span> <span class="c1"># df_output</span>
+<span class="g g-Whitespace">   </span><span class="mi">1521</span> <span class="n">count_name</span> <span class="o">=</span> <span class="n">_escape_col_name</span><span class="p">(</span><span class="n">df_output</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">var_name</span><span class="p">,</span> <span class="n">value_name</span><span class="p">])</span>
+
+<span class="nn">File ~/.pyenv/versions/3.12.5/lib/python3.12/site-packages/plotly/express/_core.py:1234,</span> in <span class="ni">process_args_into_dataframe</span><span class="nt">(args, wide_mode, var_name, value_name)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1232</span>         <span class="k">if</span> <span class="n">argument</span> <span class="o">==</span> <span class="s2">&quot;index&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1233</span>             <span class="n">err_msg</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> To use the index, pass it in directly as `df.index`.&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1234</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1235</span> <span class="k">elif</span> <span class="n">length</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_input</span><span class="p">[</span><span class="n">argument</span><span class="p">])</span> <span class="o">!=</span> <span class="n">length</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1236</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1237</span>         <span class="s2">&quot;All arguments should have the same length. &quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1238</span>         <span class="s2">&quot;The length of column argument `df[</span><span class="si">%s</span><span class="s2">]` is </span><span class="si">%d</span><span class="s2">, whereas the &quot;</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1245</span>         <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1246</span>     <span class="p">)</span>
+
+<span class="ne">ValueError</span>: Value of &#39;x&#39; is not the name of a column in &#39;data_frame&#39;. Expected one of [&#39;vote&#39;, &#39;count&#39;] but received: index
+ <span class="n">To</span> <span class="n">use</span> <span class="n">the</span> <span class="n">index</span><span class="p">,</span> <span class="k">pass</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">directly</span> <span class="k">as</span> <span class="err">`</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="err">`</span><span class="o">.</span>
 </pre></div>
 </div>
-<div class="output text_html"><html>
-<head><meta charset="utf-8" /></head>
-<body>
-    <div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax) {MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
-        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>                <div id="6624e4e8-0bea-4ace-bebe-96f8aee921f3" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("6624e4e8-0bea-4ace-bebe-96f8aee921f3")) {                    Plotly.newPlot(                        "6624e4e8-0bea-4ace-bebe-96f8aee921f3",                        [{"alignmentgroup": "True", "hovertemplate": "index=%{x}<br>vote=%{y}<extra></extra>", "legendgroup": "", "marker": {"color": "#636efa"}, "name": "", "offsetgroup": "", "orientation": "v", "showlegend": false, "textposition": "auto", "type": "bar", "x": ["Joe Biden", "Donald Trump", "Someone else", "Probably will not vote"], "xaxis": "x", "y": [1288, 1273, 321, 283], "yaxis": "y"}],                        {"barmode": "relative", "legend": {"tracegroupgap": 0}, "margin": {"t": 60}, "template": {"data": {"bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "bar"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "barpolar"}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "choropleth": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "choropleth"}], "contour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "contour"}], "contourcarpet": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "contourcarpet"}], "heatmap": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmap"}], "heatmapgl": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmapgl"}], "histogram": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "histogram"}], "histogram2d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2d"}], "histogram2dcontour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2dcontour"}], "mesh3d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "mesh3d"}], "parcoords": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "parcoords"}], "pie": [{"automargin": true, "type": "pie"}], "scatter": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter"}], "scatter3d": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter3d"}], "scattercarpet": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattercarpet"}], "scattergeo": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergeo"}], "scattergl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergl"}], "scattermapbox": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattermapbox"}], "scatterpolar": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolar"}], "scatterpolargl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolargl"}], "scatterternary": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterternary"}], "surface": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "surface"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}]}, "layout": {"annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "autotypenumbers": "strict", "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]], "sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}, "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "geo": {"bgcolor": "white", "lakecolor": "white", "landcolor": "#E5ECF6", "showlakes": true, "showland": true, "subunitcolor": "white"}, "hoverlabel": {"align": "left"}, "hovermode": "closest", "mapbox": {"style": "light"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "ternary": {"aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "title": {"x": 0.05}, "xaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}, "yaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}}}, "xaxis": {"anchor": "y", "domain": [0.0, 1.0], "title": {"text": "index"}}, "yaxis": {"anchor": "x", "domain": [0.0, 1.0], "title": {"text": "vote"}}},                        {"responsive": true}                    ).then(function(){
-                            
-var gd = document.getElementById('6624e4e8-0bea-4ace-bebe-96f8aee921f3');
-var x = new MutationObserver(function (mutations, observer) {{
-        var display = window.getComputedStyle(gd).display;
-        if (!display || display === 'none') {{
-            console.log([gd, 'removed!']);
-            Plotly.purge(gd);
-            observer.disconnect();
-        }}
-}});
-
-// Listen for the removal of the full notebook cells
-var notebookContainer = gd.closest('#notebook-container');
-if (notebookContainer) {{
-    x.observe(notebookContainer, {childList: true});
-}}
-
-// Listen for the clearing of the current output cell
-var outputEl = gd.closest('.output');
-if (outputEl) {{
-    x.observe(outputEl, {childList: true});
-}}
-
-                        })                };                            </script>        </div>
-</body>
-</html></div></div>
+</div>
 </div>
 <p>Take a moment to notice the various ways in which this barplot is different than the static barplots we created in the previous chapter. First, when we hover the mouse over the bars, the name of the category and the specific count appear in a box at the top of the bar. Second there are many icons in the upper-right corner of the plot. These icons, listed here from left-to-right, have the following functions:</p>
 <ul class="simple">
@@ -1389,7 +1398,7 @@ if (outputEl) {{
 </div>
 </section>
 <section id="scatterplots">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">12.2.2. </span>Scatterplots</a><a class="headerlink" href="#scatterplots" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">12.2.2. </span>Scatterplots</a><a class="headerlink" href="#scatterplots" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">plotly.express</span></code> syntax for scatterplots is very similar to the syntax for barplots. We use the <code class="docutils literal notranslate"><span class="pre">px.scatter()</span></code> function, and we define the features for the x and y-axes, and we can adjust the height and width of the figure, the axis labels, the hover data, and the title in exactly the same way we did for barplots. Here is a scatterplot of the Biden and Trump thermometers for the first 200 rows of the <code class="docutils literal notranslate"><span class="pre">anes</span></code> data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1702,7 +1711,7 @@ if (outputEl) {{
 </div>
 </section>
 <section id="lineplots">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">12.2.3. </span>Lineplots</a><a class="headerlink" href="#lineplots" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">12.2.3. </span>Lineplots</a><a class="headerlink" href="#lineplots" title="Link to this heading">#</a></h3>
 <p>To demonstrate a lineplot, we can group the <code class="docutils literal notranslate"><span class="pre">anes</span></code> data by age to see the variation in the Biden and Trump thermometers across ages. The following code creates a dataframe with the mean, median, 25th and 75th percentiles, and the interquartile ranges for the Biden thermometer, then creates a second dataframe with the same information extracted from the Trump thermometer, then uses the <code class="docutils literal notranslate"><span class="pre">.append()</span></code> method to combine these dataframes one on top of the other:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1973,7 +1982,7 @@ if (outputEl) {{
 </div>
 </section>
 <section id="distributions">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">12.2.4. </span>Distributions</a><a class="headerlink" href="#distributions" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">12.2.4. </span>Distributions</a><a class="headerlink" href="#distributions" title="Link to this heading">#</a></h3>
 <p>In chapter 11 we discussed histograms, density plots, violin plots, and bar plots as ways to understand the entirety of a feature’s distribution as opposed to single descriptive statistics like means. We can generate the same figures with <code class="docutils literal notranslate"><span class="pre">plotly.express</span></code> as well. To create a histogram, we can use the <code class="docutils literal notranslate"><span class="pre">px.histogram()</span></code>. We indicate the feature we want to visualize by setting it equal to <code class="docutils literal notranslate"><span class="pre">x</span></code> for a vertically-oriented histogram or to <code class="docutils literal notranslate"><span class="pre">y</span></code> for a horizontally-oriented histogram. We use the same syntax as other <code class="docutils literal notranslate"><span class="pre">plotly.express</span></code> functions to label the axes and include a title. Here is a histogram for the Biden thermometer score:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2310,7 +2319,7 @@ if (outputEl) {{
 </div>
 </section>
 <section id="interactive-maps">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">12.2.5. </span>Interactive Maps</a><a class="headerlink" href="#interactive-maps" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">12.2.5. </span>Interactive Maps</a><a class="headerlink" href="#interactive-maps" title="Link to this heading">#</a></h3>
 <p>Maps in in <code class="docutils literal notranslate"><span class="pre">plotly.express</span></code> are called <a class="reference external" href="https://plotly.com/python/choropleth-maps/">choropleth maps</a>. The word “choropleth” refers to the act of shading specific areas on a map to represent differences between these areas or to represent data for these areas on the map. A choropleth map contains two parts: a <strong>base layer</strong> that is comprised of a particular map, and data that is mapped to shadings that are applied to areas on this map.</p>
 <p>There are two ways to use a base layer map in a <code class="docutils literal notranslate"><span class="pre">px.choropleth()</span></code> figure. We can supply our own map if the map is coded in a <a class="reference external" href="https://geojson.org/">GeoJSON</a> format. GeoJSON files are JSONs in which shapes of geographic areas are supplied with a series of coordinates. GeoJSON files are an important tool for geospatial data analysis, but they are beyond the scope of this discussion.</p>
 <p>Alternatively, we can use one of the two maps that are already installed into <code class="docutils literal notranslate"><span class="pre">plotly</span></code> and available for us to use with <code class="docutils literal notranslate"><span class="pre">px.choropleth()</span></code>. One of these maps is a world map with country borders, and the other is a map of the United States with state borders. As an example of color-coding a world map, we can use the data from the <a class="reference external" href="https://www.v-dem.net/en/">Varieties of Democracy project</a>, which evaluates the quality of democracy for every country in the world. We load the data and keep only the data from the year 2010 (when there are fewer missing values), the country name, the three-letter country ID, and the democracy score:</p>
@@ -2859,7 +2868,7 @@ if (outputEl) {{
 </section>
 </section>
 <section id="creating-dashboards">
-<h2><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">12.3. </span>Creating Dashboards</a><a class="headerlink" href="#creating-dashboards" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">12.3. </span>Creating Dashboards</a><a class="headerlink" href="#creating-dashboards" title="Link to this heading">#</a></h2>
 <p>To communicate our findings to an audience, we need to be able to share our code and output with the audience. There are many ways to do that. We can write a paper that includes the tables and graphs we want to share and distribute it as a PDF, but a PDF is a difficult medium for sharing code as it can be hard to copy-and-paste the code into a text editor from a PDF. We can write Jupyter notebooks and share the .ipynb file or export it to an HTML file, but while Jupyter is a great initial format for sharing text, code, and output, it offers us little control over the appearance of the notebook: it’s hard to change the font of the text in a notebook, for example, without writing <a class="reference external" href="https://stackoverflow.com/questions/22386359/how-to-change-font-in-ipython-notebook">custom CSS code</a>.</p>
 <p>Another way to share findings with an audience is to create a webpage. Unlike a Jupyter notebook, there are a myriad of straightforward ways to change the appearance of a webpage to make the code and results easy for users to read and understand. A website that displays interactive tables and visualizations from a data analysis is called a <strong>dashboard</strong>. According to <a class="reference external" href="https://www.toptal.com/designers/data-visualization/dashboard-design-best-practices">Stelian Subotin</a>,</p>
 <blockquote>
@@ -2867,7 +2876,7 @@ if (outputEl) {{
 </div></blockquote>
 <p>There are many software packages for creating dashboards, some of which are free and open-source, and others of which are proprietary. Here we will focus on using <code class="docutils literal notranslate"><span class="pre">dash</span></code>, which is made by <code class="docutils literal notranslate"><span class="pre">plotly</span></code>, and works well with <code class="docutils literal notranslate"><span class="pre">plotly</span></code> graphics. The topic of dashboard design is an important part of front-end software development, and information on approaches and techniques for this topic can easily fill several books. The following discussion is intended only to be an introduction. This <a class="reference external" href="http://dash.plotly.com/installation">tutorial</a> can help demonstrate some of the more advanced features of <code class="docutils literal notranslate"><span class="pre">dash</span></code>, and here is a <a class="reference external" href="https://dash-gallery.plotly.host/Portal/">gallery of some beautiful dashboards</a> that were created with <code class="docutils literal notranslate"><span class="pre">dash</span></code>.</p>
 <section id="principles-of-user-experience-ux-design">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">12.3.1. </span>Principles of User Experience (UX) Design</a><a class="headerlink" href="#principles-of-user-experience-ux-design" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">12.3.1. </span>Principles of User Experience (UX) Design</a><a class="headerlink" href="#principles-of-user-experience-ux-design" title="Link to this heading">#</a></h3>
 <p>The process of designing a webpage in general, or a dashboard specifically, with the needs of an audience in mind is called <strong>user experience (UX) design</strong>. UX is a huge subject and it takes a great deal of training and experience to master the skills necessary for effective UX design. But it is a good idea to think about <a class="reference external" href="https://www.toptal.com/designers/data-visualization/dashboard-design-best-practices">some principles that will guide us as we design dashboards</a>. Subotin cautions against including too much data in one dashboard because “the more information we display, the harder it is for users to find what they need.” Instead, we should think carefully about the goals of the project, the properties of the data, and needs of the users. Based on these considerations, we need to prioritize the data and display only the most relevant and important data on the dashboard. As with static visualizations, dashboards need to be used to tell a story, and that story must be understandable.</p>
 <p>It can be difficult to know how to prioritize data, visualizations, and design elements. Subotin recommends beginning by helping a client to set goals that are <a class="reference external" href="https://www.toptal.com/designers/ux/ux-projects-think-smart">Specific, Measurable, Actionable, Realistic, and Time-Based (SMART)</a>. That is, these goals should set unambiguous objectives that are quantifiable and can be used by the client to make decisions. These goals should be feasible given the quality and size of the data and the time-constraints of the clients. As UX designers, we need to be aware of the client’s goals and design a dashboard that helps the client achieve these goals. That inital thought-process will help us choose the data and visualizations that should appear on the dashboard.</p>
 <p>Subotin suggests that the most important data be displayed on the primary display of the dashboard, and that additional and secondary data be accessible through options, menus, or buttons. A mechanism to show more and more data as a user requests it is called progressive disclosure.</p>
@@ -2884,7 +2893,7 @@ if (outputEl) {{
 <p>Our goal should be to design a dashboard that users will be able to read quickly and intuitively. We need to work to avoid situations in which a user is confused about how to use the dashboard or how to find a particular datapoint or visualization. We, as designers, do not share the same mindset as a new user of the dashboard, and it can be hard to know what will be confusing to users. UX designers often employ <a class="reference external" href="https://en.wikipedia.org/wiki/Usability_testing">user testing</a> to understand how users are interacting with a dashboard. There are many methods for conducting a user test, but one way is to ask a user to speak their thoughts aloud as they use a dashboard or app for the first time as designers listen but do not speak or intervene.</p>
 </section>
 <section id="using-dash">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">12.3.2. </span>Using <code class="docutils literal notranslate"><span class="pre">dash</span></code></a><a class="headerlink" href="#using-dash" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">12.3.2. </span>Using <code class="docutils literal notranslate"><span class="pre">dash</span></code></a><a class="headerlink" href="#using-dash" title="Link to this heading">#</a></h3>
 <p>In this section we will build an entire dashboard using <code class="docutils literal notranslate"><span class="pre">dash</span></code> to communicate some of our findings from the ANES data. <code class="docutils literal notranslate"><span class="pre">dash</span></code> can display text, tables, static and interactive data visualizations, and can accept user inputs to change tables and graphics on the dashboard. Using <code class="docutils literal notranslate"><span class="pre">dash</span></code> can be very challenging, so we will build up to a complete dashboard by starting with a very simple interface and iteratively adding features.</p>
 <p>To create interactive tables and visualizations, we load the <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, and the following modules from <code class="docutils literal notranslate"><span class="pre">plotly</span></code>:</p>
 <div class="cell docutils container">
@@ -2919,7 +2928,7 @@ if (outputEl) {{
 </div>
 </div>
 <section id="displaying-a-dashboard-inside-a-jupyter-notebook">
-<h4><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">12.3.2.1. </span>Displaying a Dashboard Inside a Jupyter Notebook</a><a class="headerlink" href="#displaying-a-dashboard-inside-a-jupyter-notebook" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">12.3.2.1. </span>Displaying a Dashboard Inside a Jupyter Notebook</a><a class="headerlink" href="#displaying-a-dashboard-inside-a-jupyter-notebook" title="Link to this heading">#</a></h4>
 <p>Until recently, dashboards were incompatible with Jupyter notebooks. We would have had to write a Python script - a plain text file with a <code class="docutils literal notranslate"><span class="pre">.py</span></code>  extension that contains executable Python code - and run it to generate the dashboard. However, a recent Python package called <code class="docutils literal notranslate"><span class="pre">jupyterdash</span></code> allows us to display dahboards directly inside a notebook. There are two primary differences between <code class="docutils literal notranslate"><span class="pre">dash</span></code> and the <code class="docutils literal notranslate"><span class="pre">JupyterDash()</span></code> function: how the code begins, and how the code ends. Everything we use to populate and organize the dashboard is the same no matter whether we use <code class="docutils literal notranslate"><span class="pre">dash</span></code> or <code class="docutils literal notranslate"><span class="pre">jupyterdash</span></code>.</p>
 <p>To create the intial Python variable that will contain the dashboard app using <code class="docutils literal notranslate"><span class="pre">dash</span></code>, we type</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">app</span> <span class="o">=</span> <span class="n">dash</span><span class="o">.</span><span class="n">Dash</span><span class="p">(</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">external_stylesheets</span><span class="o">=</span><span class="n">external_stylesheets</span><span class="p">)</span>
@@ -2955,7 +2964,7 @@ if (outputEl) {{
 <p>to use a local web-address to see the dashboard in a separate browser window.</p>
 </section>
 <section id="collecting-the-elements-for-the-dashboard">
-<h4><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">12.3.2.2. </span>Collecting the Elements for the Dashboard</a><a class="headerlink" href="#collecting-the-elements-for-the-dashboard" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">12.3.2.2. </span>Collecting the Elements for the Dashboard</a><a class="headerlink" href="#collecting-the-elements-for-the-dashboard" title="Link to this heading">#</a></h4>
 <p>The first step in creating a dashboard is to decide what elements will be displayed on the dashboard. Then we can generate all of these elements first, so that the code to create the dashboard is simpler.</p>
 <p>First, I want a title: “Exploring the 2019 American National Election Pilot Study”. Since the title is short, there’s no need to save it as a separate Python variable.</p>
 <p>Second, I want some text that explains to the audience what the ANES data is. I wrote the following text in chapter 8 when we first used this dataframe as an example of how to use <code class="docutils literal notranslate"><span class="pre">pandas</span></code>:</p>
@@ -3873,7 +3882,7 @@ if (outputEl) {{
 <p>We will use the title, <code class="docutils literal notranslate"><span class="pre">markdown_text</span></code>, <code class="docutils literal notranslate"><span class="pre">table</span></code>, <code class="docutils literal notranslate"><span class="pre">fig_bar</span></code>, <code class="docutils literal notranslate"><span class="pre">fig_line</span></code>, <code class="docutils literal notranslate"><span class="pre">fig_vio</span></code>, <code class="docutils literal notranslate"><span class="pre">fig_map</span></code>, <code class="docutils literal notranslate"><span class="pre">ft_columns</span></code>, <code class="docutils literal notranslate"><span class="pre">cat_columns</span></code>, and <code class="docutils literal notranslate"><span class="pre">anes_ft</span></code> to create the dashboard. We will add these elements in one at a time.</p>
 </section>
 <section id="creating-a-dashboard-with-only-a-title-and-text">
-<h4><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">12.3.2.3. </span>Creating a Dashboard With Only a Title and Text</a><a class="headerlink" href="#creating-a-dashboard-with-only-a-title-and-text" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">12.3.2.3. </span>Creating a Dashboard With Only a Title and Text</a><a class="headerlink" href="#creating-a-dashboard-with-only-a-title-and-text" title="Link to this heading">#</a></h4>
 <p>Let’s start with a dashboard that only contains the title. A dashboard has three parts:</p>
 <ul class="simple">
 <li><p>An initial definition of the <code class="docutils literal notranslate"><span class="pre">app</span></code> variable, which contains all of the dashboard code, with <code class="docutils literal notranslate"><span class="pre">app</span> <span class="pre">=</span> <span class="pre">JupyterDash(__name__,</span> <span class="pre">external_stylesheets=external_stylesheets)</span></code></p></li>
@@ -3944,7 +3953,7 @@ if (outputEl) {{
 <p>If we copy-and-paste the address (<a class="reference external" href="http://127.0.0.1:8051/">http://127.0.0.1:8051/</a> in this case) into a web-browser, we will see our dashboard working outside the context of a Jupyter notebook.</p>
 </section>
 <section id="adding-web-enabled-tables-and-figures-to-the-dashboard">
-<h4><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">12.3.2.4. </span>Adding Web-Enabled Tables and Figures to the Dashboard</a><a class="headerlink" href="#adding-web-enabled-tables-and-figures-to-the-dashboard" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">12.3.2.4. </span>Adding Web-Enabled Tables and Figures to the Dashboard</a><a class="headerlink" href="#adding-web-enabled-tables-and-figures-to-the-dashboard" title="Link to this heading">#</a></h4>
 <p>We used the <code class="docutils literal notranslate"><span class="pre">ff.create_table()</span></code> function above to covert a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> dataframe into a web-formatted table. We can add this table to the dashboard by using the <code class="docutils literal notranslate"><span class="pre">dcc.Graph()</span></code> function in which the <code class="docutils literal notranslate"><span class="pre">figure</span></code> attribute is set to the <code class="docutils literal notranslate"><span class="pre">table</span></code> variable we created above. We can also create a subtitle for this table, “Comparing Trump and Biden Voters”, using the <code class="docutils literal notranslate"><span class="pre">html.H2()</span></code> function. The code for this dashboard is:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4024,7 +4033,7 @@ if (outputEl) {{
 </div>
 </section>
 <section id="adding-figures-side-by-side">
-<h4><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">12.3.2.5. </span>Adding Figures Side-by-Side</a><a class="headerlink" href="#adding-figures-side-by-side" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">12.3.2.5. </span>Adding Figures Side-by-Side</a><a class="headerlink" href="#adding-figures-side-by-side" title="Link to this heading">#</a></h4>
 <p>If we continue to add elements to the dashboard in a single list within <code class="docutils literal notranslate"><span class="pre">html.Div()</span></code>, then the elements will appear stacked one on top of the next in the order they are listed. There are times, however, when we want to include elements side-by-side. A horizontal orientation can improve the flow of the dashboard and can provide context to the information by juxtaposing elements.</p>
 <p>The next version of the dashboard places the map and th line plot side by side. To do so, we write two new list items that are themselves calls to the <code class="docutils literal notranslate"><span class="pre">html.Div()</span></code> function. This function has a <code class="docutils literal notranslate"><span class="pre">style</span></code> parameter that controls the position of the HTML elements inside the list. For the first call to <code class="docutils literal notranslate"><span class="pre">html.Div()</span></code> we list a subtitle and the map, and set <code class="docutils literal notranslate"><span class="pre">style</span> <span class="pre">=</span> <span class="pre">{'width':'48%',</span> <span class="pre">'float':'left'}</span></code>. <code class="docutils literal notranslate"><span class="pre">'width':'48%'</span></code> sets the size of this frame to not quite half of the screen, and <code class="docutils literal notranslate"><span class="pre">'float':'left'</span></code> aligns this frame on the left-edge of the screen. For the second call to <code class="docutils literal notranslate"><span class="pre">html.Div()</span></code> we list a subtitle and the line plot, and set <code class="docutils literal notranslate"><span class="pre">style</span> <span class="pre">=</span> <span class="pre">{'width':'48%',</span> <span class="pre">'float':'right'}</span></code>. Setting both percents slightly less than 50% avoids overlap and adds a comfortable amount of white space between these two elements.</p>
 <p>The dashboard that adds these two side-by-side figures is as follows:</p>
@@ -4088,7 +4097,7 @@ if (outputEl) {{
 </div>
 </section>
 <section id="adding-user-inputs-to-alter-dashboard-elements">
-<h4><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">12.3.2.6. </span>Adding User-Inputs to Alter Dashboard Elements</a><a class="headerlink" href="#adding-user-inputs-to-alter-dashboard-elements" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">12.3.2.6. </span>Adding User-Inputs to Alter Dashboard Elements</a><a class="headerlink" href="#adding-user-inputs-to-alter-dashboard-elements" title="Link to this heading">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">plotly</span></code> graphics are interactive because the data that a <code class="docutils literal notranslate"><span class="pre">plotly</span></code> visualization displays depends on where the user hovers the mouse. But we can add additional interactivity to the dashboard by including drop-down menus, sliders, and other tools that allow a user to specify the exact type of graph and the graph’s aesthetics. In the following example, we will add an element to the dashboard that allows the user to choose which of the feeling thermometer features to place on the x and y axes of a scatterplot, and to optionally choose a categorical feature to use for the colors of the points.</p>
 <p>For this interactive scatterplot, I want two elements side-by-side: dropdown menus on the left, taking up about 25% of the screen, and the scatterplot on the right, taking about 70% of the screen (with the remaining 5% white space separating these two elements). We can use the code we used above to place two figures side-by-side:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span>
@@ -4270,11 +4279,11 @@ if (outputEl) {{
 </div>
 </section>
 <section id="deploying-the-dashboard-using-a-free-hosting-service">
-<h4><a class="toc-backref" href="#id18" role="doc-backlink"><span class="section-number">12.3.2.7. </span>Deploying the Dashboard Using a Free Hosting Service</a><a class="headerlink" href="#deploying-the-dashboard-using-a-free-hosting-service" title="Permalink to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id18" role="doc-backlink"><span class="section-number">12.3.2.7. </span>Deploying the Dashboard Using a Free Hosting Service</a><a class="headerlink" href="#deploying-the-dashboard-using-a-free-hosting-service" title="Link to this heading">#</a></h4>
 <p>If you want to distribute your dashboard to an audience, with a manager, or with a client, sharing a URL that links to the dashboard is better than sharing a notebook or a Python script file. The best free service for hosting dashboards is called <a class="reference external" href="https://www.heroku.com/home">Heroku</a>. It can be challenging to get a dashboard running on Heroku, but once you do, your dashboard will be accessable with a URL of the form <em>yourappname</em>.herokuapp.com. For example, the ANES dashboard we designed above is available at <a class="reference external" href="https://anespilot2019.herokuapp.com/">https://anespilot2019.herokuapp.com/</a>.</p>
 <p>If you want to deploy an app, the following steps worked for me.</p>
 <ol class="arabic simple">
-<li><p>Make sure you have an account on <a class="reference external" href="https://github.com/">GitHub</a>. If you have an account, sign in. If you don’t, create a <a class="reference external" href="https://github.com/join?ref_cta=Sign+up&amp;ref_loc=header+logged+out&amp;ref_page=%2F&amp;source=header-home">new Github account</a>.</p></li>
+<li><p>Make sure you have an account on <a class="reference external" href="https://github.com/">GitHub</a>. If you have an account, sign in. If you don’t, create a <a class="reference external" href="https://github.com/join?ref_cta=Sign+up&amp;amp;ref_loc=header+logged+out&amp;amp;ref_page=%2F&amp;amp;source=header-home">new Github account</a>.</p></li>
 <li><p>Navigate to my GitHub repo for the ANES Heroku app: <a class="github reference external" href="https://github.com/jkropko/dash-heroku-template">jkropko/dash-heroku-template</a></p></li>
 <li><p>Push the button marked “Fork” in the upper-right corner of the screen. This button creates a copy of the repository under your own GitHub account. This copy belongs to you and you can manipulate it as you see fit. Just make sure you are working with your copy, not mine, by making sure your username appears in the upper-left corner and not “jkropko”.</p></li>
 <li><p>Collect all of the code needed to run an app, including the package import, data loading, and cleaning steps, and the code to generate the individual elements that populate the dashboard. Start a new Jupyter notebook and paste all of this code into a single cell. If you used <code class="docutils literal notranslate"><span class="pre">jupyterdash</span></code>, change the code to regular <code class="docutils literal notranslate"><span class="pre">dash</span></code> by changing <code class="docutils literal notranslate"><span class="pre">app</span> <span class="pre">=</span> <span class="pre">dash.Dash(__name__,</span> <span class="pre">external_stylesheets=external_stylesheets)</span></code> to <code class="docutils literal notranslate"><span class="pre">app</span> <span class="pre">=</span> <span class="pre">JupyterDash(__name__,</span> <span class="pre">external_stylesheets=external_stylesheets)</span></code> and <code class="docutils literal notranslate"><span class="pre">app.run_server(mode='inline',</span> <span class="pre">debug=True)</span></code> to <code class="docutils literal notranslate"><span class="pre">app.run_server(debug=True)</span></code>.</p></li>
@@ -4322,7 +4331,7 @@ if (outputEl) {{
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -4334,6 +4343,15 @@ if (outputEl) {{
         <p class="prev-next-title"><span class="section-number">11. </span>Static Data Visualizations</p>
       </div>
     </a>
+    <a class="right-next"
+       href="docker.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Virtual Environments and Containers</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -4341,7 +4359,9 @@ if (outputEl) {{
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -4396,7 +4416,7 @@ By Jonathan Kropko (jkropko@virginia.edu)
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2025.
       <br/>
     
   </p>
@@ -4420,8 +4440,8 @@ By Jonathan Kropko (jkropko@virginia.edu)
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

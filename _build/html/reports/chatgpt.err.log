@@ -1,0 +1,62 @@
+Traceback (most recent call last):
+  File "/Users/jk8sd/.pyenv/versions/3.12.5/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/jk8sd/.pyenv/versions/3.12.5/lib/python3.12/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jk8sd/.pyenv/versions/3.12.5/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jk8sd/.pyenv/versions/3.12.5/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/jk8sd/.pyenv/versions/3.12.5/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/Users/jk8sd/.pyenv/versions/3.12.5/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/jk8sd/.pyenv/versions/3.12.5/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+client = OpenAI(
+    # This is the default and can be omitted
+    api_key=os.getenv('openaikey')
+)
+
+chat_completion = client.chat.completions.create(
+    messages=[
+        {
+            "role": "user",
+            "content": "Say this is a test",
+        }
+    ],
+    model="gpt-3.5-turbo",
+)
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mOpenAIError[0m                               Traceback (most recent call last)
+Cell [0;32mIn[3], line 1[0m
+[0;32m----> 1[0m client [38;5;241m=[39m [43mOpenAI[49m[43m([49m
+[1;32m      2[0m [43m    [49m[38;5;66;43;03m# This is the default and can be omitted[39;49;00m
+[1;32m      3[0m [43m    [49m[43mapi_key[49m[38;5;241;43m=[39;49m[43mos[49m[38;5;241;43m.[39;49m[43mgetenv[49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43mopenaikey[39;49m[38;5;124;43m'[39;49m[43m)[49m
+[1;32m      4[0m [43m)[49m
+[1;32m      6[0m chat_completion [38;5;241m=[39m client[38;5;241m.[39mchat[38;5;241m.[39mcompletions[38;5;241m.[39mcreate(
+[1;32m      7[0m     messages[38;5;241m=[39m[
+[1;32m      8[0m         {
+[0;32m   (...)[0m
+[1;32m     13[0m     model[38;5;241m=[39m[38;5;124m"[39m[38;5;124mgpt-3.5-turbo[39m[38;5;124m"[39m,
+[1;32m     14[0m )
+
+File [0;32m~/.pyenv/versions/3.12.5/lib/python3.12/site-packages/openai/_client.py:110[0m, in [0;36mOpenAI.__init__[0;34m(self, api_key, organization, project, base_url, websocket_base_url, timeout, max_retries, default_headers, default_query, http_client, _strict_response_validation)[0m
+[1;32m    108[0m     api_key [38;5;241m=[39m os[38;5;241m.[39menviron[38;5;241m.[39mget([38;5;124m"[39m[38;5;124mOPENAI_API_KEY[39m[38;5;124m"[39m)
+[1;32m    109[0m [38;5;28;01mif[39;00m api_key [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[0;32m--> 110[0m     [38;5;28;01mraise[39;00m OpenAIError(
+[1;32m    111[0m         [38;5;124m"[39m[38;5;124mThe api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable[39m[38;5;124m"[39m
+[1;32m    112[0m     )
+[1;32m    113[0m [38;5;28mself[39m[38;5;241m.[39mapi_key [38;5;241m=[39m api_key
+[1;32m    115[0m [38;5;28;01mif[39;00m organization [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+
+[0;31mOpenAIError[0m: The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+

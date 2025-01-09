@@ -1,0 +1,44 @@
+Traceback (most recent call last):
+  File "/Users/jk8sd/.pyenv/versions/3.12.5/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/jk8sd/.pyenv/versions/3.12.5/lib/python3.12/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jk8sd/.pyenv/versions/3.12.5/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jk8sd/.pyenv/versions/3.12.5/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/jk8sd/.pyenv/versions/3.12.5/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/Users/jk8sd/.pyenv/versions/3.12.5/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/jk8sd/.pyenv/versions/3.12.5/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+wnrn_total_playlist = wnrn_df 
+for w in wnrn_url:
+    moredata = wnrn_spider('https://spinitron.com/' + w) 
+    wnrn_total_playlist = wnrn_total_playlist.append(moredata)
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m/var/folders/q2/fzs0c2rx5pxgnlwzh2p7qmw00000gs/T/ipykernel_76370/3262710234.py[0m in [0;36m?[0;34m()[0m
+[1;32m      1[0m [0mwnrn_total_playlist[0m [0;34m=[0m [0mwnrn_df[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0;32mfor[0m [0mw[0m [0;32min[0m [0mwnrn_url[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m     [0mmoredata[0m [0;34m=[0m [0mwnrn_spider[0m[0;34m([0m[0;34m'https://spinitron.com/'[0m [0;34m+[0m [0mw[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m     [0mwnrn_total_playlist[0m [0;34m=[0m [0mwnrn_total_playlist[0m[0;34m.[0m[0mappend[0m[0;34m([0m[0mmoredata[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/.pyenv/versions/3.12.5/lib/python3.12/site-packages/pandas/core/generic.py[0m in [0;36m?[0;34m(self, name)[0m
+[1;32m   6295[0m             [0;32mand[0m [0mname[0m [0;32mnot[0m [0;32min[0m [0mself[0m[0;34m.[0m[0m_accessors[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   6296[0m             [0;32mand[0m [0mself[0m[0;34m.[0m[0m_info_axis[0m[0;34m.[0m[0m_can_hold_identifiers_and_holds_name[0m[0;34m([0m[0mname[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   6297[0m         [0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   6298[0m             [0;32mreturn[0m [0mself[0m[0;34m[[0m[0mname[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 6299[0;31m         [0;32mreturn[0m [0mobject[0m[0;34m.[0m[0m__getattribute__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mname[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mAttributeError[0m: 'DataFrame' object has no attribute 'append'
+

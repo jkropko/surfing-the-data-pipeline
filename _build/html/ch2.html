@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>2. Loading Data from Electronic Data Files &#8212; Surfing the Data Pipeline with Python</title>
   
@@ -15,53 +14,52 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ch2';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -69,6 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="1. Getting Yourself Unstuck" href="ch1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -76,32 +75,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -109,7 +92,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -117,16 +99,25 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -141,6 +132,8 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="intro.html">
   
@@ -154,11 +147,18 @@ const thebe_selector_output = ".output, .cell_output"
     
     
     <img src="_static/surf.jpg" class="logo__image only-light" alt="Surfing the Data Pipeline with Python - Home"/>
-    <script>document.write(`<img src="_static/surf.jpg" class="logo__image only-dark" alt="Surfing the Data Pipeline with Python - Home"/>`);</script>
+    <img src="_static/surf.jpg" class="logo__image only-dark pst-js-only" alt="Surfing the Data Pipeline with Python - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -192,6 +192,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="ch11.html">11. Static Data Visualizations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch12.html">12. Interactive Data Visualizations and Dashboards</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Virtual Environments and Containers</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -199,14 +203,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -215,14 +224,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -298,27 +307,19 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -373,10 +374,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="loading-data-from-electronic-data-files">
-<h1><a class="toc-backref" href="#id1" role="doc-backlink"><span class="section-number">2. </span>Loading Data from Electronic Data Files</a><a class="headerlink" href="#loading-data-from-electronic-data-files" title="Permalink to this heading">#</a></h1>
+<h1><a class="toc-backref" href="#id1" role="doc-backlink"><span class="section-number">2. </span>Loading Data from Electronic Data Files</a><a class="headerlink" href="#loading-data-from-electronic-data-files" title="Link to this heading">#</a></h1>
 <nav class="contents" id="table-of-contents">
 <p class="topic-title">Table of Contents</p>
 <ul class="simple">
@@ -415,7 +416,7 @@ document.write(`
 </ul>
 </nav>
 <section id="introduction-please-dont-bend-fold-spindle-or-mutilate-me">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">2.1. </span>Introduction: Please don’t bend, fold, spindle or mutilate me</a><a class="headerlink" href="#introduction-please-dont-bend-fold-spindle-or-mutilate-me" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">2.1. </span>Introduction: Please don’t bend, fold, spindle or mutilate me</a><a class="headerlink" href="#introduction-please-dont-bend-fold-spindle-or-mutilate-me" title="Link to this heading">#</a></h2>
 <p>“<a class="reference external" href="http://www.cs.mun.ca/~harold/Courses/Old/CS1400.W15/Diary/Lubar1992.pdf">’Do Not Fold, Spindle or Mutilate’: A Cultural  History of the Punch Card</a>” by Steven Lubar details the earliest method of data storage and transference. Punch cards were first used by the U.S. government to tabulate the 1890 census. Before World War 1, punch cards started being used by the military, the railroads, and insurance companies to store data. In the 1930s, punch cards were used by the New Deal agencies, and by the 1940s punch cards were widespread throughout American society.
 <img src="https://github.com/jkropko/DS-6001/raw/master/localimages/punchcard1.png" width=600></p>
 <p>Punchcards predated computers, which is to say that data storage and transference predates computers. These early uses of punchcards employed <a class="reference external" href="https://en.wikipedia.org/wiki/Tabulating_machine">data tabulation machines</a> capable of counting the number of times particular holes have been punched in a series of cards, fed into the machine one at a time. The tabulation machine used for counting the 1890 census was developed by a company that later became IBM.
@@ -449,7 +450,7 @@ document.write(`
 </div>
 </section>
 <section id="changing-the-working-directory">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">2.2. </span>Changing the Working Directory</a><a class="headerlink" href="#changing-the-working-directory" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">2.2. </span>Changing the Working Directory</a><a class="headerlink" href="#changing-the-working-directory" title="Link to this heading">#</a></h2>
 <p>Before we go over the functions to load and save data files, it is useful to set the working directory at the start of your script or notebook. This <strong>sets the default folder where Python opens and saves files</strong>. If all of your files are in the same folder, setting the working directory means you don’t have to write out the paths each time you load or save a file.</p>
 <p>To set the working directory:</p>
 <ul class="simple">
@@ -469,7 +470,7 @@ document.write(`
 <p>Because I want this notebook to work on anyone’s environment, I will only work with files that are accessable through the web. But make sure to change the working directory in your own notebooks for working with local data files.</p>
 <embed src="https://github.com/jkropko/DS-6001/raw/master/localimages/ascii.pdf" width=500></section>
 <section id="text-based-data-files">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">2.3. </span>Text-Based Data Files</a><a class="headerlink" href="#text-based-data-files" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">2.3. </span>Text-Based Data Files</a><a class="headerlink" href="#text-based-data-files" title="Link to this heading">#</a></h2>
 <p>When data could first be stored on harddrives and disks, space was very limited. In order to store data as efficiently as possible, universal standards for which symbols would be considered valid data were adopted. These standards, which are still in use today, are called <a class="reference external" href="https://en.wikipedia.org/wiki/ASCII">ASCII</a>:</p>
 <p><strong>ASCII</strong> - (pronounced “As-Key”) American Standard Code for Information Interchange:</p>
 <ul class="simple">
@@ -506,11 +507,11 @@ document.write(`
 <p>This dataset is <em>messy</em>! As we proceed you will see confusing column names, misleading codes for missing values, strange encodings for categorical features, and other flaws. It is important for us to work with messy data because data is in general always messy in the real-world.</p>
 </section>
 <section id="looking-at-the-dataframe-to-see-if-it-loaded-correctly">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">2.4. </span>Looking at the DataFrame to See if it Loaded Correctly</a><a class="headerlink" href="#looking-at-the-dataframe-to-see-if-it-loaded-correctly" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">2.4. </span>Looking at the DataFrame to See if it Loaded Correctly</a><a class="headerlink" href="#looking-at-the-dataframe-to-see-if-it-loaded-correctly" title="Link to this heading">#</a></h2>
 <p>One of the biggest mistakes someone can make when loading data into Python (or any programming environment) is to assume that the data loaded correctly when the code does not give an error. There are lots of things that can still go wrong. The data might not have properly read the column names, the dimensions might be wrong, the data might have been read in a way that led to valid data getting replaced with missing values, and so on.</p>
 <p>There are several functions that are useful for seeing the data to understand whether the data loaded properly. The best strategy is to load data, look at the loaded data to understand any problems, and if necessary, reload the data to fix these problems from the outset.</p>
 <section id="viewing-the-data-as-a-spreadsheet">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">2.4.1. </span>Viewing the Data as a Spreadsheet</a><a class="headerlink" href="#viewing-the-data-as-a-spreadsheet" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">2.4.1. </span>Viewing the Data as a Spreadsheet</a><a class="headerlink" href="#viewing-the-data-as-a-spreadsheet" title="Link to this heading">#</a></h3>
 <p>The best way to visualize the data frame is to type the name of the data frame into a cell in a Jupyter notebook. The output of the cell will be rendered as a spreadsheet, and in that format it will be clear what problems, if any, exist with the data frame. One issue: for large data frames (many rows, many columns, or both), displaying the entire spreadsheet unnecessarily takes up a lot of space. Prior to displaying a spreadsheet, we can set the defaults for the number of rows and columns to be displayed as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1092,7 +1093,7 @@ document.write(`
 </div>
 </section>
 <section id="displaying-the-data-type-of-each-column">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">2.4.2. </span>Displaying the Data Type of Each Column</a><a class="headerlink" href="#displaying-the-data-type-of-each-column" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">2.4.2. </span>Displaying the Data Type of Each Column</a><a class="headerlink" href="#displaying-the-data-type-of-each-column" title="Link to this heading">#</a></h3>
 <p>All data that is stored in Python’s memory is assigned a type that controls how various functions operate by default on that data. For example, the <code class="docutils literal notranslate"><span class="pre">.describe()</span></code> method (that I discuss in the next section) provides means and other summary statistics for numeric data, and frequencies for text data. If you intend to perform mathematical operations on a column in a data frame, such as by including the column in a regression model, it is important to first confirm that the column is read with an appropriate data type. The most common data types are:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">int64</span></code>: integer numbers with up to 64 digits</p></li>
@@ -1292,7 +1293,7 @@ dtype: object
 </div>
 </section>
 <section id="displaying-column-names">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">2.4.3. </span>Displaying Column Names</a><a class="headerlink" href="#displaying-column-names" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">2.4.3. </span>Displaying Column Names</a><a class="headerlink" href="#displaying-column-names" title="Link to this heading">#</a></h3>
 <p>It can be very useful to display the column names in one readable list so that we can work with the variables/features contained in these columns. But as with data frames, we again need to contend with Python’s default display settings. To turn off the display limit for items in a list, type:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1533,7 +1534,7 @@ memory usage: 1.5+ MB
 </div>
 </section>
 <section id="descriptive-statistics">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">2.4.4. </span>Descriptive Statistics</a><a class="headerlink" href="#descriptive-statistics" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">2.4.4. </span>Descriptive Statistics</a><a class="headerlink" href="#descriptive-statistics" title="Link to this heading">#</a></h3>
 <p>One way to catch some big errors is to display statistics derived from the columns of the data frame, such as the mean and minimum and maximum values. For example, in the ANES data, <code class="docutils literal notranslate"><span class="pre">ftobama</span></code> records people’s responses to the question: “On a scale from 0 to 100, with 0 being the coldest and 100 being the warmest, how warmly to you feel towards Barack Obama?” I can display various summary statistics for this feature with the following code:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1600,7 +1601,7 @@ memory usage: 1.5+ MB
 </table>
 </div></div></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">.describe()</span></code> method displays these summary statistics, and typing <code class="docutils literal notranslate"><span class="pre">anes[['ftobama']]</span></code> limits the results to just this one feature (we will discuss subsetting data by columns later in this course). Notice anything strange in the results? The mean value of about 50 seems reasonable, as do the standard deviation and percentiles. But the maximum value is 998 for a feature which by design should be no larger than 100. It turns out that throughout the data 998 is one of a few numeric codes that indicates a nonresponse. We can replace these values with missing values from the outset, and we will do so below in the <span class="xref myst">Data with Numeric Missing Codes</span> section.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">.describe()</span></code> method displays these summary statistics, and typing <code class="docutils literal notranslate"><span class="pre">anes[['ftobama']]</span></code> limits the results to just this one feature (we will discuss subsetting data by columns later in this course). Notice anything strange in the results? The mean value of about 50 seems reasonable, as do the standard deviation and percentiles. But the maximum value is 998 for a feature which by design should be no larger than 100. It turns out that throughout the data 998 is one of a few numeric codes that indicates a nonresponse. We can replace these values with missing values from the outset, and we will do so below in the <a class="reference internal" href="#miss"><span class="xref myst">Data with Numeric Missing Codes</span></a> section.</p>
 <p>To change the percentiles that are displayed, use the <code class="docutils literal notranslate"><span class="pre">percentiles</span></code> parameter and provide a list of the desired percentiles. To show percentiles in increments of 20%, type:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1755,11 +1756,11 @@ memory usage: 1.5+ MB
 </section>
 </section>
 <section id="identifying-and-solving-problems-with-text-based-data-files">
-<h2><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">2.5. </span>Identifying and Solving Problems with Text-Based Data Files</a><a class="headerlink" href="#identifying-and-solving-problems-with-text-based-data-files" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">2.5. </span>Identifying and Solving Problems with Text-Based Data Files</a><a class="headerlink" href="#identifying-and-solving-problems-with-text-based-data-files" title="Link to this heading">#</a></h2>
 <p>There are many ways that text-based data files can be arranged that cause problems for loading the data into Python and for using the data for analyses. Please note that not every problem needs to be solved in the loading step: the entire <code class="docutils literal notranslate"><span class="pre">pandas</span></code> library exists for cleaning data once it is loaded into Python’s memory. But some problems are more efficiently solved as we load the file. Here we will discuss some common problems and strategies for solving them while loading the data.</p>
 <p>I’ve uploaded to the <a class="reference external" href="https://github.com/jkropko/DS-6001/tree/master/localdata">Github page</a> several additional versions of the ANES data that I messed up on purpose.</p>
 <section id="comments-prior-to-the-header">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">2.5.1. </span>Comments Prior to the Header</a><a class="headerlink" href="#comments-prior-to-the-header" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">2.5.1. </span>Comments Prior to the Header</a><a class="headerlink" href="#comments-prior-to-the-header" title="Link to this heading">#</a></h3>
 <p>I created a version of the ANES data with four rows of comments prior to the column names. The following lines of code display the raw text of this file without trying to load the data frame:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1991,7 +1992,7 @@ caseid,turnout12,turnout12b,vote12,percent16,meet,givefut,info,march,sign,give12
 </div>
 </section>
 <section id="data-with-numeric-missing-codes">
-<h3><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">2.5.2. </span>Data with Numeric Missing Codes</a><a class="headerlink" href="#data-with-numeric-missing-codes" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">2.5.2. </span>Data with Numeric Missing Codes</a><a class="headerlink" href="#data-with-numeric-missing-codes" title="Link to this heading">#</a></h3>
 <p>I created a version of the data that uses -999 throughout to represent various missing values, such as when a survey respondent refuses to answer a question:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2395,7 +2396,7 @@ caseid,turnout12,turnout12b,vote12,percent16,meet,givefut,info,march,sign,give12
 </div>
 </section>
 <section id="comments-inside-the-data">
-<h3><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">2.5.3. </span>Comments Inside the Data</a><a class="headerlink" href="#comments-inside-the-data" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">2.5.3. </span>Comments Inside the Data</a><a class="headerlink" href="#comments-inside-the-data" title="Link to this heading">#</a></h3>
 <p>Suppose that you work with a data file in which the data provider left comments throughout the data. That’s heresy. But it can definitely happen. Hopefully the commenter had enough forethought to place a uniform character in front of these comments. If so, we can remove the comments while loading the data. Consider the following data file:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2799,7 +2800,7 @@ caseid,turnout12,turnout12b,vote12,percent16,meet,givefut,info,march,sign,give12
 </div>
 </section>
 <section id="data-without-column-names">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">2.5.4. </span>Data Without Column Names</a><a class="headerlink" href="#data-without-column-names" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">2.5.4. </span>Data Without Column Names</a><a class="headerlink" href="#data-without-column-names" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> function assumes that the column names are listed on the first line of the data file, unless the <code class="docutils literal notranslate"><span class="pre">header</span></code> parameter is used, in which it assumes the column names are on the first line after the header. But if the data do not contain a row of column names then Python will use the first line of valid data as the column names. I created a version of the ANES data with the column names deleted. Consider what happens when I load this data file normally:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3453,7 +3454,7 @@ caseid,turnout12,turnout12b,vote12,percent16,meet,givefut,info,march,sign,give12
 </div>
 </section>
 <section id="delimiters-other-than-commas">
-<h3><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">2.5.5. </span>Delimiters Other Than Commas</a><a class="headerlink" href="#delimiters-other-than-commas" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">2.5.5. </span>Delimiters Other Than Commas</a><a class="headerlink" href="#delimiters-other-than-commas" title="Link to this heading">#</a></h3>
 <p>Here’s a version of the ANES data that is delimited by tabs:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3890,7 +3891,7 @@ caseid,turnout12,turnout12b,vote12,percent16,meet,givefut,info,march,sign,give12
 </div>
 </section>
 <section id="fixed-width-files">
-<h3><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">2.5.6. </span>Fixed-width Files</a><a class="headerlink" href="#fixed-width-files" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">2.5.6. </span>Fixed-width Files</a><a class="headerlink" href="#fixed-width-files" title="Link to this heading">#</a></h3>
 <p>A fixed-width file contains no delimiters. Instead, it aligns all of the data for one variable in the same position on each row. These files generally do not store variable names, and might use less memory than CSV. But that makes the data impossible to parse without an external list of where each variable is stored. The first and most important step is to get this list.</p>
 <p>For this example, I pulled data from a public opinion survey conducted by the National Journal a few years ago. The data are available from the <a class="reference external" href="https://ropercenter.cornell.edu/">Roper Center for Public Opinion Research</a>, and the raw data are in fixed-width format. The codebook is stored on <a class="reference external" href="https://github.com/jkropko/DS-6001/raw/master/localdata/njcc_codebook.pdf">GitHub</a>, take a look. The features are listed on page 3, along with their column positions.</p>
 <p>Loading a fixed-width file is a two step process. First, we use the codebook to create lists of the variable names, and either the width of each variable (how many columns each variable takes up), or the starting and ending position. Here we save both lists, although you will only need one of these two lists.</p>
@@ -4327,12 +4328,12 @@ caseid,turnout12,turnout12b,vote12,percent16,meet,givefut,info,march,sign,give12
 </section>
 </section>
 <section id="loading-other-kinds-of-electronic-data-files">
-<h2><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">2.6. </span>Loading Other Kinds of Electronic Data Files</a><a class="headerlink" href="#loading-other-kinds-of-electronic-data-files" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">2.6. </span>Loading Other Kinds of Electronic Data Files</a><a class="headerlink" href="#loading-other-kinds-of-electronic-data-files" title="Link to this heading">#</a></h2>
 <p>CSV, ASCII, and other kinds of plain text files are very common in fields that primarily use open-source programming environments like Python and R, as these file types are lightweight and universal. But there are many more people out there who work in fields that use specific, proprietary data analysis software. It can be a real challenge to load a specific file format in a context outside of its native software environment. There are specialized software that only exist to transfer proprietary data from one environment to another. One package is Stat/Transfer, which can easily convert data from Stata to SAS to SPSS to Excel for <a class="reference external" href="https://stattransfer.com/ordering/academic/">$129 a year for academic users</a>.</p>
 <p>If you are using Stata, SAS, SPSS, Excel, or another program, or if you are working with someone who uses that software, and you want to transfer data to Python, the easiest approach is to save the working data as a CSV file and then load it into Python with <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code>. All of those software packages have the functionality to save data as CSV.</p>
 <p>That doesn’t help you if you are dealing with an SPSS file and you do not have access to SPSS. Fortunately, Python has functions to load data from pretty much every software environment. Here’s a rundown of these functions.</p>
 <section id="loading-excel-files">
-<h3><a class="toc-backref" href="#id18" role="doc-backlink"><span class="section-number">2.6.1. </span>Loading Excel Files</a><a class="headerlink" href="#loading-excel-files" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id18" role="doc-backlink"><span class="section-number">2.6.1. </span>Loading Excel Files</a><a class="headerlink" href="#loading-excel-files" title="Link to this heading">#</a></h3>
 <p>There are a few methods for loading Excel files in Python but a great function is the <code class="docutils literal notranslate"><span class="pre">pd.read_excel()</span></code> function in <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. One big way that Excel files differ from other data formats is the use of sheets in the same document. The main challenge in loading an Excel file in Python is dealing with the sheets.</p>
 <p>I’ve saved an Excel file on <a class="reference external" href="https://github.com/jkropko/DS-6001/raw/master/localdata/NBA-Team-Sample-BoxScore-Dataset.xlsx">GitHub</a> that contains information about NBA teams during the 2018-2019 season. This Excel document contains four sheets, named “NBA-TEAM-SAMPLE”, “METADATA”, “TEAMS”, and “CONVERT DATE FORMAT”. All four sheets have visual formatting. I want to load the “TEAMS” sheet without carrying forward any code that refers to the visual appearance of this sheet.</p>
 <p>The first argument of <code class="docutils literal notranslate"><span class="pre">pd.read_excel()</span></code> is the path, as with pd.read_csv(), and it can take a URL. The second argument is sheet_name. If the Excel file has sheets with names, you can type the name of the sheet here. Or type a number: 0 refers to the first sheet, 1 to the second, etc. This function loads the data directly to a data frame, and ignores other graphical elements of Excel sheets, such as shading particular cells or using fonts.</p>
@@ -4793,7 +4794,7 @@ caseid,turnout12,turnout12b,vote12,percent16,meet,givefut,info,march,sign,give12
 </div>
 </section>
 <section id="loading-sas-stata-and-spss-files">
-<h3><a class="toc-backref" href="#id19" role="doc-backlink"><span class="section-number">2.6.2. </span>Loading SAS, Stata, and SPSS Files</a><a class="headerlink" href="#loading-sas-stata-and-spss-files" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id19" role="doc-backlink"><span class="section-number">2.6.2. </span>Loading SAS, Stata, and SPSS Files</a><a class="headerlink" href="#loading-sas-stata-and-spss-files" title="Link to this heading">#</a></h3>
 <p>For SAS files with extensions<code class="docutils literal notranslate"><span class="pre">.sas7bdat</span></code> or <code class="docutils literal notranslate"><span class="pre">.xport</span></code>, or Stata files with extension <code class="docutils literal notranslate"><span class="pre">.dta</span></code>. the <code class="docutils literal notranslate"><span class="pre">pd.read_sas()</span></code> and <code class="docutils literal notranslate"><span class="pre">pd.read_stata()</span></code> functions work just like other data parsing functions in <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. We can pass the file path, the file name alone (if we’ve set the working directory), or a URL to these functions and they loads the data directly to a data frame.</p>
 <p>On GitHub, I’ve saved a SAS file containing the monthly inflation rate in the United States since 1983, and a Stata file containing a CBS public opinion poll. To load the SAS file, I type:</p>
 <div class="cell docutils container">
@@ -5151,7 +5152,7 @@ caseid,turnout12,turnout12b,vote12,percent16,meet,givefut,info,march,sign,give12
 </section>
 </section>
 <section id="saving-csv-and-ascii-files-to-disk">
-<h2><a class="toc-backref" href="#id20" role="doc-backlink"><span class="section-number">2.7. </span>Saving CSV and ASCII Files to Disk</a><a class="headerlink" href="#saving-csv-and-ascii-files-to-disk" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id20" role="doc-backlink"><span class="section-number">2.7. </span>Saving CSV and ASCII Files to Disk</a><a class="headerlink" href="#saving-csv-and-ascii-files-to-disk" title="Link to this heading">#</a></h2>
 <p>Suppose we’ve done all the steps needed to clean and manage the data. We might want to save a clean version of the data in a CSV or other ASCII file on our local disk space. We can do so by applying the <code class="docutils literal notranslate"><span class="pre">.to_csv()</span></code> method to the <code class="docutils literal notranslate"><span class="pre">anes</span></code> data frame. The first argument is the filename with whatever extension we want for the saved file. As with <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code>, we can also specify the <code class="docutils literal notranslate"><span class="pre">sep</span></code> parameter to choose a delimiter for the text-based data file we are creating. Let’s save the ANES dataframe as “anes_cleaned.csv” in our working directory:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -5198,7 +5199,7 @@ caseid,turnout12,turnout12b,vote12,percent16,meet,givefut,info,march,sign,give12
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -5226,7 +5227,9 @@ caseid,turnout12,turnout12b,vote12,percent16,meet,givefut,info,march,sign,give12
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -5283,7 +5286,7 @@ By Jonathan Kropko (jkropko@virginia.edu)
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2025.
       <br/>
     
   </p>
@@ -5307,8 +5310,8 @@ By Jonathan Kropko (jkropko@virginia.edu)
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

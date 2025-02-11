@@ -1,17 +1,4 @@
 Traceback (most recent call last):
-  File "/Users/jk8sd/.pyenv/versions/3.12.5/lib/python3.12/site-packages/nbclient/client.py", line 782, in _async_poll_for_reply
-    msg = await ensure_async(self.kc.shell_channel.get_msg(timeout=new_timeout))
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/jk8sd/.pyenv/versions/3.12.5/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 198, in ensure_async
-    result = await obj
-             ^^^^^^^^^
-  File "/Users/jk8sd/.pyenv/versions/3.12.5/lib/python3.12/site-packages/jupyter_client/channels.py", line 313, in get_msg
-    raise Empty
-_queue.Empty
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
   File "/Users/jk8sd/.pyenv/versions/3.12.5/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
   File "/Users/jk8sd/.pyenv/versions/3.12.5/lib/python3.12/site-packages/nbclient/client.py", line 1314, in execute
@@ -25,20 +12,82 @@ Traceback (most recent call last):
            ^^^^^^^^^^^^^^^
   File "/Users/jk8sd/.pyenv/versions/3.12.5/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
     await self.async_execute_cell(
-  File "/Users/jk8sd/.pyenv/versions/3.12.5/lib/python3.12/site-packages/nbclient/client.py", line 1005, in async_execute_cell
-    exec_reply = await self.task_poll_for_reply
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/jk8sd/.pyenv/versions/3.12.5/lib/python3.12/site-packages/nbclient/client.py", line 806, in _async_poll_for_reply
-    error_on_timeout_execute_reply = await self._async_handle_timeout(timeout, cell)
-                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/jk8sd/.pyenv/versions/3.12.5/lib/python3.12/site-packages/nbclient/client.py", line 856, in _async_handle_timeout
-    raise CellTimeoutError.error_from_timeout_and_cell(
-nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 30 seconds.
-The message was: Cell execution timed out.
-Here is a preview of the cell contents:
--------------------
-['import psycopg', 'import dotenv', 'import os', 'dotenv.load_dotenv()', "POSTGRES_PASSWORD = os.getenv('POSTGRES_PASSWORD')"]
-...
-["    user='postgres', ", '    password=POSTGRES_PASSWORD, ', "    host='localhost',", "    port = '5432'", ')']
--------------------
+  File "/Users/jk8sd/.pyenv/versions/3.12.5/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/jk8sd/.pyenv/versions/3.12.5/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import mysql.connector
+import dotenv
+import os
+dotenv.load_dotenv()
+MYSQL_ROOT_PASSWORD = os.getenv('MYSQL_ROOT_PASSWORD')
+dbserver = mysql.connector.connect(
+    user='root', 
+    password=MYSQL_ROOT_PASSWORD, 
+    host='localhost',
+    port='3306')
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mMySQLInterfaceError[0m                       Traceback (most recent call last)
+File [0;32m~/.pyenv/versions/3.12.5/lib/python3.12/site-packages/mysql/connector/connection_cext.py:335[0m, in [0;36mCMySQLConnection._open_connection[0;34m(self)[0m
+[1;32m    334[0m [38;5;28;01mtry[39;00m:
+[0;32m--> 335[0m     [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_cmysql[49m[38;5;241;43m.[39;49m[43mconnect[49m[43m([49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mcnx_kwargs[49m[43m)[49m
+[1;32m    336[0m     [38;5;28mself[39m[38;5;241m.[39m_cmysql[38;5;241m.[39mconverter_str_fallback [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_converter_str_fallback
+
+[0;31mMySQLInterfaceError[0m: Can't connect to MySQL server on 'localhost:3306' (61)
+
+The above exception was the direct cause of the following exception:
+
+[0;31mDatabaseError[0m                             Traceback (most recent call last)
+Cell [0;32mIn[1], line 6[0m
+[1;32m      4[0m dotenv[38;5;241m.[39mload_dotenv()
+[1;32m      5[0m MYSQL_ROOT_PASSWORD [38;5;241m=[39m os[38;5;241m.[39mgetenv([38;5;124m'[39m[38;5;124mMYSQL_ROOT_PASSWORD[39m[38;5;124m'[39m)
+[0;32m----> 6[0m dbserver [38;5;241m=[39m [43mmysql[49m[38;5;241;43m.[39;49m[43mconnector[49m[38;5;241;43m.[39;49m[43mconnect[49m[43m([49m
+[1;32m      7[0m [43m    [49m[43muser[49m[38;5;241;43m=[39;49m[38;5;124;43m'[39;49m[38;5;124;43mroot[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m
+[1;32m      8[0m [43m    [49m[43mpassword[49m[38;5;241;43m=[39;49m[43mMYSQL_ROOT_PASSWORD[49m[43m,[49m[43m [49m
+[1;32m      9[0m [43m    [49m[43mhost[49m[38;5;241;43m=[39;49m[38;5;124;43m'[39;49m[38;5;124;43mlocalhost[39;49m[38;5;124;43m'[39;49m[43m,[49m
+[1;32m     10[0m [43m    [49m[43mport[49m[38;5;241;43m=[39;49m[38;5;124;43m'[39;49m[38;5;124;43m3306[39;49m[38;5;124;43m'[39;49m[43m)[49m
+
+File [0;32m~/.pyenv/versions/3.12.5/lib/python3.12/site-packages/mysql/connector/pooling.py:322[0m, in [0;36mconnect[0;34m(*args, **kwargs)[0m
+[1;32m    319[0m         [38;5;28;01mraise[39;00m [38;5;167;01mImportError[39;00m(ERROR_NO_CEXT)
+[1;32m    321[0m [38;5;28;01mif[39;00m CMySQLConnection [38;5;129;01mand[39;00m [38;5;129;01mnot[39;00m use_pure:
+[0;32m--> 322[0m     [38;5;28;01mreturn[39;00m [43mCMySQLConnection[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+[1;32m    323[0m [38;5;28;01mreturn[39;00m MySQLConnection([38;5;241m*[39margs, [38;5;241m*[39m[38;5;241m*[39mkwargs)
+
+File [0;32m~/.pyenv/versions/3.12.5/lib/python3.12/site-packages/mysql/connector/connection_cext.py:151[0m, in [0;36mCMySQLConnection.__init__[0;34m(self, **kwargs)[0m
+[1;32m    149[0m [38;5;28;01mif[39;00m kwargs:
+[1;32m    150[0m     [38;5;28;01mtry[39;00m:
+[0;32m--> 151[0m         [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mconnect[49m[43m([49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+[1;32m    152[0m     [38;5;28;01mexcept[39;00m [38;5;167;01mException[39;00m:
+[1;32m    153[0m         [38;5;28mself[39m[38;5;241m.[39mclose()
+
+File [0;32m~/.pyenv/versions/3.12.5/lib/python3.12/site-packages/mysql/connector/abstracts.py:1426[0m, in [0;36mMySQLConnectionAbstract.connect[0;34m(self, **kwargs)[0m
+[1;32m   1423[0m     [38;5;28mself[39m[38;5;241m.[39mconfig([38;5;241m*[39m[38;5;241m*[39mkwargs)
+[1;32m   1425[0m [38;5;28mself[39m[38;5;241m.[39mdisconnect()
+[0;32m-> 1426[0m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_open_connection[49m[43m([49m[43m)[49m
+[1;32m   1428[0m charset, collation [38;5;241m=[39m (
+[1;32m   1429[0m     kwargs[38;5;241m.[39mpop([38;5;124m"[39m[38;5;124mcharset[39m[38;5;124m"[39m, [38;5;28;01mNone[39;00m),
+[1;32m   1430[0m     kwargs[38;5;241m.[39mpop([38;5;124m"[39m[38;5;124mcollation[39m[38;5;124m"[39m, [38;5;28;01mNone[39;00m),
+[1;32m   1431[0m )
+[1;32m   1432[0m [38;5;28;01mif[39;00m charset [38;5;129;01mor[39;00m collation:
+
+File [0;32m~/.pyenv/versions/3.12.5/lib/python3.12/site-packages/mysql/connector/connection_cext.py:340[0m, in [0;36mCMySQLConnection._open_connection[0;34m(self)[0m
+[1;32m    338[0m         [38;5;28mself[39m[38;5;241m.[39mconverter[38;5;241m.[39mstr_fallback [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_converter_str_fallback
+[1;32m    339[0m [38;5;28;01mexcept[39;00m MySQLInterfaceError [38;5;28;01mas[39;00m err:
+[0;32m--> 340[0m     [38;5;28;01mraise[39;00m get_mysql_exception(
+[1;32m    341[0m         msg[38;5;241m=[39merr[38;5;241m.[39mmsg, errno[38;5;241m=[39merr[38;5;241m.[39merrno, sqlstate[38;5;241m=[39merr[38;5;241m.[39msqlstate
+[1;32m    342[0m     ) [38;5;28;01mfrom[39;00m [38;5;21;01merr[39;00m
+[1;32m    344[0m [38;5;28mself[39m[38;5;241m.[39m_do_handshake()
+[1;32m    346[0m [38;5;28;01mif[39;00m (
+[1;32m    347[0m     [38;5;129;01mnot[39;00m [38;5;28mself[39m[38;5;241m.[39m_ssl_disabled
+[1;32m    348[0m     [38;5;129;01mand[39;00m [38;5;28mhasattr[39m([38;5;28mself[39m[38;5;241m.[39m_cmysql, [38;5;124m"[39m[38;5;124mget_ssl_cipher[39m[38;5;124m"[39m)
+[0;32m   (...)[0m
+[1;32m    353[0m 
+[1;32m    354[0m     [38;5;66;03m# `get_ssl_cipher()` returns the name of the cipher being used.[39;00m
+
+[0;31mDatabaseError[0m: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (61)
 

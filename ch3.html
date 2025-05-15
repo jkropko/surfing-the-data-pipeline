@@ -16,19 +16,17 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
@@ -38,11 +36,10 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -67,7 +64,6 @@
     <link rel="prev" title="2. Loading Data from Electronic Data Files" href="ch2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -83,8 +79,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -92,6 +99,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -99,8 +107,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -116,8 +124,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -147,17 +154,21 @@
     
     
     <img src="_static/surf.jpg" class="logo__image only-light" alt="Surfing the Data Pipeline with Python - Home"/>
-    <img src="_static/surf.jpg" class="logo__image only-dark pst-js-only" alt="Surfing the Data Pipeline with Python - Home"/>
+    <script>document.write(`<img src="_static/surf.jpg" class="logo__image only-dark" alt="Surfing the Data Pipeline with Python - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -203,14 +214,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -307,16 +313,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -659,7 +673,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/q2/fzs0c2rx5pxgnlwzh2p7qmw00000gs/T/ipykernel_75945/1653054356.py:1: FutureWarning: Passing literal json to &#39;read_json&#39; is deprecated and will be removed in a future version. To read from a literal string, wrap it in a &#39;StringIO&#39; object.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/4w/k9sqqcbx4dxgpjtwgv_1m29h0000gq/T/ipykernel_14273/1653054356.py:1: FutureWarning: Passing literal json to &#39;read_json&#39; is deprecated and will be removed in a future version. To read from a literal string, wrap it in a &#39;StringIO&#39; object.
   pd.read_json(case_json)
 </pre></div>
 </div>
@@ -726,7 +740,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/q2/fzs0c2rx5pxgnlwzh2p7qmw00000gs/T/ipykernel_75945/2755144729.py:1: FutureWarning: Passing literal json to &#39;read_json&#39; is deprecated and will be removed in a future version. To read from a literal string, wrap it in a &#39;StringIO&#39; object.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/4w/k9sqqcbx4dxgpjtwgv_1m29h0000gq/T/ipykernel_14273/2755144729.py:1: FutureWarning: Passing literal json to &#39;read_json&#39; is deprecated and will be removed in a future version. To read from a literal string, wrap it in a &#39;StringIO&#39; object.
   pd.read_json(case_json).dtypes
 </pre></div>
 </div>
@@ -1088,7 +1102,7 @@ Rey.Padberg@karina.biz
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/q2/fzs0c2rx5pxgnlwzh2p7qmw00000gs/T/ipykernel_75945/1312368004.py:2: FutureWarning: Passing literal json to &#39;read_json&#39; is deprecated and will be removed in a future version. To read from a literal string, wrap it in a &#39;StringIO&#39; object.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/4w/k9sqqcbx4dxgpjtwgv_1m29h0000gq/T/ipykernel_14273/1312368004.py:2: FutureWarning: Passing literal json to &#39;read_json&#39; is deprecated and will be removed in a future version. To read from a literal string, wrap it in a &#39;StringIO&#39; object.
   posts_df = pd.read_json(posts.text)
 </pre></div>
 </div>
@@ -1492,16 +1506,16 @@ Rey.Padberg@karina.biz
       <th>data.clicked</th>
       <th>data.title</th>
       <th>...</th>
-      <th>data.media_metadata.qrckhgetfube1.s.u</th>
-      <th>data.media_metadata.qrckhgetfube1.id</th>
-      <th>data.media_metadata.sb87kgetfube1.status</th>
-      <th>data.media_metadata.sb87kgetfube1.e</th>
-      <th>data.media_metadata.sb87kgetfube1.m</th>
-      <th>data.media_metadata.sb87kgetfube1.p</th>
-      <th>data.media_metadata.sb87kgetfube1.s.y</th>
-      <th>data.media_metadata.sb87kgetfube1.s.x</th>
-      <th>data.media_metadata.sb87kgetfube1.s.u</th>
-      <th>data.media_metadata.sb87kgetfube1.id</th>
+      <th>data.media.reddit_video.has_audio</th>
+      <th>data.media.reddit_video.height</th>
+      <th>data.media.reddit_video.width</th>
+      <th>data.media.reddit_video.scrubber_media_url</th>
+      <th>data.media.reddit_video.dash_url</th>
+      <th>data.media.reddit_video.duration</th>
+      <th>data.media.reddit_video.hls_url</th>
+      <th>data.media.reddit_video.is_gif</th>
+      <th>data.media.reddit_video.transcoding_status</th>
+      <th>data.link_flair_template_id</th>
     </tr>
   </thead>
   <tbody>
@@ -1509,14 +1523,14 @@ Rey.Padberg@karina.biz
       <th>0</th>
       <td>t3</td>
       <td>None</td>
-      <td>interestingasfuck</td>
+      <td>rareinsults</td>
       <td></td>
-      <td>t2_i837ou8t</td>
+      <td>t2_mi0px0qs</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>This is Malibu - one of the wealthiest affluen...</td>
+      <td>Get them off their high horse</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1535,12 +1549,12 @@ Rey.Padberg@karina.biz
       <td>None</td>
       <td>meirl</td>
       <td></td>
-      <td>t2_4ylakyjf</td>
+      <td>t2_lwkxry1qi</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>meirl</td>
+      <td>Meirl</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1557,38 +1571,38 @@ Rey.Padberg@karina.biz
       <th>2</th>
       <td>t3</td>
       <td>None</td>
-      <td>MadeMeSmile</td>
-      <td>It is 28 feet long and has ac and heat, 2 quee...</td>
-      <td>t2_304kju03</td>
+      <td>Eyebleach</td>
+      <td></td>
+      <td>t2_fr7ssjsq2</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>After nearly 3 years of being homeless my part...</td>
+      <td>Oh, hi</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>True</td>
+      <td>1280.0</td>
+      <td>720.0</td>
+      <td>https://v.redd.it/1n6bxnv1ot0f1/DASH_96.mp4</td>
+      <td>https://v.redd.it/1n6bxnv1ot0f1/DASHPlaylist.m...</td>
+      <td>42.0</td>
+      <td>https://v.redd.it/1n6bxnv1ot0f1/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>3</th>
       <td>t3</td>
       <td>None</td>
-      <td>MadeMeSmile</td>
+      <td>aww</td>
       <td></td>
-      <td>t2_c6syabfp</td>
+      <td>t2_1hpvf3bcdh</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>that's adorable</td>
+      <td>The dog I walk is owned by a Hindu family. Eve...</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1605,38 +1619,38 @@ Rey.Padberg@karina.biz
       <th>4</th>
       <td>t3</td>
       <td>None</td>
-      <td>funny</td>
+      <td>law</td>
       <td></td>
-      <td>t2_kchdf</td>
+      <td>t2_1gcbmqtjbj</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>Well I'll just see myself out then...</td>
+      <td>Rep Ramirez : "We don't live in a dictatorship...</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>True</td>
+      <td>360.0</td>
+      <td>640.0</td>
+      <td>https://v.redd.it/ni2yh3qwst0f1/DASH_96.mp4</td>
+      <td>https://v.redd.it/ni2yh3qwst0f1/DASHPlaylist.m...</td>
+      <td>108.0</td>
+      <td>https://v.redd.it/ni2yh3qwst0f1/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
+      <td>de297c36-dca0-11ee-9618-a26bc20401e6</td>
     </tr>
     <tr>
       <th>5</th>
       <td>t3</td>
       <td>None</td>
-      <td>BeAmazed</td>
-      <td>My 70+ year old dad finally got sober! He will...</td>
-      <td>t2_5763joa1</td>
+      <td>pics</td>
+      <td></td>
+      <td>t2_1098fybz</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>Dad’s sober transformation</td>
+      <td>Ben Cohen, co-founder of Ben and Jerry's, is d...</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1653,14 +1667,14 @@ Rey.Padberg@karina.biz
       <th>6</th>
       <td>t3</td>
       <td>None</td>
-      <td>oddlysatisfying</td>
+      <td>meirl</td>
       <td></td>
-      <td>t2_4m6ldvro</td>
+      <td>t2_1630bts5</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>Tanker plane makes a direct hit on fire in Hol...</td>
+      <td>Meirl</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1677,38 +1691,38 @@ Rey.Padberg@karina.biz
       <th>7</th>
       <td>t3</td>
       <td>None</td>
-      <td>aviation</td>
+      <td>Fauxmoi</td>
       <td></td>
-      <td>t2_19apmk12qz</td>
+      <td>t2_80kmkxzb</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>This is actually terrifying</td>
+      <td>Bruce Springsteen on the opening night of his ...</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>True</td>
+      <td>1280.0</td>
+      <td>720.0</td>
+      <td>https://v.redd.it/ybmlsyzrhu0f1/DASH_96.mp4</td>
+      <td>https://v.redd.it/ybmlsyzrhu0f1/DASHPlaylist.m...</td>
+      <td>57.0</td>
+      <td>https://v.redd.it/ybmlsyzrhu0f1/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
+      <td>0467d69a-d6d8-11ef-a9ba-16ae90dacafd</td>
     </tr>
     <tr>
       <th>8</th>
       <td>t3</td>
       <td>None</td>
-      <td>FluentInFinance</td>
+      <td>Music</td>
       <td></td>
-      <td>t2_vhfp39wkh</td>
+      <td>t2_nl1wwdd</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>Only in America.</td>
+      <td>Bruce Springsteen Calls Donald Trump ‘Incompet...</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1719,92 +1733,92 @@ Rey.Padberg@karina.biz
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
+      <td>ac64945c-f5e0-11e4-9b0d-0e141393b029</td>
     </tr>
     <tr>
       <th>9</th>
       <td>t3</td>
       <td>None</td>
-      <td>gaming</td>
-      <td>Im developing a game where because ambulance r...</td>
-      <td>t2_4p6gwdwl</td>
+      <td>nextfuckinglevel</td>
+      <td></td>
+      <td>t2_hc9ju</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>Im developing a game where because ambulance r...</td>
+      <td>This lighted floor game where groups work toge...</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>True</td>
+      <td>638.0</td>
+      <td>360.0</td>
+      <td>https://v.redd.it/a39eay44au0f1/DASH_96.mp4</td>
+      <td>https://v.redd.it/a39eay44au0f1/DASHPlaylist.m...</td>
+      <td>60.0</td>
+      <td>https://v.redd.it/a39eay44au0f1/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>10</th>
       <td>t3</td>
       <td>None</td>
-      <td>memes</td>
+      <td>funny</td>
       <td></td>
-      <td>t2_86enn6bo</td>
+      <td>t2_xag54</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>Easy money</td>
+      <td>Thank you and have a safe trip</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>True</td>
+      <td>1920.0</td>
+      <td>1080.0</td>
+      <td>https://v.redd.it/puagbarttu0f1/DASH_96.mp4</td>
+      <td>https://v.redd.it/puagbarttu0f1/DASHPlaylist.m...</td>
+      <td>82.0</td>
+      <td>https://v.redd.it/puagbarttu0f1/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>11</th>
       <td>t3</td>
       <td>None</td>
-      <td>clevercomebacks</td>
+      <td>chaoticgood</td>
       <td></td>
-      <td>t2_okbhzbnsx</td>
+      <td>t2_80kmkxzb</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>gotta love his acting</td>
+      <td>RFK Jr. jumps out of his fucking chair as prot...</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>True</td>
+      <td>1080.0</td>
+      <td>1920.0</td>
+      <td>https://v.redd.it/5m4h0jmcau0f1/DASH_96.mp4</td>
+      <td>https://v.redd.it/5m4h0jmcau0f1/DASHPlaylist.m...</td>
+      <td>52.0</td>
+      <td>https://v.redd.it/5m4h0jmcau0f1/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>12</th>
       <td>t3</td>
       <td>None</td>
-      <td>interestingasfuck</td>
+      <td>mildlyinfuriating</td>
       <td></td>
-      <td>t2_c06y1e1g</td>
+      <td>t2_p8epndi5n</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>Drone shot of a Pacific Palisades neighborhood</td>
+      <td>What does a screen protector have to do with AI?</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1821,62 +1835,62 @@ Rey.Padberg@karina.biz
       <th>13</th>
       <td>t3</td>
       <td>None</td>
-      <td>MurderedByWords</td>
+      <td>Damnthatsinteresting</td>
       <td></td>
-      <td>t2_5kt5tbn9</td>
+      <td>t2_4us0lrdh</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>They never accept a NO</td>
+      <td>A world record set for the fastest Rubik’s cub...</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>True</td>
+      <td>854.0</td>
+      <td>480.0</td>
+      <td>https://v.redd.it/a1yxyzl1ut0f1/DASH_96.mp4</td>
+      <td>https://v.redd.it/a1yxyzl1ut0f1/DASHPlaylist.m...</td>
+      <td>28.0</td>
+      <td>https://v.redd.it/a1yxyzl1ut0f1/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>14</th>
       <td>t3</td>
       <td>None</td>
-      <td>clevercomebacks</td>
+      <td>Damnthatsinteresting</td>
       <td></td>
-      <td>t2_80kmkxzb</td>
+      <td>t2_9wrvogll</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>Never blame Republicans</td>
+      <td>No CGI. 300,000 People. Most extras used in a ...</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>True</td>
+      <td>480.0</td>
+      <td>636.0</td>
+      <td>https://v.redd.it/lt9lll68ku0f1/DASH_96.mp4</td>
+      <td>https://v.redd.it/lt9lll68ku0f1/DASHPlaylist.m...</td>
+      <td>23.0</td>
+      <td>https://v.redd.it/lt9lll68ku0f1/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>15</th>
       <td>t3</td>
       <td>None</td>
-      <td>comics</td>
+      <td>todayilearned</td>
       <td></td>
-      <td>t2_cfijs3z2</td>
+      <td>t2_ojnpnf61</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>Cat Comic</td>
+      <td>TIL HBO didn't submit Alfie Allen (Theon), Car...</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1893,62 +1907,62 @@ Rey.Padberg@karina.biz
       <th>16</th>
       <td>t3</td>
       <td>None</td>
-      <td>WorkReform</td>
+      <td>interestingasfuck</td>
       <td></td>
-      <td>t2_6n9wb</td>
+      <td>t2_jma306v5</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>Billionaires have declared a civil war in Amer...</td>
+      <td>This is why you should NEVER jump into water w...</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>True</td>
+      <td>1280.0</td>
+      <td>720.0</td>
+      <td>https://v.redd.it/t1awqd0rxu0f1/DASH_96.mp4</td>
+      <td>https://v.redd.it/t1awqd0rxu0f1/DASHPlaylist.m...</td>
+      <td>107.0</td>
+      <td>https://v.redd.it/t1awqd0rxu0f1/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>17</th>
       <td>t3</td>
       <td>None</td>
-      <td>meirl</td>
+      <td>BeAmazed</td>
       <td></td>
-      <td>t2_4ylakyjf</td>
+      <td>t2_1e3zrmxjdr</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>meirl</td>
+      <td>Get a vet in here cause that dog is Sick 🔥</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>True</td>
+      <td>854.0</td>
+      <td>480.0</td>
+      <td>https://v.redd.it/8kkoreimhx0f1/DASH_96.mp4</td>
+      <td>https://v.redd.it/8kkoreimhx0f1/DASHPlaylist.m...</td>
+      <td>45.0</td>
+      <td>https://v.redd.it/8kkoreimhx0f1/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
+      <td>d8125494-bc6a-11ef-9d38-9e070e1f4fe9</td>
     </tr>
     <tr>
       <th>18</th>
       <td>t3</td>
       <td>None</td>
-      <td>MadeMeSmile</td>
-      <td>Credit: @Kaylacarlileart</td>
-      <td>t2_4dxpzq1h</td>
+      <td>clevercomebacks</td>
+      <td></td>
+      <td>t2_1b45x8e6g0</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>The 23 year evolution of a girl who followed h...</td>
+      <td>Perfect timing so!</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1965,38 +1979,38 @@ Rey.Padberg@karina.biz
       <th>19</th>
       <td>t3</td>
       <td>None</td>
-      <td>AccidentalRenaissance</td>
+      <td>MadeMeSmile</td>
       <td></td>
-      <td>t2_5mfxe</td>
+      <td>t2_4dxpzq1h</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>The Santa Monica pier as of noon today.</td>
+      <td>She invited her bus driver to her birthday party.</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>True</td>
+      <td>1920.0</td>
+      <td>1080.0</td>
+      <td>https://v.redd.it/9luej4fbrx0f1/DASH_96.mp4</td>
+      <td>https://v.redd.it/9luej4fbrx0f1/DASHPlaylist.m...</td>
+      <td>11.0</td>
+      <td>https://v.redd.it/9luej4fbrx0f1/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
+      <td>beb6337c-b971-11ea-b373-0ee7186c1723</td>
     </tr>
     <tr>
       <th>20</th>
       <td>t3</td>
       <td>None</td>
-      <td>mildlyinfuriating</td>
+      <td>comics</td>
       <td></td>
-      <td>t2_6ou4x</td>
+      <td>t2_5dc66</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>My Amazon TV now unmutes itself during Prime V...</td>
+      <td>Hoof</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2007,44 +2021,44 @@ Rey.Padberg@karina.biz
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
+      <td>2e1f0fe2-f5fe-11e3-a4cf-12313b0e95bd</td>
     </tr>
     <tr>
       <th>21</th>
       <td>t3</td>
       <td>None</td>
-      <td>BeAmazed</td>
-      <td>I just</td>
-      <td>t2_cg1dn</td>
+      <td>labrador</td>
+      <td>My wife and I live in a major city and she wor...</td>
+      <td>t2_2xlqbi3t</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>I’m a year sober today!</td>
+      <td>My best boy prevented our house from being rob...</td>
       <td>...</td>
-      <td>https://preview.redd.it/qrckhgetfube1.jpg?widt...</td>
-      <td>qrckhgetfube1</td>
-      <td>valid</td>
-      <td>Image</td>
-      <td>image/jpg</td>
-      <td>[{'y': 128, 'x': 108, 'u': 'https://preview.re...</td>
-      <td>1407.0</td>
-      <td>1179.0</td>
-      <td>https://preview.redd.it/sb87kgetfube1.jpg?widt...</td>
-      <td>sb87kgetfube1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>540763a8-b4c5-11ef-869c-227bf37bc986</td>
     </tr>
     <tr>
       <th>22</th>
       <td>t3</td>
       <td>None</td>
-      <td>meirl</td>
+      <td>nottheonion</td>
       <td></td>
-      <td>t2_uhoci3sj</td>
+      <td>t2_3meiynf7</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>meirl</td>
+      <td>Abortion Law Forces Doctors to Keep Pregnant B...</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2061,14 +2075,14 @@ Rey.Padberg@karina.biz
       <th>23</th>
       <td>t3</td>
       <td>None</td>
-      <td>youseeingthisshit</td>
+      <td>SipsTea</td>
       <td></td>
-      <td>t2_4dxpzq1h</td>
+      <td>t2_lwkxry1qi</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>She just wanted a kiss.</td>
+      <td>Spitting facts though!!</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2079,20 +2093,20 @@ Rey.Padberg@karina.biz
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
+      <td>75494202-a1a4-11ec-8b4b-ae20b4018c06</td>
     </tr>
     <tr>
       <th>24</th>
       <td>t3</td>
       <td>None</td>
-      <td>pics</td>
+      <td>meme</td>
       <td></td>
-      <td>t2_fw2wnpfo</td>
+      <td>t2_1fmi25awxz</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>The ultimate karen</td>
+      <td>Huh</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2107,7 +2121,7 @@ Rey.Padberg@karina.biz
     </tr>
   </tbody>
 </table>
-<p>25 rows × 163 columns</p>
+<p>25 rows × 129 columns</p>
 </div></div></div>
 </div>
 <p>Please note: we added <code class="docutils literal notranslate"><span class="pre">headers</span> <span class="pre">=</span> <span class="pre">{'User-agent':</span> <span class="pre">'DS6001'}</span></code> to the <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code> function. When we use <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code>, we are accessing an API: a web-based interface for transferring data, usually in the form of JSON files. We will cover APIs in the next module. Most APIs, including Reddit’s, include some security to keep any one user from overusing the API and causing it to crash. For Reddit, we only need to provide a unique “<a class="reference external" href="https://www.reddit.com/r/redditdev/comments/3qbll8/429_too_many_requests/">User-agent</a>”, which is an ID that Reddit uses to keep track of how much we are using the API. If two people use the same User-agent, both uses are counted against the same limit, so it’s better to choose a User-agent that has a unique name. If this block of code results in an error for you (so that <code class="docutils literal notranslate"><span class="pre">reddit.text</span></code> displays as <code class="docutils literal notranslate"><span class="pre">'{&quot;message&quot;:</span> <span class="pre">&quot;Too</span> <span class="pre">Many</span> <span class="pre">Requests&quot;,</span> <span class="pre">&quot;error&quot;:</span> <span class="pre">429}'</span></code>), then change <code class="docutils literal notranslate"><span class="pre">DS6001</span></code> to something else, and it should work.</p>
@@ -2156,14 +2170,14 @@ Rey.Padberg@karina.biz
       <th>data.clicked</th>
       <th>data.title</th>
       <th>...</th>
-      <th>data.media_metadata.sb87kgetfube1.status</th>
-      <th>data.media_metadata.sb87kgetfube1.e</th>
-      <th>data.media_metadata.sb87kgetfube1.m</th>
-      <th>data.media_metadata.sb87kgetfube1.p</th>
-      <th>data.media_metadata.sb87kgetfube1.s.y</th>
-      <th>data.media_metadata.sb87kgetfube1.s.x</th>
-      <th>data.media_metadata.sb87kgetfube1.s.u</th>
-      <th>data.media_metadata.sb87kgetfube1.id</th>
+      <th>data.media.reddit_video.width</th>
+      <th>data.media.reddit_video.scrubber_media_url</th>
+      <th>data.media.reddit_video.dash_url</th>
+      <th>data.media.reddit_video.duration</th>
+      <th>data.media.reddit_video.hls_url</th>
+      <th>data.media.reddit_video.is_gif</th>
+      <th>data.media.reddit_video.transcoding_status</th>
+      <th>data.link_flair_template_id</th>
       <th>metakind</th>
       <th>metadata.after</th>
     </tr>
@@ -2173,14 +2187,14 @@ Rey.Padberg@karina.biz
       <th>0</th>
       <td>t3</td>
       <td>None</td>
-      <td>interestingasfuck</td>
+      <td>rareinsults</td>
       <td></td>
-      <td>t2_i837ou8t</td>
+      <td>t2_mi0px0qs</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>This is Malibu - one of the wealthiest affluen...</td>
+      <td>Get them off their high horse</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2191,7 +2205,7 @@ Rey.Padberg@karina.biz
       <td>NaN</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_1hxgrte</td>
+      <td>t3_1kn3itk</td>
     </tr>
     <tr>
       <th>1</th>
@@ -2199,12 +2213,12 @@ Rey.Padberg@karina.biz
       <td>None</td>
       <td>meirl</td>
       <td></td>
-      <td>t2_4ylakyjf</td>
+      <td>t2_lwkxry1qi</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>meirl</td>
+      <td>Meirl</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2215,44 +2229,44 @@ Rey.Padberg@karina.biz
       <td>NaN</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_1hxgrte</td>
+      <td>t3_1kn3itk</td>
     </tr>
     <tr>
       <th>2</th>
       <td>t3</td>
       <td>None</td>
-      <td>MadeMeSmile</td>
-      <td>It is 28 feet long and has ac and heat, 2 quee...</td>
-      <td>t2_304kju03</td>
+      <td>Eyebleach</td>
+      <td></td>
+      <td>t2_fr7ssjsq2</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>After nearly 3 years of being homeless my part...</td>
+      <td>Oh, hi</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>720.0</td>
+      <td>https://v.redd.it/1n6bxnv1ot0f1/DASH_96.mp4</td>
+      <td>https://v.redd.it/1n6bxnv1ot0f1/DASHPlaylist.m...</td>
+      <td>42.0</td>
+      <td>https://v.redd.it/1n6bxnv1ot0f1/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_1hxgrte</td>
+      <td>t3_1kn3itk</td>
     </tr>
     <tr>
       <th>3</th>
       <td>t3</td>
       <td>None</td>
-      <td>MadeMeSmile</td>
+      <td>aww</td>
       <td></td>
-      <td>t2_c6syabfp</td>
+      <td>t2_1hpvf3bcdh</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>that's adorable</td>
+      <td>The dog I walk is owned by a Hindu family. Eve...</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2263,44 +2277,44 @@ Rey.Padberg@karina.biz
       <td>NaN</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_1hxgrte</td>
+      <td>t3_1kn3itk</td>
     </tr>
     <tr>
       <th>4</th>
       <td>t3</td>
       <td>None</td>
-      <td>funny</td>
+      <td>law</td>
       <td></td>
-      <td>t2_kchdf</td>
+      <td>t2_1gcbmqtjbj</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>Well I'll just see myself out then...</td>
+      <td>Rep Ramirez : "We don't live in a dictatorship...</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>640.0</td>
+      <td>https://v.redd.it/ni2yh3qwst0f1/DASH_96.mp4</td>
+      <td>https://v.redd.it/ni2yh3qwst0f1/DASHPlaylist.m...</td>
+      <td>108.0</td>
+      <td>https://v.redd.it/ni2yh3qwst0f1/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
+      <td>de297c36-dca0-11ee-9618-a26bc20401e6</td>
       <td>Listing</td>
-      <td>t3_1hxgrte</td>
+      <td>t3_1kn3itk</td>
     </tr>
     <tr>
       <th>5</th>
       <td>t3</td>
       <td>None</td>
-      <td>BeAmazed</td>
-      <td>My 70+ year old dad finally got sober! He will...</td>
-      <td>t2_5763joa1</td>
+      <td>pics</td>
+      <td></td>
+      <td>t2_1098fybz</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>Dad’s sober transformation</td>
+      <td>Ben Cohen, co-founder of Ben and Jerry's, is d...</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2311,20 +2325,20 @@ Rey.Padberg@karina.biz
       <td>NaN</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_1hxgrte</td>
+      <td>t3_1kn3itk</td>
     </tr>
     <tr>
       <th>6</th>
       <td>t3</td>
       <td>None</td>
-      <td>oddlysatisfying</td>
+      <td>meirl</td>
       <td></td>
-      <td>t2_4m6ldvro</td>
+      <td>t2_1630bts5</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>Tanker plane makes a direct hit on fire in Hol...</td>
+      <td>Meirl</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2335,188 +2349,140 @@ Rey.Padberg@karina.biz
       <td>NaN</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_1hxgrte</td>
+      <td>t3_1kn3itk</td>
     </tr>
     <tr>
       <th>7</th>
       <td>t3</td>
       <td>None</td>
-      <td>aviation</td>
-      <td></td>
-      <td>t2_19apmk12qz</td>
-      <td>False</td>
-      <td>None</td>
-      <td>0</td>
-      <td>False</td>
-      <td>This is actually terrifying</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Listing</td>
-      <td>t3_1hxgrte</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>t3</td>
-      <td>None</td>
-      <td>FluentInFinance</td>
-      <td></td>
-      <td>t2_vhfp39wkh</td>
-      <td>False</td>
-      <td>None</td>
-      <td>0</td>
-      <td>False</td>
-      <td>Only in America.</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Listing</td>
-      <td>t3_1hxgrte</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>t3</td>
-      <td>None</td>
-      <td>gaming</td>
-      <td>Im developing a game where because ambulance r...</td>
-      <td>t2_4p6gwdwl</td>
-      <td>False</td>
-      <td>None</td>
-      <td>0</td>
-      <td>False</td>
-      <td>Im developing a game where because ambulance r...</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Listing</td>
-      <td>t3_1hxgrte</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>t3</td>
-      <td>None</td>
-      <td>memes</td>
-      <td></td>
-      <td>t2_86enn6bo</td>
-      <td>False</td>
-      <td>None</td>
-      <td>0</td>
-      <td>False</td>
-      <td>Easy money</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Listing</td>
-      <td>t3_1hxgrte</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>t3</td>
-      <td>None</td>
-      <td>clevercomebacks</td>
-      <td></td>
-      <td>t2_okbhzbnsx</td>
-      <td>False</td>
-      <td>None</td>
-      <td>0</td>
-      <td>False</td>
-      <td>gotta love his acting</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Listing</td>
-      <td>t3_1hxgrte</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>t3</td>
-      <td>None</td>
-      <td>interestingasfuck</td>
-      <td></td>
-      <td>t2_c06y1e1g</td>
-      <td>False</td>
-      <td>None</td>
-      <td>0</td>
-      <td>False</td>
-      <td>Drone shot of a Pacific Palisades neighborhood</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Listing</td>
-      <td>t3_1hxgrte</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>t3</td>
-      <td>None</td>
-      <td>MurderedByWords</td>
-      <td></td>
-      <td>t2_5kt5tbn9</td>
-      <td>False</td>
-      <td>None</td>
-      <td>0</td>
-      <td>False</td>
-      <td>They never accept a NO</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Listing</td>
-      <td>t3_1hxgrte</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>t3</td>
-      <td>None</td>
-      <td>clevercomebacks</td>
+      <td>Fauxmoi</td>
       <td></td>
       <td>t2_80kmkxzb</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>Never blame Republicans</td>
+      <td>Bruce Springsteen on the opening night of his ...</td>
+      <td>...</td>
+      <td>720.0</td>
+      <td>https://v.redd.it/ybmlsyzrhu0f1/DASH_96.mp4</td>
+      <td>https://v.redd.it/ybmlsyzrhu0f1/DASHPlaylist.m...</td>
+      <td>57.0</td>
+      <td>https://v.redd.it/ybmlsyzrhu0f1/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
+      <td>0467d69a-d6d8-11ef-a9ba-16ae90dacafd</td>
+      <td>Listing</td>
+      <td>t3_1kn3itk</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>Music</td>
+      <td></td>
+      <td>t2_nl1wwdd</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>Bruce Springsteen Calls Donald Trump ‘Incompet...</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>ac64945c-f5e0-11e4-9b0d-0e141393b029</td>
+      <td>Listing</td>
+      <td>t3_1kn3itk</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>nextfuckinglevel</td>
+      <td></td>
+      <td>t2_hc9ju</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>This lighted floor game where groups work toge...</td>
+      <td>...</td>
+      <td>360.0</td>
+      <td>https://v.redd.it/a39eay44au0f1/DASH_96.mp4</td>
+      <td>https://v.redd.it/a39eay44au0f1/DASHPlaylist.m...</td>
+      <td>60.0</td>
+      <td>https://v.redd.it/a39eay44au0f1/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
+      <td>NaN</td>
+      <td>Listing</td>
+      <td>t3_1kn3itk</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>funny</td>
+      <td></td>
+      <td>t2_xag54</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>Thank you and have a safe trip</td>
+      <td>...</td>
+      <td>1080.0</td>
+      <td>https://v.redd.it/puagbarttu0f1/DASH_96.mp4</td>
+      <td>https://v.redd.it/puagbarttu0f1/DASHPlaylist.m...</td>
+      <td>82.0</td>
+      <td>https://v.redd.it/puagbarttu0f1/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
+      <td>NaN</td>
+      <td>Listing</td>
+      <td>t3_1kn3itk</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>chaoticgood</td>
+      <td></td>
+      <td>t2_80kmkxzb</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>RFK Jr. jumps out of his fucking chair as prot...</td>
+      <td>...</td>
+      <td>1920.0</td>
+      <td>https://v.redd.it/5m4h0jmcau0f1/DASH_96.mp4</td>
+      <td>https://v.redd.it/5m4h0jmcau0f1/DASHPlaylist.m...</td>
+      <td>52.0</td>
+      <td>https://v.redd.it/5m4h0jmcau0f1/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
+      <td>NaN</td>
+      <td>Listing</td>
+      <td>t3_1kn3itk</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>mildlyinfuriating</td>
+      <td></td>
+      <td>t2_p8epndi5n</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>What does a screen protector have to do with AI?</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2527,20 +2493,68 @@ Rey.Padberg@karina.biz
       <td>NaN</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_1hxgrte</td>
+      <td>t3_1kn3itk</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>Damnthatsinteresting</td>
+      <td></td>
+      <td>t2_4us0lrdh</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>A world record set for the fastest Rubik’s cub...</td>
+      <td>...</td>
+      <td>480.0</td>
+      <td>https://v.redd.it/a1yxyzl1ut0f1/DASH_96.mp4</td>
+      <td>https://v.redd.it/a1yxyzl1ut0f1/DASHPlaylist.m...</td>
+      <td>28.0</td>
+      <td>https://v.redd.it/a1yxyzl1ut0f1/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
+      <td>NaN</td>
+      <td>Listing</td>
+      <td>t3_1kn3itk</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>Damnthatsinteresting</td>
+      <td></td>
+      <td>t2_9wrvogll</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>No CGI. 300,000 People. Most extras used in a ...</td>
+      <td>...</td>
+      <td>636.0</td>
+      <td>https://v.redd.it/lt9lll68ku0f1/DASH_96.mp4</td>
+      <td>https://v.redd.it/lt9lll68ku0f1/DASHPlaylist.m...</td>
+      <td>23.0</td>
+      <td>https://v.redd.it/lt9lll68ku0f1/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
+      <td>NaN</td>
+      <td>Listing</td>
+      <td>t3_1kn3itk</td>
     </tr>
     <tr>
       <th>15</th>
       <td>t3</td>
       <td>None</td>
-      <td>comics</td>
+      <td>todayilearned</td>
       <td></td>
-      <td>t2_cfijs3z2</td>
+      <td>t2_ojnpnf61</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>Cat Comic</td>
+      <td>TIL HBO didn't submit Alfie Allen (Theon), Car...</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2551,68 +2565,68 @@ Rey.Padberg@karina.biz
       <td>NaN</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_1hxgrte</td>
+      <td>t3_1kn3itk</td>
     </tr>
     <tr>
       <th>16</th>
       <td>t3</td>
       <td>None</td>
-      <td>WorkReform</td>
+      <td>interestingasfuck</td>
       <td></td>
-      <td>t2_6n9wb</td>
+      <td>t2_jma306v5</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>Billionaires have declared a civil war in Amer...</td>
+      <td>This is why you should NEVER jump into water w...</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>720.0</td>
+      <td>https://v.redd.it/t1awqd0rxu0f1/DASH_96.mp4</td>
+      <td>https://v.redd.it/t1awqd0rxu0f1/DASHPlaylist.m...</td>
+      <td>107.0</td>
+      <td>https://v.redd.it/t1awqd0rxu0f1/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_1hxgrte</td>
+      <td>t3_1kn3itk</td>
     </tr>
     <tr>
       <th>17</th>
       <td>t3</td>
       <td>None</td>
-      <td>meirl</td>
+      <td>BeAmazed</td>
       <td></td>
-      <td>t2_4ylakyjf</td>
+      <td>t2_1e3zrmxjdr</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>meirl</td>
+      <td>Get a vet in here cause that dog is Sick 🔥</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>480.0</td>
+      <td>https://v.redd.it/8kkoreimhx0f1/DASH_96.mp4</td>
+      <td>https://v.redd.it/8kkoreimhx0f1/DASHPlaylist.m...</td>
+      <td>45.0</td>
+      <td>https://v.redd.it/8kkoreimhx0f1/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
+      <td>d8125494-bc6a-11ef-9d38-9e070e1f4fe9</td>
       <td>Listing</td>
-      <td>t3_1hxgrte</td>
+      <td>t3_1kn3itk</td>
     </tr>
     <tr>
       <th>18</th>
       <td>t3</td>
       <td>None</td>
-      <td>MadeMeSmile</td>
-      <td>Credit: @Kaylacarlileart</td>
-      <td>t2_4dxpzq1h</td>
+      <td>clevercomebacks</td>
+      <td></td>
+      <td>t2_1b45x8e6g0</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>The 23 year evolution of a girl who followed h...</td>
+      <td>Perfect timing so!</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2623,116 +2637,92 @@ Rey.Padberg@karina.biz
       <td>NaN</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_1hxgrte</td>
+      <td>t3_1kn3itk</td>
     </tr>
     <tr>
       <th>19</th>
       <td>t3</td>
       <td>None</td>
-      <td>AccidentalRenaissance</td>
-      <td></td>
-      <td>t2_5mfxe</td>
-      <td>False</td>
-      <td>None</td>
-      <td>0</td>
-      <td>False</td>
-      <td>The Santa Monica pier as of noon today.</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Listing</td>
-      <td>t3_1hxgrte</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>t3</td>
-      <td>None</td>
-      <td>mildlyinfuriating</td>
-      <td></td>
-      <td>t2_6ou4x</td>
-      <td>False</td>
-      <td>None</td>
-      <td>0</td>
-      <td>False</td>
-      <td>My Amazon TV now unmutes itself during Prime V...</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Listing</td>
-      <td>t3_1hxgrte</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>t3</td>
-      <td>None</td>
-      <td>BeAmazed</td>
-      <td>I just</td>
-      <td>t2_cg1dn</td>
-      <td>False</td>
-      <td>None</td>
-      <td>0</td>
-      <td>False</td>
-      <td>I’m a year sober today!</td>
-      <td>...</td>
-      <td>valid</td>
-      <td>Image</td>
-      <td>image/jpg</td>
-      <td>[{'y': 128, 'x': 108, 'u': 'https://preview.re...</td>
-      <td>1407.0</td>
-      <td>1179.0</td>
-      <td>https://preview.redd.it/sb87kgetfube1.jpg?widt...</td>
-      <td>sb87kgetfube1</td>
-      <td>Listing</td>
-      <td>t3_1hxgrte</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>t3</td>
-      <td>None</td>
-      <td>meirl</td>
-      <td></td>
-      <td>t2_uhoci3sj</td>
-      <td>False</td>
-      <td>None</td>
-      <td>0</td>
-      <td>False</td>
-      <td>meirl</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Listing</td>
-      <td>t3_1hxgrte</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>t3</td>
-      <td>None</td>
-      <td>youseeingthisshit</td>
+      <td>MadeMeSmile</td>
       <td></td>
       <td>t2_4dxpzq1h</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>She just wanted a kiss.</td>
+      <td>She invited her bus driver to her birthday party.</td>
+      <td>...</td>
+      <td>1080.0</td>
+      <td>https://v.redd.it/9luej4fbrx0f1/DASH_96.mp4</td>
+      <td>https://v.redd.it/9luej4fbrx0f1/DASHPlaylist.m...</td>
+      <td>11.0</td>
+      <td>https://v.redd.it/9luej4fbrx0f1/HLSPlaylist.m3...</td>
+      <td>False</td>
+      <td>completed</td>
+      <td>beb6337c-b971-11ea-b373-0ee7186c1723</td>
+      <td>Listing</td>
+      <td>t3_1kn3itk</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>comics</td>
+      <td></td>
+      <td>t2_5dc66</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>Hoof</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2e1f0fe2-f5fe-11e3-a4cf-12313b0e95bd</td>
+      <td>Listing</td>
+      <td>t3_1kn3itk</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>labrador</td>
+      <td>My wife and I live in a major city and she wor...</td>
+      <td>t2_2xlqbi3t</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>My best boy prevented our house from being rob...</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>540763a8-b4c5-11ef-869c-227bf37bc986</td>
+      <td>Listing</td>
+      <td>t3_1kn3itk</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>nottheonion</td>
+      <td></td>
+      <td>t2_3meiynf7</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>Abortion Law Forces Doctors to Keep Pregnant B...</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2743,20 +2733,44 @@ Rey.Padberg@karina.biz
       <td>NaN</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_1hxgrte</td>
+      <td>t3_1kn3itk</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>t3</td>
+      <td>None</td>
+      <td>SipsTea</td>
+      <td></td>
+      <td>t2_lwkxry1qi</td>
+      <td>False</td>
+      <td>None</td>
+      <td>0</td>
+      <td>False</td>
+      <td>Spitting facts though!!</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>75494202-a1a4-11ec-8b4b-ae20b4018c06</td>
+      <td>Listing</td>
+      <td>t3_1kn3itk</td>
     </tr>
     <tr>
       <th>24</th>
       <td>t3</td>
       <td>None</td>
-      <td>pics</td>
+      <td>meme</td>
       <td></td>
-      <td>t2_fw2wnpfo</td>
+      <td>t2_1fmi25awxz</td>
       <td>False</td>
       <td>None</td>
       <td>0</td>
       <td>False</td>
-      <td>The ultimate karen</td>
+      <td>Huh</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2767,11 +2781,11 @@ Rey.Padberg@karina.biz
       <td>NaN</td>
       <td>NaN</td>
       <td>Listing</td>
-      <td>t3_1hxgrte</td>
+      <td>t3_1kn3itk</td>
     </tr>
   </tbody>
 </table>
-<p>25 rows × 165 columns</p>
+<p>25 rows × 131 columns</p>
 </div></div></div>
 </div>
 </section>
@@ -3144,8 +3158,7 @@ Rey.Padberg@karina.biz
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -3227,8 +3240,8 @@ By Jonathan Kropko (jkropko@virginia.edu)
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

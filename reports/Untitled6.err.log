@@ -18,14 +18,16 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-gallup1936 = pd.read_csv("USAIPO1936-0053.csv")
+widths = pd.read_csv("poll_widths_ds6001 - Sheet1.csv")
+widths
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-Cell [0;32mIn[4], line 1[0m
-[0;32m----> 1[0m gallup1936 [38;5;241m=[39m [43mpd[49m[38;5;241;43m.[39;49m[43mread_csv[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mUSAIPO1936-0053.csv[39;49m[38;5;124;43m"[39;49m[43m)[49m
+Cell [0;32mIn[11], line 1[0m
+[0;32m----> 1[0m widths [38;5;241m=[39m [43mpd[49m[38;5;241;43m.[39;49m[43mread_csv[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mpoll_widths_ds6001 - Sheet1.csv[39;49m[38;5;124;43m"[39;49m[43m)[49m
+[1;32m      2[0m widths
 
 File [0;32m~/.pyenv/versions/3.12.5/lib/python3.12/site-packages/pandas/io/parsers/readers.py:1026[0m, in [0;36mread_csv[0;34m(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)[0m
 [1;32m   1013[0m kwds_defaults [38;5;241m=[39m _refine_defaults_read(
@@ -82,5 +84,5 @@ File [0;32m~/.pyenv/versions/3.12.5/lib/python3.12/site-packages/pandas/io/comm
 [1;32m    881[0m         [38;5;66;03m# Binary mode[39;00m
 [1;32m    882[0m         handle [38;5;241m=[39m [38;5;28mopen[39m(handle, ioargs[38;5;241m.[39mmode)
 
-[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'USAIPO1936-0053.csv'
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'poll_widths_ds6001 - Sheet1.csv'
 

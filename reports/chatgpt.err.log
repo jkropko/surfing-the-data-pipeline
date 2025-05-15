@@ -49,14 +49,14 @@ Cell [0;32mIn[3], line 1[0m
 [1;32m     13[0m     model[38;5;241m=[39m[38;5;124m"[39m[38;5;124mgpt-3.5-turbo[39m[38;5;124m"[39m,
 [1;32m     14[0m )
 
-File [0;32m~/.pyenv/versions/3.12.5/lib/python3.12/site-packages/openai/_client.py:110[0m, in [0;36mOpenAI.__init__[0;34m(self, api_key, organization, project, base_url, websocket_base_url, timeout, max_retries, default_headers, default_query, http_client, _strict_response_validation)[0m
-[1;32m    108[0m     api_key [38;5;241m=[39m os[38;5;241m.[39menviron[38;5;241m.[39mget([38;5;124m"[39m[38;5;124mOPENAI_API_KEY[39m[38;5;124m"[39m)
-[1;32m    109[0m [38;5;28;01mif[39;00m api_key [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
-[0;32m--> 110[0m     [38;5;28;01mraise[39;00m OpenAIError(
-[1;32m    111[0m         [38;5;124m"[39m[38;5;124mThe api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable[39m[38;5;124m"[39m
-[1;32m    112[0m     )
-[1;32m    113[0m [38;5;28mself[39m[38;5;241m.[39mapi_key [38;5;241m=[39m api_key
-[1;32m    115[0m [38;5;28;01mif[39;00m organization [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+File [0;32m~/.pyenv/versions/3.12.5/lib/python3.12/site-packages/openai/_client.py:105[0m, in [0;36mOpenAI.__init__[0;34m(self, api_key, organization, project, base_url, timeout, max_retries, default_headers, default_query, http_client, _strict_response_validation)[0m
+[1;32m    103[0m     api_key [38;5;241m=[39m os[38;5;241m.[39menviron[38;5;241m.[39mget([38;5;124m"[39m[38;5;124mOPENAI_API_KEY[39m[38;5;124m"[39m)
+[1;32m    104[0m [38;5;28;01mif[39;00m api_key [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[0;32m--> 105[0m     [38;5;28;01mraise[39;00m OpenAIError(
+[1;32m    106[0m         [38;5;124m"[39m[38;5;124mThe api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable[39m[38;5;124m"[39m
+[1;32m    107[0m     )
+[1;32m    108[0m [38;5;28mself[39m[38;5;241m.[39mapi_key [38;5;241m=[39m api_key
+[1;32m    110[0m [38;5;28;01mif[39;00m organization [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
 
 [0;31mOpenAIError[0m: The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
 

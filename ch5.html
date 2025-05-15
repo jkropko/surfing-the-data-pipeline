@@ -16,19 +16,17 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
@@ -38,11 +36,10 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -67,7 +64,6 @@
     <link rel="prev" title="4. Acquiring Data from APIs" href="ch4.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -83,8 +79,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -92,6 +99,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -99,8 +107,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -116,8 +124,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -147,17 +154,21 @@
     
     
     <img src="_static/surf.jpg" class="logo__image only-light" alt="Surfing the Data Pipeline with Python - Home"/>
-    <img src="_static/surf.jpg" class="logo__image only-dark pst-js-only" alt="Surfing the Data Pipeline with Python - Home"/>
+    <script>document.write(`<img src="_static/surf.jpg" class="logo__image only-dark" alt="Surfing the Data Pipeline with Python - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -203,14 +214,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -307,16 +313,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -543,7 +557,7 @@
     &lt;meta name=&quot;description&quot; content=&quot;A member-supported, independent music radio station broadcasting from the Blue Ridge to the Bay across Virginia—Richmond, Hampton Roads, Roanoke, Charlottesville, Lynchburg, Nelson County, Williamsburg, and The Shenandoah Valley.&quot;&gt;
 
                                     &lt;meta name=&quot;csrf-param&quot; content=&quot;_csrf&quot;&gt;
-&lt;meta name=&quot;csrf-token&quot; content=&quot;XY-IUzxJJ7gmqsy-G2umwNl1bKjol-wHmMey_ThUMFM1_MIgWxtz9WXwu81WRouftTAI0pGgvGKpkfyxfC1Uag==&quot;&gt;
+&lt;meta name=&quot;csrf-token&quot; content=&quot;mWlJCHwF8YUborIOtauYOpB0C3NivG90a3E9X3GTyWjQEB5pLWykyC7WgHzj0d1Z9EZPMC3dJ0JbNFM-QMX-EQ==&quot;&gt;
 
     &lt;meta property=&quot;og:url&quot; content=&quot;/WNRN/&quot;&gt;
 &lt;meta property=&quot;og:title&quot; content=&quot;WNRN – Independent Music Radio&quot;&gt;
@@ -651,7 +665,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;span class=&quot;artist&quot;&gt;Baby Rose f/ BADBADNOTGOOD&lt;/span&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;span class=&quot;artist&quot;&gt;Old Crow Medicine Show&lt;/span&gt;
 </pre></div>
 </div>
 </div>
@@ -664,7 +678,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;span class=&quot;song&quot;&gt;Weekness&lt;/span&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;span class=&quot;song&quot;&gt;Methamphetamine&lt;/span&gt;
 </pre></div>
 </div>
 </div>
@@ -677,7 +691,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;div class=&quot;info&quot;&gt;&lt;span class=&quot;release&quot;&gt;Slow Burn EP&lt;/span&gt;&lt;/div&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;div class=&quot;info&quot;&gt;&lt;span class=&quot;release&quot;&gt;Live at the Ryman&lt;/span&gt;&lt;/div&gt;
 </pre></div>
 </div>
 </div>
@@ -691,174 +705,435 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;span class=&quot;artist&quot;&gt;Baby Rose f/ BADBADNOTGOOD&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Weekness&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Slow Burn EP&lt;/span&gt;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;span class=&quot;artist&quot;&gt;Old Crow Medicine Show&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Methamphetamine&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Live at the Ryman&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Beths&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;A Real Thing&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Feist&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;I Feel It All&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;The Reminder&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Pulp&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Spike Island&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;More&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Laufey&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Silver Lining&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;R.E.M.&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Daysleeper&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Up&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Leon Bridges&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Laredo&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Leon&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Nathaniel Rateliff &amp;amp; The Night Sweats&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Time Makes Fools Of Us All&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;South Of Here&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Smiths&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;How Soon Is Now?&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Meat Is Murder&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Momma&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;I Want You (Fever)&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Welcome To My Blue Sky&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Hannah Cohen&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Draggin&#39;&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Earthstar Mountain&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Jenny Lewis&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Psychos&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Joy&#39;all&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Yndling&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;It&#39;s Almost Like You&#39;re Here&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Monobloc&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Where Is My Garden&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Monobloc&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;David Gray&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Babylon&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;White Ladder&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Squeeze&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Cool for Cats&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Cool For Cats&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;MRCY&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Wandering Attention&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Volume 2&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Rachel Chinouriri&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;23:42&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Little House EP&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Dinosaur Jr.&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Feel the Pain&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Without a Sound&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Trombone Shorty&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Come Back&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Lifted&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Japanese Breakfast&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Picture Window&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;For Melancholy Brunettes (&amp;amp; sad women)&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Matt Berninger&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Bonnet of Pins&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Get Sunk&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Caroline Spence&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Who&#39;s Gonna Make My Mistakes&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Mint Condition&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Electric Light Orchestra&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Turn To Stone&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Out of the Blue&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Wishy&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Fly&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Planet Popstar EP&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Lord Huron&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Nothing I Need&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
  &lt;span class=&quot;artist&quot;&gt;Angie McMahon&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Untangling&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Light Sides EP&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Willie Nelson and Daniel Lanois&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;The Maker&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Teatro&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Lucy Dacus&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Ankles&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Forever Is A Feeling&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Brigitte Calls Me Baby&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Too Easy&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;The Future Is Our Way Out&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Kashus Culpepper&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;After Me?&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Deep Sea Diver&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Shovel&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Billboard Heart&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;The Devil Makes Three&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Spirits&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Spirits&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;The Barons&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Would You Want It (If You Had It)&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Sunflower Bean&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Champagne Taste&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Mortal Primetime&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Ray LaMontagne&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;And They Call Her California&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Long Way Home&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Spoon&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;The Underdog&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Ga Ga Ga Ga Ga&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Noeline Hofmann&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Lightning in July (Prairie Fire)&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Purple Gas&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Keeping Time&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Salt&lt;/span&gt;,
  &lt;span class=&quot;artist&quot;&gt;Inhaler&lt;/span&gt;,
  &lt;span class=&quot;song&quot;&gt;Your House&lt;/span&gt;,
  &lt;span class=&quot;release&quot;&gt;Open Wide&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;John Prine&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Lake Marie&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Lost Dogs &amp;amp; Mixed Blessings&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Bon Iver&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Everything Is Peaceful Love&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;SABLE, fABLE&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Velvet Underground and Nico&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Sunday Morning&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;The Velvet Underground &amp;amp; Nico&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Birdtalker&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Season Of Charade&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;All Means, No End&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Kacey Musgraves&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Follow Your Arrow&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Same Trailer Different Park&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Sharp Pins&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Race for the Audience&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Radio DDR&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Billy Strings&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Be Your Man&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Highway Prayers&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Quilt&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Roller&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Plaza&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Caamp&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Let Things Go&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Somewhere EP&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;BADBADNOTGOOD &amp;amp; V.C.R&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Found A Light (Beale Street)&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Peter Bjorn and John&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Objects of My Affection&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Writer&#39;s Block&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Hurray For The Riff Raff&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Pyramid Scheme&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Arny Margret&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Day Old Thoughts&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;I Miss You, I Do&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Bahamas&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;All the Time&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Bahamas is Afie&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Snacktime f/ Devon Gilfillian&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Together&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;This Is Dance Music EP&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Neil Young&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Heart of Gold&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Harvest&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Fiona Apple&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Heart Of Gold&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Heart of Gold: The Songs of Neil Y&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Phosphorescent&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;New Birth in New England&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;C&#39;est La Vie&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;S.G. Goodman&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Fire Sign&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Planting by the Signs&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Orla Gartland&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Now What?&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Everybody Needs A Hero (Deluxe)&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The War on Drugs&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Red Eyes&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Lost In The Dream&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;James Bay f/ Jon Batiste&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Sunshine In The Room&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Tunde Adebimpe&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;God Knows&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Thee Black Boltz&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Spectator Bird&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Saint Anthony&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Fall Down in a Small Town&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;De La Soul&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Eye Know&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;3 Feet High and Rising&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Billie Marten&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Feeling&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Dog Eared&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Head &amp;amp; The Heart&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;After The Setting Sun&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Aperture&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Hop Along&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;How Simple&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Bark Your Head Off, Dog&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Panchiko&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Ginkgo&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Ginkgo&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Flock Of Dimes&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Two&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;WNRN Studios&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;INXS&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Never Tear Us Apart&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Kick&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Loaded Honey&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Don&#39;t Speak&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Love Made Trees&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Ben Harper&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Diamonds on the Inside&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Diamonds on the Inside&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;I&#39;m With Her&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Ancient Light&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Wild and Clear and Blue&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Peach Pit&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Magpie&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Magpie&lt;/span&gt;,
  &lt;span class=&quot;artist&quot;&gt;49 Winchester&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Miles to Go&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Chemistry&lt;/span&gt;,
  &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Ruthie Foster&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Rainbow&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Mileage&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Joy Oladokun&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;DUST/DIVINITY&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Observations From A Crowded Room&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Death Cab for Cutie&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Cath&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Narrow Stairs&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Jeremie Albino&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Rolling Down the 405&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Our Time In The Sun&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Cristina Vane f/ Molly Tuttle&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Hear My Call&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Hear My Call&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Ziggy Marley &amp;amp; the Melody Makers&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Tomorrow People&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Conscious Party&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Chuck Prophet&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;First Came The Thunder&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Wake the Dead&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;The Vices&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Before It Might Be Gone&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Before It Might Be Gone&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Jim Lauderdale&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Don&#39;t Leave Your Light Low&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Persimmons&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Humbird&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Blueberry Bog&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Right On&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;ALO&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Blank Canvas&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Frames&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Tracy Chapman&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;You&#39;re the One&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Let It Rain&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;The Bamboos&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Hard Up&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Hard Up&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Oracle Sisters&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Alouette&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Divinations&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Ruthie Foster&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Singing the Blues&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Promise of a Brand New Day&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Local The Neighbour&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Cruise Control&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;VALLEY pt. 2&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Kasey Chambers&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Broken Cup&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Backbone&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Hiss Golden Messenger&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Heart like a Levee&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Heart Like a Levee&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Daughter of Swords&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Alone Together&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Cardinals At The Window&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Soccer Mommy&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Circle the Drain&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Color Theory&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Pug Johnson&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Believer&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;El Cabron&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;JD McPherson&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;I Can&#39;t Go Anywhere With You&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Nite Owls&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Guster&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Amsterdam&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Keep It Together&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Jungle&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Keep Me Satisfied&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Neiked &amp;amp; Portugal. The Man&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Glide&lt;/span&gt;,
  &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;flipturn&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Burnout Days&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Burnout Days&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Middle Kids&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Stacking Chairs&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Today We&#39;re the Greatest&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;King Gizzard &amp;amp; The Lizard Wizard&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Deadstick&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Phantom Island&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;John Butler&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Trippin On You&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Brandi Carlile&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;The Story&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;The Story&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Gold Connections&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Fool&#39;s Gold&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Fortune&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Breeders&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Cannonball&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Last Splash&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Watchhouse&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Rituals&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Rituals&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Man/Woman/Chainsaw&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Adam &amp;amp; Steve&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Hold Steady&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Sequestered in Memphis&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Stay Positive&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;G. Love and Special Sauce&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Peace, Love, and Happiness&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Superhero Brother&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Cardinals&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Get It&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Alison Krauss &amp;amp; Union Station&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Richmond on the James&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Arcadia&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Sherman Holmes Project&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Don&#39;t Do It&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;The Richmond Sessions&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Will Worden&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Lovin&#39; You Forever&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;The Only One &amp;amp; All The Others&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Dope Lemon&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Electric Green Lambo&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Golden Wolf&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Faye Webster&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;RIght Side of My Neck&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Atlanta Millionaires Club&lt;/span&gt;,
  &lt;span class=&quot;artist&quot;&gt;Johnny Delaware&lt;/span&gt;,
  &lt;span class=&quot;song&quot;&gt;Running&lt;/span&gt;,
  &lt;span class=&quot;release&quot;&gt;Para Llevar&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Nickel Creek&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;This Side&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;This Side&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Luke Winslow-King&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Flash-A-Magic&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Flash-A-Magic&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;The English Beat&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Best Friend&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;I Just Can&#39;t Stop It&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Bebe Stockwell&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Minor Inconveniences&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Van Morrison&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Caravan&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Moondance&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Vices&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Before It Might Be Gone&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Before It Might Be Gone&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Lewis OfMan (feat. Empress Of)&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Highway&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Cristal Medium Blue&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Tune-Yards&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Heartbreak&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Better Dreaming&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Counting Crows&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Spaceman In Tulsa&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Butter Miracle, The Complete Sweets&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;A Tribe Called Quest&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Ego&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;We Got It from Here... Thank You for Your Service&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Tennis&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;At The Wedding&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Face Down In The Garden&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Deep Sea Diver&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Shovel&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Billboard Heart&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Beirut&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Santa Fe&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;The Rip Tide&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Goose&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Lead Up&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Everything Must Go&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Leon Bridges&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Laredo&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Leon&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Joe Jackson&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Look Sharp!&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Look Sharp!&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;HAIM&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Relationships&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;I Quit&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Lucy Dacus f/ Hozier&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Bullseye&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Forever Is A Feeling&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Palmyra&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Arizona&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Restless&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Bruce Springsteen&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;I&#39;m on Fire&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Born in the USA&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Marc Broussard&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Time Is A Thief&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Time Is A Thief&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Girl and Girl&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Okay&lt;/span&gt;,
  &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Wallice&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;I Want You Yesterday&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;The Jester&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Jesper Lindell&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;One of These Rainy Days&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Before the Sun&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;The Smile&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;No Words&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Cutouts&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Mumford &amp;amp; Sons&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Rushmere&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Rushmere&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Ray Charles&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;What&#39;d I Say Pts I and II&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;What&#39;d I Say&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Kat Edmonson&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Keep Movin&#39;&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Keep Movin&#39;&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;The Heavy Heavy&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Feel&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;One of a Kind&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Waxahatchee&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Can&#39;t Do Much&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Saint Cloud&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Johnny Blue Skies&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;If The Sun Never Rises Again&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Passage Du Desir&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Charley Crockett&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Lonesome Drifter&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Lonesome Drifter&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Morrissey&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Suedehead&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Viva Hate&lt;/span&gt;]
+ &lt;span class=&quot;artist&quot;&gt;Hannah Cohen&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Draggin&#39;&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Earthstar Mountain&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;John Prine&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;In Spite of Ourselves&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;In Spite of Ourselves&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Grace Potter&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Before The Sky Falls&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Medicine&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Matt Andersen&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;In-Studio Session with&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;WNRN Studios&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Webb Wilder&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Hillbilly Speedball&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Hillbilly Speedball&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Pete Yorn&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Summer Was a Day&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Arranging Time&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Esther Rose&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;New Bad&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Want&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Lucius&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Old Tape&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Julien Baker &amp;amp; TORRES&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Sugar In The Tank&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Send A Prayer My Way&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Big Star&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Thirteen&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;#1 Record&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Chris Knight&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;A Pretty Good Guy&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;A Pretty Good Guy&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Shinyribs&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Leaving Time&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Leaving Time&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;My Morning Jacket&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Time Waited&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;is&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Cure&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;All I Ever Am&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Songs Of A Lost World&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Caamp&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Let Things Go&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Somewhere EP&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Rosanne Cash&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Not Many Miles to Go&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;She Remembers Everything&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Car Seat Headrest&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Gethsemane&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;The Scholars&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Southern Avenue&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Upside&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Family&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Phoebe Bridgers&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Motion Sickness&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Stranger in the Alps&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Jade Bird&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Dreams&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Who Wants To Talk About Love?&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Charles Wesley Godwin&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;It&#39;s the Little Things&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Lonely Mountain Town&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Yeah Yeah Yeahs&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Gold Lion&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Show Your Bones&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Laufey&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Silver Lining&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Arny Margret&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Day Old Thoughts&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;I Miss You, I Do&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Seth Walker&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;All I Need to Know&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Are You Open?&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Oracle Sisters&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Blue Left Hand&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Divinations&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Momma&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;I Want You (Fever)&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Welcome To My Blue Sky&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Day Wave&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Gone&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Hard to Read EP&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Willie Nelson f/ Rodney Crowell&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Oh What A Beautiful World&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Oh What A Beautiful World&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Tunde Adebimpe&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;God Knows&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Thee Black Boltz&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Gillian Welch&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Wayside/Back In Time&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Soul Journey&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Death Cab for Cutie&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Here to Forever&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Asphalt Meadows&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Maggie Rogers &amp;amp; Sylvan Esso&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Anthems For A Seventeen Year-Old Girl&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;ANTHEMS&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Yndling&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;It&#39;s Almost Like You&#39;re Here&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Josh Ritter&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Showboat&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Gathering&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Big Thief&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Shark Smile&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Capacity&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Zach Top f/ Billy Strings&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Bad Luck&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Me &amp;amp; Billy&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Los Lobos&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Don&#39;t Worry Baby&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;How Will the Wolf Survive?&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Noeline Hofmann&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Lightning in July (Prairie Fire)&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Purple Gas&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;MRCY&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Wandering Attention&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Volume 2&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;I&#39;m With Her&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Ancient Light&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Wild and Clear and Blue&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;R.E.M.&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Nightswimming&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Automatic for the People&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Bug Club&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Jealous Boy&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Very Human Features&lt;/span&gt;]
 </pre></div>
 </div>
 </div>
@@ -872,62 +1147,149 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;span class=&quot;artist&quot;&gt;Baby Rose f/ BADBADNOTGOOD&lt;/span&gt;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;span class=&quot;artist&quot;&gt;Old Crow Medicine Show&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Beths&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Feist&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Pulp&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Laufey&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;R.E.M.&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Leon Bridges&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Nathaniel Rateliff &amp;amp; The Night Sweats&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Smiths&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Momma&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Hannah Cohen&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Jenny Lewis&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Yndling&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Monobloc&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;David Gray&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Squeeze&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;MRCY&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Rachel Chinouriri&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Dinosaur Jr.&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Trombone Shorty&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Japanese Breakfast&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Matt Berninger&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Caroline Spence&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Electric Light Orchestra&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Wishy&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Lord Huron&lt;/span&gt;,
  &lt;span class=&quot;artist&quot;&gt;Angie McMahon&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Willie Nelson and Daniel Lanois&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Lucy Dacus&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Brigitte Calls Me Baby&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Kashus Culpepper&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Deep Sea Diver&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;The Devil Makes Three&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;The Barons&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Sunflower Bean&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Ray LaMontagne&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Spoon&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Noeline Hofmann&lt;/span&gt;,
  &lt;span class=&quot;artist&quot;&gt;Inhaler&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;John Prine&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Bon Iver&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Velvet Underground and Nico&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Birdtalker&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Kacey Musgraves&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Sharp Pins&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Billy Strings&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Quilt&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Caamp&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;BADBADNOTGOOD &amp;amp; V.C.R&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Peter Bjorn and John&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Hurray For The Riff Raff&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Arny Margret&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Bahamas&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Snacktime f/ Devon Gilfillian&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Neil Young&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Fiona Apple&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Phosphorescent&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;S.G. Goodman&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Orla Gartland&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The War on Drugs&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;James Bay f/ Jon Batiste&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Tunde Adebimpe&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Spectator Bird&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;De La Soul&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Billie Marten&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Head &amp;amp; The Heart&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Hop Along&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Panchiko&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Flock Of Dimes&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;INXS&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Loaded Honey&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Ben Harper&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;I&#39;m With Her&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Peach Pit&lt;/span&gt;,
  &lt;span class=&quot;artist&quot;&gt;49 Winchester&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Ruthie Foster&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Joy Oladokun&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Death Cab for Cutie&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Jeremie Albino&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Cristina Vane f/ Molly Tuttle&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Ziggy Marley &amp;amp; the Melody Makers&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Chuck Prophet&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;The Vices&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Jim Lauderdale&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Humbird&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;ALO&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Tracy Chapman&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;The Bamboos&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Oracle Sisters&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Ruthie Foster&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Local The Neighbour&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Kasey Chambers&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Hiss Golden Messenger&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Daughter of Swords&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Soccer Mommy&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Pug Johnson&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;JD McPherson&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Guster&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Jungle&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Neiked &amp;amp; Portugal. The Man&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;flipturn&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Middle Kids&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;King Gizzard &amp;amp; The Lizard Wizard&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;John Butler&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Brandi Carlile&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Gold Connections&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Breeders&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Watchhouse&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Man/Woman/Chainsaw&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Hold Steady&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;G. Love and Special Sauce&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Cardinals&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Alison Krauss &amp;amp; Union Station&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Sherman Holmes Project&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Will Worden&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Dope Lemon&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Faye Webster&lt;/span&gt;,
  &lt;span class=&quot;artist&quot;&gt;Johnny Delaware&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Nickel Creek&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Luke Winslow-King&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;The English Beat&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Bebe Stockwell&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Wallice&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Jesper Lindell&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;The Smile&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Mumford &amp;amp; Sons&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Ray Charles&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Kat Edmonson&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;The Heavy Heavy&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Waxahatchee&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Johnny Blue Skies&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Charley Crockett&lt;/span&gt;,
- &lt;span class=&quot;artist&quot;&gt;Morrissey&lt;/span&gt;]
+ &lt;span class=&quot;artist&quot;&gt;Van Morrison&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Vices&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Lewis OfMan (feat. Empress Of)&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Tune-Yards&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Counting Crows&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;A Tribe Called Quest&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Tennis&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Deep Sea Diver&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Beirut&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Goose&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Leon Bridges&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Joe Jackson&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;HAIM&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Lucy Dacus f/ Hozier&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Palmyra&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Bruce Springsteen&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Marc Broussard&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Girl and Girl&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Hannah Cohen&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;John Prine&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Grace Potter&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Matt Andersen&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Webb Wilder&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Pete Yorn&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Esther Rose&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Lucius&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Julien Baker &amp;amp; TORRES&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Big Star&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Chris Knight&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Shinyribs&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;My Morning Jacket&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Cure&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Caamp&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Rosanne Cash&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Car Seat Headrest&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Southern Avenue&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Phoebe Bridgers&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Jade Bird&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Charles Wesley Godwin&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Yeah Yeah Yeahs&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Laufey&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Arny Margret&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Seth Walker&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Oracle Sisters&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Momma&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Day Wave&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Willie Nelson f/ Rodney Crowell&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Tunde Adebimpe&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Gillian Welch&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Death Cab for Cutie&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Maggie Rogers &amp;amp; Sylvan Esso&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Yndling&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Josh Ritter&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Big Thief&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Zach Top f/ Billy Strings&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Los Lobos&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;Noeline Hofmann&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;MRCY&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;I&#39;m With Her&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;R.E.M.&lt;/span&gt;,
+ &lt;span class=&quot;artist&quot;&gt;The Bug Club&lt;/span&gt;]
 </pre></div>
 </div>
 </div>
@@ -941,62 +1303,149 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;span class=&quot;song&quot;&gt;Weekness&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Untangling&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;The Maker&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Ankles&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Too Easy&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;After Me?&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Shovel&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Spirits&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Would You Want It (If You Had It)&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Champagne Taste&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;And They Call Her California&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;The Underdog&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Lightning in July (Prairie Fire)&lt;/span&gt;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;span class=&quot;song&quot;&gt;Methamphetamine&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;A Real Thing&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;I Feel It All&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Spike Island&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Silver Lining&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Daysleeper&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Laredo&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Time Makes Fools Of Us All&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;How Soon Is Now?&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;I Want You (Fever)&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Draggin&#39;&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Psychos&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;It&#39;s Almost Like You&#39;re Here&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Where Is My Garden&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Babylon&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Cool for Cats&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Wandering Attention&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;23:42&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Feel the Pain&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Come Back&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Picture Window&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Bonnet of Pins&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Who&#39;s Gonna Make My Mistakes&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Turn To Stone&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Fly&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Nothing I Need&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Keeping Time&lt;/span&gt;,
  &lt;span class=&quot;song&quot;&gt;Your House&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Lake Marie&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Miles to Go&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Rainbow&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;DUST/DIVINITY&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Cath&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Rolling Down the 405&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Hear My Call&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Tomorrow People&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;First Came The Thunder&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Before It Might Be Gone&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Don&#39;t Leave Your Light Low&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Blueberry Bog&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Blank Canvas&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;You&#39;re the One&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Hard Up&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Alouette&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Singing the Blues&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Cruise Control&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Broken Cup&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Heart like a Levee&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Alone Together&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Circle the Drain&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Believer&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;I Can&#39;t Go Anywhere With You&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Amsterdam&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Keep Me Satisfied&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Everything Is Peaceful Love&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Sunday Morning&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Season Of Charade&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Follow Your Arrow&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Race for the Audience&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Be Your Man&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Roller&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Let Things Go&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Found A Light (Beale Street)&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Objects of My Affection&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Pyramid Scheme&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Day Old Thoughts&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;All the Time&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Together&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Heart of Gold&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Heart Of Gold&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;New Birth in New England&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Fire Sign&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Now What?&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Red Eyes&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Sunshine In The Room&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;God Knows&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Saint Anthony&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Eye Know&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Feeling&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;After The Setting Sun&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;How Simple&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Ginkgo&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Two&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Never Tear Us Apart&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Don&#39;t Speak&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Diamonds on the Inside&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Ancient Light&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Magpie&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Chemistry&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Glide&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Burnout Days&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Stacking Chairs&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Deadstick&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Trippin On You&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;The Story&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Fool&#39;s Gold&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Cannonball&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Rituals&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Adam &amp;amp; Steve&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Sequestered in Memphis&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Peace, Love, and Happiness&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Get It&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Richmond on the James&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Don&#39;t Do It&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Lovin&#39; You Forever&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Electric Green Lambo&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;RIght Side of My Neck&lt;/span&gt;,
  &lt;span class=&quot;song&quot;&gt;Running&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;This Side&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Flash-A-Magic&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Best Friend&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Minor Inconveniences&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;I Want You Yesterday&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;One of These Rainy Days&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;No Words&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Rushmere&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;What&#39;d I Say Pts I and II&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Keep Movin&#39;&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Feel&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Can&#39;t Do Much&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;If The Sun Never Rises Again&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Lonesome Drifter&lt;/span&gt;,
- &lt;span class=&quot;song&quot;&gt;Suedehead&lt;/span&gt;]
+ &lt;span class=&quot;song&quot;&gt;Caravan&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Before It Might Be Gone&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Highway&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Heartbreak&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Spaceman In Tulsa&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Ego&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;At The Wedding&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Shovel&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Santa Fe&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Lead Up&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Laredo&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Look Sharp!&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Relationships&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Bullseye&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Arizona&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;I&#39;m on Fire&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Time Is A Thief&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Okay&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Draggin&#39;&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;In Spite of Ourselves&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Before The Sky Falls&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;In-Studio Session with&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Hillbilly Speedball&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Summer Was a Day&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;New Bad&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Old Tape&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Sugar In The Tank&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Thirteen&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;A Pretty Good Guy&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Leaving Time&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Time Waited&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;All I Ever Am&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Let Things Go&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Not Many Miles to Go&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Gethsemane&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Upside&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Motion Sickness&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Dreams&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;It&#39;s the Little Things&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Gold Lion&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Silver Lining&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Day Old Thoughts&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;All I Need to Know&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Blue Left Hand&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;I Want You (Fever)&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Gone&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Oh What A Beautiful World&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;God Knows&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Wayside/Back In Time&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Here to Forever&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Anthems For A Seventeen Year-Old Girl&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;It&#39;s Almost Like You&#39;re Here&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Showboat&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Shark Smile&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Bad Luck&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Don&#39;t Worry Baby&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Lightning in July (Prairie Fire)&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Wandering Attention&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Ancient Light&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Nightswimming&lt;/span&gt;,
+ &lt;span class=&quot;song&quot;&gt;Jealous Boy&lt;/span&gt;]
 </pre></div>
 </div>
 </div>
@@ -1010,62 +1459,149 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;span class=&quot;release&quot;&gt;Slow Burn EP&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Light Sides EP&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Teatro&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Forever Is A Feeling&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;The Future Is Our Way Out&lt;/span&gt;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;span class=&quot;release&quot;&gt;Live at the Ryman&lt;/span&gt;,
  &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Billboard Heart&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Spirits&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;The Reminder&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;More&lt;/span&gt;,
  &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Mortal Primetime&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Long Way Home&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Ga Ga Ga Ga Ga&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Purple Gas&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Up&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Leon&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;South Of Here&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Meat Is Murder&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Welcome To My Blue Sky&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Earthstar Mountain&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Joy&#39;all&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Monobloc&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;White Ladder&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Cool For Cats&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Volume 2&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Little House EP&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Without a Sound&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Lifted&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;For Melancholy Brunettes (&amp;amp; sad women)&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Get Sunk&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Mint Condition&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Out of the Blue&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Planet Popstar EP&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Salt&lt;/span&gt;,
  &lt;span class=&quot;release&quot;&gt;Open Wide&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Lost Dogs &amp;amp; Mixed Blessings&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;SABLE, fABLE&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;The Velvet Underground &amp;amp; Nico&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;All Means, No End&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Same Trailer Different Park&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Radio DDR&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Highway Prayers&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Plaza&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Somewhere EP&lt;/span&gt;,
  &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Mileage&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Observations From A Crowded Room&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Narrow Stairs&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Our Time In The Sun&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Hear My Call&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Conscious Party&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Wake the Dead&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Before It Might Be Gone&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Persimmons&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Right On&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Frames&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Let It Rain&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Hard Up&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Divinations&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Promise of a Brand New Day&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;VALLEY pt. 2&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Backbone&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Heart Like a Levee&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Cardinals At The Window&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Color Theory&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;El Cabron&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Nite Owls&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Keep It Together&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Writer&#39;s Block&lt;/span&gt;,
  &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;I Miss You, I Do&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Bahamas is Afie&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;This Is Dance Music EP&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Harvest&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Heart of Gold: The Songs of Neil Y&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;C&#39;est La Vie&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Planting by the Signs&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Everybody Needs A Hero (Deluxe)&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Lost In The Dream&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Thee Black Boltz&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Fall Down in a Small Town&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;3 Feet High and Rising&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Dog Eared&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Aperture&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Bark Your Head Off, Dog&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Ginkgo&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;WNRN Studios&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Kick&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Love Made Trees&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Diamonds on the Inside&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Wild and Clear and Blue&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Magpie&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Burnout Days&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Today We&#39;re the Greatest&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Phantom Island&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;The Story&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Fortune&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Last Splash&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Rituals&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Stay Positive&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Superhero Brother&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Arcadia&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;The Richmond Sessions&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;The Only One &amp;amp; All The Others&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Golden Wolf&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Atlanta Millionaires Club&lt;/span&gt;,
  &lt;span class=&quot;release&quot;&gt;Para Llevar&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;This Side&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Flash-A-Magic&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;I Just Can&#39;t Stop It&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Moondance&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Before It Might Be Gone&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Cristal Medium Blue&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Better Dreaming&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Butter Miracle, The Complete Sweets&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;We Got It from Here... Thank You for Your Service&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Face Down In The Garden&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Billboard Heart&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;The Rip Tide&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Everything Must Go&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Leon&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Look Sharp!&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;I Quit&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Forever Is A Feeling&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Restless&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Born in the USA&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Time Is A Thief&lt;/span&gt;,
  &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;The Jester&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Before the Sun&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Cutouts&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Rushmere&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;What&#39;d I Say&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Keep Movin&#39;&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;One of a Kind&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Saint Cloud&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Passage Du Desir&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Lonesome Drifter&lt;/span&gt;,
- &lt;span class=&quot;release&quot;&gt;Viva Hate&lt;/span&gt;]
+ &lt;span class=&quot;release&quot;&gt;Earthstar Mountain&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;In Spite of Ourselves&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Medicine&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;WNRN Studios&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Hillbilly Speedball&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Arranging Time&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Want&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Send A Prayer My Way&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;#1 Record&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;A Pretty Good Guy&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Leaving Time&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;is&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Songs Of A Lost World&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Somewhere EP&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;She Remembers Everything&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;The Scholars&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Family&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Stranger in the Alps&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Who Wants To Talk About Love?&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Lonely Mountain Town&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Show Your Bones&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;I Miss You, I Do&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Are You Open?&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Divinations&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Welcome To My Blue Sky&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Hard to Read EP&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Oh What A Beautiful World&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Thee Black Boltz&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Soul Journey&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Asphalt Meadows&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;ANTHEMS&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;(Single)&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Gathering&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Capacity&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Me &amp;amp; Billy&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;How Will the Wolf Survive?&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Purple Gas&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Volume 2&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Wild and Clear and Blue&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Automatic for the People&lt;/span&gt;,
+ &lt;span class=&quot;release&quot;&gt;Very Human Features&lt;/span&gt;]
 </pre></div>
 </div>
 </div>
@@ -1079,62 +1615,149 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404900332&quot;&gt;10:01 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404900043&quot;&gt;9:57 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404899761&quot;&gt;9:52 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404899574&quot;&gt;9:49 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404899290&quot;&gt;9:44 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404899108&quot;&gt;9:41 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404898822&quot;&gt;9:37 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404898449&quot;&gt;9:31 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404898231&quot;&gt;9:27 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404898035&quot;&gt;9:24 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404897743&quot;&gt;9:18 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404897461&quot;&gt;9:14 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404897244&quot;&gt;9:10 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404896934&quot;&gt;9:04 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404896543&quot;&gt;8:59 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404896311&quot;&gt;8:55 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404896139&quot;&gt;8:51 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404895788&quot;&gt;8:45 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404895496&quot;&gt;8:41 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404895300&quot;&gt;8:38 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404894901&quot;&gt;8:31 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404894703&quot;&gt;8:27 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404894280&quot;&gt;8:19 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404894034&quot;&gt;8:15 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404893873&quot;&gt;8:11 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404893736&quot;&gt;8:09 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404893382&quot;&gt;8:03 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404893206&quot;&gt;8:00 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404892835&quot;&gt;7:55 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404892629&quot;&gt;7:52 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404892405&quot;&gt;7:48 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404892087&quot;&gt;7:43 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404891894&quot;&gt;7:39 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404891665&quot;&gt;7:35 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404891511&quot;&gt;7:33 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404890936&quot;&gt;7:22 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404890703&quot;&gt;7:18 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404890440&quot;&gt;7:14 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404890225&quot;&gt;7:10 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404890090&quot;&gt;7:07 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404889741&quot;&gt;7:02 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404889447&quot;&gt;6:58 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404889226&quot;&gt;6:55 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404889050&quot;&gt;6:52 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404888886&quot;&gt;6:49 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404888635&quot;&gt;6:45 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404888433&quot;&gt;6:42 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404888131&quot;&gt;6:37 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404887816&quot;&gt;6:32 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404887419&quot;&gt;6:25 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404887228&quot;&gt;6:22 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404886918&quot;&gt;6:17 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404886706&quot;&gt;6:13 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404886427&quot;&gt;6:09 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404886148&quot;&gt;6:04 AM&lt;/a&gt;&lt;/td&gt;,
- &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20207938/WNRN?sp=404885903&quot;&gt;6:00 AM&lt;/a&gt;&lt;/td&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413269211&quot;&gt;5:02 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413268880&quot;&gt;4:58 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413268626&quot;&gt;4:54 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413268386&quot;&gt;4:51 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413268033&quot;&gt;4:45 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413267812&quot;&gt;4:42 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413267595&quot;&gt;4:38 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413267242&quot;&gt;4:33 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413266794&quot;&gt;4:26 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413266558&quot;&gt;4:22 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413266235&quot;&gt;4:17 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413266063&quot;&gt;4:14 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413265815&quot;&gt;4:10 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413265473&quot;&gt;4:05 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413265229&quot;&gt;4:01 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413264674&quot;&gt;3:54 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413264516&quot;&gt;3:52 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413264193&quot;&gt;3:47 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413263932&quot;&gt;3:43 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413263726&quot;&gt;3:39 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413263546&quot;&gt;3:37 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413263180&quot;&gt;3:30 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413263020&quot;&gt;3:28 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413262806&quot;&gt;3:24 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413262607&quot;&gt;3:21 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413262286&quot;&gt;3:16 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413262061&quot;&gt;3:12 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413261858&quot;&gt;3:09 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413261507&quot;&gt;3:03 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413261344&quot;&gt;3:00 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413261026&quot;&gt;2:56 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413260833&quot;&gt;2:53 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413260664&quot;&gt;2:50 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413260307&quot;&gt;2:44 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413260050&quot;&gt;2:40 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413259827&quot;&gt;2:36 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413259350&quot;&gt;2:29 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413259036&quot;&gt;2:24 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413258874&quot;&gt;2:21 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413258528&quot;&gt;2:15 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413258310&quot;&gt;2:11 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413258113&quot;&gt;2:08 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413257797&quot;&gt;2:03 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413257576&quot;&gt;2:00 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413257201&quot;&gt;1:54 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413257030&quot;&gt;1:51 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413256695&quot;&gt;1:45 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413256464&quot;&gt;1:41 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413256302&quot;&gt;1:38 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413255937&quot;&gt;1:32 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413255719&quot;&gt;1:28 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413255450&quot;&gt;1:24 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413255212&quot;&gt;1:21 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413254779&quot;&gt;1:14 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413254554&quot;&gt;1:10 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413254411&quot;&gt;1:08 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413254049&quot;&gt;1:02 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413253758&quot;&gt;12:58 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413253568&quot;&gt;12:54 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413252776&quot;&gt;12:41 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413252566&quot;&gt;12:38 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413252161&quot;&gt;12:31 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413251917&quot;&gt;12:28 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413251755&quot;&gt;12:25 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413251396&quot;&gt;12:19 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413251235&quot;&gt;12:16 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413250990&quot;&gt;12:12 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413250668&quot;&gt;12:07 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413250438&quot;&gt;12:03 PM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413250081&quot;&gt;11:58 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413249838&quot;&gt;11:54 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413249602&quot;&gt;11:50 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413249326&quot;&gt;11:46 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413249140&quot;&gt;11:43 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413248917&quot;&gt;11:39 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413248767&quot;&gt;11:36 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413248425&quot;&gt;11:30 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413248112&quot;&gt;11:24 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413247918&quot;&gt;11:21 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413247664&quot;&gt;11:17 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413247532&quot;&gt;11:14 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413247334&quot;&gt;11:11 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413246791&quot;&gt;11:01 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413246524&quot;&gt;10:58 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413246315&quot;&gt;10:55 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413246108&quot;&gt;10:51 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413245765&quot;&gt;10:45 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413245585&quot;&gt;10:42 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413245315&quot;&gt;10:37 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413244959&quot;&gt;10:30 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413244711&quot;&gt;10:26 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413244423&quot;&gt;10:21 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413244090&quot;&gt;10:15 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413243903&quot;&gt;10:12 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413243725&quot;&gt;10:08 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413243436&quot;&gt;10:03 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413242944&quot;&gt;9:55 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413242817&quot;&gt;9:53 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413242659&quot;&gt;9:50 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413242337&quot;&gt;9:44 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413241637&quot;&gt;9:30 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413241402&quot;&gt;9:27 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413241207&quot;&gt;9:23 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413240354&quot;&gt;9:08 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413240032&quot;&gt;9:03 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413239778&quot;&gt;8:59 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413239553&quot;&gt;8:55 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413239361&quot;&gt;8:51 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413239026&quot;&gt;8:45 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413238881&quot;&gt;8:43 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413238727&quot;&gt;8:40 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413238233&quot;&gt;8:31 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413238022&quot;&gt;8:27 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413237839&quot;&gt;8:24 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413237599&quot;&gt;8:19 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413237382&quot;&gt;8:14 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413237143&quot;&gt;8:10 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413236834&quot;&gt;8:04 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413236619&quot;&gt;8:00 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413235697&quot;&gt;7:45 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413235465&quot;&gt;7:41 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413235243&quot;&gt;7:38 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413235035&quot;&gt;7:35 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413234616&quot;&gt;7:28 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413234472&quot;&gt;7:25 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413234203&quot;&gt;7:21 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413233867&quot;&gt;7:16 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413233632&quot;&gt;7:12 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413233423&quot;&gt;7:08 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413233065&quot;&gt;7:02 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413232798&quot;&gt;6:59 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413232582&quot;&gt;6:55 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413232379&quot;&gt;6:51 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413232035&quot;&gt;6:46 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413231717&quot;&gt;6:42 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413231504&quot;&gt;6:38 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413231275&quot;&gt;6:34 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413230800&quot;&gt;6:26 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413230549&quot;&gt;6:22 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413230423&quot;&gt;6:20 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413230089&quot;&gt;6:15 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413229818&quot;&gt;6:10 AM&lt;/a&gt;&lt;/td&gt;,
+ &lt;td class=&quot;spin-time&quot;&gt;&lt;a href=&quot;/WNRN/pl/20657020/WNRN?sp=413229341&quot;&gt;6:03 AM&lt;/a&gt;&lt;/td&gt;]
 </pre></div>
 </div>
 </div>
@@ -1148,7 +1771,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;a class=&quot;buy-link&quot; data-vendor=&quot;apple&quot; href=&quot;#&quot; target=&quot;_blank&quot; title=&#39;View &quot;Baby Rose f/ BADBADNOTGOOD - Weekness&quot; on Apple&#39;&gt;&lt;div alt=&#39;View &quot;Baby Rose f/ BADBADNOTGOOD - Weekness&quot; on Apple&#39; class=&quot;buy-icon buy-icon-apple&quot;&gt;&lt;/div&gt;&lt;/a&gt;, &lt;a class=&quot;buy-link&quot; data-vendor=&quot;amazon&quot; href=&quot;#&quot; target=&quot;_blank&quot; title=&#39;View &quot;Baby Rose f/ BADBADNOTGOOD - Weekness&quot; on Amazon&#39;&gt;&lt;div alt=&#39;View &quot;Baby Rose f/ BADBADNOTGOOD - Weekness&quot; on Amazon&#39; class=&quot;buy-icon buy-icon-amazon&quot;&gt;&lt;/div&gt;&lt;/a&gt;, &lt;a class=&quot;buy-link&quot; data-vendor=&quot;spotify&quot; href=&quot;#&quot; target=&quot;_blank&quot; title=&#39;View &quot;Baby Rose f/ BADBADNOTGOOD - Weekness&quot; on Spotify&#39;&gt;&lt;div alt=&#39;View &quot;Baby Rose f/ BADBADNOTGOOD - Weekness&quot; on Spotify&#39; class=&quot;buy-icon buy-icon-spotify&quot;&gt;&lt;/div&gt;&lt;/a&gt;, &lt;a class=&quot;buy-link&quot; data-vendor=&quot;apple&quot; href=&quot;#&quot; target=&quot;_blank&quot; title=&#39;View &quot;Angie McMahon - Untangling&quot; on Apple&#39;&gt;&lt;div alt=&#39;View &quot;Angie McMahon - Untangling&quot; on Apple&#39; class=&quot;buy-icon buy-icon-apple&quot;&gt;&lt;/div&gt;&lt;/a&gt;, &lt;a class=&quot;buy-link&quot; data-vendor=&quot;amazon&quot; href=&quot;#&quot; target=&quot;_blank&quot; title=&#39;View &quot;Angie McMahon - Untangling&quot; on Amazon&#39;&gt;&lt;div alt=&#39;View &quot;Angie McMahon - Untangling&quot; on Amazon&#39; class=&quot;buy-icon buy-icon-amazon&quot;&gt;&lt;/div&gt;&lt;/a&gt;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;a class=&quot;buy-link&quot; data-vendor=&quot;apple&quot; href=&quot;#&quot; target=&quot;_blank&quot; title=&#39;View &quot;Old Crow Medicine Show - Methamphetamine&quot; on Apple&#39;&gt;&lt;div alt=&#39;View &quot;Old Crow Medicine Show - Methamphetamine&quot; on Apple&#39; class=&quot;buy-icon buy-icon-apple&quot;&gt;&lt;/div&gt;&lt;/a&gt;, &lt;a class=&quot;buy-link&quot; data-vendor=&quot;amazon&quot; href=&quot;#&quot; target=&quot;_blank&quot; title=&#39;View &quot;Old Crow Medicine Show - Methamphetamine&quot; on Amazon&#39;&gt;&lt;div alt=&#39;View &quot;Old Crow Medicine Show - Methamphetamine&quot; on Amazon&#39; class=&quot;buy-icon buy-icon-amazon&quot;&gt;&lt;/div&gt;&lt;/a&gt;, &lt;a class=&quot;buy-link&quot; data-vendor=&quot;spotify&quot; href=&quot;#&quot; target=&quot;_blank&quot; title=&#39;View &quot;Old Crow Medicine Show - Methamphetamine&quot; on Spotify&#39;&gt;&lt;div alt=&#39;View &quot;Old Crow Medicine Show - Methamphetamine&quot; on Spotify&#39; class=&quot;buy-icon buy-icon-spotify&quot;&gt;&lt;/div&gt;&lt;/a&gt;, &lt;a class=&quot;buy-link&quot; data-vendor=&quot;apple&quot; href=&quot;#&quot; target=&quot;_blank&quot; title=&#39;View &quot;The Beths - A Real Thing&quot; on Apple&#39;&gt;&lt;div alt=&#39;View &quot;The Beths - A Real Thing&quot; on Apple&#39; class=&quot;buy-icon buy-icon-apple&quot;&gt;&lt;/div&gt;&lt;/a&gt;, &lt;a class=&quot;buy-link&quot; data-vendor=&quot;amazon&quot; href=&quot;#&quot; target=&quot;_blank&quot; title=&#39;View &quot;The Beths - A Real Thing&quot; on Amazon&#39;&gt;&lt;div alt=&#39;View &quot;The Beths - A Real Thing&quot; on Amazon&#39; class=&quot;buy-icon buy-icon-amazon&quot;&gt;&lt;/div&gt;&lt;/a&gt;]
 </pre></div>
 </div>
 </div>
@@ -1168,62 +1791,149 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Baby Rose f/ BADBADNOTGOOD&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Old Crow Medicine Show&#39;,
+ &#39;The Beths&#39;,
+ &#39;Feist&#39;,
+ &#39;Pulp&#39;,
+ &#39;Laufey&#39;,
+ &#39;R.E.M.&#39;,
+ &#39;Leon Bridges&#39;,
+ &#39;Nathaniel Rateliff &amp; The Night Sweats&#39;,
+ &#39;The Smiths&#39;,
+ &#39;Momma&#39;,
+ &#39;Hannah Cohen&#39;,
+ &#39;Jenny Lewis&#39;,
+ &#39;Yndling&#39;,
+ &#39;Monobloc&#39;,
+ &#39;David Gray&#39;,
+ &#39;Squeeze&#39;,
+ &#39;MRCY&#39;,
+ &#39;Rachel Chinouriri&#39;,
+ &#39;Dinosaur Jr.&#39;,
+ &#39;Trombone Shorty&#39;,
+ &#39;Japanese Breakfast&#39;,
+ &#39;Matt Berninger&#39;,
+ &#39;Caroline Spence&#39;,
+ &#39;Electric Light Orchestra&#39;,
+ &#39;Wishy&#39;,
+ &#39;Lord Huron&#39;,
  &#39;Angie McMahon&#39;,
- &#39;Willie Nelson and Daniel Lanois&#39;,
- &#39;Lucy Dacus&#39;,
- &#39;Brigitte Calls Me Baby&#39;,
- &#39;Kashus Culpepper&#39;,
- &#39;Deep Sea Diver&#39;,
- &#39;The Devil Makes Three&#39;,
- &#39;The Barons&#39;,
- &#39;Sunflower Bean&#39;,
- &#39;Ray LaMontagne&#39;,
- &#39;Spoon&#39;,
- &#39;Noeline Hofmann&#39;,
  &#39;Inhaler&#39;,
- &#39;John Prine&#39;,
+ &#39;Bon Iver&#39;,
+ &#39;The Velvet Underground and Nico&#39;,
+ &#39;Birdtalker&#39;,
+ &#39;Kacey Musgraves&#39;,
+ &#39;Sharp Pins&#39;,
+ &#39;Billy Strings&#39;,
+ &#39;Quilt&#39;,
+ &#39;Caamp&#39;,
+ &#39;BADBADNOTGOOD &amp; V.C.R&#39;,
+ &#39;Peter Bjorn and John&#39;,
+ &#39;Hurray For The Riff Raff&#39;,
+ &#39;Arny Margret&#39;,
+ &#39;Bahamas&#39;,
+ &#39;Snacktime f/ Devon Gilfillian&#39;,
+ &#39;Neil Young&#39;,
+ &#39;Fiona Apple&#39;,
+ &#39;Phosphorescent&#39;,
+ &#39;S.G. Goodman&#39;,
+ &#39;Orla Gartland&#39;,
+ &#39;The War on Drugs&#39;,
+ &#39;James Bay f/ Jon Batiste&#39;,
+ &#39;Tunde Adebimpe&#39;,
+ &#39;Spectator Bird&#39;,
+ &#39;De La Soul&#39;,
+ &#39;Billie Marten&#39;,
+ &#39;The Head &amp; The Heart&#39;,
+ &#39;Hop Along&#39;,
+ &#39;Panchiko&#39;,
+ &#39;Flock Of Dimes&#39;,
+ &#39;INXS&#39;,
+ &#39;Loaded Honey&#39;,
+ &#39;Ben Harper&#39;,
+ &quot;I&#39;m With Her&quot;,
+ &#39;Peach Pit&#39;,
  &#39;49 Winchester&#39;,
- &#39;Ruthie Foster&#39;,
- &#39;Joy Oladokun&#39;,
- &#39;Death Cab for Cutie&#39;,
- &#39;Jeremie Albino&#39;,
- &#39;Cristina Vane f/ Molly Tuttle&#39;,
- &#39;Ziggy Marley &amp; the Melody Makers&#39;,
- &#39;Chuck Prophet&#39;,
- &#39;The Vices&#39;,
- &#39;Jim Lauderdale&#39;,
- &#39;Humbird&#39;,
- &#39;ALO&#39;,
- &#39;Tracy Chapman&#39;,
- &#39;The Bamboos&#39;,
- &#39;Oracle Sisters&#39;,
- &#39;Ruthie Foster&#39;,
- &#39;Local The Neighbour&#39;,
- &#39;Kasey Chambers&#39;,
- &#39;Hiss Golden Messenger&#39;,
- &#39;Daughter of Swords&#39;,
- &#39;Soccer Mommy&#39;,
- &#39;Pug Johnson&#39;,
- &#39;JD McPherson&#39;,
- &#39;Guster&#39;,
- &#39;Jungle&#39;,
+ &#39;Neiked &amp; Portugal. The Man&#39;,
+ &#39;flipturn&#39;,
+ &#39;Middle Kids&#39;,
+ &#39;King Gizzard &amp; The Lizard Wizard&#39;,
+ &#39;John Butler&#39;,
+ &#39;Brandi Carlile&#39;,
+ &#39;Gold Connections&#39;,
+ &#39;The Breeders&#39;,
+ &#39;Watchhouse&#39;,
+ &#39;Man/Woman/Chainsaw&#39;,
+ &#39;The Hold Steady&#39;,
+ &#39;G. Love and Special Sauce&#39;,
+ &#39;Cardinals&#39;,
+ &#39;Alison Krauss &amp; Union Station&#39;,
+ &#39;The Sherman Holmes Project&#39;,
+ &#39;Will Worden&#39;,
+ &#39;Dope Lemon&#39;,
+ &#39;Faye Webster&#39;,
  &#39;Johnny Delaware&#39;,
- &#39;Nickel Creek&#39;,
- &#39;Luke Winslow-King&#39;,
- &#39;The English Beat&#39;,
- &#39;Bebe Stockwell&#39;,
- &#39;Wallice&#39;,
- &#39;Jesper Lindell&#39;,
- &#39;The Smile&#39;,
- &#39;Mumford &amp; Sons&#39;,
- &#39;Ray Charles&#39;,
- &#39;Kat Edmonson&#39;,
- &#39;The Heavy Heavy&#39;,
- &#39;Waxahatchee&#39;,
- &#39;Johnny Blue Skies&#39;,
- &#39;Charley Crockett&#39;,
- &#39;Morrissey&#39;]
+ &#39;Van Morrison&#39;,
+ &#39;The Vices&#39;,
+ &#39;Lewis OfMan (feat. Empress Of)&#39;,
+ &#39;Tune-Yards&#39;,
+ &#39;Counting Crows&#39;,
+ &#39;A Tribe Called Quest&#39;,
+ &#39;Tennis&#39;,
+ &#39;Deep Sea Diver&#39;,
+ &#39;Beirut&#39;,
+ &#39;Goose&#39;,
+ &#39;Leon Bridges&#39;,
+ &#39;Joe Jackson&#39;,
+ &#39;HAIM&#39;,
+ &#39;Lucy Dacus f/ Hozier&#39;,
+ &#39;Palmyra&#39;,
+ &#39;Bruce Springsteen&#39;,
+ &#39;Marc Broussard&#39;,
+ &#39;Girl and Girl&#39;,
+ &#39;Hannah Cohen&#39;,
+ &#39;John Prine&#39;,
+ &#39;Grace Potter&#39;,
+ &#39;Matt Andersen&#39;,
+ &#39;Webb Wilder&#39;,
+ &#39;Pete Yorn&#39;,
+ &#39;Esther Rose&#39;,
+ &#39;Lucius&#39;,
+ &#39;Julien Baker &amp; TORRES&#39;,
+ &#39;Big Star&#39;,
+ &#39;Chris Knight&#39;,
+ &#39;Shinyribs&#39;,
+ &#39;My Morning Jacket&#39;,
+ &#39;The Cure&#39;,
+ &#39;Caamp&#39;,
+ &#39;Rosanne Cash&#39;,
+ &#39;Car Seat Headrest&#39;,
+ &#39;Southern Avenue&#39;,
+ &#39;Phoebe Bridgers&#39;,
+ &#39;Jade Bird&#39;,
+ &#39;Charles Wesley Godwin&#39;,
+ &#39;Yeah Yeah Yeahs&#39;,
+ &#39;Laufey&#39;,
+ &#39;Arny Margret&#39;,
+ &#39;Seth Walker&#39;,
+ &#39;Oracle Sisters&#39;,
+ &#39;Momma&#39;,
+ &#39;Day Wave&#39;,
+ &#39;Willie Nelson f/ Rodney Crowell&#39;,
+ &#39;Tunde Adebimpe&#39;,
+ &#39;Gillian Welch&#39;,
+ &#39;Death Cab for Cutie&#39;,
+ &#39;Maggie Rogers &amp; Sylvan Esso&#39;,
+ &#39;Yndling&#39;,
+ &#39;Josh Ritter&#39;,
+ &#39;Big Thief&#39;,
+ &#39;Zach Top f/ Billy Strings&#39;,
+ &#39;Los Lobos&#39;,
+ &#39;Noeline Hofmann&#39;,
+ &#39;MRCY&#39;,
+ &quot;I&#39;m With Her&quot;,
+ &#39;R.E.M.&#39;,
+ &#39;The Bug Club&#39;]
 </pre></div>
 </div>
 </div>
@@ -1278,398 +1988,84 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>10:01 AM</td>
-      <td>Baby Rose f/ BADBADNOTGOOD</td>
-      <td>Weekness</td>
-      <td>Slow Burn EP</td>
+      <td>5:02 PM</td>
+      <td>Old Crow Medicine Show</td>
+      <td>Methamphetamine</td>
+      <td>Live at the Ryman</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>9:57 AM</td>
-      <td>Angie McMahon</td>
-      <td>Untangling</td>
-      <td>Light Sides EP</td>
+      <td>4:58 PM</td>
+      <td>The Beths</td>
+      <td>A Real Thing</td>
+      <td>(Single)</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>9:52 AM</td>
-      <td>Willie Nelson and Daniel Lanois</td>
-      <td>The Maker</td>
-      <td>Teatro</td>
+      <td>4:54 PM</td>
+      <td>Feist</td>
+      <td>I Feel It All</td>
+      <td>The Reminder</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>9:49 AM</td>
-      <td>Lucy Dacus</td>
-      <td>Ankles</td>
-      <td>Forever Is A Feeling</td>
+      <td>4:51 PM</td>
+      <td>Pulp</td>
+      <td>Spike Island</td>
+      <td>More</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>9:44 AM</td>
-      <td>Brigitte Calls Me Baby</td>
-      <td>Too Easy</td>
-      <td>The Future Is Our Way Out</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>9:41 AM</td>
-      <td>Kashus Culpepper</td>
-      <td>After Me?</td>
+      <td>4:45 PM</td>
+      <td>Laufey</td>
+      <td>Silver Lining</td>
       <td>(Single)</td>
     </tr>
     <tr>
-      <th>6</th>
-      <td>9:37 AM</td>
-      <td>Deep Sea Diver</td>
-      <td>Shovel</td>
-      <td>Billboard Heart</td>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
     </tr>
     <tr>
-      <th>7</th>
-      <td>9:31 AM</td>
-      <td>The Devil Makes Three</td>
-      <td>Spirits</td>
-      <td>Spirits</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>9:27 AM</td>
-      <td>The Barons</td>
-      <td>Would You Want It (If You Had It)</td>
-      <td>(Single)</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>9:24 AM</td>
-      <td>Sunflower Bean</td>
-      <td>Champagne Taste</td>
-      <td>Mortal Primetime</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>9:18 AM</td>
-      <td>Ray LaMontagne</td>
-      <td>And They Call Her California</td>
-      <td>Long Way Home</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>9:14 AM</td>
-      <td>Spoon</td>
-      <td>The Underdog</td>
-      <td>Ga Ga Ga Ga Ga</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>9:10 AM</td>
+      <th>138</th>
+      <td>6:22 AM</td>
       <td>Noeline Hofmann</td>
       <td>Lightning in July (Prairie Fire)</td>
       <td>Purple Gas</td>
     </tr>
     <tr>
-      <th>13</th>
-      <td>9:04 AM</td>
-      <td>Inhaler</td>
-      <td>Your House</td>
-      <td>Open Wide</td>
+      <th>139</th>
+      <td>6:20 AM</td>
+      <td>MRCY</td>
+      <td>Wandering Attention</td>
+      <td>Volume 2</td>
     </tr>
     <tr>
-      <th>14</th>
-      <td>8:59 AM</td>
-      <td>John Prine</td>
-      <td>Lake Marie</td>
-      <td>Lost Dogs &amp; Mixed Blessings</td>
+      <th>140</th>
+      <td>6:15 AM</td>
+      <td>I'm With Her</td>
+      <td>Ancient Light</td>
+      <td>Wild and Clear and Blue</td>
     </tr>
     <tr>
-      <th>15</th>
-      <td>8:55 AM</td>
-      <td>49 Winchester</td>
-      <td>Miles to Go</td>
-      <td>(Single)</td>
+      <th>141</th>
+      <td>6:10 AM</td>
+      <td>R.E.M.</td>
+      <td>Nightswimming</td>
+      <td>Automatic for the People</td>
     </tr>
     <tr>
-      <th>16</th>
-      <td>8:51 AM</td>
-      <td>Ruthie Foster</td>
-      <td>Rainbow</td>
-      <td>Mileage</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>8:45 AM</td>
-      <td>Joy Oladokun</td>
-      <td>DUST/DIVINITY</td>
-      <td>Observations From A Crowded Room</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>8:41 AM</td>
-      <td>Death Cab for Cutie</td>
-      <td>Cath</td>
-      <td>Narrow Stairs</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>8:38 AM</td>
-      <td>Jeremie Albino</td>
-      <td>Rolling Down the 405</td>
-      <td>Our Time In The Sun</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>8:31 AM</td>
-      <td>Cristina Vane f/ Molly Tuttle</td>
-      <td>Hear My Call</td>
-      <td>Hear My Call</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>8:27 AM</td>
-      <td>Ziggy Marley &amp; the Melody Makers</td>
-      <td>Tomorrow People</td>
-      <td>Conscious Party</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>8:19 AM</td>
-      <td>Chuck Prophet</td>
-      <td>First Came The Thunder</td>
-      <td>Wake the Dead</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>8:15 AM</td>
-      <td>The Vices</td>
-      <td>Before It Might Be Gone</td>
-      <td>Before It Might Be Gone</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>8:11 AM</td>
-      <td>Jim Lauderdale</td>
-      <td>Don't Leave Your Light Low</td>
-      <td>Persimmons</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>8:09 AM</td>
-      <td>Humbird</td>
-      <td>Blueberry Bog</td>
-      <td>Right On</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>8:03 AM</td>
-      <td>ALO</td>
-      <td>Blank Canvas</td>
-      <td>Frames</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>8:00 AM</td>
-      <td>Tracy Chapman</td>
-      <td>You're the One</td>
-      <td>Let It Rain</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>7:55 AM</td>
-      <td>The Bamboos</td>
-      <td>Hard Up</td>
-      <td>Hard Up</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>7:52 AM</td>
-      <td>Oracle Sisters</td>
-      <td>Alouette</td>
-      <td>Divinations</td>
-    </tr>
-    <tr>
-      <th>30</th>
-      <td>7:48 AM</td>
-      <td>Ruthie Foster</td>
-      <td>Singing the Blues</td>
-      <td>Promise of a Brand New Day</td>
-    </tr>
-    <tr>
-      <th>31</th>
-      <td>7:43 AM</td>
-      <td>Local The Neighbour</td>
-      <td>Cruise Control</td>
-      <td>VALLEY pt. 2</td>
-    </tr>
-    <tr>
-      <th>32</th>
-      <td>7:39 AM</td>
-      <td>Kasey Chambers</td>
-      <td>Broken Cup</td>
-      <td>Backbone</td>
-    </tr>
-    <tr>
-      <th>33</th>
-      <td>7:35 AM</td>
-      <td>Hiss Golden Messenger</td>
-      <td>Heart like a Levee</td>
-      <td>Heart Like a Levee</td>
-    </tr>
-    <tr>
-      <th>34</th>
-      <td>7:33 AM</td>
-      <td>Daughter of Swords</td>
-      <td>Alone Together</td>
-      <td>Cardinals At The Window</td>
-    </tr>
-    <tr>
-      <th>35</th>
-      <td>7:22 AM</td>
-      <td>Soccer Mommy</td>
-      <td>Circle the Drain</td>
-      <td>Color Theory</td>
-    </tr>
-    <tr>
-      <th>36</th>
-      <td>7:18 AM</td>
-      <td>Pug Johnson</td>
-      <td>Believer</td>
-      <td>El Cabron</td>
-    </tr>
-    <tr>
-      <th>37</th>
-      <td>7:14 AM</td>
-      <td>JD McPherson</td>
-      <td>I Can't Go Anywhere With You</td>
-      <td>Nite Owls</td>
-    </tr>
-    <tr>
-      <th>38</th>
-      <td>7:10 AM</td>
-      <td>Guster</td>
-      <td>Amsterdam</td>
-      <td>Keep It Together</td>
-    </tr>
-    <tr>
-      <th>39</th>
-      <td>7:07 AM</td>
-      <td>Jungle</td>
-      <td>Keep Me Satisfied</td>
-      <td>(Single)</td>
-    </tr>
-    <tr>
-      <th>40</th>
-      <td>7:02 AM</td>
-      <td>Johnny Delaware</td>
-      <td>Running</td>
-      <td>Para Llevar</td>
-    </tr>
-    <tr>
-      <th>41</th>
-      <td>6:58 AM</td>
-      <td>Nickel Creek</td>
-      <td>This Side</td>
-      <td>This Side</td>
-    </tr>
-    <tr>
-      <th>42</th>
-      <td>6:55 AM</td>
-      <td>Luke Winslow-King</td>
-      <td>Flash-A-Magic</td>
-      <td>Flash-A-Magic</td>
-    </tr>
-    <tr>
-      <th>43</th>
-      <td>6:52 AM</td>
-      <td>The English Beat</td>
-      <td>Best Friend</td>
-      <td>I Just Can't Stop It</td>
-    </tr>
-    <tr>
-      <th>44</th>
-      <td>6:49 AM</td>
-      <td>Bebe Stockwell</td>
-      <td>Minor Inconveniences</td>
-      <td>(Single)</td>
-    </tr>
-    <tr>
-      <th>45</th>
-      <td>6:45 AM</td>
-      <td>Wallice</td>
-      <td>I Want You Yesterday</td>
-      <td>The Jester</td>
-    </tr>
-    <tr>
-      <th>46</th>
-      <td>6:42 AM</td>
-      <td>Jesper Lindell</td>
-      <td>One of These Rainy Days</td>
-      <td>Before the Sun</td>
-    </tr>
-    <tr>
-      <th>47</th>
-      <td>6:37 AM</td>
-      <td>The Smile</td>
-      <td>No Words</td>
-      <td>Cutouts</td>
-    </tr>
-    <tr>
-      <th>48</th>
-      <td>6:32 AM</td>
-      <td>Mumford &amp; Sons</td>
-      <td>Rushmere</td>
-      <td>Rushmere</td>
-    </tr>
-    <tr>
-      <th>49</th>
-      <td>6:25 AM</td>
-      <td>Ray Charles</td>
-      <td>What'd I Say Pts I and II</td>
-      <td>What'd I Say</td>
-    </tr>
-    <tr>
-      <th>50</th>
-      <td>6:22 AM</td>
-      <td>Kat Edmonson</td>
-      <td>Keep Movin'</td>
-      <td>Keep Movin'</td>
-    </tr>
-    <tr>
-      <th>51</th>
-      <td>6:17 AM</td>
-      <td>The Heavy Heavy</td>
-      <td>Feel</td>
-      <td>One of a Kind</td>
-    </tr>
-    <tr>
-      <th>52</th>
-      <td>6:13 AM</td>
-      <td>Waxahatchee</td>
-      <td>Can't Do Much</td>
-      <td>Saint Cloud</td>
-    </tr>
-    <tr>
-      <th>53</th>
-      <td>6:09 AM</td>
-      <td>Johnny Blue Skies</td>
-      <td>If The Sun Never Rises Again</td>
-      <td>Passage Du Desir</td>
-    </tr>
-    <tr>
-      <th>54</th>
-      <td>6:04 AM</td>
-      <td>Charley Crockett</td>
-      <td>Lonesome Drifter</td>
-      <td>Lonesome Drifter</td>
-    </tr>
-    <tr>
-      <th>55</th>
-      <td>6:00 AM</td>
-      <td>Morrissey</td>
-      <td>Suedehead</td>
-      <td>Viva Hate</td>
+      <th>142</th>
+      <td>6:03 AM</td>
+      <td>The Bug Club</td>
+      <td>Jealous Boy</td>
+      <td>Very Human Features</td>
     </tr>
   </tbody>
 </table>
+<p>143 rows × 4 columns</p>
 </div></div></div>
 </div>
 </section>
@@ -1690,11 +2086,11 @@
 &lt;h4&gt;Recent&lt;/h4&gt;
 &lt;div class=&quot;grid-view&quot; id=&quot;w2&quot;&gt;&lt;div class=&quot;summary&quot;&gt;&lt;/div&gt;
 &lt;table class=&quot;table table-bordered table-narrow&quot;&gt;&lt;tbody&gt;
-&lt;tr data-key=&quot;0&quot;&gt;&lt;td class=&quot;show-time&quot;&gt;5:00 AM&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;&lt;a href=&quot;/WNRN/pl/20207753/WNRN-2-11-25-5-00-AM&quot;&gt;WNRN 2/11/25, 5:00 AM&lt;/a&gt;&lt;/strong&gt; with &lt;a href=&quot;/WNRN/dj/104061/WNRN&quot;&gt;WNRN&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;tr data-key=&quot;1&quot;&gt;&lt;td class=&quot;show-time&quot;&gt;4:00 AM&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;&lt;a href=&quot;/WNRN/pl/20207688/WNRN-2-11-25-4-03-AM&quot;&gt;WNRN 2/11/25, 4:03 AM&lt;/a&gt;&lt;/strong&gt; with &lt;a href=&quot;/WNRN/dj/104061/WNRN&quot;&gt;WNRN&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;tr data-key=&quot;2&quot;&gt;&lt;td class=&quot;show-time&quot;&gt;8:00 PM&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;&lt;a href=&quot;/WNRN/pl/20206023/WNRN&quot;&gt;WNRN&lt;/a&gt;&lt;/strong&gt; (Music)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr data-key=&quot;3&quot;&gt;&lt;td class=&quot;show-time&quot;&gt;6:00 PM&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;&lt;a href=&quot;/WNRN/pl/20205530/World-Caf%C3%A9&quot;&gt;World Café&lt;/a&gt;&lt;/strong&gt; (Music) with &lt;a href=&quot;/WNRN/dj/179987/Raina-Douris-and-Stephen-Kallao&quot;&gt;Raina Douris and Stephen Kallao&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;tr data-key=&quot;4&quot;&gt;&lt;td class=&quot;show-time&quot;&gt;6:00 AM&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;&lt;a href=&quot;/WNRN/pl/20202904/WNRN&quot;&gt;WNRN&lt;/a&gt;&lt;/strong&gt; (Music)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr data-key=&quot;0&quot;&gt;&lt;td class=&quot;show-time&quot;&gt;5:00 AM&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;&lt;a href=&quot;/WNRN/pl/20656821/WNRN-5-15-25-5-01-AM&quot;&gt;WNRN 5/15/25, 5:01 AM&lt;/a&gt;&lt;/strong&gt; with &lt;a href=&quot;/WNRN/dj/104061/WNRN&quot;&gt;WNRN&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr data-key=&quot;1&quot;&gt;&lt;td class=&quot;show-time&quot;&gt;4:00 AM&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;&lt;a href=&quot;/WNRN/pl/20656630/WNRN-5-15-25-4-00-AM&quot;&gt;WNRN 5/15/25, 4:00 AM&lt;/a&gt;&lt;/strong&gt; with &lt;a href=&quot;/WNRN/dj/104061/WNRN&quot;&gt;WNRN&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr data-key=&quot;2&quot;&gt;&lt;td class=&quot;show-time&quot;&gt;8:00 PM&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;&lt;a href=&quot;/WNRN/pl/20655184/WNRN&quot;&gt;WNRN&lt;/a&gt;&lt;/strong&gt; (Music)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr data-key=&quot;3&quot;&gt;&lt;td class=&quot;show-time&quot;&gt;6:00 PM&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;&lt;a href=&quot;/WNRN/pl/20654657/World-Caf%C3%A9&quot;&gt;World Café&lt;/a&gt;&lt;/strong&gt; (Music) with &lt;a href=&quot;/WNRN/dj/179987/Raina-Douris-and-Stephen-Kallao&quot;&gt;Raina Douris and Stephen Kallao&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr data-key=&quot;4&quot;&gt;&lt;td class=&quot;show-time&quot;&gt;6:00 AM&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;&lt;a href=&quot;/WNRN/pl/20652238/WNRN&quot;&gt;WNRN&lt;/a&gt;&lt;/strong&gt; (Music)&lt;/td&gt;&lt;/tr&gt;
 &lt;/tbody&gt;&lt;/table&gt;
 &lt;/div&gt;&lt;/div&gt;
 </pre></div>
@@ -1710,14 +2106,14 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;a href=&quot;/WNRN/pl/20207753/WNRN-2-11-25-5-00-AM&quot;&gt;WNRN 2/11/25, 5:00 AM&lt;/a&gt;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;a href=&quot;/WNRN/pl/20656821/WNRN-5-15-25-5-01-AM&quot;&gt;WNRN 5/15/25, 5:01 AM&lt;/a&gt;,
  &lt;a href=&quot;/WNRN/dj/104061/WNRN&quot;&gt;WNRN&lt;/a&gt;,
- &lt;a href=&quot;/WNRN/pl/20207688/WNRN-2-11-25-4-03-AM&quot;&gt;WNRN 2/11/25, 4:03 AM&lt;/a&gt;,
+ &lt;a href=&quot;/WNRN/pl/20656630/WNRN-5-15-25-4-00-AM&quot;&gt;WNRN 5/15/25, 4:00 AM&lt;/a&gt;,
  &lt;a href=&quot;/WNRN/dj/104061/WNRN&quot;&gt;WNRN&lt;/a&gt;,
- &lt;a href=&quot;/WNRN/pl/20206023/WNRN&quot;&gt;WNRN&lt;/a&gt;,
- &lt;a href=&quot;/WNRN/pl/20205530/World-Caf%C3%A9&quot;&gt;World Café&lt;/a&gt;,
+ &lt;a href=&quot;/WNRN/pl/20655184/WNRN&quot;&gt;WNRN&lt;/a&gt;,
+ &lt;a href=&quot;/WNRN/pl/20654657/World-Caf%C3%A9&quot;&gt;World Café&lt;/a&gt;,
  &lt;a href=&quot;/WNRN/dj/179987/Raina-Douris-and-Stephen-Kallao&quot;&gt;Raina Douris and Stephen Kallao&lt;/a&gt;,
- &lt;a href=&quot;/WNRN/pl/20202904/WNRN&quot;&gt;WNRN&lt;/a&gt;]
+ &lt;a href=&quot;/WNRN/pl/20652238/WNRN&quot;&gt;WNRN&lt;/a&gt;]
 </pre></div>
 </div>
 </div>
@@ -1740,11 +2136,11 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;/WNRN/pl/20207753/WNRN-2-11-25-5-00-AM&#39;,
- &#39;/WNRN/pl/20207688/WNRN-2-11-25-4-03-AM&#39;,
- &#39;/WNRN/pl/20206023/WNRN&#39;,
- &#39;/WNRN/pl/20205530/World-Caf%C3%A9&#39;,
- &#39;/WNRN/pl/20202904/WNRN&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;/WNRN/pl/20656821/WNRN-5-15-25-5-01-AM&#39;,
+ &#39;/WNRN/pl/20656630/WNRN-5-15-25-4-00-AM&#39;,
+ &#39;/WNRN/pl/20655184/WNRN&#39;,
+ &#39;/WNRN/pl/20654657/World-Caf%C3%A9&#39;,
+ &#39;/WNRN/pl/20652238/WNRN&#39;]
 </pre></div>
 </div>
 </div>
@@ -1813,115 +2209,115 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>5:00 AM</td>
-      <td>The Avett Brothers</td>
-      <td>February Seven</td>
-      <td>The Carpenter</td>
+      <td>5:01 AM</td>
+      <td>Blue Rodeo</td>
+      <td>Til I am Myself Again</td>
+      <td>Casino</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>5:04 AM</td>
-      <td>Michael Kiwanuka</td>
-      <td>The Rest Of Me</td>
-      <td>Small Changes</td>
+      <td>5:05 AM</td>
+      <td>Alison Krauss &amp; Union Station</td>
+      <td>Richmond on the James</td>
+      <td>Arcadia</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>5:07 AM</td>
-      <td>Randall Bramblett</td>
-      <td>Throw My Cane Away</td>
-      <td>Paradise Breakdown</td>
+      <td>5:08 AM</td>
+      <td>Turnpike Troubadours</td>
+      <td>Ruby Ann</td>
+      <td>The Price of Admission</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>5:10 AM</td>
-      <td>Michael Franti &amp; Spearhead</td>
-      <td>Say Hey</td>
-      <td>All Rebel Rockers</td>
+      <td>5:11 AM</td>
+      <td>Pixies</td>
+      <td>Here Comes Your Man</td>
+      <td>Doolittle</td>
     </tr>
     <tr>
       <th>4</th>
       <td>5:15 AM</td>
-      <td>Becca Mancari</td>
-      <td>Hunter</td>
-      <td>The Greatest Part</td>
+      <td>Wilder Woods f/ The War &amp; Treaty</td>
+      <td>Be Yourself</td>
+      <td>(Single)</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>5:17 AM</td>
-      <td>The Lumineers</td>
-      <td>Same Old Song</td>
-      <td>Automatic</td>
+      <td>5:18 AM</td>
+      <td>Hurray For The Riff Raff</td>
+      <td>Pyramid Scheme</td>
+      <td>(Single)</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>5:20 AM</td>
-      <td>Circa Waves</td>
-      <td>Like You Did Before</td>
-      <td>Death &amp; Love Pt. 1</td>
+      <td>5:21 AM</td>
+      <td>Nilufer Yanya</td>
+      <td>Cold Heart</td>
+      <td>(Single)</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>5:23 AM</td>
-      <td>The Mavericks</td>
-      <td>Things I Cannot Change</td>
-      <td>Super Colossal Smash Hits of the 9</td>
+      <td>5:25 AM</td>
+      <td>Old 97's</td>
+      <td>King of All of the World</td>
+      <td>Satellite Rides</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>5:27 AM</td>
-      <td>Clairo</td>
-      <td>Amoeba</td>
-      <td>Sling</td>
+      <td>5:28 AM</td>
+      <td>Father John Misty</td>
+      <td>Nancy from Now On</td>
+      <td>Fear Fun</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>5:31 AM</td>
-      <td>Olivia Wolf</td>
-      <td>Cosmic Appalachian Radio</td>
-      <td>Silver Rounds</td>
+      <td>5:35 AM</td>
+      <td>Jungle</td>
+      <td>Keep Me Satisfied</td>
+      <td>(Single)</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>5:33 AM</td>
-      <td>flipturn</td>
-      <td>Rodeo Clown</td>
-      <td>Burnout Days</td>
+      <td>5:39 AM</td>
+      <td>Billy Strings</td>
+      <td>Be Your Man</td>
+      <td>Highway Prayers</td>
     </tr>
     <tr>
       <th>11</th>
-      <td>5:42 AM</td>
-      <td>Moby</td>
-      <td>Porcelain</td>
-      <td>Play</td>
+      <td>5:43 AM</td>
+      <td>Jesse Daniel</td>
+      <td>My Time Is Gonna Come</td>
+      <td>Son of the San Lorenzo</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>5:46 AM</td>
-      <td>Sofia Valdes</td>
-      <td>Already Yours</td>
-      <td>Sofia Valdes</td>
+      <td>5:47 AM</td>
+      <td>Luvcat</td>
+      <td>Love &amp; Money</td>
+      <td>(Single)</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>5:50 AM</td>
-      <td>Kris Delmhorst</td>
-      <td>I Won't Be Long</td>
-      <td>Ghosts In the Garden</td>
+      <td>5:51 AM</td>
+      <td>Lord Huron</td>
+      <td>Nothing I Need</td>
+      <td>(Single)</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>5:53 AM</td>
-      <td>Julien Baker &amp; TORRES</td>
-      <td>Sugar In The Tank</td>
-      <td>Send A Prayer My Way</td>
+      <td>5:55 AM</td>
+      <td>Robert Earl Keen</td>
+      <td>Over the Waterfall</td>
+      <td>Picnic</td>
     </tr>
     <tr>
       <th>15</th>
-      <td>5:56 AM</td>
-      <td>The Shins</td>
-      <td>New Slang</td>
-      <td>Oh, Inverted World!</td>
+      <td>5:59 AM</td>
+      <td>David Bromberg Band</td>
+      <td>I Like to Sleep Late in the Morning</td>
+      <td>Midnight On The Water</td>
     </tr>
   </tbody>
 </table>
@@ -1986,38 +2382,38 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>10:01 AM</td>
-      <td>Baby Rose f/ BADBADNOTGOOD</td>
-      <td>Weekness</td>
-      <td>Slow Burn EP</td>
+      <td>5:02 PM</td>
+      <td>Old Crow Medicine Show</td>
+      <td>Methamphetamine</td>
+      <td>Live at the Ryman</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>9:57 AM</td>
-      <td>Angie McMahon</td>
-      <td>Untangling</td>
-      <td>Light Sides EP</td>
+      <td>4:58 PM</td>
+      <td>The Beths</td>
+      <td>A Real Thing</td>
+      <td>(Single)</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>9:52 AM</td>
-      <td>Willie Nelson and Daniel Lanois</td>
-      <td>The Maker</td>
-      <td>Teatro</td>
+      <td>4:54 PM</td>
+      <td>Feist</td>
+      <td>I Feel It All</td>
+      <td>The Reminder</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>9:49 AM</td>
-      <td>Lucy Dacus</td>
-      <td>Ankles</td>
-      <td>Forever Is A Feeling</td>
+      <td>4:51 PM</td>
+      <td>Pulp</td>
+      <td>Spike Island</td>
+      <td>More</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>9:44 AM</td>
-      <td>Brigitte Calls Me Baby</td>
-      <td>Too Easy</td>
-      <td>The Future Is Our Way Out</td>
+      <td>4:45 PM</td>
+      <td>Laufey</td>
+      <td>Silver Lining</td>
+      <td>(Single)</td>
     </tr>
     <tr>
       <th>...</th>
@@ -2027,43 +2423,43 @@
       <td>...</td>
     </tr>
     <tr>
-      <th>383</th>
-      <td>5:38 PM</td>
-      <td>Electric Guest</td>
-      <td>This Head I Hold</td>
-      <td>Mondo</td>
+      <th>471</th>
+      <td>5:31 PM</td>
+      <td>Samia</td>
+      <td>Spine Oil</td>
+      <td>Bloodless</td>
     </tr>
     <tr>
-      <th>384</th>
-      <td>5:41 PM</td>
-      <td>Ray LaMontagne</td>
-      <td>And They Call Her California</td>
-      <td>Long Way Home</td>
+      <th>472</th>
+      <td>5:40 PM</td>
+      <td>Jimi Hendrix</td>
+      <td>Hear My Train a Comin'</td>
+      <td>People, Hell and Angels</td>
     </tr>
     <tr>
-      <th>385</th>
-      <td>5:47 PM</td>
-      <td>49 Winchester</td>
-      <td>Miles to Go</td>
+      <th>473</th>
+      <td>5:45 PM</td>
+      <td>Hurray For The Riff Raff</td>
+      <td>Pyramid Scheme</td>
       <td>(Single)</td>
     </tr>
     <tr>
-      <th>386</th>
+      <th>474</th>
       <td>5:51 PM</td>
-      <td>Hurray for the Riff Raff</td>
-      <td>Living in the City</td>
-      <td>The Navigator</td>
+      <td>Grace Potter</td>
+      <td>Before The Sky Falls</td>
+      <td>Medicine</td>
     </tr>
     <tr>
-      <th>387</th>
-      <td>5:55 PM</td>
-      <td>The B-52s</td>
-      <td>Rock Lobster</td>
-      <td>The B-52s</td>
+      <th>475</th>
+      <td>5:54 PM</td>
+      <td>Lowland Hum</td>
+      <td>Olivia</td>
+      <td>Lowland Hum</td>
     </tr>
   </tbody>
 </table>
-<p>388 rows × 4 columns</p>
+<p>476 rows × 4 columns</p>
 </div></div></div>
 </div>
 </section>
@@ -2124,8 +2520,7 @@
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -2193,8 +2588,8 @@ By Jonathan Kropko (jkropko@virginia.edu)
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

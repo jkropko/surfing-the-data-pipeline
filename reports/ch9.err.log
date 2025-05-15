@@ -18,19 +18,25 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import tweepy
-auth = tweepy.OAuthHandler(ConsumerKey, ConsumerSecret)
-auth.set_access_token(AccessToken, AccessTokenSecret)
-api = tweepy.API(auth)
+import dotenv
+import os
+os.chdir('/Users/jk8sd/Box Sync/Practice and Applications 1 online/Module 9 - Data Managenent in pandas Part 2')
+dotenv.load_dotenv()
+ConsumerKey = os.getenv('ConsumerKey')
+ConsumerSecret = os.getenv('ConsumerSecret')
+AccessToken = os.getenv('AccessToken')
+AccessTokenSecret = os.getenv('AccessTokenSecret')
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [0;32mIn[58], line 1[0m
-[0;32m----> 1[0m [38;5;28;01mimport[39;00m [38;5;21;01mtweepy[39;00m
-[1;32m      2[0m auth [38;5;241m=[39m tweepy[38;5;241m.[39mOAuthHandler(ConsumerKey, ConsumerSecret)
-[1;32m      3[0m auth[38;5;241m.[39mset_access_token(AccessToken, AccessTokenSecret)
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+Cell [0;32mIn[57], line 3[0m
+[1;32m      1[0m [38;5;28;01mimport[39;00m [38;5;21;01mdotenv[39;00m
+[1;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mos[39;00m
+[0;32m----> 3[0m [43mos[49m[38;5;241;43m.[39;49m[43mchdir[49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43m/Users/jk8sd/Box Sync/Practice and Applications 1 online/Module 9 - Data Managenent in pandas Part 2[39;49m[38;5;124;43m'[39;49m[43m)[49m
+[1;32m      4[0m dotenv[38;5;241m.[39mload_dotenv()
+[1;32m      5[0m ConsumerKey [38;5;241m=[39m os[38;5;241m.[39mgetenv([38;5;124m'[39m[38;5;124mConsumerKey[39m[38;5;124m'[39m)
 
-[0;31mModuleNotFoundError[0m: No module named 'tweepy'
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/Users/jk8sd/Box Sync/Practice and Applications 1 online/Module 9 - Data Managenent in pandas Part 2'
 

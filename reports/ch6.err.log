@@ -33,10 +33,10 @@ dbserver = mysql.connector.connect(
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mMySQLInterfaceError[0m                       Traceback (most recent call last)
-File [0;32m~/.pyenv/versions/3.12.5/lib/python3.12/site-packages/mysql/connector/connection_cext.py:335[0m, in [0;36mCMySQLConnection._open_connection[0;34m(self)[0m
-[1;32m    334[0m [38;5;28;01mtry[39;00m:
-[0;32m--> 335[0m     [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_cmysql[49m[38;5;241;43m.[39;49m[43mconnect[49m[43m([49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mcnx_kwargs[49m[43m)[49m
-[1;32m    336[0m     [38;5;28mself[39m[38;5;241m.[39m_cmysql[38;5;241m.[39mconverter_str_fallback [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_converter_str_fallback
+File [0;32m~/.pyenv/versions/3.12.5/lib/python3.12/site-packages/mysql/connector/connection_cext.py:334[0m, in [0;36mCMySQLConnection._open_connection[0;34m(self)[0m
+[1;32m    333[0m [38;5;28;01mtry[39;00m:
+[0;32m--> 334[0m     [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_cmysql[49m[38;5;241;43m.[39;49m[43mconnect[49m[43m([49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mcnx_kwargs[49m[43m)[49m
+[1;32m    335[0m     [38;5;28mself[39m[38;5;241m.[39m_cmysql[38;5;241m.[39mconverter_str_fallback [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_converter_str_fallback
 
 [0;31mMySQLInterfaceError[0m: Can't connect to MySQL server on 'localhost:3306' (61)
 
@@ -65,29 +65,29 @@ File [0;32m~/.pyenv/versions/3.12.5/lib/python3.12/site-packages/mysql/connecto
 [1;32m    152[0m     [38;5;28;01mexcept[39;00m [38;5;167;01mException[39;00m:
 [1;32m    153[0m         [38;5;28mself[39m[38;5;241m.[39mclose()
 
-File [0;32m~/.pyenv/versions/3.12.5/lib/python3.12/site-packages/mysql/connector/abstracts.py:1426[0m, in [0;36mMySQLConnectionAbstract.connect[0;34m(self, **kwargs)[0m
-[1;32m   1423[0m     [38;5;28mself[39m[38;5;241m.[39mconfig([38;5;241m*[39m[38;5;241m*[39mkwargs)
-[1;32m   1425[0m [38;5;28mself[39m[38;5;241m.[39mdisconnect()
-[0;32m-> 1426[0m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_open_connection[49m[43m([49m[43m)[49m
-[1;32m   1428[0m charset, collation [38;5;241m=[39m (
-[1;32m   1429[0m     kwargs[38;5;241m.[39mpop([38;5;124m"[39m[38;5;124mcharset[39m[38;5;124m"[39m, [38;5;28;01mNone[39;00m),
-[1;32m   1430[0m     kwargs[38;5;241m.[39mpop([38;5;124m"[39m[38;5;124mcollation[39m[38;5;124m"[39m, [38;5;28;01mNone[39;00m),
-[1;32m   1431[0m )
-[1;32m   1432[0m [38;5;28;01mif[39;00m charset [38;5;129;01mor[39;00m collation:
+File [0;32m~/.pyenv/versions/3.12.5/lib/python3.12/site-packages/mysql/connector/abstracts.py:1399[0m, in [0;36mMySQLConnectionAbstract.connect[0;34m(self, **kwargs)[0m
+[1;32m   1396[0m     [38;5;28mself[39m[38;5;241m.[39mconfig([38;5;241m*[39m[38;5;241m*[39mkwargs)
+[1;32m   1398[0m [38;5;28mself[39m[38;5;241m.[39mdisconnect()
+[0;32m-> 1399[0m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_open_connection[49m[43m([49m[43m)[49m
+[1;32m   1401[0m charset, collation [38;5;241m=[39m (
+[1;32m   1402[0m     kwargs[38;5;241m.[39mpop([38;5;124m"[39m[38;5;124mcharset[39m[38;5;124m"[39m, [38;5;28;01mNone[39;00m),
+[1;32m   1403[0m     kwargs[38;5;241m.[39mpop([38;5;124m"[39m[38;5;124mcollation[39m[38;5;124m"[39m, [38;5;28;01mNone[39;00m),
+[1;32m   1404[0m )
+[1;32m   1405[0m [38;5;28;01mif[39;00m charset [38;5;129;01mor[39;00m collation:
 
-File [0;32m~/.pyenv/versions/3.12.5/lib/python3.12/site-packages/mysql/connector/connection_cext.py:340[0m, in [0;36mCMySQLConnection._open_connection[0;34m(self)[0m
-[1;32m    338[0m         [38;5;28mself[39m[38;5;241m.[39mconverter[38;5;241m.[39mstr_fallback [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_converter_str_fallback
-[1;32m    339[0m [38;5;28;01mexcept[39;00m MySQLInterfaceError [38;5;28;01mas[39;00m err:
-[0;32m--> 340[0m     [38;5;28;01mraise[39;00m get_mysql_exception(
-[1;32m    341[0m         msg[38;5;241m=[39merr[38;5;241m.[39mmsg, errno[38;5;241m=[39merr[38;5;241m.[39merrno, sqlstate[38;5;241m=[39merr[38;5;241m.[39msqlstate
-[1;32m    342[0m     ) [38;5;28;01mfrom[39;00m [38;5;21;01merr[39;00m
-[1;32m    344[0m [38;5;28mself[39m[38;5;241m.[39m_do_handshake()
-[1;32m    346[0m [38;5;28;01mif[39;00m (
-[1;32m    347[0m     [38;5;129;01mnot[39;00m [38;5;28mself[39m[38;5;241m.[39m_ssl_disabled
-[1;32m    348[0m     [38;5;129;01mand[39;00m [38;5;28mhasattr[39m([38;5;28mself[39m[38;5;241m.[39m_cmysql, [38;5;124m"[39m[38;5;124mget_ssl_cipher[39m[38;5;124m"[39m)
+File [0;32m~/.pyenv/versions/3.12.5/lib/python3.12/site-packages/mysql/connector/connection_cext.py:339[0m, in [0;36mCMySQLConnection._open_connection[0;34m(self)[0m
+[1;32m    337[0m         [38;5;28mself[39m[38;5;241m.[39mconverter[38;5;241m.[39mstr_fallback [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_converter_str_fallback
+[1;32m    338[0m [38;5;28;01mexcept[39;00m MySQLInterfaceError [38;5;28;01mas[39;00m err:
+[0;32m--> 339[0m     [38;5;28;01mraise[39;00m get_mysql_exception(
+[1;32m    340[0m         msg[38;5;241m=[39merr[38;5;241m.[39mmsg, errno[38;5;241m=[39merr[38;5;241m.[39merrno, sqlstate[38;5;241m=[39merr[38;5;241m.[39msqlstate
+[1;32m    341[0m     ) [38;5;28;01mfrom[39;00m [38;5;21;01merr[39;00m
+[1;32m    343[0m [38;5;28mself[39m[38;5;241m.[39m_do_handshake()
+[1;32m    345[0m [38;5;28;01mif[39;00m (
+[1;32m    346[0m     [38;5;129;01mnot[39;00m [38;5;28mself[39m[38;5;241m.[39m_ssl_disabled
+[1;32m    347[0m     [38;5;129;01mand[39;00m [38;5;28mhasattr[39m([38;5;28mself[39m[38;5;241m.[39m_cmysql, [38;5;124m"[39m[38;5;124mget_ssl_cipher[39m[38;5;124m"[39m)
 [0;32m   (...)[0m
-[1;32m    353[0m 
-[1;32m    354[0m     [38;5;66;03m# `get_ssl_cipher()` returns the name of the cipher being used.[39;00m
+[1;32m    352[0m 
+[1;32m    353[0m     [38;5;66;03m# `get_ssl_cipher()` returns the name of the cipher being used.[39;00m
 
 [0;31mDatabaseError[0m: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (61)
 

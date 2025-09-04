@@ -1,0 +1,33 @@
+[project]
+name = "surfing-the-data-pipeline"
+version = "0.1.0"
+description = "Surfing the Data Pipeline with Python is a textbook that guides people through the steps of getting themselves unstuck, acquiring data, wrangling data, and exploring data."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "bs4>=0.0.2",
+    "dash>=3.2.0",
+    "dash-bootstrap-components>=2.0.4",
+    "googlemaps>=4.10.0",
+    "jupyter-book>=1.0.4.post1",
+    "jupyterlab>=4.4.7",
+    "jupyterlab-spellchecker>=0.8.4",
+    "matplotlib>=3.9.4",
+    "mysql-connector-python>=9.4.0",
+    "numpy>=2.0.2",
+    "openai>=1.105.0",
+    "pandas>=2.3.2",
+    "prince>=0.14.0",
+    "psycopg[binary]>=3.2.9",
+    "pymongo>=4.14.1",
+    "python-dotenv>=1.1.1",
+    "requests>=2.32.5",
+    "scikit-learn>=1.6.1",
+    "scipy>=1.13.1",
+    "seaborn>=0.13.2",
+    "sidetable>=0.9.1",
+    "sqlalchemy>=2.0.43",
+    "wget>=3.2",
+    "wquantiles>=0.6",
+    "ydata-profiling>=4.16.1",
+]

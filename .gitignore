@@ -1,0 +1,21 @@
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+.pytest_cache/
+.venv/
+*.pyc
+.python-version
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Jupyter Book build artifacts
+# ST: remove this later when using automated publishing based on GH action, or gph-import
+# _build/
+
+# Environment
+.env
